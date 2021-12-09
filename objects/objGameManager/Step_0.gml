@@ -11,3 +11,11 @@ if (keyboard_check_pressed(ord("C"))) {
 		show_message("You're already a host.");
 	}
 }
+
+if (keyboard_check_pressed(vk_pagedown)) {
+	room_goto_next();
+}
+
+if (keyboard_check_pressed(vk_pageup)) {
+	room_goto_previous();
+}

@@ -1,5 +1,21 @@
 function network_read_host(ip, port, socket, buffer) {
+	if (buffer_get_size(buffer) == 0) {
+		return;
+	}
+	
 	buffer_seek_begin(buffer);
+	var match_id = buffer_read(buffer, buffer_u8);
+		
+	if (match_id != FAILCHECK_ID) {
+		return;
+	}
+		
+	var match_size = buffer_read(buffer, buffer_u16);
+	
+	if (buffer_get_size(buffer) + 5 != match_size) {
+		return;
+	}
+	
 	var is_tcp = buffer_read(buffer, buffer_bool);
 	var from_host = buffer_read(buffer, buffer_bool);
 	var data_id = buffer_read(buffer, buffer_u16);
@@ -16,6 +32,11 @@ function network_read_host(ip, port, socket, buffer) {
 function network_read_host_tcp(socket, buffer, data_id) {
 	switch (data_id) {
 		case Client_TCP.PlayerMove:
+			buffer_reconstruct(buffer, data_id);
+			network_send_tcp_except(socket);
+			break;
+			
+		case Client_TCP.Test:
 			buffer_reconstruct(buffer, data_id);
 			network_send_tcp_except(socket);
 			break;

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Objects",
-    "path": "folders/Sprites/Objects.yy",
+    "name": "Boards",
+    "path": "folders/Sprites/Objects/Boards.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprPlayer",

@@ -60,9 +60,17 @@ function buffer_reconstruct(buffer, data_id) {
 	}
 }
 
+function buffer_sanity_checks(is_tcp) {
+	var size = buffer_tell(global.buffer) + 9;
+	//show_message(size);
+	buffer_push(global.buffer, buffer_bool, is_tcp);
+	buffer_push(global.buffer, buffer_u16, size);
+	buffer_push(global.buffer, buffer_u8, FAILCHECK_ID);
+}
+
 function network_send_tcp_packet(socket = global.tcp_socket, send_all = false) {
 	if (!send_all) {
-		buffer_push(global.buffer, buffer_bool, true);
+		buffer_sanity_checks(true);
 	}
 	
 	network_send_packet(socket, global.buffer, buffer_tell(global.buffer));
@@ -70,14 +78,14 @@ function network_send_tcp_packet(socket = global.tcp_socket, send_all = false) {
 
 function network_send_udp_packet(ip = global.ip, port = global.port, send_all = false) {
 	if (!send_all) {
-		buffer_push(global.buffer, buffer_bool, false);
+		buffer_sanity_checks(false);
 	}
 	
 	network_send_udp(global.udp_socket, ip, port, global.buffer, buffer_tell(global.buffer));
 }
 
 function network_send_tcp_except(socket) {
-	buffer_push(global.buffer, buffer_bool, true);
+	buffer_sanity_checks(true);
 	
 	for (var i = 0; i < global.player_max; i++) {
 		var player = global.player_list_host[i];
@@ -89,7 +97,7 @@ function network_send_tcp_except(socket) {
 }
 
 function network_send_udp_except(ip) {
-	buffer_push(global.buffer, buffer_bool, false);
+	buffer_sanity_checks(false);
 	
 	for (var i = 0; i < global.player_max; i++) {
 		var player = global.player_list_host[i];
@@ -132,29 +140,29 @@ function player_leave(id, host = false) {
 }
 
 function player_write_data() {
-	buffer_write_data(buffer_s8, global.player_id);
-	buffer_write_data(buffer_s16, objPlayer.sprite_index);
-	buffer_write_data(buffer_s8, objPlayer.image_index);
-	buffer_write_data(buffer_u16, objPlayer.x);
-	buffer_write_data(buffer_u16, objPlayer.y);
-	buffer_write_data(buffer_u16, objPlayer.image_xscale);
-	buffer_write_data(buffer_u16, objPlayer.image_yscale);
-	buffer_write_data(buffer_s8, objPlayer.image_alpha);
+	buffer_write_data(buffer_u8, global.player_id);
+	buffer_write_data(buffer_u16, objPlayer.sprite_index);
+	buffer_write_data(buffer_u8, objPlayer.image_index);
+	buffer_write_data(buffer_s16, objPlayer.x);
+	buffer_write_data(buffer_s16, objPlayer.y);
+	buffer_write_data(buffer_s8, objPlayer.image_xscale);
+	buffer_write_data(buffer_s8, objPlayer.image_yscale);
+	buffer_write_data(buffer_u8, objPlayer.image_alpha);
 	buffer_write_data(buffer_s16, room);
 }
 
 function player_read_data(buffer) {
-	var player_id = buffer_read(buffer, buffer_s8);
+	var player_id = buffer_read(buffer, buffer_u8);
 	var instance = global.player_list_client[player_id - 1];
 		
 	if (instance != null) {
-		instance.network_sprite = buffer_read(buffer, buffer_s16);
-		instance.network_subimg = buffer_read(buffer, buffer_s8);
-		instance.network_x = buffer_read(buffer, buffer_u16);
-		instance.network_y = buffer_read(buffer, buffer_u16);
-		instance.network_xscale = buffer_read(buffer, buffer_u16);
-		instance.network_yscale = buffer_read(buffer, buffer_u16);
-		instance.network_alpha = buffer_read(buffer, buffer_s8);
+		instance.network_sprite = buffer_read(buffer, buffer_u16);
+		instance.network_subimg = buffer_read(buffer, buffer_u8);
+		instance.network_x = buffer_read(buffer, buffer_s16);
+		instance.network_y = buffer_read(buffer, buffer_s16);
+		instance.network_xscale = buffer_read(buffer, buffer_s8);
+		instance.network_yscale = buffer_read(buffer, buffer_s8);
+		instance.network_alpha = buffer_read(buffer, buffer_u8);
 		instance.network_room = buffer_read(buffer, buffer_s16);
 	}
 }
