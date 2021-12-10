@@ -1,0 +1,26 @@
+{
+  "kind": 0,
+  "closed": false,
+  "precision": 4,
+  "points": [
+    {"speed":100.0,"x":176.0,"y":816.0,},
+    {"speed":100.0,"x":176.0,"y":880.0,},
+    {"speed":100.0,"x":176.0,"y":944.0,},
+    {"speed":100.0,"x":176.0,"y":1008.0,},
+    {"speed":100.0,"x":240.0,"y":1008.0,},
+    {"speed":100.0,"x":240.0,"y":1072.0,},
+    {"speed":100.0,"x":304.0,"y":1072.0,},
+    {"speed":100.0,"x":368.0,"y":1072.0,},
+    {"speed":100.0,"x":432.0,"y":1072.0,},
+    {"speed":100.0,"x":432.0,"y":1008.0,},
+    {"speed":100.0,"x":432.0,"y":944.0,},
+  ],
+  "parent": {
+    "name": "Boards",
+    "path": "folders/Paths/Boards.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "pthBoardSMW_D1",
+  "tags": [],
+  "resourceType": "GMPath",
+}

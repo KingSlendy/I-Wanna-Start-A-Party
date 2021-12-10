@@ -1,5 +1,4 @@
 enum SpaceType {
-	Blank,
 	Blue,
 	Red,
 	Green,
@@ -10,5 +9,6 @@ enum SpaceType {
 	Dark,
 	Cyan,
 	Shine,
-	EvilShine
+	EvilShine,
+	PathChange
 }

@@ -35,11 +35,6 @@ function network_read_host_tcp(socket, buffer, data_id) {
 			buffer_reconstruct(buffer, data_id);
 			network_send_tcp_except(socket);
 			break;
-			
-		case Client_TCP.Test:
-			buffer_reconstruct(buffer, data_id);
-			network_send_tcp_except(socket);
-			break;
 	}
 }
 
