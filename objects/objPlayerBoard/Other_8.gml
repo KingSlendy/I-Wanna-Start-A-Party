@@ -1,17 +1,33 @@
-var space = instance_place(x, y, objBoardSpaces);
+if (follow_path != null && path_exists(follow_path)) {
+	path_delete(follow_path);
+	follow_path = null;
+}
+
+if (!global.board_started) {
+	global.path_current = objBoard.path_first;
+	global.path_number = 0;
+	global.board_started = true;
+	show_dice();
+	exit;
+}
+
+var space = instance_place(x, y, objSpaces);
 var passing = false;
 
 with (space) {
 	passing = space_passing_event();
 }
 
-if (!passing) {
-	global.dice_roll--;
+if (passing) {
+	exit;
 }
 
-if (follow_path != null && path_exists(follow_path)) {
-	path_delete(follow_path);
-}
+global.dice_roll--;
+
+buffer_seek_begin();
+buffer_write_from_host(false);
+buffer_write_action(Client_TCP.LessRoll);
+network_send_tcp_packet();
 
 if (global.dice_roll > 0) {
 	board_advance();
@@ -19,4 +35,6 @@ if (global.dice_roll > 0) {
 	with (space) {
 		space_finish_event();
 	}
+	
+	next_turn();
 }

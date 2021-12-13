@@ -2,7 +2,12 @@ enum Client_TCP {
 	ReceiveID,
 	PlayerConnect,
 	PlayerDisconnect,
-	PlayerMove
+	PlayerMove,
+	NextTurn,
+	ShowDice,
+	RollDice,
+	LessRoll,
+	ChooseShine
 }
 
 enum Client_UDP {
@@ -65,6 +70,46 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.PlayerMove:
 			player_read_data(buffer);
+			break;
+			
+		case Client_TCP.NextTurn:
+			global.player_turn = buffer_read(buffer, buffer_u8);
+			board_start();
+			break;
+			
+		case Client_TCP.ShowDice:
+			var dice_x = buffer_read(buffer, buffer_s16);
+			var dice_y = buffer_read(buffer, buffer_s16);
+			instance_create_layer(dice_x, dice_y, "Actors", objDice);
+			break;
+			
+		case Client_TCP.RollDice:
+			global.dice_roll = buffer_read(buffer, buffer_u8);
+			instance_destroy(objDice);
+			break;
+			
+		case Client_TCP.LessRoll:
+			global.dice_roll--;
+			break;
+			
+		case Client_TCP.ChooseShine:
+			var space_x = buffer_read(buffer, buffer_s16);
+			var space_y = buffer_read(buffer, buffer_s16);
+			
+			with (objSpaces) {
+				if (space_shine) {
+					image_index = SpaceType.Blue;
+				}
+			}
+			
+			with (objSpaces) {
+				if (x == space_x && y == space_y) {
+					image_index = SpaceType.Shine;
+					break;
+				}
+			}
+			
+			global.shine_spotted = true;
 			break;
 	}
 }

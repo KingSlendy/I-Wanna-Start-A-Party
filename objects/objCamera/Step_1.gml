@@ -1,0 +1,1 @@
+target_follow = focus_player();

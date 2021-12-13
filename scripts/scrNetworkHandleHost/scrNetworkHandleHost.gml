@@ -30,12 +30,8 @@ function network_read_host(ip, port, socket, buffer) {
 }
 
 function network_read_host_tcp(socket, buffer, data_id) {
-	switch (data_id) {
-		case Client_TCP.PlayerMove:
-			buffer_reconstruct(buffer, data_id);
-			network_send_tcp_except(socket);
-			break;
-	}
+	buffer_reconstruct(buffer, data_id);
+	network_send_tcp_except(socket);
 }
 
 function network_read_host_udp(ip, port, buffer, data_id) {

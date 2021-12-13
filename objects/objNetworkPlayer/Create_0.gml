@@ -1,8 +1,6 @@
 network_id = 0;
 network_sprite = sprPlayer;
 network_subimg = 0;
-network_x = 0;
-network_y = 0;
 network_xscale = 1;
 network_yscale = 1;
 network_alpha = 1;

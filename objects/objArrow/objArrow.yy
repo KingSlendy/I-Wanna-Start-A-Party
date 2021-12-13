@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprArrow",
+    "path": "sprites/sprArrow/sprArrow.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -17,22 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":13,"eventType":9,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
-  "properties": [
-    {"varType":5,"value":"null","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[
-        "GMPath",
-      ],"resourceVersion":"1.0","name":"path_begin","tags":[],"resourceType":"GMObjectProperty",},
-  ],
+  "eventList": [],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Boards",
     "path": "folders/Objects/Boards.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objBoardController",
+  "name": "objArrow",
   "tags": [],
   "resourceType": "GMObject",
 }

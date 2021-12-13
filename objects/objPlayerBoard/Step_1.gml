@@ -1,0 +1,1 @@
+sprite_index = (follow_path == null) ? sprPlayerIdle : sprPlayerRunning;
