@@ -7,12 +7,15 @@ enum Client_TCP {
 	ShowDice,
 	RollDice,
 	LessRoll,
-	ChooseShine
+	ChooseShine,
+	ChangeShines,
+	ChangeCoins
 }
 
 enum Client_UDP {
 	Heartbeat,
-	PlayerMove
+	PlayerMove,
+	Test
 }
 
 function network_read_client(ip, port, buffer) {
@@ -21,21 +24,26 @@ function network_read_client(ip, port, buffer) {
 	}
 	
 	buffer_seek_begin(buffer);
-	var match_id = buffer_read(buffer, buffer_u8);
 	
-	if (match_id != FAILCHECK_ID) {
+	try {
+		var match_id = buffer_read(buffer, buffer_u8);
+	
+		if (match_id != FAILCHECK_ID) {
+			return;
+		}
+		
+		var match_size = buffer_read(buffer, buffer_u16);
+	
+		if (buffer_get_size(buffer) + 5 != match_size) {
+			return;
+		}
+		
+		var is_tcp = buffer_read(buffer, buffer_bool);
+		var from_host = buffer_read(buffer, buffer_bool);
+		var data_id = buffer_read(buffer, buffer_u16);
+	} catch (_) {
 		return;
 	}
-		
-	var match_size = buffer_read(buffer, buffer_u16);
-	
-	if (buffer_get_size(buffer) + 5 != match_size) {
-		return;
-	}
-		
-	var is_tcp = buffer_read(buffer, buffer_bool);
-	var from_host = buffer_read(buffer, buffer_bool);
-	var data_id = buffer_read(buffer, buffer_u16);
 	
 	if (from_host) {
 		if (is_tcp) {
@@ -111,6 +119,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 			global.shine_spotted = true;
 			break;
+			
+		case Client_TCP.ChangeShines:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var amount = buffer_read(buffer, buffer_u8);
+			get_player_info(player_id).shines = amount;
+			break;
+			
+		case Client_TCP.ChangeCoins:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var amount = buffer_read(buffer, buffer_u8);
+			get_player_info(player_id).coins = amount;
+			break;
 	}
 }
 
@@ -122,6 +142,10 @@ function network_read_client_udp(buffer, data_id) {
 		
 		case Client_UDP.PlayerMove:
 			player_read_data(buffer);
+			break;
+			
+		case Client_UDP.Test:
+			show_message(global.player_id);
 			break;
 	}
 }

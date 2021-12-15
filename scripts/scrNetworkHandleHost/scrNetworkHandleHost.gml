@@ -43,25 +43,28 @@ function network_read_host_udp(ip, port, buffer, data_id) {
 				global.player_list_host[player_id - 1].port = port;
 			}
 			
+			buffer_seek_begin();
+			buffer_write_from_host(true);
+			buffer_write_action(Client_UDP.Heartbeat);
 			network_send_udp_packet(ip, port);
 			break;
 			
-			default:
-				var has_ip = false;
+		default:
+			var has_ip = false;
 	
-				for (var i = 0; i < global.player_max; i++) {
-					var player = global.player_list_host[i];
+			for (var i = 0; i < global.player_max; i++) {
+				var player = global.player_list_host[i];
 		
-					if (player != null && player.ip == ip) {
-						has_ip = true;
-						break;
-					}
+				if (player != null && player.ip == ip) {
+					has_ip = true;
+					break;
 				}
+			}
 	
-				if (has_ip) {
-					buffer_reconstruct(buffer, data_id);
-					network_send_udp_except(ip);
-				}
-				break;
+			if (has_ip) {
+				buffer_reconstruct(buffer, data_id);
+				network_send_udp_except(ip);
+			}
+			break;
 	}
 }

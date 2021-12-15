@@ -15,17 +15,24 @@ enum SpaceType {
 
 randomize();
 
-function PlayerBoard() constructor {
+function PlayerBoard(network_id, turn) constructor {
+	self.network_id = network_id;
+	self.turn = turn;
 	self.shines = 0;
 	self.coins = 0;
-	self.turn = 0;
 	self.items = array_create(3, null);
 	
-	self.space_stack = [];
+	static toString = function() {
+		return string(self.turn);
+	}
+}
+
+function is_player_turn(id = global.player_id) {
+	return (global.player_turn == id);
 }
 
 function focus_player() {
-	if (global.player_turn == global.player_id) {
+	if (is_player_turn()) {
 		return objPlayerBase;
 	} else {
 		with (objNetworkPlayer) {
@@ -37,7 +44,7 @@ function focus_player() {
 }
 
 function board_start() {
-	if (global.player_turn == global.player_id) {
+	if (is_player_turn()) {
 		if (!global.board_started) {
 			choose_shine();
 			board_advance();
@@ -60,15 +67,15 @@ function board_advance() {
 			next_x = path_get_point_x(global.path_current, global.path_number + global.path_direction);
 			next_y = path_get_point_y(global.path_current, global.path_number + global.path_direction);
 			path_add_point(follow_path, next_x, next_y, 100);	
-			array_push(global.player_main.space_stack, {prev_path: global.path_current, prev_number: global.path_number, prev_x: current_x, prev_y: current_y});
+			array_push(space_stack, {prev_path: global.path_current, prev_number: global.path_number, prev_x: current_x, prev_y: current_y});
 		
-			if (array_length(global.player_main.space_stack) > 10) {
-				array_delete(global.player_main.space_stack, 0, 1);
+			if (array_length(space_stack) > 10) {
+				array_delete(space_stack, 0, 1);
 			}
 		
 			global.path_number = (global.path_number + global.path_direction + path_total) % path_total;
 		} else if (global.path_direction == -1) {
-			var reverse = array_pop(global.player_main.space_stack);
+			var reverse = array_pop(space_stack);
 			next_x = reverse.prev_x;
 			next_y = reverse.prev_y;
 			path_add_point(follow_path, reverse.prev_x, reverse.prev_y, 100);
@@ -83,7 +90,7 @@ function board_advance() {
 }
 
 function show_dice() {
-	instance_create_layer(objPlayerBoard.x - 16, objPlayerBoard.y - 60, "Actors", objDice);
+	instance_create_layer(objPlayerBoard.x - 16, objPlayerBoard.y - 69, "Actors", objDice);
 	buffer_seek_begin();
 	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ShowDice);
@@ -98,7 +105,8 @@ function roll_dice() {
 	}
 	
 	global.dice_roll = objDice.roll;
-	board_advance();
+	//Fix number not showing for other players
+	instance_create_layer(objDice.x + 16, objDice.y + 16, "Actors", objDiceRoll);
 	instance_destroy(objDice);
 	
 	buffer_seek_begin();
@@ -135,11 +143,24 @@ function choose_shine() {
 		}
 	}
 	
+	var prev_space = null;
+	
 	for (var i = 0; i < array_length(choices); i++) {
-		choices[i].image_index = SpaceType.Blue;
+		var space = choices[i];
+		
+		if (space.image_index == SpaceType.Shine) {
+			space.image_index = SpaceType.Blue;
+			prev_space = space;
+		}
 	}
 	
-	var space = choices[irandom(array_length(choices) - 1)];
+	//Fix shine not appearing in random places
+	var space = array_pop(choices);
+	
+	if (space == prev_space) {
+		space = array_pop(choices);
+	}
+	
 	space.image_index = SpaceType.Shine;
 	
 	buffer_seek_begin();
@@ -148,4 +169,42 @@ function choose_shine() {
 	buffer_write_data(buffer_s16, space.x);
 	buffer_write_data(buffer_s16, space.y);
 	network_send_tcp_packet();
+}
+
+function get_player_info(id = global.player_id) {
+	with (objPlayerInfo) {
+		if (player_info.network_id == id) {
+			return player_info;
+		}
+	}
+}
+
+function change_shines(amount, id = global.player_id) {
+	var my_info = get_player_info(id);
+	my_info.shines += amount;
+	my_info.shines = clamp(my_info.shines, 0, 99);
+	
+	if (id == global.player_id) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ChangeShines);
+		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u8, my_info.shines);
+		network_send_tcp_packet();
+	}
+}
+
+function change_coins(amount, id = global.player_id) {
+	var my_info = get_player_info(id);
+	my_info.coins += amount;
+	my_info.coins = clamp(my_info.coins, 0, 999);
+	
+	if (id == global.player_id) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ChangeCoins);
+		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u8, my_info.coins);
+		network_send_tcp_packet();
+	}
 }

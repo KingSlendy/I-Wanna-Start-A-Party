@@ -5,6 +5,12 @@ global.path_direction = 1;
 global.shine_spotted = false;
 global.dice_roll = -1;
 global.player_turn = 1;
-global.player_main = new PlayerBoard();
 
-temp = false; //Temp
+//Temp
+temp = false;
+
+for (var i = 1; i <= 4; i++) {
+	var info = instance_create_layer(0, -32, "Managers", objPlayerInfo);
+	info.player_info = new PlayerBoard(i, i);
+}
+//Temp

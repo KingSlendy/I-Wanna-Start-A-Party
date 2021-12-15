@@ -62,7 +62,6 @@ function buffer_reconstruct(buffer, data_id) {
 
 function buffer_sanity_checks(is_tcp) {
 	var size = buffer_tell(global.buffer) + 9;
-	//show_message(size);
 	buffer_push(global.buffer, buffer_bool, is_tcp);
 	buffer_push(global.buffer, buffer_u16, size);
 	buffer_push(global.buffer, buffer_u8, FAILCHECK_ID);

@@ -14,8 +14,12 @@ if (image_index == SpaceType.Shine) {
 function space_passing_event() {
 	switch (image_index) {
 		case SpaceType.Shine:
-			global.shine_spotted = false;
-			choose_shine();
+			if (get_player_info().coins >= 20) {
+				change_coins(-20);
+				change_shines(1);
+				global.shine_spotted = false;
+				choose_shine();
+			}
 			return false;
 		
 		case SpaceType.PathChange:
@@ -33,6 +37,14 @@ function space_passing_event() {
 
 function space_finish_event() {
 	switch (image_index) {
+		case SpaceType.Blue:
+			change_coins(3);
+			break;
+			
+		case SpaceType.Red:
+			change_coins(-3);
+			break;
+			
 		default: break;
 	}
 }
