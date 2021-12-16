@@ -13,6 +13,10 @@ if (image_index == SpaceType.Shine) {
 
 function space_passing_event() {
 	switch (image_index) {
+		case SpaceType.Pink:
+			board_advance();
+			return true;
+		
 		case SpaceType.Shine:
 			if (get_player_info().coins >= 20) {
 				change_coins(-20);
@@ -20,7 +24,9 @@ function space_passing_event() {
 				global.shine_spotted = false;
 				choose_shine();
 			}
-			return false;
+			
+			board_advance();
+			return true;
 		
 		case SpaceType.PathChange:
 			if (global.path_direction == 1) {
@@ -43,6 +49,10 @@ function space_finish_event() {
 			
 		case SpaceType.Red:
 			change_coins(-3);
+			break;
+			
+		case SpaceType.Green:
+			next_turn();
 			break;
 			
 		default: break;

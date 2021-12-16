@@ -128,8 +128,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ChangeCoins:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var amount = buffer_read(buffer, buffer_u8);
-			get_player_info(player_id).coins = amount;
+			var amount = buffer_read(buffer, buffer_s16);
+			change_coins(amount, player_id);
 			break;
 	}
 }

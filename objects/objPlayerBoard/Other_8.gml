@@ -36,5 +36,5 @@ if (global.dice_roll > 0) {
 		space_finish_event();
 	}
 	
-	next_turn();
+	//next_turn();
 }

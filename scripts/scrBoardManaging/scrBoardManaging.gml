@@ -55,6 +55,10 @@ function board_start() {
 }
 
 function board_advance() {
+	if (!is_player_turn()) {
+		return;
+	}
+	
 	with (objPlayerBoard) {
 		follow_path = path_add();
 		var path_total = path_get_number(global.path_current);
@@ -90,7 +94,9 @@ function board_advance() {
 }
 
 function show_dice() {
+	objPlayerBoard.can_jump = true;
 	instance_create_layer(objPlayerBoard.x - 16, objPlayerBoard.y - 69, "Actors", objDice);
+	
 	buffer_seek_begin();
 	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ShowDice);
@@ -100,13 +106,7 @@ function show_dice() {
 }
 
 function roll_dice() {
-	if (global.player_turn != global.player_id) {
-		return;
-	}
-	
 	global.dice_roll = objDice.roll;
-	//Fix number not showing for other players
-	instance_create_layer(objDice.x + 16, objDice.y + 16, "Actors", objDiceRoll);
 	instance_destroy(objDice);
 	
 	buffer_seek_begin();
@@ -138,29 +138,18 @@ function choose_shine() {
 	var choices = [];
 	
 	with (objSpaces) {
-		if (space_shine) {
+		if (space_shine && image_index != SpaceType.Shine) {
 			array_push(choices, id);
 		}
 	}
 	
-	var prev_space = null;
-	
 	for (var i = 0; i < array_length(choices); i++) {
 		var space = choices[i];
-		
-		if (space.image_index == SpaceType.Shine) {
-			space.image_index = SpaceType.Blue;
-			prev_space = space;
-		}
+		space.image_index = SpaceType.Blue;
 	}
 	
-	//Fix shine not appearing in random places
+	array_shuffle(choices);
 	var space = array_pop(choices);
-	
-	if (space == prev_space) {
-		space = array_pop(choices);
-	}
-	
 	space.image_index = SpaceType.Shine;
 	
 	buffer_seek_begin();
@@ -195,16 +184,16 @@ function change_shines(amount, id = global.player_id) {
 }
 
 function change_coins(amount, id = global.player_id) {
-	var my_info = get_player_info(id);
-	my_info.coins += amount;
-	my_info.coins = clamp(my_info.coins, 0, 999);
+	var c = instance_create_layer(0, 0, "Managers", objCoinChange);
+	c.amount = amount;
+	c.player_id = id;
 	
 	if (id == global.player_id) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeCoins);
 		buffer_write_data(buffer_u8, id);
-		buffer_write_data(buffer_u8, my_info.coins);
+		buffer_write_data(buffer_s16, amount);
 		network_send_tcp_packet();
 	}
 }

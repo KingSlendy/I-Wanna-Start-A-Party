@@ -35,7 +35,7 @@ draw_set_color(c_white);
 draw_sprite(sprPlayerIdle, 0, draw_x + 25, draw_y + 23);
 draw_sprite_ext(sprShine, 0, draw_x + 40, draw_y + 5, 0.5, 0.5, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 10, "x" + string(player_info.shines), c_gray);
-draw_sprite_ext(sprCoin, 0, draw_x + 46, draw_y + 40, 0.6, 0.6, 0, c_white, 1);
+draw_sprite_ext(sprCoin, 0, draw_x + 56, draw_y + 50, 0.6, 0.6, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 39, "x" + string(player_info.coins), c_gray);
 draw_set_halign(fa_right);
 draw_text_outline(draw_x + draw_w - 5, draw_y + 63, "?st", c_gray);

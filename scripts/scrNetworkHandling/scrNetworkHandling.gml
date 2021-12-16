@@ -155,13 +155,13 @@ function player_read_data(buffer) {
 	var instance = global.player_list_client[player_id - 1];
 		
 	if (instance != null) {
-		instance.network_sprite = buffer_read(buffer, buffer_u16);
-		instance.network_subimg = buffer_read(buffer, buffer_u8);
+		instance.sprite_index = buffer_read(buffer, buffer_u16);
+		instance.image_index = buffer_read(buffer, buffer_u8);
 		instance.x = buffer_read(buffer, buffer_s16);
 		instance.y = buffer_read(buffer, buffer_s16);
-		instance.network_xscale = buffer_read(buffer, buffer_s8);
-		instance.network_yscale = buffer_read(buffer, buffer_s8);
-		instance.network_alpha = buffer_read(buffer, buffer_u8);
+		instance.image_xscale = buffer_read(buffer, buffer_s8);
+		instance.image_yscale = buffer_read(buffer, buffer_s8);
+		instance.image_alpha = buffer_read(buffer, buffer_u8);
 		instance.network_room = buffer_read(buffer, buffer_s16);
 	}
 }

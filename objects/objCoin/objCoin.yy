@@ -1,12 +1,12 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprCoin",
+    "path": "sprites/sprCoin/sprCoin.yy",
+  },
   "solid": false,
   "visible": true,
-  "spriteMaskId": {
-    "name": "sprPlayerMask",
-    "path": "sprites/sprPlayerMask/sprPlayerMask.yy",
-  },
-  "persistent": true,
+  "spriteMaskId": null,
+  "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -21,17 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Network",
-    "path": "folders/Objects/Network.yy",
+    "name": "Boards",
+    "path": "folders/Objects/Boards.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objNetworkPlayer",
+  "name": "objCoin",
   "tags": [],
   "resourceType": "GMObject",
 }
