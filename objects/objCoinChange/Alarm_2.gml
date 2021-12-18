@@ -1,9 +1,10 @@
+///@desc Coin Lose Animation
 var focus = focus_player();
 var c = instance_create_layer(focus.x, focus.y, "Actors", objCoin);
 c.vspeed = -8;
 
 if (++animation_amount == abs(amount)) {
-	alarm[11] = 30;
+	alarm[11] = 20;
 	exit;
 }
 

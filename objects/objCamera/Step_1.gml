@@ -1,1 +1,3 @@
-target_follow = focus_player();
+if (!global.choosing_shine) {
+	target_follow = focus_player();
+}

@@ -29,11 +29,14 @@ switch (player_info.turn) {
 		break;
 }
 
-draw_sprite_stretched(sprite_index, 0, draw_x, draw_y, draw_w, draw_h);
+draw_sprite_ext(sprBoxFill, 0, draw_x, draw_y, draw_w, draw_h, 0, player_info.space, 1);
+draw_sprite_stretched(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h);
 draw_set_font(fntPlayerInfo);
+draw_set_color(c_dkgray);
+draw_circle(draw_x + 23, draw_y + 21, 15, false);
 draw_set_color(c_white);
 draw_sprite(sprPlayerIdle, 0, draw_x + 25, draw_y + 23);
-draw_sprite_ext(sprShine, 0, draw_x + 40, draw_y + 5, 0.5, 0.5, 0, c_white, 1);
+draw_sprite_ext(sprShine, 0, draw_x + 56, draw_y + 21, 0.5, 0.5, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 10, "x" + string(player_info.shines), c_gray);
 draw_sprite_ext(sprCoin, 0, draw_x + 56, draw_y + 50, 0.6, 0.6, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 39, "x" + string(player_info.coins), c_gray);

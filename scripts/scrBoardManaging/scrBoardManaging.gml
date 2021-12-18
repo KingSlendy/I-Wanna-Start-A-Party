@@ -21,6 +21,7 @@ function PlayerBoard(network_id, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
+	self.space = c_gray;
 	
 	static toString = function() {
 		return string(self.turn);
@@ -46,12 +47,18 @@ function focus_player() {
 function board_start() {
 	if (is_player_turn()) {
 		if (!global.board_started) {
-			choose_shine();
-			board_advance();
+			if (global.player_id == 1) {
+				choose_shine();
+			} else {
+				board_advance();
+			}
 		} else {
 			show_dice();
 		}
 	}
+}
+
+function turn_start() {
 }
 
 function board_advance() {
@@ -71,7 +78,12 @@ function board_advance() {
 			next_x = path_get_point_x(global.path_current, global.path_number + global.path_direction);
 			next_y = path_get_point_y(global.path_current, global.path_number + global.path_direction);
 			path_add_point(follow_path, next_x, next_y, 100);	
-			array_push(space_stack, {prev_path: global.path_current, prev_number: global.path_number, prev_x: current_x, prev_y: current_y});
+			array_push(space_stack, {
+				prev_path: global.path_current,
+				prev_number: global.path_number,
+				prev_x: current_x,
+				prev_y: current_y
+			});
 		
 			if (array_length(space_stack) > 10) {
 				array_delete(space_stack, 0, 1);
@@ -131,26 +143,22 @@ function next_turn() {
 }
 
 function choose_shine() {
-	if (global.shine_spotted) {
+	if (instance_exists(objShine)) {
 		return;
 	}
 	
 	var choices = [];
 	
 	with (objSpaces) {
-		if (space_shine && image_index != SpaceType.Shine) {
+		if (space_shine) {
 			array_push(choices, id);
 		}
-	}
-	
-	for (var i = 0; i < array_length(choices); i++) {
-		var space = choices[i];
-		space.image_index = SpaceType.Blue;
 	}
 	
 	array_shuffle(choices);
 	var space = array_pop(choices);
 	space.image_index = SpaceType.Shine;
+	place_shine(space.x, space.y);
 	
 	buffer_seek_begin();
 	buffer_write_from_host(false);
@@ -158,6 +166,25 @@ function choose_shine() {
 	buffer_write_data(buffer_s16, space.x);
 	buffer_write_data(buffer_s16, space.y);
 	network_send_tcp_packet();
+}
+
+function place_shine(space_x, space_y) {
+	with (objSpaces) {
+		if (space_shine) {
+			image_index = SpaceType.Blue;
+		}
+	}
+			
+	with (objSpaces) {
+		if (x == space_x && y == space_y) {
+			image_index = SpaceType.Shine;
+			break;
+		}
+	}
+	
+	var c = instance_create_layer(0, 0, "Managers", objChooseShine);
+	c.space_x = space_x;
+	c.space_y = space_y;
 }
 
 function get_player_info(id = global.player_id) {
@@ -169,24 +196,27 @@ function get_player_info(id = global.player_id) {
 }
 
 function change_shines(amount, id = global.player_id) {
-	var my_info = get_player_info(id);
-	my_info.shines += amount;
-	my_info.shines = clamp(my_info.shines, 0, 99);
-	
+	var s = instance_create_layer(0, 0, "Managers", objShineChange);
+	s.player_id = id;
+	s.amount = amount;
+
 	if (id == global.player_id) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeShines);
 		buffer_write_data(buffer_u8, id);
-		buffer_write_data(buffer_u8, my_info.shines);
+		buffer_write_data(buffer_u8, amount);
 		network_send_tcp_packet();
 	}
+	
+	return s;
 }
 
-function change_coins(amount, id = global.player_id) {
+function change_coins(amount, type, id = global.player_id) {
 	var c = instance_create_layer(0, 0, "Managers", objCoinChange);
-	c.amount = amount;
 	c.player_id = id;
+	c.amount = amount;
+	c.animation_type = type;
 	
 	if (id == global.player_id) {
 		buffer_seek_begin();
@@ -194,6 +224,31 @@ function change_coins(amount, id = global.player_id) {
 		buffer_write_action(Client_TCP.ChangeCoins);
 		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_s16, amount);
+		buffer_write_data(buffer_u8, type);
+		network_send_tcp_packet();
+	}
+	
+	return c;
+}
+
+function change_space(space, id = global.player_id) {
+	var color = c_white;
+	
+	switch (space) {
+		case SpaceType.Blue: color = c_blue; break;
+		case SpaceType.Red: color = c_red; break;
+		case SpaceType.Green: color = c_green; break;
+		default: color = c_gray; break;
+	}
+	
+	get_player_info(id).space = color;
+	
+	if (id == global.player_id) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ChangeSpace);
+		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u8, space);
 		network_send_tcp_packet();
 	}
 }

@@ -9,7 +9,8 @@ enum Client_TCP {
 	LessRoll,
 	ChooseShine,
 	ChangeShines,
-	ChangeCoins
+	ChangeCoins,
+	ChangeSpace
 }
 
 enum Client_UDP {
@@ -103,33 +104,26 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case Client_TCP.ChooseShine:
 			var space_x = buffer_read(buffer, buffer_s16);
 			var space_y = buffer_read(buffer, buffer_s16);
-			
-			with (objSpaces) {
-				if (space_shine) {
-					image_index = SpaceType.Blue;
-				}
-			}
-			
-			with (objSpaces) {
-				if (x == space_x && y == space_y) {
-					image_index = SpaceType.Shine;
-					break;
-				}
-			}
-			
-			global.shine_spotted = true;
+			place_shine(space_x, space_y);
 			break;
 			
 		case Client_TCP.ChangeShines:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var amount = buffer_read(buffer, buffer_u8);
-			get_player_info(player_id).shines = amount;
+			change_shines(amount, player_id);
 			break;
 			
 		case Client_TCP.ChangeCoins:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var amount = buffer_read(buffer, buffer_s16);
-			change_coins(amount, player_id);
+			var type = buffer_read(buffer, buffer_u8);
+			change_coins(amount, type, player_id);
+			break;
+			
+		case Client_TCP.ChangeSpace:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var space = buffer_read(buffer, buffer_u8);
+			change_space(space, player_id);
 			break;
 	}
 }

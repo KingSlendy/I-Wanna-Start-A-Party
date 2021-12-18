@@ -1,1 +1,3 @@
-next_turn();
+if (final_action != null) {
+	final_action();
+}
