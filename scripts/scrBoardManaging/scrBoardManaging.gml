@@ -19,8 +19,10 @@ function PlayerBoard(network_id, turn) constructor {
 	self.network_id = network_id;
 	self.turn = turn;
 	self.shines = 0;
-	self.coins = 0;
+	self.coins = 100;
 	self.items = array_create(3, null);
+	self.score = 0;
+	self.place = 1;
 	self.space = c_gray;
 	
 	static toString = function() {
@@ -32,7 +34,7 @@ function is_player_turn(id = global.player_id) {
 	return (global.player_turn == id);
 }
 
-function focus_player() {
+function focused_player_turn() {
 	if (is_player_turn()) {
 		return objPlayerBase;
 	} else {
@@ -44,7 +46,21 @@ function focus_player() {
 	}
 }
 
+function focus_player(id) {
+	if (id == global.player_id) {
+		return objPlayerBase;
+	} else {
+		with (objNetworkPlayer) {
+			if (network_id == id) {
+				return id;
+			}
+		}
+	}
+}
+
 function board_start() {
+	instance_destroy(objHiddenChest);
+	
 	if (is_player_turn()) {
 		if (!global.board_started) {
 			if (global.player_id == 1) {
@@ -65,6 +81,8 @@ function board_advance() {
 	if (!is_player_turn()) {
 		return;
 	}
+	
+	global.show_dice_roll = true;
 	
 	with (objPlayerBoard) {
 		follow_path = path_add();
@@ -105,20 +123,23 @@ function board_advance() {
 	}
 }
 
-function show_dice() {
-	objPlayerBoard.can_jump = true;
-	instance_create_layer(objPlayerBoard.x - 16, objPlayerBoard.y - 69, "Actors", objDice);
+function show_dice(id = global.player_id) {
+	var focus = focused_player_turn();
+	instance_create_layer(focus.x - 16, focus.y - 69, "Actors", objDice);
 	
-	buffer_seek_begin();
-	buffer_write_from_host(false);
-	buffer_write_action(Client_TCP.ShowDice);
-	buffer_write_data(buffer_s16, objDice.x);
-	buffer_write_data(buffer_s16, objDice.y);
-	network_send_tcp_packet();
+	if (id == global.player_id) {
+		objPlayerBoard.can_jump = true;
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ShowDice);
+		buffer_write_data(buffer_u8, id);
+		network_send_tcp_packet();
+	}
 }
 
 function roll_dice() {
-	global.dice_roll = objDice.roll;
+	//global.dice_roll = objDice.roll;
+	global.dice_roll = 10;
 	instance_destroy(objDice);
 	
 	buffer_seek_begin();
@@ -128,12 +149,40 @@ function roll_dice() {
 	network_send_tcp_packet();
 }
 
+function show_chest(id = global.player_id) {
+	var focus = focused_player_turn();
+	var c = instance_create_layer(focus.x - 16, focus.y - 75, "Actors", objHiddenChest);
+	c.player_id = id;
+	audio_play_sound(sndHiddenChestSpawn, 0, false);
+	
+	if (id == global.player_id) {
+		objPlayerBoard.can_jump = true;
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ShowChest);
+		buffer_write_data(buffer_u8, id);
+		network_send_tcp_packet();
+	}
+}
+
+function open_chest() {
+	objHiddenChest.image_speed = 1;
+	
+	buffer_seek_begin();
+	buffer_write_from_host(false);
+	buffer_write_action(Client_TCP.OpenChest);
+	network_send_tcp_packet();
+}
+
 function next_turn() {
 	global.player_turn += 1;
 	
 	if (global.player_turn > 2) {
 		global.player_turn = 1;
 	}
+	
+	instance_create_layer(0, 0, "Managers", objNextTurn);
+	instance_destroy(objHiddenChest);
 	
 	buffer_seek_begin();
 	buffer_write_from_host(false);
@@ -195,10 +244,11 @@ function get_player_info(id = global.player_id) {
 	}
 }
 
-function change_shines(amount, id = global.player_id) {
+function change_shines(amount, type, id = global.player_id) {
 	var s = instance_create_layer(0, 0, "Managers", objShineChange);
 	s.player_id = id;
 	s.amount = amount;
+	s.animation_type = type;
 
 	if (id == global.player_id) {
 		buffer_seek_begin();
@@ -206,6 +256,7 @@ function change_shines(amount, id = global.player_id) {
 		buffer_write_action(Client_TCP.ChangeShines);
 		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_u8, amount);
+		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
 	}
 	
@@ -229,6 +280,42 @@ function change_coins(amount, type, id = global.player_id) {
 	}
 	
 	return c;
+}
+
+function calculate_player_place() {
+	var scores = array_create(4, 0);
+	
+	for (var i = 1; i <= 4; i++) {
+		var player_info = get_player_info(i);
+		scores[i - 1] = player_info.shines * 1000 + player_info.coins;
+		player_info.score = scores[i - 1];
+		player_info.place = 0;
+	}
+	
+	var swaps = 1;
+	
+	while (swaps > 0) {
+		swaps = 0;
+		
+		for (var i = 0; i < 3; i++) {
+			if (scores[i] < scores[i + 1]) {
+				var temp = scores[i + 1];
+				scores[i + 1] = scores[i];
+				scores[i] = temp;
+				swaps++;
+			}
+		}
+	}
+	
+	for (var i = 1; i <= 4; i++) {
+		for (var j = 1; j <= 4; j++) {
+			var player_info = get_player_info(j);
+			
+			if (player_info.place == 0 && player_info.score == scores[i - 1]) {
+				player_info.place = i;
+			}
+		}
+	}
 }
 
 function change_space(space, id = global.player_id) {

@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "UI",
+    "path": "folders/Objects/Boards/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "objArrow",

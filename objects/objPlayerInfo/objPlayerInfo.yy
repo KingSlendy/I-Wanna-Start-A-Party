@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sprBoxFrame",
-    "path": "sprites/sprBoxFrame/sprBoxFrame.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -28,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "UI",
+    "path": "folders/Objects/Boards/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "objPlayerInfo",

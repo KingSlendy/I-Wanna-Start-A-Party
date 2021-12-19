@@ -140,13 +140,16 @@ function player_leave(id, host = false) {
 
 function player_write_data() {
 	buffer_write_data(buffer_u8, global.player_id);
-	buffer_write_data(buffer_u16, objPlayerBase.sprite_index);
-	buffer_write_data(buffer_u8, objPlayerBase.image_index);
-	buffer_write_data(buffer_s16, objPlayerBase.x);
-	buffer_write_data(buffer_s16, objPlayerBase.y);
-	buffer_write_data(buffer_s8, objPlayerBase.image_xscale);
-	buffer_write_data(buffer_s8, objPlayerBase.image_yscale);
-	buffer_write_data(buffer_u8, objPlayerBase.image_alpha);
+	
+	with (objPlayerBase) {
+		buffer_write_data(buffer_u16, sprite_index);
+		buffer_write_data(buffer_s16, x);
+		buffer_write_data(buffer_s16, y);
+		buffer_write_data(buffer_s8, image_xscale);
+		buffer_write_data(buffer_s8, image_yscale);
+		buffer_write_data(buffer_u8, image_alpha);
+	}
+	
 	buffer_write_data(buffer_s16, room);
 }
 
@@ -156,7 +159,6 @@ function player_read_data(buffer) {
 		
 	if (instance != null) {
 		instance.sprite_index = buffer_read(buffer, buffer_u16);
-		instance.image_index = buffer_read(buffer, buffer_u8);
 		instance.x = buffer_read(buffer, buffer_s16);
 		instance.y = buffer_read(buffer, buffer_s16);
 		instance.image_xscale = buffer_read(buffer, buffer_s8);

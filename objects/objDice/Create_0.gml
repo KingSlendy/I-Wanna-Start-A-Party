@@ -1,3 +1,5 @@
+depth = -10000;
+
 function random_roll() {
 	var previous = roll;
 	

@@ -4,7 +4,7 @@ function music_check() {
 	var music = null;
 	
 	switch (room) {
-		//case rBoardSMW: music = bgmBoardSMW; break;
+		case rBoardSMW: music = bgmBoardSMW; break;
 		default: break;
 	}
 	

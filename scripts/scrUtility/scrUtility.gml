@@ -6,3 +6,43 @@ function array_shuffle(array) {
 		array[@ i] = temp;
 	}
 }
+
+function string_split(str, substr = "") {
+	var splitted = [];
+	var sub_count = string_count(substr, str);
+	var now_index = 1;
+	var count_index = 1;
+	var length = string_length(str);
+	var sub_length = string_length(substr);
+
+	if (sub_count == 0) {
+	    return str;
+	}
+
+	if (substr == "") {
+	    for (var i = 0; i < length; i++) {
+	        splitted[i] = string_char_at(str, i + 1);
+	    }
+    
+	    return str;
+	}
+
+	for (var i = 0; i <= sub_count; i++) {
+	    if (i < sub_count) {
+	        var rem_index = now_index;    
+        
+	        while (string_copy(str, now_index, sub_length) != substr) {
+	            now_index++;
+	            count_index++;
+	        }
+        
+	        splitted[i] = string_copy(str, rem_index, count_index - 1);
+	        now_index += sub_length;
+	        count_index = 1;
+	    } else {
+	        splitted[i] = string_copy(str, now_index, length - now_index + 1);
+	    }
+	}
+
+	return splitted;
+}

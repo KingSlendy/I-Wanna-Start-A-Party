@@ -1,4 +1,5 @@
 if (spawning) {
+	image_alpha = lerp(image_alpha, 1, 0.2);
 	image_xscale += 0.03;
 	image_yscale += 0.03;
 	
@@ -22,6 +23,10 @@ if (getting) {
 	if (image_xscale <= 0) {
 		objShineChange.alarm[11] = 1;
 		instance_destroy();
+	}
+	
+	if (vspeed == 0) {
+		audio_play_sound(sndShineGet, 0, false);
 	}
 	
 	vspeed = 1;

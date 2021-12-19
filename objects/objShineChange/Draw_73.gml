@@ -2,7 +2,7 @@ draw_set_alpha(animation_alpha);
 var positive = (sign(amount) == 1);
 draw_set_color((positive) ? c_blue : c_red);
 draw_set_halign(fa_center);
-var focus = focus_player();
+var focus = focused_player_turn();
 draw_sprite_ext(sprShine, 0, focus.x - 15, focus.y - 40, 0.75, 0.75, 0, c_white, animation_alpha);
 draw_text_outline(focus.x + 20, focus.y - 50, ((positive) ? "+" : "-") + string(abs(amount)), c_black);
 draw_set_halign(fa_left);

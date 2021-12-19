@@ -5,6 +5,7 @@ global.path_direction = 1;
 global.dice_roll = -1;
 global.player_turn = 1;
 global.choosing_shine = false;
+global.show_dice_roll = true;
 
 //Temp
 temp = false;

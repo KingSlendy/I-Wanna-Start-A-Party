@@ -7,6 +7,8 @@ enum Client_TCP {
 	ShowDice,
 	RollDice,
 	LessRoll,
+	ShowChest,
+	OpenChest,
 	ChooseShine,
 	ChangeShines,
 	ChangeCoins,
@@ -16,7 +18,8 @@ enum Client_TCP {
 enum Client_UDP {
 	Heartbeat,
 	PlayerMove,
-	Test
+	LessRoll,
+	SendSound
 }
 
 function network_read_client(ip, port, buffer) {
@@ -83,13 +86,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.NextTurn:
 			global.player_turn = buffer_read(buffer, buffer_u8);
-			board_start();
+			instance_create_layer(0, 0, "Managers", objNextTurn);
 			break;
 			
 		case Client_TCP.ShowDice:
-			var dice_x = buffer_read(buffer, buffer_s16);
-			var dice_y = buffer_read(buffer, buffer_s16);
-			instance_create_layer(dice_x, dice_y, "Actors", objDice);
+			var player_id = buffer_read(buffer, buffer_u8);
+			show_dice(player_id);	
 			break;
 			
 		case Client_TCP.RollDice:
@@ -101,6 +103,15 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			global.dice_roll--;
 			break;
 			
+		case Client_TCP.ShowChest:
+			var player_id = buffer_read(buffer, buffer_u8);
+			show_chest(player_id);
+			break;
+			
+		case Client_TCP.OpenChest:
+			objHiddenChest.image_speed = 1;
+			break;
+			
 		case Client_TCP.ChooseShine:
 			var space_x = buffer_read(buffer, buffer_s16);
 			var space_y = buffer_read(buffer, buffer_s16);
@@ -110,7 +121,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case Client_TCP.ChangeShines:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var amount = buffer_read(buffer, buffer_u8);
-			change_shines(amount, player_id);
+			var type = buffer_read(buffer, buffer_u8);
+			change_shines(amount, type, player_id);
 			break;
 			
 		case Client_TCP.ChangeCoins:
@@ -138,8 +150,12 @@ function network_read_client_udp(buffer, data_id) {
 			player_read_data(buffer);
 			break;
 			
-		case Client_UDP.Test:
-			show_message(global.player_id);
+		case Client_UDP.LessRoll:
+			global.dice_roll--;
+			break;
+			
+		case Client_UDP.SendSound:
+			audio_play_sound(sndTest, 0, false);
 			break;
 	}
 }

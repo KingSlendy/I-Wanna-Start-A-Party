@@ -1,5 +1,5 @@
 ///@desc Coin Lose Animation
-var focus = focus_player();
+var focus = focused_player_turn();
 var c = instance_create_layer(focus.x, focus.y, "Actors", objCoin);
 c.vspeed = -8;
 

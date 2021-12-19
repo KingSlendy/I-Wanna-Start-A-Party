@@ -11,16 +11,41 @@ if (image_index == SpaceType.Shine) {
 	image_index = SpaceType.Blue;
 }
 
+glowing = false;
+
 function space_passing_event() {
 	switch (image_index) {
 		case SpaceType.Pink:
-			board_advance();
+			//board_advance();
+			if (get_player_info().coins >= 5) {
+				start_dialogue(fntDialogue, [
+					new Message("Do you wanna enter the shop?", [
+						["Yes", [
+							new Message("",, function() {
+								instance_create_layer(0, 0, "Managers", objShop);
+								objDialogue.endable = false;
+							})
+						]],
+						
+						["No", [
+							new Message("",, board_advance)
+						]]
+					])
+				]);
+				//board_advance();
+			} else {
+				start_dialogue(fntDialogue, [
+					new Message("You don't have enough money to enter the shop!", [], board_advance)
+				]);
+			}
 			return true;
 		
 		case SpaceType.Shine:
 			if (get_player_info().coins >= 20) {
+				global.show_dice_roll = false;
+				
 				change_coins(-20, CoinChangeType.Spend).final_action = function() {
-					change_shines(1).final_action = choose_shine;
+					change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 				}
 			} else {
 				board_advance();
@@ -43,7 +68,13 @@ function space_passing_event() {
 function space_finish_event() {
 	switch (image_index) {
 		case SpaceType.Blue:
-			change_coins(3, CoinChangeType.Gain).final_action = next_turn;
+			var blue_event = next_turn;
+			
+			if (1 / 50 > random(1)) {
+				blue_event = show_chest;
+			}
+			
+			change_coins(3, CoinChangeType.Gain).final_action = blue_event;
 			break;
 			
 		case SpaceType.Red:
