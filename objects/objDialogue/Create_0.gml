@@ -5,9 +5,9 @@ border_width = 10;
 active = true;
 endable = true;
 texts = [];
-text_branch = undefined;
+text_branch = null;
 text_index = 0;
-text_display = undefined;
+text_display = null;
 text_delay = 0;
 answer_index = 0;
 answer_displays = [];
@@ -25,15 +25,28 @@ curve_value = 1;
 curve_y = -1;
 
 function text_advance() {
-	if (text_display != undefined && text_display.text.tw_active) {
+	if (array_length(text_branch) == 0) {
+		text_display = new Message(new Text(fntDialogue,, 2));
+		return;
+	}
+	
+	if (text_display != null && text_display.text.tw_active) {
 		text_display.text.skip();
+		
+		if (is_player_turn()) {
+			buffer_seek_begin();
+			buffer_write_from_host(false);
+			buffer_write_action(Client_TCP.SkipDialogueText);
+			network_send_tcp_packet();
+		}
+		
 		return;
 	}
 	
 	if (text_index > 0) {
 		var event = text_branch[text_index - 1].event;
 		
-		if (event != noone) {
+		if (event != null) {
 			event();
 		}
 	}
@@ -53,7 +66,10 @@ function text_advance() {
 	
 	//The current text is empty so that means it's just an event
 	if (set_text.text.text == "") {
-		set_text.event();
+		if (set_text.event != null) {
+			set_text.event();
+		}
+		
 		text_end();
 		return;
 	}
@@ -63,6 +79,20 @@ function text_advance() {
 	text_index++;
 	text_delay = 20;
 	answer_displays = [];
+	
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ChangeDialogueText);
+		buffer_write_data(buffer_string, text_display.text.text);
+		
+		for (var i = 0; i < array_length(text_display.branches); i++) {
+			buffer_write_data(buffer_string, text_display.branches[i][0]);
+		}
+		
+		buffer_write_data(buffer_string, "\0");
+		network_send_tcp_packet();
+	}
 }
 
 function text_start() {
@@ -76,6 +106,13 @@ function text_end() {
 	if (endable) {
 		curve_target = 0;
 		curve_perform = true;
+		
+		if (is_player_turn()) {
+			buffer_seek_begin();
+			buffer_write_from_host(false);
+			buffer_write_action(Client_TCP.EndDialogue);
+			network_send_tcp_packet();
+		}
 	}
 }
 

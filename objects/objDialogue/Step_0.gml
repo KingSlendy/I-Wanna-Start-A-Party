@@ -18,14 +18,21 @@ if (active) {
 	var answers = array_length(answer_displays);
 	
 	if (answers == 0) {
-		if (!text_display.text.tw_active) {
-			repeat (array_length(text_display.branches)) {
-				array_push(answer_displays, new Text(fntDialogue));
-			}
+		repeat (array_length(text_display.branches)) {
+			array_push(answer_displays, new Text(fntDialogue));
 		}
 	} else {
+		var prev_answer = answer_index;
 		var move = (global.down_action.pressed() - global.up_action.pressed());
 		answer_index = (answer_index + move + answers) % answers;
+		
+		if (prev_answer != answer_index) {
+			buffer_seek_begin();
+			buffer_write_from_host(false);
+			buffer_write_action(Client_TCP.ChangeDialogueAnswer);
+			buffer_write_data(buffer_u8, answer_index);
+			network_send_tcp_packet();
+		}
 	}
 	
 	if (answers > 0 && --text_delay > 0) {

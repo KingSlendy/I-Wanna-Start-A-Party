@@ -12,7 +12,11 @@ enum Client_TCP {
 	ChooseShine,
 	ChangeShines,
 	ChangeCoins,
-	ChangeSpace
+	ChangeSpace,
+	SkipDialogueText,
+	ChangeDialogueText,
+	ChangeDialogueAnswer,
+	EndDialogue
 }
 
 enum Client_UDP {
@@ -136,6 +140,55 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var player_id = buffer_read(buffer, buffer_u8);
 			var space = buffer_read(buffer, buffer_u8);
 			change_space(space, player_id);
+			break;
+			
+		case Client_TCP.SkipDialogueText:
+			with (objDialogue) {
+				text_display.text.skip();
+			}
+			break;
+			
+		case Client_TCP.ChangeDialogueText:
+			var d = objDialogue;
+		
+			if (!instance_exists(objDialogue)) {
+				d = start_dialogue([]);
+				d.active = false;
+				d.endable = false;
+			}
+		
+			with (d) {
+				text_display.branches = [];
+				var text = buffer_read(buffer, buffer_string);
+			
+				while (true) {
+					var data = buffer_read(buffer, buffer_string);
+				
+					if (data == "\0") {
+						break;
+					}
+				
+					array_push(text_display.branches, [data, null]);
+				}
+		
+				text_change(text);
+				
+				repeat (array_length(text_display.branches)) {
+					array_push(answer_displays, new Text(fntDialogue));
+				}
+			}
+			break;
+			
+		case Client_TCP.ChangeDialogueAnswer:
+			var answer_index = buffer_read(buffer, buffer_u8);
+			objDialogue.answer_index = answer_index;
+			break;
+			
+		case Client_TCP.EndDialogue:
+			with (objDialogue) {
+				endable = true;
+				text_end();
+			}
 			break;
 	}
 }

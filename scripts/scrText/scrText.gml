@@ -272,7 +272,7 @@ function Format(text) constructor {
 	//}
 }
 
-function Message(text, branches = [], event = noone) constructor {
+function Message(text, branches = [], event = null) constructor {
 	self.text = text;
 	self.branches = branches;
 	self.event = event;
@@ -282,11 +282,12 @@ function Message(text, branches = [], event = noone) constructor {
 	//}
 }
 
-function start_dialogue(font, texts, tw_spd = 2) {
+function start_dialogue(texts, tw_spd = 2) {
 	var xx = (display_get_gui_width() - global.main_dialogue_width) / 2;
 	var yy = display_get_gui_height() - global.main_dialogue_height;
 	var ww = global.main_dialogue_width;
 	var hh = global.main_dialogue_height;
+	var font = fntDialogue;
 	
 	function set_texts_deep(texts, font, tw_spd) {
 		for (var i = 0; i < array_length(texts); i++) {

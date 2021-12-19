@@ -12,7 +12,7 @@ if (prev_selected != option_selected) {
 		var item = stock[option_selected];
 		
 		with (objDialogue) {
-			text_change(item.name + "\n\n\n" + item.desc);
+			text_change(item.name + "\n \n" + item.desc);
 		}
 	}
 }

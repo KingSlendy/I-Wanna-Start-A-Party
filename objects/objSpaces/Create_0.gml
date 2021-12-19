@@ -18,7 +18,7 @@ function space_passing_event() {
 		case SpaceType.Pink:
 			//board_advance();
 			if (get_player_info().coins >= 5) {
-				start_dialogue(fntDialogue, [
+				start_dialogue([
 					new Message("Do you wanna enter the shop?", [
 						["Yes", [
 							new Message("",, function() {
@@ -34,8 +34,8 @@ function space_passing_event() {
 				]);
 				//board_advance();
 			} else {
-				start_dialogue(fntDialogue, [
-					new Message("You don't have enough money to enter the shop!", [], board_advance)
+				start_dialogue([
+					new Message("You don't have enough money to enter the shop!",, board_advance)
 				]);
 			}
 			return true;
