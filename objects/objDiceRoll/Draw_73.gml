@@ -1,4 +1,4 @@
-if (!global.show_dice_roll && global.dice_roll > 0) {
+if (global.dice_roll == 0 || instance_exists(objItemChange) || instance_exists(objThingChange)) {
 	exit;
 }
 

@@ -12,7 +12,7 @@ function network_read_host(ip, port, socket, buffer) {
 		
 	var match_size = buffer_read(buffer, buffer_u16);
 	
-	if (buffer_get_size(buffer) + 5 != match_size) {
+	if (buffer_get_size(buffer) != match_size) {
 		return;
 	}
 	

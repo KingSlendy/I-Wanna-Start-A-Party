@@ -7,7 +7,7 @@ if (!global.board_started) {
 	global.path_current = objBoard.path_first;
 	global.path_number = 0;
 	global.board_started = true;
-	show_dice();
+	turn_start();
 	exit;
 }
 

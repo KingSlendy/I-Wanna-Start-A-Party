@@ -3,20 +3,27 @@ enum Client_TCP {
 	PlayerConnect,
 	PlayerDisconnect,
 	PlayerMove,
+	StartTurn,
+	ChangeChoiceSelected,
 	NextTurn,
 	ShowDice,
 	RollDice,
+	HideDice,
 	LessRoll,
 	ShowChest,
 	OpenChest,
 	ChooseShine,
 	ChangeShines,
 	ChangeCoins,
+	ChangeItems,
 	ChangeSpace,
 	SkipDialogueText,
 	ChangeDialogueText,
 	ChangeDialogueAnswer,
-	EndDialogue
+	EndDialogue,
+	ShowShop,
+	ChangeShopSelected,
+	EndShop
 }
 
 enum Client_UDP {
@@ -42,7 +49,7 @@ function network_read_client(ip, port, buffer) {
 		
 		var match_size = buffer_read(buffer, buffer_u16);
 	
-		if (buffer_get_size(buffer) + 5 != match_size) {
+		if (buffer_get_size(buffer) != match_size) {
 			return;
 		}
 		
@@ -88,6 +95,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			player_read_data(buffer);
 			break;
 			
+		case Client_TCP.StartTurn:
+			turn_start();
+			break;
+			
+		case Client_TCP.ChangeChoiceSelected:
+			objChoices.choice_selected = buffer_read(buffer, buffer_u8);
+			break;
+			
 		case Client_TCP.NextTurn:
 			global.player_turn = buffer_read(buffer, buffer_u8);
 			instance_create_layer(0, 0, "Managers", objNextTurn);
@@ -99,7 +114,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.RollDice:
-			global.dice_roll = buffer_read(buffer, buffer_u8);
+			objDice.roll = buffer_read(buffer, buffer_u8);
+			roll_dice();
+			break;
+			
+		case Client_TCP.HideDice:
 			instance_destroy(objDice);
 			break;
 			
@@ -134,6 +153,13 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var amount = buffer_read(buffer, buffer_s16);
 			var type = buffer_read(buffer, buffer_u8);
 			change_coins(amount, type, player_id);
+			break;
+			
+		case Client_TCP.ChangeItems:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var item_id = buffer_read(buffer, buffer_u8);
+			var type = buffer_read(buffer, buffer_u8);
+			change_items(global.board_items[item_id], type, player_id);
 			break;
 			
 		case Client_TCP.ChangeSpace:
@@ -188,6 +214,29 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objDialogue) {
 				endable = true;
 				text_end();
+			}
+			break;
+			
+		case Client_TCP.ShowShop:
+			var s = instance_create_layer(0, 0, "Managers", objShop);
+			s.player_info = get_player_info(buffer_read(buffer, buffer_u8));
+			
+			while (true) {
+				try {
+					array_push(s.stock, global.board_items[buffer_read(buffer, buffer_u8)]);;
+				} catch (_) {
+					return;
+				}
+			}
+			break;
+			
+		case Client_TCP.ChangeShopSelected:
+			objShop.option_selected = buffer_read(buffer, buffer_u8);
+			break;
+			
+		case Client_TCP.EndShop:
+			with (objShop) {
+				shop_end();
 			}
 			break;
 	}

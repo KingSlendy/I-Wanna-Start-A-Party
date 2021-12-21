@@ -5,6 +5,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 	self.font = font;
 	self.text = text;
 	self.tw_spd = tw_spd;
+	self.original_text = text;
 	self.tw_active = false;
 	
 	self.formats = [];
@@ -116,15 +117,6 @@ function Text(font, text = "", tw_spd = 0) constructor {
 				continue;
 			}
 			
-			if (char == "%") {
-				var format = self.formats[current_format++];
-				var margins = format.apply(self, x, y, width, max_width, height, max_height);
-				width = margins.w;
-				height = margins.h;
-				max_height = margins.mh;
-				continue;
-			}
-
 			var offset_x = 0;
 			var offset_y = 0;
 			
@@ -139,6 +131,15 @@ function Text(font, text = "", tw_spd = 0) constructor {
 			if (self.text_shake) {
 				offset_x = random_range(-0.6, 0.6);
 				offset_y = random_range(-0.6, 0.6);
+			}
+			
+			if (char == "%") {
+				var format = self.formats[current_format++];
+				var margins = format.apply(self, x + offset_x, y + offset_y, width, max_width, height, max_height);
+				width = margins.w;
+				height = margins.h;
+				max_height = margins.mh;
+				continue;
 			}
 			
 			if (self.text_rainbow) {
@@ -282,32 +283,32 @@ function Message(text, branches = [], event = null) constructor {
 	//}
 }
 
-function start_dialogue(texts, tw_spd = 2) {
+function set_texts_deep(texts, font, tw_spd) {
+	for (var i = 0; i < array_length(texts); i++) {
+		var text = texts[i];
+
+		if (instanceof(text) == "Message") {
+			text.text = new Text(font, text.text, tw_spd);
+				
+			if (array_length(text.branches) > 0) {
+				set_texts_deep(text.branches, font, tw_spd);
+			}
+		} else if (is_array(text)) {
+			//text[@ 0] = language_get_text(text[0]);
+			set_texts_deep(text[1], font, tw_spd);
+		} else {
+			//language_get_text(text)
+			texts[@ i] = new Message(new Text(font, text, tw_spd));
+		}
+	}
+}
+
+function start_dialogue(texts, tw_spd = 1) {
 	var xx = (display_get_gui_width() - global.main_dialogue_width) / 2;
 	var yy = display_get_gui_height() - global.main_dialogue_height;
 	var ww = global.main_dialogue_width;
 	var hh = global.main_dialogue_height;
 	var font = fntDialogue;
-	
-	function set_texts_deep(texts, font, tw_spd) {
-		for (var i = 0; i < array_length(texts); i++) {
-			var text = texts[i];
-
-			if (instanceof(text) == "Message") {
-				text.text = new Text(font, text.text, tw_spd);
-				
-				if (array_length(text.branches) > 0) {
-					set_texts_deep(text.branches, font, tw_spd);
-				}
-			} else if (is_array(text)) {
-				//text[@ 0] = language_get_text(text[0]);
-				set_texts_deep(text[1], font, tw_spd);
-			} else {
-				//language_get_text(text)
-				texts[@ i] = new Message(new Text(font, text, tw_spd));
-			}
-		}
-	}
 	
 	set_texts_deep(texts, font, tw_spd);
 	
@@ -321,4 +322,22 @@ function start_dialogue(texts, tw_spd = 2) {
 	}
 	
 	return dialogue;
+}
+
+function change_dialogue(texts, tw_spd = 1) {
+	var ww = global.main_dialogue_width;
+	var hh = global.main_dialogue_height;
+	var font = fntDialogue;
+	
+	set_texts_deep(texts, font, tw_spd);
+	
+	with (objDialogue) {
+		event_perform(ev_create, 0);
+		width = ww;
+		height = hh;
+		self.texts = texts;
+		curve_pos = 1;
+		
+		text_start();
+	}
 }

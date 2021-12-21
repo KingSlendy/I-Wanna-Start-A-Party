@@ -1,15 +1,17 @@
 if (curve_perform) {
 	curve_value = animcurve_channel_evaluate(curve_channel, curve_pos);
 	curve_pos += curve_spd * ((curve_target == 1) ? 1 : -1);
-	curve_y = curve_value * height;
+	curve_offset = curve_value * height;
 	
-	if (abs(curve_target - curve_pos) < curve_spd) {
+	if (abs(curve_target - curve_pos) <= 0) {
 		curve_pos = curve_target;
-		curve_y = curve_target;
+		curve_value = animcurve_channel_evaluate(curve_channel, curve_pos);
+		curve_offset = curve_value * height;
 		curve_perform = false;
 		
 		if (curve_target == 0) {
 			instance_destroy();
+			exit;
 		}
 	}
 }

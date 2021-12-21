@@ -19,3 +19,4 @@ global.right_action = new Action(vk_right);
 global.up_action = new Action(vk_up);
 global.down_action = new Action(vk_down);
 global.jump_action = new Action(vk_shift);
+global.shoot_action = new Action(ord("Z"));

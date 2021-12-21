@@ -32,8 +32,7 @@ switch (player_info.turn) {
 }
 
 draw_set_alpha(1);
-draw_sprite_ext(sprBoxFill, 0, draw_x, draw_y, draw_w, draw_h, 0, player_info.space, 1);
-draw_sprite_stretched(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h);
+draw_box(draw_x, draw_y, draw_w, draw_h, player_info.space);
 draw_set_font(fntPlayerInfo);
 draw_set_color(c_dkgray);
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
@@ -44,6 +43,16 @@ text.draw(draw_x + 40, draw_y + 10);
 var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(player_info.coins));
 text.draw(draw_x + 46, draw_y + 36);
 draw_set_halign(fa_right);
+
+for (var i = 0; i < 3; i++) {
+	var item = player_info.items[i];
+	
+	if (item == null) {
+		break;
+	}
+	
+	draw_sprite_ext(item.sprite, 0, draw_x + 150 + 35 * i, draw_y + 20, 0.5, 0.5, 0, c_white, 1);
+}
 
 var place = "?st";
 

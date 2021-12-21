@@ -21,12 +21,12 @@ curve_channel = animcurve_get_channel(curve_type, "Pos");
 curve_target = 1;
 curve_pos = 0;
 curve_spd = 0.05;
-curve_value = 1;
-curve_y = -1;
+curve_value = 0;
+curve_offset = null;
 
 function text_advance() {
 	if (array_length(text_branch) == 0) {
-		text_display = new Message(new Text(fntDialogue,, 2));
+		text_display = new Message(new Text(fntDialogue,, 1));
 		return;
 	}
 	
@@ -84,7 +84,7 @@ function text_advance() {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeDialogueText);
-		buffer_write_data(buffer_string, text_display.text.text);
+		buffer_write_data(buffer_string, text_display.text.original_text);
 		
 		for (var i = 0; i < array_length(text_display.branches); i++) {
 			buffer_write_data(buffer_string, text_display.branches[i][0]);
@@ -105,6 +105,7 @@ function text_end() {
 	
 	if (endable) {
 		curve_target = 0;
+		curve_pos = 1;
 		curve_perform = true;
 		
 		if (is_player_turn()) {

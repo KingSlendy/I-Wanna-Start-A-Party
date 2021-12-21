@@ -19,11 +19,25 @@ function PlayerBoard(network_id, turn) constructor {
 	self.network_id = network_id;
 	self.turn = turn;
 	self.shines = 0;
-	self.coins = 100;
+	self.coins = 10;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
+	
+	static free_item_slot = function() {
+		if (self.items[2]) {
+			return -1;
+		}
+		
+		var slot = 0;
+		
+		while (slot < 2 && self.items[slot] != null) {
+			slot++;
+		}
+		
+		return slot;
+	}
 	
 	static toString = function() {
 		return string(self.turn);
@@ -69,20 +83,26 @@ function board_start() {
 				board_advance();
 			}
 		} else {
-			show_dice();
+			turn_start();
 		}
 	}
 }
 
 function turn_start() {
+	instance_create_layer(0, 0, "Managers", objChoices);
+	
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.StartTurn);
+		network_send_tcp_packet();
+	}
 }
 
 function board_advance() {
 	if (!is_player_turn()) {
 		return;
 	}
-	
-	global.show_dice_roll = true;
 	
 	with (objPlayerBoard) {
 		follow_path = path_add();
@@ -138,15 +158,21 @@ function show_dice(id = global.player_id) {
 }
 
 function roll_dice() {
+	instance_destroy(objChoices);
+	
+	instance_create_layer(objDice.x + 16, objDice.y + 16, "Actors", objDiceRoll);
+	audio_play_sound(sndDiceHit, 0, false);
 	//global.dice_roll = objDice.roll;
 	global.dice_roll = 10;
 	instance_destroy(objDice);
 	
-	buffer_seek_begin();
-	buffer_write_from_host(false);
-	buffer_write_action(Client_TCP.RollDice);
-	buffer_write_data(buffer_u8, global.dice_roll);
-	network_send_tcp_packet();
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.RollDice);
+		buffer_write_data(buffer_u8, global.dice_roll);
+		network_send_tcp_packet();
+	}
 }
 
 function show_chest(id = global.player_id) {
@@ -177,7 +203,7 @@ function open_chest() {
 function next_turn() {
 	global.player_turn += 1;
 	
-	if (global.player_turn > 2) {
+	if (global.player_turn > 1) {
 		global.player_turn = 1;
 	}
 	
@@ -280,6 +306,26 @@ function change_coins(amount, type, id = global.player_id) {
 	}
 	
 	return c;
+}
+
+function change_items(item, type, id = global.player_id) {
+	var i = instance_create_layer(0, 0, "Managers", objItemChange);
+	i.player_id = id;
+	i.animation_type = type;
+	i.amount = (type == ItemChangeType.Gain) ? 1 : -1;
+	i.item = item;
+	
+	if (id == global.player_id) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ChangeItems);
+		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u8, item.id);
+		buffer_write_data(buffer_u8, type);
+		network_send_tcp_packet();
+	}
+	
+	return i;
 }
 
 function calculate_player_place() {
