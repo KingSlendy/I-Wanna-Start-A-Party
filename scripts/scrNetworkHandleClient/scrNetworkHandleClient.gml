@@ -100,16 +100,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeChoiceSelected:
-			objChoices.choice_selected = buffer_read(buffer, buffer_u8);
+			objTurnChoices.choice_selected = buffer_read(buffer, buffer_u8);
 			break;
 			
 		case Client_TCP.NextTurn:
-			global.player_turn = buffer_read(buffer, buffer_u8);
-			instance_create_layer(0, 0, "Managers", objNextTurn);
+			next_turn();
 			break;
 			
 		case Client_TCP.ShowDice:
 			var player_id = buffer_read(buffer, buffer_u8);
+			var seed = buffer_read(buffer, buffer_u16);
+			random_set_seed(seed);
 			show_dice(player_id);	
 			break;
 			
@@ -127,8 +128,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ShowChest:
-			var player_id = buffer_read(buffer, buffer_u8);
-			show_chest(player_id);
+			show_chest();
 			break;
 			
 		case Client_TCP.OpenChest:
@@ -142,30 +142,26 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeShines:
-			var player_id = buffer_read(buffer, buffer_u8);
 			var amount = buffer_read(buffer, buffer_u8);
 			var type = buffer_read(buffer, buffer_u8);
-			change_shines(amount, type, player_id);
+			change_shines(amount, type);
 			break;
 			
 		case Client_TCP.ChangeCoins:
-			var player_id = buffer_read(buffer, buffer_u8);
 			var amount = buffer_read(buffer, buffer_s16);
 			var type = buffer_read(buffer, buffer_u8);
-			change_coins(amount, type, player_id);
+			change_coins(amount, type);
 			break;
 			
 		case Client_TCP.ChangeItems:
-			var player_id = buffer_read(buffer, buffer_u8);
 			var item_id = buffer_read(buffer, buffer_u8);
 			var type = buffer_read(buffer, buffer_u8);
-			change_items(global.board_items[item_id], type, player_id);
+			change_items(global.board_items[item_id], type);
 			break;
 			
 		case Client_TCP.ChangeSpace:
-			var player_id = buffer_read(buffer, buffer_u8);
 			var space = buffer_read(buffer, buffer_u8);
-			change_space(space, player_id);
+			change_space(space);
 			break;
 			
 		case Client_TCP.SkipDialogueText:
@@ -219,7 +215,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ShowShop:
 			var s = instance_create_layer(0, 0, "Managers", objShop);
-			s.player_info = get_player_info(buffer_read(buffer, buffer_u8));
 			
 			while (true) {
 				try {

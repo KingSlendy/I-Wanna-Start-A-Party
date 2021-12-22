@@ -28,6 +28,9 @@ if (global.jump_action.pressed()) {
 			break;
 			
 		case 1:
+			if (available_item) {
+				change_items(player_turn_info.items[0], ItemChangeType.Use).slot = 0;
+			}
 			break;
 		
 		case 2:

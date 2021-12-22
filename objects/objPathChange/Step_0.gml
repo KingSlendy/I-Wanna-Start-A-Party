@@ -1,4 +1,8 @@
 //Temp
+if (instance_exists(objMapLook)) {
+	exit;
+}
+
 if (global.up_action.pressed()) {
 	if (paths.N != null) {
 		global.path_current = space.path_north;

@@ -6,7 +6,7 @@ for (var i = 0; i < array_length(stock); i++) {
 	var item = stock[i];
 	var selected = "";
 	
-	if (player_info.coins >= item.price) {
+	if (player_turn_info.coins >= item.price) {
 		if (i == option_selected) {
 			selected += "{RAINBOW}{WAVE}";
 		}

@@ -41,7 +41,7 @@ if (shopping && is_player_turn()) {
 	if (global.jump_action.pressed()) {
 		io_clear();
 		
-		if (player_info.coins >= item_selected.price) {
+		if (player_turn_info.coins >= item_selected.price) {
 			change_dialogue([
 				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
 					["Buy (" + draw_coins_price(item_selected.price) + ")", [

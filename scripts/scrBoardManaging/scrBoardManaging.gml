@@ -24,6 +24,8 @@ function PlayerBoard(network_id, turn) constructor {
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
+	self.item_used = null;
+	self.item_effect = null;
 	
 	static free_item_slot = function() {
 		if (self.items[2]) {
@@ -89,12 +91,13 @@ function board_start() {
 }
 
 function turn_start() {
-	instance_create_layer(0, 0, "Managers", objChoices);
+	instance_create_layer(0, 0, "Managers", objTurnChoices);
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.StartTurn);
+		buffer_write_data(buffer_u8, id);
 		network_send_tcp_packet();
 	}
 }
@@ -103,6 +106,8 @@ function board_advance() {
 	if (!is_player_turn()) {
 		return;
 	}
+	
+	global.can_open_map = false;
 	
 	with (objPlayerBoard) {
 		follow_path = path_add();
@@ -145,7 +150,7 @@ function board_advance() {
 
 function show_dice(id = global.player_id) {
 	var focus = focused_player_turn();
-	instance_create_layer(focus.x - 16, focus.y - 69, "Actors", objDice);
+	instance_create_layer(focus.x, focus.y - 37, "Actors", objDice);
 	
 	if (id == global.player_id) {
 		objPlayerBoard.can_jump = true;
@@ -153,14 +158,15 @@ function show_dice(id = global.player_id) {
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ShowDice);
 		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u16, random_get_seed());
 		network_send_tcp_packet();
 	}
 }
 
 function roll_dice() {
-	instance_destroy(objChoices);
+	instance_destroy(objTurnChoices);
 	
-	instance_create_layer(objDice.x + 16, objDice.y + 16, "Actors", objDiceRoll);
+	instance_create_layer(objDice.x, objDice.y - 16, "Actors", objDiceRoll);
 	audio_play_sound(sndDiceHit, 0, false);
 	//global.dice_roll = objDice.roll;
 	global.dice_roll = 10;
@@ -175,18 +181,16 @@ function roll_dice() {
 	}
 }
 
-function show_chest(id = global.player_id) {
+function show_chest() {
 	var focus = focused_player_turn();
-	var c = instance_create_layer(focus.x - 16, focus.y - 75, "Actors", objHiddenChest);
-	c.player_id = id;
+	instance_create_layer(focus.x - 16, focus.y - 75, "Actors", objHiddenChest);
 	audio_play_sound(sndHiddenChestSpawn, 0, false);
 	
-	if (id == global.player_id) {
+	if (is_player_turn()) {
 		objPlayerBoard.can_jump = true;
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ShowChest);
-		buffer_write_data(buffer_u8, id);
 		network_send_tcp_packet();
 	}
 }
@@ -201,20 +205,25 @@ function open_chest() {
 }
 
 function next_turn() {
-	global.player_turn += 1;
+	var player_turn_info = get_player_turn_info();
+	player_turn_info.item_used = null;
+	player_turn_info.item_effect = null;
 	
-	if (global.player_turn > 1) {
-		global.player_turn = 1;
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.NextTurn);
+		network_send_tcp_packet();
 	}
 	
+	global.player_turn += 1;
+
+	if (global.player_turn > 2) {
+		global.player_turn = 1;
+	}
+
 	instance_create_layer(0, 0, "Managers", objNextTurn);
 	instance_destroy(objHiddenChest);
-	
-	buffer_seek_begin();
-	buffer_write_from_host(false);
-	buffer_write_action(Client_TCP.NextTurn);
-	buffer_write_data(buffer_u8, global.player_turn);
-	network_send_tcp_packet();
 }
 
 function choose_shine() {
@@ -270,17 +279,23 @@ function get_player_info(id = global.player_id) {
 	}
 }
 
-function change_shines(amount, type, id = global.player_id) {
+function get_player_turn_info() {
+	with (objPlayerInfo) {
+		if (player_info.turn == global.player_turn) {
+			return player_info;
+		}
+	}
+}
+
+function change_shines(amount, type) {
 	var s = instance_create_layer(0, 0, "Managers", objShineChange);
-	s.player_id = id;
 	s.amount = amount;
 	s.animation_type = type;
 
-	if (id == global.player_id) {
+	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeShines);
-		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_u8, amount);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
@@ -289,17 +304,15 @@ function change_shines(amount, type, id = global.player_id) {
 	return s;
 }
 
-function change_coins(amount, type, id = global.player_id) {
+function change_coins(amount, type) {
 	var c = instance_create_layer(0, 0, "Managers", objCoinChange);
-	c.player_id = id;
 	c.amount = amount;
 	c.animation_type = type;
 	
-	if (id == global.player_id) {
+	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeCoins);
-		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_s16, amount);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
@@ -308,18 +321,16 @@ function change_coins(amount, type, id = global.player_id) {
 	return c;
 }
 
-function change_items(item, type, id = global.player_id) {
+function change_items(item, type) {
 	var i = instance_create_layer(0, 0, "Managers", objItemChange);
-	i.player_id = id;
 	i.animation_type = type;
 	i.amount = (type == ItemChangeType.Gain) ? 1 : -1;
 	i.item = item;
 	
-	if (id == global.player_id) {
+	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeItems);
-		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_u8, item.id);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
@@ -364,7 +375,7 @@ function calculate_player_place() {
 	}
 }
 
-function change_space(space, id = global.player_id) {
+function change_space(space) {
 	var color = c_white;
 	
 	switch (space) {
@@ -374,14 +385,29 @@ function change_space(space, id = global.player_id) {
 		default: color = c_gray; break;
 	}
 	
-	get_player_info(id).space = color;
+	get_player_turn_info().space = color;
 	
-	if (id == global.player_id) {
+	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeSpace);
-		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_u8, space);
 		network_send_tcp_packet();
+	}
+}
+
+function item_applied(item) {
+	switch (item.id) {
+		case ItemType.Poison:
+			get_player_turn_info().item_effect = item.id;
+			break;
+	}
+	
+	if (is_player_turn()) {
+		//buffer_seek_begin();
+		//buffer_write_from_host(false);
+		//buffer_write_action(Client_TCP.ItemApplied);
+		//buffer_write_data(buffer_u8, item.id);
+		//network_send_tcp_packet();
 	}
 }

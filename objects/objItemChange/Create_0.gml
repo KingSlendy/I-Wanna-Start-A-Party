@@ -1,8 +1,11 @@
 enum ItemChangeType {
 	None,
 	Gain,
-	Lose
+	Lose,
+	Use
 }
 
 event_inherited();
 item = null;
+spawned_item = null;
+slot = -1;

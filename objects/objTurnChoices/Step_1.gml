@@ -1,0 +1,1 @@
+available_item = (player_turn_info.item_used == null && player_turn_info.items[0] != null)

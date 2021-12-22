@@ -1,6 +1,8 @@
 if (is_player_turn() && objPlayerBoard.can_jump && global.shoot_action.pressed()) {
 	objPlayerBoard.can_jump = false;
-	instance_destroy();
+	layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
+	layer_sequence_headdir(sequence, -1);
+	layer_sequence_play(sequence);
 	
 	buffer_seek_begin();
 	buffer_write_from_host(false);

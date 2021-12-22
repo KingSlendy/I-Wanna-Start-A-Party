@@ -16,10 +16,10 @@ glowing = false;
 function space_passing_event() {
 	switch (image_index) {
 		case SpaceType.Pink:
-			var my_info = get_player_info();
+			var player_turn_info = get_player_turn_info();
 			
-			if (my_info.free_item_slot() != -1) {
-				if (get_player_info().coins >= 5) {
+			if (player_turn_info.free_item_slot() != -1) {
+				if (player_turn_info.coins >= 5) {
 					start_dialogue([
 						new Message("Do you wanna enter the shop?", [
 							["Yes", [
@@ -47,7 +47,7 @@ function space_passing_event() {
 			return true;
 		
 		case SpaceType.Shine:
-			if (get_player_info().coins >= 20) {
+			if (get_player_turn_info().coins >= 20) {
 				var buy_shine = function() {
 					change_coins(-20, CoinChangeType.Spend).final_action = function() {
 						change_shines(1, ShineChangeType.Get).final_action = choose_shine;
@@ -97,6 +97,7 @@ function space_passing_event() {
 			}
 			
 			global.path_number = 0;
+			global.can_open_map = true;
 			return true;
 	}
 	

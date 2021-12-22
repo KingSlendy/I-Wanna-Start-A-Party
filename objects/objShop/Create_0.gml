@@ -49,7 +49,7 @@ option_selected = -1;
 option_previous = 0;
 item_selected = -1;
 shopping = true;
-player_info = get_player_info();
+player_turn_info = get_player_turn_info();
 offset_target = 1;
 offset_pos = 0;
 offset_y = -454;
@@ -69,7 +69,6 @@ if (is_player_turn()) {
 	buffer_seek_begin();
 	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ShowShop);
-	buffer_write_data(buffer_u8, global.player_id);
 	
 	for (var i = 0; i < array_length(stock); i++) {
 		buffer_write_data(buffer_u8, stock[i].id);

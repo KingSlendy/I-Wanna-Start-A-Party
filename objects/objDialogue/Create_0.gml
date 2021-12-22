@@ -78,6 +78,7 @@ function text_advance() {
 	text_display.text.tw_active = true;
 	text_index++;
 	text_delay = 20;
+	answer_index = 0;
 	answer_displays = [];
 	
 	if (is_player_turn()) {
@@ -120,6 +121,7 @@ function text_end() {
 function text_change(text) {
 	text_display.text.set(text);
 	text_display.text.tw_reset();
-	text_delay = 20;
+	text_display.text.tw_spd = 1;
+	answer_index = 0;
 	answer_displays = [];
 }
