@@ -11,5 +11,6 @@ if (!used_item) {
 	spawned_item.vspeed = 3;
 	spawned_item.used = true;
 	item_applied(item);
-	instance_destroy();
+	animation_state = 2;
+	animation_alpha = 1;
 }

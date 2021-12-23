@@ -31,9 +31,9 @@ switch (player_info.turn) {
 	default: exit;
 }
 
-try {
-	var idle = get_skin_pose(focus_player(player_info.network_id).sprite_index, "Idle");
-} catch (_) {
+var idle = get_skin_pose_object(focus_player(player_info.network_id), "Idle");
+
+if (idle == sprNothing) {
 	exit;
 }
 

@@ -1,3 +1,7 @@
+if (used_item) {
+	exit;
+}
+
 draw_set_alpha(animation_alpha);
 var positive = (sign(amount) == 1);
 draw_set_color((positive) ? c_blue : c_red);

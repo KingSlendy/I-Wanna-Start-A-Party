@@ -49,34 +49,7 @@ glowing = false;
 function space_passing_event() {
 	switch (image_index) {
 		case SpaceType.Pink:
-			var player_turn_info = get_player_turn_info();
-			
-			if (player_turn_info.free_item_slot() != -1) {
-				if (player_turn_info.coins >= 5) {
-					start_dialogue([
-						new Message("Do you wanna enter the shop?", [
-							["Yes", [
-								new Message("",, function() {
-									instance_create_layer(0, 0, "Managers", objShop);
-									objDialogue.endable = false;
-								})
-							]],
-						
-							["No", [
-								new Message("",, board_advance)
-							]]
-						])
-					]);
-				} else {
-					start_dialogue([
-						new Message("You don't have enough money to enter the shop!",, board_advance)
-					]);
-				}
-			} else {
-				start_dialogue([
-					new Message("You don't have item space!\nCome back later.",, board_advance)
-				]);
-			}
+			call_shop();
 			return true;
 		
 		case SpaceType.Shine:
@@ -114,8 +87,6 @@ function space_passing_event() {
 						]]
 					])
 				]);
-				
-				
 			} else {
 				start_dialogue([
 					new Message("You don't have enough coins ({SPRITE,sprCoin,0,0,0,0.6,0.6}20) to buy the shine!\nCome back later.",, board_advance)

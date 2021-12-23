@@ -60,18 +60,22 @@ function focused_player_turn() {
 			}
 		}
 	}
+	
+	return noone;
 }
 
-function focus_player(id) {
-	if (id == global.player_id) {
+function focus_player(player_id) {
+	if (player_id == global.player_id) {
 		return objPlayerBase;
 	} else {
 		with (objNetworkPlayer) {
-			if (network_id == id) {
+			if (network_id == player_id) {
 				return id;
 			}
 		}
 	}
+	
+	return noone;
 }
 
 function board_start() {
@@ -103,7 +107,7 @@ function turn_start() {
 }
 
 function board_advance() {
-	if (!is_player_turn()) {
+	if (!is_player_turn() || global.dice_roll == 0) {
 		return;
 	}
 	
@@ -419,6 +423,37 @@ function change_space(space) {
 	}
 }
 
+function call_shop() {
+	var player_turn_info = get_player_turn_info();
+			
+	if (player_turn_info.free_item_slot() != -1) {
+		if (player_turn_info.coins >= 5) {
+			start_dialogue([
+				new Message("Do you wanna enter the shop?", [
+					["Yes", [
+						new Message("",, function() {
+							instance_create_layer(0, 0, "Managers", objShop);
+							objDialogue.endable = false;
+						})
+					]],
+						
+					["No", [
+						new Message("",, board_advance)
+					]]
+				])
+			]);
+		} else {
+			start_dialogue([
+				new Message("You don't have enough money to enter the shop!",, board_advance)
+			]);
+		}
+	} else {
+		start_dialogue([
+			new Message("You don't have item space!\nCome back later.",, board_advance)
+		]);
+	}
+}
+
 function show_multiple_choices(choices) {
 	global.choice_selected = -1;
 	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
@@ -449,6 +484,14 @@ function item_applied(item) {
 		case ItemType.Clock:
 		case ItemType.Poison:
 			player_turn_info.item_effect = item.id;
+			break;
+			
+		case ItemType.Cellphone:
+			call_shop();
+			break;
+			
+		case ItemType.Mirror:
+			instance_create_layer(0, 0, "Managers", objItemMirrorUsed);
 			break;
 	}
 }
