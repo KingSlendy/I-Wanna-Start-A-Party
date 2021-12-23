@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPlayerIdle",
-    "path": "sprites/sprPlayerIdle/sprPlayerIdle.yy",
+    "name": "sprNormalPlayerIdle",
+    "path": "sprites/sprNormalPlayerIdle/sprNormalPlayerIdle.yy",
   },
   "solid": false,
   "visible": true,
@@ -34,6 +34,7 @@
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objDice","path":"objects/objDice/objDice.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objHiddenChest","path":"objects/objHiddenChest/objHiddenChest.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

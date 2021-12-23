@@ -31,13 +31,19 @@ switch (player_info.turn) {
 	default: exit;
 }
 
+//try {
+	var idle = get_skin_pose(focus_player(player_info.network_id).sprite_index, "Idle");
+//} catch (_) {
+	//exit;
+//}
+
 draw_set_alpha(1);
 draw_box(draw_x, draw_y, draw_w, draw_h, player_info.space);
 draw_set_font(fntPlayerInfo);
 draw_set_color(c_dkgray);
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
 draw_set_color(c_white);
-draw_sprite(sprPlayerIdle, 0, draw_x + 25, draw_y + 23);
+draw_sprite(idle, 0, draw_x + 25, draw_y + 23);
 var text = new Text(fntPlayerInfo, "{SPRITE,sprShine,0,0,-4,0.5,0.5}x" + string(player_info.shines));
 text.draw(draw_x + 40, draw_y + 10);
 var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(player_info.coins));
@@ -48,7 +54,7 @@ for (var i = 0; i < 3; i++) {
 	var item = player_info.items[i];
 	
 	if (item == null) {
-		break;
+		continue;
 	}
 	
 	draw_sprite_ext(item.sprite, 0, draw_x + 150 + 35 * i, draw_y + 20, 0.5, 0.5, 0, c_white, 1);

@@ -235,7 +235,7 @@ function Format(text) constructor {
 			};
 				
 			if (!ignore) {
-				draw_sprite_ext(parsed.sprite, parsed.subimg, x + width + sprite_get_xoffset(parsed.sprite) * parsed.xscale + parsed.xoff, y + height + sprite_get_yoffset(parsed.sprite) * parsed.yscale + parsed.yoff, parsed.xscale, parsed.yscale, 0, c_white, 1);
+				draw_sprite_ext(parsed.sprite, parsed.subimg, x + width + sprite_get_xoffset(parsed.sprite) * parsed.xscale + parsed.xoff, y + height + sprite_get_yoffset(parsed.sprite) * parsed.yscale + parsed.yoff, parsed.xscale, parsed.yscale, 0, c_white, draw_get_alpha());
 			}
 				
 			width += sprite_get_width(parsed.sprite) * parsed.xscale + parsed.xoff;

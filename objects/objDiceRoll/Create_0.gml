@@ -1,4 +1,8 @@
 vspeed = -4;
 gravity = 0.4;
+roll = 0;
+target_x = null;
+follow_target_x = false;
+follow_x = false;
 follow_y = false;
-alarm[0] = game_get_speed(gamespeed_fps) * 0.75;
+by_item = (instance_number(object_index) > 1);

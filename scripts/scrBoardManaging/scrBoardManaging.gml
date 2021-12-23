@@ -19,12 +19,12 @@ function PlayerBoard(network_id, turn) constructor {
 	self.network_id = network_id;
 	self.turn = turn;
 	self.shines = 0;
-	self.coins = 10;
+	self.coins = 100;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
-	self.item_used = null;
+	self.item_used = false;
 	self.item_effect = null;
 	
 	static free_item_slot = function() {
@@ -166,17 +166,57 @@ function show_dice(id = global.player_id) {
 function roll_dice() {
 	instance_destroy(objTurnChoices);
 	
-	instance_create_layer(objDice.x, objDice.y - 16, "Actors", objDiceRoll);
-	audio_play_sound(sndDiceHit, 0, false);
-	//global.dice_roll = objDice.roll;
-	global.dice_roll = 10;
+	var r = instance_create_layer(objDice.x, objDice.y - 16, "Actors", objDiceRoll);
+	r.roll = objDice.roll;
 	instance_destroy(objDice);
+	audio_play_sound(sndDiceHit, 0, false);
+	
+	var player_turn_info = get_player_turn_info();
+	var rolled_all_die = false;
+	
+	switch (player_turn_info.item_effect) {
+		case ItemType.Dice:
+			switch (instance_number(objDiceRoll)) {
+				case 1:
+					r.hspeed = -2;
+					break;
+				
+				case 2:
+					r.hspeed = 2;
+					rolled_all_die = true;
+					break;
+			}
+			break;
+			
+		case ItemType.DoubleDice:
+			switch (instance_number(objDiceRoll)) {
+				case 1:
+					r.hspeed = -2;
+					break;
+					
+				case 2:
+					r.hspeed = 2;
+					break;
+				
+				case 3:
+					rolled_all_die = true;
+					break;
+			}
+			break;
+			
+		default: rolled_all_die = true; break;
+	}
+	
+	
+	if (rolled_all_die) {
+		objDiceRoll.target_x = focused_player_turn().x;
+	}
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.RollDice);
-		buffer_write_data(buffer_u8, global.dice_roll);
+		buffer_write_data(buffer_u8, r.roll);
 		network_send_tcp_packet();
 	}
 }
@@ -206,7 +246,7 @@ function open_chest() {
 
 function next_turn() {
 	var player_turn_info = get_player_turn_info();
-	player_turn_info.item_used = null;
+	player_turn_info.item_used = false;
 	player_turn_info.item_effect = null;
 	
 	if (is_player_turn()) {
@@ -218,7 +258,7 @@ function next_turn() {
 	
 	global.player_turn += 1;
 
-	if (global.player_turn > 2) {
+	if (global.player_turn > 1) {
 		global.player_turn = 1;
 	}
 
@@ -279,9 +319,9 @@ function get_player_info(id = global.player_id) {
 	}
 }
 
-function get_player_turn_info() {
+function get_player_turn_info(turn = global.player_turn) {
 	with (objPlayerInfo) {
-		if (player_info.turn == global.player_turn) {
+		if (player_info.turn == turn) {
 			return player_info;
 		}
 	}
@@ -396,18 +436,44 @@ function change_space(space) {
 	}
 }
 
-function item_applied(item) {
-	switch (item.id) {
-		case ItemType.Poison:
-			get_player_turn_info().item_effect = item.id;
-			break;
-	}
+function show_multiple_choices(choices) {
+	global.choice_selected = -1;
+	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
+	m.choices = choices;
 	
 	if (is_player_turn()) {
-		//buffer_seek_begin();
-		//buffer_write_from_host(false);
-		//buffer_write_action(Client_TCP.ItemApplied);
-		//buffer_write_data(buffer_u8, item.id);
-		//network_send_tcp_packet();
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ShowMultipleChoices);
+		
+		for (var i = 0; i < array_length(choices); i++) {
+			buffer_write_data(buffer_string, choices[i]);
+		}
+		
+		buffer_write_data(buffer_string, "\0");
+		network_send_tcp_packet();
+	}
+	
+	return m;
+}
+
+function item_applied(item) {
+	var player_turn_info = get_player_turn_info();
+	
+	switch (item.id) {
+		case ItemType.Dice:
+		case ItemType.DoubleDice:
+		case ItemType.Clock:
+		case ItemType.Poison:
+			player_turn_info.item_effect = item.id;
+			break;
+	}
+}
+
+function all_player_turns(not_me = false) {
+	var player_turns = [];
+	
+	for (var i = 0; i < 4; i++) {
+		array_push(player_turns);
 	}
 }

@@ -8,4 +8,5 @@ enum ItemChangeType {
 event_inherited();
 item = null;
 spawned_item = null;
-slot = -1;
+used_item = false;
+player_turn_info = get_player_turn_info();

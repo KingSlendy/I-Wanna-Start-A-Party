@@ -23,7 +23,10 @@ enum Client_TCP {
 	EndDialogue,
 	ShowShop,
 	ChangeShopSelected,
-	EndShop
+	EndShop,
+	ShowMultipleChoices,
+	ChangeMultipleChoiceSelected,
+	EndMultipleChoices
 }
 
 enum Client_UDP {
@@ -73,6 +76,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 	switch (data_id) {
 		case Client_TCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
+			global.skin_current = global.player_id - 1;
 			
 			for (var i = 0; i < global.player_id; i++) {
 				if (global.player_list_client[i] == null) {
@@ -100,7 +104,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeChoiceSelected:
-			objTurnChoices.choice_selected = buffer_read(buffer, buffer_u8);
+			objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
 			break;
 			
 		case Client_TCP.NextTurn:
@@ -111,7 +115,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var player_id = buffer_read(buffer, buffer_u8);
 			var seed = buffer_read(buffer, buffer_u16);
 			random_set_seed(seed);
-			show_dice(player_id);	
+			show_dice(player_id);
 			break;
 			
 		case Client_TCP.RollDice:
@@ -157,6 +161,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var item_id = buffer_read(buffer, buffer_u8);
 			var type = buffer_read(buffer, buffer_u8);
 			change_items(global.board_items[item_id], type);
+			//Fix this not using slot correctly
 			break;
 			
 		case Client_TCP.ChangeSpace:
@@ -233,6 +238,30 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objShop) {
 				shop_end();
 			}
+			break;
+			
+		case Client_TCP.ShowMultipleChoices:
+			var choices = [];
+			
+			while (true) {
+				var data = buffer_read(buffer, buffer_string);
+				
+				if (data == "\0") {
+					break;
+				}
+				
+				array_push(choices, data);
+			}
+			
+			show_multiple_choices(choices);
+			break;
+			
+		case Client_TCP.ChangeMultipleChoiceSelected:
+			global.choice_selected = buffer_read(buffer, buffer_u8);
+			break;
+			
+		case Client_TCP.EndMultipleChoices:
+			objMultipleChoices.alpha_target = 0;
 			break;
 	}
 }

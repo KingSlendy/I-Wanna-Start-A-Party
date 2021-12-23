@@ -1,7 +1,7 @@
 depth = -10000;
-player_info = get_player_turn_info();
+player_turn_info = get_player_turn_info();
 
-switch (player_info.item_effect) {
+switch (player_turn_info.item_effect) {
 	case ItemType.Dice: image_index = 1; break;
 	case ItemType.DoubleDice: image_index = 2; break;
 	case ItemType.Poison: image_index = 3; break;
@@ -17,13 +17,15 @@ sequence_instance_override_object(layer_sequence_get_instance(sequence), objDice
 function random_roll() {
 	var max_roll;
 	
-	switch (player_info.item_effect) {
+	switch (player_turn_info.item_effect) {
 		case ItemType.Poison:
 			max_roll = 3;
 			break;
 			
 		case ItemType.Clock:
-			roll = (roll + 10 + 1) % 10;
+			if (++roll > 10) {
+				roll = 10;
+			}
 			return;
 			
 		default: max_roll = 10; break;
@@ -36,7 +38,7 @@ function random_roll() {
 	} until (roll != previous);
 }
 
-roll = -1;
+roll = 0;
 random_roll();
-roll_spd = (player_info.item_effect != ItemType.Clock) ? 4 : game_get_speed(gamespeed_fps) * 1;
+roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : game_get_speed(gamespeed_fps) * 0.75;
 alarm[0] = roll_spd;

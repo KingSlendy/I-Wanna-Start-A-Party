@@ -1,3 +1,29 @@
+function array_count(array, check) {
+	var count = 0;
+
+	for (var i = 0; i < array_length(array); i++) {
+	    if (array[i] == check) {
+	        count++;
+	    }
+	}
+
+	return count;
+}
+
+function array_contains(array, check) {
+	return (array_index(array, check) != -1);
+}
+
+function array_index(array, check) {
+	for (var i = 0; i < array_length(array); i++) {
+	    if (array[i] == check || (is_array(check) && array_equals(array[i], check))) {
+	        return i;
+	    }
+	}
+
+	return -1;
+}
+
 function array_shuffle(array) {
 	for (var i = 0; i < array_length(array); i++) {
 		var rnd = irandom(array_length(array) - 1);
