@@ -5,7 +5,7 @@ if (instance_exists(objMapLook)) {
 
 if (global.up_action.pressed()) {
 	if (paths.N != null) {
-		global.path_current = space.path_north;
+		space.space_next = space.space_north;
 		instance_destroy();
 		exit;
 	}
@@ -13,7 +13,7 @@ if (global.up_action.pressed()) {
 
 if (global.right_action.pressed()) {
 	if (paths.E != null) {
-		global.path_current = space.path_east;
+		space.space_next = space.space_east;
 		instance_destroy();
 		exit;
 	}
@@ -21,7 +21,7 @@ if (global.right_action.pressed()) {
 
 if (global.left_action.pressed()) {
 	if (paths.W != null) {
-		global.path_current = space.path_west;
+		space.space_next = space.space_west;
 		instance_destroy();
 		exit;
 	}
@@ -29,7 +29,7 @@ if (global.left_action.pressed()) {
 
 if (global.down_action.pressed()) {
 	if (paths.S != null) {
-		global.path_current = space.path_south;
+		space.space_next = space.space_south;
 		instance_destroy();
 		exit;
 	}

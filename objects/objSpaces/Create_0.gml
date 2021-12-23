@@ -1,8 +1,41 @@
-if (global.debug_mode) {
-	if (image_index == SpaceType.PathChange && path_north == null && path_east == null && path_west == null && path_south == null) {
-		image_blend = c_red;
+space_next = null;
+space_previous = null;
+
+space_north = null;
+space_east = null;
+space_west = null;
+space_south = null;
+
+var paths = ds_list_create();
+var count = instance_place_list(x, y, objPath, paths, false);
+mask_index = sprNothing;
+
+for (var i = 0; i < count; i++) {
+	var path = paths[| i];
+	var space_collide = null;
+		
+	with (path) {
+		space_collide = instance_place(x, y, objSpaces);
+	}
+	
+	if (path.image_index == 0) {
+		if (path.x == x + 16 && path.y == y + 16) {
+			space_next = space_collide;
+		} else {
+			space_previous = space_collide;
+		}
+	} else {
+		switch ((path.image_angle + 360) % 360) {
+			case 90: space_north = space_collide; break;
+			case 0: space_east = space_collide; break;
+			case 180: space_west = space_collide; break;
+			case 270: space_south = space_collide; break;
+		}
 	}
 }
+
+mask_index = sprite_index;
+ds_list_destroy(paths);
 
 space_shine = false;
 
@@ -96,7 +129,6 @@ function space_passing_event() {
 				p.space = id;
 			}
 			
-			global.path_number = 0;
 			global.can_open_map = true;
 			return true;
 	}

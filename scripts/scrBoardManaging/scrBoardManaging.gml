@@ -111,38 +111,21 @@ function board_advance() {
 	
 	with (objPlayerBoard) {
 		follow_path = path_add();
-		var path_total = path_get_number(global.path_current);
-		var current_x = path_get_point_x(global.path_current, global.path_number);
-		var current_y = path_get_point_y(global.path_current, global.path_number);
 		var next_x, next_y;
-		path_add_point(follow_path, current_x, current_y, 100);
+		path_add_point(follow_path, x, y, 100);
+		var space = instance_place(x, y, objSpaces);
 	
 		if (global.path_direction == 1) {
-			next_x = path_get_point_x(global.path_current, global.path_number + global.path_direction);
-			next_y = path_get_point_y(global.path_current, global.path_number + global.path_direction);
+			next_x = space.space_next.x + 16;
+			next_y = space.space_next.y + 16;
 			path_add_point(follow_path, next_x, next_y, 100);	
-			array_push(space_stack, {
-				prev_path: global.path_current,
-				prev_number: global.path_number,
-				prev_x: current_x,
-				prev_y: current_y
-			});
-		
-			if (array_length(space_stack) > 10) {
-				array_delete(space_stack, 0, 1);
-			}
-		
-			global.path_number = (global.path_number + global.path_direction + path_total) % path_total;
 		} else if (global.path_direction == -1) {
-			var reverse = array_pop(space_stack);
-			next_x = reverse.prev_x;
-			next_y = reverse.prev_y;
-			path_add_point(follow_path, reverse.prev_x, reverse.prev_y, 100);
-			global.path_current = reverse.prev_path;
-			global.path_number = reverse.prev_number;
+			next_x = space.space_previous.y + 16;
+			next_y = space.space_previous.y + 16;
 		}
-
-		image_xscale = (next_x >= current_x) ? 1 : -1;
+		
+		path_add_point(follow_path, next_x, next_y, 100);	
+		image_xscale = (next_x >= x) ? 1 : -1;
 		path_set_closed(follow_path, false);
 		path_start(follow_path, max_speed, path_action_stop, true);
 	}

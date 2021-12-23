@@ -31,11 +31,11 @@ switch (player_info.turn) {
 	default: exit;
 }
 
-//try {
+try {
 	var idle = get_skin_pose(focus_player(player_info.network_id).sprite_index, "Idle");
-//} catch (_) {
-	//exit;
-//}
+} catch (_) {
+	exit;
+}
 
 draw_set_alpha(1);
 draw_box(draw_x, draw_y, draw_w, draw_h, player_info.space);

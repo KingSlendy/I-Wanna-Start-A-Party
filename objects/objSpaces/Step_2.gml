@@ -1,3 +1,7 @@
+if (image_alpha == 0) {
+	exit;
+}
+
 var prev_glowing = glowing;
 
 if (focused_player_turn().vspeed == 0) {

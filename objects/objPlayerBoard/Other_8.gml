@@ -4,8 +4,6 @@ if (follow_path != null && path_exists(follow_path)) {
 }
 
 if (!global.board_started) {
-	global.path_current = objBoard.path_first;
-	global.path_number = 0;
 	global.board_started = true;
 	turn_start();
 	exit;
