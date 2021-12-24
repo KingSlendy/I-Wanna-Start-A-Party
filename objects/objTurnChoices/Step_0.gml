@@ -14,6 +14,8 @@ if (option_selected == -1) {
 option_selected = (option_selected + 3 + scroll) % 3;
 
 if (option_selected != prev_choice) {
+	audio_play_sound(global.sound_cursor_move, 0, false);
+	
 	buffer_seek_begin();
 	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ChangeChoiceSelected);
@@ -22,6 +24,8 @@ if (option_selected != prev_choice) {
 }
 
 if (global.jump_action.pressed()) {
+	audio_play_sound(global.sound_cursor_select, 0, false);
+	
 	switch (option_selected) {
 		case 0:
 			show_dice();
@@ -41,13 +45,7 @@ if (global.jump_action.pressed()) {
 				
 				show_multiple_choices(items).final_action = function() {
 					var item = get_player_turn_info().items[global.choice_selected];
-					
-					if (item.id == ItemType.Poison) {
-						//change_items(item, ItemChangeType.Use);
-						show_multiple_choices();
-					} else {
-						change_items(item, ItemChangeType.Use);
-					}
+					change_items(item, ItemChangeType.Use);
 				}
 			}
 			break;

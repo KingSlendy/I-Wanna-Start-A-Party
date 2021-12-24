@@ -32,6 +32,7 @@ function text_advance() {
 	
 	if (text_display != null && text_display.text.tw_active) {
 		text_display.text.skip();
+		//audio_play_sound(global.sound_cursor_mini_select, 0, false);
 		
 		if (is_player_turn()) {
 			buffer_seek_begin();
@@ -81,6 +82,8 @@ function text_advance() {
 	answer_index = 0;
 	answer_displays = [];
 	
+	//audio_play_sound(global.sound_cursor_mini_select, 0, false);
+	
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
@@ -91,7 +94,7 @@ function text_advance() {
 			buffer_write_data(buffer_string, text_display.branches[i][0]);
 		}
 		
-		buffer_write_data(buffer_string, "\0");
+		buffer_write_data(buffer_string, "EOF");
 		network_send_tcp_packet();
 	}
 }

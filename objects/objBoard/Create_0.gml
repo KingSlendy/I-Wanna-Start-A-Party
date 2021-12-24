@@ -1,6 +1,6 @@
 global.board_started = false;
 global.path_direction = 1;
-global.dice_roll = -1;
+global.dice_roll = 0;
 global.player_turn = 1;
 global.choosing_shine = false;
 global.can_open_map = false;

@@ -14,13 +14,16 @@ var prev_choice = global.choice_selected;
 
 if (global.choice_selected == -1) {
 	global.choice_selected = 0;
+	skip_empty_choice(1);
 }
 
-do {
-	global.choice_selected = (global.choice_selected + array_length(choices) + scroll) % array_length(choices);
-} until (choices[global.choice_selected] != "");
+if (scroll != 0) {
+	skip_empty_choice(scroll);
+}
 
 if (global.choice_selected != prev_choice) {
+	audio_play_sound(global.sound_cursor_move, 0, false);
+	
 	buffer_seek_begin();
 	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ChangeMultipleChoiceSelected);
@@ -30,6 +33,7 @@ if (global.choice_selected != prev_choice) {
 
 if (global.jump_action.pressed()) {
 	alpha_target = 0;
+	audio_play_sound(global.sound_cursor_select, 0, false);
 }
 
 if (instance_exists(objTurnChoices) && global.shoot_action.pressed()) {

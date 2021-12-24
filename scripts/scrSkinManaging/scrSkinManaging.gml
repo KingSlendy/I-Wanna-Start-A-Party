@@ -17,6 +17,10 @@ function get_skin(type = global.skin_current) {
 }
 
 function get_skin_pose_object(object, pose) {
+	if (object == null) {
+		return sprNothing;
+	}
+	
 	if (instance_exists(object)) {
 		return get_skin_pose(object.sprite_index, pose);
 	}

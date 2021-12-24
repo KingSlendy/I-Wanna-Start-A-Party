@@ -3,34 +3,19 @@ if (instance_exists(objMapLook)) {
 	exit;
 }
 
-if (global.up_action.pressed()) {
-	if (paths.N != null) {
-		space.space_next = space.space_north;
-		instance_destroy();
-		exit;
+for (var i = 0; i < array_length(arrows); i++) {
+	var arrow = arrows[i];
+	
+	if (arrow != null && arrow.image_index == 1 && actions[i].pressed()) {
+		arrows[arrow_selected].image_index = 1;
+		arrow.image_index = 0; 
+		arrow_selected = i;
+		audio_play_sound(global.sound_cursor_move, 0, false);
+		break;
 	}
 }
 
-if (global.right_action.pressed()) {
-	if (paths.E != null) {
-		space.space_next = space.space_east;
-		instance_destroy();
-		exit;
-	}
-}
-
-if (global.left_action.pressed()) {
-	if (paths.W != null) {
-		space.space_next = space.space_west;
-		instance_destroy();
-		exit;
-	}
-}
-
-if (global.down_action.pressed()) {
-	if (paths.S != null) {
-		space.space_next = space.space_south;
-		instance_destroy();
-		exit;
-	}
+if (global.jump_action.pressed()) {
+	audio_play_sound(global.sound_cursor_select, 0, false);
+	instance_destroy();
 }

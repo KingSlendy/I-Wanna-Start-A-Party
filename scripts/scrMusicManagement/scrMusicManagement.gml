@@ -1,4 +1,6 @@
 global.music_current = null;
+global.sound_cursor_move = sndCursorMove;
+global.sound_cursor_select = sndCursorSelect;
 
 function music_check() {
 	var music = null;

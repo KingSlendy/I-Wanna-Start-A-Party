@@ -26,7 +26,8 @@ enum Client_TCP {
 	EndShop,
 	ShowMultipleChoices,
 	ChangeMultipleChoiceSelected,
-	EndMultipleChoices
+	EndMultipleChoices,
+	ItemApplied
 }
 
 enum Client_UDP {
@@ -105,6 +106,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ChangeChoiceSelected:
 			objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
+			audio_play_sound(global.sound_cursor_move, 0, false);
 			break;
 			
 		case Client_TCP.NextTurn:
@@ -161,7 +163,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var item_id = buffer_read(buffer, buffer_u8);
 			var type = buffer_read(buffer, buffer_u8);
 			change_items(global.board_items[item_id], type);
-			//Fix this not using slot correctly
 			break;
 			
 		case Client_TCP.ChangeSpace:
@@ -173,6 +174,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objDialogue) {
 				text_display.text.skip();
 			}
+			
+			audio_play_sound(global.sound_cursor_select, 0, false);
 			break;
 			
 		case Client_TCP.ChangeDialogueText:
@@ -191,7 +194,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				while (true) {
 					var data = buffer_read(buffer, buffer_string);
 				
-					if (data == "\0") {
+					if (data == "EOF") {
 						break;
 					}
 				
@@ -209,6 +212,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case Client_TCP.ChangeDialogueAnswer:
 			var answer_index = buffer_read(buffer, buffer_u8);
 			objDialogue.answer_index = answer_index;
+			audio_play_sound(global.sound_cursor_select, 0, false);
 			break;
 			
 		case Client_TCP.EndDialogue:
@@ -232,6 +236,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ChangeShopSelected:
 			objShop.option_selected = buffer_read(buffer, buffer_u8);
+			audio_play_sound(global.sound_cursor_select, 0, false);
 			break;
 			
 		case Client_TCP.EndShop:
@@ -246,7 +251,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			while (true) {
 				var data = buffer_read(buffer, buffer_string);
 				
-				if (data == "\0") {
+				if (data == "EOF") {
 					break;
 				}
 				
@@ -258,10 +263,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ChangeMultipleChoiceSelected:
 			global.choice_selected = buffer_read(buffer, buffer_u8);
+			audio_play_sound(global.sound_cursor_move, 0, false);
 			break;
 			
 		case Client_TCP.EndMultipleChoices:
 			objMultipleChoices.alpha_target = 0;
+			break;
+			
+		case Client_TCP.ItemApplied:
+			var item_id = buffer_read(buffer, buffer_u8);
+			item_applied(global.board_items[item_id]);
 			break;
 	}
 }

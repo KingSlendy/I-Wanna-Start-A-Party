@@ -10,7 +10,10 @@ if (!used_item) {
 } else {
 	spawned_item.vspeed = 3;
 	spawned_item.used = true;
-	item_applied(item);
 	animation_state = 2;
 	animation_alpha = 1;
+	
+	final_action = function() {
+		item_applied(item);
+	}
 }

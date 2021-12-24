@@ -31,6 +31,8 @@ if (shopping && is_player_turn()) {
 			"{COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}\n" + item_selected.desc
 		]);
 		
+		audio_play_sound(global.sound_cursor_move, 0, false);
+		
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeShopSelected);

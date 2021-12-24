@@ -27,6 +27,7 @@ if (is_player_turn()) {
 		}
 	}
 
+	stock[0] = global.board_items[ItemType.Warp];
 	array_resize(stock, 5);
 
 	var swaps = 1;

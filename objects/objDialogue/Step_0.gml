@@ -29,6 +29,8 @@ if (active) {
 		answer_index = (answer_index + move + answers) % answers;
 		
 		if (prev_answer != answer_index) {
+			audio_play_sound(global.sound_cursor_move, 0, false);
+			
 			buffer_seek_begin();
 			buffer_write_from_host(false);
 			buffer_write_action(Client_TCP.ChangeDialogueAnswer);

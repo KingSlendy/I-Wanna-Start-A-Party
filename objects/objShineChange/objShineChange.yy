@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "UI",
-    "path": "folders/Objects/Boards/UI.yy",
+    "name": "Boards",
+    "path": "folders/Objects/Boards.yy",
   },
   "resourceVersion": "1.0",
   "name": "objShineChange",

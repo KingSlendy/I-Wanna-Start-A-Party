@@ -41,6 +41,10 @@ function PlayerBoard(network_id, turn) constructor {
 		return slot;
 	}
 	
+	static has_item_slot = function() {
+		return (array_count(self.items, null) < 3);
+	}
+	
 	static toString = function() {
 		return string(self.turn);
 	}
@@ -61,10 +65,10 @@ function focused_player_turn() {
 		}
 	}
 	
-	return noone;
+	return null;
 }
 
-function focus_player(player_id) {
+function focus_player(player_id = global.player_id) {
 	if (player_id == global.player_id) {
 		return objPlayerBase;
 	} else {
@@ -75,7 +79,11 @@ function focus_player(player_id) {
 		}
 	}
 	
-	return noone;
+	return null;
+}
+
+function focus_player_turn(turn = global.player_turn) {
+	return focus_player(get_player_turn_info(turn).network_id);
 }
 
 function board_start() {
@@ -107,7 +115,7 @@ function turn_start() {
 }
 
 function board_advance() {
-	if (!is_player_turn() || global.dice_roll == 0) {
+	if (!is_player_turn() || (global.board_started && global.dice_roll == 0)) {
 		return;
 	}
 	
@@ -468,7 +476,7 @@ function show_multiple_choices(choices) {
 			buffer_write_data(buffer_string, choices[i]);
 		}
 		
-		buffer_write_data(buffer_string, "\0");
+		buffer_write_data(buffer_string, "EOF");
 		network_send_tcp_packet();
 	}
 	
@@ -485,21 +493,56 @@ function item_applied(item) {
 		case ItemType.Poison:
 			player_turn_info.item_effect = item.id;
 			break;
+	}
+	
+	if (is_player_turn()) {
+		switch (item.id) {
+			case ItemType.Warp:
+				show_multiple_choices(all_player_choices(true)).final_action = function() {
+					item_use(ItemType.Warp);
+				}
+				break;
 			
-		case ItemType.Cellphone:
-			call_shop();
-			break;
+			case ItemType.Cellphone:
+				call_shop();
+				break;
 			
-		case ItemType.Mirror:
-			instance_create_layer(0, 0, "Managers", objItemMirrorUsed);
-			break;
+			case ItemType.Mirror:
+				item_use(ItemType.Mirror);
+				break;
+		}
+		
+		buffer_seek_begin();
+		buffer_write_from_host(false);
+		buffer_write_action(Client_TCP.ItemApplied);
+		buffer_write_data(buffer_u8, item.id);
+		network_send_tcp_packet();
 	}
 }
 
-function all_player_turns(not_me = false) {
-	var player_turns = [];
-	
-	for (var i = 0; i < 4; i++) {
-		array_push(player_turns);
+function item_use(item) {
+	var objects = {};
+	objects[$ ItemType.Warp] = objItemWarpUsed;
+	objects[$ ItemType.Mirror] = objItemMirrorUsed;
+	instance_create_layer(0, 0, "Managers", objects[$ item]);
+}
+
+function all_player_choices(not_me = false) {
+	var choices = [];
+			
+	for (var i = 1; i <= 4; i++) {
+		var player = focus_player_turn(i);
+		
+		if (i == player_turn_info.turn && not_me) {
+			player = null;
+		}
+				
+		if (player != null) {
+			array_push(choices, "{SPRITE," + sprite_get_name(get_skin_pose_object(player, "Idle")) + ",0,-48,-64,3,3}");
+		} else {
+			array_push(choices, "");
+		}
 	}
+		
+	return choices;
 }
