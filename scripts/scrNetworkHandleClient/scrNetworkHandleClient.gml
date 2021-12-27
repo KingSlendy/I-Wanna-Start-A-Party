@@ -27,7 +27,8 @@ enum Client_TCP {
 	ShowMultipleChoices,
 	ChangeMultipleChoiceSelected,
 	EndMultipleChoices,
-	ItemApplied
+	ItemApplied,
+	ItemAnimation
 }
 
 enum Client_UDP {
@@ -201,7 +202,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					array_push(text_display.branches, [data, null]);
 				}
 		
-				text_change(text);
+				text_change(text, buffer_read(buffer, buffer_u8));
 				
 				repeat (array_length(text_display.branches)) {
 					array_push(answer_displays, new Text(fntDialogue));
@@ -273,6 +274,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case Client_TCP.ItemApplied:
 			var item_id = buffer_read(buffer, buffer_u8);
 			item_applied(global.board_items[item_id]);
+			break;
+			
+		case Client_TCP.ItemAnimation:
+			var item_id = buffer_read(buffer, buffer_u8);
+			item_animation(item_id);
 			break;
 	}
 }

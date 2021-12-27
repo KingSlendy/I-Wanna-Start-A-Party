@@ -1,3 +1,5 @@
+event_inherited();
+
 if (is_player_turn()) {
 	with (objSpaces) {
 		if (image_index == SpaceType.Shine) {
@@ -12,4 +14,4 @@ if (is_player_turn()) {
 	}
 }
 
-instance_destroy();
+alarm[0] = 1;

@@ -18,12 +18,8 @@ for (var i = 0; i < array_length(stock); i++) {
 		}
 	}
 	
-	var show_price = string(item.price);
-	
-	repeat (3 - string_length(show_price)) {
-		show_price += "    ";
-	}
-	
-	var text = new Text(fntDialogue, "{SPRITE," + sprite_get_name(item.sprite) +",0,0,-2,0.5,0.5} {SPRITE,sprCoin,0,0,2,0.6,0.6} x" + show_price + "  " + selected + item.name);
+	var text = new Text(fntDialogue, "{SPRITE," + sprite_get_name(item.sprite) +",0,0,-2,0.5,0.5} {SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(item.price));
 	text.draw(draw_x + 10, draw_y + 10 + 35 * i + offset_y);
+	var text = new Text(fntDialogue, selected + item.name);
+	text.draw(draw_x + 160, draw_y + 10 + 35 * i + offset_y);
 }

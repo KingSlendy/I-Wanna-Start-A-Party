@@ -29,7 +29,7 @@ if (shopping && is_player_turn()) {
 	if (prev_selected != option_selected) {
 		change_dialogue([
 			"{COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}\n" + item_selected.desc
-		]);
+		], 0);
 		
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		

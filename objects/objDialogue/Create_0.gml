@@ -95,6 +95,7 @@ function text_advance() {
 		}
 		
 		buffer_write_data(buffer_string, "EOF");
+		buffer_write_data(buffer_u8, text_display.text.tw_spd);
 		network_send_tcp_packet();
 	}
 }
@@ -121,10 +122,10 @@ function text_end() {
 	}
 }
 
-function text_change(text) {
+function text_change(text, tw_spd = 1) {
 	text_display.text.set(text);
 	text_display.text.tw_reset();
-	text_display.text.tw_spd = 1;
+	text_display.text.tw_spd = tw_spd;
 	answer_index = 0;
 	answer_displays = [];
 }
