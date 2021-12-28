@@ -13,14 +13,18 @@ enum SpaceType {
 	PathChange
 }
 
+global.shine_price = 20;
+global.min_shop_coins = 5;
+global.min_blackhole_coins = 5;
+
 randomize();
 
 function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = 0;
-	self.coins = 100;
+	self.shines = irandom(1);
+	self.coins = 30;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
@@ -440,7 +444,7 @@ function call_shop() {
 	var player_turn_info = get_player_turn_info();
 			
 	if (player_turn_info.free_item_slot() != -1) {
-		if (player_turn_info.coins >= 5) {
+		if (player_turn_info.coins >= global.min_shop_coins) {
 			start_dialogue([
 				new Message("Do you wanna enter the shop?", [
 					["Yes", [
@@ -471,7 +475,7 @@ function call_blackhole() {
 	var player_turn_info = get_player_turn_info();
 	
 	//if (player_turn_info.free_item_slot() != -1) {
-		if (player_turn_info.coins >= 5) {
+		if (player_turn_info.coins >= global.min_blackhole_coins) {
 			start_dialogue([
 				new Message("Do you wanna use the blackhole?", [
 					["Yes", [
@@ -498,30 +502,22 @@ function call_blackhole() {
 	//}
 }
 
-function show_multiple_choices(title, choices, descriptions) {
+function show_multiple_choices(titles, choices, descriptions, availables) {
 	global.choice_selected = -1;
 	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
-	m.title = title;
+	m.titles = titles;
 	m.choices = choices;
 	m.descriptions = descriptions;
+	m.availables = availables;
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ShowMultipleChoices);
-		buffer_write_data(buffer_string, title);
-		
-		for (var i = 0; i < array_length(choices); i++) {
-			buffer_write_data(buffer_string, choices[i]);
-		}
-		
-		buffer_write_data(buffer_string, "EOF");
-		
-		for (var i = 0; i < array_length(descriptions); i++) {
-			buffer_write_data(buffer_string, descriptions[i]);
-		}
-		
-		buffer_write_data(buffer_string, "EOF");
+		buffer_write_array(buffer_string, titles);
+		buffer_write_array(buffer_string, choices);
+		buffer_write_array(buffer_string, descriptions);
+		buffer_write_array(buffer_bool, availables);
 		network_send_tcp_packet();
 	}
 	
@@ -544,7 +540,7 @@ function item_applied(item) {
 	if (is_player_turn()) {
 		switch (item.id) {
 			case ItemType.Warp:
-				show_multiple_player_choices(true).final_action = function() {
+				show_multiple_player_choices(function(_) { return true; }, true).final_action = function() {
 					item_animation(ItemType.Warp);
 				}
 				break;
@@ -570,23 +566,44 @@ function item_applied(item) {
 	}
 }
 
-function item_animation(item_id) {
+function item_animation(item_id, additional = noone) {
 	var item = global.board_items[item_id];
 	var i = instance_create_layer(0, 0, "Managers", item.animation);
 	i.sprite = item.sprite;
+	i.additional = additional;
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ItemAnimation);
 		buffer_write_data(buffer_u8, item_id);
+		buffer_write_data(buffer_s8, additional);
 		network_send_tcp_packet();
 	}
 }
 
-function show_multiple_player_choices(not_me = false) {
-	var s = show_multiple_choices("Choose player", all_player_choices(not_me), all_player_names(not_me));
-	return s;
+function show_multiple_player_choices(available_func, not_me = false) {
+	return show_multiple_choices(all_player_names(not_me), all_player_choices(not_me), [], all_player_availables(available_func, not_me));
+}
+
+function all_player_names(not_me = false) {
+	var names = [];
+			
+	for (var i = 1; i <= 4; i++) {
+		var player = get_player_turn_info(i);
+		
+		if (i == player_turn_info.turn && not_me) {
+			player = null;
+		}
+				
+		if (player != null) {
+			array_push(names, player_turn_info.name);
+		} else {
+			array_push(names, "");
+		}
+	}
+		
+	return names;
 }
 
 function all_player_choices(not_me = false) {
@@ -609,22 +626,22 @@ function all_player_choices(not_me = false) {
 	return choices;
 }
 
-function all_player_names(not_me = false) {
-	var names = [];
+function all_player_availables(func, not_me = false) {
+	var availables = [];
 			
 	for (var i = 1; i <= 4; i++) {
-		var player = get_player_turn_info(i);
+		var player = focus_player_turn(i);
 		
 		if (i == player_turn_info.turn && not_me) {
 			player = null;
 		}
 				
 		if (player != null) {
-			array_push(names, player_turn_info.name);
+			array_push(availables, func(i));
 		} else {
-			array_push(names, "");
+			array_push(availables, false);
 		}
 	}
 		
-	return names;
+	return availables;
 }

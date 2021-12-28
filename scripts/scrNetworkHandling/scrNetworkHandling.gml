@@ -68,6 +68,25 @@ function buffer_sanity_checks(is_tcp) {
 	buffer_push(global.buffer, buffer_u8, FAILCHECK_ID);
 }
 
+function buffer_write_array(type, array) {
+	buffer_write_data(buffer_u16, array_length(array));
+	
+	for (var i = 0; i < array_length(array); i++) {
+		buffer_write_data(type, array[i]);
+	}
+}
+
+function buffer_read_array(buffer, type) {
+	var length = buffer_read(buffer, buffer_u16);
+	var array = [];
+	
+	repeat (length) {
+		array_push(array, buffer_read(buffer, type));
+	}
+
+	return array;
+}
+
 function network_send_tcp_packet(socket = global.tcp_socket, send_all = false) {
 	if (!send_all) {
 		buffer_sanity_checks(true);

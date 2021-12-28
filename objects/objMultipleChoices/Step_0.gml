@@ -32,11 +32,15 @@ if (global.choice_selected != prev_choice) {
 }
 
 if (global.jump_action.pressed()) {
-	alpha_target = 0;
-	audio_play_sound(global.sound_cursor_select, 0, false);
+	if (availables[global.choice_selected]) {
+		alpha_target = 0;
+		audio_play_sound(global.sound_cursor_select, 0, false);
+	} else {
+		//audio_play_sound(global.sound_cursor_select, 0, false);
+	}
 }
 
-if (instance_exists(objTurnChoices) && global.shoot_action.pressed()) {
+if (global.shoot_action.pressed()) {
 	final_action = null;
 	alpha_target = 0;
 }

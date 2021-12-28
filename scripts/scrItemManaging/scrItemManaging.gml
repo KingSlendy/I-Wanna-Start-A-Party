@@ -1,11 +1,12 @@
-function Item(id, name, desc, sprite, price, animation = null, show_criteria = null) constructor {
+function Item(id, name, desc, sprite, price, animation = null, stock_criteria = null, use_criteria = function() { return true; }) constructor {
 	self.id = id;
 	self.name = name;
 	self.desc = desc;
 	self.sprite = sprite;
 	self.price = price;
 	self.animation = animation;
-	self.show_criteria = show_criteria;
+	self.stock_criteria = stock_criteria;
+	self.use_criteria = use_criteria;
 }
 
 enum ItemType {
@@ -33,8 +34,29 @@ global.board_items = [
 	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15),
 	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 15),
 	new Item(ItemType.Warp, "Warp", "Changes location with the player you choose.", sprItemWarp, 25, objItemWarpAnimation),
-	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12),
-	new Item(ItemType.Blackhole, "Blackhole", "Summons a blackhole that can steal coins or shines from other players.", sprItemBlackhole, 30, objItemBlackholeAnimation),
+	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12,,, function() {
+		return (get_player_turn_info().coins >= global.min_shop_coins);
+	}),
+	
+	new Item(ItemType.Blackhole, "Blackhole", "Summons a blackhole that can steal coins or shines from other players.", sprItemBlackhole, 30, objItemBlackholeAnimation,, function() {
+		var other_has_things = false;
+		
+		for (var i = 1; i <= 4; i++) {
+			if (i == global.player_turn) {
+				continue;
+			}
+			
+			var player_turn_info = get_player_turn_info(i);
+			
+			if (player_turn_info.coins > 0 || player_turn_info.shines > 0) {
+				other_has_things = true;
+				break;
+			}
+		}
+		
+		return (get_player_turn_info().coins >= global.min_blackhole_coins && other_has_things);
+	}),
+	
 	new Item(ItemType.Mirror, "Mirror", "Teleports you right next to the shine.", sprItemMirror, 30, objItemMirrorAnimation),
 	new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 999),
 	new Item(ItemType.ItemBag, "Item Bag", "Fills your item slots with random items.", sprItemItemBag, 30),

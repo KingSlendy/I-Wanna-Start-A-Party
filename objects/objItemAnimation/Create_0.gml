@@ -1,1 +1,2 @@
 sprite = null;
+additional = noone;

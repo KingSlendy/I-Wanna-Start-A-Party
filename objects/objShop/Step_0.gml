@@ -23,12 +23,12 @@ if (shopping && is_player_turn()) {
 		option_selected = option_previous;
 	}
 
-	option_selected = (option_selected + 5 + scroll) % 5;
+	option_selected = (option_selected + array_length(stock) + scroll) % array_length(stock);
 	item_selected = stock[option_selected];
 
 	if (prev_selected != option_selected) {
 		change_dialogue([
-			"{COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}\n" + item_selected.desc
+			item_selected.desc
 		], 0);
 		
 		audio_play_sound(global.sound_cursor_move, 0, false);

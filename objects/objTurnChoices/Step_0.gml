@@ -33,22 +33,28 @@ if (global.jump_action.pressed()) {
 			
 		case 1:
 			if (available_item) {
+				var item_names = [];
 				var items = [];
 				var item_descs = [];
+				var item_availables = [];
 				
 				for (var i = 0; i < 3; i++) {
 					var item = player_turn_info.items[i];
 					
 					if (item == null) {
+						array_push(item_names, "");
 						array_push(items, "");
 						array_push(item_descs, "");
+						array_push(item_availables, false);
 					} else {
+						array_push(item_names, item.name);
 						array_push(items, "{SPRITE," + sprite_get_name(item.sprite) + ",0,-32,-32,1,1}");
 						array_push(item_descs, item.desc);
+						array_push(item_availables, item.use_criteria());
 					}
 				}
 				
-				show_multiple_choices("Choose item", items, item_descs).final_action = function() {
+				show_multiple_choices(item_names, items, item_descs, item_availables).final_action = function() {
 					var item = get_player_turn_info().items[global.choice_selected];
 					change_items(item, ItemChangeType.Use);
 				}

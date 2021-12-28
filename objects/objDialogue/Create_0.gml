@@ -1,3 +1,5 @@
+depth = -10001;
+
 width = 0;
 height = 0;
 border_width = 10;
@@ -94,7 +96,7 @@ function text_advance() {
 			buffer_write_data(buffer_string, text_display.branches[i][0]);
 		}
 		
-		buffer_write_data(buffer_string, "EOF");
+		buffer_write_data(buffer_string, "EOA");
 		buffer_write_data(buffer_u8, text_display.text.tw_spd);
 		network_send_tcp_packet();
 	}

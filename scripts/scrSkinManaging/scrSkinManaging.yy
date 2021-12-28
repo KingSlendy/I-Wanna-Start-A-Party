@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Scripts/Boards.yy",
+    "name": "Game",
+    "path": "folders/Scripts/Game.yy",
   },
   "resourceVersion": "1.0",
   "name": "scrSkinManaging",

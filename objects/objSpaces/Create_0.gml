@@ -55,28 +55,30 @@ function space_passing_event() {
 			return true;
 		
 		case SpaceType.Shine:
-			if (player_turn_info.coins >= 20) {
+			if (player_turn_info.coins >= global.shine_price) {
 				var buy_shine = function() {
-					change_coins(-20, CoinChangeType.Spend).final_action = function() {
+					change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
 						change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 					}
 				}
 				
+				var buy_option = "Buy (" + draw_coins_price(global.shine_price) + ")";
+				
 				start_dialogue([
 					new Message("Do you wanna buy a shine?", [
-						["Buy (" + draw_coins_price(20) + ")", [
+						[buy_option, [
 							new Message("Here you go! The shine is yours!",, buy_shine)
 						]],
 						
 						["Pass", [
 							new Message("Are you really sure you don't want it?", [
-								["Buy (" + draw_coins_price(20) + ")", [
+								[buy_option, [
 									new Message("Good choice! Here you go!",, buy_shine)
 								]],
 								
 								["Pass", [
 									new Message("Are you really really sure?", [
-										["Buy (" + draw_coins_price(20) + ")", [
+										[buy_option, [
 											new Message("You were starting to worry me for a second!",, buy_shine)
 										]],
 										

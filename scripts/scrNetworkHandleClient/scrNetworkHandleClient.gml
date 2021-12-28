@@ -24,11 +24,15 @@ enum Client_TCP {
 	ShowShop,
 	ChangeShopSelected,
 	EndShop,
+	ShowBlackhole,
+	ChangeBlackholeSelected,
+	EndBlackhole,
 	ShowMultipleChoices,
 	ChangeMultipleChoiceSelected,
 	EndMultipleChoices,
 	ItemApplied,
-	ItemAnimation
+	ItemAnimation,
+	StartBlackholeSteal
 }
 
 enum Client_UDP {
@@ -195,7 +199,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				while (true) {
 					var data = buffer_read(buffer, buffer_string);
 				
-					if (data == "EOF") {
+					if (data == "EOA") {
 						break;
 					}
 				
@@ -246,33 +250,27 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case Client_TCP.ShowBlackhole:
+			instance_create_layer(0, 0, "Managers", objBlackhole);
+			break;
+			
+		case Client_TCP.ChangeBlackholeSelected:
+			objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
+			audio_play_sound(global.sound_cursor_select, 0, false);
+			break;
+			
+		case Client_TCP.EndBlackhole:
+			with (objBlackhole) {
+				blackhole_end();
+			}
+			break;
+			
 		case Client_TCP.ShowMultipleChoices:
-			var title = buffer_read(buffer, buffer_string);
-			var choices = [];
-			
-			while (true) {
-				var data = buffer_read(buffer, buffer_string);
-				
-				if (data == "EOF") {
-					break;
-				}
-				
-				array_push(choices, data);
-			}
-			
-			var descriptions = [];
-			
-			while (true) {
-				var data = buffer_read(buffer, buffer_string);
-				
-				if (data == "EOF") {
-					break;
-				}
-				
-				array_push(descriptions, data);
-			}
-			
-			show_multiple_choices(title, choices, descriptions);
+			var titles = buffer_read_array(buffer, buffer_string);
+			var choices = buffer_read_array(buffer, buffer_string);
+			var descriptions = buffer_read_array(buffer, buffer_string);
+			var availables = buffer_read_array(buffer, buffer_bool);
+			show_multiple_choices(titles, choices, descriptions, availables);
 			break;
 			
 		case Client_TCP.ChangeMultipleChoiceSelected:
@@ -291,7 +289,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case Client_TCP.ItemAnimation:
 			var item_id = buffer_read(buffer, buffer_u8);
-			item_animation(item_id);
+			var additional = buffer_read(buffer, buffer_s8);
+			item_animation(item_id, additional);
+			break;
+			
+		case Client_TCP.StartBlackholeSteal:
+			with (objItemBlackholeAnimation) {
+				start_blackhole_steal();
+			}
 			break;
 	}
 }

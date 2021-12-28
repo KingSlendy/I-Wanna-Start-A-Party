@@ -15,7 +15,7 @@ if (offset_pos != offset_target) {
 	exit;
 }
 
-if (shopping && is_player_turn()) {
+if (selecting && is_player_turn()) {
 	var scroll = (global.down_action.pressed() - global.up_action.pressed());
 	var prev_selected = option_selected;
 
@@ -23,7 +23,7 @@ if (shopping && is_player_turn()) {
 		option_selected = option_previous;
 	}
 
-	option_selected = (option_selected + 3 + scroll) % 3;
+	option_selected = (option_selected + array_length(stock) + scroll) % array_length(stock);
 	item_selected = stock[option_selected];
 
 	if (prev_selected != option_selected) {
@@ -35,19 +35,19 @@ if (shopping && is_player_turn()) {
 		
 		buffer_seek_begin();
 		buffer_write_from_host(false);
-		//buffer_write_action(Client_TCP.ChangeBlackholeSelected);
-		//buffer_write_data(buffer_u8, option_selected);
-		//network_send_tcp_packet();
+		buffer_write_action(Client_TCP.ChangeBlackholeSelected);
+		buffer_write_data(buffer_u8, option_selected);
+		network_send_tcp_packet();
 	}
 
 	if (global.jump_action.pressed()) {
 		io_clear();
 		
-		if (player_turn_info.coins >= item_selected.price) {
+		if (player_turn_info.coins >= item_selected.price && item_selected.can_select) {
 			change_dialogue([
-				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
-					["Buy (" + draw_coins_price(item_selected.price) + ")", [
-						new Message("Thank you for buying!",, function() {
+				new Message("Are you sure you wanna steal {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
+					["Yes (" + draw_coins_price(item_selected.price) + ")", [
+						new Message("Good choice.",, function() {
 							with (objBlackhole) {
 								blackhole_end();
 							}
@@ -57,7 +57,16 @@ if (shopping && is_player_turn()) {
 							}
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
-								change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
+								show_multiple_player_choices(function(turn) {
+									var player_turn_info = get_player_turn_info(turn);
+									
+									switch (option_selected) {
+										case 0: return (player_turn_info.coins > 0);
+										case 1: return (player_turn_info.shines > 0);
+									}
+								}, true).final_action = function() {
+									item_animation(ItemType.Blackhole, option_selected);
+								}
 							}
 						})
 					]],
@@ -66,7 +75,7 @@ if (shopping && is_player_turn()) {
 						new Message("",, function() {
 							objDialogue.active = false;
 							objDialogue.endable = false;
-							objShop.shopping = true;
+							objBlackhole.selecting = true;
 							option_previous = option_selected;
 							option_selected = -1;
 						})
@@ -74,10 +83,10 @@ if (shopping && is_player_turn()) {
 				])
 			]);
 			
-			shopping = false;
+			selecting = false;
 		} else {
 			change_dialogue([
-				"You don't have enough coins to buy that item!"
+				"You can't steal that."
 			]);
 			
 			objDialogue.active = false;
@@ -96,6 +105,6 @@ if (shopping && is_player_turn()) {
 			})
 		]);
 		
-		shopping = false;
+		selecting = false;
 	}
 }

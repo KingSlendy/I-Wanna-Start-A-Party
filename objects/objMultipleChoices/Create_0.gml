@@ -1,9 +1,10 @@
 image_alpha = 0;
 alpha_target = 1;
 
-title = "";
+titles = [];
 choices = [];
 descriptions = [];
+availables = [];
 length = 96;
 separation = 20;
 final_action = null;
