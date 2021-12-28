@@ -8,21 +8,7 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 	var option_x = draw_x - 10 * i;
 	var option_y = draw_y + 35 * i;
 	draw_box(option_x, option_y, 80, 30, (i == option_selected) ? c_gray : c_dkgray);
-	var selected = "";
-
-	if (i == 1 && !available_item) {
-		selected += "{COLOR,383838}";
-	}
-	
-	if (i == option_selected) {
-		if (option_selected == 1 && !available_item) {
-			selected += "{COLOR,000066}{WAVE}";
-		} else {
-			selected += "{RAINBOW}{WAVE}";
-		}
-	}
-		
-	text.set(selected + choice_texts[i]);
+	text.set(draw_option_afford(choice_texts[i], i != 1 || available_item, i == option_selected));
 	text.draw(option_x + 10, option_y + 3);
 	var player_turn_info = get_player_turn_info();
 	

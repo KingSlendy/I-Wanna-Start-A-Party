@@ -1,3 +1,5 @@
+image_alpha = (!instance_exists(objDice)) ? 1 : 0.2;
+
 if (spawning) {
 	image_alpha = lerp(image_alpha, 1, 0.2);
 	image_xscale += 0.03;

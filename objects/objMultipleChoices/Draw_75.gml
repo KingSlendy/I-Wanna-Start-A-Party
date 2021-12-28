@@ -4,6 +4,17 @@ var draw_x = display_get_gui_width() / 2 - total_length / 2;
 var draw_y = display_get_gui_height() / 2 - length;
 
 draw_set_alpha(image_alpha);
+var title_width = 150;
+var title_x = display_get_gui_width() / 2 - title_width / 2;
+var title_y = draw_y - 50;
+draw_box(title_x, title_y, title_width, 40, c_dkgray);
+var text = new Text(fntDialogue, title);
+text.draw(title_x + 5, title_y + 8);
+var desc_width = 400;
+var desc_x = display_get_gui_width() / 2 - desc_width / 2;
+var desc_y = draw_y + length + 10;
+draw_box(desc_x, desc_y, desc_width, 80, c_dkgray);
+
 var index = 0;
 
 for (var i = 0; i < array_length(choices); i++) {
@@ -16,6 +27,8 @@ for (var i = 0; i < array_length(choices); i++) {
 	draw_box(choice_x, draw_y, length, length, (is_selected) ? c_gray : c_dkgray);
 	var text = new Text(fntDialogue, ((is_selected) ? "{SWIRL}" : "") + choices[i]);
 	text.draw(choice_x + length / 2, draw_y + length / 2);
+	var text = new Text(fntDialogue, descriptions[i]);
+	text.draw(desc_x + 5, desc_y + 5, desc_width - 10);
 }
 
 draw_set_alpha(1);

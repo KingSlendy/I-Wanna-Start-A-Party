@@ -20,3 +20,21 @@ function draw_box(x, y, w, h, color) {
 function draw_coins_price(price) {
 	return "{SPRITE,sprCoin,0,0,2,0.6,0.6}" + string(price);
 }
+
+function draw_option_afford(option, check1, check2) {
+	var addition = "";
+	
+	if (check1) {
+		if (check2) {
+			addition += "{RAINBOW}{WAVE}";
+		}
+	} else {
+		addition += "{COLOR,383838}";
+		
+		if (check2) {
+			addition += "{COLOR,000066}{WAVE}";
+		}
+	}
+	
+	return addition + option;
+}

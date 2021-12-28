@@ -23,21 +23,21 @@ if (shopping && is_player_turn()) {
 		option_selected = option_previous;
 	}
 
-	option_selected = (option_selected + 5 + scroll) % 5;
+	option_selected = (option_selected + 3 + scroll) % 3;
 	item_selected = stock[option_selected];
 
 	if (prev_selected != option_selected) {
 		change_dialogue([
-			"{COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}\n" + item_selected.desc
+			item_selected.desc
 		], 0);
 		
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		
 		buffer_seek_begin();
 		buffer_write_from_host(false);
-		buffer_write_action(Client_TCP.ChangeShopSelected);
-		buffer_write_data(buffer_u8, option_selected);
-		network_send_tcp_packet();
+		//buffer_write_action(Client_TCP.ChangeBlackholeSelected);
+		//buffer_write_data(buffer_u8, option_selected);
+		//network_send_tcp_packet();
 	}
 
 	if (global.jump_action.pressed()) {
@@ -48,8 +48,8 @@ if (shopping && is_player_turn()) {
 				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
 					["Buy (" + draw_coins_price(item_selected.price) + ")", [
 						new Message("Thank you for buying!",, function() {
-							with (objShop) {
-								shop_end();
+							with (objBlackhole) {
+								blackhole_end();
 							}
 							
 							with (objDialogue) {
@@ -87,9 +87,9 @@ if (shopping && is_player_turn()) {
 	
 	if (global.shoot_action.pressed()) {
 		change_dialogue([
-			new Message("Hope to see you again soon!",, function() {
-				with (objShop) {
-					shop_end();
+			new Message("What a shame...",, function() {
+				with (objBlackhole) {
+					blackhole_end();
 				}
 				
 				board_advance();

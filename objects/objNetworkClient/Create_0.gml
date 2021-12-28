@@ -51,3 +51,5 @@ if (network_connect(global.tcp_socket, global.ip, global.port) < 0) {
 	instance_destroy();
 	exit;
 }
+
+global.player_name = get_string("Enter your name.", "Player");

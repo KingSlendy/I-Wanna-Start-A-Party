@@ -111,7 +111,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.NextTurn:
-			next_turn();
+			turn_next();
 			break;
 			
 		case Client_TCP.ShowDice:
@@ -247,6 +247,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ShowMultipleChoices:
+			var title = buffer_read(buffer, buffer_string);
 			var choices = [];
 			
 			while (true) {
@@ -259,7 +260,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				array_push(choices, data);
 			}
 			
-			show_multiple_choices(choices);
+			var descriptions = [];
+			
+			while (true) {
+				var data = buffer_read(buffer, buffer_string);
+				
+				if (data == "EOF") {
+					break;
+				}
+				
+				array_push(descriptions, data);
+			}
+			
+			show_multiple_choices(title, choices, descriptions);
 			break;
 			
 		case Client_TCP.ChangeMultipleChoiceSelected:

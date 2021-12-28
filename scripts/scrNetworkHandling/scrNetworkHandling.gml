@@ -6,6 +6,7 @@ global.player_max = 4;
 global.player_list_host = array_create(global.player_max, null);
 global.player_list_client = array_create(global.player_max, null);
 global.player_id = 0;
+global.player_name = "";
 
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
@@ -140,6 +141,7 @@ function player_leave(id, host = false) {
 
 function player_write_data() {
 	buffer_write_data(buffer_u8, global.player_id);
+	buffer_write_data(buffer_string, global.player_name);
 	
 	with (objPlayerBase) {
 		buffer_write_data(buffer_u16, sprite_index);
@@ -158,6 +160,7 @@ function player_read_data(buffer) {
 	var instance = global.player_list_client[player_id - 1];
 		
 	if (instance != null) {
+		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.sprite_index = buffer_read(buffer, buffer_u16);
 		instance.x = buffer_read(buffer, buffer_s16);
 		instance.y = buffer_read(buffer, buffer_s16);

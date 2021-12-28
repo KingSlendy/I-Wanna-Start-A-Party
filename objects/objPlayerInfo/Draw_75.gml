@@ -87,4 +87,4 @@ switch (player_info.place) {
 draw_text_outline(draw_x + draw_w - 5, draw_y + 63, place, c_black);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
-draw_text_outline(draw_x + 5, draw_y + 63, "", c_black);
+draw_text_outline(draw_x + 5, draw_y + 63, player_info.name, c_black);
