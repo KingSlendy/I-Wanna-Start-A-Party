@@ -25,7 +25,6 @@ if (global.choice_selected != prev_choice) {
 	audio_play_sound(global.sound_cursor_move, 0, false);
 	
 	buffer_seek_begin();
-	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ChangeMultipleChoiceSelected);
 	buffer_write_data(buffer_u8, global.choice_selected);
 	network_send_tcp_packet();
@@ -47,7 +46,6 @@ if (global.shoot_action.pressed()) {
 
 if (alpha_target == 0) {
 	buffer_seek_begin();
-	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.EndMultipleChoices);
 	network_send_tcp_packet();
 }

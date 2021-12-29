@@ -38,7 +38,6 @@ function text_advance() {
 		
 		if (is_player_turn()) {
 			buffer_seek_begin();
-			buffer_write_from_host(false);
 			buffer_write_action(Client_TCP.SkipDialogueText);
 			network_send_tcp_packet();
 		}
@@ -88,7 +87,6 @@ function text_advance() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.ChangeDialogueText);
 		buffer_write_data(buffer_string, text_display.text.original_text);
 		
@@ -117,7 +115,6 @@ function text_end() {
 		
 		if (is_player_turn()) {
 			buffer_seek_begin();
-			buffer_write_from_host(false);
 			buffer_write_action(Client_TCP.EndDialogue);
 			network_send_tcp_packet();
 		}

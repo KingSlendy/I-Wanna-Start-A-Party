@@ -1,0 +1,1 @@
+global.player_turn = turn_previous;

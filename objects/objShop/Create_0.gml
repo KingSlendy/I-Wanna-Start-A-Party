@@ -27,7 +27,7 @@ if (is_player_turn()) {
 		}
 	}
 
-	stock[0] = global.board_items[ItemType.Blackhole];
+	//stock[0] = global.board_items[ItemType.Blackhole];
 	array_resize(stock, 5);
 
 	var swaps = 1;
@@ -60,7 +60,6 @@ function shop_end() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.EndShop);
 		network_send_tcp_packet();
 	}
@@ -68,7 +67,6 @@ function shop_end() {
 
 if (is_player_turn()) {
 	buffer_seek_begin();
-	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ShowShop);
 	
 	for (var i = 0; i < array_length(stock); i++) {

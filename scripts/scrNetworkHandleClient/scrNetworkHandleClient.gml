@@ -32,7 +32,8 @@ enum Client_TCP {
 	EndMultipleChoices,
 	ItemApplied,
 	ItemAnimation,
-	StartBlackholeSteal
+	StartBlackholeSteal,
+	SendTest = 10000
 }
 
 enum Client_UDP {
@@ -43,6 +44,8 @@ enum Client_UDP {
 }
 
 function network_read_client(ip, port, buffer) {
+	//popup("I received a packet: Client");
+	
 	if (buffer_get_size(buffer) == 0) {
 		return;
 	}
@@ -53,28 +56,44 @@ function network_read_client(ip, port, buffer) {
 		var match_id = buffer_read(buffer, buffer_u8);
 	
 		if (match_id != FAILCHECK_ID) {
+			popup("Failcheck doesn't match.");
 			return;
 		}
 		
 		var match_size = buffer_read(buffer, buffer_u16);
+		var bad_size = false;
 	
 		if (buffer_get_size(buffer) != match_size) {
-			return;
+			popup("Match size: " + string(match_size) + "\nBuffer size: " + string(buffer_get_size(buffer)));
+			bad_size = true;
+			//return;
 		}
 		
 		var is_tcp = buffer_read(buffer, buffer_bool);
-		var from_host = buffer_read(buffer, buffer_bool);
 		var data_id = buffer_read(buffer, buffer_u16);
+		
+		if (bad_size) {
+			try {
+				popup(match_id);
+				popup(match_size);
+				popup(is_tcp);
+				popup(data_id);
+				
+				while (true) {
+					popup(buffer_read(buffer, buffer_u8));
+				}
+			} catch (_) {
+				
+			}
+		}
 	} catch (_) {
 		return;
 	}
 	
-	if (from_host) {
-		if (is_tcp) {
-			network_read_client_tcp(ip, port, buffer, data_id);
-		} else {
-			network_read_client_udp(buffer, data_id);
-		}
+	if (is_tcp) {
+		network_read_client_tcp(ip, port, buffer, data_id);
+	} else {
+		network_read_client_udp(buffer, data_id);
 	}
 }
 
@@ -86,14 +105,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 			for (var i = 0; i < global.player_id; i++) {
 				if (global.player_list_client[i] == null) {
-					player_join(i + 1, ip, port);
+					player_join(i + 1);
 				}
 			}
+			
+			buffer_seek_begin();
+			buffer_write_action(Client_UDP.Heartbeat);
+			buffer_write_data(buffer_u8, global.player_id);
+			network_send_udp_packet();
 			break;
 			
 		case Client_TCP.PlayerConnect:
 			var player_id = buffer_read(buffer, buffer_u8);
-			player_join(player_id, ip, port);
+			player_join(player_id);
 			break;
 				
 		case Client_TCP.PlayerDisconnect:
@@ -215,9 +239,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeDialogueAnswer:
-			var answer_index = buffer_read(buffer, buffer_u8);
-			objDialogue.answer_index = answer_index;
-			audio_play_sound(global.sound_cursor_select, 0, false);
+			if (instance_exists(objDialogue)) {
+				var answer_index = buffer_read(buffer, buffer_u8);
+				objDialogue.answer_index = answer_index;
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
 			break;
 			
 		case Client_TCP.EndDialogue:
@@ -240,8 +266,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeShopSelected:
-			objShop.option_selected = buffer_read(buffer, buffer_u8);
-			audio_play_sound(global.sound_cursor_select, 0, false);
+			if (instance_exists(objShop)) {
+				objShop.option_selected = buffer_read(buffer, buffer_u8);
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
 			break;
 			
 		case Client_TCP.EndShop:
@@ -255,8 +283,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.ChangeBlackholeSelected:
-			objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
-			audio_play_sound(global.sound_cursor_select, 0, false);
+			if (instance_exists(objBlackhole)) {
+				objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
 			break;
 			
 		case Client_TCP.EndBlackhole:
@@ -279,7 +309,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.EndMultipleChoices:
-			objMultipleChoices.alpha_target = 0;
+			if (instance_exists(objMultipleChoices)) {
+				objMultipleChoices.alpha_target = 0;
+			}
 			break;
 			
 		case Client_TCP.ItemApplied:
@@ -298,13 +330,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				start_blackhole_steal();
 			}
 			break;
+			
+		case Client_TCP.SendTest:
+			popup("A");
+			break;
 	}
 }
 
 function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
 		case Client_UDP.Heartbeat:
-			objNetworkClient.alarm[0] = game_get_speed(gamespeed_fps) * 3;
+			if (instance_exists(objNetworkClient)) {
+				objNetworkClient.alarm[0] = game_get_speed(gamespeed_fps) * 3;
+			}
 			break;
 		
 		case Client_UDP.PlayerMove:

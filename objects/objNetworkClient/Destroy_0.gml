@@ -1,6 +1,4 @@
 global.ip = null;
-global.port = null;
-global.port = null;
 
 if (global.tcp_socket >= 0) {
 	network_destroy(global.tcp_socket);

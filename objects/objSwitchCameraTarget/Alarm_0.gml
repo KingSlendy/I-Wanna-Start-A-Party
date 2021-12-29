@@ -1,4 +1,6 @@
 with (objCamera) {
-	view_x = other.switch_x;
-	view_y = other.switch_y;
+	target_x = other.switch_x;
+	target_y = other.switch_y;
+	view_x = target_x;
+	view_y = target_y;
 }

@@ -44,7 +44,6 @@ function blackhole_end() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_from_host(false);
 		buffer_write_action(Client_TCP.EndBlackhole);
 		network_send_tcp_packet();
 	}
@@ -52,7 +51,6 @@ function blackhole_end() {
 
 if (is_player_turn()) {
 	buffer_seek_begin();
-	buffer_write_from_host(false);
 	buffer_write_action(Client_TCP.ShowBlackhole);
 	network_send_tcp_packet();
 }

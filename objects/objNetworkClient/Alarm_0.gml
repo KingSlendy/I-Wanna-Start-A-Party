@@ -1,1 +1,1 @@
-show_message("Server has lost connection!");
+//popup("Server has lost connection!");
