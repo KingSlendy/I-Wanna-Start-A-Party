@@ -21,7 +21,7 @@
     {"id":{"name":"sndShineGet","path":"sounds/sndShineGet/sndShineGet.yy",},"order":3,},
     {"id":{"name":"objShop","path":"objects/objShop/objShop.yy",},"order":21,},
     {"id":{"name":"objGameManager","path":"objects/objGameManager/objGameManager.yy",},"order":0,},
-    {"id":{"name":"sprPathNormal","path":"sprites/sprPathNormal/sprPathNormal.yy",},"order":1,},
+    {"id":{"name":"sprPath","path":"sprites/sprPath/sprPath.yy",},"order":1,},
     {"id":{"name":"sprItemMedal","path":"sprites/sprItemMedal/sprItemMedal.yy",},"order":11,},
     {"id":{"name":"objShine","path":"objects/objShine/objShine.yy",},"order":14,},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},"order":1,},

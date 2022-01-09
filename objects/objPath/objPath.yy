@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPathNormal",
-    "path": "sprites/sprPathNormal/sprPathNormal.yy",
+    "name": "sprPath",
+    "path": "sprites/sprPath/sprPath.yy",
   },
   "solid": false,
   "visible": false,

@@ -1,31 +1,24 @@
+paths = (BOARD_NORMAL) ? space.space_directions_normal : space.space_directions_reverse;
 arrow_separation = 25;
+var separations = [[0, -1], [1, 0], [-1, 0], [0, 1]];
+var angles = [90, 0, 180, 270];
 
-if (space.space_north != null) {
-	var a = instance_create_layer(objPlayerBoard.x, objPlayerBoard.y - arrow_separation, "Actors", objArrow);
-	a.image_angle = 90;
-	a.space_next = space.space_north;
-	arrows[0] = a;
-}
-
-if (space.space_east != null) {
-	var a = instance_create_layer(objPlayerBoard.x + arrow_separation, objPlayerBoard.y, "Actors", objArrow);
-	a.image_angle = 0;
-	a.space_next = space.space_east;
-	arrows[1] = a;
-}
-
-if (space.space_west != null) {
-	var a = instance_create_layer(objPlayerBoard.x - arrow_separation, objPlayerBoard.y, "Actors", objArrow);
-	a.image_angle = 180;
-	a.space_next = space.space_west;
-	arrows[2] = a;
-}
-
-if (space.space_south != null) {
-	var a = instance_create_layer(objPlayerBoard.x, objPlayerBoard.y + arrow_separation, "Actors", objArrow);
-	a.image_angle = 270;
-	a.space_next = space.space_south;
-	arrows[3] = a;
+for (var i = 0; i < 4; i++) {
+	if (paths[i] != null) {
+		var separation = separations[i];
+		var sep_x = arrow_separation * separation[0];
+		var sep_y = arrow_separation * separation[1];
+		var a = instance_create_layer(objPlayerBoard.x + sep_x, objPlayerBoard.y + sep_y, "Actors", objArrow);
+		a.image_angle = angles[i];
+		
+		if (BOARD_NORMAL) {
+			a.space_next = paths[i];
+		} else {
+			a.space_previous = paths[i];
+		}
+		
+		arrows[i] = a;
+	}
 }
 
 for (var i = 0; i < array_length(arrows); i++) {

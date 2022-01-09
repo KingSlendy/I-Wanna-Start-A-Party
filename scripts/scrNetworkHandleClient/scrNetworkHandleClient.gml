@@ -32,8 +32,7 @@ enum Client_TCP {
 	EndMultipleChoices,
 	ItemApplied,
 	ItemAnimation,
-	StartBlackholeSteal,
-	SendTest = 10000
+	StartBlackholeSteal
 }
 
 enum Client_UDP {
@@ -44,9 +43,8 @@ enum Client_UDP {
 }
 
 function network_read_client(ip, port, buffer) {
-	//popup("I received a packet: Client");
-	
 	if (buffer_get_size(buffer) == 0) {
+		print("Received empty buffer.");
 		return;
 	}
 	
@@ -56,37 +54,20 @@ function network_read_client(ip, port, buffer) {
 		var match_id = buffer_read(buffer, buffer_u8);
 	
 		if (match_id != FAILCHECK_ID) {
-			popup("Failcheck doesn't match.");
+			print("Failcheck ID doesn't match.\nGot: " + string(match_id) + "\nExpected: " + string(FAILCHECK_ID));
 			return;
 		}
 		
 		var match_size = buffer_read(buffer, buffer_u16);
-		var bad_size = false;
 	
 		if (buffer_get_size(buffer) != match_size) {
-			popup("Match size: " + string(match_size) + "\nBuffer size: " + string(buffer_get_size(buffer)));
-			bad_size = true;
-			//return;
+			print("Buffer size doesn't match.\nGot: " + string(buffer_get_size(buffer)) + "\nExpected: " + string(match_size));
 		}
 		
 		var is_tcp = buffer_read(buffer, buffer_bool);
 		var data_id = buffer_read(buffer, buffer_u16);
-		
-		if (bad_size) {
-			try {
-				popup(match_id);
-				popup(match_size);
-				popup(is_tcp);
-				popup(data_id);
-				
-				while (true) {
-					popup(buffer_read(buffer, buffer_u8));
-				}
-			} catch (_) {
-				
-			}
-		}
 	} catch (_) {
+		print("Unexpected error when reading buffer header.");
 		return;
 	}
 	
@@ -155,7 +136,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case Client_TCP.HideDice:
-			instance_destroy(objDice);
+			hide_dice();
 			break;
 			
 		case Client_TCP.LessRoll:
@@ -329,10 +310,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objItemBlackholeAnimation) {
 				start_blackhole_steal();
 			}
-			break;
-			
-		case Client_TCP.SendTest:
-			popup("A");
 			break;
 	}
 }

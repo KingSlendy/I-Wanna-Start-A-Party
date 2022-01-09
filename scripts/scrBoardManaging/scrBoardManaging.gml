@@ -1,3 +1,5 @@
+#macro BOARD_NORMAL (get_player_turn_info().item_effect != ItemType.Reverse)
+
 enum SpaceType {
 	Blue,
 	Red,
@@ -23,10 +25,10 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = irandom(1);
-	//self.coins = 100;
-	self.shines = 0;
-	self.coins = 10;
+	self.shines = irandom(1);
+	self.coins = 100;
+	//self.shines = 0;
+	//self.coins = 10;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
@@ -156,7 +158,7 @@ function turn_next() {
 	
 	global.player_turn += 1;
 
-	if (global.player_turn > 2) {
+	if (global.player_turn > 1) {
 		global.player_turn = 1;
 	}
 
@@ -177,10 +179,10 @@ function board_advance() {
 		var space = instance_place(x, y, objSpaces);
 		var next_space;
 		
-		if (get_player_turn_info().item_effect == ItemType.Reverse) {
-			next_space = space.space_previous;
-		} else {
+		if (BOARD_NORMAL) {
 			next_space = space.space_next;
+		} else {
+			next_space = space.space_previous;
 		}
 		
 		path_add_point(follow_path, next_space.x + 16, next_space.y + 16, 100);	

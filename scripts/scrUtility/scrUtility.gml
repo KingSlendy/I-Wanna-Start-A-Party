@@ -72,3 +72,13 @@ function string_split(str, substr = "") {
 
 	return splitted;
 }
+
+function array_first(array, func) {
+	for (var i = 0; i < array_length(array); i++) {
+		if (func(array[i])) {
+			return array[i];
+		}
+	}
+	
+	return noone;
+}

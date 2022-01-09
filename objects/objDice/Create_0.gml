@@ -37,10 +37,23 @@ function random_roll() {
 		roll = irandom_range(1, max_roll);
 	} until (roll != previous);
 	
-	//roll = max_roll;
+	roll = max_roll;
 }
 
 roll = 0;
 random_roll();
 roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : game_get_speed(gamespeed_fps) * 0.75;
 alarm[0] = roll_spd;
+
+function hide_dice() {
+	objPlayerBoard.can_jump = false;
+	layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
+	layer_sequence_headdir(sequence, -1);
+	layer_sequence_play(sequence);
+	
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(Client_TCP.HideDice);
+		network_send_tcp_packet();
+	}
+}

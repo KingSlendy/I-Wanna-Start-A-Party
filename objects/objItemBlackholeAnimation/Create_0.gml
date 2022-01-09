@@ -12,10 +12,7 @@ alarm[0] = 1;
 
 function start_blackhole_steal() {
 	state = 0;
-	
-	if (is_player_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(Client_TCP.StartBlackholeSteal);
-		network_send_tcp_packet();
-	}
+	buffer_seek_begin();
+	buffer_write_action(Client_TCP.StartBlackholeSteal);
+	network_send_tcp_packet();
 }

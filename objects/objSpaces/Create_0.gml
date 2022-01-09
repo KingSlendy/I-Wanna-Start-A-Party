@@ -1,10 +1,7 @@
 space_next = null;
 space_previous = null;
-
-space_north = null;
-space_east = null;
-space_west = null;
-space_south = null;
+space_directions_normal = array_create(4, null);
+space_directions_reverse = array_create(4, null);
 
 var paths = ds_list_create();
 var count = instance_place_list(x, y, objPath, paths, false);
@@ -19,18 +16,34 @@ for (var i = 0; i < count; i++) {
 	}
 	
 	if (path.x == x + 16 && path.y == y + 16) {
-		if (path.image_index == 1) {
-			switch ((path.image_angle + 360) % 360) {
-				case 90: space_north = space_collide; break;
-				case 0: space_east = space_collide; break;
-				case 180: space_west = space_collide; break;
-				case 270: space_south = space_collide; break;
-			}
-		} else {
-			space_next = space_collide;
+		var space_array = space_directions_normal;
+		var invert = 0;
+	} else {
+		if (path.image_index == 2) {
+			continue;
 		}
-	} else if (path.image_index != 2) {
-		space_previous = space_collide;
+		
+		var space_array = space_directions_reverse;
+		var invert = 3;
+	}
+	
+	switch ((path.image_angle + 360) % 360) {
+		case 90: space_array[@ abs(invert - 0)] = space_collide; break;
+		case 0: space_array[@ abs(invert - 1)] = space_collide; break;
+		case 180: space_array[@ abs(invert - 2)] = space_collide; break;
+		case 270: space_array[@ abs(invert - 3)] = space_collide; break;
+	}
+
+	if (array_count(space_directions_normal, null) == 3) {
+		space_next = array_first(space_directions_normal, function(x) {
+			return (x != null);
+		});
+	}
+	
+	if (array_count(space_directions_reverse, null) == 3) {
+		space_previous = array_first(space_directions_reverse, function(x) {
+			return (x != null);
+		});
 	}
 }
 
@@ -97,15 +110,16 @@ function space_passing_event() {
 				]);
 			}
 			return true;
-		
-		case SpaceType.PathChange:
-			if (player_turn_info.item_effect != ItemType.Reverse) {
-				var p = instance_create_layer(0, 0, "Managers", objPathChange);
-				p.space = id;
-			}
+	}
+	
+	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
+	
+	if (array_count(space_array, null) < 3) {
+		var p = instance_create_layer(0, 0, "Managers", objPathChange);
+		p.space = id;
 			
-			global.can_open_map = true;
-			return true;
+		global.can_open_map = true;
+		return true;
 	}
 	
 	return false;
