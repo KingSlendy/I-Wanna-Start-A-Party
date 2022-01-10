@@ -61,3 +61,7 @@ global.board_items = [
 	new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 999),
 	new Item(ItemType.ItemBag, "Item Bag", "Fills your item slots with random items.", sprItemItemBag, 30),
 ];
+
+function get_item(id) {
+	return global.board_items[id];
+}

@@ -8,4 +8,4 @@ if (++animation_amount == amount) {
 	exit;
 }
 
-alarm[1] = game_get_speed(gamespeed_fps) * 0.15;
+alarm[1] = get_frames(0.15);

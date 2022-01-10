@@ -32,7 +32,8 @@ enum Client_TCP {
 	EndMultipleChoices,
 	ItemApplied,
 	ItemAnimation,
-	StartBlackholeSteal
+	StartBlackholeSteal,
+	EndBlackholeSteal
 }
 
 enum Client_UDP {
@@ -84,16 +85,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			global.player_id = buffer_read(buffer, buffer_u8);
 			global.skin_current = global.player_id - 1;
 			
-			for (var i = 0; i < global.player_id; i++) {
+			for (var i = 0; i < global.player_max; i++) {
 				if (global.player_list_client[i] == null) {
 					player_join(i + 1);
 				}
 			}
-			
-			buffer_seek_begin();
-			buffer_write_action(Client_UDP.Heartbeat);
-			buffer_write_data(buffer_u8, global.player_id);
-			network_send_udp_packet();
 			break;
 			
 		case Client_TCP.PlayerConnect:
@@ -311,6 +307,13 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				start_blackhole_steal();
 			}
 			break;
+			
+		case Client_TCP.EndBlackholeSteal:
+			with (objItemBlackholeAnimation) {
+				steal_count = buffer_read(buffer, buffer_u8);
+				end_blackhole_steal();
+			}
+			break;
 	}
 }
 
@@ -318,7 +321,7 @@ function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
 		case Client_UDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
-				objNetworkClient.alarm[0] = game_get_speed(gamespeed_fps) * 3;
+				objNetworkClient.alarm[0] = get_frames(2);
 			}
 			break;
 		

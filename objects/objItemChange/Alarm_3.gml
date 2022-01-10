@@ -5,7 +5,7 @@ if (!used_item) {
 	var focus = focused_player_turn();
 	spawned_item = instance_create_layer(focus.x, focus.y - 40, "Actors", objItem);
 	spawned_item.sprite_index = item.sprite;
-	alarm[3] = game_get_speed(gamespeed_fps) * 1.5;
+	alarm[3] = get_frames(1.5);
 	used_item = true;
 } else {
 	spawned_item.vspeed = 3;

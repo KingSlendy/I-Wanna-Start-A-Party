@@ -4,4 +4,4 @@ player2.y = player1.y;
 player1.x = temp.x;
 player1.y = temp.y;
 
-alarm[1] = game_get_speed(gamespeed_fps) * 1;
+alarm[1] = get_frames(1);

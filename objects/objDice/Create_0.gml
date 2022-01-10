@@ -42,7 +42,7 @@ function random_roll() {
 
 roll = 0;
 random_roll();
-roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : game_get_speed(gamespeed_fps) * 0.75;
+roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : get_frames(0.75);
 alarm[0] = roll_spd;
 
 function hide_dice() {

@@ -25,7 +25,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = irandom(1);
+	self.shines = 1;
 	self.coins = 100;
 	//self.shines = 0;
 	//self.coins = 10;

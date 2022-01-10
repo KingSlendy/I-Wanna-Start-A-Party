@@ -75,15 +75,22 @@ function network_send_udp_packet() {
 
 function player_join(id) {
 	if (id != global.player_id) {
-		var p = instance_create_layer(0, 0, "Instances", objNetworkPlayer);
-		p.network_id = id;
-		global.player_list_client[id - 1] = p;
+		var player = global.player_list_client[id - 1];
+		
+		if (player == null) {
+			var p = instance_create_layer(0, 0, "Instances", objNetworkPlayer);
+			p.network_id = id;
+			global.player_list_client[id - 1] = p;
+		} else {
+			player.visible = true;
+		}
 	}
 }
 
 function player_leave(id) {
-	instance_destroy(global.player_list_client[id - 1]);
-	global.player_list_client[id - 1] = null;
+	if (id != global.player_id) {
+		global.player_list_client[id - 1].visible = false;
+	}
 }
 
 function player_write_data() {
@@ -107,6 +114,7 @@ function player_read_data(buffer) {
 	var instance = global.player_list_client[player_id - 1];
 		
 	if (instance != null) {
+		instance.visible = true;
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.sprite_index = buffer_read(buffer, buffer_u16);
 		instance.x = buffer_read(buffer, buffer_s16);

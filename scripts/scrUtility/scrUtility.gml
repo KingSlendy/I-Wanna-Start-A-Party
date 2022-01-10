@@ -82,3 +82,7 @@ function array_first(array, func) {
 	
 	return noone;
 }
+
+function get_frames(seconds) {
+	return game_get_speed(gamespeed_fps) * seconds;
+}

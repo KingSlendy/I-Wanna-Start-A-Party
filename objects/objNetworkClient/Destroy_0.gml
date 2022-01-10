@@ -11,3 +11,7 @@ if (global.udp_socket >= 0) {
 }
 
 global.udp_socket = null;
+global.player_list_client = array_create(global.player_max, null);
+global.player_id = 0;
+global.player_name = "";
+instance_destroy(objNetworkPlayer);

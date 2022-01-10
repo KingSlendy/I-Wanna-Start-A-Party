@@ -7,6 +7,7 @@ switch (type) {
 		if (succeeded < 0) {
 			popup("Failed to connect to server.");
 			instance_destroy();
+			exit;
 		}
 		break;
 		

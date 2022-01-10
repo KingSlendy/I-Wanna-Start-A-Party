@@ -1,11 +1,12 @@
+steal_count = ceil(steal_count);
+state = -2;
+
 switch (additional) {
 	case 0:
-		change_coins(-ceil(steal_count), CoinChangeType.Lose);
+		change_coins(steal_count * -1, (!stealed) ? CoinChangeType.Lose : CoinChangeType.Gain).final_action = end_blackhole_steal;
 		break;
 		
 	case 1:
-		change_shines(-1, ShineChangeType.Lose);
+		change_shines(sign(steal_count * -1), (!stealed) ? ShineChangeType.Lose : ShineChangeType.Spawn).final_action = end_blackhole_steal;
 		break;
 }
-
-global.player_turn = turn_previous;

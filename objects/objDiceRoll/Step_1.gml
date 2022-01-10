@@ -8,7 +8,7 @@ if (vspeed != 0 && y > ystart) {
 	vspeed = 0;
 	gravity = 0;
 	y = ystart;
-	alarm[0] = game_get_speed(gamespeed_fps) * 0.3;
+	alarm[0] = get_frames(0.3);
 }
 
 if (follow_target_x && vspeed == 0) {

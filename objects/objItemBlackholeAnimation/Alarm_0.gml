@@ -1,8 +1,8 @@
 turn_previous = global.player_turn;
 global.player_turn = global.choice_selected + 1;
 
-if (is_player_turn()) {
-	switch_camera_target(current_player.x, current_player.y).final_action = function() {
+switch_camera_target(current_player.x, current_player.y).final_action = function() {
+	if (is_player_turn()) {
 		var text;
 	
 		switch (additional) {

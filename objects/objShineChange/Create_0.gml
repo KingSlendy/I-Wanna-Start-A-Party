@@ -7,6 +7,6 @@ enum ShineChangeType {
 	Spawn
 }
 
-spawned_shine = null;
+spawned_shine = noone;
 animation_type = ShineChangeType.None;
 final_action = choose_shine;
