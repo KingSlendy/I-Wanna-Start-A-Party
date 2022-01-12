@@ -4,12 +4,12 @@ enum SpaceType {
 	Blue,
 	Red,
 	Green,
-	Pink,
-	Purple,
-	Orange,
-	Yellow,
-	Dark,
-	Cyan,
+	Shop,
+	Blackhole,
+	Battle,
+	Duel,
+	Chancetime,
+	TheGuy,
 	Shine,
 	EvilShine,
 	PathChange
@@ -135,12 +135,16 @@ function board_start() {
 }
 
 function turn_start() {
+	if (get_player_turn_info().item_effect == ItemType.Ice) {
+		turn_next();
+		return;
+	}
+	
 	instance_create_layer(0, 0, "Managers", objTurnChoices);
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.StartTurn);
-		buffer_write_data(buffer_u8, id);
+		buffer_write_action(ClientTCP.StartTurn);
 		network_send_tcp_packet();
 	}
 }
@@ -152,16 +156,20 @@ function turn_next() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.NextTurn);
+		buffer_write_action(ClientTCP.NextTurn);
 		network_send_tcp_packet();
 	}
 	
 	global.player_turn += 1;
 
-	if (global.player_turn > 1) {
+	if (global.player_turn > 2) {
 		global.player_turn = 1;
 	}
 
+	with (objCamera) {
+		event_perform(ev_step, ev_step_begin);
+	}
+	
 	instance_create_layer(0, 0, "Managers", objNextTurn);
 	instance_destroy(objHiddenChest);
 }
@@ -199,10 +207,25 @@ function show_dice(id = global.player_id) {
 	if (id == global.player_id) {
 		objPlayerBoard.can_jump = true;
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ShowDice);
+		buffer_write_action(ClientTCP.ShowDice);
 		buffer_write_data(buffer_u8, id);
 		buffer_write_data(buffer_u16, random_get_seed());
 		network_send_tcp_packet();
+	}
+}
+
+function hide_dice() {
+	with (objDice) {
+		objPlayerBoard.can_jump = false;
+		layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
+		layer_sequence_headdir(sequence, -1);
+		layer_sequence_play(sequence);
+	
+		if (is_player_turn()) {
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.HideDice);
+			network_send_tcp_packet();
+		}
 	}
 }
 
@@ -257,7 +280,7 @@ function roll_dice() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.RollDice);
+		buffer_write_action(ClientTCP.RollDice);
 		buffer_write_data(buffer_u8, r.roll);
 		network_send_tcp_packet();
 	}
@@ -271,7 +294,7 @@ function show_chest() {
 	if (is_player_turn()) {
 		objPlayerBoard.can_jump = true;
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ShowChest);
+		buffer_write_action(ClientTCP.ShowChest);
 		network_send_tcp_packet();
 	}
 }
@@ -280,7 +303,7 @@ function open_chest() {
 	objHiddenChest.image_speed = 1;
 	
 	buffer_seek_begin();
-	buffer_write_action(Client_TCP.OpenChest);
+	buffer_write_action(ClientTCP.OpenChest);
 	network_send_tcp_packet();
 }
 
@@ -303,7 +326,7 @@ function choose_shine() {
 	place_shine(space.x, space.y);
 	
 	buffer_seek_begin();
-	buffer_write_action(Client_TCP.ChooseShine);
+	buffer_write_action(ClientTCP.ChooseShine);
 	buffer_write_data(buffer_s16, space.x);
 	buffer_write_data(buffer_s16, space.y);
 	network_send_tcp_packet();
@@ -335,8 +358,8 @@ function change_shines(amount, type) {
 
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeShines);
-		buffer_write_data(buffer_u8, amount);
+		buffer_write_action(ClientTCP.ChangeShines);
+		buffer_write_data(buffer_s16, amount);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
 	}
@@ -351,7 +374,7 @@ function change_coins(amount, type) {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeCoins);
+		buffer_write_action(ClientTCP.ChangeCoins);
 		buffer_write_data(buffer_s16, amount);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
@@ -368,7 +391,7 @@ function change_items(item, type) {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeItems);
+		buffer_write_action(ClientTCP.ChangeItems);
 		buffer_write_data(buffer_u8, item.id);
 		buffer_write_data(buffer_u8, type);
 		network_send_tcp_packet();
@@ -427,7 +450,7 @@ function change_space(space) {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeSpace);
+		buffer_write_action(ClientTCP.ChangeSpace);
 		buffer_write_data(buffer_u8, space);
 		network_send_tcp_packet();
 	}
@@ -505,7 +528,7 @@ function show_multiple_choices(titles, choices, descriptions, availables) {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ShowMultipleChoices);
+		buffer_write_action(ClientTCP.ShowMultipleChoices);
 		buffer_write_array(buffer_string, titles);
 		buffer_write_array(buffer_string, choices);
 		buffer_write_array(buffer_string, descriptions);
@@ -531,6 +554,14 @@ function item_applied(item) {
 	
 	if (is_player_turn()) {
 		switch (item.id) {
+			case ItemType.Ice:
+				show_multiple_player_choices(function(i) {
+					return get_player_turn_info(i).item_effect == null;
+				}, true).final_action = function() {
+					item_animation(ItemType.Ice);
+				}
+				break;
+			
 			case ItemType.Warp:
 				show_multiple_player_choices(function(_) { return true; }, true).final_action = function() {
 					item_animation(ItemType.Warp);
@@ -551,7 +582,7 @@ function item_applied(item) {
 		}
 		
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ItemApplied);
+		buffer_write_action(ClientTCP.ItemApplied);
 		buffer_write_data(buffer_u8, item.id);
 		network_send_tcp_packet();
 	}
@@ -565,11 +596,13 @@ function item_animation(item_id, additional = noone) {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ItemAnimation);
+		buffer_write_action(ClientTCP.ItemAnimation);
 		buffer_write_data(buffer_u8, item_id);
 		buffer_write_data(buffer_s8, additional);
 		network_send_tcp_packet();
 	}
+	
+	return i;
 }
 
 function show_multiple_player_choices(available_func, not_me = false) {

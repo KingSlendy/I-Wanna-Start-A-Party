@@ -23,7 +23,7 @@ if (passing) {
 global.dice_roll--;
 
 buffer_seek_begin();
-buffer_write_action(Client_TCP.LessRoll);
+buffer_write_action(ClientTCP.LessRoll);
 network_send_tcp_packet();
 
 if (global.dice_roll > 0) {

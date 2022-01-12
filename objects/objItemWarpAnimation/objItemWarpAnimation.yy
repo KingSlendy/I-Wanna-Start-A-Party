@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Items",
+    "path": "folders/Objects/Boards/Items.yy",
   },
   "resourceVersion": "1.0",
   "name": "objItemWarpAnimation",

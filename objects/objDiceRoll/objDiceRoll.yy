@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Interactables",
+    "path": "folders/Objects/Boards/Interactables.yy",
   },
   "resourceVersion": "1.0",
   "name": "objDiceRoll",

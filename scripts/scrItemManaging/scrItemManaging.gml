@@ -31,7 +31,20 @@ global.board_items = [
 	new Item(ItemType.Clock, "Clock", "Makes your dice roll slow.", sprItemClock, 20),
 	new Item(ItemType.Poison, "Poison", "Dice gets only a roll from 1-3.\nCan be used on other players.", sprItemPoison, 5),
 	new Item(ItemType.Reverse, "Reverse", "Lets you go backwards on the board.", sprItemReverse, 9),
-	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15),
+	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15, objItemIceAnimation,, function() {
+		for (var i = 1; i <= 4; i++) {
+			if (i == global.player_turn) {
+				continue;
+			}
+			
+			if (get_player_turn_info(i).item_effect != ItemType.Ice) {
+				return true;
+			}
+		}
+		
+		return false;
+	}),
+	
 	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 15),
 	new Item(ItemType.Warp, "Warp", "Changes location with the player you choose.", sprItemWarp, 25, objItemWarpAnimation),
 	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12,,, function() {

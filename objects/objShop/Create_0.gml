@@ -27,7 +27,7 @@ if (is_player_turn()) {
 		}
 	}
 
-	stock[0] = global.board_items[ItemType.Blackhole];
+	stock[0] = global.board_items[ItemType.Ice];
 	array_resize(stock, 5);
 
 	var swaps = 1;
@@ -60,14 +60,14 @@ function shop_end() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.EndShop);
+		buffer_write_action(ClientTCP.EndShop);
 		network_send_tcp_packet();
 	}
 }
 
 if (is_player_turn()) {
 	buffer_seek_begin();
-	buffer_write_action(Client_TCP.ShowShop);
+	buffer_write_action(ClientTCP.ShowShop);
 	
 	for (var i = 0; i < array_length(stock); i++) {
 		buffer_write_data(buffer_u8, stock[i].id);

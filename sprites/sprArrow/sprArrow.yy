@@ -152,8 +152,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sprites/Objects/Boards.yy",
+    "name": "Interfaces",
+    "path": "folders/Sprites/Objects/Boards/Interfaces.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprArrow",

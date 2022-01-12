@@ -44,16 +44,3 @@ roll = 0;
 random_roll();
 roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : get_frames(0.75);
 alarm[0] = roll_spd;
-
-function hide_dice() {
-	objPlayerBoard.can_jump = false;
-	layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
-	layer_sequence_headdir(sequence, -1);
-	layer_sequence_play(sequence);
-	
-	if (is_player_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(Client_TCP.HideDice);
-		network_send_tcp_packet();
-	}
-}

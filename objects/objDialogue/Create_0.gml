@@ -38,7 +38,7 @@ function text_advance() {
 		
 		if (is_player_turn()) {
 			buffer_seek_begin();
-			buffer_write_action(Client_TCP.SkipDialogueText);
+			buffer_write_action(ClientTCP.SkipDialogueText);
 			network_send_tcp_packet();
 		}
 		
@@ -87,7 +87,7 @@ function text_advance() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeDialogueText);
+		buffer_write_action(ClientTCP.ChangeDialogueText);
 		buffer_write_data(buffer_string, text_display.text.original_text);
 		
 		for (var i = 0; i < array_length(text_display.branches); i++) {
@@ -115,7 +115,7 @@ function text_end() {
 		
 		if (is_player_turn()) {
 			buffer_seek_begin();
-			buffer_write_action(Client_TCP.EndDialogue);
+			buffer_write_action(ClientTCP.EndDialogue);
 			network_send_tcp_packet();
 		}
 	}

@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Interfaces",
+    "path": "folders/Objects/Boards/Interfaces.yy",
   },
   "resourceVersion": "1.0",
   "name": "objTurnChoices",

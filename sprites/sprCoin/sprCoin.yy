@@ -473,8 +473,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sprites/Objects/Boards.yy",
+    "name": "Stats",
+    "path": "folders/Sprites/Objects/Boards/Stats.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprCoin",

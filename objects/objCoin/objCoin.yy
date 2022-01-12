@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objInterface",
+    "path": "objects/objInterface/objInterface.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -28,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Stats",
+    "path": "folders/Objects/Boards/Stats.yy",
   },
   "resourceVersion": "1.0",
   "name": "objCoin",

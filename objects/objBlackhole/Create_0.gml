@@ -44,13 +44,13 @@ function blackhole_end() {
 	
 	if (is_player_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.EndBlackhole);
+		buffer_write_action(ClientTCP.EndBlackhole);
 		network_send_tcp_packet();
 	}
 }
 
 if (is_player_turn()) {
 	buffer_seek_begin();
-	buffer_write_action(Client_TCP.ShowBlackhole);
+	buffer_write_action(ClientTCP.ShowBlackhole);
 	network_send_tcp_packet();
 }

@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sprites/Objects/Boards.yy",
+    "name": "Interactables",
+    "path": "folders/Sprites/Objects/Boards/Interactables.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprHiddenChest",

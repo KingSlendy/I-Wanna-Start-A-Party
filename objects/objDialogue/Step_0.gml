@@ -32,7 +32,7 @@ if (active) {
 			audio_play_sound(global.sound_cursor_move, 0, false);
 			
 			buffer_seek_begin();
-			buffer_write_action(Client_TCP.ChangeDialogueAnswer);
+			buffer_write_action(ClientTCP.ChangeDialogueAnswer);
 			buffer_write_data(buffer_u8, answer_index);
 			network_send_tcp_packet();
 		}

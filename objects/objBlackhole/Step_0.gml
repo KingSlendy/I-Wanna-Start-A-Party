@@ -34,7 +34,7 @@ if (selecting && is_player_turn()) {
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		
 		buffer_seek_begin();
-		buffer_write_action(Client_TCP.ChangeBlackholeSelected);
+		buffer_write_action(ClientTCP.ChangeBlackholeSelected);
 		buffer_write_data(buffer_u8, option_selected);
 		network_send_tcp_packet();
 	}
@@ -64,7 +64,7 @@ if (selecting && is_player_turn()) {
 										case 1: return (player_turn_info.shines > 0);
 									}
 								}, true).final_action = function() {
-									item_animation(ItemType.Blackhole, option_selected);
+									item_animation(ItemType.Blackhole, option_selected).final_action = board_advance;
 								}
 							}
 						})

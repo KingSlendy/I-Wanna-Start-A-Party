@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Stats",
+    "path": "folders/Objects/Boards/Stats.yy",
   },
   "resourceVersion": "1.0",
   "name": "objShine",

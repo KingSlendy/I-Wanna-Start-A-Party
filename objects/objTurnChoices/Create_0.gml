@@ -14,13 +14,7 @@ available_item = false;
 function can_choose() {
 	var choosing = !(
 		instance_exists(objChooseShine) ||
-		instance_exists(objDice) ||
-		instance_exists(objMultipleChoices) ||
-		instance_exists(objThingChange) ||
-		instance_exists(objItem) ||
-		instance_exists(objDialogue) ||
-		instance_exists(objItemAnimation) ||
-		instance_exists(objMapLook)
+		instance_exists(objInterface)
 	);
 	
 	alpha_target = choosing;

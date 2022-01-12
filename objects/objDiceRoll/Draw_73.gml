@@ -1,4 +1,4 @@
-if (instance_exists(objItemChange) || instance_exists(objThingChange)) {
+if (instance_exists(objInterface)) {
 	exit;
 }
 

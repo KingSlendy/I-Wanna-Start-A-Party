@@ -1,4 +1,4 @@
-enum Client_TCP {
+enum ClientTCP {
 	ReceiveID,
 	PlayerConnect,
 	PlayerDisconnect,
@@ -36,7 +36,7 @@ enum Client_TCP {
 	EndBlackholeSteal
 }
 
-enum Client_UDP {
+enum ClientUDP {
 	Heartbeat,
 	PlayerMove,
 	LessRoll,
@@ -73,15 +73,15 @@ function network_read_client(ip, port, buffer) {
 	}
 	
 	if (is_tcp) {
-		network_read_client_tcp(ip, port, buffer, data_id);
+		network_read_ClientTCP(ip, port, buffer, data_id);
 	} else {
-		network_read_client_udp(buffer, data_id);
+		network_read_ClientUDP(buffer, data_id);
 	}
 }
 
-function network_read_client_tcp(ip, port, buffer, data_id) {
+function network_read_ClientTCP(ip, port, buffer, data_id) {
 	switch (data_id) {
-		case Client_TCP.ReceiveID:
+		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
 			global.skin_current = global.player_id - 1;
 			
@@ -92,91 +92,91 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case Client_TCP.PlayerConnect:
+		case ClientTCP.PlayerConnect:
 			var player_id = buffer_read(buffer, buffer_u8);
 			player_join(player_id);
 			break;
 				
-		case Client_TCP.PlayerDisconnect:
+		case ClientTCP.PlayerDisconnect:
 			var player_id = buffer_read(buffer, buffer_u8);
 			player_leave(player_id);
 			break;
 			
-		case Client_TCP.PlayerMove:
+		case ClientTCP.PlayerMove:
 			player_read_data(buffer);
 			break;
 			
-		case Client_TCP.StartTurn:
+		case ClientTCP.StartTurn:
 			turn_start();
 			break;
 			
-		case Client_TCP.ChangeChoiceSelected:
+		case ClientTCP.ChangeChoiceSelected:
 			objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
 			audio_play_sound(global.sound_cursor_move, 0, false);
 			break;
 			
-		case Client_TCP.NextTurn:
+		case ClientTCP.NextTurn:
 			turn_next();
 			break;
 			
-		case Client_TCP.ShowDice:
+		case ClientTCP.ShowDice:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var seed = buffer_read(buffer, buffer_u16);
 			random_set_seed(seed);
 			show_dice(player_id);
 			break;
 			
-		case Client_TCP.RollDice:
+		case ClientTCP.RollDice:
 			objDice.roll = buffer_read(buffer, buffer_u8);
 			roll_dice();
 			break;
 			
-		case Client_TCP.HideDice:
+		case ClientTCP.HideDice:
 			hide_dice();
 			break;
 			
-		case Client_TCP.LessRoll:
+		case ClientTCP.LessRoll:
 			global.dice_roll--;
 			break;
 			
-		case Client_TCP.ShowChest:
+		case ClientTCP.ShowChest:
 			show_chest();
 			break;
 			
-		case Client_TCP.OpenChest:
+		case ClientTCP.OpenChest:
 			objHiddenChest.image_speed = 1;
 			break;
 			
-		case Client_TCP.ChooseShine:
+		case ClientTCP.ChooseShine:
 			var space_x = buffer_read(buffer, buffer_s16);
 			var space_y = buffer_read(buffer, buffer_s16);
 			place_shine(space_x, space_y);
 			break;
 			
-		case Client_TCP.ChangeShines:
-			var amount = buffer_read(buffer, buffer_u8);
+		case ClientTCP.ChangeShines:
+			var amount = buffer_read(buffer, buffer_s16);
 			var type = buffer_read(buffer, buffer_u8);
 			change_shines(amount, type);
 			break;
 			
-		case Client_TCP.ChangeCoins:
+		case ClientTCP.ChangeCoins:
 			var amount = buffer_read(buffer, buffer_s16);
 			var type = buffer_read(buffer, buffer_u8);
 			change_coins(amount, type);
 			break;
 			
-		case Client_TCP.ChangeItems:
+		case ClientTCP.ChangeItems:
 			var item_id = buffer_read(buffer, buffer_u8);
 			var type = buffer_read(buffer, buffer_u8);
 			change_items(global.board_items[item_id], type);
 			break;
 			
-		case Client_TCP.ChangeSpace:
+		case ClientTCP.ChangeSpace:
 			var space = buffer_read(buffer, buffer_u8);
 			change_space(space);
 			break;
 			
-		case Client_TCP.SkipDialogueText:
+		case ClientTCP.SkipDialogueText:
 			with (objDialogue) {
 				text_display.text.skip();
 			}
@@ -184,7 +184,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			audio_play_sound(global.sound_cursor_select, 0, false);
 			break;
 			
-		case Client_TCP.ChangeDialogueText:
+		case ClientTCP.ChangeDialogueText:
 			var d = objDialogue;
 		
 			if (!instance_exists(objDialogue)) {
@@ -215,7 +215,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case Client_TCP.ChangeDialogueAnswer:
+		case ClientTCP.ChangeDialogueAnswer:
 			if (instance_exists(objDialogue)) {
 				var answer_index = buffer_read(buffer, buffer_u8);
 				objDialogue.answer_index = answer_index;
@@ -223,14 +223,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case Client_TCP.EndDialogue:
+		case ClientTCP.EndDialogue:
 			with (objDialogue) {
 				endable = true;
 				text_end();
 			}
 			break;
 			
-		case Client_TCP.ShowShop:
+		case ClientTCP.ShowShop:
 			var s = instance_create_layer(0, 0, "Managers", objShop);
 			
 			while (true) {
@@ -242,37 +242,37 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case Client_TCP.ChangeShopSelected:
+		case ClientTCP.ChangeShopSelected:
 			if (instance_exists(objShop)) {
 				objShop.option_selected = buffer_read(buffer, buffer_u8);
 				audio_play_sound(global.sound_cursor_select, 0, false);
 			}
 			break;
 			
-		case Client_TCP.EndShop:
+		case ClientTCP.EndShop:
 			with (objShop) {
 				shop_end();
 			}
 			break;
 			
-		case Client_TCP.ShowBlackhole:
+		case ClientTCP.ShowBlackhole:
 			instance_create_layer(0, 0, "Managers", objBlackhole);
 			break;
 			
-		case Client_TCP.ChangeBlackholeSelected:
+		case ClientTCP.ChangeBlackholeSelected:
 			if (instance_exists(objBlackhole)) {
 				objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
 				audio_play_sound(global.sound_cursor_select, 0, false);
 			}
 			break;
 			
-		case Client_TCP.EndBlackhole:
+		case ClientTCP.EndBlackhole:
 			with (objBlackhole) {
 				blackhole_end();
 			}
 			break;
 			
-		case Client_TCP.ShowMultipleChoices:
+		case ClientTCP.ShowMultipleChoices:
 			var titles = buffer_read_array(buffer, buffer_string);
 			var choices = buffer_read_array(buffer, buffer_string);
 			var descriptions = buffer_read_array(buffer, buffer_string);
@@ -280,35 +280,35 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			show_multiple_choices(titles, choices, descriptions, availables);
 			break;
 			
-		case Client_TCP.ChangeMultipleChoiceSelected:
+		case ClientTCP.ChangeMultipleChoiceSelected:
 			global.choice_selected = buffer_read(buffer, buffer_u8);
 			audio_play_sound(global.sound_cursor_move, 0, false);
 			break;
 			
-		case Client_TCP.EndMultipleChoices:
+		case ClientTCP.EndMultipleChoices:
 			if (instance_exists(objMultipleChoices)) {
 				objMultipleChoices.alpha_target = 0;
 			}
 			break;
 			
-		case Client_TCP.ItemApplied:
+		case ClientTCP.ItemApplied:
 			var item_id = buffer_read(buffer, buffer_u8);
 			item_applied(global.board_items[item_id]);
 			break;
 			
-		case Client_TCP.ItemAnimation:
+		case ClientTCP.ItemAnimation:
 			var item_id = buffer_read(buffer, buffer_u8);
 			var additional = buffer_read(buffer, buffer_s8);
 			item_animation(item_id, additional);
 			break;
 			
-		case Client_TCP.StartBlackholeSteal:
+		case ClientTCP.StartBlackholeSteal:
 			with (objItemBlackholeAnimation) {
 				start_blackhole_steal();
 			}
 			break;
 			
-		case Client_TCP.EndBlackholeSteal:
+		case ClientTCP.EndBlackholeSteal:
 			with (objItemBlackholeAnimation) {
 				steal_count = buffer_read(buffer, buffer_u8);
 				end_blackhole_steal();
@@ -317,23 +317,23 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 	}
 }
 
-function network_read_client_udp(buffer, data_id) {
+function network_read_ClientUDP(buffer, data_id) {
 	switch (data_id) {
-		case Client_UDP.Heartbeat:
+		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
 				objNetworkClient.alarm[0] = get_frames(2);
 			}
 			break;
 		
-		case Client_UDP.PlayerMove:
+		case ClientUDP.PlayerMove:
 			player_read_data(buffer);
 			break;
 			
-		case Client_UDP.LessRoll:
+		case ClientUDP.LessRoll:
 			global.dice_roll--;
 			break;
 			
-		case Client_UDP.SendSound:
+		case ClientUDP.SendSound:
 			audio_play_sound(sndTest, 0, false);
 			break;
 	}

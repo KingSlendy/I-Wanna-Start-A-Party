@@ -21,8 +21,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Events",
+    "path": "folders/Objects/Boards/Events.yy",
   },
   "resourceVersion": "1.0",
   "name": "objChooseTurns",

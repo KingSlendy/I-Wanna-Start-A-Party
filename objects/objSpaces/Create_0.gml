@@ -19,7 +19,7 @@ for (var i = 0; i < count; i++) {
 		var space_array = space_directions_normal;
 		var invert = 0;
 	} else {
-		if (path.image_index == 2) {
+		if (path.image_index == 1) {
 			continue;
 		}
 		
@@ -63,8 +63,12 @@ function space_passing_event() {
 	var player_turn_info = get_player_turn_info();
 	
 	switch (image_index) {
-		case SpaceType.Pink:
+		case SpaceType.Shop:
 			call_shop();
+			return true;
+			
+		case SpaceType.Blackhole:
+			call_blackhole();
 			return true;
 		
 		case SpaceType.Shine:
@@ -126,6 +130,8 @@ function space_passing_event() {
 }
 
 function space_finish_event() {
+	change_space(image_index);
+	
 	switch (image_index) {
 		case SpaceType.Blue:
 			var blue_event = turn_next;
@@ -144,9 +150,5 @@ function space_finish_event() {
 		case SpaceType.Green:
 			turn_next();
 			break;
-			
-		default: break;
 	}
-	
-	change_space(image_index);
 }

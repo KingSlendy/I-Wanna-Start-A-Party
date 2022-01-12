@@ -5,8 +5,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objThingChange",
-    "path": "objects/objThingChange/objThingChange.yy",
+    "name": "objStatChange",
+    "path": "objects/objStatChange/objStatChange.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Boards",
-    "path": "folders/Objects/Boards.yy",
+    "name": "Stats",
+    "path": "folders/Objects/Boards/Stats.yy",
   },
   "resourceVersion": "1.0",
   "name": "objItemChange",
