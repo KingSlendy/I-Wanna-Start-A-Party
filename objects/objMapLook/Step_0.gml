@@ -1,12 +1,12 @@
-if (global.shoot_action.pressed()) {
+if (global.actions.shoot.pressed()) {
 	instance_destroy();
 	exit;
 }
 
 var cam_w = camera_get_view_width(view_camera[0]);
 var cam_h = camera_get_view_height(view_camera[0]);
-var scroll_h = (global.right_action.held() - global.left_action.held());
-var scroll_v = (global.down_action.held() - global.up_action.held());
+var scroll_h = (global.actions.right.held() - global.actions.left.held());
+var scroll_v = (global.actions.down.held() - global.actions.up.held());
 look_x += scroll_h * 8;
 look_y += scroll_v * 8;
 look_x = clamp(look_x, 0, room_width - cam_w * 0.25);

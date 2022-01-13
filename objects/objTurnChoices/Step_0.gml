@@ -4,7 +4,7 @@ if (!can_choose() || !is_player_turn() || image_alpha < 0.5) {
 	exit;
 }
 
-var scroll = (global.down_action.pressed() - global.up_action.pressed());
+var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
 var prev_choice = option_selected;
 
 if (option_selected == -1) {
@@ -22,7 +22,7 @@ if (option_selected != prev_choice) {
 	network_send_tcp_packet();
 }
 
-if (global.jump_action.pressed()) {
+if (global.actions.jump.pressed()) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	
 	switch (option_selected) {

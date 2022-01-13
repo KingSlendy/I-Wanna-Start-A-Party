@@ -16,7 +16,7 @@ if (offset_pos != offset_target) {
 }
 
 if (shopping && is_player_turn()) {
-	var scroll = (global.down_action.pressed() - global.up_action.pressed());
+	var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
 	var prev_selected = option_selected;
 
 	if (option_selected == -1) {
@@ -39,7 +39,7 @@ if (shopping && is_player_turn()) {
 		network_send_tcp_packet();
 	}
 
-	if (global.jump_action.pressed()) {
+	if (global.actions.jump.pressed()) {
 		io_clear();
 		
 		if (player_turn_info.coins >= item_selected.price) {
@@ -84,7 +84,7 @@ if (shopping && is_player_turn()) {
 		}
 	}
 	
-	if (global.shoot_action.pressed()) {
+	if (global.actions.shoot.pressed()) {
 		change_dialogue([
 			new Message("Hope to see you again soon!",, function() {
 				with (objShop) {

@@ -1,3 +1,7 @@
+with (objPlayerBase) {
+	change_to_object(objPlayerBoard);
+}
+
 global.board_started = false;
 global.dice_roll = 0;
 global.player_turn = 1;

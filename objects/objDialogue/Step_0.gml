@@ -25,7 +25,7 @@ if (active) {
 		}
 	} else {
 		var prev_answer = answer_index;
-		var move = (global.down_action.pressed() - global.up_action.pressed());
+		var move = (global.actions.down.pressed() - global.actions.up.pressed());
 		answer_index = (answer_index + move + answers) % answers;
 		
 		if (prev_answer != answer_index) {
@@ -42,7 +42,7 @@ if (active) {
 		exit;
 	}
 	
-	if (global.jump_action.pressed()) {
+	if (global.actions.jump.pressed()) {
 		text_advance();
 	}
 }

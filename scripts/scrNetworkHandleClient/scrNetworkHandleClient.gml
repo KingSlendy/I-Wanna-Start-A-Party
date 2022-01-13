@@ -86,10 +86,13 @@ function network_read_ClientTCP(ip, port, buffer, data_id) {
 			global.skin_current = global.player_id - 1;
 			
 			for (var i = 0; i < global.player_max; i++) {
-				if (global.player_list_client[i] == null) {
+				if (global.player_client_list[i] == null) {
 					player_join(i + 1);
 				}
 			}
+			
+			array_insert(global.all_ai_actions, global.player_id - 1, null);
+			objPlayerBase.network_id = global.player_id;
 			break;
 			
 		case ClientTCP.PlayerConnect:

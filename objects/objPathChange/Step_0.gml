@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(arrows); i++) {
 	}
 }
 
-if (global.jump_action.pressed()) {
+if (global.actions.jump.pressed()) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	instance_destroy();
 }

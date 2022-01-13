@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrSkinManaging",
+  "name": "scrPlayerManaging",
   "tags": [],
   "resourceType": "GMScript",
 }

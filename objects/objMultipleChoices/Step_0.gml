@@ -9,7 +9,7 @@ if (!is_player_turn() || alpha_target == 0) {
 	exit;
 }
 
-var scroll = (global.right_action.pressed() - global.left_action.pressed());
+var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
 var prev_choice = global.choice_selected;
 
 if (global.choice_selected == -1) {
@@ -30,7 +30,7 @@ if (global.choice_selected != prev_choice) {
 	network_send_tcp_packet();
 }
 
-if (global.jump_action.pressed()) {
+if (global.actions.jump.pressed()) {
 	if (availables[global.choice_selected]) {
 		alpha_target = 0;
 		audio_play_sound(global.sound_cursor_select, 0, false);
@@ -39,7 +39,7 @@ if (global.jump_action.pressed()) {
 	}
 }
 
-if (global.shoot_action.pressed()) {
+if (global.actions.shoot.pressed()) {
 	final_action = null;
 	alpha_target = 0;
 }
