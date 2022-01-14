@@ -313,7 +313,7 @@ function network_read_ClientTCP(ip, port, buffer, data_id) {
 			
 		case ClientTCP.EndBlackholeSteal:
 			with (objItemBlackholeAnimation) {
-				steal_count = buffer_read(buffer, buffer_u8);
+				steal_count = buffer_read(buffer, buffer_s8);
 				end_blackhole_steal();
 			}
 			break;

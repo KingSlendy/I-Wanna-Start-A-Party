@@ -27,7 +27,7 @@ if (is_player_turn()) {
 		}
 	}
 
-	stock[0] = global.board_items[ItemType.Ice];
+	//stock[0] = global.board_items[ItemType.Ice];
 	array_resize(stock, 5);
 
 	var swaps = 1;

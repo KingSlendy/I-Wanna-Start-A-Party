@@ -35,5 +35,5 @@ if (state == 0) {
 }
 
 if (state == -1 && is_player_turn() && global.actions.jump.pressed()) {
-	steal_count -= 0.1;
+	steal_count -= 0.25;
 }

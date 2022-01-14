@@ -25,10 +25,10 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = 1;
-	self.coins = 100;
-	//self.shines = 0;
-	//self.coins = 10;
+	//self.shines = 1;
+	//self.coins = 100;
+	self.shines = 0;
+	self.coins = 10;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
@@ -60,15 +60,15 @@ function is_player_turn(id = global.player_id) {
 }
 
 function focused_player_turn() {
-	if (is_player_turn()) {
-		with (objPlayerBase) {
+	with (objPlayerBase) {
+		if (network_id == global.player_turn) {
 			return id;
 		}
-	} else {
-		with (objNetworkPlayer) {
-			if (network_id == global.player_turn) {
-				return id;
-			}
+	}
+	
+	with (objNetworkPlayer) {
+		if (network_id == global.player_turn) {
+			return id;
 		}
 	}
 	
@@ -76,15 +76,15 @@ function focused_player_turn() {
 }
 
 function focus_player(player_id = global.player_id) {
-	if (player_id == global.player_id) {
-		with (objPlayerBase) {
+	with (objPlayerBase) {
+		if (network_id == player_id) {
 			return id;
 		}
-	} else {
-		with (objNetworkPlayer) {
-			if (network_id == player_id) {
-				return id;
-			}
+	}
+
+	with (objNetworkPlayer) {
+		if (network_id == player_id) {
+			return id;
 		}
 	}
 	
@@ -162,7 +162,7 @@ function turn_next() {
 	
 	global.player_turn += 1;
 
-	if (global.player_turn > 2) {
+	if (global.player_turn > 3) {
 		global.player_turn = 1;
 	}
 

@@ -7,7 +7,6 @@ global.shine_spawn_spot = {x: player1.x, y: player1.y};
 state = -2;
 scale = 0;
 angle = 0;
-steal_count = 20;
 stealed = false;
 
 alarm[0] = 1;
@@ -28,7 +27,7 @@ function end_blackhole_steal() {
 	if (is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.EndBlackholeSteal);
-		buffer_write_data(buffer_u8, steal_count);
+		buffer_write_data(buffer_s8, steal_count);
 		network_send_tcp_packet();
 	}
 }
