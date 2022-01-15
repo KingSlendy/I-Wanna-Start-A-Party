@@ -23,7 +23,7 @@ if (state == 0) {
 	
 	if (scale <= 0) {
 		scale = 0;
-		state = -1;
+		state = -2;
 		
 		if (!stealed) {
 			alarm[3] = 1;
@@ -34,6 +34,7 @@ if (state == 0) {
 	}
 }
 
-if (state == -1 && is_local_turn() && global.actions.jump.pressed(player2.network_id)) {
-	steal_count -= 0.25;
+if (is_local_turn() && state == -1 && global.actions.jump.pressed(player2.network_id)) {
+	steal_count -= 0.15;
+	//steal_count = max(steal_count, 5);
 }

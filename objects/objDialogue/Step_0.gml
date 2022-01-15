@@ -16,14 +16,14 @@ if (curve_perform) {
 	}
 }
 
-if (active) {
+if (active && text_display != null) {
 	var answers = array_length(answer_displays);
 	
 	if (answers == 0) {
 		repeat (array_length(text_display.branches)) {
 			array_push(answer_displays, new Text(fntDialogue));
 		}
-	} else {
+	} else if (!text_display.text.tw_active) {
 		var prev_answer = answer_index;
 		var move = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
 		answer_index = (answer_index + move + answers) % answers;

@@ -1,6 +1,6 @@
 image_alpha = lerp(image_alpha, alpha_target, 0.4);
 
-if (!can_choose() || !is_local_turn() || image_alpha < 0.5) {
+if (!is_local_turn() || !can_choose() || image_alpha < 0.5) {
 	exit;
 }
 

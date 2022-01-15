@@ -8,7 +8,6 @@ for (var i = 0; i < 4; i++) {
 		var separation = separations[i];
 		var sep_x = arrow_separation * separation[0];
 		var sep_y = arrow_separation * separation[1];
-		var focus_player = focused_player();
 		var a = instance_create_layer(focus_player.x + sep_x, focus_player.y + sep_y, "Actors", objArrow);
 		a.image_angle = angles[i];
 		

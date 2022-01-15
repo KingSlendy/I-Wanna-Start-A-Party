@@ -165,9 +165,7 @@ function turn_next() {
 		network_send_tcp_packet();
 	}
 	
-	global.player_turn += 1;
-
-	if (global.player_turn > global.player_max) {
+	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
 		global.board_turn++;
 	}
@@ -184,9 +182,7 @@ function board_advance() {
 	if (!is_local_turn() || global.dice_roll == 0) {
 		return;
 	}
-	
-	global.can_open_map = false;
-	
+
 	with (focused_player()) {
 		follow_path = path_add();
 		path_add_point(follow_path, x, y, 100);
@@ -228,7 +224,7 @@ function hide_dice() {
 	with (objDice) {
 		focus.can_jump = false;
 		layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
-		layer_sequence_headdir(sequence, -1);
+		layer_sequence_headdir(sequence, seqdir_left);
 		layer_sequence_play(sequence);
 	
 		if (is_local_turn()) {
@@ -626,6 +622,7 @@ function show_multiple_player_choices(available_func, not_me = false) {
 }
 
 function all_player_names(not_me = false) {
+	var player_turn_info = player_info_by_turn();
 	var names = [];
 			
 	for (var i = 1; i <= global.player_max; i++) {
@@ -636,7 +633,7 @@ function all_player_names(not_me = false) {
 		}
 				
 		if (player != null) {
-			array_push(names, player_turn_info.name);
+			array_push(names, player.name);
 		} else {
 			array_push(names, "");
 		}
@@ -646,6 +643,7 @@ function all_player_names(not_me = false) {
 }
 
 function all_player_choices(not_me = false) {
+	var player_turn_info = player_info_by_turn();
 	var choices = [];
 			
 	for (var i = 1; i <= global.player_max; i++) {
@@ -666,6 +664,7 @@ function all_player_choices(not_me = false) {
 }
 
 function all_player_availables(func, not_me = false) {
+	var player_turn_info = player_info_by_turn();
 	var availables = [];
 			
 	for (var i = 1; i <= global.player_max; i++) {

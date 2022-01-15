@@ -1,3 +1,4 @@
+event_inherited();
 depth = -10000;
 player_turn_info = player_info_by_turn();
 

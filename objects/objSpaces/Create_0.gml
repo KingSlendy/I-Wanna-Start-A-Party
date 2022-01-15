@@ -121,8 +121,6 @@ function space_passing_event() {
 	if (array_count(space_array, null) < 3) {
 		var p = instance_create_layer(0, 0, "Managers", objPathChange);
 		p.space = id;
-			
-		global.can_open_map = true;
 		return true;
 	}
 	

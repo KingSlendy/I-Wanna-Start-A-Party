@@ -1,5 +1,5 @@
 //Temp
-if (instance_exists(objMapLook)) {
+if (!is_local_turn() || instance_exists(objMapLook)) {
 	exit;
 }
 
@@ -18,4 +18,8 @@ for (var i = 0; i < array_length(arrows); i++) {
 if (global.actions.jump.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	instance_destroy();
+}
+
+if (!focus_player.ai && global.actions.shoot.pressed(network_id)) {
+	instance_create_layer(0, 0, "Managers", objMapLook);
 }

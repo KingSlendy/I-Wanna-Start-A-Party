@@ -1,6 +1,6 @@
 event_inherited();
-player1 = focus_player_by_id_turn();
-player2 = focus_player_by_id_turn(global.choice_selected + 1);
+player1 = focus_player_by_turn();
+player2 = focus_player_by_turn(global.choice_selected + 1);
 current_player = player2;
 
 state = -1;

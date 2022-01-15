@@ -1,3 +1,3 @@
-var focus = focused_player();
-look_x = focus.x;
-look_y = focus.y;
+event_inherited();
+look_x = focus_player.x;
+look_y = focus_player.y;

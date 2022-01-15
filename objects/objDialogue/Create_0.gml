@@ -1,4 +1,5 @@
-event_inherited();
+focus_player = focused_player();
+network_id = focus_player.network_id;
 depth = -10001;
 
 width = 0;

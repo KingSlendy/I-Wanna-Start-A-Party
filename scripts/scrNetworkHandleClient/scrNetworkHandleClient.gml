@@ -4,6 +4,7 @@ enum ClientTCP {
 	PlayerDisconnect,
 	PlayerMove,
 	StartTurn,
+	ChangeChoiceAlpha,
 	ChangeChoiceSelected,
 	NextTurn,
 	ShowDice,
@@ -111,6 +112,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.StartTurn:
 			turn_start();
+			break;
+			
+		case ClientTCP.ChangeChoiceAlpha:
+			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
 			break;
 			
 		case ClientTCP.ChangeChoiceSelected:

@@ -3,8 +3,9 @@ if (global.actions.shoot.pressed()) {
 	exit;
 }
 
-var cam_w = camera_get_view_width(view_camera[0]);
-var cam_h = camera_get_view_height(view_camera[0]);
+var cam = view_camera[0];
+var cam_w = camera_get_view_width(cam);
+var cam_h = camera_get_view_height(cam);
 var scroll_h = (global.actions.right.held() - global.actions.left.held());
 var scroll_v = (global.actions.down.held() - global.actions.up.held());
 look_x += scroll_h * 8;

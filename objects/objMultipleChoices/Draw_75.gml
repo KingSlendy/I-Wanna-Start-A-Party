@@ -8,14 +8,15 @@ var draw_x = display_get_gui_width() / 2 - total_length / 2;
 var draw_y = display_get_gui_height() / 2 - length;
 
 draw_set_alpha(image_alpha);
-var title_width = 150;
-var title_x = display_get_gui_width() / 2 - title_width / 2;
-var title_y = draw_y - 50;
-draw_box(title_x, title_y, title_width, 40, c_dkgray);
-draw_set_color(c_red);
-var text = new Text(fntDialogue, titles[global.choice_selected]);
-text.draw(title_x + 5, title_y + 8);
-draw_set_color(c_white);
+
+if (array_length(titles) > 0) {
+	var title_width = 150;
+	var title_x = display_get_gui_width() / 2 - title_width / 2;
+	var title_y = draw_y - 50;
+	draw_box(title_x, title_y, title_width, 40, c_dkgray);
+	var text = new Text(fntDialogue, titles[global.choice_selected]);
+	text.draw(title_x + 5, title_y + 8);
+}
 
 if (array_length(descriptions) > 0) {
 	var desc_width = 400;
