@@ -5,11 +5,11 @@ if (alpha_target == 0 && point_distance(image_alpha, 0, alpha_target, 0) < 0.001
 	exit;
 }
 
-if (!is_player_turn() || alpha_target == 0) {
+if (!is_local_turn() || alpha_target == 0) {
 	exit;
 }
 
-var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
+var scroll = (global.actions.right.pressed(network_id) - global.actions.left.pressed(network_id));
 var prev_choice = global.choice_selected;
 
 if (global.choice_selected == -1) {
@@ -30,7 +30,7 @@ if (global.choice_selected != prev_choice) {
 	network_send_tcp_packet();
 }
 
-if (global.actions.jump.pressed()) {
+if (global.actions.jump.pressed(network_id)) {
 	if (availables[global.choice_selected]) {
 		alpha_target = 0;
 		audio_play_sound(global.sound_cursor_select, 0, false);

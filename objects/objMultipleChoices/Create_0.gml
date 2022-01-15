@@ -1,3 +1,4 @@
+event_inherited();
 image_alpha = 0;
 alpha_target = 1;
 

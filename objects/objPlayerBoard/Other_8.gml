@@ -3,12 +3,6 @@ if (follow_path != null && path_exists(follow_path)) {
 	follow_path = null;
 }
 
-if (!global.board_started) {
-	global.board_started = true;
-	turn_start();
-	exit;
-}
-
 var space = instance_place(x, y, objSpaces);
 var passing = false;
 

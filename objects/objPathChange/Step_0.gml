@@ -6,7 +6,7 @@ if (instance_exists(objMapLook)) {
 for (var i = 0; i < array_length(arrows); i++) {
 	var arrow = arrows[i];
 	
-	if (arrow != null && arrow.image_index == 1 && actions[i].pressed()) {
+	if (arrow != null && arrow.image_index == 1 && actions[i].pressed(network_id)) {
 		arrows[arrow_selected].image_index = 1;
 		arrow.image_index = 0; 
 		arrow_selected = i;
@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(arrows); i++) {
 	}
 }
 
-if (global.actions.jump.pressed()) {
+if (global.actions.jump.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	instance_destroy();
 }

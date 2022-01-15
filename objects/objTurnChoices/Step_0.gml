@@ -1,10 +1,10 @@
 image_alpha = lerp(image_alpha, alpha_target, 0.4);
 
-if (!can_choose() || !is_player_turn() || image_alpha < 0.5) {
+if (!can_choose() || !is_local_turn() || image_alpha < 0.5) {
 	exit;
 }
 
-var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
+var scroll = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
 var prev_choice = option_selected;
 
 if (option_selected == -1) {
@@ -22,7 +22,7 @@ if (option_selected != prev_choice) {
 	network_send_tcp_packet();
 }
 
-if (global.actions.jump.pressed()) {
+if (global.actions.jump.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	
 	switch (option_selected) {
@@ -54,14 +54,16 @@ if (global.actions.jump.pressed()) {
 				}
 				
 				show_multiple_choices(item_names, items, item_descs, item_availables).final_action = function() {
-					var item = get_player_turn_info().items[global.choice_selected];
+					var item = player_info_by_turn().items[global.choice_selected];
 					change_items(item, ItemChangeType.Use);
 				}
 			}
 			break;
 		
 		case 2:
-			instance_create_layer(0, 0, "Managers", objMapLook);
+			if (!focus_player.ai) {
+				instance_create_layer(0, 0, "Managers", objMapLook);
+			}
 			break;
 	}
 }

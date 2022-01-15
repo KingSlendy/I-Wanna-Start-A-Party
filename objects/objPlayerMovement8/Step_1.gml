@@ -1,1 +1,1 @@
-sprite_index = get_skin()[$ "Idle"];
+sprite_index = skin[$ "Idle"];

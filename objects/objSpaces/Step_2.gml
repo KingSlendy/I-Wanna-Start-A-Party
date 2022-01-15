@@ -4,7 +4,7 @@ if (image_alpha == 0) {
 
 var prev_glowing = glowing;
 
-if (focused_player_turn().vspeed == 0) {
+if (focused_player().vspeed == 0) {
 	glowing = (place_meeting(x, y, objPlayerBase) || place_meeting(x, y, objNetworkPlayer));
 
 	if (!prev_glowing && glowing) {

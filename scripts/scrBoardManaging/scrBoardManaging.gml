@@ -1,4 +1,4 @@
-#macro BOARD_NORMAL (get_player_turn_info().item_effect != ItemType.Reverse)
+#macro BOARD_NORMAL (player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {
 	Blue,
@@ -55,11 +55,18 @@ function PlayerBoard(network_id, name, turn) constructor {
 	}
 }
 
-function is_player_turn(id = global.player_id) {
-	return (global.player_turn == id);
+#region Player Information Checks
+function is_local_turn() {
+	with (objPlayerBase) {
+		if (network_id == global.player_turn) {
+			return true;
+		}
+	}
+	
+	return false;
 }
 
-function focused_player_turn() {
+function focused_player() {
 	with (objPlayerBase) {
 		if (network_id == global.player_turn) {
 			return id;
@@ -75,7 +82,7 @@ function focused_player_turn() {
 	return null;
 }
 
-function focus_player(player_id = global.player_id) {
+function focus_player_by_id(player_id = global.player_id) {
 	with (objPlayerBase) {
 		if (network_id == player_id) {
 			return id;
@@ -91,11 +98,11 @@ function focus_player(player_id = global.player_id) {
 	return null;
 }
 
-function focus_player_turn(turn = global.player_turn) {
-	return focus_player(get_player_turn_info(turn).network_id);
+function focus_player_by_turn(turn = global.player_turn) {
+	return focus_player_by_id(player_info_by_turn(turn).network_id);
 }
 
-function get_player_info(player_id = global.player_id) {
+function player_info_by_id(player_id = global.player_id) {
 	with (objPlayerInfo) {
 		if (player_info.network_id == player_id) {
 			return player_info;
@@ -103,14 +110,16 @@ function get_player_info(player_id = global.player_id) {
 	}
 }
 
-function get_player_turn_info(turn = global.player_turn) {
+function player_info_by_turn(turn = global.player_turn) {
 	with (objPlayerInfo) {
 		if (player_info.turn == turn) {
 			return player_info;
 		}
 	}
 }
+#endregion
 
+#region Board Management
 function switch_camera_target(x, y) {
 	var s = instance_create_layer(0, 0, "Managers", objSwitchCameraTarget);
 	s.switch_x = x;
@@ -121,13 +130,9 @@ function switch_camera_target(x, y) {
 function board_start() {
 	instance_destroy(objHiddenChest);
 	
-	if (is_player_turn()) {
-		if (!global.board_started) {
-			if (global.player_id == 1) {
-				choose_shine();
-			} else {
-				board_advance();
-			}
+	if (is_local_turn()) {
+		if (!instance_exists(objShine)) {
+			choose_shine();
 		} else {
 			turn_start();
 		}
@@ -135,14 +140,14 @@ function board_start() {
 }
 
 function turn_start() {
-	if (get_player_turn_info().item_effect == ItemType.Ice) {
+	if (player_info_by_turn().item_effect == ItemType.Ice) {
 		turn_next();
 		return;
 	}
 	
 	instance_create_layer(0, 0, "Managers", objTurnChoices);
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.StartTurn);
 		network_send_tcp_packet();
@@ -150,11 +155,11 @@ function turn_start() {
 }
 
 function turn_next() {
-	var player_turn_info = get_player_turn_info();
+	var player_turn_info = player_info_by_turn();
 	player_turn_info.item_used = false;
 	player_turn_info.item_effect = null;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.NextTurn);
 		network_send_tcp_packet();
@@ -162,8 +167,9 @@ function turn_next() {
 	
 	global.player_turn += 1;
 
-	if (global.player_turn > 3) {
+	if (global.player_turn > global.player_max) {
 		global.player_turn = 1;
+		global.board_turn++;
 	}
 
 	with (objCamera) {
@@ -175,13 +181,13 @@ function turn_next() {
 }
 
 function board_advance() {
-	if (!is_player_turn() || (global.board_started && global.dice_roll == 0)) {
+	if (!is_local_turn() || global.dice_roll == 0) {
 		return;
 	}
 	
 	global.can_open_map = false;
 	
-	with (objPlayerBoard) {
+	with (focused_player()) {
 		follow_path = path_add();
 		path_add_point(follow_path, x, y, 100);
 		var space = instance_place(x, y, objSpaces);
@@ -199,13 +205,15 @@ function board_advance() {
 		path_start(follow_path, max_speed, path_action_stop, true);
 	}
 }
+#endregion
 
+#region Interactable Management
 function show_dice(id = global.player_id) {
-	var focus = focused_player_turn();
+	var focus = focused_player();
 	instance_create_layer(focus.x, focus.y - 37, "Actors", objDice);
 	
 	if (id == global.player_id) {
-		objPlayerBoard.can_jump = true;
+		focus.can_jump = true;
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowDice);
 		buffer_write_data(buffer_u8, id);
@@ -215,13 +223,15 @@ function show_dice(id = global.player_id) {
 }
 
 function hide_dice() {
+	var focus = focused_player();
+	
 	with (objDice) {
-		objPlayerBoard.can_jump = false;
+		focus.can_jump = false;
 		layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
 		layer_sequence_headdir(sequence, -1);
 		layer_sequence_play(sequence);
 	
-		if (is_player_turn()) {
+		if (is_local_turn()) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.HideDice);
 			network_send_tcp_packet();
@@ -237,7 +247,7 @@ function roll_dice() {
 	instance_destroy(objDice);
 	audio_play_sound(sndDiceHit, 0, false);
 	
-	var player_turn_info = get_player_turn_info();
+	var player_turn_info = player_info_by_turn();
 	var rolled_all_die = false;
 	
 	switch (player_turn_info.item_effect) {
@@ -275,10 +285,10 @@ function roll_dice() {
 	
 	
 	if (rolled_all_die) {
-		objDiceRoll.target_x = focused_player_turn().x;
+		objDiceRoll.target_x = focused_player().x;
 	}
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.RollDice);
 		buffer_write_data(buffer_u8, r.roll);
@@ -287,12 +297,12 @@ function roll_dice() {
 }
 
 function show_chest() {
-	var focus = focused_player_turn();
+	var focus = focused_player();
 	instance_create_layer(focus.x - 16, focus.y - 75, "Actors", objHiddenChest);
 	audio_play_sound(sndHiddenChestSpawn, 0, false);
 	
-	if (is_player_turn()) {
-		objPlayerBoard.can_jump = true;
+	if (is_local_turn()) {
+		focus.can_jump = true;
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowChest);
 		network_send_tcp_packet();
@@ -306,7 +316,9 @@ function open_chest() {
 	buffer_write_action(ClientTCP.OpenChest);
 	network_send_tcp_packet();
 }
+#endregion
 
+#region Event Management
 function choose_shine() {
 	if (instance_exists(objShine)) {
 		return;
@@ -350,13 +362,15 @@ function place_shine(space_x, space_y) {
 	c.space_x = space_x;
 	c.space_y = space_y;
 }
+#endregion
 
+#region Stat Management
 function change_shines(amount, type) {
 	var s = instance_create_layer(0, 0, "Managers", objShineChange);
 	s.amount = amount;
 	s.animation_type = type;
 
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeShines);
 		buffer_write_data(buffer_s16, amount);
@@ -372,7 +386,7 @@ function change_coins(amount, type) {
 	c.amount = amount;
 	c.animation_type = type;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeCoins);
 		buffer_write_data(buffer_s16, amount);
@@ -389,7 +403,7 @@ function change_items(item, type) {
 	i.amount = (type == ItemChangeType.Gain) ? 1 : -1;
 	i.item = item;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeItems);
 		buffer_write_data(buffer_u8, item.id);
@@ -403,8 +417,8 @@ function change_items(item, type) {
 function calculate_player_place() {
 	var scores = array_create(4, 0);
 	
-	for (var i = 1; i <= 4; i++) {
-		var player_info = get_player_info(i);
+	for (var i = 1; i <= global.player_max; i++) {
+		var player_info = player_info_by_id(i);
 		scores[i - 1] = player_info.shines * 1000 + player_info.coins;
 		player_info.score = scores[i - 1];
 		player_info.place = 0;
@@ -426,8 +440,8 @@ function calculate_player_place() {
 	}
 	
 	for (var i = 1; i <= 4; i++) {
-		for (var j = 1; j <= 4; j++) {
-			var player_info = get_player_info(j);
+		for (var j = 1; j <= global.player_max; j++) {
+			var player_info = player_info_by_id(j);
 			
 			if (player_info.place == 0 && player_info.score == scores[i - 1]) {
 				player_info.place = i;
@@ -446,9 +460,9 @@ function change_space(space) {
 		default: color = c_gray; break;
 	}
 	
-	get_player_turn_info().space = color;
+	player_info_by_turn().space = color;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeSpace);
 		buffer_write_data(buffer_u8, space);
@@ -456,91 +470,8 @@ function change_space(space) {
 	}
 }
 
-function call_shop() {
-	var player_turn_info = get_player_turn_info();
-			
-	if (player_turn_info.free_item_slot() != -1) {
-		if (player_turn_info.coins >= global.min_shop_coins) {
-			start_dialogue([
-				new Message("Do you wanna enter the shop?", [
-					["Yes", [
-						new Message("",, function() {
-							instance_create_layer(0, 0, "Managers", objShop);
-							objDialogue.endable = false;
-						})
-					]],
-						
-					["No", [
-						new Message("",, board_advance)
-					]]
-				])
-			]);
-		} else {
-			start_dialogue([
-				new Message("You don't have enough money to enter the shop!",, board_advance)
-			]);
-		}
-	} else {
-		start_dialogue([
-			new Message("You don't have item space!\nCome back later.",, board_advance)
-		]);
-	}
-}
-
-function call_blackhole() {
-	var player_turn_info = get_player_turn_info();
-	
-	//if (player_turn_info.free_item_slot() != -1) {
-		if (player_turn_info.coins >= global.min_blackhole_coins) {
-			start_dialogue([
-				new Message("Do you wanna use the blackhole?", [
-					["Yes", [
-						new Message("",, function() {
-							instance_create_layer(0, 0, "Managers", objBlackhole);
-							objDialogue.endable = false;
-						})
-					]],
-						
-					["No", [
-						new Message("",, board_advance)
-					]]
-				])
-			]);
-		} else {
-			start_dialogue([
-				new Message("You don't have enough money!",, board_advance)
-			]);
-		}
-	//} else {
-		//start_dialogue([
-		//	new Message("You don't have item space!\nCome back later.",, board_advance)
-		//]);
-	//}
-}
-
-function show_multiple_choices(titles, choices, descriptions, availables) {
-	global.choice_selected = -1;
-	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
-	m.titles = titles;
-	m.choices = choices;
-	m.descriptions = descriptions;
-	m.availables = availables;
-	
-	if (is_player_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.ShowMultipleChoices);
-		buffer_write_array(buffer_string, titles);
-		buffer_write_array(buffer_string, choices);
-		buffer_write_array(buffer_string, descriptions);
-		buffer_write_array(buffer_bool, availables);
-		network_send_tcp_packet();
-	}
-	
-	return m;
-}
-
 function item_applied(item) {
-	var player_turn_info = get_player_turn_info();
+	var player_turn_info = player_info_by_turn();
 	
 	switch (item.id) {
 		case ItemType.Dice:
@@ -552,11 +483,11 @@ function item_applied(item) {
 			break;
 	}
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		switch (item.id) {
 			case ItemType.Ice:
 				show_multiple_player_choices(function(i) {
-					return get_player_turn_info(i).item_effect == null;
+					return player_info_by_turn(i).item_effect == null;
 				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
 				}
@@ -594,7 +525,7 @@ function item_animation(item_id, additional = noone) {
 	i.sprite = item.sprite;
 	i.additional = additional;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ItemAnimation);
 		buffer_write_data(buffer_u8, item_id);
@@ -604,6 +535,91 @@ function item_animation(item_id, additional = noone) {
 	
 	return i;
 }
+#endregion
+
+#region Interface Management
+function call_shop() {
+	var player_turn_info = player_info_by_turn();
+			
+	if (player_turn_info.free_item_slot() != -1) {
+		if (player_turn_info.coins >= global.min_shop_coins) {
+			start_dialogue([
+				new Message("Do you wanna enter the shop?", [
+					["Yes", [
+						new Message("",, function() {
+							instance_create_layer(0, 0, "Managers", objShop);
+							objDialogue.endable = false;
+						})
+					]],
+						
+					["No", [
+						new Message("",, board_advance)
+					]]
+				])
+			]);
+		} else {
+			start_dialogue([
+				new Message("You don't have enough money to enter the shop!",, board_advance)
+			]);
+		}
+	} else {
+		start_dialogue([
+			new Message("You don't have item space!\nCome back later.",, board_advance)
+		]);
+	}
+}
+
+function call_blackhole() {
+	var player_turn_info = player_info_by_turn();
+	
+	//if (player_turn_info.free_item_slot() != -1) {
+		if (player_turn_info.coins >= global.min_blackhole_coins) {
+			start_dialogue([
+				new Message("Do you wanna use the blackhole?", [
+					["Yes", [
+						new Message("",, function() {
+							instance_create_layer(0, 0, "Managers", objBlackhole);
+							objDialogue.endable = false;
+						})
+					]],
+						
+					["No", [
+						new Message("",, board_advance)
+					]]
+				])
+			]);
+		} else {
+			start_dialogue([
+				new Message("You don't have enough money!",, board_advance)
+			]);
+		}
+	//} else {
+		//start_dialogue([
+		//	new Message("You don't have item space!\nCome back later.",, board_advance)
+		//]);
+	//}
+}
+
+function show_multiple_choices(titles, choices, descriptions, availables) {
+	global.choice_selected = -1;
+	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
+	m.titles = titles;
+	m.choices = choices;
+	m.descriptions = descriptions;
+	m.availables = availables;
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ShowMultipleChoices);
+		buffer_write_array(buffer_string, titles);
+		buffer_write_array(buffer_string, choices);
+		buffer_write_array(buffer_string, descriptions);
+		buffer_write_array(buffer_bool, availables);
+		network_send_tcp_packet();
+	}
+	
+	return m;
+}
 
 function show_multiple_player_choices(available_func, not_me = false) {
 	return show_multiple_choices(all_player_names(not_me), all_player_choices(not_me), [], all_player_availables(available_func, not_me));
@@ -612,8 +628,8 @@ function show_multiple_player_choices(available_func, not_me = false) {
 function all_player_names(not_me = false) {
 	var names = [];
 			
-	for (var i = 1; i <= 4; i++) {
-		var player = get_player_turn_info(i);
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = player_info_by_turn(i);
 		
 		if (i == player_turn_info.turn && not_me) {
 			player = null;
@@ -632,8 +648,8 @@ function all_player_names(not_me = false) {
 function all_player_choices(not_me = false) {
 	var choices = [];
 			
-	for (var i = 1; i <= 4; i++) {
-		var player = focus_player_turn(i);
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
 		
 		if (i == player_turn_info.turn && not_me) {
 			player = null;
@@ -652,8 +668,8 @@ function all_player_choices(not_me = false) {
 function all_player_availables(func, not_me = false) {
 	var availables = [];
 			
-	for (var i = 1; i <= 4; i++) {
-		var player = focus_player_turn(i);
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
 		
 		if (i == player_turn_info.turn && not_me) {
 			player = null;
@@ -668,3 +684,4 @@ function all_player_availables(func, not_me = false) {
 		
 	return availables;
 }
+#endregion

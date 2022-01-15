@@ -1,3 +1,4 @@
+event_inherited();
 depth = -10001;
 
 width = 0;
@@ -36,7 +37,7 @@ function text_advance() {
 		text_display.text.skip();
 		//audio_play_sound(global.sound_cursor_mini_select, 0, false);
 		
-		if (is_player_turn()) {
+		if (is_local_turn()) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.SkipDialogueText);
 			network_send_tcp_packet();
@@ -85,7 +86,7 @@ function text_advance() {
 	
 	//audio_play_sound(global.sound_cursor_mini_select, 0, false);
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeDialogueText);
 		buffer_write_data(buffer_string, text_display.text.original_text);
@@ -113,7 +114,7 @@ function text_end() {
 		curve_pos = 1;
 		curve_perform = true;
 		
-		if (is_player_turn()) {
+		if (is_local_turn()) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.EndDialogue);
 			network_send_tcp_packet();

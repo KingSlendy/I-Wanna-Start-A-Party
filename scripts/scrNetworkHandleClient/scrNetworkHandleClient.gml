@@ -73,13 +73,13 @@ function network_read_client(ip, port, buffer) {
 	}
 	
 	if (is_tcp) {
-		network_read_ClientTCP(ip, port, buffer, data_id);
+		network_read_client_tcp(ip, port, buffer, data_id);
 	} else {
-		network_read_ClientUDP(buffer, data_id);
+		network_read_client_udp(buffer, data_id);
 	}
 }
 
-function network_read_ClientTCP(ip, port, buffer, data_id) {
+function network_read_client_tcp(ip, port, buffer, data_id) {
 	switch (data_id) {
 		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
@@ -313,14 +313,14 @@ function network_read_ClientTCP(ip, port, buffer, data_id) {
 			
 		case ClientTCP.EndBlackholeSteal:
 			with (objItemBlackholeAnimation) {
-				steal_count = buffer_read(buffer, buffer_s8);
+				steal_count = buffer_read(buffer, buffer_u8);
 				end_blackhole_steal();
 			}
 			break;
 	}
 }
 
-function network_read_ClientUDP(buffer, data_id) {
+function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {

@@ -1,4 +1,4 @@
-if (!is_player_turn()) {
+if (!is_local_turn()) {
 	return;
 }
 

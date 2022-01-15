@@ -8,11 +8,11 @@ if (state == 0) {
 		if (!stealed) {
 			alarm[1] = 1;
 		
-			if (is_player_turn()) {
+			if (is_local_turn()) {
 				alarm[2] = get_frames((additional == 0) ? 5 : 0.5);
 			}
 		} else {
-			if (is_player_turn()) {
+			if (is_local_turn()) {
 				steal_count *= -1;
 				alarm[2] = 1;
 			}
@@ -34,6 +34,6 @@ if (state == 0) {
 	}
 }
 
-if (state == -1 && is_player_turn() && global.actions.jump.pressed()) {
+if (state == -1 && is_local_turn() && global.actions.jump.pressed(player2.network_id)) {
 	steal_count -= 0.25;
 }

@@ -15,8 +15,8 @@ if (offset_pos != offset_target) {
 	exit;
 }
 
-if (shopping && is_player_turn()) {
-	var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
+if (shopping && is_local_turn()) {
+	var scroll = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
 	var prev_selected = option_selected;
 
 	if (option_selected == -1) {
@@ -39,7 +39,7 @@ if (shopping && is_player_turn()) {
 		network_send_tcp_packet();
 	}
 
-	if (global.actions.jump.pressed()) {
+	if (global.actions.jump.pressed(network_id)) {
 		io_clear();
 		
 		if (player_turn_info.coins >= item_selected.price) {

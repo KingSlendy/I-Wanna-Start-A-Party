@@ -1,8 +1,9 @@
+event_inherited();
 width = 400;
 height = 300;
 stock = [];
 
-if (is_player_turn()) {
+if (is_local_turn()) {
 	for (var i = 0; i < array_length(global.board_items); i++) {
 		stock[i] = global.board_items[i];
 	}
@@ -50,7 +51,7 @@ option_selected = -1;
 option_previous = 0;
 item_selected = -1;
 shopping = true;
-player_turn_info = get_player_turn_info();
+player_turn_info = player_info_by_turn();
 offset_target = 1;
 offset_pos = 0;
 offset_y = -454;
@@ -58,14 +59,14 @@ offset_y = -454;
 function shop_end() {
 	offset_target = 0;
 	
-	if (is_player_turn()) {
+	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.EndShop);
 		network_send_tcp_packet();
 	}
 }
 
-if (is_player_turn()) {
+if (is_local_turn()) {
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.ShowShop);
 	

@@ -15,8 +15,8 @@ if (offset_pos != offset_target) {
 	exit;
 }
 
-if (selecting && is_player_turn()) {
-	var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
+if (selecting && is_local_turn()) {
+	var scroll = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
 	var prev_selected = option_selected;
 
 	if (option_selected == -1) {
@@ -39,7 +39,7 @@ if (selecting && is_player_turn()) {
 		network_send_tcp_packet();
 	}
 
-	if (global.actions.jump.pressed()) {
+	if (global.actions.jump.pressed(network_id)) {
 		io_clear();
 		
 		if (player_turn_info.coins >= item_selected.price && item_selected.can_select) {
@@ -57,7 +57,7 @@ if (selecting && is_player_turn()) {
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
 								show_multiple_player_choices(function(turn) {
-									var player_turn_info = get_player_turn_info(turn);
+									var player_turn_info = player_info_by_turn(turn);
 									
 									switch (option_selected) {
 										case 0: return (player_turn_info.coins > 0);

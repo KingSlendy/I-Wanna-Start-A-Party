@@ -1,4 +1,4 @@
-if (is_player_turn()) {
+if (is_local_turn()) {
 	if (1 / 20 > random(1)) {
 		change_shines(1, ShineChangeType.Spawn).final_action = turn_next;
 	} else {

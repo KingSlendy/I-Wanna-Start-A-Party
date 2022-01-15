@@ -31,7 +31,7 @@ switch (player_info.turn) {
 	default: exit;
 }
 
-var idle = get_skin_pose_object(focus_player(player_info.network_id), "Idle");
+var idle = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");
 
 if (idle == sprNothing) {
 	exit;

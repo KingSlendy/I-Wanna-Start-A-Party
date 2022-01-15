@@ -1,3 +1,3 @@
-if (is_player_turn() && final_action != null) {
+if (is_local_turn() && final_action != null) {
 	final_action();
 }

@@ -108,7 +108,7 @@ function ai_join(id) {
 	var a = instance_create_layer(800, 304, "Instances", objPlayerMovement8);
 	a.network_id = id;
 	a.ai = true;
-	a.alarm[0] = 1; //Temp
+	a.alarm[1] = 1; //Temp
 	global.player_client_list[id - 1] = a;
 }
 
@@ -124,7 +124,7 @@ function ai_leave(id) {
 
 function player_write_data() {
 	buffer_write_data(buffer_u8, network_id);
-	buffer_write_data(buffer_string, global.player_name);
+	buffer_write_data(buffer_string, network_name);
 	buffer_write_data(buffer_u16, sprite_index);
 	buffer_write_data(buffer_s16, x);
 	buffer_write_data(buffer_s16, y);

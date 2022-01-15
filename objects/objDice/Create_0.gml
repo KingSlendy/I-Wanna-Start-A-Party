@@ -1,5 +1,5 @@
 depth = -10000;
-player_turn_info = get_player_turn_info();
+player_turn_info = player_info_by_turn();
 
 switch (player_turn_info.item_effect) {
 	case ItemType.Dice: image_index = 1; break;

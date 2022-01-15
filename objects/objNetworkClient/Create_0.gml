@@ -28,4 +28,5 @@ if (global.udp_socket < 0) {
 }
 
 global.player_name = get_string("Enter your name.", "Player");
+objPlayerBase.network_name = global.player_name;
 network_connect_async(global.tcp_socket, global.ip, global.port);

@@ -1,5 +1,5 @@
 if (player_focus == null) {
-	player_focus = focus_player(player_info.network_id);
+	player_focus = focus_player_by_id(player_info.network_id);
 	exit;
 }
 

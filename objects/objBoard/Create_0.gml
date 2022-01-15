@@ -2,30 +2,20 @@ with (objPlayerBase) {
 	change_to_object(objPlayerBoard);
 }
 
-global.board_started = false;
-global.dice_roll = 0;
+global.board_turn = 1;
 global.player_turn = 1;
+global.dice_roll = 0;
 global.choosing_shine = false;
 global.can_open_map = false;
 global.choice_selected = -1;
 
-for (var i = 1; i <= 4; i++) {
+for (var i = 1; i <= global.player_max; i++) {
 	var info = instance_create_layer(0, -32, "Managers", objPlayerInfo);
-	var name;
-	
-	if (i == global.player_id) {
-		name = global.player_name;
-	} else {
-		try {
-			name = focus_player(i).network_name;
-		} catch (_) {
-			name = "???";
-		}
-	}
-	
-	info.player_info = new PlayerBoard(i, name, i);
+	info.player_info = new PlayerBoard(i, focus_player_by_id(i).network_name, i);
 }
 
 //Temp
 temp = false;
 //Temp
+
+alarm[0] = 1;

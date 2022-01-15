@@ -60,7 +60,7 @@ if (image_index == SpaceType.Shine) {
 glowing = false;
 
 function space_passing_event() {
-	var player_turn_info = get_player_turn_info();
+	var player_turn_info = player_info_by_turn();
 	
 	switch (image_index) {
 		case SpaceType.Shop:

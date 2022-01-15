@@ -2,7 +2,7 @@
 if (!used_item) {
 	player_turn_info.items[global.choice_selected] = null;
 	player_turn_info.item_used = true;
-	var focus = focused_player_turn();
+	var focus = focused_player();
 	spawned_item = instance_create_layer(focus.x, focus.y - 40, "Actors", objItem);
 	spawned_item.sprite_index = item.sprite;
 	
