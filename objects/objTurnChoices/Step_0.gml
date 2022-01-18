@@ -17,9 +17,9 @@ if (option_selected != prev_choice) {
 	audio_play_sound(global.sound_cursor_move, 0, false);
 	
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.ChangeChoiceSelected);
+	buffer_write_action(ClientUDP.ChangeChoiceSelected);
 	buffer_write_data(buffer_u8, option_selected);
-	network_send_tcp_packet();
+	network_send_udp_packet();
 }
 
 if (global.actions.jump.pressed(network_id)) {

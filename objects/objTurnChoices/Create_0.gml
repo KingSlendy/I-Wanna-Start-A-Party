@@ -15,6 +15,7 @@ available_item = false;
 function can_choose() {
 	var choosing = !(
 		instance_exists(objChooseShine) ||
+		instance_exists(objDice) ||
 		instance_number(objInterface) > 1
 	);
 	

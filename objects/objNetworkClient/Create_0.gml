@@ -3,7 +3,7 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 
-global.ip = get_string("Enter IP", "127.0.0.1");
+global.ip = get_string("Enter IP", "iwannastartaparty.sytes.net");
 	
 if (global.ip == null) {
 	popup("Process has been cancelled.");

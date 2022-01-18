@@ -3,8 +3,8 @@ event_inherited();
 if (is_local_turn()) {
 	with (objSpaces) {
 		if (image_index == SpaceType.Shine) {
-			focus_player.x = x + 16;
-			focus_player.y = y + 16;
+			other.focus_player.x = x + 16;
+			other.focus_player.y = y + 16;
 			break;
 		}
 	}

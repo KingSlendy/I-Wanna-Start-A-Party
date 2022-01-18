@@ -22,22 +22,17 @@ enum ItemType {
 	Blackhole,
 	Mirror,
 	Medal,
-	ItemBag
+	ItemBag,
+	Length
 }
 
 global.board_items = [
 	new Item(ItemType.Dice, "Dice", "Lets you roll two dice.", sprItemDice, 10),
 	new Item(ItemType.DoubleDice, "Double Dice", "Lets you roll three dice.", sprItemDoubleDice, 20),
 	new Item(ItemType.Clock, "Clock", "Makes your dice roll slow.", sprItemClock, 20),
-	new Item(ItemType.Poison, "Poison", "Dice gets only a roll from 1-3.\nCan be used on other players.", sprItemPoison, 5),
-	new Item(ItemType.Reverse, "Reverse", "Lets you go backwards on the board.", sprItemReverse, 9),
-	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15, objItemIceAnimation,, function() {
+	new Item(ItemType.Poison, "Poison", "Dice gets only a roll from 1-3.\nCan be used on other players.", sprItemPoison, 5, objItemPoisonAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
-			if (i == global.player_turn) {
-				continue;
-			}
-			
-			if (player_info_by_turn(i).item_effect != ItemType.Ice) {
+			if (player_info_by_turn(i).item_effect == null) {
 				return true;
 			}
 		}
@@ -45,7 +40,22 @@ global.board_items = [
 		return false;
 	}),
 	
-	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 15),
+	new Item(ItemType.Reverse, "Reverse", "Lets you go backwards on the board.", sprItemReverse, 9),
+	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15, objItemIceAnimation,, function() {
+		for (var i = 1; i <= global.player_max; i++) {
+			if (i == global.player_turn) {
+				continue;
+			}
+			
+			if (player_info_by_turn(i).item_effect == null) {
+				return true;
+			}
+		}
+		
+		return false;
+	}),
+	
+	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 1000),
 	new Item(ItemType.Warp, "Warp", "Changes location with the player you choose.", sprItemWarp, 25, objItemWarpAnimation),
 	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12,,, function() {
 		return (player_info_by_turn().coins >= global.min_shop_coins);
@@ -71,8 +81,8 @@ global.board_items = [
 	}),
 	
 	new Item(ItemType.Mirror, "Mirror", "Teleports you right next to the shine.", sprItemMirror, 30, objItemMirrorAnimation),
-	new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 999),
-	new Item(ItemType.ItemBag, "Item Bag", "Fills your item slots with random items.", sprItemItemBag, 30),
+	new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 1000),
+	new Item(ItemType.ItemBag, "Item Bag", "Fills your item slots with random items.", sprItemItemBag, 1000),
 ];
 
 function get_item(id) {

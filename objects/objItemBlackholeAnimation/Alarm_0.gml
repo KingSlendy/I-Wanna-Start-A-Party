@@ -1,6 +1,6 @@
 turn_previous = global.player_turn;
 global.player_turn = global.choice_selected + 1;
-var player_turn_info = player_info_by_turn();
+player_turn_info = player_info_by_turn();
 steal_count = clamp(player_turn_info.coins, 0, 20);
 
 switch_camera_target(current_player.x, current_player.y).final_action = function() {

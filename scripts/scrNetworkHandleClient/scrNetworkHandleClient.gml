@@ -5,7 +5,6 @@ enum ClientTCP {
 	PlayerMove,
 	StartTurn,
 	ChangeChoiceAlpha,
-	ChangeChoiceSelected,
 	NextTurn,
 	ShowDice,
 	RollDice,
@@ -20,13 +19,10 @@ enum ClientTCP {
 	ChangeSpace,
 	SkipDialogueText,
 	ChangeDialogueText,
-	ChangeDialogueAnswer,
 	EndDialogue,
 	ShowShop,
-	ChangeShopSelected,
 	EndShop,
 	ShowBlackhole,
-	ChangeBlackholeSelected,
 	EndBlackhole,
 	ShowMultipleChoices,
 	ChangeMultipleChoiceSelected,
@@ -40,8 +36,10 @@ enum ClientTCP {
 enum ClientUDP {
 	Heartbeat,
 	PlayerMove,
-	LessRoll,
-	SendSound
+	ChangeChoiceSelected,
+	ChangeDialogueAnswer,
+	ChangeShopSelected,
+	ChangeBlackholeSelected
 }
 
 function network_read_client(ip, port, buffer) {
@@ -116,11 +114,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.ChangeChoiceAlpha:
 			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
-			break;
-			
-		case ClientTCP.ChangeChoiceSelected:
-			objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
-			audio_play_sound(global.sound_cursor_move, 0, false);
 			break;
 			
 		case ClientTCP.NextTurn:
@@ -223,14 +216,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.ChangeDialogueAnswer:
-			if (instance_exists(objDialogue)) {
-				var answer_index = buffer_read(buffer, buffer_u8);
-				objDialogue.answer_index = answer_index;
-				audio_play_sound(global.sound_cursor_select, 0, false);
-			}
-			break;
-			
 		case ClientTCP.EndDialogue:
 			with (objDialogue) {
 				endable = true;
@@ -250,13 +235,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.ChangeShopSelected:
-			if (instance_exists(objShop)) {
-				objShop.option_selected = buffer_read(buffer, buffer_u8);
-				audio_play_sound(global.sound_cursor_select, 0, false);
-			}
-			break;
-			
 		case ClientTCP.EndShop:
 			with (objShop) {
 				shop_end();
@@ -265,13 +243,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.ShowBlackhole:
 			instance_create_layer(0, 0, "Managers", objBlackhole);
-			break;
-			
-		case ClientTCP.ChangeBlackholeSelected:
-			if (instance_exists(objBlackhole)) {
-				objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
-				audio_play_sound(global.sound_cursor_select, 0, false);
-			}
 			break;
 			
 		case ClientTCP.EndBlackhole:
@@ -337,12 +308,33 @@ function network_read_client_udp(buffer, data_id) {
 			player_read_data(buffer);
 			break;
 			
-		case ClientUDP.LessRoll:
-			global.dice_roll--;
+		case ClientUDP.ChangeChoiceSelected:
+			if (instance_exists(objTurnChoices)) {
+				objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
+				audio_play_sound(global.sound_cursor_move, 0, false);
+			}
 			break;
 			
-		case ClientUDP.SendSound:
-			audio_play_sound(sndTest, 0, false);
+		case ClientUDP.ChangeDialogueAnswer:
+			if (instance_exists(objDialogue)) {
+				var answer_index = buffer_read(buffer, buffer_u8);
+				objDialogue.answer_index = answer_index;
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
+			break;
+			
+		case ClientUDP.ChangeShopSelected:
+			if (instance_exists(objShop)) {
+				objShop.option_selected = buffer_read(buffer, buffer_u8);
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
+			break;
+			
+		case ClientUDP.ChangeBlackholeSelected:
+			if (instance_exists(objBlackhole)) {
+				objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
+				audio_play_sound(global.sound_cursor_select, 0, false);
+			}
 			break;
 	}
 }

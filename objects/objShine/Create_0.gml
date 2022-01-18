@@ -1,4 +1,4 @@
-depth = -10000;
+depth = -10002;
 image_alpha = 0;
 spawning = true;
 floating = false;

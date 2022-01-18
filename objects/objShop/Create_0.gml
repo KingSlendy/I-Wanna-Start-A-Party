@@ -28,7 +28,7 @@ if (is_local_turn()) {
 		}
 	}
 
-	//stock[0] = global.board_items[ItemType.Ice];
+	stock[0] = global.board_items[ItemType.Dice];
 	array_resize(stock, 5);
 
 	var swaps = 1;

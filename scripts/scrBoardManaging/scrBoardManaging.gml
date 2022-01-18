@@ -25,10 +25,10 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = 1;
-	//self.coins = 100;
-	self.shines = 0;
-	self.coins = 10;
+	self.shines = 1;
+	self.coins = 100;
+	//self.shines = 0;
+	//self.coins = 10;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
@@ -175,6 +175,7 @@ function turn_next() {
 	}
 	
 	instance_create_layer(0, 0, "Managers", objNextTurn);
+	instance_destroy(objDiceRoll);
 	instance_destroy(objHiddenChest);
 }
 
@@ -473,7 +474,6 @@ function item_applied(item) {
 		case ItemType.Dice:
 		case ItemType.DoubleDice:
 		case ItemType.Clock:
-		case ItemType.Poison:
 		case ItemType.Reverse:
 			player_turn_info.item_effect = item.id;
 			break;
@@ -481,9 +481,17 @@ function item_applied(item) {
 	
 	if (is_local_turn()) {
 		switch (item.id) {
+			case ItemType.Poison:
+				show_multiple_player_choices(function(i) {
+					return (player_info_by_turn(i).item_effect == null);
+				}, false).final_action = function() {
+					item_animation(ItemType.Poison);
+				}
+				break;
+			
 			case ItemType.Ice:
 				show_multiple_player_choices(function(i) {
-					return player_info_by_turn(i).item_effect == null;
+					return (player_info_by_turn(i).item_effect == null);
 				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
 				}
@@ -518,6 +526,7 @@ function item_applied(item) {
 function item_animation(item_id, additional = noone) {
 	var item = global.board_items[item_id];
 	var i = instance_create_layer(0, 0, "Managers", item.animation);
+	i.type = item_id;
 	i.sprite = item.sprite;
 	i.additional = additional;
 	

@@ -1,4 +1,5 @@
-event_inherited();
+focus_player = focused_player();
+network_id = focus_player.network_id;
 depth = -10000;
 player_turn_info = player_info_by_turn();
 
@@ -16,7 +17,7 @@ sequence = layer_sequence_create("Assets", x, y, seqDice);
 sequence_instance_override_object(layer_sequence_get_instance(sequence), objDice, id);
 
 function random_roll() {
-	var max_roll;
+	var max_roll = 10;
 	
 	switch (player_turn_info.item_effect) {
 		case ItemType.Poison:
@@ -28,8 +29,6 @@ function random_roll() {
 				roll = 10;
 			}
 			return;
-			
-		default: max_roll = 10; break;
 	}
 	
 	var previous = roll;
@@ -38,7 +37,7 @@ function random_roll() {
 		roll = irandom_range(1, max_roll);
 	} until (roll != previous);
 	
-	//roll = max_roll;
+	roll = max_roll;
 }
 
 roll = 0;

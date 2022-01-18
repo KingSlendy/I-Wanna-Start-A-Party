@@ -34,9 +34,9 @@ if (shopping && is_local_turn()) {
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.ChangeShopSelected);
+		buffer_write_action(ClientUDP.ChangeShopSelected);
 		buffer_write_data(buffer_u8, option_selected);
-		network_send_tcp_packet();
+		network_send_udp_packet();
 	}
 
 	if (global.actions.jump.pressed(network_id)) {
@@ -55,8 +55,16 @@ if (shopping && is_local_turn()) {
 								text_end();
 							}
 						
-							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
-								change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
+							if (item_selected.id != ItemType.ItemBag) {
+								change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
+									change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
+								}
+							} else {
+								var bag_choose = function() {
+									return change_items(global.board_items[irandom(ItemType.Length - 1)]);
+								}
+								
+								bag_choose().final_action = bag_choose;
 							}
 						})
 					]],

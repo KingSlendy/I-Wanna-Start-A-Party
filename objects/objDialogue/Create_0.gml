@@ -1,6 +1,4 @@
-focus_player = focused_player();
-network_id = focus_player.network_id;
-depth = -10001;
+depth = -10009;
 
 width = 0;
 height = 0;
