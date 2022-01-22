@@ -1,3 +1,4 @@
+event_inherited();
 depth = -10009;
 
 width = 0;

@@ -69,9 +69,9 @@ global.board_items = [
 				continue;
 			}
 			
-			var player_turn_info = player_info_by_turn(i);
+			var player_info = player_info_by_turn(i);
 			
-			if (player_turn_info.coins > 0 || player_turn_info.shines > 0) {
+			if (player_info.coins > 0 || player_info.shines > 0) {
 				other_has_things = true;
 				break;
 			}

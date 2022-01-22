@@ -60,7 +60,7 @@ if (image_index == SpaceType.Shine) {
 glowing = false;
 
 function space_passing_event() {
-	var player_turn_info = player_info_by_turn();
+	var player_info = player_info_by_turn();
 	
 	switch (image_index) {
 		case SpaceType.Shop:
@@ -72,7 +72,7 @@ function space_passing_event() {
 			return true;
 		
 		case SpaceType.Shine:
-			if (player_turn_info.coins >= global.shine_price) {
+			if (player_info.coins >= global.shine_price) {
 				var buy_shine = function() {
 					change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
 						change_shines(1, ShineChangeType.Get).final_action = choose_shine;
@@ -147,6 +147,10 @@ function space_finish_event() {
 			
 		case SpaceType.Green:
 			turn_next();
+			break;
+			
+		case SpaceType.ChanceTime:
+			start_chance_time();
 			break;
 	}
 }

@@ -1,3 +1,5 @@
-/*buffer_seek_begin();
-buffer_write_action(ClientUDP.SendSound);
-network_send_udp_packet();*/
+for (var i = 2; i <= global.player_max; i++) {
+	if (!focus_player_by_id(i).visible) {
+		ai_join(i);
+	}
+}

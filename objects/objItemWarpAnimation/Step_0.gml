@@ -1,3 +1,5 @@
+event_inherited();
+
 if (state == 0) {
 	scale += 0.04;
 

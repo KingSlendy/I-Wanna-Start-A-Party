@@ -4,4 +4,11 @@ switch_x = null;
 switch_y = null;
 final_action = null;
 
-alarm[0] = 1;
+function snap_camera() {
+	with (objCamera) {
+		target_x = other.switch_x;
+		target_y = other.switch_y;
+		view_x = target_x;
+		view_y = target_y;
+	}
+}

@@ -42,7 +42,7 @@ if (selecting && is_local_turn()) {
 	if (global.actions.jump.pressed(network_id)) {
 		io_clear();
 		
-		if (player_turn_info.coins >= item_selected.price && item_selected.can_select) {
+		if (player_info.coins >= item_selected.price && item_selected.can_select) {
 			change_dialogue([
 				new Message("Are you sure you wanna steal {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
 					["Yes (" + draw_coins_price(item_selected.price) + ")", [
@@ -57,11 +57,11 @@ if (selecting && is_local_turn()) {
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
 								show_multiple_player_choices(function(turn) {
-									var player_turn_info = player_info_by_turn(turn);
+									var player_info = player_info_by_turn(turn);
 									
 									switch (option_selected) {
-										case 0: return (player_turn_info.coins > 0);
-										case 1: return (player_turn_info.shines > 0);
+										case 0: return (player_info.coins > 0);
+										case 1: return (player_info.shines > 0);
 									}
 								}, true).final_action = function() {
 									item_animation(ItemType.Blackhole, option_selected).final_action = board_advance;

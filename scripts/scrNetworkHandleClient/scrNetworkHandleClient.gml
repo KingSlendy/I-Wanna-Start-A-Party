@@ -1,22 +1,21 @@
 enum ClientTCP {
+	//Network
 	ReceiveID,
 	PlayerConnect,
 	PlayerDisconnect,
 	PlayerMove,
-	StartTurn,
-	ChangeChoiceAlpha,
-	NextTurn,
+	
+	//Interactables
 	ShowDice,
 	RollDice,
 	HideDice,
-	LessRoll,
 	ShowChest,
 	OpenChest,
-	ChooseShine,
-	ChangeShines,
-	ChangeCoins,
-	ChangeItems,
-	ChangeSpace,
+	SpawnChanceTimeBox,
+	
+	//Interfaces
+	ChangeChoiceAlpha,
+	LessRoll,
 	SkipDialogueText,
 	ChangeDialogueText,
 	EndDialogue,
@@ -27,6 +26,21 @@ enum ClientTCP {
 	ShowMultipleChoices,
 	ChangeMultipleChoiceSelected,
 	EndMultipleChoices,
+	HitChanceTimeBox,
+	
+	//Stats
+	ChangeShines,
+	ChangeCoins,
+	ChangeItems,
+	ChangeSpace,
+	
+	//Events
+	StartTurn,
+	NextTurn,
+	ChooseShine,
+	StartChanceTime,
+	
+	//Animations
 	ItemApplied,
 	ItemAnimation,
 	StartBlackholeSteal,
@@ -34,8 +48,11 @@ enum ClientTCP {
 }
 
 enum ClientUDP {
+	//Networking
 	Heartbeat,
 	PlayerMove,
+	
+	//Interfaces
 	ChangeChoiceSelected,
 	ChangeDialogueAnswer,
 	ChangeShopSelected,
@@ -80,6 +97,7 @@ function network_read_client(ip, port, buffer) {
 
 function network_read_client_tcp(ip, port, buffer, data_id) {
 	switch (data_id) {
+		//Network
 		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
 			global.skin_current = global.player_id - 1;
@@ -108,21 +126,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			player_read_data(buffer);
 			break;
 			
-		case ClientTCP.StartTurn:
-			turn_start();
-			break;
-			
-		case ClientTCP.ChangeChoiceAlpha:
-			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
-			break;
-			
-		case ClientTCP.NextTurn:
-			turn_next();
-			break;
-			
+		//Interactables
 		case ClientTCP.ShowDice:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var seed = buffer_read(buffer, buffer_u16);
+			var seed = buffer_read(buffer, buffer_u32);
 			random_set_seed(seed);
 			show_dice(player_id);
 			break;
@@ -136,10 +143,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			hide_dice();
 			break;
 			
-		case ClientTCP.LessRoll:
-			global.dice_roll--;
-			break;
-			
 		case ClientTCP.ShowChest:
 			show_chest();
 			break;
@@ -148,33 +151,23 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			objHiddenChest.image_speed = 1;
 			break;
 			
-		case ClientTCP.ChooseShine:
-			var space_x = buffer_read(buffer, buffer_s16);
-			var space_y = buffer_read(buffer, buffer_s16);
-			place_shine(space_x, space_y);
+		case ClientTCP.SpawnChanceTimeBox:
+			var seed = buffer_read(buffer, buffer_u32);
+			random_set_seed(seed);
+			
+			with (objChanceTime) {
+				var b = spawn_chance_time_box();
+				b.sprites = buffer_read_array(buffer, buffer_u32);
+			}
 			break;
 			
-		case ClientTCP.ChangeShines:
-			var amount = buffer_read(buffer, buffer_s16);
-			var type = buffer_read(buffer, buffer_u8);
-			change_shines(amount, type);
+		//Interfaces
+		case ClientTCP.ChangeChoiceAlpha:
+			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
 			break;
-			
-		case ClientTCP.ChangeCoins:
-			var amount = buffer_read(buffer, buffer_s16);
-			var type = buffer_read(buffer, buffer_u8);
-			change_coins(amount, type);
-			break;
-			
-		case ClientTCP.ChangeItems:
-			var item_id = buffer_read(buffer, buffer_u8);
-			var type = buffer_read(buffer, buffer_u8);
-			change_items(global.board_items[item_id], type);
-			break;
-			
-		case ClientTCP.ChangeSpace:
-			var space = buffer_read(buffer, buffer_u8);
-			change_space(space);
+		
+		case ClientTCP.LessRoll:
+			global.dice_roll--;
 			break;
 			
 		case ClientTCP.SkipDialogueText:
@@ -270,6 +263,62 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.HitChanceTimeBox:
+			var sprite = buffer_read(buffer, buffer_u16);
+			
+			with (objChanceTimeBox) {
+				show_sprites[0] = sprite;
+				box_activate();
+			}
+			break;
+			
+		//Stats	
+		case ClientTCP.ChangeShines:
+			var amount = buffer_read(buffer, buffer_s16);
+			var type = buffer_read(buffer, buffer_u8);
+			var player_id = buffer_read(buffer, buffer_u8);
+			change_shines(amount, type, player_id);
+			break;
+			
+		case ClientTCP.ChangeCoins:
+			var amount = buffer_read(buffer, buffer_s16);
+			var type = buffer_read(buffer, buffer_u8);
+			var player_id = buffer_read(buffer, buffer_u8);
+			change_coins(amount, type, player_id);
+			break;
+			
+		case ClientTCP.ChangeItems:
+			var item_id = buffer_read(buffer, buffer_u8);
+			var type = buffer_read(buffer, buffer_u8);
+			var player_id = buffer_read(buffer, buffer_u8);
+			change_items(global.board_items[item_id], type, player_id);
+			break;
+			
+		case ClientTCP.ChangeSpace:
+			var space = buffer_read(buffer, buffer_u8);
+			change_space(space);
+			break;
+			
+		//Events
+		case ClientTCP.StartTurn:
+			turn_start();
+			break;
+			
+		case ClientTCP.NextTurn:
+			turn_next();
+			break;
+			
+		case ClientTCP.ChooseShine:
+			var space_x = buffer_read(buffer, buffer_s16);
+			var space_y = buffer_read(buffer, buffer_s16);
+			place_shine(space_x, space_y);
+			break;
+			
+		case ClientTCP.StartChanceTime:
+			start_chance_time();
+			break;
+			
+		//Animations
 		case ClientTCP.ItemApplied:
 			var item_id = buffer_read(buffer, buffer_u8);
 			item_applied(global.board_items[item_id]);
@@ -298,6 +347,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 
 function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
+		//Network
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
 				objNetworkClient.alarm[0] = get_frames(2);
@@ -308,6 +358,7 @@ function network_read_client_udp(buffer, data_id) {
 			player_read_data(buffer);
 			break;
 			
+		//Interfaces
 		case ClientUDP.ChangeChoiceSelected:
 			if (instance_exists(objTurnChoices)) {
 				objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);

@@ -2,7 +2,7 @@ event_inherited();
 image_alpha = 0;
 alpha_target = 1;
 
-player_turn_info = player_info_by_turn();
+player_info = player_info_by_turn();
 option_selected = -1;
 choice_texts = [
 	"Dice",

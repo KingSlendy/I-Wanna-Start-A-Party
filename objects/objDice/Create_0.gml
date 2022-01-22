@@ -1,25 +1,18 @@
-focus_player = focused_player();
-network_id = focus_player.network_id;
-depth = -10000;
-player_turn_info = player_info_by_turn();
+event_inherited();
+box_activate = roll_dice;
+player_info = player_info_by_turn();
 
-switch (player_turn_info.item_effect) {
+switch (player_info.item_effect) {
 	case ItemType.Dice: image_index = 1; break;
 	case ItemType.DoubleDice: image_index = 2; break;
 	case ItemType.Poison: image_index = 3; break;
 	case ItemType.Clock: image_index = 4; break;
 }
 
-image_xscale = 0;
-image_yscale = 0;
-
-sequence = layer_sequence_create("Assets", x, y, seqDice);
-sequence_instance_override_object(layer_sequence_get_instance(sequence), objDice, id);
-
 function random_roll() {
 	var max_roll = 10;
 	
-	switch (player_turn_info.item_effect) {
+	switch (player_info.item_effect) {
 		case ItemType.Poison:
 			max_roll = 3;
 			break;
@@ -37,10 +30,11 @@ function random_roll() {
 		roll = irandom_range(1, max_roll);
 	} until (roll != previous);
 	
-	roll = max_roll;
+	//roll = max_roll;
+	//roll = 1;
 }
 
 roll = 0;
 random_roll();
-roll_spd = (player_turn_info.item_effect != ItemType.Clock) ? 4 : get_frames(0.75);
+roll_spd = (player_info.item_effect != ItemType.Clock) ? 4 : get_frames(0.75);
 alarm[0] = roll_spd;

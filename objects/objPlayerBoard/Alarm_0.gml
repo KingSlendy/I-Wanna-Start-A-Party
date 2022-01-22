@@ -1,3 +1,8 @@
 event_inherited();
-x = objPlayerStart.x + 64 * (network_id - 1);
-y = objPlayerStart.y;
+
+with (objPlayerReference) {
+	if (reference == 0) {
+		other.x = x + 64 * (other.network_id - 1);
+		other.y = y;
+	}
+}

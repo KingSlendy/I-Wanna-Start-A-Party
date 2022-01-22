@@ -38,7 +38,7 @@ if (global.actions.jump.pressed(network_id)) {
 				var item_availables = [];
 				
 				for (var i = 0; i < 3; i++) {
-					var item = player_turn_info.items[i];
+					var item = player_info.items[i];
 					
 					if (item == null) {
 						array_push(item_names, "");

@@ -10,10 +10,10 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 	draw_box(option_x, option_y, 80, 30, (i == option_selected) ? c_gray : c_dkgray);
 	text.set(draw_option_afford(choice_texts[i], i != 1 || available_item, i == option_selected));
 	text.draw(option_x + 10, option_y + 3);
-	var player_turn_info = player_info_by_turn();
+	var player_info = player_info_by_turn();
 	
-	if (i == 0 && player_turn_info.item_effect != null) {
-		draw_sprite_ext(global.board_items[player_turn_info.item_effect].sprite, 0, option_x - 25, option_y + 15, 0.5, 0.5, 0, c_white, image_alpha);
+	if (i == 0 && player_info.item_effect != null) {
+		draw_sprite_ext(global.board_items[player_info.item_effect].sprite, 0, option_x - 25, option_y + 15, 0.5, 0.5, 0, c_white, image_alpha);
 	}
 }
 	

@@ -1,1 +1,0 @@
-fade_state = 1;

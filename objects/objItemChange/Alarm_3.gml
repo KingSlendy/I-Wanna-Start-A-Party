@@ -1,9 +1,9 @@
 ///@desc Item Use Animation
 if (!used_item) {
-	player_turn_info.items[global.choice_selected] = null;
-	player_turn_info.item_used = true;
-	var focus = focused_player();
-	spawned_item = instance_create_layer(focus.x, focus.y - 40, "Actors", objItem);
+	player_info.items[global.choice_selected] = null;
+	player_info.item_used = true;
+	spawned_item = instance_create_layer(focus_player.x, focus_player.y - 40, "Actors", objItem);
+	spawned_item.focus_player = focus_player;
 	spawned_item.sprite_index = item.sprite;
 	
 	if (item.id == ItemType.ItemBag) {

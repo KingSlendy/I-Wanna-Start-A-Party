@@ -107,6 +107,7 @@ function ai_join(id) {
 	
 	var a = instance_create_layer(800, 304, "Instances", objPlayerMovement8);
 	a.network_id = id;
+	a.network_name = "CPU " + string(id);
 	a.ai = true;
 	a.alarm[1] = 1; //Temp
 	global.player_client_list[id - 1] = a;

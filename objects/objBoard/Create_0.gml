@@ -5,7 +5,6 @@ with (objPlayerBase) {
 global.board_turn = 1;
 global.player_turn = 1;
 global.dice_roll = 0;
-global.choosing_shine = false;
 global.choice_selected = -1;
 
 for (var i = 1; i <= global.player_max; i++) {

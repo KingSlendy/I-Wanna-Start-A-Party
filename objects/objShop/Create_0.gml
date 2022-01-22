@@ -28,7 +28,7 @@ if (is_local_turn()) {
 		}
 	}
 
-	stock[0] = global.board_items[ItemType.Dice];
+	//stock[0] = global.board_items[ItemType.Dice];
 	array_resize(stock, 5);
 
 	var swaps = 1;
@@ -51,7 +51,7 @@ option_selected = -1;
 option_previous = 0;
 item_selected = -1;
 shopping = true;
-player_turn_info = player_info_by_turn();
+player_info = player_info_by_turn();
 offset_target = 1;
 offset_pos = 0;
 offset_y = -454;

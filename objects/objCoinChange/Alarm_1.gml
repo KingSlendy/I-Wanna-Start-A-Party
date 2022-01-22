@@ -1,6 +1,6 @@
 ///@desc Coin Gain Animation
-var focus = focused_player();
-var c = instance_create_layer(focus.x, focus.y - 69, "Actors", objCoin);
+var c = instance_create_layer(focus_player.x, focus_player.y - 69, "Actors", objCoin);
+c.focus_player = focus_player;
 c.vspeed = 6;
 
 if (++animation_amount == amount) {

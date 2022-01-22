@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPlayerStart",
-    "path": "sprites/sprPlayerStart/sprPlayerStart.yy",
+    "name": "sprPlayerReference",
+    "path": "sprites/sprPlayerReference/sprPlayerReference.yy",
   },
   "solid": false,
   "visible": false,
@@ -21,14 +21,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reference","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
     "path": "folders/Objects/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayerStart",
+  "name": "objPlayerReference",
   "tags": [],
   "resourceType": "GMObject",
 }
