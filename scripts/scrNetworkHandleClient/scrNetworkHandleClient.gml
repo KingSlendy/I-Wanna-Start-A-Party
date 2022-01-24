@@ -39,6 +39,8 @@ enum ClientTCP {
 	NextTurn,
 	ChooseShine,
 	StartChanceTime,
+	RepositionChanceTime,
+	EndChanceTime,
 	
 	//Animations
 	ItemApplied,
@@ -156,8 +158,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			random_set_seed(seed);
 			
 			with (objChanceTime) {
-				var b = spawn_chance_time_box();
+				var b = advance_chance_time();
 				b.sprites = buffer_read_array(buffer, buffer_u32);
+				b.indexes = buffer_read(buffer, buffer_bool);
 			}
 			break;
 			
@@ -264,10 +267,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.HitChanceTimeBox:
-			var sprite = buffer_read(buffer, buffer_u16);
-			
 			with (objChanceTimeBox) {
-				show_sprites[0] = sprite;
+				show_sprites[0] = buffer_read(buffer, buffer_u16);
 				box_activate();
 			}
 			break;
@@ -316,6 +317,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.StartChanceTime:
 			start_chance_time();
+			break;
+			
+		case ClientTCP.RepositionChanceTime:
+			with (objChanceTime) {
+				reposition_chance_time();
+			}
+			break;
+			
+		case ClientTCP.EndChanceTime:
+			with (objChanceTime) {
+				end_chance_time();
+			}
 			break;
 			
 		//Animations

@@ -10,6 +10,6 @@ switch (objChanceTime.current_flag++) {
 
 if (is_local_turn()) {
 	with (objChanceTime) {
-		spawn_chance_time_box();
+		advance_chance_time();
 	}
 }

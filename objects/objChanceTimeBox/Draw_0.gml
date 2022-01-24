@@ -1,6 +1,4 @@
-sprite_index = sprBox;
-draw_self();
-sprite_index = sprChanceTimeBox;
+draw_sprite_ext(sprBox, 0, x, y - 5, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 
 if (layer_sequence_is_finished(sequence)) {
 	if (!surface_exists(surf)) {
@@ -12,12 +10,14 @@ if (layer_sequence_is_finished(sequence)) {
 
 	for (var i = 0; i < array_length(show_sprites); i++) {
 		var show = show_sprites[i];
-		draw_sprite((!indexes) ? show : sprBox, (!indexes) ? 0 : show, sprite_get_xoffset(show), sprite_get_yoffset(show) + yy + (32 * i));
+		var sprite = (!indexes) ? show : sprChanceTimeExchanges;
+		var index = (!indexes) ? 0 : show;
+		draw_sprite(sprite, index, sprite_get_xoffset(sprite), sprite_get_yoffset(sprite) + yy + (32 * i));
 	}
 
 	surface_reset_target();
 
-	draw_surface_ext(surf, x - 16, y - 32, image_xscale, image_yscale, 0, c_white, 1);
+	draw_surface_ext(surf, x - 16, y - 37, image_xscale, image_yscale, 0, c_white, 1);
 }
 
 draw_self();

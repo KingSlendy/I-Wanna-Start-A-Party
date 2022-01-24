@@ -4,16 +4,31 @@ sprites = [];
 indexes = false;
 
 box_activate = function() {
-	var sprite = show_sprites[0];
-	objChanceTime.player_ids[flag] = array_index(sprites, sprite);
-	var c = instance_create_layer(x - 16, y - 32, "Actors", objChanceTimeChoice);
+	if (!indexes) {
+		var sprite = show_sprites[0];
+		var index = 0;
+	} else {
+		var sprite = sprChanceTimeExchanges;
+		var index = show_sprites[0];
+	}
+	
+	with (objChanceTime) {
+		if (other.flag < 2) {
+			player_ids[other.flag] = array_index(all_player_sprites(), sprite);
+		} else {
+			event = events[index];
+		}
+	}
+	
+	var c = instance_create_layer(x - 16, y - 37, "Actors", objChanceTimeChoice);
 	c.flag = flag;
 	c.sprite = sprite;
+	c.index = index;
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.HitChanceTimeBox);
-		buffer_write_data(buffer_u16, c.sprite);
+		buffer_write_data(buffer_u16, show_sprites[0]);
 		network_send_tcp_packet();
 	}
 	

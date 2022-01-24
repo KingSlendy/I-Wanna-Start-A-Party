@@ -3,10 +3,22 @@ state = -2;
 
 switch (additional) {
 	case 0:
-		change_coins(steal_count * -1, (!stealed) ? CoinChangeType.Lose : CoinChangeType.Gain).final_action = end_blackhole_steal;
+		if (!stealed) {
+			var c = change_coins(steal_count * -1, CoinChangeType.Lose, global.choice_selected + 1);
+		} else {
+			var c = change_coins(steal_count * -1, CoinChangeType.Gain);
+		}
+		
+		c.final_action = end_blackhole_steal;
 		break;
 		
 	case 1:
-		change_shines(sign(steal_count * -1), (!stealed) ? ShineChangeType.Lose : ShineChangeType.Spawn).final_action = end_blackhole_steal;
+		if (!stealed) {
+			var s = change_shines(sign(steal_count * -1), ShineChangeType.Lose, global.choice_selected + 1);
+		} else {
+			var s = change_shines(sign(steal_count * -1), ShineChangeType.Spawn);
+		}
+		
+		s.final_action = end_blackhole_steal;
 		break;
 }

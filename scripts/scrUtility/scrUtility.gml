@@ -1,3 +1,4 @@
+#region Arrays
 function array_count(array, check) {
 	var count = 0;
 
@@ -31,6 +32,36 @@ function array_shuffle(array) {
 		array[@ rnd] = array[i];
 		array[@ i] = temp;
 	}
+}
+
+function array_sequence(start, count) {
+	var array = [];
+	
+	for (var i = start; i < count; i++) {
+		array_push(array, i);
+	}
+	
+	return array;
+}
+
+function array_first(array, func) {
+	for (var i = 0; i < array_length(array); i++) {
+		if (func(array[i])) {
+			return array[i];
+		}
+	}
+	
+	return noone;
+}
+#endregion
+
+#region Strings
+function string_interp(str) {
+	for (var i = 0; i < argument_count - 1; i++) {
+	    str = string_replace(str, "{" + string(i) + "}", string(argument[i + 1]));
+	}
+
+	return str;
 }
 
 function string_split(str, substr = "") {
@@ -72,16 +103,7 @@ function string_split(str, substr = "") {
 
 	return splitted;
 }
-
-function array_first(array, func) {
-	for (var i = 0; i < array_length(array); i++) {
-		if (func(array[i])) {
-			return array[i];
-		}
-	}
-	
-	return noone;
-}
+#endregion
 
 function get_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;

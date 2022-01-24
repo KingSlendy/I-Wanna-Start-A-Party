@@ -5,7 +5,6 @@ enum CoinChangeType {
 	Gain,
 	Lose,
 	Spend,
-	Give,
 	Exchange
 }
 

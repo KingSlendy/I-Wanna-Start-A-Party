@@ -4,7 +4,8 @@ enum ShineChangeType {
 	None,
 	Get,
 	Lose,
-	Spawn
+	Spawn,
+	Exchange
 }
 
 spawned_shine = noone;

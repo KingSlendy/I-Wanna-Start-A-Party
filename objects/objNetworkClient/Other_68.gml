@@ -4,7 +4,7 @@ switch (type) {
 	case network_type_non_blocking_connect:
 		var succeeded = async_load[? "succeeded"];
 		
-		if (succeeded < 0) {
+		if (succeeded == 0) {
 			popup("Failed to connect to server.");
 			instance_destroy();
 			exit;

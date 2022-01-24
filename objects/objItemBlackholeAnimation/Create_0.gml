@@ -2,7 +2,6 @@ event_inherited();
 player1 = focus_player_by_turn();
 player2 = focus_player_by_turn(global.choice_selected + 1);
 current_player = player2;
-global.shine_spawn_spot = {x: player1.x, y: player1.y};
 
 state = -2;
 scale = 0;

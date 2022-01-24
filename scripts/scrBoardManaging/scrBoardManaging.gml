@@ -1,3 +1,4 @@
+#region Initialization Management
 #macro BOARD_NORMAL (player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {
@@ -15,20 +16,23 @@ enum SpaceType {
 	PathChange
 }
 
+global.max_board_turns = 20;
 global.shine_price = 20;
 global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
 
 randomize();
+#endregion
 
+#region Player Management
 function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = 1;
-	//self.coins = 100;
-	self.shines = 0;
-	self.coins = 0;
+	self.shines = irandom(3);
+	self.coins = irandom(100);
+	//self.shines = 0;
+	//self.coins = 0;
 	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
@@ -51,11 +55,10 @@ function PlayerBoard(network_id, name, turn) constructor {
 	}
 	
 	static toString = function() {
-		return string(self.turn);
+		return string_interp("ID: {0}\nName: {1}\nTurn: {2}\nShines: {3}\nCoins: {4}\nPlace: {5}", self.network_id, self.name, self.turn, self.shines, self.coins, self.place);
 	}
 }
 
-#region Player Information Checks
 function is_local_turn() {
 	with (objPlayerBase) {
 		if (network_id == global.player_turn) {
@@ -116,6 +119,17 @@ function player_info_by_turn(turn = global.player_turn) {
 			return player_info;
 		}
 	}
+}
+
+function store_player_positions() {
+	var positions = array_create(global.player_max, null);
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		positions[i - 1] = {x: player.x, y: player.y};
+	}
+	
+	return positions;
 }
 #endregion
 
@@ -321,9 +335,9 @@ function open_chest() {
 #region Stat Management
 function change_shines(amount, type, player_turn = global.player_turn) {
 	var s = instance_create_layer(0, 0, "Managers", objShineChange);
+	s.player_info = player_info_by_turn(player_turn);
 	s.focus_player = focus_player_by_turn(player_turn);
 	s.network_id = s.focus_player.network_id;
-	s.player_info = player_info_by_turn(player_turn);
 	s.amount = amount;
 	s.animation_type = type;
 
@@ -341,9 +355,9 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 
 function change_coins(amount, type, player_turn = global.player_turn) {
 	var c = instance_create_layer(0, 0, "Managers", objCoinChange);
+	c.player_info = player_info_by_turn(player_turn);
 	c.focus_player = focus_player_by_turn(player_turn);
 	c.network_id = c.focus_player.network_id;
-	c.player_info = player_info_by_turn(player_turn);
 	c.amount = amount;
 	c.animation_type = type;
 	
@@ -361,9 +375,9 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 
 function change_items(item, type, player_turn = global.player_turn) {
 	var i = instance_create_layer(0, 0, "Managers", objItemChange);
+	i.player_info = player_info_by_turn(player_turn);
 	i.focus_player = focus_player_by_turn(player_turn);
 	i.network_id = i.focus_player.network_id;
-	i.player_info = player_info_by_turn(player_turn);
 	i.animation_type = type;
 	i.amount = (type == ItemChangeType.Gain) ? 1 : -1;
 	i.item = item;
@@ -644,8 +658,10 @@ function all_player_sprites(not_me = false) {
 function all_player_choices(not_me = false) {
 	var choices = all_player_sprites(not_me);
 			
-	for (var i = 1; i <= global.player_max; i++) {
-		choices[i] = "{SPRITE," + sprite_get_name(string(choices[i])) + ",0,-48,-64,3,3}";
+	for (var i = 0; i < array_length(choices); i++) {
+		if (choices[i] != "") {
+			choices[i] = "{SPRITE," + sprite_get_name(choices[i]) + ",0,-48,-64,3,3}";
+		}
 	}
 		
 	return choices;

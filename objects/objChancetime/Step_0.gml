@@ -1,3 +1,3 @@
-if (current_player != null) {
-	objCamera.target_follow = current_player;
+if (current_follow != null) {
+	objCamera.target_follow = current_follow;
 }
