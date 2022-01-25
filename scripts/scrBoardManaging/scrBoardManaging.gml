@@ -29,8 +29,8 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = irandom(3);
-	self.coins = irandom(100);
+	self.shines = 3;
+	self.coins = 100;
 	//self.shines = 0;
 	//self.coins = 0;
 	self.items = array_create(3, null);
@@ -735,12 +735,14 @@ function place_shine(space_x, space_y) {
 }
 
 function start_chance_time() {
-	instance_create_layer(x, y, "Managers", objChanceTime);
+	var c = instance_create_layer(x, y, "Managers", objChanceTime);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.StartChanceTime);
 		network_send_tcp_packet();
 	}
+	
+	return c;
 }
 #endregion

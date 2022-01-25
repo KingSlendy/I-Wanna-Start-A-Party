@@ -139,6 +139,7 @@ events = [
 
 focus_player = focused_player();
 network_id = focus_player.network_id;
+player_info = player_info_by_turn();
 prev_player_positions = store_player_positions();
 current_follow = null;
 current_flag = 0;
@@ -148,6 +149,7 @@ player_names = array_create(2, "");
 event = null;
 show_others = false;
 no_changes = false;
+rotate_turn = true;
 
 function begin_chance_time() {
 	if (is_local_turn()) {

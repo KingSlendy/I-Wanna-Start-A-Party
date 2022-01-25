@@ -316,7 +316,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.StartChanceTime:
-			start_chance_time();
+			start_chance_time().rotate_turn = false;
 			break;
 			
 		case ClientTCP.RepositionChanceTime:
