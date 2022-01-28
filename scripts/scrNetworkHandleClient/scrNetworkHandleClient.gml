@@ -14,6 +14,7 @@ enum ClientTCP {
 	SpawnChanceTimeBox,
 	
 	//Interfaces
+	SpawnPlayerInfo,
 	ChangeChoiceAlpha,
 	LessRoll,
 	SkipDialogueText,
@@ -137,8 +138,15 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.RollDice:
-			objDice.roll = buffer_read(buffer, buffer_u8);
-			roll_dice();
+			var player_id = buffer_read(buffer, buffer_u8);
+			var player_roll = buffer_read(buffer, buffer_u8);
+		
+			with (objDice) {
+				if (network_id == player_id) {
+					roll = player_roll;
+					roll_dice();
+				}
+			}
 			break;
 			
 		case ClientTCP.HideDice:
@@ -150,7 +158,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.OpenChest:
-			objHiddenChest.image_speed = 1;
+			open_chest();
 			break;
 			
 		case ClientTCP.SpawnChanceTimeBox:
@@ -165,6 +173,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		//Interfaces
+		case ClientTCP.SpawnPlayerInfo:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var turn = buffer_read(buffer, buffer_u8);
+			spawn_player_info(player_id, turn);
+			break;
+		
 		case ClientTCP.ChangeChoiceAlpha:
 			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
 			break;

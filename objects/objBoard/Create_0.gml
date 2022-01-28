@@ -1,16 +1,21 @@
+depth = -10000;
+
 with (objPlayerBase) {
 	change_to_object(objPlayerBoard);
 }
 
+global.board_started = false;
 global.board_turn = 1;
 global.player_turn = 1;
 global.dice_roll = 0;
 global.choice_selected = -1;
 
-for (var i = 1; i <= global.player_max; i++) {
-	var info = instance_create_layer(0, -32, "Managers", objPlayerInfo);
-	info.player_info = new PlayerBoard(i, focus_player_by_id(i).network_name, i);
-}
+global.max_board_turns = 20;
+global.shine_price = 20;
+global.min_shop_coins = 5;
+global.min_blackhole_coins = 5;
+
+tell_choices = false;
 
 //Temp
 temp = false;

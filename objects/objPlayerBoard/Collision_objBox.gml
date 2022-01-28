@@ -1,4 +1,4 @@
-if (!is_local_turn()) {
+if (!is_local_turn() && global.board_started) {
 	return;
 }
 

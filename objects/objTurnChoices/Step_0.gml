@@ -27,7 +27,7 @@ if (global.actions.jump.pressed(network_id)) {
 	
 	switch (option_selected) {
 		case 0:
-			show_dice();
+			show_dice(player_info_by_turn(global.player_turn).network_id);
 			break;
 			
 		case 1:

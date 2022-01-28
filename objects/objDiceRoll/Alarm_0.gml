@@ -3,6 +3,10 @@ if (target_x != null) {
 	exit;
 }
 
+if (!global.board_started) {
+	exit;
+}
+
 if (global.dice_roll > 0) {
 	follow_x = true;
 	follow_y = true;
@@ -14,6 +18,7 @@ if (global.dice_roll > 0) {
 	}
 	
 	roll = 0;
+	
 	board_advance();
 } else {
 	show_dice();

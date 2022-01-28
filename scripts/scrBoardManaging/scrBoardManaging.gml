@@ -16,11 +16,6 @@ enum SpaceType {
 	PathChange
 }
 
-global.max_board_turns = 20;
-global.shine_price = 20;
-global.min_shop_coins = 5;
-global.min_blackhole_coins = 5;
-
 randomize();
 #endregion
 
@@ -70,14 +65,26 @@ function is_local_turn() {
 }
 
 function focused_player() {
+	if (!global.board_started) {
+		with (objPlayerBase) {
+			if (network_id == 1) {
+				return id;
+			}
+		}
+	}
+	
 	with (objPlayerBase) {
-		if (network_id == global.player_turn) {
+		var player_info = player_info_by_id(network_id);
+		
+		if (player_info.turn == global.player_turn) {
 			return id;
 		}
 	}
 	
 	with (objNetworkPlayer) {
-		if (network_id == global.player_turn) {
+		var player_info = player_info_by_id(network_id);
+		
+		if (player_info.turn == global.player_turn) {
 			return id;
 		}
 	}
@@ -103,6 +110,23 @@ function focus_player_by_id(player_id = global.player_id) {
 
 function focus_player_by_turn(turn = global.player_turn) {
 	return focus_player_by_id(player_info_by_turn(turn).network_id);
+}
+
+function spawn_player_info(network_id, turn) {
+	var info = instance_create_layer(0, 0, "Managers", objPlayerInfo);
+	info.player_info = new PlayerBoard(network_id, focus_player_by_id(network_id).network_name, turn);
+	
+	with (info) {
+		setup();
+	}
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.SpawnPlayerInfo);
+		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u8, turn);
+		network_send_tcp_packet();
+	}
 }
 
 function player_info_by_id(player_id = global.player_id) {
@@ -147,15 +171,101 @@ function switch_camera_target(x, y) {
 }
 
 function board_start() {
-	instance_destroy(objHiddenChest);
+	if (!global.board_started) {
+		start_dialogue([
+			"Welcome!",
+			new Message("Let's choose the turns",, choose_turns)
+		]);
+	} else {
+		turn_start();
+	}
+}
+
+function choose_turns() {
+	for (var i = 1; i <= global.player_max; i++) {
+		show_dice(i);
+	}
 	
-	if (is_local_turn()) {
-		if (!instance_exists(objShine)) {
-			choose_shine();
-		} else {
-			turn_start();
+	for (var i = 1; i <= global.player_max; i++) {
+		var actions = ai_actions(i);
+		
+		if (actions != null) {
+			actions.jump.hold(2);
 		}
 	}
+}
+
+function tell_turns() {
+	turn_rolls = array_create(global.player_max, null);
+	
+	with (objDiceRoll) {
+		other.turn_rolls[network_id - 1] = roll;
+	}
+	
+	turn_rolls_ordered = [];
+	array_copy(turn_rolls_ordered, 0, turn_rolls, 0, global.player_max);
+	array_sort(turn_rolls_ordered, false);
+	turn_names = array_create(global.player_max, null);
+	turn_orders = array_create(global.player_max, null);
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var turn_roll = turn_rolls_ordered[i - 1];
+		var turn_id = array_index(turn_rolls, turn_roll) + 1;
+		turn_orders[i - 1] = turn_id;
+		
+		with (objPlayerBase) {
+			if (network_id == turn_id) {
+				other.turn_names[i - 1] = network_name;
+				break;
+			}
+		}
+	}
+	
+	dialogue_player_info = function(turn) {
+		var order = turn_orders[turn - 1];
+		
+		with (objDiceRoll) {
+			if (network_id == order) {
+				instance_destroy();
+				break;
+			}
+		}
+			
+		spawn_player_info(order, turn);
+	}
+	
+	start_dialogue([
+		new Message("The order has been decided!",, function() {
+			dialogue_player_info(1);
+		}),
+		
+		new Message(string_interp("{0} goes first!", turn_names[0]),, function() {
+			dialogue_player_info(2);
+		}),
+		
+		new Message(string_interp("{0} follows as second!", turn_names[1]),, function() {
+			dialogue_player_info(3);
+		}),
+		
+		new Message(string_interp("Then {0} goes third!", turn_names[2]),, function() {
+			dialogue_player_info(4);
+		}),
+		
+		string_interp("And last to go is {0}.", turn_names[3]),
+		new Message("Let's give each one 10 coins to start.",, function() {
+			for (var i = 1; i <= global.player_max; i++) {
+				var c = change_coins(10, CoinChangeType.Gain, i);
+				
+				if (i == 1) {
+					c.final_action = function() {
+						start_dialogue([
+							new Message("I wonder where the first shine is gonna be...",, choose_shine)
+						]);
+					}
+				}
+			}
+		})
+	]);
 }
 
 function turn_start() {
@@ -186,7 +296,8 @@ function turn_next() {
 	
 	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
-		global.board_turn++;
+		choose_minigame();
+		return;
 	}
 
 	with (objCamera) {
@@ -221,27 +332,35 @@ function board_advance() {
 		path_start(follow_path, max_speed, path_action_stop, true);
 	}
 }
+
+function choose_minigame() {
+	instance_create_layer(0, 0, "Managers", objChooseMinigame);
+}
 #endregion
 
 #region Interactable Management
-function show_dice(id = global.player_id) {
-	var focus = focused_player();
-	instance_create_layer(focus.x, focus.y - 37, "Actors", objDice);
+function show_dice(player_id) {
+	var focus_player = focus_player_by_id(player_id);
+	var d = instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objDice);
+	//d.focus_player.can_jump = false;
+	d.focus_player = focus_player;
+	d.network_id = player_id;
+	focus_player.can_jump = true;
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowDice);
-		buffer_write_data(buffer_u8, id);
+		buffer_write_data(buffer_u8, player_id);
 		buffer_write_data(buffer_u32, random_get_seed());
 		network_send_tcp_packet();
 	}
 }
 
 function hide_dice() {
-	var focus = focused_player();
+	var focus_player = focused_player();
 	
 	with (objDice) {
-		focus.can_jump = false;
+		focus_player.can_jump = false;
 		layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
 		layer_sequence_headdir(sequence, seqdir_left);
 		layer_sequence_play(sequence);
@@ -255,14 +374,20 @@ function hide_dice() {
 }
 
 function roll_dice() {
+	//This code gets executes is if it were the hit dice
 	instance_destroy(objTurnChoices);
-	
-	var r = instance_create_layer(objDice.x, objDice.y - 16, "Actors", objDiceRoll);
-	r.roll = objDice.roll;
-	instance_destroy(objDice);
+	var r = instance_create_layer(x, y - 16, "Actors", objDiceRoll);
+	r.network_id = network_id;
+	r.roll = roll;
+	instance_destroy();
 	audio_play_sound(sndDiceHit, 0, false);
 	
-	var player_info = player_info_by_turn();
+	if (global.board_started) {
+		var player_info = player_info_by_turn();
+	} else {
+		var player_info = {item_effect: -1};
+	}
+	
 	var rolled_all_die = false;
 	
 	switch (player_info.item_effect) {
@@ -299,21 +424,22 @@ function roll_dice() {
 	}
 	
 	
-	if (rolled_all_die) {
+	if (global.board_started && rolled_all_die) {
 		objDiceRoll.target_x = focused_player().x;
 	}
 	
-	if (is_local_turn()) {
+	if (is_local_turn() || !global.board_started) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.RollDice);
+		buffer_write_data(buffer_u8, network_id);
 		buffer_write_data(buffer_u8, r.roll);
 		network_send_tcp_packet();
 	}
 }
 
 function show_chest() {
-	var focus = focused_player();
-	instance_create_layer(focus.x - 16, focus.y - 75, "Actors", objHiddenChest);
+	var focus_player = focused_player();
+	instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objHiddenChest);
 	audio_play_sound(sndHiddenChestSpawn, 0, false);
 	
 	if (is_local_turn()) {
@@ -326,9 +452,11 @@ function show_chest() {
 function open_chest() {
 	objHiddenChest.image_speed = 1;
 	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.OpenChest);
-	network_send_tcp_packet();
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.OpenChest);
+		network_send_tcp_packet();
+	}
 }
 #endregion
 

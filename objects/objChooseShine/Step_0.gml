@@ -17,6 +17,8 @@ if (fade_state == 1) {
 	image_alpha += 0.04;
 	
 	if (image_alpha >= 1.2) {
+		global.board_started = true;
+		
 		with (objCamera) {
 			event_perform(ev_step, ev_step_begin);
 			view_x = target_follow.x;

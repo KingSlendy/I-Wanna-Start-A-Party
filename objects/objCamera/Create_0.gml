@@ -1,5 +1,11 @@
-view_x = camera_get_view_x(view_camera[0]);
-view_y = camera_get_view_y(view_camera[0]);
+with (objPlayerReference) {
+	if (reference == 1) {
+		other.target_follow = id;
+		break;
+	}
+}
+
+view_x = target_follow.x;
+view_y = target_follow.y;
 target_x = view_x;
 target_y = view_y;
-target_follow = null;

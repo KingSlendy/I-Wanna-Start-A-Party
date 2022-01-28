@@ -1,6 +1,11 @@
 event_inherited();
 box_activate = roll_dice;
-player_info = player_info_by_turn();
+
+if (global.board_started) {
+	player_info = player_info_by_turn();
+} else {
+	player_info = {item_effect: -1};
+}
 
 switch (player_info.item_effect) {
 	case ItemType.Dice: image_index = 1; break;
@@ -31,7 +36,7 @@ function random_roll() {
 	} until (roll != previous);
 	
 	//roll = max_roll;
-	roll = 1;
+	//roll = 1;
 }
 
 roll = 0;

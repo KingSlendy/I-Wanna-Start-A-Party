@@ -20,6 +20,6 @@ if (global.actions.jump.pressed(network_id)) {
 	instance_destroy();
 }
 
-if (!focus_player.ai && global.actions.shoot.pressed(network_id)) {
+if (global.actions.shoot.pressed(global.player_id)) {
 	instance_create_layer(0, 0, "Managers", objMapLook);
 }

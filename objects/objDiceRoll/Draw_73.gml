@@ -1,5 +1,5 @@
 if (instance_exists(objInterface)) {
-	exit;
+	//exit;
 }
 
 draw_set_font(fntDice);
