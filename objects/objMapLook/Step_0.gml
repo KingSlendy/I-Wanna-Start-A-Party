@@ -1,4 +1,5 @@
 if (global.actions.shoot.pressed(network_id)) {
+	io_clear();
 	instance_destroy();
 	exit;
 }

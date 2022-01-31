@@ -21,5 +21,5 @@ if (global.dice_roll > 0) {
 	
 	board_advance();
 } else {
-	show_dice();
+	show_dice(network_id);
 }

@@ -1,5 +1,8 @@
-if (instance_exists(objInterface)) {
-	//exit;
+if (instance_exists(objShop) ||
+	instance_exists(objBlackhole) ||
+	instance_exists(objStatChange) ||
+	instance_exists(objItemAnimation)) {
+	exit;
 }
 
 draw_set_font(fntDice);

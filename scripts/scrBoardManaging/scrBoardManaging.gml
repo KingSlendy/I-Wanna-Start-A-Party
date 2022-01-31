@@ -24,11 +24,11 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = 3;
-	self.coins = 100;
-	//self.shines = 0;
-	//self.coins = 0;
-	self.items = array_create(3, null);
+	//self.shines = 3;
+	//self.coins = 100;
+	self.shines = 0;
+	self.coins = 0;
+	self.items = [global.board_items[ItemType.DoubleDice], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
@@ -55,8 +55,20 @@ function PlayerBoard(network_id, name, turn) constructor {
 }
 
 function is_local_turn() {
+	if (!global.board_started) {
+		with (objPlayerBase) {
+			if (network_id == 1) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	var player_info = player_info_by_turn(global.player_turn);
+	
 	with (objPlayerBase) {
-		if (network_id == global.player_turn) {
+		if (player_info.network_id == network_id) {
 			return true;
 		}
 	}
@@ -67,6 +79,12 @@ function is_local_turn() {
 function focused_player() {
 	if (!global.board_started) {
 		with (objPlayerBase) {
+			if (network_id == 1) {
+				return id;
+			}
+		}
+		
+		with (objNetworkPlayer) {
 			if (network_id == 1) {
 				return id;
 			}
@@ -112,9 +130,16 @@ function focus_player_by_turn(turn = global.player_turn) {
 	return focus_player_by_id(player_info_by_turn(turn).network_id);
 }
 
-function spawn_player_info(network_id, turn) {
+function spawn_player_info(order, turn) {
+	with (objDiceRoll) {
+		if (network_id == order) {
+			instance_destroy();
+			break;
+		}
+	}
+	
 	var info = instance_create_layer(0, 0, "Managers", objPlayerInfo);
-	info.player_info = new PlayerBoard(network_id, focus_player_by_id(network_id).network_name, turn);
+	info.player_info = new PlayerBoard(order, focus_player_by_id(order).network_name, turn);
 	
 	with (info) {
 		setup();
@@ -123,7 +148,7 @@ function spawn_player_info(network_id, turn) {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.SpawnPlayerInfo);
-		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u8, order);
 		buffer_write_data(buffer_u8, turn);
 		network_send_tcp_packet();
 	}
@@ -171,7 +196,16 @@ function switch_camera_target(x, y) {
 }
 
 function board_start() {
+	if (!is_local_turn()) {
+		return;
+	}
+	
 	if (!global.board_started) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardStart);
+		buffer_write_array(buffer_u8, global.initial_rolls);
+		network_send_tcp_packet();
+		
 		start_dialogue([
 			"Welcome!",
 			new Message("Let's choose the turns",, choose_turns)
@@ -223,14 +257,6 @@ function tell_turns() {
 	
 	dialogue_player_info = function(turn) {
 		var order = turn_orders[turn - 1];
-		
-		with (objDiceRoll) {
-			if (network_id == order) {
-				instance_destroy();
-				break;
-			}
-		}
-			
 		spawn_player_info(order, turn);
 	}
 	
@@ -278,7 +304,7 @@ function turn_start() {
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.StartTurn);
+		buffer_write_action(ClientTCP.TurnStart);
 		network_send_tcp_packet();
 	}
 }
@@ -290,14 +316,15 @@ function turn_next() {
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.NextTurn);
+		buffer_write_action(ClientTCP.TurnNext);
 		network_send_tcp_packet();
 	}
 	
 	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
-		choose_minigame();
-		return;
+		global.board_turn++;
+		//choose_minigame();
+		//return;
 	}
 
 	with (objCamera) {
@@ -342,7 +369,6 @@ function choose_minigame() {
 function show_dice(player_id) {
 	var focus_player = focus_player_by_id(player_id);
 	var d = instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objDice);
-	//d.focus_player.can_jump = false;
 	d.focus_player = focus_player;
 	d.network_id = player_id;
 	focus_player.can_jump = true;
@@ -351,7 +377,7 @@ function show_dice(player_id) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowDice);
 		buffer_write_data(buffer_u8, player_id);
-		buffer_write_data(buffer_u32, random_get_seed());
+		buffer_write_data(buffer_u64, random_get_seed());
 		network_send_tcp_packet();
 	}
 }
@@ -374,10 +400,19 @@ function hide_dice() {
 }
 
 function roll_dice() {
-	//This code gets executes is if it were the hit dice
+	//This code gets executes as if you were inside the dice you hit
 	instance_destroy(objTurnChoices);
 	var r = instance_create_layer(x, y - 16, "Actors", objDiceRoll);
 	r.network_id = network_id;
+	
+	if (!global.board_started && roll <= 10) {
+		roll = global.initial_rolls[network_id - 1];
+	}
+	
+	if (roll > 10) {
+		roll -= 10;
+	}
+	
 	r.roll = roll;
 	instance_destroy();
 	audio_play_sound(sndDiceHit, 0, false);

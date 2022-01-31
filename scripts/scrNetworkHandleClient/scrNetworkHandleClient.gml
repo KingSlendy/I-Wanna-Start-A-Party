@@ -36,8 +36,9 @@ enum ClientTCP {
 	ChangeSpace,
 	
 	//Events
-	StartTurn,
-	NextTurn,
+	BoardStart,
+	TurnStart,
+	TurnNext,
 	ChooseShine,
 	StartChanceTime,
 	RepositionChanceTime,
@@ -132,7 +133,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		//Interactables
 		case ClientTCP.ShowDice:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var seed = buffer_read(buffer, buffer_u32);
+			var seed = buffer_read(buffer, buffer_u64);
 			random_set_seed(seed);
 			show_dice(player_id);
 			break;
@@ -143,7 +144,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		
 			with (objDice) {
 				if (network_id == player_id) {
-					roll = player_roll;
+					roll = player_roll + 10;
 					roll_dice();
 				}
 			}
@@ -162,7 +163,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.SpawnChanceTimeBox:
-			var seed = buffer_read(buffer, buffer_u32);
+			var seed = buffer_read(buffer, buffer_u64);
 			random_set_seed(seed);
 			
 			with (objChanceTime) {
@@ -315,11 +316,15 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		//Events
-		case ClientTCP.StartTurn:
+		case ClientTCP.BoardStart:
+			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
+			break;
+		
+		case ClientTCP.TurnStart:
 			turn_start();
 			break;
 			
-		case ClientTCP.NextTurn:
+		case ClientTCP.TurnNext:
 			turn_next();
 			break;
 			

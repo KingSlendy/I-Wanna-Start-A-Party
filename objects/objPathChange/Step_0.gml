@@ -18,6 +18,7 @@ for (var i = 0; i < array_length(arrows); i++) {
 if (global.actions.jump.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	instance_destroy();
+	exit;
 }
 
 if (global.actions.shoot.pressed(global.player_id)) {
