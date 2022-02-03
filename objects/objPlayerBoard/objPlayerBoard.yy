@@ -9,7 +9,7 @@
     "name": "sprPlayerMask",
     "path": "sprites/sprPlayerMask/sprPlayerMask.yy",
   },
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": {
     "name": "objPlayerBase",
     "path": "objects/objPlayerBase/objPlayerBase.yy",

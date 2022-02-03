@@ -5,6 +5,7 @@ draw_w = 240;
 draw_h = 90;
 
 function setup() {
+	player_idle_image = get_skin_pose_object(player_focus, "Idle");
 	draw_x = 0;
 	draw_y = 0;
 

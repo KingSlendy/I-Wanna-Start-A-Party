@@ -41,28 +41,39 @@ for (var i = 0; i < array_length(keys); i++) {
 
 function AIAction() constructor {
 	self.triggered = false;
+	self.untriggered = false;
 	self.frames = 0;
 	
 	static hold = function(frames) {
 		self.frames = frames;
 		self.triggered = true;
+		self.untriggered = false;
 	}
 	
 	static press = function() {
 		self.triggered = true;
+		self.untriggered = false;
 	}
 	
-	static release = function() {
-		if (self.frames > 0) {
+	static release = function(force) {
+		self.untriggered = false;
+		
+		if (self.frames > 0 || force) {
 			self.frames--;
 			return;
 		}
 		
+		self.frames = 0;
 		self.triggered = false;
-	}	
+		self.untriggered = true;
+	}
 	
 	static pressed = function() {
 		return self.triggered;
+	}
+	
+	static released = function() {
+		return self.untriggered;
 	}
 }
 
@@ -91,7 +102,7 @@ function ai_release_all() {
 			var keys = variable_struct_get_names(actions);
 	
 			for (var j = 0; j < array_length(keys); j++) {
-				actions[$ keys[j]].release();
+				actions[$ keys[j]].release(false);
 			}
 		}
 	}

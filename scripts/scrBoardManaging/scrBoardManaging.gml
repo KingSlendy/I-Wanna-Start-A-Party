@@ -28,7 +28,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	//self.coins = 100;
 	self.shines = 0;
 	self.coins = 0;
-	self.items = [global.board_items[ItemType.DoubleDice], null, null];
+	self.items = array_create(3, null);
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
@@ -140,6 +140,7 @@ function spawn_player_info(order, turn) {
 	
 	var info = instance_create_layer(0, 0, "Managers", objPlayerInfo);
 	info.player_info = new PlayerBoard(order, focus_player_by_id(order).network_name, turn);
+	info.player_focus = focus_player_by_id(order);
 	
 	with (info) {
 		setup();
@@ -253,6 +254,13 @@ function tell_turns() {
 				break;
 			}
 		}
+		
+		with (objNetworkPlayer) {
+			if (network_id == turn_id) {
+				other.turn_names[i - 1] = network_name;
+				break;
+			}
+		}
 	}
 	
 	dialogue_player_info = function(turn) {
@@ -322,11 +330,17 @@ function turn_next() {
 	
 	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
-		global.board_turn++;
-		//choose_minigame();
-		//return;
+		
+		//if (++global.board_turn > global.max_board_turns) {
+			//board_finish();
+			//return;	
+		//}
+		
+		choose_minigame();
+		return;
 	}
 
+	//Focuses the camera on the current player
 	with (objCamera) {
 		event_perform(ev_step, ev_step_begin);
 	}
@@ -362,6 +376,10 @@ function board_advance() {
 
 function choose_minigame() {
 	instance_create_layer(0, 0, "Managers", objChooseMinigame);
+}
+
+function board_finish() {
+	room_goto(rResults);
 }
 #endregion
 
@@ -600,6 +618,7 @@ function change_space(space) {
 		case SpaceType.Blue: color = c_blue; break;
 		case SpaceType.Red: color = c_red; break;
 		case SpaceType.Green: color = c_green; break;
+		case SpaceType.ChanceTime: color = c_yellow; break;
 		default: color = c_gray; break;
 	}
 	
@@ -689,6 +708,14 @@ function item_animation(item_id, additional = noone) {
 #endregion
 
 #region Interface Management
+function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_height() / 2, color = c_orange, snd = null) {
+	var p = instance_create_layer(x, y, "Managers", objPopup);
+	p.text = text;
+	p.color = color;
+	p.snd = snd;
+	return p;
+}
+
 function call_shop() {
 	var player_info = player_info_by_turn();
 			
@@ -723,32 +750,26 @@ function call_shop() {
 function call_blackhole() {
 	var player_info = player_info_by_turn();
 	
-	//if (player_info.free_item_slot() != -1) {
-		if (player_info.coins >= global.min_blackhole_coins) {
-			start_dialogue([
-				new Message("Do you wanna use the blackhole?", [
-					["Yes", [
-						new Message("",, function() {
-							instance_create_layer(0, 0, "Managers", objBlackhole);
-							objDialogue.endable = false;
-						})
-					]],
+	if (player_info.coins >= global.min_blackhole_coins) {
+		start_dialogue([
+			new Message("Do you wanna use the blackhole?", [
+				["Yes", [
+					new Message("",, function() {
+						instance_create_layer(0, 0, "Managers", objBlackhole);
+						objDialogue.endable = false;
+					})
+				]],
 						
-					["No", [
-						new Message("",, board_advance)
-					]]
-				])
-			]);
-		} else {
-			start_dialogue([
-				new Message("You don't have enough money!",, board_advance)
-			]);
-		}
-	//} else {
-		//start_dialogue([
-		//	new Message("You don't have item space!\nCome back later.",, board_advance)
-		//]);
-	//}
+				["No", [
+					new Message("",, board_advance)
+				]]
+			])
+		]);
+	} else {
+		start_dialogue([
+			new Message("You don't have enough money!",, board_advance)
+		]);
+	}
 }
 
 function show_multiple_choices(titles, choices, descriptions, availables) {

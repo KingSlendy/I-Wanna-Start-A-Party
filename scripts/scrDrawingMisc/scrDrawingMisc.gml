@@ -12,6 +12,20 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_text(x, y, text);
 }
 
+function draw_text_transformed_outline(x, y, text, xscale, yscale, angle, border_color) {
+	var color = draw_get_color();
+	draw_set_color(border_color);
+
+	for (var i = -1; i < 2; i++) {
+	    for (var j = -1; j < 2; j++) {
+	        draw_text_transformed(x + j, y + i, text, xscale, yscale, angle);
+	    }
+	}
+
+	draw_set_color(color);
+	draw_text_transformed(x, y, text, xscale, yscale, angle);
+}
+
 function draw_box(x, y, w, h, color) {
 	draw_sprite_ext(sprBoxFill, 0, x, y, w, h, 0, color, draw_get_alpha());
 	draw_sprite_stretched(sprBoxFrame, 0, x, y, w, h);

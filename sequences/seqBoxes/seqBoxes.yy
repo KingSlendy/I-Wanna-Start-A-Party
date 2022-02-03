@@ -53,8 +53,8 @@
   "eventToFunction": {},
   "eventStubScript": null,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sequences/Boards.yy",
+    "name": "Interactables",
+    "path": "folders/Sequences/Boards/Interactables.yy",
   },
   "resourceVersion": "1.3",
   "name": "seqBoxes",

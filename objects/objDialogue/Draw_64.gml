@@ -1,7 +1,3 @@
-if (curve_offset == null) {
-	exit;
-}
-
 if (dialogue_sprite == noone) {
 	var surf = surface_create(width, height);
 
@@ -13,7 +9,7 @@ if (dialogue_sprite == noone) {
 	dialogue_sprite = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
 }
 
-draw_sprite_ext(dialogue_sprite, 0, x, y + curve_offset, 1, 1, 0, c_white, 1);
+draw_sprite_ext(dialogue_sprite, 0, x, y, 1, 1, 0, c_white, image_alpha);
 
 if (!surface_exists(text_surf)) {
 	text_surf = surface_create(width - border_width * 2, height);
@@ -43,4 +39,4 @@ if (array_length(answer_displays) > 0 && answers > 0 && !text_display.text.tw_ac
 
 surface_reset_target();
 
-draw_surface_ext(text_surf, x + border_width, y + curve_offset + border_width, 1, 1, 0, c_white, 1);
+draw_surface_ext(text_surf, x + border_width, y + border_width, 1, 1, 0, c_white, image_alpha);

@@ -1,8 +1,3 @@
-if (player_focus == null) {
-	player_focus = focus_player_by_id(player_info.network_id);
-	exit;
-}
-
 with (player_focus) {
 	switch (other.player_info.item_effect) {
 		case ItemType.Poison:

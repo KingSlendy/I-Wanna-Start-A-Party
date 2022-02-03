@@ -10,6 +10,11 @@ if (keyboard_check_pressed(vk_pageup)) {
 	room_goto_previous();
 }
 
+if (keyboard_check_pressed(ord("D"))) {
+	game_set_speed((!a) ? 100 : 50, gamespeed_fps);
+	a = !a;
+}
+
 if (keyboard_check_pressed(vk_f2)) {
 	game_restart();
 }

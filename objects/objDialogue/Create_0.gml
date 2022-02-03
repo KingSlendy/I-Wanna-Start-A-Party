@@ -1,5 +1,6 @@
 event_inherited();
 depth = -10009;
+image_alpha = 0;
 
 width = 0;
 height = 0;
@@ -18,14 +19,7 @@ answer_displays = [];
 dialogue_sprite = noone;
 text_surf = noone;
 
-curve_perform = true;
-curve_type = crvDialogue;
-curve_channel = animcurve_get_channel(curve_type, "Pos");
-curve_target = 1;
-curve_pos = 0;
-curve_spd = 0.05;
-curve_value = 0;
-curve_offset = null;
+alpha_target = 1;
 
 function text_advance() {
 	if (array_length(text_branch) == 0) {
@@ -110,9 +104,7 @@ function text_end() {
 	active = false;
 	
 	if (endable) {
-		curve_target = 0;
-		curve_pos = 1;
-		curve_perform = true;
+		alpha_target = 0;
 		
 		if (is_local_turn()) {
 			buffer_seek_begin();

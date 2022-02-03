@@ -8,8 +8,8 @@
       ],"resourceVersion":"1.0","name":"Pos","tags":[],"resourceType":"GMAnimCurveChannel",},
   ],
   "parent": {
-    "name": "UI",
-    "path": "folders/Curves/UI.yy",
+    "name": "Interfaces",
+    "path": "folders/Curves/Interfaces.yy",
   },
   "resourceVersion": "1.2",
   "name": "crvDialogue",

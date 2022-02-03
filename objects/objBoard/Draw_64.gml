@@ -1,4 +1,4 @@
-if (!global.board_started) {
+if (!IS_BOARD || !global.board_started) {
 	exit;
 }
 

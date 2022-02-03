@@ -1,19 +1,20 @@
-function Minigame(title, instructions, preview, room) constructor {
+function Minigame(title = "Generic Minigame", instructions = "Generic Instructions", preview = sprBox, scene = rTemplate) constructor {
 	self.title = title;
 	self.instructions = instructions;
 	self.preview = preview;
+	self.scene = scene;
 }
 
 global.minigames = {};
 var m = global.minigames;
-m[$ "AvsA"] = [
-];
-
-m[$ "2vs2"] = [
+m[$ "4vs"] = [
+	new Minigame()
 ];
 
 m[$ "1vs3"] = [
+	new Minigame()
 ];
 
-m[$ "1vs1"] = [
+m[$ "2vs2"] = [
+	new Minigame(,,, rMinigame2vs2_Maze)
 ];

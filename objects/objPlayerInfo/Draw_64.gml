@@ -1,4 +1,4 @@
-if (player_info == null) {
+if (player_info == null || !IS_BOARD) {
 	exit;
 }
 
@@ -8,26 +8,38 @@ with (objChanceTime) {
 	}
 }
 
-var idle = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");
-
-if (idle == sprNothing) {
-	exit;
-}
-
 draw_set_alpha(1);
 draw_box(draw_x, draw_y, draw_w, draw_h, player_info.space);
 draw_set_font(fntPlayerInfo);
-draw_set_color(c_dkgray);
+
+switch (player_info.turn) {
+	case 1:
+		draw_set_color(c_blue);
+		break;
+		
+	case 2:
+		draw_set_color(c_red);
+		break;
+		
+	case 3:
+		draw_set_color(c_green);
+		break;
+		
+	case 4:
+		draw_set_color(c_yellow);
+		break;
+}
+
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
 draw_set_color(c_white);
-draw_sprite(idle, 0, draw_x + 25, draw_y + 23);
+draw_sprite(player_idle_image, 0, draw_x + 25, draw_y + 23);
 var text = new Text(fntPlayerInfo, "{SPRITE,sprShine,0,0,-4,0.5,0.5}x" + string(player_info.shines));
 text.draw(draw_x + 40, draw_y + 10);
 var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(player_info.coins));
 text.draw(draw_x + 46, draw_y + 36);
 draw_set_halign(fa_right);
 
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < array_length(player_info.items); i++) {
 	var item = player_info.items[i];
 	
 	if (item == null) {
