@@ -336,7 +336,9 @@ function turn_next() {
 			//return;	
 		//}
 		
-		choose_minigame();
+		if (is_local_turn()) {
+			choose_minigame();
+		}
 		return;
 	}
 
@@ -376,6 +378,13 @@ function board_advance() {
 
 function choose_minigame() {
 	instance_create_layer(0, 0, "Managers", objChooseMinigame);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ChooseMinigame);
+		buffer_write_data(buffer_u64, random_get_seed());
+		network_send_tcp_packet();
+	}
 }
 
 function board_finish() {
@@ -708,11 +717,12 @@ function item_animation(item_id, additional = noone) {
 #endregion
 
 #region Interface Management
-function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_height() / 2, color = c_orange, snd = null) {
+function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_height() / 2, color = c_orange, snd = null, shrink = true) {
 	var p = instance_create_layer(x, y, "Managers", objPopup);
 	p.text = text;
 	p.color = color;
 	p.snd = snd;
+	p.shrink = shrink;
 	return p;
 }
 

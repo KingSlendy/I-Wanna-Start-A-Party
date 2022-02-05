@@ -1,6 +1,7 @@
 text = "TEXT";
 color = c_orange;
 snd = null;
+shrink = true;
 scale = 0;
 disappear = false;
 

@@ -2,6 +2,10 @@ if (state == 0) {
 	alpha += 0.03;
 	
 	if (alpha >= 1) {
+		with (objPlayerBase) {
+			change_to_object(objPlayerBase);
+		}
+		
 		zoom = true;
 		
 		//Camera points to the middle of the room
@@ -23,9 +27,10 @@ if (state == 0) {
 	alpha -= 0.05;
 	
 	if (alpha <= 0) {
+		
 		with (objPlayerInfo) {
 			//Temp
-			if (array_contains([1, 2], player_info.network_id)) {
+			if (array_contains([1, 2], player_info.turn)) {
 				player_info.space = c_blue;
 			} else {
 				player_info.space = c_red;
@@ -49,6 +54,15 @@ if (state == 0) {
 		}
 		
 		alpha = 0;
+		state = -1;
+	}
+}
+
+if (state == 2) {
+	minigames_alpha += 0.05;
+	
+	if (minigames_alpha >= 1) {
+		minigames_alpha = 1;
 		state = -1;
 	}
 }

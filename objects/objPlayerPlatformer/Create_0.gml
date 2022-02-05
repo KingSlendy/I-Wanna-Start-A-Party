@@ -14,6 +14,9 @@ jump_total = 2;
 
 on_block = false;
 frozen = false;
+enable_move = true;
+enable_jump = true;
+enable_shoot = true;
 
 skin = get_skin();
 reset_jumps();

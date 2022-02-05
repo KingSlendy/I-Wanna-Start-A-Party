@@ -17,7 +17,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 		target_draw_y = draw_y - lengthdir_y(len, dir);
 	}
 	
-	show_popup("4 player minigame",, 100);
+	show_popup("4 player minigame",, 100,,, false);
 	global.minigame_info.type = "4vs";
 } else if (blue_count == 3 || red_count == 3) { //1vs3	
 	with (objPlayerInfo) {
@@ -34,7 +34,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 		}
 	}
 	
-	show_popup("1 vs. 3 minigame",, 100);
+	show_popup("1 vs. 3 minigame",, 100,,, false);
 	global.minigame_info.type = "1vs3";
 } else { //2vs2
 	with (objPlayerInfo) {
@@ -53,7 +53,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 		}
 	}
 	
-	show_popup("2 vs. 2 minigame",, 100);
+	show_popup("2 vs. 2 minigame",, 100,,, false);
 	global.minigame_info.type = "2vs2";
 }
 

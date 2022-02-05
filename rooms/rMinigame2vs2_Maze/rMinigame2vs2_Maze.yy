@@ -3,17 +3,32 @@
   "volume": 1.0,
   "parentRoom": null,
   "views": [
-    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":800,"hview":608,"xport":0,"yport":0,"wport":800,"hport":608,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
+    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":400,"hview":304,"xport":0,"yport":0,"wport":400,"hport":304,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
+    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":400,"hview":304,"xport":0,"yport":0,"wport":400,"hport":304,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
+    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":400,"hview":304,"xport":0,"yport":0,"wport":400,"hport":304,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
+    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":400,"hview":304,"xport":0,"yport":0,"wport":400,"hport":304,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
     {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
   ],
   "layers": [
-    {"instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Actors","tags":[],"resourceType":"GMRInstanceLayer",},
+    {"instances":[
+        {"properties":[],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_396ADCF9","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":992.0,"resourceVersion":"1.0","name":"inst_CCEC5A9","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"2","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":32.0,"resourceVersion":"1.0","name":"inst_470BB56A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"3","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":992.0,"resourceVersion":"1.0","name":"inst_6B2A10BA","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Maze_Item","path":"objects/objMinigame2vs2_Maze_Item/objMinigame2vs2_Maze_Item.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294901760,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":1,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":800.0,"resourceVersion":"1.0","name":"inst_3D9961F2","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Maze_Item","path":"objects/objMinigame2vs2_Maze_Item/objMinigame2vs2_Maze_Item.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294901760,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":224.0,"resourceVersion":"1.0","name":"inst_57F7F05A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Maze_Item","path":"objects/objMinigame2vs2_Maze_Item/objMinigame2vs2_Maze_Item.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4278190335,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":1,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":864.0,"y":800.0,"resourceVersion":"1.0","name":"inst_99DF87","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Maze_Item","path":"objects/objMinigame2vs2_Maze_Item/objMinigame2vs2_Maze_Item.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4278190335,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":864.0,"y":224.0,"resourceVersion":"1.0","name":"inst_628CD622","tags":[],"resourceType":"GMRInstance",},
+      ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Actors","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Collisions","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Maze_Controller","path":"objects/objMinigame2vs2_Maze_Controller/objMinigame2vs2_Maze_Controller.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":32.0,"resourceVersion":"1.0","name":"inst_4A80F5CD","tags":[],"resourceType":"GMRInstance",},
@@ -26,6 +41,14 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_4A80F5CD","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_396ADCF9","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_CCEC5A9","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_470BB56A","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_6B2A10BA","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_3D9961F2","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_57F7F05A","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_99DF87","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
+    {"name":"inst_628CD622","path":"rooms/rMinigame2vs2_Maze/rMinigame2vs2_Maze.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

@@ -6,7 +6,7 @@ var dir_right = global.actions.right.held(network_id);
 var dir = 0;
 
 //If the player is frozen no movement is applied
-if (!frozen) {
+if (!frozen && enable_move) {
     if (dir_right) {
         dir = 1;
 	} else if (dir_left) {
@@ -45,15 +45,17 @@ if (abs(vspd) > max_vspd) {
 }
 
 if (!frozen) {
-	if (global.actions.jump.pressed(network_id)) {
-		player_jump();
+	if (enable_jump) {
+		if (global.actions.jump.pressed(network_id)) {
+			player_jump();
+		}
+	
+		if (global.actions.jump.released(network_id)) {
+			player_fall();
+		}
 	}
 	
-	if (global.actions.jump.released(network_id)) {
-		player_fall();
-	}
-	
-	if (global.actions.shoot.pressed(network_id)) {
+	if (enable_shoot && global.actions.shoot.pressed(network_id)) {
 		//player_shoot();
 	}
 	

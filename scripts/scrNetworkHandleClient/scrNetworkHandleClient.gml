@@ -43,6 +43,7 @@ enum ClientTCP {
 	StartChanceTime,
 	RepositionChanceTime,
 	EndChanceTime,
+	ChooseMinigame,
 	
 	//Animations
 	ItemApplied,
@@ -348,6 +349,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objChanceTime) {
 				end_chance_time();
 			}
+			break;
+			
+		case ClientTCP.ChooseMinigame:
+			var seed = buffer_read(buffer, buffer_u64);
+			random_set_seed(seed);
+			choose_minigame();
 			break;
 			
 		//Animations

@@ -1,1 +1,3 @@
-disappear = true;
+if (shrink) {
+	disappear = true;
+}
