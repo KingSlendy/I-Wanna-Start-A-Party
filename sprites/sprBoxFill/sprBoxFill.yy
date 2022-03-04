@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprBoxFill","path":"sprites/sprBoxFill/sprBoxFill.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprBoxFill",
     "tags": [],
     "resourceType": "GMSequence",

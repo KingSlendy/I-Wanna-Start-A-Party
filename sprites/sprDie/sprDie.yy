@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprDie","path":"sprites/sprDie/sprDie.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprDie",
     "tags": [],
     "resourceType": "GMSequence",

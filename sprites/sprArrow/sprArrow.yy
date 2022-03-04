@@ -142,7 +142,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprArrow","path":"sprites/sprArrow/sprArrow.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprArrow",
     "tags": [],
     "resourceType": "GMSequence",

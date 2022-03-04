@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprSpaces","path":"sprites/sprSpaces/sprSpaces.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprSpaces",
     "tags": [],
     "resourceType": "GMSequence",

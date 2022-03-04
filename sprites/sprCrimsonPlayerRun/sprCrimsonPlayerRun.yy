@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprCrimsonPlayerRun","path":"sprites/sprCrimsonPlayerRun/sprCrimsonPlayerRun.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprCrimsonPlayerRun",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemItemSteal","path":"sprites/sprItemItemSteal/sprItemItemSteal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemItemSteal",
     "tags": [],
     "resourceType": "GMSequence",

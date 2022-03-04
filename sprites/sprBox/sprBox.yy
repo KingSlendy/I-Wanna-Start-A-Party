@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprBox","path":"sprites/sprBox/sprBox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprBox",
     "tags": [],
     "resourceType": "GMSequence",

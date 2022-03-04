@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemClock","path":"sprites/sprItemClock/sprItemClock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemClock",
     "tags": [],
     "resourceType": "GMSequence",

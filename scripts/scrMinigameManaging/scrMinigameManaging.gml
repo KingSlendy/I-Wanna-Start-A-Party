@@ -19,6 +19,18 @@ m[$ "2vs2"] = [
 	new Minigame(,,, rMinigame2vs2_Maze)
 ];
 
+function minigame_info_reset() {
+	global.minigame_info = {
+		reference: global.minigames[$ "2vs2"][0],
+		type: "",
+		player_colors: [],
+		is_practice: false,
+		player_scores: array_create(global.player_max, 0),
+		players_won: [],
+		color_won: c_white
+	}	
+}
+
 function player_positioning_4vs() {
 }
 
@@ -67,6 +79,17 @@ function player_2vs2_teammate(info) {
 				teammate = player;
 				break;
 			}
+		}
+	}
+}
+
+function minigame_finish(color) {
+	with (objMinigameController) {
+		info.color_won = color;
+		
+		if (!finished) {
+			event_perform(ev_alarm, 2);
+			finished = true;
 		}
 	}
 }

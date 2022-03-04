@@ -119,7 +119,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprEvilShine","path":"sprites/sprEvilShine/sprEvilShine.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprEvilShine",
     "tags": [],
     "resourceType": "GMSequence",

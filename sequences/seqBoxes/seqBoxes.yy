@@ -56,7 +56,7 @@
     "name": "Interactables",
     "path": "folders/Sequences/Boards/Interactables.yy",
   },
-  "resourceVersion": "1.3",
+  "resourceVersion": "1.4",
   "name": "seqBoxes",
   "tags": [],
   "resourceType": "GMSequence",

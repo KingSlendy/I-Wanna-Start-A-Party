@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemDice","path":"sprites/sprItemDice/sprItemDice.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemDice",
     "tags": [],
     "resourceType": "GMSequence",

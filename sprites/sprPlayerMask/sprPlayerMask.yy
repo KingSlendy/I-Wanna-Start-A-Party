@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprPlayerMask","path":"sprites/sprPlayerMask/sprPlayerMask.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprPlayerMask",
     "tags": [],
     "resourceType": "GMSequence",

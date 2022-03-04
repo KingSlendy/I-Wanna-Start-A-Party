@@ -115,7 +115,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprChanceTimeExchanges","path":"sprites/sprChanceTimeExchanges/sprChanceTimeExchanges.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprChanceTimeExchanges",
     "tags": [],
     "resourceType": "GMSequence",

@@ -330,10 +330,11 @@ function turn_next() {
 	
 	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
+		//global.board_turn++;
 		
 		//if (++global.board_turn > global.max_board_turns) {
-			//board_finish();
-			//return;	
+		//	board_finish();
+		//	return;	
 		//}
 		
 		if (is_local_turn()) {

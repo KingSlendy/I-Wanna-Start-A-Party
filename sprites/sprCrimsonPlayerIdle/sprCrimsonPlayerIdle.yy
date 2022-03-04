@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprCrimsonPlayerIdle","path":"sprites/sprCrimsonPlayerIdle/sprCrimsonPlayerIdle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprCrimsonPlayerIdle",
     "tags": [],
     "resourceType": "GMSequence",

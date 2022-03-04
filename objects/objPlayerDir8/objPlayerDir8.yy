@@ -36,7 +36,7 @@
     "path": "folders/Objects/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayerMovement8",
+  "name": "objPlayerDir8",
   "tags": [],
   "resourceType": "GMObject",
 }

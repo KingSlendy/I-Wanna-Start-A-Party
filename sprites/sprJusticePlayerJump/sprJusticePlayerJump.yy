@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprJusticePlayerJump","path":"sprites/sprJusticePlayerJump/sprJusticePlayerJump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprJusticePlayerJump",
     "tags": [],
     "resourceType": "GMSequence",

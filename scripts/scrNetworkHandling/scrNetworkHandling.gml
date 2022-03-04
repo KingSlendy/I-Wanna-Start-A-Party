@@ -105,7 +105,7 @@ function ai_join(id) {
 		instance_destroy(player);
 	}
 	
-	var a = instance_create_layer(800, 304, "Instances", objPlayerMovement8);
+	var a = instance_create_layer(800, 304, "Instances", objPlayerDir8);
 	a.network_id = id;
 	a.network_name = "CPU " + string(id);
 	a.ai = true;

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprPath","path":"sprites/sprPath/sprPath.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprPath",
     "tags": [],
     "resourceType": "GMSequence",

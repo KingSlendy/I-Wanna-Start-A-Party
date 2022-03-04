@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprChanceTimeBox","path":"sprites/sprChanceTimeBox/sprChanceTimeBox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprChanceTimeBox",
     "tags": [],
     "resourceType": "GMSequence",

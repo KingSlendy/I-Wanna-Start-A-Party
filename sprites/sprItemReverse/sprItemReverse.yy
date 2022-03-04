@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemReverse","path":"sprites/sprItemReverse/sprItemReverse.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemReverse",
     "tags": [],
     "resourceType": "GMSequence",

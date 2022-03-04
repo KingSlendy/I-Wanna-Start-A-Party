@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprBlockMask","path":"sprites/sprBlockMask/sprBlockMask.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprBlockMask",
     "tags": [],
     "resourceType": "GMSequence",

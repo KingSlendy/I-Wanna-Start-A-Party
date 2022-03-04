@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprNormalPlayerFall","path":"sprites/sprNormalPlayerFall/sprNormalPlayerFall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprNormalPlayerFall",
     "tags": [],
     "resourceType": "GMSequence",

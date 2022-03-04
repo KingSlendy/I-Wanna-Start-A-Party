@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprTributePlayerFall","path":"sprites/sprTributePlayerFall/sprTributePlayerFall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprTributePlayerFall",
     "tags": [],
     "resourceType": "GMSequence",

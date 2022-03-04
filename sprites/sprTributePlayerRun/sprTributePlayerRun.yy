@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprTributePlayerRun","path":"sprites/sprTributePlayerRun/sprTributePlayerRun.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprTributePlayerRun",
     "tags": [],
     "resourceType": "GMSequence",

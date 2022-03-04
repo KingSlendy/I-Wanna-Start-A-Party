@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprTlsBoardSMW","path":"sprites/sprTlsBoardSMW/sprTlsBoardSMW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprTlsBoardSMW",
     "tags": [],
     "resourceType": "GMSequence",

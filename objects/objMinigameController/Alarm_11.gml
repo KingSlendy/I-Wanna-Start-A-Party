@@ -1,4 +1,8 @@
-for (var i = 1; i <= global.player_max; i++) {
+if (global.player_id != 1) {
+	exit;
+}
+
+for (var i = 2; i <= global.player_max; i++) {
 	var actions = ai_actions(i);
 
 	if (actions != null) {
@@ -21,4 +25,4 @@ for (var i = 1; i <= global.player_max; i++) {
 	}
 }
 
-alarm[0] = 1;
+alarm[11] = 1;

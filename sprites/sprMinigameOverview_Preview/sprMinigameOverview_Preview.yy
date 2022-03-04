@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprMinigameOverview_Preview","path":"sprites/sprMinigameOverview_Preview/sprMinigameOverview_Preview.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprMinigameOverview_Preview",
     "tags": [],
     "resourceType": "GMSequence",

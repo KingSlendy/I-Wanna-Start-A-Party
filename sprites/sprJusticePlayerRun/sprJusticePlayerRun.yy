@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprJusticePlayerRun","path":"sprites/sprJusticePlayerRun/sprJusticePlayerRun.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprJusticePlayerRun",
     "tags": [],
     "resourceType": "GMSequence",

@@ -15,19 +15,14 @@ global.player_turn = 1;
 global.dice_roll = 0;
 global.choice_selected = -1;
 
-global.minigame_info = {
-	reference: global.minigames[$ "2vs2"][0],
-	type: "",
-	player_colors: [],
-	is_practice: false,
-	players_won: []
-};
-
 //Board values
 global.max_board_turns = 20;
 global.shine_price = 20;
 global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
+
+//Minigame values
+minigame_info_reset();
 
 tell_choices = false;
 
@@ -35,4 +30,4 @@ tell_choices = false;
 temp = false;
 //Temp
 
-alarm[0] = 1;
+alarm[11] = 1;

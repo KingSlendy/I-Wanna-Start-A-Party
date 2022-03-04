@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprHiddenChest","path":"sprites/sprHiddenChest/sprHiddenChest.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprHiddenChest",
     "tags": [],
     "resourceType": "GMSequence",

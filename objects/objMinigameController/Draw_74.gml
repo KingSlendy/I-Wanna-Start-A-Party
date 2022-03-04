@@ -1,0 +1,1 @@
+draw_2vs2_teams(info);

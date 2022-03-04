@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemDoubleDice","path":"sprites/sprItemDoubleDice/sprItemDoubleDice.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemDoubleDice",
     "tags": [],
     "resourceType": "GMSequence",

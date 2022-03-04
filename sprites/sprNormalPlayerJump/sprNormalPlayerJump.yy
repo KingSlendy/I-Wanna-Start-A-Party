@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprNormalPlayerJump","path":"sprites/sprNormalPlayerJump/sprNormalPlayerJump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprNormalPlayerJump",
     "tags": [],
     "resourceType": "GMSequence",

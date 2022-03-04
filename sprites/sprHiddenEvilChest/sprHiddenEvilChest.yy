@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprHiddenEvilChest","path":"sprites/sprHiddenEvilChest/sprHiddenEvilChest.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprHiddenEvilChest",
     "tags": [],
     "resourceType": "GMSequence",

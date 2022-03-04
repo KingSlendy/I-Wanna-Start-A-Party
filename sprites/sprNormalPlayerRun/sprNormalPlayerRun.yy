@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprNormalPlayerRun","path":"sprites/sprNormalPlayerRun/sprNormalPlayerRun.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprNormalPlayerRun",
     "tags": [],
     "resourceType": "GMSequence",

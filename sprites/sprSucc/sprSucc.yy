@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprSucc","path":"sprites/sprSucc/sprSucc.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprSucc",
     "tags": [],
     "resourceType": "GMSequence",

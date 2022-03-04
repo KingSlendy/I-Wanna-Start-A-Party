@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemBlackhole","path":"sprites/sprItemBlackhole/sprItemBlackhole.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemBlackhole",
     "tags": [],
     "resourceType": "GMSequence",

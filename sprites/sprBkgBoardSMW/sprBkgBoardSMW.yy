@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprBkgBoardSMW","path":"sprites/sprBkgBoardSMW/sprBkgBoardSMW.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprBkgBoardSMW",
     "tags": [],
     "resourceType": "GMSequence",

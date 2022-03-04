@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprBkgMinigame2vs2_Maze","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprBkgMinigame2vs2_Maze",
     "tags": [],
     "resourceType": "GMSequence",

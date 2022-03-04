@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprShop","path":"sprites/sprShop/sprShop.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprShop",
     "tags": [],
     "resourceType": "GMSequence",

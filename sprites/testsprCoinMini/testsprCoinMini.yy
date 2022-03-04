@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"testsprCoinMini","path":"sprites/testsprCoinMini/testsprCoinMini.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "testsprCoinMini",
     "tags": [],
     "resourceType": "GMSequence",

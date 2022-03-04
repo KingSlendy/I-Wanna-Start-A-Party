@@ -59,10 +59,14 @@ if (state == 0) {
 }
 
 if (state == 2) {
-	minigames_alpha += 0.05;
+	minigames_alpha += 0.04;
 	
 	if (minigames_alpha >= 1) {
 		minigames_alpha = 1;
 		state = -1;
+		
+		if (is_local_turn()) {
+			alarm[2] = 1;
+		}
 	}
 }

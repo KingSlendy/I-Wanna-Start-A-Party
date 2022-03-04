@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprItemCellphone","path":"sprites/sprItemCellphone/sprItemCellphone.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprItemCellphone",
     "tags": [],
     "resourceType": "GMSequence",

@@ -3,9 +3,9 @@ camera_2vs2_split4(camera_start(objCameraSplit4), info);
 player_2vs2_teammate(info);
 
 var cells = [];
-var maze_width = 19;
-var maze_height = 16;
-var maze;
+maze_width = 19;
+maze_height = 16;
+maze = null;
 
 for (var r = -1; r < maze_height * 2; r++) {
     for (var c = -1; c < maze_width * 2; c++) {
@@ -150,4 +150,11 @@ for (var r = 0; r < maze_height; r++) {
     }
 }
 
-alarm[0] = 1;
+grid = mp_grid_create(0, 0, room_width / 32, room_height / 32, 32, 32);
+mp_grid_add_instances(grid, objBlock, false);
+
+with (objPlayerBase) {
+	path = path_add();
+}
+
+alarm[11] = 1;

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprMinigameOverview_Circles","path":"sprites/sprMinigameOverview_Circles/sprMinigameOverview_Circles.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprMinigameOverview_Circles",
     "tags": [],
     "resourceType": "GMSequence",

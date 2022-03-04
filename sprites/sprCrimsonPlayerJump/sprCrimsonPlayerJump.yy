@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sprCrimsonPlayerJump","path":"sprites/sprCrimsonPlayerJump/sprCrimsonPlayerJump.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sprCrimsonPlayerJump",
     "tags": [],
     "resourceType": "GMSequence",
