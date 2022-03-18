@@ -20,6 +20,6 @@ if (global.dice_roll > 0) {
 	roll = 0;
 	
 	board_advance();
-} else {
+} else if (is_local_turn()) {
 	show_dice(network_id);
 }

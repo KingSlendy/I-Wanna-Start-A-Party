@@ -1,5 +1,13 @@
+//The next statement never gets triggered because with the Ctrl shortcut board never starts
 if (!IS_BOARD || !global.board_started) {
 	exit;
+}
+
+if (from_minigame) {
+	draw_set_alpha(from_minigame_alpha);
+	draw_set_color(c_black);
+	draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+	draw_set_alpha(1);
 }
 
 with (objChooseMinigame) {

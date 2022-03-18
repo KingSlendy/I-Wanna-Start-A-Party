@@ -1,12 +1,12 @@
 //Counts the maximum colors between the cards
 var blue_count = array_count(player_colors, c_blue);
 var red_count = array_count(player_colors, c_red);
-global.minigame_info.player_colors = [
+info.player_colors = [
 	(blue_count > red_count) ? c_blue : c_red,
 	(blue_count > red_count) ? c_red : c_blue
 ];
 
-var colors = global.minigame_info.player_colors;
+var colors = info.player_colors;
 var pos_index = 0;
 
 if (blue_count == 4 || red_count == 4) { //4vs
@@ -18,7 +18,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	}
 	
 	show_popup("4 player minigame",, 100,,, false);
-	global.minigame_info.type = "4vs";
+	info.type = "4vs";
 } else if (blue_count == 3 || red_count == 3) { //1vs3	
 	with (objPlayerInfo) {
 		if (player_info.space == colors[1]) {
@@ -35,7 +35,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	}
 	
 	show_popup("1 vs. 3 minigame",, 100,,, false);
-	global.minigame_info.type = "1vs3";
+	info.type = "1vs3";
 } else { //2vs2
 	with (objPlayerInfo) {
 		if (player_info.space == colors[0]) {
@@ -54,7 +54,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	}
 	
 	show_popup("2 vs. 2 minigame",, 100,,, false);
-	global.minigame_info.type = "2vs2";
+	info.type = "2vs2";
 }
 
 show_popup("VS");

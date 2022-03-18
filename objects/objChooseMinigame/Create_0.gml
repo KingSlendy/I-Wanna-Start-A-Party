@@ -22,4 +22,15 @@ if (is_local_turn()) {
 	global.choice_selected = irandom(minigame_total - 1);
 }
 
+info = global.minigame_info;
 objBoard.alarm[11] = 0;
+
+function send_to_minigame() {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_id(i);
+		array_push(info.player_positions, {x: player.x, y: player.y});
+	}
+	
+	info.previous_board = room;
+	room_goto(rMinigameOverview);
+}

@@ -308,12 +308,14 @@ function turn_start() {
 		return;
 	}
 	
-	instance_create_layer(0, 0, "Managers", objTurnChoices);
+	if (!instance_exists(objTurnChoices)) {
+		instance_create_layer(0, 0, "Managers", objTurnChoices);
 	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.TurnStart);
-		network_send_tcp_packet();
+		if (is_local_turn()) {
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.TurnStart);
+			network_send_tcp_packet();
+		}
 	}
 }
 

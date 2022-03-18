@@ -244,6 +244,11 @@ function advance_chance_time() {
 }
 
 function reposition_chance_time() {
+	//Failsafe because a bug appeared for being null, which doesn't make sense
+	if (player_ids == null || player_ids[0] == null) {
+		return;
+	}
+	
 	//Puts the chosen players in its respective positions
 	for (var i = 0; i < array_length(player_ids); i++) {
 		var player = focus_player_by_turn(player_ids[i] + 1);

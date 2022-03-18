@@ -1,6 +1,4 @@
-player_positioning_2vs2(info);
-camera_2vs2_split4(camera_start(objCameraSplit4), info);
-player_2vs2_teammate(info);
+minigame_2vs2_start(info);
 
 var cells = [];
 maze_width = 19;
@@ -155,6 +153,8 @@ mp_grid_add_instances(grid, objBlock, false);
 
 with (objPlayerBase) {
 	path = path_add();
+	move_delay_timer = 0;
+	jump_delay_timer = 0;
 }
 
 alarm[11] = 1;

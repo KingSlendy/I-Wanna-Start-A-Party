@@ -26,26 +26,35 @@ for (var i = 2; i <= global.player_max; i++) {
 		var dir = null;
 		
 		with (player) {
+			if (move_delay_timer > 0) {
+				move_delay_timer--;
+				break;
+			}
+			
+			if (move_delay_timer == 0 && on_block && 0.01 > random(1)) {
+				move_delay_timer = irandom_range(get_frames(1.5), get_frames(2.5));
+				break;
+			}
+			
 			if (point_distance(x, y, near.x, near.y) < other.distance_to_win) {
 				break;
 			}
 			
-			//path_clear_points(path);
-			mp_grid_path(other.grid, path, x, y, near.x, near.y, true);
-			dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
-			//print(path_get_number(path));
-			//print(dir);
+			mp_grid_path(other.grid, path, x - 1, y - 7, near.x, near.y, false);
+			dir = point_direction(x - 1, y - 7, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
-				var action;
-		
-				if (point_distance(0, dir, 0, 90) < 16) {
-					action = actions.jump;
-				} else {
-					action = (dir >= 90 && dir <= 270) ? actions.left : actions.right;
+				var dist_to_up = point_distance(0, dir, 0, 90);
+				
+				if (dist_to_up > 4) {
+					var action = (dir >= 90 && dir <= 270) ? actions.left : actions.right;
+					action.press();
 				}
-
-				action.press();
+		
+				if (--jump_delay_timer <= 0 && dist_to_up < 16) {
+					actions.jump.hold(6);
+					jump_delay_timer = 10;
+				}
 			}
 		}
 	}

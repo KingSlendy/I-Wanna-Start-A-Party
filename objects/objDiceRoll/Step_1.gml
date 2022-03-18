@@ -11,7 +11,7 @@ if (vspeed != 0 && y > ystart) {
 	alarm[0] = get_frames(0.3);
 }
 
-if (follow_target_x && vspeed == 0) {
+if (follow_target_x && vspeed == 0 && target_x != null) {
 	x = lerp(x, target_x, 0.2);
 	
 	if (point_distance(x, 0, target_x, 0) < 0.01) {

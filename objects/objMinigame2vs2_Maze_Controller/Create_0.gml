@@ -10,4 +10,4 @@ with (objPlayerBase) {
 
 event_inherited();
 
-distance_to_win = 20;
+distance_to_win = 16;

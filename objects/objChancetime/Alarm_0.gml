@@ -4,8 +4,8 @@ music_change(bgmChanceTime);
 with (focus_player) {
 	with (objPlayerReference) {
 		if (reference == 1) {
-			other.x = x;
-			other.y = y;
+			other.x = x + 17;
+			other.y = y + 23;
 		}
 	}
 }

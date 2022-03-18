@@ -27,7 +27,8 @@ if (global.udp_socket < 0) {
 	exit;
 }
 
-global.player_name = get_string("Enter your name.", "Player");
+global.player_name = string_copy(get_string("Enter your name.", "Player"), 1, 10);
+
 objPlayerBase.network_name = global.player_name;
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);

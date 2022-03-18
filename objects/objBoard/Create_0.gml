@@ -25,6 +25,8 @@ global.min_blackhole_coins = 5;
 minigame_info_reset();
 
 tell_choices = false;
+from_minigame = false;
+from_minigame_alpha = 0;
 
 //Temp
 temp = false;

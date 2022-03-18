@@ -4,7 +4,7 @@ function Action(button) constructor {
 	
 	static held = function(id = null) {
 		if (id != null && id > 0 && id != global.player_id) {
-			return ai_actions(id)[$ self.label].pressed();
+			return ai_actions(id)[$ self.label].held(id);
 		}
 		
 		return keyboard_check(self.button);
@@ -12,13 +12,17 @@ function Action(button) constructor {
 	
 	static pressed = function(id = null) {
 		if (id != null && id > 0 && id != global.player_id) {
-			return self.held(id);
+			return ai_actions(id)[$ self.label].pressed(id);
 		}
 		
 		return keyboard_check_pressed(self.button);
 	}
 	
-	static released = function() {
+	static released = function(id = null) {
+		if (id != null && id > 0 && id != global.player_id) {
+			return ai_actions(id)[$ self.label].released(id);
+		}
+		
 		return keyboard_check_released(self.button);
 	}
 }
@@ -55,21 +59,25 @@ function AIAction() constructor {
 		self.untriggered = false;
 	}
 	
-	static release = function(force) {
+	static release = function(force = false) {
+		var prev_untriggered = self.untriggered;
 		self.untriggered = false;
 		
-		if (self.frames > 0 || force) {
+		if (self.frames > 0 && !force) {
 			self.frames--;
 			return;
 		}
 		
-		self.frames = 0;
 		self.triggered = false;
-		self.untriggered = true;
+		self.untriggered = !prev_untriggered;
+	}
+	
+	static held = function() {
+		return self.triggered;
 	}
 	
 	static pressed = function() {
-		return self.triggered;
+		return self.held();
 	}
 	
 	static released = function() {
@@ -102,7 +110,7 @@ function ai_release_all() {
 			var keys = variable_struct_get_names(actions);
 	
 			for (var j = 0; j < array_length(keys); j++) {
-				actions[$ keys[j]].release(false);
+				actions[$ keys[j]].release();
 			}
 		}
 	}
