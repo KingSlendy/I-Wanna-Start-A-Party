@@ -9,10 +9,8 @@ if (IS_BOARD) {
 	}
 
 	camera_start_follow(target_follow, objCameraBoard);
-}
-
-if (global.minigame_info.is_finished) {
-	minigame_info_reset();
-	from_minigame = true;
-	from_minigame_alpha = 1;
+	
+	if (global.minigame_info.is_finished) {
+		instance_create_layer(0, 0, "Managers", objResultsMinigame);
+	}
 }

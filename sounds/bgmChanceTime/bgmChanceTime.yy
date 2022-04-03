@@ -1,6 +1,6 @@
 {
   "conversionMode": 0,
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -8,8 +8,8 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_SFX",
-    "path": "audiogroups/audiogroup_SFX",
+    "name": "audiogroup_BGM",
+    "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmChanceTime.mp3",
   "duration": 43.56,

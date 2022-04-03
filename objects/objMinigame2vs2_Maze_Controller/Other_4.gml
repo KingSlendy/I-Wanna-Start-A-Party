@@ -1,5 +1,4 @@
 minigame_2vs2_start(info);
-
 var cells = [];
 maze_width = 19;
 maze_height = 16;

@@ -1,3 +1,10 @@
+draw_set_font(fntPopup);
+draw_set_color(c_orange);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_text_outline(400, 50, info.reference.title, c_black);
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
 draw_sprite(sprMinigameOverview_Preview, 0, 400, 192);
 
 var index = 0;
@@ -59,3 +66,20 @@ switch (info.type) {
 		}
 		break;
 }
+
+draw_box(75, 400, 500, 200, c_green);
+instructions[instructions_page].draw(85, 410);
+var text = new Text(fntDialogue);
+
+for (var i = 0; i < array_length(choice_texts); i++) {
+	var option_x = 615;
+	var option_y = 400 + 45 * i;
+	draw_box(option_x, option_y, 130, 40, (i == option_selected) ? c_gray : c_dkgray);
+	text.set(draw_option_afford(choice_texts[i], true, (i == option_selected)));
+	text.draw(option_x + 10, option_y + 6); 
+}
+
+draw_set_alpha(alpha);
+draw_set_color(c_black);
+draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_set_alpha(1);

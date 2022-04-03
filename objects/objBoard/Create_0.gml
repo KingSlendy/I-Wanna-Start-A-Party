@@ -4,6 +4,13 @@ with (objPlayerBase) {
 	change_to_object(objPlayerBoard);
 }
 
+global.seed_bag = [];
+
+repeat (100) {
+	array_push(global.seed_bag, irandom(9999999));
+}
+
+global.current_seed = -1;
 global.initial_rolls = array_sequence(1, 10);
 array_shuffle(global.initial_rolls);
 array_delete(global.initial_rolls, global.player_max, array_length(global.initial_rolls) - global.player_max);
@@ -25,8 +32,6 @@ global.min_blackhole_coins = 5;
 minigame_info_reset();
 
 tell_choices = false;
-from_minigame = false;
-from_minigame_alpha = 0;
 
 //Temp
 temp = false;

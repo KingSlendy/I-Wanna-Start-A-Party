@@ -1,5 +1,5 @@
 with (objPlayerBase) {
-	if (frozen) {
+	if (object_index == objNetworkPlayer || frozen) {
 		break;
 	}
 	
@@ -9,7 +9,7 @@ with (objPlayerBase) {
 				var info = global.minigame_info;
 				info.player_scores[other.network_id - 1].points += 1;
 				info.player_scores[other.teammate.network_id - 1].points += 1;
-				minigame_2vs2_finish();
+				minigame_finish();
 				break;
 			}
 		}

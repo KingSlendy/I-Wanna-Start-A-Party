@@ -25,7 +25,22 @@ if (is_local_turn()) {
 info = global.minigame_info;
 objBoard.alarm[11] = 0;
 
+function choosed_minigame() {
+	info.reference = minigame_list[global.choice_selected];
+	alarm[3] = get_frames(1);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ChooseMinigameChoosed);
+		network_send_tcp_packet();
+	}
+}
+
 function send_to_minigame() {
+	with (objPlayerBase) {
+		change_to_object(objPlayerBase);
+	}
+	
 	for (var i = 1; i <= global.player_max; i++) {
 		var player = focus_player_by_id(i);
 		array_push(info.player_positions, {x: player.x, y: player.y});

@@ -11,8 +11,7 @@ if (is_local_turn()) {
 minigames_timer += 0.10;
 
 if (minigames_timer > 6 && irandom(1) == 0 && global.choice_selected == minigames_chosen) {
-	info.reference = minigame_list[global.choice_selected];
-	send_to_minigame();
+	choosed_minigame();	
 	exit;
 }
 

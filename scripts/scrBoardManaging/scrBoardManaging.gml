@@ -57,7 +57,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 function is_local_turn() {
 	if (!global.board_started) {
 		with (objPlayerBase) {
-			if (network_id == 1) {
+			if (object_index != objNetworkPlayer && network_id == 1) {
 				return true;
 			}
 		}
@@ -68,7 +68,7 @@ function is_local_turn() {
 	var player_info = player_info_by_turn(global.player_turn);
 	
 	with (objPlayerBase) {
-		if (player_info.network_id == network_id) {
+		if (object_index != objNetworkPlayer && player_info.network_id == network_id) {
 			return true;
 		}
 	}
@@ -84,11 +84,11 @@ function focused_player() {
 			}
 		}
 		
-		with (objNetworkPlayer) {
+		/*with (objNetworkPlayer) {
 			if (network_id == 1) {
 				return id;
 			}
-		}
+		}*/
 	}
 	
 	with (objPlayerBase) {
@@ -99,13 +99,13 @@ function focused_player() {
 		}
 	}
 	
-	with (objNetworkPlayer) {
+	/*with (objNetworkPlayer) {
 		var player_info = player_info_by_id(network_id);
 		
 		if (player_info.turn == global.player_turn) {
 			return id;
 		}
-	}
+	}*/
 	
 	return null;
 }
@@ -117,11 +117,11 @@ function focus_player_by_id(player_id = global.player_id) {
 		}
 	}
 
-	with (objNetworkPlayer) {
+	/*with (objNetworkPlayer) {
 		if (network_id == player_id) {
 			return id;
 		}
-	}
+	}*/
 	
 	return null;
 }
@@ -140,7 +140,6 @@ function spawn_player_info(order, turn) {
 	
 	var info = instance_create_layer(0, 0, "Managers", objPlayerInfo);
 	info.player_info = new PlayerBoard(order, focus_player_by_id(order).network_name, turn);
-	info.player_focus = focus_player_by_id(order);
 	
 	with (info) {
 		setup();
@@ -196,6 +195,17 @@ function switch_camera_target(x, y) {
 	return s;
 }
 
+function next_seed_inline() {
+	var next_seed = ++global.current_seed;
+	
+	if (next_seed == array_length(global.seed_bag)) {
+		array_shuffle(global.seed_bag);
+		global.current_seed = 0;
+	}
+	
+	random_set_seed(global.seed_bag[next_seed]);
+}
+
 function board_start() {
 	if (!is_local_turn()) {
 		return;
@@ -205,6 +215,7 @@ function board_start() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardStart);
 		buffer_write_array(buffer_u8, global.initial_rolls);
+		buffer_write_array(buffer_u64, global.seed_bag);
 		network_send_tcp_packet();
 		
 		start_dialogue([
@@ -255,12 +266,12 @@ function tell_turns() {
 			}
 		}
 		
-		with (objNetworkPlayer) {
+		/*with (objNetworkPlayer) {
 			if (network_id == turn_id) {
 				other.turn_names[i - 1] = network_name;
 				break;
 			}
-		}
+		}*/
 	}
 	
 	dialogue_player_info = function(turn) {
@@ -332,12 +343,6 @@ function turn_next() {
 	
 	if (++global.player_turn > global.player_max) {
 		global.player_turn = 1;
-		//global.board_turn++;
-		
-		//if (++global.board_turn > global.max_board_turns) {
-		//	board_finish();
-		//	return;	
-		//}
 		
 		if (is_local_turn()) {
 			choose_minigame();
@@ -385,7 +390,6 @@ function choose_minigame() {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChooseMinigame);
-		buffer_write_data(buffer_u64, random_get_seed());
 		network_send_tcp_packet();
 	}
 }

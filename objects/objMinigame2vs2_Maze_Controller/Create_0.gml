@@ -3,6 +3,7 @@ with (objPlayerBase) {
 }
 
 with (objPlayerBase) {
+	grav_amount = 0;
 	enable_shoot = false;
 	has_item = false;
 	jump_total = -1;

@@ -1,4 +1,4 @@
-function Minigame(title = "Generic Minigame", instructions = "Generic Instructions", preview = sprBox, scene = rTemplate) constructor {
+function Minigame(title = "Generic Minigame", instructions = ["Generic Instructions"], preview = sprBox, scene = rTemplate) constructor {
 	self.title = title;
 	self.instructions = instructions;
 	self.preview = preview;
@@ -16,7 +16,7 @@ m[$ "1vs3"] = [
 ];
 
 m[$ "2vs2"] = [
-	new Minigame("A-Maze-Ing",,, rMinigame2vs2_Maze)
+	new Minigame("A-Maze-Ing", ["Just win"],, rMinigame2vs2_Maze)
 ];
 
 function minigame_info_reset() {
@@ -25,17 +25,24 @@ function minigame_info_reset() {
 		type: "",
 		player_colors: [],
 		is_practice: false,
-		player_scores: [],
-		players_won: [],
-		color_won: c_white,
 		is_finished: false,
 		
 		player_positions: [],
 		previous_board: null
 	}
 	
+	minigame_info_score_reset();
+}
+
+function minigame_info_score_reset() {
+	var info = global.minigame_info;
+	info.player_scores = [];
+	info.players_won = [];
+	info.color_won = c_white;
+	info.is_finished = false;
+	
 	repeat (global.player_max) {
-		array_push(global.minigame_info.player_scores, {
+		array_push(info.player_scores, {
 			timer: 0,
 			points: 0
 		});
@@ -54,29 +61,19 @@ function player_4vs_positioning() {
 function player_2vs2_positioning(info) {
 	var index = 0;
 	
-	with (objPlayerBase) {
-		var player_info = player_info_by_id(network_id);
-	
-		if (player_info.space == info.player_colors[0]) {
-			with (objPlayerReference) {
-				if (reference == index) {
-					other.x = x + 17;
-					other.y = y + 23;
-					index++;
-				}
-			}
-		}
-	}
-
-	with (objPlayerBase) {
-		var player_info = player_info_by_id(network_id);
-	
-		if (player_info.space == info.player_colors[1]) {
-			with (objPlayerReference) {
-				if (reference == index) {
-					other.x = x + 17;
-					other.y = y + 23;
-					index++;
+	for (var j = 0; j < array_length(info.player_colors); j++) {
+		for (var i = 1; i <= global.player_max; i++) {
+			var player = focus_player_by_id(i);
+			var player_info = player_info_by_id(i);
+		
+			if (player_info.space == info.player_colors[j]) {
+				with (objPlayerReference) {
+					if (reference == index) {
+						player.x = x + 17;
+						player.y = y + 23;
+						index++;
+						break;
+					}
 				}
 			}
 		}
@@ -100,33 +97,44 @@ function player_2vs2_teammate() {
 	}
 }
 
-function minigame_2vs2_finish() {
+function minigame_finish() {
 	with (objMinigameController) {
 		if (!info.is_finished) {
 			objPlayerBase.frozen = true;
 			show_popup("FINISH");
-			
-			//buffer_seek_begin();
-			//buffer_write_action(ClientTCP.MinigameScore);
-			//buffer_write_data(buffer_u8, global.player_id);
-			//buffer_write_data(buffer_u64, info.player_scores[global.player_id]);
-			//network_send_tcp_packet();
-			
-			if (signal_finished) {
-				//buffer_seek_begin();
-				//buffer_write_action(ClientTCP.Minigame2vs2Finish);
-				//buffer_write_data(buffer_u64, color);
-				//network_send_tcp_packet();
-				signal_finished = false;
-			}
-			
+			music_stop();
 			info.is_finished = true;
+			
+			for (var i = 1; i <= global.player_max; i++) {
+				var player = focus_player_by_id(i);
+				
+				if (player.object_index != objNetworkPlayer) {
+					buffer_seek_begin();
+					buffer_write_action(ClientTCP.MinigameFinish);
+					buffer_write_data(buffer_u8, i);
+					var scoring = info.player_scores[i - 1];
+					buffer_write_data(buffer_u32, scoring.timer);
+					buffer_write_data(buffer_u32, scoring.points);
+					network_send_tcp_packet();
+				}
+			}
 		}
 		
-		if (global.player_id == 1 && array_count(info.player_scores, 0) == 0) {
-			minigame_2vs2_winner(info);
-			alarm[2] = get_frames(2);
+		for (var i = 0; i < global.player_max; i++) {
+			var scoring = info.player_scores[i];
+			
+			if (scoring.timer + scoring.points == 0) {
+				return;
+			}
 		}
+		
+		switch (info.type) {
+			case "2vs2":
+				minigame_2vs2_winner(info);
+				break;
+		}
+			
+		alarm[2] = get_frames(2);
 	}
 }
 
@@ -134,9 +142,9 @@ function minigame_2vs2_winner(info) {
 	var scores = [0, 0];
 	
 	for (var i = 0; i < global.player_max; i++) {
-		var score = player_scores[i];
+		var scoring = info.player_scores[i];
 		var color = player_info_by_id(i + 1).space;
-		scores[(color == info.player_colors[0])] += score.timer + score.points;
+		scores[(color == info.player_colors[1])] += scoring.timer + scoring.points;
 	}
 	
 	if (scores[0] == scores[1]) {
@@ -152,7 +160,6 @@ function minigame_2vs2_winner(info) {
 			
 		if (info.color_won == c_white || color == info.color_won) {
 			array_push(info.players_won, i);
-			break;
 		}
 	}
 }

@@ -1,4 +1,2 @@
-network_id = 0;
-network_name = "";
+event_inherited();
 network_room = room;
-ai = false;

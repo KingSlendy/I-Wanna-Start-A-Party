@@ -44,12 +44,17 @@ enum ClientTCP {
 	RepositionChanceTime,
 	EndChanceTime,
 	ChooseMinigame,
+	ChooseMinigameChoosed,
 	
 	//Animations
 	ItemApplied,
 	ItemAnimation,
 	StartBlackholeSteal,
-	EndBlackholeSteal
+	EndBlackholeSteal,
+	
+	//Minigames
+	MinigameOverviewStart,
+	MinigameFinish
 }
 
 enum ClientUDP {
@@ -105,6 +110,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		//Network
 		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
+			objPlayerBase.network_id = global.player_id;
 			global.skin_current = global.player_id - 1;
 			
 			for (var i = 0; i < global.player_max; i++) {
@@ -114,7 +120,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			
 			array_insert(global.all_ai_actions, global.player_id - 1, null);
-			objPlayerBase.network_id = global.player_id;
 			break;
 			
 		case ClientTCP.PlayerConnect:
@@ -319,6 +324,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		//Events
 		case ClientTCP.BoardStart:
 			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
+			global.seed_bag = buffer_read_array(buffer, buffer_u64);
 			break;
 		
 		case ClientTCP.TurnStart:
@@ -352,9 +358,13 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.ChooseMinigame:
-			var seed = buffer_read(buffer, buffer_u64);
-			random_set_seed(seed);
 			choose_minigame();
+			break;
+			
+		case ClientTCP.ChooseMinigameChoosed:
+			with (objChooseMinigame) {
+				choosed_minigame();
+			}
 			break;
 			
 		//Animations
@@ -381,6 +391,25 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				end_blackhole_steal();
 			}
 			break;
+			
+		//Minigames
+		case ClientTCP.MinigameOverviewStart:
+			var set = buffer_read(buffer, buffer_u8);
+		
+			with (objMinigameOverview) {
+				start_minigame(set);
+			}
+			break;
+			
+		case ClientTCP.MinigameFinish:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var timer = buffer_read(buffer, buffer_u32);
+			var points = buffer_read(buffer, buffer_u32);
+			var scoring = global.minigame_info.player_scores[player_id - 1];
+			scoring.timer = timer;
+			scoring.points = points;
+			minigame_finish();
+			break;
 	}
 }
 
@@ -399,9 +428,16 @@ function network_read_client_udp(buffer, data_id) {
 			
 		//Interfaces
 		case ClientUDP.ChangeChoiceSelected:
-			if (instance_exists(objTurnChoices)) {
-				objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
-				audio_play_sound(global.sound_cursor_move, 0, false);
+			if (room != rMinigameOverview) {
+				if (instance_exists(objTurnChoices)) {
+					objTurnChoices.option_selected = buffer_read(buffer, buffer_u8);
+					audio_play_sound(global.sound_cursor_move, 0, false);
+				}
+			} else {
+				if (instance_exists(objMinigameOverview)) {
+					objMinigameOverview.option_selected = buffer_read(buffer, buffer_u8);
+					audio_play_sound(global.sound_cursor_move, 0, false);
+				}
 			}
 			break;
 			

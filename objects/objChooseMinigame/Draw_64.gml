@@ -1,7 +1,3 @@
-draw_set_alpha(alpha);
-draw_set_color(c_black);
-draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
-
 draw_set_alpha(minigames_alpha);
 draw_set_color(c_white);
 var minigames_total_height = minigames_height * minigame_total;
@@ -15,4 +11,7 @@ for (var i = 0; i < minigame_total; i++) {
 	text.draw(minigames_x + 5, draw_y + 6);
 }
 
+draw_set_alpha(alpha);
+draw_set_color(c_black);
+draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 draw_set_alpha(1);

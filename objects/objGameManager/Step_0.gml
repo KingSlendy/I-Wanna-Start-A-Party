@@ -11,7 +11,7 @@ if (keyboard_check_pressed(vk_pageup)) {
 }
 
 if (keyboard_check_pressed(ord("D"))) {
-	game_set_speed((!a) ? 100 : 50, gamespeed_fps);
+	game_set_speed((!a) ? 150 : 50, gamespeed_fps);
 	a = !a;
 }
 

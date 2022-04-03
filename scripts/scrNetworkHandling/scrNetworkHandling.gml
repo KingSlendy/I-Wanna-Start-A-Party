@@ -128,7 +128,14 @@ function player_write_data() {
 	buffer_write_data(buffer_string, network_name);
 	buffer_write_data(buffer_u16, sprite_index);
 	buffer_write_data(buffer_u8, image_alpha);
-	buffer_write_data(buffer_s8, image_xscale);
+	
+	
+	if (object_index == objPlayerPlatformer) {
+		buffer_write_data(buffer_s8, image_xscale * xscale);
+	} else {
+		buffer_write_data(buffer_s8, image_xscale);
+	}
+	
 	buffer_write_data(buffer_s8, image_yscale);
 	buffer_write_data(buffer_s16, x);
 	buffer_write_data(buffer_s16, y);

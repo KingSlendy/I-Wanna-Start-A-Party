@@ -1,4 +1,4 @@
-with (player_focus) {
+with (focus_player_by_id(player_info.network_id)) {
 	switch (other.player_info.item_effect) {
 		case ItemType.Poison:
 			image_blend = c_fuchsia;
