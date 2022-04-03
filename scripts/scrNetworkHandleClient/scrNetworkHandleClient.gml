@@ -187,7 +187,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 		
 		case ClientTCP.ChangeChoiceAlpha:
-			objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
+			if (instance_exists(objTurnChoices)) {
+				objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
+			}
 			break;
 		
 		case ClientTCP.LessRoll:

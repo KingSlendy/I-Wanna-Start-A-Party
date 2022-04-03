@@ -33,3 +33,21 @@ for (var i = 0; i < global.player_max; i++) {
 	player.x = (400 - player_info.draw_w / 2) + 15 + camera_get_view_x(view_camera[0]);
 	player.y = (79 + (player_info.draw_h + 30) * (order - 1)) - 20 + camera_get_view_y(view_camera[0]);
 }
+
+for (var i = 0; i < array_length(info.space_indexes); i++) {
+	var space = info.space_indexes[i];
+	
+	with (objSpaces) {
+		if (x == space.x && y == space.y) {
+			image_index = space.index;
+			break;
+		}
+	}
+}
+
+with (instance_create_layer(info.shine_position.x, info.shine_position.y, "Actors", objShine)) {
+	image_xscale = 1;
+	image_yscale = 1;
+	spawning = false;
+	floating = true;
+}

@@ -27,8 +27,10 @@ function minigame_info_reset() {
 		is_practice: false,
 		is_finished: false,
 		
+		previous_board: null,
 		player_positions: [],
-		previous_board: null
+		space_indexes: [],
+		shine_position: {x: 0, y: 0}
 	}
 	
 	minigame_info_score_reset();
@@ -95,6 +97,15 @@ function player_2vs2_teammate() {
 			}
 		}
 	}
+}
+
+function minigame_max_points() {
+	return get_frames(1000000);
+}
+
+function minigame_2vs2_points(info, player_id1, player_id2, points) {
+	info.player_scores[player_id1].points += points;
+	info.player_scores[player_id2].points += points;
 }
 
 function minigame_finish() {

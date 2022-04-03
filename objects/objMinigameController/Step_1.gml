@@ -1,9 +1,3 @@
-with (objPlayerBase) {
-	if (object_index != objNetworkPlayer && !frozen) {
-		other.info.player_scores[network_id - 1].timer++;
-	}
-}
-
 if (!started && instance_number(objPlayerBase)/* + instance_number(objNetworkPlayer)*/ == global.player_max) {
 	alpha -= 0.03;
 	

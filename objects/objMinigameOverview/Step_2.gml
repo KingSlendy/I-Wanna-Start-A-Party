@@ -1,0 +1,1 @@
+objPlayerBase.visible = false;

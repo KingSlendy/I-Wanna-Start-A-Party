@@ -20,5 +20,3 @@ function start_minigame(set) {
 	state = set;
 	audio_play_sound(global.sound_cursor_select, 0, false);
 }
-
-//random_set_seed(0);
