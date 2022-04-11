@@ -1,4 +1,4 @@
-if (!started && instance_number(objPlayerBase)/* + instance_number(objNetworkPlayer)*/ == global.player_max) {
+if (!started && get_player_count(player_check) == global.player_max) {
 	alpha -= 0.03;
 	
 	if (alpha <= 0) {

@@ -20,10 +20,10 @@ switch (state) {
 			state = -1;
 		
 			for (var i = 0; i < global.player_max; i++) {
-				var player_info = places_minigame_info[i];
+				var p_info = places_minigame_info[i];
 				var order = places_minigame_order[i];
 			
-				with (player_info) {
+				with (p_info) {
 					target_draw_x = 400 - draw_w / 2;
 					target_draw_y = 79 + (draw_h + 30) * (order - 1);
 				}
@@ -55,6 +55,7 @@ switch (state) {
 				target_draw_y = main_draw_y;
 				draw_x = target_draw_x;
 				draw_y = target_draw_y;
+				player_info.space = c_gray;
 			}
 			
 			state = 2;

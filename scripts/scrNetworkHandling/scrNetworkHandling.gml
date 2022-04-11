@@ -126,9 +126,9 @@ function ai_leave(id) {
 function player_write_data() {
 	buffer_write_data(buffer_u8, network_id);
 	buffer_write_data(buffer_string, network_name);
+	buffer_write_data(buffer_u16, object_index);
 	buffer_write_data(buffer_u16, sprite_index);
 	buffer_write_data(buffer_u8, image_alpha);
-	
 	
 	if (object_index == objPlayerPlatformer) {
 		buffer_write_data(buffer_s8, image_xscale * xscale);
@@ -152,6 +152,7 @@ function player_read_data(buffer) {
 		instance.vspeed = 0;
 		
 		instance.network_name = buffer_read(buffer, buffer_string);
+		instance.network_index = buffer_read(buffer, buffer_u16);
 		instance.sprite_index = buffer_read(buffer, buffer_u16);
 		instance.image_alpha = buffer_read(buffer, buffer_u8);
 		instance.image_xscale = buffer_read(buffer, buffer_s8);

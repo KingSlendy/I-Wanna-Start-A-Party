@@ -420,7 +420,7 @@ function network_read_client_udp(buffer, data_id) {
 		//Network
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
-				objNetworkClient.alarm[0] = get_frames(2);
+				objNetworkClient.alarm[0] = get_frames(30);
 			}
 			break;
 		

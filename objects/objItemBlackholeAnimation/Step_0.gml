@@ -37,6 +37,6 @@ if (state == 0) {
 }
 
 if (is_local_turn() && state == -1 && global.actions.jump.pressed(player2.network_id)) {
-	steal_count -= 0.15;
+	steal_count -= 0.2;
 	steal_count = max(steal_count, 1);
 }

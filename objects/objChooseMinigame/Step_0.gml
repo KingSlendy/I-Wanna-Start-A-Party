@@ -26,10 +26,16 @@ switch (state) {
 		alpha -= 0.05;
 	
 		if (alpha <= 0) {
-		
+			//Temp
+			next_seed_inline();
+			var test = [1, 2, 3, 4];
+			array_shuffle(test);
+			array_delete(test, 2, 2);
+			//Temp
+			
 			with (objPlayerInfo) {
 				//Temp
-				if (array_contains([1, 2], player_info.turn)) {
+				if (array_contains(test, player_info.turn)) {
 					player_info.space = c_blue;
 				} else {
 					player_info.space = c_red;
@@ -64,7 +70,7 @@ switch (state) {
 			minigames_alpha = 1;
 			state = -1;
 		
-			if (is_local_turn()) {
+			if (global.player_id == 1) {
 				alarm[2] = 1;
 			}
 		}

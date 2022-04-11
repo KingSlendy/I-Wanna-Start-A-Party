@@ -18,7 +18,7 @@ minigames_height = 40;
 minigames_timer = 3;
 minigames_chosen = irandom(minigame_total - 1);
 
-if (is_local_turn()) {
+if (global.player_id == 1) {
 	global.choice_selected = irandom(minigame_total - 1);
 }
 
@@ -29,7 +29,7 @@ function choosed_minigame() {
 	info.reference = minigame_list[global.choice_selected];
 	alarm[3] = get_frames(1);
 	
-	if (is_local_turn()) {
+	if (global.player_id == 1) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChooseMinigameChoosed);
 		network_send_tcp_packet();

@@ -180,6 +180,18 @@ function store_player_positions() {
 	
 	return positions;
 }
+
+function get_player_count(index) {
+	var count = 0;
+	
+	with (objPlayerBase) {
+		if (object_index == index || (object_index == objNetworkPlayer && network_index == index)) {
+			count++;
+		}
+	}
+	
+	return count;
+}
 #endregion
 
 #region Board Management

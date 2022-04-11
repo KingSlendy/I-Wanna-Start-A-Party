@@ -49,7 +49,7 @@ if (option_selected != prev_choice) {
 	network_send_udp_packet();
 }
 
-if (global.actions.jump.pressed(global.player_id)) {
+if (global.actions.jump.pressed(global.player_id) && get_player_count(objPlayerBase) == global.player_max) {
 	start_minigame(option_selected + 1);
 	
 	buffer_seek_begin();

@@ -11,4 +11,5 @@ with (objPlayerBase) {
 
 event_inherited();
 
+player_check = objPlayerPlatformer;
 distance_to_win = 16;

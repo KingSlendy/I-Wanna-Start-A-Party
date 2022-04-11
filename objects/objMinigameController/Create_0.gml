@@ -5,6 +5,7 @@ started = false;
 alpha = 1;
 finished = false;
 cleaned = false;
+player_check = objPlayerBase;
 
 function back_to_board() {
 	event_perform(ev_cleanup, 0);

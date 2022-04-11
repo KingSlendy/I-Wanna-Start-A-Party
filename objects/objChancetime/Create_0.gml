@@ -245,7 +245,7 @@ function advance_chance_time() {
 
 function reposition_chance_time() {
 	//Failsafe because a bug appeared for being null, which doesn't make sense
-	if (player_ids == null || player_ids[0] == null) {
+	if (player_ids == null || array_contains(player_ids, null)) {
 		return;
 	}
 	
