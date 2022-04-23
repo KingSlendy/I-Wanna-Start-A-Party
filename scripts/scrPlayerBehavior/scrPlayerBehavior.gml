@@ -44,3 +44,9 @@ function flip_grav() {
 	y += 4 * orientation;
 	reset_jumps();
 }
+
+function player_kill() {
+	instance_create_layer(x, y, "Actors", objBloodEmitter);
+	visible = false;
+	frozen = true;
+}

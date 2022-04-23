@@ -17,6 +17,11 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			alpha = 0;
+			
+			if (get_player_count(objPlayerBoard) != global.player_max) {
+				exit;
+			}
+			
 			state = -1;
 		
 			for (var i = 0; i < global.player_max; i++) {
@@ -58,11 +63,19 @@ switch (state) {
 				player_info.space = c_gray;
 			}
 			
+			//Add a way to check if all the 4 players are moved
+			global.player_turn = 1;
 			state = 2;
 		}
 		break;
 		
 	case 2:
+		with (objPlayerBase) {
+			if (!visible) {
+				exit;
+			}
+		}
+	
 		alpha -= 0.04;
 		
 		if (alpha <= 0) {

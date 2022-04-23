@@ -2,7 +2,15 @@ var winner_title = "";
 
 switch (info.type) {
 	case "4vs":
-		winner_title = "A";
+		for (var i = 0; i < array_length(info.players_won); i++) {
+			var player = focus_player_by_id(info.players_won[i]);
+			winner_title += player.network_name + "\n";
+		}
+		
+		winner_title += "WON";
+		break;
+		
+	case "1vs3":
 		break;
 		
 	case "2vs2":

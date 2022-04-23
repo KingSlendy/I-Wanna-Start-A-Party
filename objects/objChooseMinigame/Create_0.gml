@@ -5,11 +5,11 @@ zoom = false;
 player_colors = [];
 minigame_total = 5;
 minigame_list = [
-	global.minigames[$ "2vs2"][0],
-	global.minigames[$ "2vs2"][0],
-	global.minigames[$ "2vs2"][0],
-	global.minigames[$ "2vs2"][0],
-	global.minigames[$ "2vs2"][0],
+	global.minigames[$ "4vs"][0],
+	global.minigames[$ "4vs"][0],
+	global.minigames[$ "4vs"][0],
+	global.minigames[$ "4vs"][0],
+	global.minigames[$ "4vs"][0],
 ];
 
 minigames_alpha = 0;

@@ -9,7 +9,6 @@ function music_check() {
 	switch (room) {
 		case rBoardSMW: music = bgmBoardSMW; break;
 		case rMinigameOverview: music = bgmMinigameOverview; break;
-		case rMinigame2vs2_Maze: music = bgmMinigameA; break;
 		default: break;
 	}
 	

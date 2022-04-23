@@ -1,3 +1,7 @@
+if (!IS_BOARD) {
+	exit;
+}
+
 with (focus_player_by_id(player_info.network_id)) {
 	switch (other.player_info.item_effect) {
 		case ItemType.Poison:

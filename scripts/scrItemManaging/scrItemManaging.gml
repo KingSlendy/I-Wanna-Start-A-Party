@@ -43,10 +43,6 @@ global.board_items = [
 	new Item(ItemType.Reverse, "Reverse", "Lets you go backwards on the board.", sprItemReverse, 9),
 	new Item(ItemType.Ice, "Ice", "Freezes the player you choose.", sprItemIce, 15, objItemIceAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
-			if (i == global.player_turn) {
-				continue;
-			}
-			
 			if (player_info_by_turn(i).item_effect == null) {
 				return true;
 			}

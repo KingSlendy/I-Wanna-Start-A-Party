@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "2vs2",
-    "path": "folders/Sprites/Objects/Minigames/2vs2.yy",
+    "name": "Maze",
+    "path": "folders/Sprites/Objects/Minigames/2vs2/Maze.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprMinigame2vs2_Maze_Item",

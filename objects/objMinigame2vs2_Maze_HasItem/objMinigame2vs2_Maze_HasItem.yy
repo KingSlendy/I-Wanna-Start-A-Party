@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "2vs2",
-    "path": "folders/Objects/Minigames/2vs2.yy",
+    "name": "Maze",
+    "path": "folders/Objects/Minigames/2vs2/Maze.yy",
   },
   "resourceVersion": "1.0",
   "name": "objMinigame2vs2_Maze_HasItem",

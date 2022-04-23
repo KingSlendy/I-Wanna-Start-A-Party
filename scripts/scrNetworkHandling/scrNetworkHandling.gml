@@ -83,7 +83,7 @@ function player_join(id) {
 		}
 		
 		if (player == null) {
-			var p = instance_create_layer(0, 0, "Instances", objNetworkPlayer);
+			var p = instance_create_layer(0, 0, "Actors", objNetworkPlayer);
 			p.network_id = id;
 			global.player_client_list[id - 1] = p;
 		} else {
@@ -105,7 +105,7 @@ function ai_join(id) {
 		instance_destroy(player);
 	}
 	
-	var a = instance_create_layer(800, 304, "Instances", objPlayerDir8);
+	var a = instance_create_layer(800, 304, "Actors", objPlayerDir8);
 	a.network_id = id;
 	a.network_name = "CPU " + string(id);
 	a.ai = true;

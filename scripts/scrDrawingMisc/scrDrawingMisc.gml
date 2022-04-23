@@ -53,7 +53,20 @@ function draw_option_afford(option, check1, check2) {
 	return addition + option;
 }
 
-function draw_2vs2_teams(info) {
+function draw_4vs_squares() {
+	var draw_w = camera_get_view_width(view_camera[0]);
+	var draw_h = camera_get_view_height(view_camera[0]);
+	var colors = [c_blue, c_red, c_green, c_yellow];
+
+	for (var i = 0; i < global.player_max; i++) {
+		draw_set_color(colors[i]);
+		var draw_x = draw_w * (i div 2);
+		var draw_y = draw_h * (i % 2);
+		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, draw_get_color(), 0);
+	}
+}
+
+function draw_2vs2_squares(info) {
 	var draw_w = camera_get_view_width(view_camera[0]);
 	var draw_h = camera_get_view_height(view_camera[0]);
 

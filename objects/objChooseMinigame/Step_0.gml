@@ -19,6 +19,9 @@ switch (state) {
 			camera_set_view_size(view_camera[0], 800 * 2.5, 608 * 2.5);
 			alpha = 1;
 			state = 1;
+			
+			instance_destroy(objTurnChoices);
+			instance_destroy(objHiddenChest);
 		}
 		break;
 		
@@ -30,7 +33,7 @@ switch (state) {
 			next_seed_inline();
 			var test = [1, 2, 3, 4];
 			array_shuffle(test);
-			array_delete(test, 2, 2);
+			array_delete(test, 2, 0);
 			//Temp
 			
 			with (objPlayerInfo) {

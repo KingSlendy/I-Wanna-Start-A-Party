@@ -354,7 +354,7 @@ function turn_next() {
 	}
 	
 	if (++global.player_turn > global.player_max) {
-		global.player_turn = 1;
+		global.player_turn = global.player_max;
 		
 		if (is_local_turn()) {
 			choose_minigame();

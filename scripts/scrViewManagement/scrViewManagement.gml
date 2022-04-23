@@ -25,8 +25,14 @@ function camera_start_follow(follow, camera) {
 }
 
 function camera_4vs_split4(camera) {
-	for (var i = 1; i <= global.player_max; i++) {
-		camera.target_follow[i - 1] = focus_player_by_turn(i);
+	for (var i = 0; i < global.player_max; i++) {
+		with (camera) {
+			target_follow[i] = focus_player_by_turn(i + 1);
+			target_x[i] = target_follow[i].x;
+			target_y[i] = target_follow[i].y;
+			view_x[i] = target_x[i];
+			view_y[i] = target_y[i];
+		}
 	}
 	
 	return camera;
@@ -67,5 +73,6 @@ function camera_2vs2_split4(camera, info) {
 		}
 	}
 	
+	camera.type = "2vs2";
 	return camera;
 }

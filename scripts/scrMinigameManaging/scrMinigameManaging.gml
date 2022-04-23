@@ -8,7 +8,7 @@ function Minigame(title = "Generic Minigame", instructions = ["Generic Instructi
 global.minigames = {};
 var m = global.minigames;
 m[$ "4vs"] = [
-	new Minigame()
+	new Minigame("Follow The Lead", ["Just win"],, rMinigame4vs_Lead)
 ];
 
 m[$ "1vs3"] = [
@@ -51,13 +51,36 @@ function minigame_info_score_reset() {
 	}
 }
 
-function minigame_2vs2_start(info) {
+function minigame_4vs_start(split = false) {
+	player_4vs_positioning();
+	
+	if (split) {
+		camera_4vs_split4(camera_start(objCameraSplit4));
+	}
+}
+
+function minigame_2vs2_start(info, split = false) {
 	player_2vs2_positioning(info);
-	camera_2vs2_split4(camera_start(objCameraSplit4), info);
+	
+	if (split) {
+		camera_2vs2_split4(camera_start(objCameraSplit4), info);
+	}
+	
 	player_2vs2_teammate();
 }
 
 function player_4vs_positioning() {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		
+		with (objPlayerReference) {
+			if (reference == i) {
+				player.x = x + 17;
+				player.y = y + 23;
+				break;
+			}
+		}
+	}
 }
 
 function player_2vs2_positioning(info) {
@@ -103,9 +126,13 @@ function minigame_max_points() {
 	return get_frames(1000000);
 }
 
-function minigame_2vs2_points(info, player_id1, player_id2, points) {
-	info.player_scores[player_id1].points += points;
-	info.player_scores[player_id2].points += points;
+function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
+	info.player_scores[player_id].points += points;
+}
+
+function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_max_points()) {
+	minigame_4vs_points(info, player_id1, points);
+	minigame_4vs_points(info, player_id2, points);
 }
 
 function minigame_finish() {
@@ -113,6 +140,7 @@ function minigame_finish() {
 		if (!info.is_finished) {
 			objPlayerBase.frozen = true;
 			show_popup("FINISH");
+			audio_play_sound(sndMinigameFinish, 0, false);
 			music_stop();
 			info.is_finished = true;
 			
@@ -140,6 +168,13 @@ function minigame_finish() {
 		}
 		
 		switch (info.type) {
+			case "4vs":
+				minigame_4vs_winner(info);
+				break;
+				
+			case "1vs":
+				break;
+			
 			case "2vs2":
 				minigame_2vs2_winner(info);
 				break;
@@ -149,8 +184,25 @@ function minigame_finish() {
 	}
 }
 
+function minigame_4vs_winner(info) {
+	var max_score = -infinity;
+	
+	for (var i = 0; i < global.player_max; i++) {
+		var scoring = info.player_scores[i];
+		max_score = max(max_score, scoring.points + scoring.timer);
+	}
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var scoring = info.player_scores[i - 1];
+		
+		if (scoring.points + scoring.timer == max_score) {
+			array_push(info.players_won, i);
+		}
+	}
+}
+
 function minigame_2vs2_winner(info) {
-	var scores = [0, 0];
+	var scores = array_create(2, 0);
 	
 	for (var i = 0; i < global.player_max; i++) {
 		var scoring = info.player_scores[i];
