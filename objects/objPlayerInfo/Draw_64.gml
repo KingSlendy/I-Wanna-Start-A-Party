@@ -39,7 +39,7 @@ var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(p
 text.draw(draw_x + 46, draw_y + 36);
 draw_set_halign(fa_right);
 
-for (var i = 0; i < array_length(player_info.items); i++) {
+for (var i = 0; i < min(array_length(player_info.items), 3); i++) {
 	var item = player_info.items[i];
 	
 	if (item == null) {

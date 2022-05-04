@@ -124,22 +124,44 @@ function ai_leave(id) {
 }
 
 function player_write_data() {
-	buffer_write_data(buffer_u8, network_id);
-	buffer_write_data(buffer_string, network_name);
-	buffer_write_data(buffer_u16, object_index);
-	buffer_write_data(buffer_u16, sprite_index);
-	buffer_write_data(buffer_u8, image_alpha);
+	var stats = [
+		network_id,
+		network_name,
+		object_index,
+		sprite_index,
+		image_alpha,
+		image_xscale * ((object_index == objPlayerPlatformer) ? xscale : 1),
+		image_yscale,
+		x,
+		y,
+		room
+	]
 	
-	if (object_index == objPlayerPlatformer) {
-		buffer_write_data(buffer_s8, image_xscale * xscale);
-	} else {
-		buffer_write_data(buffer_s8, image_xscale);
+	if (!array_equals(stats, network_stats)) {
+		buffer_seek_begin();
+		buffer_write_action(ClientUDP.PlayerMove);
+	
+		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_string, network_name);
+		buffer_write_data(buffer_u16, object_index);
+		buffer_write_data(buffer_u16, sprite_index);
+		buffer_write_data(buffer_u8, image_alpha);
+	
+		if (object_index == objPlayerPlatformer) {
+			buffer_write_data(buffer_s8, image_xscale * xscale);
+		} else {
+			buffer_write_data(buffer_s8, image_xscale);
+		}
+	
+		buffer_write_data(buffer_s8, image_yscale);
+		buffer_write_data(buffer_s16, x);
+		buffer_write_data(buffer_s16, y);
+		buffer_write_data(buffer_u16, room);
+	
+		network_send_udp_packet();
+	
+		network_stats = stats;
 	}
-	
-	buffer_write_data(buffer_s8, image_yscale);
-	buffer_write_data(buffer_s16, x);
-	buffer_write_data(buffer_s16, y);
-	buffer_write_data(buffer_u16, room);
 }
 
 function player_read_data(buffer) {

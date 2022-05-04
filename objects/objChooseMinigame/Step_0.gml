@@ -30,10 +30,15 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			//Temp
-			next_seed_inline();
+			var test2 = irandom(0);
 			var test = [1, 2, 3, 4];
 			array_shuffle(test);
-			array_delete(test, 2, 0);
+			
+			if (test2 == 0) {
+				array_delete(test, 2, 0);
+			} else {
+				array_delete(test, 2, 2);
+			}
 			//Temp
 			
 			with (objPlayerInfo) {
@@ -72,10 +77,7 @@ switch (state) {
 		if (minigames_alpha >= 1) {
 			minigames_alpha = 1;
 			state = -1;
-		
-			if (global.player_id == 1) {
-				alarm[2] = 1;
-			}
+			alarm[2] = 1;
 		}
 		break;
 		

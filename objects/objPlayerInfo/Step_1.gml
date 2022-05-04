@@ -1,8 +1,12 @@
+var player = focus_player_by_id(player_info.network_id);
+player.image_speed = 1;
+player.image_blend = c_white;
+
 if (!IS_BOARD) {
 	exit;
 }
 
-with (focus_player_by_id(player_info.network_id)) {
+with (player) {
 	switch (other.player_info.item_effect) {
 		case ItemType.Poison:
 			image_blend = c_fuchsia;
@@ -11,11 +15,6 @@ with (focus_player_by_id(player_info.network_id)) {
 		case ItemType.Ice:
 			image_speed = 0;
 			image_blend = c_aqua;
-			break;
-		
-		default:
-			image_speed = 1;
-			image_blend = c_white;
 			break;
 	}
 }

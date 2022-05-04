@@ -2,10 +2,13 @@ next_seed_inline();
 info = global.minigame_info;
 objPlayerBase.frozen = true;
 started = false;
+announcer_started = false;
 alpha = 1;
 finished = false;
+announcer_finished = false;
 cleaned = false;
 player_check = objPlayerBase;
+can_finish = true;
 
 function back_to_board() {
 	event_perform(ev_cleanup, 0);

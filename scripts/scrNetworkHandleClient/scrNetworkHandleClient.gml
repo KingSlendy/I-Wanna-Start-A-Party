@@ -4,6 +4,7 @@ enum ClientTCP {
 	PlayerConnect,
 	PlayerDisconnect,
 	PlayerMove,
+	PlayerShoot,
 	
 	//Interactables
 	ShowDice,
@@ -54,7 +55,8 @@ enum ClientTCP {
 	
 	//Minigames
 	MinigameOverviewStart,
-	MinigameFinish
+	MinigameFinish,
+	Minigame4vs_Lead_Input
 }
 
 enum ClientUDP {
@@ -134,6 +136,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.PlayerMove:
 			player_read_data(buffer);
+			break;
+			
+		case ClientTCP.PlayerShoot:
+			var xx = buffer_read(buffer, buffer_s16);
+			var yy = buffer_read(buffer, buffer_s16);
+			var hspd = buffer_read(buffer, buffer_s8);
+			var b = instance_create_layer(xx, yy, "Actors", objBullet);
+			b.hspeed = hspd;
 			break;
 			
 		//Interactables
@@ -405,12 +415,33 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.MinigameFinish:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var timer = buffer_read(buffer, buffer_u32);
-			var points = buffer_read(buffer, buffer_u32);
+			var timer = buffer_read(buffer, buffer_s32);
+			var points = buffer_read(buffer, buffer_s32);
 			var scoring = global.minigame_info.player_scores[player_id - 1];
-			scoring.timer = timer;
-			scoring.points = points;
+			scoring.ready = true;
+			
+			if (scoring.timer + scoring.points < timer + points) {
+				scoring.timer = timer;
+				scoring.points = points;
+			}
+			
 			minigame_finish();
+			break;
+			
+		case ClientTCP.Minigame4vs_Lead_Input:
+			with (objMinigame4vs_Lead_Controller) {
+				var player_id = buffer_read(buffer, buffer_u8);
+				var input_id = buffer_read(buffer, buffer_u8);
+				
+				array_push(network_inputs, {
+					input_player_id: player_id,
+					input_input_id: input_id
+				});
+				
+				if (alarm[5] == -1) {
+					alarm[5] = 1;
+				}
+			}
 			break;
 	}
 }

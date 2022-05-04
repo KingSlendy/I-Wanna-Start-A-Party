@@ -12,7 +12,7 @@ m[$ "4vs"] = [
 ];
 
 m[$ "1vs3"] = [
-	new Minigame()
+	new Minigame("Buttons Everywhere", ["Just win"],, rMinigame1vs3_Buttons)
 ];
 
 m[$ "2vs2"] = [
@@ -42,9 +42,11 @@ function minigame_info_score_reset() {
 	info.players_won = [];
 	info.color_won = c_white;
 	info.is_finished = false;
+	info.calculated = false;
 	
 	repeat (global.player_max) {
 		array_push(info.player_scores, {
+			ready: false,
 			timer: 0,
 			points: 0
 		});
@@ -56,6 +58,14 @@ function minigame_4vs_start(split = false) {
 	
 	if (split) {
 		camera_4vs_split4(camera_start(objCameraSplit4));
+	}
+}
+
+function minigame_1vs3_start(info, split = false) {
+	player_1vs3_positioning(info);
+	
+	if (split) {
+		//(camera_start(objCameraSplit4));
 	}
 }
 
@@ -79,6 +89,31 @@ function player_4vs_positioning() {
 				player.y = y + 23;
 				break;
 			}
+		}
+	}
+}
+
+function player_1vs3_positioning(info) {
+	var alone = (info.player_colors[1] == 3);
+	var index = 0;
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_id(i);
+		var player_info = player_info_by_id(i);
+		
+		if (player_info.space == info.player_colors[alone]) {
+			with (objPlayerReference) {
+				if (reference == index) {
+					player.x = x + 17;
+					player.y = y + 23;
+					index++;
+					break;
+				}
+			}
+		}
+		
+		if (i == 1) {
+			alone = !alone;
 		}
 	}
 }
@@ -122,12 +157,24 @@ function player_2vs2_teammate() {
 	}
 }
 
+function minigame_add_timer(info, player_id) {
+	if (focus_player_by_id(player_id + 1).object_index != objNetworkPlayer) {
+		var scoring = info.player_scores[player_id];
+		scoring.ready = true;
+		scoring.timer++;
+	}
+}
+
 function minigame_max_points() {
 	return get_frames(1000000);
 }
 
 function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
-	info.player_scores[player_id].points += points;
+	if (focus_player_by_id(player_id + 1).object_index != objNetworkPlayer) {
+		var scoring = info.player_scores[player_id];
+		scoring.ready = true;
+		scoring.points += points;
+	}
 }
 
 function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_max_points()) {
@@ -137,9 +184,14 @@ function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_ma
 
 function minigame_finish() {
 	with (objMinigameController) {
+		if (info.calculated || !can_finish) {
+			return;
+		}
+		
 		if (!info.is_finished) {
 			objPlayerBase.frozen = true;
 			show_popup("FINISH");
+			announcer_finished = true;
 			audio_play_sound(sndMinigameFinish, 0, false);
 			music_stop();
 			info.is_finished = true;
@@ -152,20 +204,23 @@ function minigame_finish() {
 					buffer_write_action(ClientTCP.MinigameFinish);
 					buffer_write_data(buffer_u8, i);
 					var scoring = info.player_scores[i - 1];
-					buffer_write_data(buffer_u32, scoring.timer);
-					buffer_write_data(buffer_u32, scoring.points);
+					buffer_write_data(buffer_s32, scoring.timer);
+					buffer_write_data(buffer_s32, scoring.points);
 					network_send_tcp_packet();
 				}
 			}
 		}
 		
 		for (var i = 0; i < global.player_max; i++) {
-			var scoring = info.player_scores[i];
-			
-			if (scoring.timer + scoring.points == 0) {
+			if (!info.player_scores[i].ready) {
 				return;
 			}
 		}
+		
+		//popup(string(global.player_id) +  ": " + string(info.player_scores));
+		var file = file_text_open_write("Debug.txt");
+		file_text_write_string(file, string(global.player_id) +  ": " + string(info.player_scores));
+		file_text_close(file);
 		
 		switch (info.type) {
 			case "4vs":
@@ -180,6 +235,7 @@ function minigame_finish() {
 				break;
 		}
 			
+		info.calculated = true;
 		alarm[2] = get_frames(2);
 	}
 }

@@ -54,7 +54,7 @@ global.board_items = [
 	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 1000),
 	new Item(ItemType.Warp, "Warp", "Changes location with the player you choose.", sprItemWarp, 25, objItemWarpAnimation),
 	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12,,, function() {
-		return (player_info_by_turn().coins >= global.min_shop_coins);
+		return (player_info_by_turn().coins >= global.min_shop_coins && global.board_turn < global.max_board_turns);
 	}),
 	
 	new Item(ItemType.Blackhole, "Blackhole", "Summons a blackhole that can steal coins or shines from other players.", sprItemBlackhole, 30, objItemBlackholeAnimation,, function() {

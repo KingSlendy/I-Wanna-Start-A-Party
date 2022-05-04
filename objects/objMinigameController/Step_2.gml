@@ -1,5 +1,7 @@
+if (!announcer_started || announcer_finished) {
+	exit;
+}
+
 with (objPlayerBase) {
-	if (object_index != objNetworkPlayer && !frozen) {
-		other.info.player_scores[network_id - 1].timer++;
-	}
+	minigame_add_timer(other.info, network_id - 1);
 }

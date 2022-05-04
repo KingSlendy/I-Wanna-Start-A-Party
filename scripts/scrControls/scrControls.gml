@@ -115,3 +115,19 @@ function ai_release_all() {
 		}
 	}
 }
+
+function check_player_actions_by_id(player_id) {
+	var actions = ai_actions(player_id);
+
+	if (actions == null) {
+		return null;
+	}
+	
+	var player = focus_player_by_id(player_id);
+		
+	if (player.object_index == objNetworkPlayer) {
+		return null;
+	}
+	
+	return actions;
+}

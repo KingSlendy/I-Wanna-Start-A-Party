@@ -3,7 +3,7 @@ if (global.player_id != 1) {
 }
 
 for (var i = 2; i <= global.player_max; i++) {
-	var actions = ai_actions(i);
+	var actions = check_player_actions_by_id(i);
 
 	if (actions == null) {
 		continue;

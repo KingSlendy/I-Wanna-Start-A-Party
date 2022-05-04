@@ -42,7 +42,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 			}
 		}
 		
-		return -1;
+		return array_length(self.items);
 	}
 	
 	static has_item_slot = function() {
@@ -747,31 +747,30 @@ function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_h
 
 function call_shop() {
 	var player_info = player_info_by_turn();
-			
-	if (player_info.free_item_slot() != -1) {
-		if (player_info.coins >= global.min_shop_coins) {
-			start_dialogue([
-				new Message("Do you wanna enter the shop?", [
-					["Yes", [
-						new Message("",, function() {
-							instance_create_layer(0, 0, "Managers", objShop);
-							objDialogue.endable = false;
-						})
-					]],
+	
+	if (global.board_turn == global.max_board_turns) {
+		start_dialogue("We're currently closed!\nSorry for the inconvenience!");
+		exit;
+	}
+	
+	if (player_info.coins >= global.min_shop_coins) {
+		start_dialogue([
+			new Message("Do you wanna enter the shop?", [
+				["Yes", [
+					new Message("",, function() {
+						instance_create_layer(0, 0, "Managers", objShop);
+						objDialogue.endable = false;
+					})
+				]],
 						
-					["No", [
-						new Message("",, board_advance)
-					]]
-				])
-			]);
-		} else {
-			start_dialogue([
-				new Message("You don't have enough money to enter the shop!",, board_advance)
-			]);
-		}
+				["No", [
+					new Message("",, board_advance)
+				]]
+			])
+		]);
 	} else {
 		start_dialogue([
-			new Message("You don't have item space!\nCome back later.",, board_advance)
+			new Message("You don't have enough money to enter the shop!",, board_advance)
 		]);
 	}
 }
@@ -899,6 +898,36 @@ function all_player_availables(func, not_me = false) {
 	}
 		
 	return availables;
+}
+
+function all_item_stats(player_info) {
+	var item_names = [];
+	var item_sprites = [];
+	var item_descs = [];
+	var item_availables = [];
+				
+	for (var i = 0; i < array_length(player_info.items); i++) {
+		var item = player_info.items[i];
+					
+		if (item == null) {
+			array_push(item_names, "");
+			array_push(item_sprites, "");
+			array_push(item_descs, "");
+			array_push(item_availables, false);
+		} else {
+			array_push(item_names, item.name);
+			array_push(item_sprites, "{SPRITE," + sprite_get_name(item.sprite) + ",0,-32,-32,1,1}");
+			array_push(item_descs, item.desc);
+			array_push(item_availables, item.use_criteria());
+		}
+	}
+	
+	return {
+		names: item_names,
+		sprites: item_sprites,
+		descs: item_descs,
+		availables: item_availables
+	};
 }
 #endregion
 

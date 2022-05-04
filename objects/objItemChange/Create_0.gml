@@ -9,3 +9,4 @@ event_inherited();
 item = null;
 spawned_item = null;
 used_item = false;
+slot_removed = -1;

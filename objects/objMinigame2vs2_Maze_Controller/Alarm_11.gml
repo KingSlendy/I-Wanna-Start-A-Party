@@ -3,18 +3,13 @@ if (global.player_id != 1) {
 }
 
 for (var i = 2; i <= global.player_max; i++) {
-	var actions = ai_actions(i);
+	var actions = check_player_actions_by_id(i);
 
 	if (actions == null) {
 		continue;
 	}
-	
+		
 	var player = focus_player_by_id(i);
-		
-	if (player.object_index == objNetworkPlayer) {
-		continue;
-	}
-		
 	var player_info = player_info_by_id(i);
 	var near;
 		
@@ -40,7 +35,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		}
 			
 		if (move_delay_timer == 0 && on_block && 0.01 > random(1)) {
-			move_delay_timer = irandom_range(get_frames(1.5), get_frames(2.5));
+			move_delay_timer = irandom_range(get_frames(1), get_frames(2));
 			break;
 		}
 			

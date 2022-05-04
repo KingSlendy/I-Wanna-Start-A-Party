@@ -57,5 +57,13 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	info.type = "2vs2";
 }
 
+minigame_list = [
+	global.minigames[$ info.type][0],
+	global.minigames[$ info.type][0],
+	global.minigames[$ info.type][0],
+	global.minigames[$ info.type][0],
+	global.minigames[$ info.type][0],
+];
+
 show_popup("VS");
 alarm[1] = get_frames(2);

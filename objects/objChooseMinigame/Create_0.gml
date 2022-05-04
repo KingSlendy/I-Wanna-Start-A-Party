@@ -3,26 +3,16 @@ state = 0;
 alpha = 0;
 zoom = false;
 player_colors = [];
+info = global.minigame_info;
 minigame_total = 5;
-minigame_list = [
-	global.minigames[$ "4vs"][0],
-	global.minigames[$ "4vs"][0],
-	global.minigames[$ "4vs"][0],
-	global.minigames[$ "4vs"][0],
-	global.minigames[$ "4vs"][0],
-];
-
 minigames_alpha = 0;
 minigames_width = 300;
 minigames_height = 40;
 minigames_timer = 3;
+next_seed_inline();
 minigames_chosen = irandom(minigame_total - 1);
+global.choice_selected = irandom(minigame_total - 1);
 
-if (global.player_id == 1) {
-	global.choice_selected = irandom(minigame_total - 1);
-}
-
-info = global.minigame_info;
 objBoard.alarm[11] = 0;
 
 function choosed_minigame() {

@@ -87,8 +87,8 @@
     ],
   },
   "parent": {
-    "name": "4vs",
-    "path": "folders/Tilesets/Minigames/4vs.yy",
+    "name": "Lead",
+    "path": "folders/Tilesets/Minigames/4vs/Lead.yy",
   },
   "resourceVersion": "1.0",
   "name": "tlsMinigame4vs_Lead",
