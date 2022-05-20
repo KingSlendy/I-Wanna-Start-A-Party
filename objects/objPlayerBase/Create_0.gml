@@ -1,6 +1,6 @@
 network_id = 0;
 network_name = "CPU";
-network_stats = [];
+//network_stats = [];
 skin = get_skin();
 ai = false;
 send_timer = 0;

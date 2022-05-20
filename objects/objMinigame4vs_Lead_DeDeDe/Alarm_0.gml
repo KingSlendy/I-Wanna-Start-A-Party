@@ -1,7 +1,7 @@
 objMinigame4vs_Lead_Bubble.visible = true;
 
 try {
-	action = objMinigame4vs_Lead_Controller.sequence[action_shown++];
+	action = objMinigameController.sequence[action_shown++];
 	var dir = action_sprites[action];
 	image_speed = 1;
 	sprite_index = asset_get_index("sprMinigame4vs_Lead_DeDeDe_" + dir);
@@ -26,5 +26,5 @@ try {
 		action_shown = -1;
 	}
 	
-	objMinigame4vs_Lead_Controller.alarm[0] = get_frames(1);
+	objMinigameController.alarm[0] = get_frames(1);
 }

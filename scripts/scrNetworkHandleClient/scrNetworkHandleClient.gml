@@ -56,7 +56,9 @@ enum ClientTCP {
 	//Minigames
 	MinigameOverviewStart,
 	MinigameFinish,
-	Minigame4vs_Lead_Input
+	Minigame4vs_Lead_Input,
+	Minigame1vs3_Buttons_Button,
+	Minigame2vs2_Maze_Item
 }
 
 enum ClientUDP {
@@ -109,7 +111,7 @@ function network_read_client(ip, port, buffer) {
 
 function network_read_client_tcp(ip, port, buffer, data_id) {
 	switch (data_id) {
-		//Network
+		#region Network
 		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
 			objPlayerBase.network_id = global.player_id;
@@ -139,14 +141,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.PlayerShoot:
+			var player_id = buffer_read(buffer, buffer_u8);
 			var xx = buffer_read(buffer, buffer_s16);
 			var yy = buffer_read(buffer, buffer_s16);
 			var hspd = buffer_read(buffer, buffer_s8);
 			var b = instance_create_layer(xx, yy, "Actors", objBullet);
+			b.network_id = player_id;
 			b.hspeed = hspd;
 			break;
+		#endregion
 			
-		//Interactables
+		#region Interactable
 		case ClientTCP.ShowDice:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var seed = buffer_read(buffer, buffer_u64);
@@ -188,8 +193,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				b.indexes = buffer_read(buffer, buffer_bool);
 			}
 			break;
+		#endregion
 			
-		//Interfaces
+		#region Interfaces
 		case ClientTCP.SpawnPlayerInfo:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var turn = buffer_read(buffer, buffer_u8);
@@ -305,8 +311,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				box_activate();
 			}
 			break;
+		#endregion
 			
-		//Stats	
+		#region Stats
 		case ClientTCP.ChangeShines:
 			var amount = buffer_read(buffer, buffer_s16);
 			var type = buffer_read(buffer, buffer_u8);
@@ -332,8 +339,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var space = buffer_read(buffer, buffer_u8);
 			change_space(space);
 			break;
+		#endregion
 			
-		//Events
+		#region Events
 		case ClientTCP.BoardStart:
 			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
 			global.seed_bag = buffer_read_array(buffer, buffer_u64);
@@ -378,8 +386,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				choosed_minigame();
 			}
 			break;
+		#endregion
 			
-		//Animations
+		#region Animations
 		case ClientTCP.ItemApplied:
 			var item_id = buffer_read(buffer, buffer_u8);
 			item_applied(global.board_items[item_id]);
@@ -403,8 +412,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				end_blackhole_steal();
 			}
 			break;
+		#endregion
 			
-		//Minigames
+		#region Minigames
 		case ClientTCP.MinigameOverviewStart:
 			var set = buffer_read(buffer, buffer_u8);
 		
@@ -419,17 +429,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var points = buffer_read(buffer, buffer_s32);
 			var scoring = global.minigame_info.player_scores[player_id - 1];
 			scoring.ready = true;
-			
-			if (scoring.timer + scoring.points < timer + points) {
-				scoring.timer = timer;
-				scoring.points = points;
-			}
-			
-			minigame_finish();
+			scoring.timer = timer;
+			scoring.points = points;
 			break;
 			
 		case ClientTCP.Minigame4vs_Lead_Input:
-			with (objMinigame4vs_Lead_Controller) {
+			with (objMinigameController) {
 				var player_id = buffer_read(buffer, buffer_u8);
 				var input_id = buffer_read(buffer, buffer_u8);
 				
@@ -438,11 +443,43 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					input_input_id: input_id
 				});
 				
-				if (alarm[5] == -1) {
-					alarm[5] = 1;
+				if (alarm[9] == -1) {
+					alarm[9] = 1;
 				}
 			}
 			break;
+			
+		case ClientTCP.Minigame1vs3_Buttons_Button:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var is_inside = buffer_read(buffer, buffer_bool);
+			var outside_current = buffer_read(buffer, buffer_u8);
+			var inside_current = buffer_read(buffer, buffer_u8);
+			
+			if (!is_inside) {
+				objMinigameController.buttons_outside_current = outside_current;
+			} else {
+				objMinigameController.buttons_inside_current = inside_current;
+			}
+			
+			with (objMinigame1vs3_Buttons_Button) {
+				if (inside == is_inside) {
+					press_button(player_id);
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame2vs2_Maze_Item:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var item_x = buffer_read(buffer, buffer_s16);
+			var item_y = buffer_read(buffer, buffer_s16);
+			
+			with (objMinigame2vs2_Maze_Item) {
+				if (x == item_x && y == item_y) {
+					collect_item(focus_player_by_id(player_id));
+				}
+			}
+			break;
+		#endregion
 	}
 }
 

@@ -1,0 +1,1 @@
+minigame_start(info, minigame_split);

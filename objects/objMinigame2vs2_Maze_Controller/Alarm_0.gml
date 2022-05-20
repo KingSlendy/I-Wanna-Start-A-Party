@@ -1,2 +1,2 @@
 event_inherited();
-music_play(bgmMinigameA, true);
+alarm[11] = 1;

@@ -1,5 +1,5 @@
 with (objPlayerBase) {
-	if (object_index == objNetworkPlayer || frozen) {
+	if (!is_player_local(network_id)|| frozen) {
 		break;
 	}
 	

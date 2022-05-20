@@ -56,7 +56,7 @@ if (!frozen) {
 	}
 	
 	if (enable_shoot && global.actions.shoot.pressed(network_id)) {
-		//player_shoot();
+		player_shoot();
 	}
 	
 	//if (on_vineR || on_vineL) {

@@ -9,9 +9,8 @@ with (objPlayerBase) {
 
 event_inherited();
 
+music = bgmMinigameB;
 player_check = objPlayerPlatformer;
-can_finish = false;
-minigame_4vs_start();
 state = 0;
 sequence_actions = [
 	"right",
@@ -69,28 +68,17 @@ function check_input(input_id, network = true) {
 
 function stop_input() {
 	current = 0;
-	
-	with (objPlayerBase) {
-		frozen = true;
-		enable_move = false;
-		enable_jump = false;
-		enable_shoot = false;
-	}
+	objPlayerBase.frozen = true;
 }
 
 function next_player() {
 	stop_input();
 	var player = focus_player_by_turn(minigame_turn);
-	
-	with (player) {
-		frozen = false;
-		enable_move = true;
-		enable_jump = true;
-		enable_shoot = true;
-	}
+	player.frozen = false;
 	
 	with (objMinigame4vs_Lead_Bubble) {
 		image_blend = c_white;
 		x = player.x;
+		y = player.y + 10;
 	}
 }

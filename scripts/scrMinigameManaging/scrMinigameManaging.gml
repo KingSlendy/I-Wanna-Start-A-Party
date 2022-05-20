@@ -53,7 +53,7 @@ function minigame_info_score_reset() {
 	}
 }
 
-function minigame_4vs_start(split = false) {
+function minigame_4vs_start(info, split = false) {
 	player_4vs_positioning();
 	
 	if (split) {
@@ -80,6 +80,8 @@ function minigame_2vs2_start(info, split = false) {
 }
 
 function player_4vs_positioning() {
+	objMinigameController.points_teams = [[], [], [], []];
+	
 	for (var i = 1; i <= global.player_max; i++) {
 		var player = focus_player_by_turn(i);
 		
@@ -87,6 +89,7 @@ function player_4vs_positioning() {
 			if (reference == i) {
 				player.x = x + 17;
 				player.y = y + 23;
+				array_push(objMinigameController.points_teams[i - 1], player);
 				break;
 			}
 		}
@@ -94,37 +97,49 @@ function player_4vs_positioning() {
 }
 
 function player_1vs3_positioning(info) {
-	var alone = (info.player_colors[1] == 3);
-	var index = 0;
+	objMinigameController.points_teams = [[], []];
+	var index = 1;
 	
-	for (var i = 1; i <= global.player_max; i++) {
-		var player = focus_player_by_id(i);
-		var player_info = player_info_by_id(i);
-		
-		if (player_info.space == info.player_colors[alone]) {
+	with (objPlayerInfo) {
+		if (player_info.space == info.player_colors[0]) {
+			var player = focus_player_by_id(player_info.network_id);
+			
 			with (objPlayerReference) {
 				if (reference == index) {
 					player.x = x + 17;
 					player.y = y + 23;
 					index++;
+					array_push(objMinigameController.points_teams[0], player);
 					break;
 				}
 			}
 		}
-		
-		if (i == 1) {
-			alone = !alone;
+	}
+	
+	with (objPlayerInfo) {
+		if (player_info.space == info.player_colors[1]) {
+			var player = focus_player_by_id(player_info.network_id);
+			
+			with (objPlayerReference) {
+				if (reference == 0) {
+					player.x = x + 17;
+					player.y = y + 23;
+					array_push(objMinigameController.points_teams[1], player);
+					break;
+				}
+			}
 		}
 	}
 }
 
 function player_2vs2_positioning(info) {
+	objMinigameController.points_teams = [[], []];
 	var index = 0;
 	
 	for (var j = 0; j < array_length(info.player_colors); j++) {
 		for (var i = 1; i <= global.player_max; i++) {
-			var player = focus_player_by_id(i);
-			var player_info = player_info_by_id(i);
+			var player = focus_player_by_turn(i);
+			var player_info = player_info_by_turn(i);
 		
 			if (player_info.space == info.player_colors[j]) {
 				with (objPlayerReference) {
@@ -132,6 +147,7 @@ function player_2vs2_positioning(info) {
 						player.x = x + 17;
 						player.y = y + 23;
 						index++;
+						array_push(objMinigameController.points_teams[j], player);
 						break;
 					}
 				}
@@ -158,7 +174,7 @@ function player_2vs2_teammate() {
 }
 
 function minigame_add_timer(info, player_id) {
-	if (focus_player_by_id(player_id + 1).object_index != objNetworkPlayer) {
+	if (!info.is_finished && is_player_local(player_id + 1)) {
 		var scoring = info.player_scores[player_id];
 		scoring.ready = true;
 		scoring.timer++;
@@ -170,7 +186,7 @@ function minigame_max_points() {
 }
 
 function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
-	if (focus_player_by_id(player_id + 1).object_index != objNetworkPlayer) {
+	if (!info.is_finished) {
 		var scoring = info.player_scores[player_id];
 		scoring.ready = true;
 		scoring.points += points;
@@ -184,7 +200,7 @@ function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_ma
 
 function minigame_finish() {
 	with (objMinigameController) {
-		if (info.calculated || !can_finish) {
+		if (info.calculated) {
 			return;
 		}
 		
@@ -197,9 +213,7 @@ function minigame_finish() {
 			info.is_finished = true;
 			
 			for (var i = 1; i <= global.player_max; i++) {
-				var player = focus_player_by_id(i);
-				
-				if (player.object_index != objNetworkPlayer) {
+				if (is_player_local(i)) {
 					buffer_seek_begin();
 					buffer_write_action(ClientTCP.MinigameFinish);
 					buffer_write_data(buffer_u8, i);
@@ -227,7 +241,8 @@ function minigame_finish() {
 				minigame_4vs_winner(info);
 				break;
 				
-			case "1vs":
+			case "1vs3":
+				minigame_1vs3_winner(info);
 				break;
 			
 			case "2vs2":
@@ -257,13 +272,39 @@ function minigame_4vs_winner(info) {
 	}
 }
 
+function minigame_1vs3_winner(info) {
+	var scores = array_create(2, 0);
+	
+	for (var i = 0; i < global.player_max; i++) {
+		var scoring = info.player_scores[i];
+		var color = player_info_by_id(i + 1).space;
+		scores[(color == info.player_colors[1])] += scoring.points;
+	}
+	
+	if (scores[0] == scores[1]) {
+		//Both teams have tied
+		info.color_won = c_white;
+	} else {
+		//Determines which team color wins
+		info.color_won = info.player_colors[(scores[1] > scores[0])];
+	}
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var color = player_info_by_id(i).space;
+			
+		if (info.color_won == c_white || color == info.color_won) {
+			array_push(info.players_won, i);
+		}
+	}
+}
+
 function minigame_2vs2_winner(info) {
 	var scores = array_create(2, 0);
 	
 	for (var i = 0; i < global.player_max; i++) {
 		var scoring = info.player_scores[i];
 		var color = player_info_by_id(i + 1).space;
-		scores[(color == info.player_colors[1])] += scoring.timer + scoring.points;
+		scores[(color == info.player_colors[1])] += scoring.points;
 	}
 	
 	if (scores[0] == scores[1]) {

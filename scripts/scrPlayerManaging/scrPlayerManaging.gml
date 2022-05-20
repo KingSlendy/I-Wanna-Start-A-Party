@@ -2,7 +2,10 @@ global.skin_sprites = [
 	"Normal",
 	"Crimson",
 	"Tribute",
-	"Justice"
+	"Justice",
+	"Sepia",
+	"Shiver",
+	"Kitten"
 ];
 
 global.skin_current = 0;

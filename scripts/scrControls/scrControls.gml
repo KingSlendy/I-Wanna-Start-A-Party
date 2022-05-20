@@ -125,7 +125,7 @@ function check_player_actions_by_id(player_id) {
 	
 	var player = focus_player_by_id(player_id);
 		
-	if (player.object_index == objNetworkPlayer) {
+	if (!is_player_local(player_id)) {
 		return null;
 	}
 	

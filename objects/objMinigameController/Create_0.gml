@@ -1,6 +1,10 @@
 next_seed_inline();
 info = global.minigame_info;
 objPlayerBase.frozen = true;
+minigame_start = minigame_4vs_start;
+minigame_split = false;
+minigame_time = -1;
+music = bgmMinigameA;
 started = false;
 announcer_started = false;
 alpha = 1;
@@ -8,7 +12,8 @@ finished = false;
 announcer_finished = false;
 cleaned = false;
 player_check = objPlayerBase;
-can_finish = true;
+points_draw = false;
+points_teams = [];
 
 function back_to_board() {
 	event_perform(ev_cleanup, 0);

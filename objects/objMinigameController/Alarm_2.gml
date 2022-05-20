@@ -11,8 +11,6 @@ switch (info.type) {
 		break;
 		
 	case "1vs3":
-		break;
-		
 	case "2vs2":
 		if (info.color_won != c_white) {
 			winner_title = (info.color_won == c_blue) ? "BLUE TEAM\nWON" : "RED TEAM\nWON";

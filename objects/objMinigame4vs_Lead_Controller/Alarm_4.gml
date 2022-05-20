@@ -25,7 +25,6 @@ with (objPlayerBase) {
 
 if (lost_count == global.player_max - 1) {
 	objMinigame4vs_Lead_Bubble.visible = false;
-	can_finish = true;
 	minigame_4vs_points(info, player.network_id - 1);
 	minigame_finish();
 	exit;

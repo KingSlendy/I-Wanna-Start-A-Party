@@ -57,7 +57,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 function is_local_turn() {
 	if (!global.board_started) {
 		with (objPlayerBase) {
-			if (object_index != objNetworkPlayer && network_id == 1) {
+			if (is_player_local(network_id) && network_id == 1) {
 				return true;
 			}
 		}
@@ -68,12 +68,16 @@ function is_local_turn() {
 	var player_info = player_info_by_turn(global.player_turn);
 	
 	with (objPlayerBase) {
-		if (object_index != objNetworkPlayer && player_info.network_id == network_id) {
+		if (is_player_local(network_id) && player_info.network_id == network_id) {
 			return true;
 		}
 	}
 	
 	return false;
+}
+
+function is_player_local(player_id = global.player_id) {
+	return (focus_player_by_id(player_id).object_index != objNetworkPlayer);
 }
 
 function focused_player() {
@@ -185,7 +189,7 @@ function get_player_count(index) {
 	var count = 0;
 	
 	with (objPlayerBase) {
-		if (object_index == index || (object_index == objNetworkPlayer && network_index == index)) {
+		if (object_index == index || (!is_player_local(network_id) && network_index == index)) {
 			count++;
 		}
 	}

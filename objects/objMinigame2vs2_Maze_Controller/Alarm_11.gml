@@ -39,12 +39,17 @@ for (var i = 2; i <= global.player_max; i++) {
 			break;
 		}
 			
-		if (point_distance(x, y, near.x, near.y) < other.distance_to_win) {
+		var me_x = x - 1;
+		var me_y = y - 7;
+		var other_x = near.x;
+		var other_y = near.y;
+			
+		if (point_distance(me_x, me_y, other_x, other_y) < other.distance_to_win) {
 			break;
 		}
 			
-		mp_grid_path(other.grid, path, x - 1, y - 7, near.x, near.y, false);
-		dir = point_direction(x - 1, y - 7, path_get_point_x(path, 1), path_get_point_y(path, 1));
+		mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, false);
+		dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 		if (point_distance(0, dir, 0, 270) >= 16) {
 			var dist_to_up = point_distance(0, dir, 0, 90);

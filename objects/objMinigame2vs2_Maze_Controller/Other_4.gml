@@ -1,4 +1,4 @@
-minigame_2vs2_start(info, true);
+event_inherited();
 var cells = [];
 maze_width = 19;
 maze_height = 16;
@@ -155,5 +155,3 @@ with (objPlayerBase) {
 	move_delay_timer = 0;
 	jump_delay_timer = 0;
 }
-
-alarm[11] = 1;

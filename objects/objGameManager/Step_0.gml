@@ -1,5 +1,7 @@
 if (keyboard_check_pressed(ord("J"))) {
-	instance_create_layer(0, 0, "Managers", objNetworkClient);
+	if (!instance_exists(objNetworkClient)) {
+		instance_create_layer(0, 0, "Managers", objNetworkClient);
+	}
 }
 
 if (keyboard_check_pressed(vk_pagedown)) {

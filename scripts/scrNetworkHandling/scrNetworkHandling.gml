@@ -101,7 +101,7 @@ function player_leave(id) {
 function ai_join(id) {
 	var player = global.player_client_list[id - 1];
 	
-	if (player != null && player.object_index == objNetworkPlayer) {
+	if (player != null && !is_player_local(id)) {
 		instance_destroy(player);
 	}
 	
@@ -124,20 +124,20 @@ function ai_leave(id) {
 }
 
 function player_write_data() {
-	var stats = [
-		network_id,
-		network_name,
-		object_index,
-		sprite_index,
-		image_alpha,
-		image_xscale * ((object_index == objPlayerPlatformer) ? xscale : 1),
-		image_yscale,
-		x,
-		y,
-		room
-	]
+	//var stats = [
+	//	network_id,
+	//	network_name,
+	//	object_index,
+	//	sprite_index,
+	//	image_alpha,
+	//	image_xscale * ((object_index == objPlayerPlatformer) ? xscale : 1),
+	//	image_yscale,
+	//	x,
+	//	y,
+	//	room
+	//]
 	
-	if (!array_equals(stats, network_stats)) {
+	//if (!array_equals(stats, network_stats)) {
 		buffer_seek_begin();
 		buffer_write_action(ClientUDP.PlayerMove);
 	
@@ -160,8 +160,8 @@ function player_write_data() {
 	
 		network_send_udp_packet();
 	
-		network_stats = stats;
-	}
+		//network_stats = stats;
+	//}
 }
 
 function player_read_data(buffer) {
