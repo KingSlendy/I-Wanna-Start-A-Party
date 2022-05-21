@@ -2,11 +2,13 @@ global.music_current = null;
 global.music_previous = null;
 global.sound_cursor_move = sndCursorMove;
 global.sound_cursor_select = sndCursorSelect;
+global.sound_cursor_back = sndCursorBack;
 
 function music_check() {
 	var music = null;
 	
 	switch (room) {
+		case rFiles: music = bgmFiles; break;
 		case rBoardSMW: music = bgmBoardSMW; break;
 		case rMinigameOverview: music = bgmMinigameOverview; break;
 		default: break;

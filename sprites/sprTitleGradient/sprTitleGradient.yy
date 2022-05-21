@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sprites/Objects/Menu.yy",
+    "name": "Title",
+    "path": "folders/Sprites/Objects/Menu/Title.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprTitleGradient",

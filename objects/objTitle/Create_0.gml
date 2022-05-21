@@ -1,6 +1,5 @@
-fade_start = false;
-fade_alpha = 1;
-alarm[0] = get_frames(1);
+fade_start = true;
+fade_alpha = 2;
 
 draw_set_font(fntTitle);
 draw_set_halign(fa_center);
@@ -13,12 +12,7 @@ title_w = string_width(title_text);
 title_h = string_height(title_text);
 title_alpha = 0;
 title_scale = 3;
-var surf = noone;
-
-if (!surface_exists(surf)) {
-	surf = surface_create(title_w, title_h);
-}
-
+var surf = surface_create(title_w, title_h);
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 draw_text(title_w / 2, title_h / 2, title_text);
@@ -33,11 +27,18 @@ surface_reset_target();
 title_sprite = sprite_create_from_surface(surf, 0, 0, title_w, title_h, false, false, title_w / 2, title_h / 2);
 surface_free(surf);
 
-function GiftKids(angle) constructor {
+start_visible = false;
+pressed = false;
+
+function GiftKids(angle, title) constructor {
 	self.angle = angle;
+	self.title = title;
 
 	self.display = function() {
-		var skin = get_skin(irandom(array_length(global.skin_sprites) - 1));
+		var chose = self.title.skins[0];
+		array_delete(self.title.skins, 0, 1);
+		array_push(self.title.skins, chose);
+		var skin = get_skin(chose);
 		var names = variable_struct_get_names(skin);
 		self.sprite = skin[$ names[irandom(array_length(names) - 1)]];
 	}
@@ -45,17 +46,20 @@ function GiftKids(angle) constructor {
 	self.display();
 	
 	self.draw = function() {
-		draw_sprite_ext(sprite, 0, 400 + round(300 * dcos(self.angle)), 330 + round(50 * dsin(self.angle)), 5, 5, 0, c_white, 1);
+		draw_sprite_ext(sprite, 0, 400 + 300 * dcos(self.angle), 330 + 50 * dsin(self.angle), 5, 5, 0, c_white, 1);
 		self.angle = (self.angle + 360 + 0.5) % 360;
 		
-		if (point_distance(0, self.angle, 0, 270) <= 2) {
+		if (floor(self.angle) == 270) {
 			self.display();
+			self.angle += 0.5;
 		}
 	}
 }
 
 kids = [];
+skins = array_sequence(0, array_length(global.skin_sprites));
+array_shuffle(skins);
 
 for (var i = 0; i < 360; i += 360 / 7) {
-	array_push(kids, new GiftKids(i));
+	array_push(kids, new GiftKids(i, id));
 }
