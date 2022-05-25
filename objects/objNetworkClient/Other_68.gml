@@ -9,6 +9,10 @@ switch (type) {
 			instance_destroy();
 			exit;
 		}
+		
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.LobbyList);
+		network_send_tcp_packet();
 		break;
 		
 	case network_type_data:

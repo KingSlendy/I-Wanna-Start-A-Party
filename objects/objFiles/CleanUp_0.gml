@@ -13,3 +13,7 @@ for (var i = 0; i < array_length(menu_buttons); i++) {
 		sprite_delete(button.sprite);
 	}
 }
+
+for (var i = 0; i < array_length(lobby_list); i++) {
+	sprite_delete(lobby_list[i].sprite);
+}

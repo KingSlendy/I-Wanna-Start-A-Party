@@ -6,7 +6,9 @@ global.buffer = buffer_create(1024, buffer_fixed, 1);
 global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
 global.player_id = 0;
+global.master_id = 0;
 global.player_name = "";
+global.lobby_started = true;
 
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
@@ -73,6 +75,19 @@ function network_send_udp_packet() {
 	network_send_udp_raw(global.udp_socket, global.ip, global.port, global.buffer, buffer_tell(global.buffer));
 }
 
+function player_join_all() {
+	for (var i = 1; i <= global.player_max; i++) {
+	if (global.player_client_list[i - 1] == null) {
+			player_join(i);
+		}
+	}
+}
+
+function player_leave_all() {
+	instance_destroy(objPlayerBase);
+	global.player_client_list = array_create(global.player_max, null);
+}
+
 function player_join(id) {
 	if (id != global.player_id) {
 		var player = global.player_client_list[id - 1];
@@ -89,12 +104,26 @@ function player_join(id) {
 		} else {
 			player.visible = true;
 		}
+	} else {
+		var player = instance_create_layer(0, 0, "Actors", objPlayerBase);
+		player.network_id = global.player_id;
+		player.network_name = global.player_name;
 	}
 }
 
 function player_leave(id) {
 	if (id != global.player_id) {
-		global.player_client_list[id - 1].visible = false;
+		var player = global.player_client_list[id - 1];
+		player.visible = false;
+		player.network_name = "";
+	}
+}
+
+function ai_join_all() {
+	for (var i = 2; i <= global.player_max; i++) {
+		if (!focus_player_by_id(i).visible) {
+			ai_join(i);
+		}
 	}
 }
 
@@ -105,11 +134,10 @@ function ai_join(id) {
 		instance_destroy(player);
 	}
 	
-	var a = instance_create_layer(800, 304, "Actors", objPlayerDir8);
+	var a = instance_create_layer(800, 304, "Actors", objPlayerBase);
 	a.network_id = id;
 	a.network_name = "CPU " + string(id);
 	a.ai = true;
-	a.alarm[1] = 1; //Temp
 	global.player_client_list[id - 1] = a;
 }
 
@@ -172,6 +200,7 @@ function player_read_data(buffer) {
 		instance.visible = true;
 		instance.hspeed = 0;
 		instance.vspeed = 0;
+		instance.alarm[11] = 6;
 		
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.network_index = buffer_read(buffer, buffer_u16);

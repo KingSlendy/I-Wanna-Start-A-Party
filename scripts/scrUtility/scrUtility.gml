@@ -105,6 +105,10 @@ function string_split(str, substr = "") {
 }
 #endregion
 
+function remap(value, from1, to1, from2, to2) {
+	return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+}
+
 function get_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;
 }

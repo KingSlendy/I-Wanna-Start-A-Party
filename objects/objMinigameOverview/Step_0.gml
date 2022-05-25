@@ -1,6 +1,8 @@
 switch (state) {
 	case 0:
-		alpha -= 0.03;
+		if (get_player_count(objPlayerBase) == global.player_max) {
+			alpha -= 0.03;
+		}
 		
 		if (alpha <= 0) {
 			alpha = 0;
@@ -49,7 +51,7 @@ if (option_selected != prev_choice) {
 	network_send_udp_packet();
 }
 
-if (global.actions.jump.pressed(global.player_id) && get_player_count(objPlayerBase) == global.player_max) {
+if (global.actions.jump.pressed(global.player_id)) {
 	start_minigame(option_selected + 1);
 	
 	buffer_seek_begin();

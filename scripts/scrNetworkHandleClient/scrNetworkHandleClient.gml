@@ -1,8 +1,15 @@
 enum ClientTCP {
 	//Network
+	ReceiveMasterID,
 	ReceiveID,
+	ResendID,
 	PlayerConnect,
 	PlayerDisconnect,
+	CreateLobby,
+	JoinLobby,
+	LeaveLobby,
+	LobbyList,
+	LobbyStart,
 	PlayerMove,
 	PlayerShoot,
 	
@@ -112,18 +119,29 @@ function network_read_client(ip, port, buffer) {
 function network_read_client_tcp(ip, port, buffer, data_id) {
 	switch (data_id) {
 		#region Network
+		case ClientTCP.ReceiveMasterID:
+			global.master_id = buffer_read(buffer, buffer_u64);
+			break;
+		
 		case ClientTCP.ReceiveID:
 			global.player_id = buffer_read(buffer, buffer_u8);
-			objPlayerBase.network_id = global.player_id;
-			global.skin_current = global.player_id - 1;
+			player_join_all();
 			
-			for (var i = 0; i < global.player_max; i++) {
-				if (global.player_client_list[i] == null) {
-					player_join(i + 1);
-				}
+			//Move this to just before the board starts, and remember to remove the null position once you exit to the menu
+			//array_insert(global.all_ai_actions, global.player_id - 1, null);
+			
+			with (objFiles) {
+				online_reading = false;
+				menu_type = 5;
+				upper_type = menu_type;
+				upper_text = lobby_texts[0];
 			}
+			break;
 			
-			array_insert(global.all_ai_actions, global.player_id - 1, null);
+		case ClientTCP.ResendID:
+			player_leave_all();
+			global.player_id = buffer_read(buffer, buffer_u8);
+			player_join_all();
 			break;
 			
 		case ClientTCP.PlayerConnect:
@@ -132,8 +150,100 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 				
 		case ClientTCP.PlayerDisconnect:
-			var player_id = buffer_read(buffer, buffer_u8);
-			player_leave(player_id);
+			if (!global.lobby_started) {
+				var player_id = buffer_read(buffer, buffer_u8);
+				player_leave(player_id);
+			} else {
+				popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
+				instance_destroy(objNetworkClient);
+				room_goto(rFiles);
+			}
+			break;
+			
+		case ClientTCP.CreateLobby:
+			var same_name = buffer_read(buffer, buffer_bool);
+			objFiles.online_reading = false;
+			
+			if (same_name) {
+				popup("A lobby with that name already exists!");
+				return;
+			}
+		
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.ReceiveID);
+			buffer_write_data(buffer_u64, global.master_id);
+			network_send_tcp_packet();
+			break;
+			
+		case ClientTCP.JoinLobby:
+			var state = buffer_read(buffer, buffer_u8);
+			objFiles.online_reading = false;
+			
+			switch (state) {
+				case 0: popup("A lobby with that name doesn't exist or the password is incorrect."); return;
+				case 2: popup("That lobby is already full."); return;
+				case 3: popup("This lobby has already been started."); return;
+			}
+			
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.ReceiveID);
+			buffer_write_data(buffer_u64, global.master_id);
+			network_send_tcp_packet();
+			break;
+			
+		case ClientTCP.LeaveLobby:
+			player_leave_all();
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.LobbyList);
+			network_send_tcp_packet();
+			break;
+			
+		case ClientTCP.LobbyList:
+			with (objFiles) {
+				lobby_list = [];
+				var lobbies = buffer_read(buffer, buffer_string);
+				
+				if (lobbies != "null") {
+					lobbies = string_split(lobbies, ".");
+				
+					for (var i = 0; i < array_length(lobbies) - 1; i++) {
+						var lobby = lobbies[i];
+						var data = string_split(lobby, "|");
+						data[1] = (data[1] == "True");
+						data[3] = (data[3] == "True");
+						var name = data[0];
+					
+						if (string_length(name) > 5) {
+							name = string_copy(name, 1, 5) + "-";
+						}
+					
+						var text = string_interp("{0}\n\n\n{1}/4", name, data[2]);
+						var button = new FileButton(550, 402, file_width, 160, 1, text, (data[2] == 4 || data[3]) ? c_red : c_white,, (data[1]) ? sprFilesLock : null);
+						array_push(lobby_list, button);
+						button.name = data[0];
+						button.has_password = data[1];
+					}
+				}
+				
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "WWWWWWWW\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME1\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME2\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "AAAAAAAA\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME3\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME4\n\n\n1/4", c_white,, sprFilesLock));
+			
+				lobby_return = false;
+				online_reading = false;
+				menu_type = 4;
+				upper_type = menu_type;
+				upper_text = "LOBBY DATA";
+			}
+			break;
+			
+		case ClientTCP.LobbyStart:
+			global.lobby_started = true;
+			objFiles.fade_start = true;
+			music_stop();
 			break;
 			
 		case ClientTCP.PlayerMove:
@@ -488,7 +598,7 @@ function network_read_client_udp(buffer, data_id) {
 		//Network
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
-				objNetworkClient.alarm[0] = get_frames(30);
+				objNetworkClient.alarm[0] = get_frames(15);
 			}
 			break;
 		

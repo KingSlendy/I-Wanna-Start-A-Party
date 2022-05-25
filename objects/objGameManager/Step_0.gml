@@ -1,9 +1,3 @@
-if (keyboard_check_pressed(ord("J"))) {
-	if (!instance_exists(objNetworkClient)) {
-		instance_create_layer(0, 0, "Managers", objNetworkClient);
-	}
-}
-
 if (keyboard_check_pressed(vk_pagedown)) {
 	room_goto_next();
 }
@@ -18,5 +12,7 @@ if (keyboard_check_pressed(ord("D"))) {
 }
 
 if (keyboard_check_pressed(vk_f2)) {
+	player_leave_all();
+	instance_destroy(objNetworkClient);
 	game_restart();
 }

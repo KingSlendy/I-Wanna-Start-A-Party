@@ -1,5 +1,3 @@
-global.ip = null;
-
 if (global.tcp_socket >= 0) {
 	network_destroy(global.tcp_socket);
 }
@@ -12,6 +10,17 @@ if (global.udp_socket >= 0) {
 
 global.udp_socket = null;
 global.player_client_list = array_create(global.player_max, null);
+global.master_id = 0;
 global.player_id = 0;
-global.player_name = "";
+global.lobby_started = false;
 instance_destroy(objNetworkPlayer);
+
+if (room == rFiles) {
+	with (objFiles) {
+		online_reading = false;
+		
+		if (menu_type != 3) {
+			menu_type = 1;
+		}
+	}
+}

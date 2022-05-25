@@ -3,14 +3,6 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 
-global.ip = get_string("Enter IP", "iwannastartaparty.sytes.net");
-	
-if (global.ip == null) {
-	popup("Process has been cancelled.");
-	instance_destroy();
-	exit;
-}
-
 global.tcp_socket = network_create_socket(network_socket_tcp);
 
 if (global.tcp_socket < 0) {
@@ -27,9 +19,7 @@ if (global.udp_socket < 0) {
 	exit;
 }
 
-global.player_name = string_copy(get_string("Enter your name.", "Player"), 1, 10);
-
-objPlayerBase.network_name = global.player_name;
+//objPlayerBase.network_name = global.player_name;
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_async(global.tcp_socket, global.ip, global.port);

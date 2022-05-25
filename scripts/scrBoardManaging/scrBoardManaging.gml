@@ -196,6 +196,11 @@ function get_player_count(index) {
 	
 	return count;
 }
+
+function player_color_by_turn(turn) {
+	var colors = [c_blue, c_red, c_green, c_yellow];
+	return colors[turn - 1];
+}
 #endregion
 
 #region Board Management
