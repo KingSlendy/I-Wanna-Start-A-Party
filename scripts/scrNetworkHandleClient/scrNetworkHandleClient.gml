@@ -10,6 +10,7 @@ enum ClientTCP {
 	LeaveLobby,
 	LobbyList,
 	LobbyStart,
+	PartyAction,
 	PlayerMove,
 	PlayerShoot,
 	
@@ -127,9 +128,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			global.player_id = buffer_read(buffer, buffer_u8);
 			player_join_all();
 			
-			//Move this to just before the board starts, and remember to remove the null position once you exit to the menu
-			//array_insert(global.all_ai_actions, global.player_id - 1, null);
-			
 			with (objFiles) {
 				online_reading = false;
 				menu_type = 5;
@@ -244,6 +242,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			global.lobby_started = true;
 			objFiles.fade_start = true;
 			music_stop();
+			break;
+			
+		case ClientTCP.PartyAction:
+			var action = buffer_read(buffer, buffer_string);
+			var network_id = buffer_read(buffer, buffer_u8);
+			print([action, network_id]);
+		
+			with (objParty) {
+				array_push(network_actions, [action, network_id]);
+				//print(network_actions);
+			}
 			break;
 			
 		case ClientTCP.PlayerMove:
@@ -598,7 +607,7 @@ function network_read_client_udp(buffer, data_id) {
 		//Network
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
-				objNetworkClient.alarm[0] = get_frames(15);
+				objNetworkClient.alarm[0] = get_frames(9);
 			}
 			break;
 		

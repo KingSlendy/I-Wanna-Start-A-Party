@@ -7,7 +7,10 @@ global.skin_sprites = [
 	"Shiver",
 	"Kitten",
 	"Kamilia",
-	"HappyCherry"
+	"HappyCherry",
+	"Ghost",
+	"Happil",
+	"Knot"
 ];
 
 global.skin_current = 0;

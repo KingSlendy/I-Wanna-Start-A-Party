@@ -112,5 +112,4 @@ lobby_return = false;
 
 player_texts = array_create(4, "");
 
-lobby_started = false;
 back = false;

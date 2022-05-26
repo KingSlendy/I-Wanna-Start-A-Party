@@ -1,5 +1,8 @@
 depth = -10000;
 
+fade_start = true;
+fade_alpha = 1;
+
 with (objPlayerBase) {
 	change_to_object(objPlayerBoard);
 }
@@ -32,9 +35,5 @@ global.min_blackhole_coins = 5;
 minigame_info_reset();
 
 tell_choices = false;
-
-//Temp
-temp = false;
-//Temp
 
 alarm[11] = 1;

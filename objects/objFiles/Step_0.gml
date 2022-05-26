@@ -1,5 +1,5 @@
 if (fade_start) {
-	if (lobby_started || back) {
+	if (global.lobby_started || back) {
 		fade_alpha += 0.03;
 	
 		if (fade_alpha >= 1) {
@@ -10,7 +10,7 @@ if (fade_start) {
 				room_goto(rTitle);
 			}
 			
-			if (lobby_started) {
+			if (global.lobby_started) {
 				room_goto(rParty);
 			}
 		}
@@ -39,7 +39,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 	file_highlights[i] = lerp(file_highlights[i], target, 0.3);
 }
 
-if (!fade_start && files_fade == -1 && !lobby_started) {
+if (!fade_start && files_fade == -1 && !global.lobby_started) {
 	if (file_opened == -1) {
 		var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
 		var prev_file = file_selected;
@@ -107,7 +107,7 @@ if (!fade_start && files_fade == -1 && !lobby_started) {
 							global.player_id = 1;
 							player_join_all();
 							ai_join_all();
-							lobby_started = true;
+							global.lobby_started = true;
 							fade_start = true;
 							music_stop();
 						} else {
@@ -200,7 +200,6 @@ if (!fade_start && files_fade == -1 && !lobby_started) {
 							exit;
 						}
 						
-						lobby_started = true;
 						ai_join_all();
 						alarm[0] = get_frames(1);
 						break;
@@ -222,7 +221,7 @@ if (!fade_start && files_fade == -1 && !lobby_started) {
 			exit;
 		}
 		
-		if (!lobby_return && !lobby_started && global.actions.shoot.pressed()) {
+		if (!lobby_return && !global.lobby_started && global.actions.shoot.pressed()) {
 			if (!lobby_seeing) {
 				switch (menu_type) {
 					case 0: file_opened = -1; break;

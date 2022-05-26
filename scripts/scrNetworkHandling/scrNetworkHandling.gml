@@ -7,8 +7,8 @@ global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
 global.player_id = 0;
 global.master_id = 0;
-global.player_name = "";
-global.lobby_started = true;
+global.player_name = "Player";
+global.lobby_started = false;
 
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
@@ -66,13 +66,17 @@ function buffer_read_array(buffer, type) {
 }
 
 function network_send_tcp_packet() {
-	buffer_sanity_checks(true);
-	network_send_packet(global.tcp_socket, global.buffer, buffer_tell(global.buffer));
+	if (instance_exists(objNetworkClient)) {
+		buffer_sanity_checks(true);
+		network_send_packet(global.tcp_socket, global.buffer, buffer_tell(global.buffer));
+	}
 }
 
 function network_send_udp_packet() {
-	buffer_sanity_checks(false);
-	network_send_udp_raw(global.udp_socket, global.ip, global.port, global.buffer, buffer_tell(global.buffer));
+	if (instance_exists(objNetworkClient)) {
+		buffer_sanity_checks(false);
+		network_send_udp_raw(global.udp_socket, global.ip, global.port, global.buffer, buffer_tell(global.buffer));
+	}
 }
 
 function player_join_all() {
