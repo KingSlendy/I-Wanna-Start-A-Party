@@ -66,11 +66,13 @@ function sync_actions(action, network_id) {
 		}
 	}
 	
-	if (!instance_exists(objNetworkClient) || focus_player_by_id(network_id).ai) {
-		network_id = 1;
+	var check_id = network_id;
+	
+	if (!instance_exists(objNetworkClient) || focus_player_by_id(check_id).ai) {
+		check_id = 1;
 	}
 	
-	var pressed = global.actions[$ action].pressed(network_id);
+	var pressed = global.actions[$ action].pressed(check_id);
 	
 	if (pressed) {
 		buffer_seek_begin();

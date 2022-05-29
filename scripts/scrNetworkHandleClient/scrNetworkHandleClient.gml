@@ -13,6 +13,7 @@ enum ClientTCP {
 	PartyAction,
 	PlayerMove,
 	PlayerShoot,
+	PlayerKill,
 	
 	//Interactables
 	ShowDice,
@@ -66,7 +67,12 @@ enum ClientTCP {
 	MinigameFinish,
 	Minigame4vs_Lead_Input,
 	Minigame1vs3_Buttons_Button,
-	Minigame2vs2_Maze_Item
+	Minigame1vs3_Avoid_Block,
+	Minigame2vs2_Maze_Item,
+	
+	//Results
+	ResultsCoins,
+	ResultsWon
 }
 
 enum ClientUDP {
@@ -148,12 +154,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 				
 		case ClientTCP.PlayerDisconnect:
+			var player_id = buffer_read(buffer, buffer_u8);
+		
 			if (!global.lobby_started) {
-				var player_id = buffer_read(buffer, buffer_u8);
 				player_leave(player_id);
 			} else {
 				popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
 				instance_destroy(objNetworkClient);
+				instance_destroy(objPlayerInfo);
+				instance_deactivate_all(false);
+				instance_activate_object(objGameManager);
+				application_surface_draw_enable(true);
 				room_goto(rFiles);
 			}
 			break;
@@ -246,11 +257,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.PartyAction:
 			var action = buffer_read(buffer, buffer_string);
-			var network_id = buffer_read(buffer, buffer_u8);
-			print([action, network_id]);
+			var player_id = buffer_read(buffer, buffer_u8);
 		
 			with (objParty) {
-				array_push(network_actions, [action, network_id]);
+				array_push(network_actions, [action, player_id]);
 				//print(network_actions);
 			}
 			break;
@@ -267,6 +277,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var b = instance_create_layer(xx, yy, "Actors", objBullet);
 			b.network_id = player_id;
 			b.hspeed = hspd;
+			break;
+			
+		case ClientTCP.PlayerKill:
+			var player_id = buffer_read(buffer, buffer_u8);
+			
+			with (focus_player_by_id(player_id)) {
+				player_kill(true);
+			}
 			break;
 		#endregion
 			
@@ -546,10 +564,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var player_id = buffer_read(buffer, buffer_u8);
 			var timer = buffer_read(buffer, buffer_s32);
 			var points = buffer_read(buffer, buffer_s32);
-			var scoring = global.minigame_info.player_scores[player_id - 1];
+			var signal = buffer_read(buffer, buffer_bool);
+			var info = global.minigame_info;
+			var scoring = info.player_scores[player_id - 1];
 			scoring.ready = true;
 			scoring.timer = timer;
 			scoring.points = points;
+			
+			if (info.is_finished || signal) {
+				minigame_finish();
+			}
 			break;
 			
 		case ClientTCP.Minigame4vs_Lead_Input:
@@ -587,6 +611,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame1vs3_Avoid_Block:
+			var attack = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame1vs3_Avoid_Block) {
+				activate(attack, true);
+			}
+			break;
+			
 		case ClientTCP.Minigame2vs2_Maze_Item:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var item_x = buffer_read(buffer, buffer_s16);
@@ -596,6 +628,20 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				if (x == item_x && y == item_y) {
 					collect_item(focus_player_by_id(player_id));
 				}
+			}
+			break;
+		#endregion
+		
+		#region Results
+		case ClientTCP.ResultsCoins:
+			with (objResults) {
+				results_coins();
+			}
+			break;
+		
+		case ClientTCP.ResultsWon:
+			with (objResults) {
+				results_won();
 			}
 			break;
 		#endregion

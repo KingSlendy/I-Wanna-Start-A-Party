@@ -1,21 +1,20 @@
 if (minigame_time != -1) {
 	var w = 100;
 	var h = 32;
-	var xx = display_get_gui_width() / 2;
+	var xx = display_get_gui_width() / 2 - w / 2;
 	var yy = display_get_gui_height();
-	draw_set_color(c_gray);
-	draw_roundrect(xx - w / 2, yy - h, xx + w / 2, yy, false);
+	draw_box(xx, yy - h, w, h, c_dkgray, c_yellow);
 	draw_set_font(fntDialogue);
 	
 	if (minigame_time > 5) {
-		draw_set_color(c_orange);
+		draw_set_color(c_yellow);
 	} else {
 		draw_set_color(c_red);
 	}
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_outline(xx, yy - h / 2, string(minigame_time), c_black);
+	draw_text_outline(xx + w / 2, yy - h / 2, string(minigame_time), c_black);
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 }
@@ -30,12 +29,9 @@ if (points_draw) {
 	}
 	
 	for (var i = 0; i < array_length(points_teams); i++) {
-		var x1 = 10 + 140 * i;
-		var y1 = 0;
-		var x2 = x1 + 110;
-		var y2 = 32;
-		draw_set_color(colors[i]);
-		draw_roundrect(x1, y1, x2, y2, false);
+		var xx = 274 + 140 * i;
+		var yy = 0;
+		draw_box(xx, yy, 110, 32, colors[i], c_white);
 		draw_set_font(fntDialogue);
 	
 		var team = points_teams[i];
@@ -44,10 +40,13 @@ if (points_draw) {
 		for (var j = 0; j < array_length(team); j++) {
 			var player = team[j];
 			points += info.player_scores[player.network_id - 1].points;
-			draw_sprite(get_skin_pose_object(player, "Idle"), 0, x1 + 100 - 20 * j, y1 + 20);
+			draw_sprite(get_skin_pose_object(player, "Idle"), 0, xx + 95 - 20 * j, yy + 18);
 		}
 	
 		draw_set_color(c_white);
-		draw_text_outline(x1 + 15, y1 + 5, string(points), c_black);
+		
+		if (points_number) {
+			draw_text_outline(xx + 15, yy + 5, string(points), c_black);
+		}
 	}
 }

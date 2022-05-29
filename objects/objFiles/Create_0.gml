@@ -96,7 +96,7 @@ online_texts = [
 	"33321"
 ]
 
-online_limits = [12, -1, 5];
+online_limits = [16, -1, 5];
 online_reading = false;
 
 lobby_texts = [

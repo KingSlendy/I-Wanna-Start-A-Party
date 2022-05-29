@@ -2,11 +2,12 @@ switch (state) {
 	case 0:
 		if (get_player_count(objPlayerBase) == global.player_max) {
 			alpha -= 0.03;
-		}
+			music_play(bgmMinigameOverview, true);
 		
-		if (alpha <= 0) {
-			alpha = 0;
-			state = -1;
+			if (alpha <= 0) {
+				alpha = 0;
+				state = -1;
+			}
 		}
 		break;
 		

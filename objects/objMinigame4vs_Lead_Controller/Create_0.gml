@@ -2,12 +2,17 @@ with (objPlayerBase) {
 	change_to_object(objPlayerPlatformer);
 }
 
-with (objPlayerBase) {
-	enable_move = false;
-	lost = false;
-}
-
 event_inherited();
+
+minigame_time = 10;
+minigame_time_end = function() {
+	with (objMinigameController) {
+		stop_input();
+		correct = false;
+		objMinigame4vs_Lead_Bubble.image_blend = c_red;
+		event_perform(ev_alarm, 4);
+	}
+}
 
 music = bgmMinigameB;
 player_check = objPlayerPlatformer;
@@ -30,6 +35,7 @@ allowed = false;
 minigame_turn = 1;
 correct = false;
 current = 0;
+stopped = true;
 network_inputs = [];
 
 function check_input(input_id, network = true) {
@@ -45,10 +51,11 @@ function check_input(input_id, network = true) {
 	audio_play_sound(sndCursorSelect, 0, false);
 			
 	if (current == array_length(sequence)) {
+		stop_input();
 		correct = true;
 		array_push(sequence, input_id);
-		stop_input();
 		alarm[4] = get_frames(1);
+		alarm[10] = 0;
 		return;
 	}
 			
@@ -63,22 +70,26 @@ function check_input(input_id, network = true) {
 		correct = false;
 		objMinigame4vs_Lead_Bubble.image_blend = c_red;
 		alarm[4] = get_frames(1);
+		alarm[10] = 0;
 	}
 }
 
 function stop_input() {
 	current = 0;
-	objPlayerBase.frozen = true;
+	stopped = true;
 }
 
 function next_player() {
 	stop_input();
+	stopped = false;
 	var player = focus_player_by_turn(minigame_turn);
-	player.frozen = false;
 	
 	with (objMinigame4vs_Lead_Bubble) {
 		image_blend = c_white;
 		x = player.x;
 		y = player.y + 10;
 	}
+	
+	minigame_time = 10;
+	alarm[10] = get_frames(1);
 }

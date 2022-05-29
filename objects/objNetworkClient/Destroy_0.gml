@@ -13,7 +13,7 @@ global.player_client_list = array_create(global.player_max, null);
 global.master_id = 0;
 global.player_id = 0;
 global.lobby_started = false;
-instance_destroy(objNetworkPlayer);
+player_leave_all();
 
 if (room == rFiles) {
 	with (objFiles) {

@@ -1,10 +1,13 @@
-if (fade_start && get_player_count(objPlayerParty) == global.player_max) {
+if (fade_start) {
 	if (!finish) {
-		fade_alpha -= 0.03;
+		if (get_player_count(objPlayerParty) == global.player_max) {
+			fade_alpha -= 0.03;
+			music_play(bgmParty, true);
 	
-		if (fade_alpha <= 0) {
-			fade_alpha = 0;
-			fade_start = false;
+			if (fade_alpha <= 0) {
+				fade_alpha = 0;
+				fade_start = false;
+			}
 		}
 	} else {
 		fade_alpha += 0.01;

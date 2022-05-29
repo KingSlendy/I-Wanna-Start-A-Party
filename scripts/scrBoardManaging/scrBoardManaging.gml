@@ -745,12 +745,13 @@ function item_animation(item_id, additional = noone) {
 #endregion
 
 #region Interface Management
-function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_height() / 2, color = c_orange, snd = null, shrink = true) {
+function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_height() / 2, color = c_orange, snd = null, shrink = true, time = 1.2) {
 	var p = instance_create_layer(x, y, "Managers", objPopup);
 	p.text = text;
 	p.color = color;
 	p.snd = snd;
 	p.shrink = shrink;
+	p.time = time;
 	return p;
 }
 
@@ -758,7 +759,10 @@ function call_shop() {
 	var player_info = player_info_by_turn();
 	
 	if (global.board_turn == global.max_board_turns) {
-		start_dialogue("We're currently closed!\nSorry for the inconvenience!");
+		start_dialogue([
+			new Message("We're currently closed!\nSorry for the inconvenience!",, board_advance)
+		]);
+		
 		exit;
 	}
 	

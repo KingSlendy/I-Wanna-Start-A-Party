@@ -5,4 +5,4 @@
 #macro FAILCHECK_ID 121
 
 //Boards
-#macro IS_BOARD (string_count("Board", room_get_name(room)))
+#macro IS_BOARD (string_count("Board", room_get_name(room)) > 0)

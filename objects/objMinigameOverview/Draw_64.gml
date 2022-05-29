@@ -4,19 +4,21 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_outline(400, 50, info.reference.title, c_black);
 draw_set_valign(fa_top);
-draw_set_halign(fa_left);
 draw_sprite(sprMinigameOverview_Preview, 0, 400, 192);
+draw_set_font(fntPlayerInfo);
+draw_set_color(c_white);
 
 var index = 0;
 
 switch (info.type) {
 	case "4vs":
-		var circle_y = 352;
+		var circle_y = 340;
 	
 		with (objPlayerInfo) {
 			var circle_x = 160 + 160 * (player_info.turn - 1);
 			draw_sprite(sprMinigameOverview_Circles, player_info.turn - 1, circle_x, circle_y);
 			draw_sprite_ext(player_idle_image, 0, circle_x, circle_y - 10, 2, 2, 0, c_white, 1);
+			draw_text_outline(circle_x, circle_y + 32, player_info.name, c_black);
 		}
 		break;
 		
@@ -28,6 +30,7 @@ switch (info.type) {
 			if (player_info.space == other.info.player_colors[1]) {
 				draw_sprite(sprMinigameOverview_Circles, other.info.player_colors[1] != c_blue, circle_x, circle_y);
 				draw_sprite_ext(player_idle_image, 0, circle_x, circle_y - 10, 2, 2, 0, c_white, 1);
+				draw_text_outline(circle_x, circle_y + 32, player_info.name, c_black);
 			}
 		}
 		
@@ -38,6 +41,7 @@ switch (info.type) {
 				circle_y = 96 + 96 * index++;
 				draw_sprite(sprMinigameOverview_Circles, other.info.player_colors[0] != c_blue, circle_x, circle_y);
 				draw_sprite_ext(player_idle_image, 0, circle_x, circle_y - 10, 2, 2, 0, c_white, 1);
+				draw_text_outline(circle_x, circle_y + 32, player_info.name, c_black);
 			}
 		}
 		break;
@@ -51,6 +55,7 @@ switch (info.type) {
 				circle_y = 128 + 128 * index++;
 				draw_sprite(sprMinigameOverview_Circles, other.info.player_colors[0] != c_blue, circle_x, circle_y);
 				draw_sprite_ext(player_idle_image, 0, circle_x, circle_y - 10, 2, 2, 0, c_white, 1);
+				draw_text_outline(circle_x, circle_y + 32, player_info.name, c_black);
 			}
 		}
 
@@ -62,11 +67,13 @@ switch (info.type) {
 				circle_y = 128 + 128 * index++;
 				draw_sprite(sprMinigameOverview_Circles, other.info.player_colors[1] != c_blue, circle_x, circle_y);
 				draw_sprite_ext(player_idle_image, 0, circle_x, circle_y - 10, 2, 2, 0, c_white, 1);
+				draw_text_outline(circle_x, circle_y + 32, player_info.name, c_black);
 			}
 		}
 		break;
 }
 
+draw_set_halign(fa_left);
 draw_box(75, 400, 500, 200, c_green);
 instructions[instructions_page].draw(85, 410);
 var text = new Text(fntDialogue);

@@ -5,7 +5,7 @@ if (!disappear) {
 	if (curve_pos > 1) {
 		curve_pos = 1;
 		curve_spd = 0;
-		alarm[0] = get_frames(1.2);
+		alarm[0] = get_frames(time);
 	}
 } else {
 	scale -= 0.1;

@@ -204,7 +204,7 @@ function player_read_data(buffer) {
 		instance.visible = true;
 		instance.hspeed = 0;
 		instance.vspeed = 0;
-		instance.alarm[11] = 6;
+		instance.alarm[11] = get_frames(0.5);
 		
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.network_index = buffer_read(buffer, buffer_u16);

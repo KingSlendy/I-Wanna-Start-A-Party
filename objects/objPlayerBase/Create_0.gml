@@ -4,6 +4,7 @@ network_name = "";
 skin = null;
 ai = false;
 send_timer = 0;
+lost = false;
 
 function change_to_object(obj) {
 	if (object_index != objNetworkPlayer) {

@@ -34,10 +34,16 @@ if (dir != 0) {
 	sprite_index = skin[$ "Idle"];
 }
 
-if (vspd * orientation < -0.05) {
-    sprite_index = skin[$ "Jump"];
-} else if (vspd * orientation > 0.05) {
-    sprite_index = skin[$ "Fall"];
+if (!on_platform) {
+	if (vspd * orientation < -0.05) {
+	    sprite_index = skin[$ "Jump"];
+	} else if (vspd * orientation > 0.05) {
+	    sprite_index = skin[$ "Fall"];
+	}
+} else {
+	if (!place_meeting(x, y + 4, objPlatform)) {
+		on_platform = false;
+	}
 }
 
 if (abs(vspd) > max_vspd) {
@@ -114,6 +120,12 @@ if (block != noone) {
 	
 		if (vspd * orientation > 0) {
 			reset_jumps();
+		}
+		
+		if (vspd * orientation < 0 && block.object_index == objMinigame1vs3_Avoid_Block) {
+			with (block) {
+				activate(attack);
+			}
 		}
 	
 	    vspd = 0;

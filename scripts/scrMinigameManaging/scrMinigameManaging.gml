@@ -8,11 +8,13 @@ function Minigame(title = "Generic Minigame", instructions = ["Generic Instructi
 global.minigames = {};
 var m = global.minigames;
 m[$ "4vs"] = [
-	new Minigame("Follow The Lead", ["Just win"],, rMinigame4vs_Lead)
+	new Minigame("Follow The Lead", ["Just lead"],, rMinigame4vs_Lead),
+	new Minigame("Tower Ascension", ["Just climb"],, rMinigame4vs_Tower)
 ];
 
 m[$ "1vs3"] = [
-	new Minigame("Buttons Everywhere", ["Just win"],, rMinigame1vs3_Buttons)
+	new Minigame("Buttons Everywhere", ["Just press"],, rMinigame1vs3_Buttons),
+	new Minigame("Avoid The Anguish", ["Just avoid"],, rMinigame1vs3_Avoid)
 ];
 
 m[$ "2vs2"] = [
@@ -176,8 +178,10 @@ function player_2vs2_teammate() {
 function minigame_add_timer(info, player_id) {
 	if (!info.is_finished && is_player_local(player_id + 1)) {
 		var scoring = info.player_scores[player_id];
-		scoring.ready = true;
-		scoring.timer++;
+		
+		if (!scoring.ready) {
+			scoring.timer++;
+		}
 	}
 }
 
@@ -188,8 +192,10 @@ function minigame_max_points() {
 function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
 	if (!info.is_finished) {
 		var scoring = info.player_scores[player_id];
-		scoring.ready = true;
-		scoring.points += points;
+		
+		if (!scoring.ready) {
+			scoring.points += points;
+		}
 	}
 }
 
@@ -198,8 +204,10 @@ function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_ma
 	minigame_4vs_points(info, player_id2, points);
 }
 
-function minigame_finish() {
+function minigame_finish(signal = false) {
 	with (objMinigameController) {
+		alarm[10] = 0;
+		
 		if (info.calculated) {
 			return;
 		}
@@ -218,12 +226,16 @@ function minigame_finish() {
 					buffer_write_action(ClientTCP.MinigameFinish);
 					buffer_write_data(buffer_u8, i);
 					var scoring = info.player_scores[i - 1];
+					scoring.ready = true;
 					buffer_write_data(buffer_s32, scoring.timer);
 					buffer_write_data(buffer_s32, scoring.points);
+					buffer_write_data(buffer_bool, signal);
 					network_send_tcp_packet();
 				}
 			}
 		}
+		
+		//popup(string(global.player_id) +  ": " + string(info.player_scores));
 		
 		for (var i = 0; i < global.player_max; i++) {
 			if (!info.player_scores[i].ready) {
@@ -232,9 +244,9 @@ function minigame_finish() {
 		}
 		
 		//popup(string(global.player_id) +  ": " + string(info.player_scores));
-		var file = file_text_open_write("Debug.txt");
-		file_text_write_string(file, string(global.player_id) +  ": " + string(info.player_scores));
-		file_text_close(file);
+		//var file = file_text_open_write("Debug.txt");
+		//file_text_write_string(file, string(global.player_id) +  ": " + string(info.player_scores));
+		//file_text_close(file);
 		
 		switch (info.type) {
 			case "4vs":
@@ -260,13 +272,13 @@ function minigame_4vs_winner(info) {
 	
 	for (var i = 0; i < global.player_max; i++) {
 		var scoring = info.player_scores[i];
-		max_score = max(max_score, scoring.points + scoring.timer);
+		max_score = max(max_score, scoring.points);
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
 		var scoring = info.player_scores[i - 1];
 		
-		if (scoring.points + scoring.timer == max_score) {
+		if (scoring.points == max_score) {
 			array_push(info.players_won, i);
 		}
 	}
@@ -292,7 +304,7 @@ function minigame_1vs3_winner(info) {
 	for (var i = 1; i <= global.player_max; i++) {
 		var color = player_info_by_id(i).space;
 			
-		if (info.color_won == c_white || color == info.color_won) {
+		if (color == info.color_won) {
 			array_push(info.players_won, i);
 		}
 	}
@@ -318,7 +330,7 @@ function minigame_2vs2_winner(info) {
 	for (var i = 1; i <= global.player_max; i++) {
 		var color = player_info_by_id(i).space;
 			
-		if (info.color_won == c_white || color == info.color_won) {
+		if (color == info.color_won) {
 			array_push(info.players_won, i);
 		}
 	}

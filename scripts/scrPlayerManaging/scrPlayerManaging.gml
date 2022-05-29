@@ -10,7 +10,14 @@ global.skin_sprites = [
 	"HappyCherry",
 	"Ghost",
 	"Happil",
-	"Knot"
+	"Knot",
+	"Koishi",
+	"Xmas",
+	"Darth",
+	"Icy",
+	"Link",
+	"Eclipse",
+	"Lockpick"
 ];
 
 global.skin_current = 0;

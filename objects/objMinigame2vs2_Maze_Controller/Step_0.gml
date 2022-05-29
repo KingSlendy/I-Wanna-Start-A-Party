@@ -8,7 +8,7 @@ with (objPlayerBase) {
 			if (focus_player == other.teammate) {
 				var info = global.minigame_info;
 				minigame_2vs2_points(info, other.network_id - 1, other.teammate.network_id - 1);
-				minigame_finish();
+				minigame_finish(true);
 				break;
 			}
 		}

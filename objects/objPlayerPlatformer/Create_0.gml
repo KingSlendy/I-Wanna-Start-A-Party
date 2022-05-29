@@ -13,6 +13,7 @@ jump_height = [8.5, 7];
 jump_total = 2;
 
 on_block = false;
+on_platform = false;
 frozen = false;
 enable_move = true;
 enable_jump = true;

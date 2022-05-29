@@ -4,7 +4,6 @@ if (!correct) {
 	with (focus_player_by_turn(minigame_turn)) {
 		player_kill();
 		lost = true;
-		minigame_4vs_points(other.info, network_id - 1, -1);
 	}
 }
 
@@ -25,7 +24,7 @@ with (objPlayerBase) {
 
 if (lost_count == global.player_max - 1) {
 	objMinigame4vs_Lead_Bubble.visible = false;
-	minigame_4vs_points(info, player.network_id - 1);
+	minigame_4vs_points(other.info, player.network_id - 1);
 	minigame_finish();
 	exit;
 }

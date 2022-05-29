@@ -2,6 +2,7 @@ text = "TEXT";
 color = c_orange;
 snd = null;
 shrink = true;
+time = 1.2;
 scale = 0;
 disappear = false;
 

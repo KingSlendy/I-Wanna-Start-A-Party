@@ -78,10 +78,24 @@ function draw_4vs_squares() {
 	var draw_h = camera_get_view_height(view_camera[0]);
 
 	for (var i = 0; i < global.player_max; i++) {
-		draw_set_color(player_color_by_turn(i + 1));
-		var draw_x = draw_w * (i div 2);
-		var draw_y = draw_h * (i % 2);
-		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, draw_get_color(), 0);
+		switch (objCameraSplit4.mode) {
+			case 0: //Full
+				var draw_x = draw_w * (i % 2);
+				var draw_y = draw_h * (i div 2);
+				break;
+			
+			case 1: //Vertical
+				var draw_x = draw_w * i;
+				var draw_y = 0;
+				break;
+			
+			case 2: //Horizontal
+				var draw_x = 0;
+				var draw_y = draw_h * i;
+				break;
+		}
+		
+		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, player_color_by_turn(i + 1), 0);
 	}
 }
 

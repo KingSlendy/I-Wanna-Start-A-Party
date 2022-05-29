@@ -9,9 +9,6 @@ function music_check() {
 	
 	switch (room) {
 		case rFiles: music = bgmFiles; break;
-		case rParty: music = bgmParty; break;
-		case rBoardSMW: music = bgmBoardSMW; break;
-		case rMinigameOverview: music = bgmMinigameOverview; break;
 		default: break;
 	}
 	
@@ -19,7 +16,7 @@ function music_check() {
 }
 
 function music_play(music, loop = true) {
-	if (global.music_current != null) {
+	if (global.music_current != null && music != global.music_current) {
 		audio_stop_sound(global.music_current);
 	}
 	
@@ -33,9 +30,11 @@ function music_change(music, loop = true) {
 }
 
 function music_stop() {
-	audio_stop_sound(global.music_current);
-	audio_sound_gain(global.music_current, 1, 0);
-	global.music_current = null;
+	if (global.music_current != null) {
+		audio_stop_sound(global.music_current);
+		audio_sound_gain(global.music_current, 1, 0);
+		global.music_current = null;
+	}
 }
 
 function music_pause() {

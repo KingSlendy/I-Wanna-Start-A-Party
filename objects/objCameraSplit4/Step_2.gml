@@ -2,8 +2,14 @@ for (var i = 0; i < global.player_max; i++) {
 	var follow = target_follow[i];
 		
 	//Position the view to the target coordinates
-	target_x[i] = follow.x;
-	target_y[i] = follow.y;
+	if (!lock_x && !dead[i]) {
+		target_x[i] = follow.x;
+	}
+	
+	if (!lock_y && !dead[i]) {
+		target_y[i] = follow.y;
+	}
+	
 	view_x[i] = lerp(view_x[i], target_x[i], view_spd);
 	view_y[i] = lerp(view_y[i], target_y[i], view_spd);
 	

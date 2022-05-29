@@ -122,9 +122,7 @@ function check_player_actions_by_id(player_id) {
 	if (actions == null) {
 		return null;
 	}
-	
-	var player = focus_player_by_id(player_id);
-		
+
 	if (!is_player_local(player_id)) {
 		return null;
 	}

@@ -9,8 +9,8 @@ event_inherited();
 minigame_start = minigame_1vs3_start;
 minigame_time = 40;
 music = bgmMinigameC;
-player_check = objPlayerPlatformer;
 points_draw = true;
+player_check = objPlayerPlatformer;
 buttons_outside_list = [];
 buttons_inside_list = [];
 

@@ -7,3 +7,5 @@ alarm[1] = get_frames(0.5);
 if (minigame_time != -1) {
 	alarm[10] = get_frames(1);
 }
+
+alarm[11] = 1;

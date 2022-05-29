@@ -1,4 +1,4 @@
-if (player_info == null || !IS_BOARD) {
+if (player_info == null /*|| !IS_BOARD*/) {
 	exit;
 }
 
@@ -11,25 +11,9 @@ with (objChanceTime) {
 draw_set_alpha(1);
 draw_box(draw_x, draw_y, draw_w, draw_h, player_info.space);
 draw_set_font(fntPlayerInfo);
-
-switch (player_info.turn) {
-	case 1:
-		draw_set_color(c_blue);
-		break;
-		
-	case 2:
-		draw_set_color(c_red);
-		break;
-		
-	case 3:
-		draw_set_color(c_green);
-		break;
-		
-	case 4:
-		draw_set_color(c_yellow);
-		break;
-}
-
+draw_set_color(c_black);
+draw_circle(draw_x + 23, draw_y + 21, 16, false);
+draw_set_color(player_color_by_turn(player_info.turn));
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
 draw_set_color(c_white);
 draw_sprite(player_idle_image, 0, draw_x + 25, draw_y + 23);

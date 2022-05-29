@@ -1,9 +1,9 @@
 if (allowed) {
-	var player = focus_player_by_turn(other.minigame_turn);
-	
-	if (player.frozen) {
+	if (stopped) {
 		exit;
 	}
+	
+	var player = focus_player_by_turn(other.minigame_turn);
 	
 	for (var i = 0; i < array_length(sequence_actions); i++) {
 		if (global.actions[$ sequence_actions[i]].pressed(player.network_id)) {

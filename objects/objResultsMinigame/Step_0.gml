@@ -13,15 +13,16 @@ if (info.is_finished) {
 
 switch (state) {
 	case 0:
+		if (get_player_count(objPlayerBoard) != global.player_max) {
+			exit;
+		}
+	
 		alpha -= 0.03;
+		var room_name = room_get_name(room);
+		music_play(asset_get_index("bgm" + string_copy(room_name, 2, string_length(room_name) - 1)), true);
 	
 		if (alpha <= 0) {
 			alpha = 0;
-			
-			if (get_player_count(objPlayerBoard) != global.player_max) {
-				exit;
-			}
-			
 			state = -1;
 		
 			for (var i = 0; i < global.player_max; i++) {
