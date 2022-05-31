@@ -28,7 +28,8 @@ for (var i = 2; i <= global.player_max; i++) {
 			}
 			
 			if (chosed_block == -1) {
-				chosed_block = choose(288, 320, 352, 416, 448, 480) + 16;
+				//chosed_block = choose(288, 320, 352, 416, 448, 480) + 16;
+				chosed_block = choose(288, 352, 416, 480) + 16;
 			}
 			
 			var me_x = x - 1;

@@ -32,7 +32,7 @@ board_selected = 0;
 board_target_selected = 0;
 board_x = 0;
 board_target_x = 0;
-board_rooms = [rBoardSMW, rBoardSMW];
+board_rooms = [rBoardIsland, rBoardHotland];
 finish = false;
 
 with (objPlayerBase) {

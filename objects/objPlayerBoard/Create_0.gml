@@ -1,9 +1,10 @@
 event_inherited();
+skin = get_skin();
+first_space = true;
 max_speed = 5;
 follow_path = null;
 can_jump = false;
 dice_hit_y = y;
-skin = get_skin();
 
 function snap_to_object(obj) {
 	y = yprevious;

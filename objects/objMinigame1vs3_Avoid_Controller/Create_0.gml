@@ -13,8 +13,8 @@ minigame_start = minigame_1vs3_start;
 minigame_time = 40;
 minigame_time_end = function() {
 	with (objPlayerBase) {
-		if (y < 128) {
-			minigame_4vs_points(objMinigameController.info, network_id - 1, -1);
+		if (y > 128) {
+			minigame_4vs_points(objMinigameController.info, network_id - 1);
 			break;
 		}
 	}
@@ -22,7 +22,7 @@ minigame_time_end = function() {
 	minigame_finish(true);
 }
 
-music = bgmMinigameE;
+music = bgmMinigameG;
 points_draw = true;
 points_number = false;
 player_check = objPlayerPlatformer;

@@ -14,10 +14,15 @@ global.skin_sprites = [
 	"Koishi",
 	"Xmas",
 	"Darth",
-	"Icy",
+	//"Icy",
 	"Link",
 	"Eclipse",
-	"Lockpick"
+	"Lockpick",
+	"Joker",
+	"Scare",
+	"Dark",
+	"Easy",
+	"Miku"
 ];
 
 global.skin_current = 0;

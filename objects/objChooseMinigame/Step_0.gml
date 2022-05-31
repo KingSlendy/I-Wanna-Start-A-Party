@@ -30,7 +30,7 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			//Temp
-			var test2 = 0//irandom(2);
+			var test2 = 2//irandom(2);
 			var test = [1, 2, 3, 4];
 			array_shuffle(test);
 			array_delete(test, 2, test2);

@@ -1,2 +1,5 @@
 objBoard.alarm[11] = 1;
-turn_start();
+
+if (is_local_turn()) {
+	turn_start();
+}

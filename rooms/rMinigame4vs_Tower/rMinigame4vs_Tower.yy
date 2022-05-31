@@ -260,7 +260,7 @@
         {"spriteId":{"name":"sprMinigame4vs_Tower_Block2","path":"sprites/sprMinigame4vs_Tower_Block2/sprMinigame4vs_Tower_Block2.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":704.0,"y":832.0,"resourceVersion":"1.0","name":"graphic_18CEC8D4","tags":[],"resourceType":"GMRSpriteGraphic",},
         {"spriteId":{"name":"sprMinigame4vs_Tower_Block2","path":"sprites/sprMinigame4vs_Tower_Block2/sprMinigame4vs_Tower_Block2.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":736.0,"y":832.0,"resourceVersion":"1.0","name":"graphic_62C07E5A","tags":[],"resourceType":"GMRSpriteGraphic",},
         {"spriteId":{"name":"sprMinigame4vs_Tower_Block2","path":"sprites/sprMinigame4vs_Tower_Block2/sprMinigame4vs_Tower_Block2.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":832.0,"resourceVersion":"1.0","name":"graphic_2BDB5494","tags":[],"resourceType":"GMRSpriteGraphic",},
-      ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Tiles","tags":[],"resourceType":"GMRAssetLayer",},
+      ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":"none","properties":[],"resourceVersion":"1.0","name":"Tiles","tags":[],"resourceType":"GMRAssetLayer",},
     {"spriteId":{"name":"sprBkgMinigame4vs_Tower","path":"sprites/sprBkgMinigame4vs_Tower/sprBkgMinigame4vs_Tower.yy",},"colour":4294967295,"x":0,"y":0,"htiled":true,"vtiled":true,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRBackgroundLayer",},
   ],
   "inheritLayers": false,
@@ -280,7 +280,7 @@
   "roomSettings": {
     "inheritRoomSettings": false,
     "Width": 800,
-    "Height": 1216,
+    "Height": 608,
     "persistent": false,
   },
   "viewSettings": {

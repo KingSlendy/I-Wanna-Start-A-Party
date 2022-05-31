@@ -4,4 +4,4 @@ a.hspeed = irandom_range(-3, 3);
 a.vspeed = irandom_range(-13, -7);
 a.gravity = 0.2;
 
-alarm[1] = 4;
+alarm[1] = 3;

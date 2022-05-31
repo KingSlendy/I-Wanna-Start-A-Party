@@ -1,4 +1,18 @@
 if (IS_BOARD) {
+	if (!global.board_started) {
+		for (var i = 1; i <= global.player_max; i++) {
+			var player = focus_player_by_id(i);
+			
+			with (objPlayerReference) {
+				if (reference == 0) {
+					player.x = x + 17 + 32 * (i - 1);
+					player.y = y + 23;
+					break;
+				}
+			}
+		}
+	}
+	
 	var target_follow = null;
 
 	with (objPlayerReference) {

@@ -69,10 +69,12 @@ enum ClientTCP {
 	Minigame1vs3_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
 	Minigame2vs2_Maze_Item,
+	Minigame2vs2_Fruits_Fruit,
 	
 	//Results
 	ResultsCoins,
-	ResultsWon
+	ResultsWon,
+	ResultsEnd
 }
 
 enum ClientUDP {
@@ -160,12 +162,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				player_leave(player_id);
 			} else {
 				popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
-				instance_destroy(objNetworkClient);
-				instance_destroy(objPlayerInfo);
-				instance_deactivate_all(false);
-				instance_activate_object(objGameManager);
-				application_surface_draw_enable(true);
-				room_goto(rFiles);
+				network_disable();
 			}
 			break;
 			
@@ -615,7 +612,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var attack = buffer_read(buffer, buffer_u8);
 			
 			with (objMinigame1vs3_Avoid_Block) {
-				activate(attack, true);
+				if (image_index == attack) {
+					activate(attack, true);
+					break;
+				}
 			}
 			break;
 			
@@ -630,6 +630,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				}
 			}
 			break;
+			
+		case ClientTCP.Minigame2vs2_Fruits_Fruit:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var points = buffer_read(buffer, buffer_u8);
+			minigame_4vs_points(objMinigameController.info, player_id - 1, points);
+			break;
 		#endregion
 		
 		#region Results
@@ -642,6 +648,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.ResultsWon:
 			with (objResults) {
 				results_won();
+			}
+			break;
+			
+		case ClientTCP.ResultsEnd:
+			with (objResults) {
+				results_end();
 			}
 			break;
 		#endregion

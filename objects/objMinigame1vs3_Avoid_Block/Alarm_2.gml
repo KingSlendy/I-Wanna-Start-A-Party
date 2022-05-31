@@ -10,4 +10,4 @@ b.hspeed = choose(2, 4);
 b.vspeed = irandom_range(-10, -7);
 b.gravity = 0.2;
 
-alarm[2] = 10;
+alarm[2] = 8;

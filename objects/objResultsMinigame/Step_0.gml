@@ -13,7 +13,7 @@ if (info.is_finished) {
 
 switch (state) {
 	case 0:
-		if (get_player_count(objPlayerBoard) != global.player_max) {
+		if (get_player_count(objPlayerBase) != global.player_max) {
 			exit;
 		}
 	
@@ -45,6 +45,10 @@ switch (state) {
 		if (alpha >= 1) {
 			alpha = 1;
 			
+			with (objPlayerBase) {
+				change_to_object(objPlayerBoard);
+			}
+			
 			for (var i = 0; i < array_length(info.player_positions); i++) {
 				var pos = info.player_positions[i];
 				var player = focus_player_by_id(i + 1);
@@ -71,10 +75,8 @@ switch (state) {
 		break;
 		
 	case 2:
-		with (objPlayerBase) {
-			if (!visible) {
-				exit;
-			}
+		if (get_player_count(objPlayerBoard) != global.player_max) {
+			exit;
 		}
 	
 		alpha -= 0.04;

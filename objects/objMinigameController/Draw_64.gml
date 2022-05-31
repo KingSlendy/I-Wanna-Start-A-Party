@@ -3,7 +3,7 @@ if (minigame_time != -1) {
 	var h = 32;
 	var xx = display_get_gui_width() / 2 - w / 2;
 	var yy = display_get_gui_height();
-	draw_box(xx, yy - h, w, h, c_dkgray, c_yellow);
+	draw_box(xx, yy - h, w, h, c_dkgray, c_white);
 	draw_set_font(fntDialogue);
 	
 	if (minigame_time > 5) {
@@ -46,7 +46,7 @@ if (points_draw) {
 		draw_set_color(c_white);
 		
 		if (points_number) {
-			draw_text_outline(xx + 15, yy + 5, string(points), c_black);
+			draw_text_outline(xx + 5, yy + 5, string(points), c_black);
 		}
 	}
 }

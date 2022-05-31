@@ -16,5 +16,3 @@ function change_to_object(obj) {
 		instance_destroy();
 	}
 }
-
-alarm[0] = 1;

@@ -217,3 +217,18 @@ function player_read_data(buffer) {
 		instance.network_room = buffer_read(buffer, buffer_u16);
 	}
 }
+
+function network_disable() {
+	if (instance_exists(objNetworkClient)) {
+		instance_destroy(objNetworkClient);
+	} else {
+		global.lobby_started = false;
+		player_leave_all();
+	}
+	
+	instance_destroy(objPlayerInfo);
+	instance_deactivate_all(false);
+	instance_activate_object(objGameManager);
+	application_surface_draw_enable(true);
+	room_goto(rFiles);
+}

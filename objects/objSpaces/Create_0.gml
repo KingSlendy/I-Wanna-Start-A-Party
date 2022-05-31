@@ -134,9 +134,9 @@ function space_finish_event() {
 		case SpaceType.Blue:
 			var blue_event = turn_next;
 			
-			//if (1 / 50 > random(1)) {
+			if (1 / 50 > random(1)) {
 				blue_event = show_chest;
-			//}
+			}
 			
 			change_coins(3, CoinChangeType.Gain).final_action = blue_event;
 			break;

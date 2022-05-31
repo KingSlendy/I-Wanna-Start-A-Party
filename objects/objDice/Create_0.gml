@@ -35,7 +35,7 @@ function random_roll() {
 		roll = irandom_range(1, max_roll);
 	} until (roll != previous);
 	
-	roll = max_roll;
+	//roll = max_roll;
 	//roll = 1;
 }
 

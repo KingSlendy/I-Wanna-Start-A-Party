@@ -174,6 +174,22 @@ function player_info_by_turn(turn = global.player_turn) {
 	}
 }
 
+function focus_info_by_id(player_id = global.player_id) {
+	with (objPlayerInfo) {
+		if (player_info.network_id == player_id) {
+			return id;
+		}
+	}
+}
+
+function focus_info_by_turn(turn = global.player_turn) {
+	with (objPlayerInfo) {
+		if (player_info.turn == turn) {
+			return id;
+		}
+	}
+}
+
 function store_player_positions() {
 	var positions = array_create(global.player_max, null);
 	
@@ -340,6 +356,12 @@ function turn_start() {
 		return;
 	}
 	
+	if (global.board_first_space[focused_player().network_id - 1] && global.board_turn == 1) {
+		global.dice_roll = -1;
+		board_advance();
+		return;
+	}
+	
 	if (!instance_exists(objTurnChoices)) {
 		instance_create_layer(0, 0, "Managers", objTurnChoices);
 	
@@ -389,13 +411,24 @@ function board_advance() {
 	with (focused_player()) {
 		follow_path = path_add();
 		path_add_point(follow_path, x, y, 100);
-		var space = instance_place(x, y, objSpaces);
 		var next_space;
 		
-		if (BOARD_NORMAL) {
-			next_space = space.space_next;
+		if (!global.board_first_space[network_id - 1]) {
+			var space = instance_place(x, y, objSpaces);
+			var next_space;
+		
+			if (BOARD_NORMAL) {
+				next_space = space.space_next;
+			} else {
+				next_space = space.space_previous;
+			}
 		} else {
-			next_space = space.space_previous;
+			with (objSpaces) {
+				if (image_index == 12) {
+					next_space = id;
+					break;
+				}
+			}
 		}
 		
 		path_add_point(follow_path, next_space.x + 16, next_space.y + 16, 100);	

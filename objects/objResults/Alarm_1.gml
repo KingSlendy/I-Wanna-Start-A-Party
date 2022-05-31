@@ -8,7 +8,6 @@ for (var i = 4; i >= 1; i--) {
 		}
 		
 		var player_info = player_info_by_id(network_id);
-		print(player_info.place);
 		
 		if (player_info.place == i) {
 			array_push(player_gone, player_info.turn);
@@ -22,6 +21,8 @@ for (var i = 4; i >= 1; i--) {
 }
 
 if (place == 1) {
+	alarm[2] = get_frames(0.5);
+	exit;
 }
 
 for (var i = 1; i <= global.player_max; i++) {

@@ -3,6 +3,13 @@ if (follow_path != null && path_exists(follow_path)) {
 	follow_path = null;
 }
 
+if (global.board_first_space[network_id - 1]) {
+	global.dice_roll = 0;
+	global.board_first_space[network_id - 1] = false;
+	turn_start();
+	return;
+}
+
 var space = instance_place(x, y, objSpaces);
 var passing = false;
 

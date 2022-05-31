@@ -1,6 +1,11 @@
 next_seed_inline();
 info = global.minigame_info;
-objPlayerBase.frozen = true;
+
+with (objPlayerBase) {
+	frozen = true;
+	lost = false;
+}
+
 minigame_start = minigame_4vs_start;
 minigame_split = false;
 minigame_time = -1;
@@ -20,13 +25,6 @@ player_check = objPlayerBase;
 function back_to_board() {
 	event_perform(ev_cleanup, 0);
 	
-	with (objPlayerInfo) {
-		target_draw_x = main_draw_x;
-		target_draw_y = main_draw_y;
-		draw_x = target_draw_x;
-		draw_y = target_draw_y;
-	}
-	
 	if (!info.is_practice) {
 		if (++global.board_turn > global.max_board_turns) {
 			board_finish();
@@ -36,7 +34,7 @@ function back_to_board() {
 		room_goto(info.previous_board);
 	
 		with (objPlayerBase) {
-			change_to_object(objPlayerBoard);
+			change_to_object(objPlayerBase);
 		}
 	} else {
 		room_goto(rMinigameOverview);
@@ -46,5 +44,12 @@ function back_to_board() {
 		}
 		
 		return;
+	}
+	
+	with (objPlayerInfo) {
+		target_draw_x = main_draw_x;
+		target_draw_y = main_draw_y;
+		draw_x = target_draw_x;
+		draw_y = target_draw_y;
 	}
 }

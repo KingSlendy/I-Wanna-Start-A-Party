@@ -18,7 +18,8 @@ m[$ "1vs3"] = [
 ];
 
 m[$ "2vs2"] = [
-	new Minigame("A-Maze-Ing", ["Just win"],, rMinigame2vs2_Maze)
+	new Minigame("A-Maze-Ing", ["Just win"],, rMinigame2vs2_Maze),
+	new Minigame("Catch The Fruits", ["Just collect the fruits"],, rMinigame2vs2_Fruits)
 ];
 
 function minigame_info_reset() {
