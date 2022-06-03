@@ -54,8 +54,11 @@ if (shopping && is_local_turn()) {
 							with (objDialogue) {
 								text_end();
 							}
+							
+							bonus_shine_by_id("most_purchases").increase_score();
 						
 							if (item_selected.id != ItemType.ItemBag) {
+								
 								change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
 									change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
 								}

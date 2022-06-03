@@ -184,7 +184,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 5:
-						if (global.player_id != 1) {
+						if (global.player_id != 1 || alarm[0] > 0) {
 							exit;
 						}
 						
@@ -201,6 +201,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						}
 						
 						ai_join_all();
+						//obtain_same_game_id();
 						alarm[0] = get_frames(1);
 						break;
 				}

@@ -149,7 +149,7 @@ function spawn_player_info(order, turn) {
 		setup();
 	}
 	
-	if (is_local_turn()) {
+	if (room != rParty && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.SpawnPlayerInfo);
 		buffer_write_data(buffer_u8, order);
@@ -236,7 +236,7 @@ function next_seed_inline() {
 	var next_seed = ++global.current_seed;
 	
 	if (next_seed == array_length(global.seed_bag)) {
-		array_shuffle(global.seed_bag);
+		next_seed = 0;
 		global.current_seed = 0;
 	}
 	
@@ -251,6 +251,7 @@ function board_start() {
 	if (!global.board_started) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardStart);
+		buffer_write_data(buffer_string, global.game_id);
 		buffer_write_array(buffer_u8, global.initial_rolls);
 		buffer_write_array(buffer_u64, global.seed_bag);
 		network_send_tcp_packet();
@@ -260,6 +261,7 @@ function board_start() {
 			new Message("Let's choose the turns",, choose_turns)
 		]);
 	} else {
+		save_board();
 		turn_start();
 	}
 }
@@ -356,7 +358,7 @@ function turn_start() {
 		return;
 	}
 	
-	if (global.board_first_space[focused_player().network_id - 1] && global.board_turn == 1) {
+	if (is_local_turn() && global.board_first_space[focused_player().network_id - 1] && global.board_turn == 1) {
 		global.dice_roll = -1;
 		board_advance();
 		return;
@@ -507,6 +509,7 @@ function roll_dice() {
 	
 	if (global.board_started) {
 		var player_info = player_info_by_turn();
+		bonus_shine_by_id("most_roll").set_score(roll);
 	} else {
 		var player_info = {item_effect: -1};
 	}
@@ -591,6 +594,10 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 	s.network_id = s.focus_player.network_id;
 	s.amount = amount;
 	s.animation_type = type;
+	
+	if (sign(amount) == 1) {
+		bonus_shine_by_id("most_shines").increase_score(s.network_id);
+	}
 
 	if (is_local_turn()) {
 		buffer_seek_begin();
@@ -605,12 +612,22 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 }
 
 function change_coins(amount, type, player_turn = global.player_turn) {
+	var player_info = player_info_by_turn(player_turn);
+	
+	if (amount < 0) {
+		amount = clamp(amount, -player_info.coins, 0);
+	}
+	
 	var c = instance_create_layer(0, 0, "Managers", objCoinChange);
-	c.player_info = player_info_by_turn(player_turn);
+	c.player_info = player_info;
 	c.focus_player = focus_player_by_turn(player_turn);
 	c.network_id = c.focus_player.network_id;
 	c.amount = amount;
 	c.animation_type = type;
+	
+	if (sign(amount) == 1) {
+		bonus_shine_by_id("most_coins").increase_score(c.network_id);
+	}
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
@@ -689,6 +706,7 @@ function change_space(space) {
 		case SpaceType.Red: color = c_red; break;
 		case SpaceType.Green: color = c_green; break;
 		case SpaceType.ChanceTime: color = c_yellow; break;
+		case SpaceType.TheGuy: color = c_dkgray; break;
 		default: color = c_gray; break;
 	}
 	
@@ -1023,14 +1041,22 @@ function place_shine(space_x, space_y) {
 }
 
 function start_chance_time() {
-	var c = instance_create_layer(x, y, "Managers", objChanceTime);
+	instance_create_layer(x, y, "Managers", objChanceTime);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.StartChanceTime);
 		network_send_tcp_packet();
 	}
+}
+
+function start_the_guy() {
+	instance_create_layer(x, y, "Managers", objTheGuy);
 	
-	return c;
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.StartTheGuy);
+		network_send_tcp_packet();
+	}
 }
 #endregion

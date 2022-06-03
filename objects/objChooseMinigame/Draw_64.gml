@@ -9,7 +9,7 @@ if (minigames_alpha > 0) {
 		var draw_y = minigames_y + minigames_height * i;
 		draw_box(minigames_x, draw_y, minigames_width, minigames_height, (i == global.choice_selected && minigames_alpha == 1) ? c_gray : c_dkgray, c_orange);
 		var text = new Text(fntDialogue, minigame_list[i].title);
-		text.draw(minigames_x + 5, draw_y + 6);
+		text.draw(minigames_x + 5, draw_y + 7);
 	}
 }
 

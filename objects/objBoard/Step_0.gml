@@ -7,7 +7,7 @@ if (!global.board_started) {
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;
 			fade_start = false;
-		
+
 			if (global.player_id == 1) {
 				board_start();
 			}

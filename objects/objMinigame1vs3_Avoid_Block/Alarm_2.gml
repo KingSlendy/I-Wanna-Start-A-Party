@@ -1,3 +1,4 @@
+next_seed_inline();
 var a = instance_create_layer(768, 576, "Actors", objMinigame1vs3_Avoid_Cherry);
 a.image_index = attack;
 a.hspeed = choose(2, 4) * -1;

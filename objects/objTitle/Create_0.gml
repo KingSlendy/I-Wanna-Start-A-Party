@@ -34,7 +34,7 @@ function GiftKids(angle, title) constructor {
 	self.angle = angle;
 	self.title = title;
 
-	self.display = function() {
+	static display = function() {
 		var chose = self.title.skins[0];
 		array_delete(self.title.skins, 0, 1);
 		array_push(self.title.skins, chose);
@@ -45,7 +45,7 @@ function GiftKids(angle, title) constructor {
 	
 	self.display();
 	
-	self.draw = function() {
+	static draw = function() {
 		draw_sprite_ext(sprite, 0, 400 + 300 * dcos(self.angle), 330 + 50 * dsin(self.angle), 5, 5, 0, c_white, 1);
 		self.angle = (self.angle + 360 + 0.5) % 360;
 		

@@ -16,7 +16,7 @@ switch (state) {
 			}
 		
 			//Doubles the view size
-			camera_set_view_size(view_camera[0], 800 * 2.5, 608 * 2.5);
+			camera_set_view_size(view_camera[0], 800 * 3, 608 * 3);
 			alpha = 1;
 			state = 1;
 			
@@ -30,22 +30,24 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			//Temp
-			var test2 = 2//irandom(2);
-			var test = [1, 2, 3, 4];
-			array_shuffle(test);
-			array_delete(test, 2, test2);
+			//var test2 = 2//irandom(2);
+			//var test = [1, 2, 3, 4];
+			//array_shuffle(test);
+			//array_delete(test, 2, test2);
 			//Temp
 			
 			with (objPlayerInfo) {
 				//Temp
-				if (array_contains(test, player_info.turn)) {
-					player_info.space = c_blue;
-				} else {
-					player_info.space = c_red;
-				}
+				//if (array_contains(test, player_info.turn)) {
+				//	player_info.space = c_blue;
+				//} else {
+				//	player_info.space = c_red;
+				//}
 				//Temp
 			
 				//If there's players with colors other than blue and red, it picks a random one for them
+				next_seed_inline();
+				
 				if (player_info.space != c_blue && player_info.space != c_red) {
 					player_info.space = choose(c_blue, c_red);
 				}

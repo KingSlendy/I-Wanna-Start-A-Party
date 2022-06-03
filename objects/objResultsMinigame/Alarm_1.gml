@@ -1,3 +1,8 @@
+if (instance_exists(objStatChange)) {
+	alarm[1] = 1;
+	exit;
+}
+
 minigame_info_placement();
 
 for (var i = 0; i < global.player_max; i++) {

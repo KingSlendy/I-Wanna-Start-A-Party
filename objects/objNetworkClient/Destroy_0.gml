@@ -13,6 +13,8 @@ global.player_client_list = array_create(global.player_max, null);
 global.master_id = 0;
 global.player_id = 0;
 global.lobby_started = false;
+global.game_id = "";
+global.same_game_ids = array_create(global.player_max, null);
 player_leave_all();
 
 if (room == rFiles) {

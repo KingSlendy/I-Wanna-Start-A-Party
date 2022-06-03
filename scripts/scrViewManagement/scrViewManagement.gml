@@ -41,15 +41,18 @@ function camera_4vs_split4(camera) {
 function camera_2vs2_split4(camera, info) {
 	var index = false;
 
-	with (objPlayerInfo) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		var player_info = player_info_by_turn(i);
+		
 		if (player_info.space == info.player_colors[0]) {
 			with (camera) {
-				var i = (!index) ? 0 : 2;
-				target_follow[i] = focus_player_by_id(other.player_info.network_id);
-				target_x[i] = target_follow[i].x;
-				target_y[i] = target_follow[i].y;
-				view_x[i] = target_x[i];
-				view_y[i] = target_y[i];
+				var j = (!index) ? 0 : 2;
+				target_follow[j] = player;
+				target_x[j] = target_follow[j].x;
+				target_y[j] = target_follow[j].y;
+				view_x[j] = target_x[j];
+				view_y[j] = target_y[j];
 			}
 			
 			index = !index;
@@ -58,15 +61,18 @@ function camera_2vs2_split4(camera, info) {
 
 	index = false;
 
-	with (objPlayerInfo) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		var player_info = player_info_by_turn(i);
+		
 		if (player_info.space == info.player_colors[1]) {
 			with (camera) {
-				var i = (!index) ? 1 : 3;
-				target_follow[i] = focus_player_by_id(other.player_info.network_id);
-				target_x[i] = target_follow[i].x;
-				target_y[i] = target_follow[i].y;
-				view_x[i] = target_x[i];
-				view_y[i] = target_y[i];
+				var j = (!index) ? 1 : 3;
+				target_follow[j] = player;
+				target_x[j] = target_follow[j].x;
+				target_y[j] = target_follow[j].y;
+				view_x[j] = target_x[j];
+				view_y[j] = target_y[j];
 			}
 			
 			index = !index;

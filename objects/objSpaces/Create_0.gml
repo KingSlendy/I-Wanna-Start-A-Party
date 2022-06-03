@@ -139,18 +139,34 @@ function space_finish_event() {
 			}
 			
 			change_coins(3, CoinChangeType.Gain).final_action = blue_event;
+			bonus_shine_by_id("most_blue_spaces").increase_score();
 			break;
 			
 		case SpaceType.Red:
 			change_coins(-3, CoinChangeType.Lose).final_action = turn_next;
+			bonus_shine_by_id("most_red_spaces").increase_score();
 			break;
 			
 		case SpaceType.Green:
-			turn_next();
+			//turn_next();
+			
+			if (irandom(1) == 0) {
+				change_coins(6, CoinChangeType.Gain).final_action = turn_next;
+			} else {
+				change_coins(-6, CoinChangeType.Lose).final_action = turn_next;
+			}
+			
+			bonus_shine_by_id("most_green_spaces").increase_score();
 			break;
 			
 		case SpaceType.ChanceTime:
 			start_chance_time();
+			bonus_shine_by_id("most_chance_time_spaces").increase_score();
+			break;
+			
+		case SpaceType.TheGuy:
+			start_the_guy();
+			bonus_shine_by_id("most_the_guy_spaces").increase_score();
 			break;
 	}
 }

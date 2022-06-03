@@ -24,7 +24,7 @@ function minigame_info_placement() {
 	}
 }
 
-minigame_info_placement();
+minigame_info_placement()
 
 var player_reference = null;
 
@@ -35,12 +35,14 @@ with (objPlayerReference) {
 	}
 }
 
-for (var i = 0; i < global.player_max; i++) {
-	var player_info = places_minigame_info[i];
-	var order = places_minigame_order[i];
-	var player = focus_player_by_id(player_info.player_info.network_id);
-	player.x = (player_reference.x - camera_get_view_width(view_camera[0]) / 2) + (400 - player_info.draw_w / 2) + 15;
-	player.y = (player_reference.y - camera_get_view_height(view_camera[0]) / 2) + (79 + (player_info.draw_h + 30) * (order - 1)) - 20;
+if (info.is_finished) {
+	for (var i = 0; i < global.player_max; i++) {
+		var player_info = places_minigame_info[i];
+		var order = places_minigame_order[i];
+		var player = focus_player_by_id(player_info.player_info.network_id);
+		player.x = (player_reference.x - camera_get_view_width(view_camera[0]) / 2) + (400 - player_info.draw_w / 2) + 20;
+		player.y = (player_reference.y - camera_get_view_height(view_camera[0]) / 2) + (79 + (player_info.draw_h + 30) * (order - 1)) + 24;
+	}
 }
 
 for (var i = 0; i < array_length(info.space_indexes); i++) {

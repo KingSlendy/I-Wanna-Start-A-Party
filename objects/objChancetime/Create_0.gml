@@ -231,7 +231,6 @@ function advance_chance_time() {
 		if (instance_exists(b)) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.SpawnChanceTimeBox);
-			buffer_write_data(buffer_u64, random_get_seed());
 			buffer_write_array(buffer_u32, b.sprites);
 			buffer_write_data(buffer_bool, b.indexes);
 			network_send_tcp_packet();

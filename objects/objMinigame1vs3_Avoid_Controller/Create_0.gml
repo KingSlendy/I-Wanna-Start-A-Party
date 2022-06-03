@@ -14,7 +14,7 @@ minigame_time = 40;
 minigame_time_end = function() {
 	with (objPlayerBase) {
 		if (y > 128) {
-			minigame_4vs_points(objMinigameController.info, network_id - 1);
+			minigame_4vs_points(objMinigameController.info, network_id);
 			break;
 		}
 	}

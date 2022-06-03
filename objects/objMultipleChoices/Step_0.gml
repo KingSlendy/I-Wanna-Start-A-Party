@@ -39,7 +39,7 @@ if (global.actions.jump.pressed(network_id)) {
 	}
 }
 
-if (global.actions.shoot.pressed()) {
+if (!player_info_by_turn().item_used && global.actions.shoot.pressed()) {
 	final_action = null;
 	alpha_target = 0;
 	audio_play_sound(global.sound_cursor_back, 0, false);

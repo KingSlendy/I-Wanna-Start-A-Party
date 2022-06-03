@@ -67,7 +67,7 @@
         5,
         5,
         5,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Autotile_1","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,"resourceVersion":"1.0","name":"Megaman","tags":[],"resourceType":"GMAutoTileSet",},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 15.0,

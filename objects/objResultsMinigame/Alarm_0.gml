@@ -5,4 +5,4 @@ if (is_local_turn()) {
 	}
 }
 
-alarm[1] = get_frames(3.3);
+alarm[1] = get_frames(1);

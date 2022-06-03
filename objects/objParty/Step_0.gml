@@ -15,6 +15,7 @@ if (fade_start) {
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
 			fade_start = false;
+			music_pause();
 			room_goto(board_rooms[board_selected]);
 		}
 	}
@@ -24,7 +25,7 @@ if (skin_row != skin_target_row) {
 	skin_y = lerp(skin_y, skin_target_y, 0.4);
 	
 	if (point_distance(skin_y, 0, skin_target_y, 0) < 1.5) {
-		skin_y = 118;
+		skin_y = skin_h;
 		skin_target_y = skin_y;
 		skin_row = skin_target_row;
 		
@@ -46,13 +47,33 @@ if (board_selected != board_target_selected) {
 
 if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 	switch (menu_page) {
+		case -1:
+		var scroll = (sync_actions("down", 1) - sync_actions("up", 1));
+				
+			if (scroll != 0) {
+				var length = 2;
+				save_selected = (save_selected + length + scroll) % length;
+				audio_play_sound(global.sound_cursor_move, 0, false);
+				exit;
+			}
+				
+			if (sync_actions("jump", 1)) {
+				if (save_selected == 0) {
+					start_board();
+				} else {
+					menu_page = 0;
+					audio_play_sound(global.sound_cursor_back, 0, false);
+				}
+			}
+			break;
+		
 		case 0:
 			if (skin_row == skin_target_row) {
 				var scroll_v = (sync_actions("down", skin_player + 1) - sync_actions("up", skin_player + 1));
 	
 				if (scroll_v != 0) {
 					var length = array_length(skins);
-					skin_target_y -= 118 * scroll_v;
+					skin_target_y -= skin_h * scroll_v;
 					skin_target_row = (skin_row + length + scroll_v) % length;
 					audio_play_sound(global.sound_cursor_move, 0, false);
 					exit;
@@ -95,11 +116,15 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 								break;
 							}
 						}
-				
-						audio_play_sound(global.sound_cursor_back, 0, false);
 					} else {
-						//Send to mode selection
+						if (save_present) {
+							menu_page = -1;
+						} else {
+							//Send to mode selection
+						}
 					}
+					
+					audio_play_sound(global.sound_cursor_back, 0, false);
 				}
 			}
 		
@@ -129,8 +154,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				}
 				
 				if (sync_actions("jump", 1)) {
-					finish = true;
-					fade_start = true;
+					start_board();
 					exit;
 				}
 				

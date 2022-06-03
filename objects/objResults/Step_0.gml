@@ -22,6 +22,12 @@ if (fade_start) {
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
 			fade_start = false;
+			
+			if (instance_exists(objNetworkClient)) {
+				variable_struct_remove(global.board_games, global.game_id);
+			}
+			
+			save_file();
 			network_disable();
 		}
 	}

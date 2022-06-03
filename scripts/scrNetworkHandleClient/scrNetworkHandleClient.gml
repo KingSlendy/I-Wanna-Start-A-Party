@@ -10,6 +10,7 @@ enum ClientTCP {
 	LeaveLobby,
 	LobbyList,
 	LobbyStart,
+	LobbyGameID,
 	PartyAction,
 	PlayerMove,
 	PlayerShoot,
@@ -55,6 +56,10 @@ enum ClientTCP {
 	EndChanceTime,
 	ChooseMinigame,
 	ChooseMinigameChoosed,
+	StartTheGuy,
+	ShowTheGuyOptions,
+	CrushTheGuy,
+	EndTheGuy,
 	
 	//Animations
 	ItemApplied,
@@ -73,6 +78,9 @@ enum ClientTCP {
 	
 	//Results
 	ResultsCoins,
+	ResultsBonus,
+	ResultsBonusShineGoUp,
+	ResultsBonusShineNextBonus,
 	ResultsWon,
 	ResultsEnd
 }
@@ -246,6 +254,36 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.LobbyGameID:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var received_names = buffer_read_array(buffer, buffer_string);
+			
+			if (player_id == 5) {
+				if (array_length(received_names) > 0) {
+					global.game_id = received_names[0];
+				} else {
+					//buffer_seek_begin();
+					//buffer_write_action(ClientTCP.LobbySavedPlayers);
+					//buffer_write_action();
+				}
+				
+				return;
+			}
+			
+			if (global.player_id == player_id) {
+				var names = variable_struct_get_names(global.board_games);
+				var send_names = [];
+				
+				for (var i = 0; i < array_length(names); i++) {
+					if (array_contains(received_names, names[i])) {
+						array_push(send_names, names[i]);
+					}
+				}
+				
+				obtain_same_game_id(send_names);
+			}
+			break;
+			
 		case ClientTCP.LobbyStart:
 			global.lobby_started = true;
 			objFiles.fade_start = true;
@@ -318,9 +356,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.SpawnChanceTimeBox:
-			var seed = buffer_read(buffer, buffer_u64);
-			random_set_seed(seed);
-			
 			with (objChanceTime) {
 				var b = advance_chance_time();
 				b.sprites = buffer_read_array(buffer, buffer_u32);
@@ -477,6 +512,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		#region Events
 		case ClientTCP.BoardStart:
+			global.game_id = buffer_read(buffer, buffer_string);
 			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
 			global.seed_bag = buffer_read_array(buffer, buffer_u64);
 			break;
@@ -496,7 +532,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.StartChanceTime:
-			start_chance_time().rotate_turn = false;
+			start_chance_time();
 			break;
 			
 		case ClientTCP.RepositionChanceTime:
@@ -507,6 +543,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.EndChanceTime:
 			with (objChanceTime) {
+				rotate_turn = false;
 				end_chance_time();
 			}
 			break;
@@ -518,6 +555,27 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.ChooseMinigameChoosed:
 			with (objChooseMinigame) {
 				choosed_minigame();
+			}
+			break;
+			
+		case ClientTCP.StartTheGuy:
+			start_the_guy();
+			break;
+			
+		case ClientTCP.ShowTheGuyOptions:
+			with (objTheGuy) {
+				show_the_guy_options();
+			}
+			break;
+			
+		case ClientTCP.CrushTheGuy:
+			objTheGuy.alarm[5] = 1;
+			break;
+			
+		case ClientTCP.EndTheGuy:
+			with (objTheGuy) {
+				rotate_turn = false;
+				end_the_guy();
 			}
 			break;
 		#endregion
@@ -633,8 +691,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.Minigame2vs2_Fruits_Fruit:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var points = buffer_read(buffer, buffer_u8);
-			minigame_4vs_points(objMinigameController.info, player_id - 1, points);
+			var points = buffer_read(buffer, buffer_s8);
+			minigame_4vs_points(objMinigameController.info, player_id, points);
 			break;
 		#endregion
 		
@@ -642,6 +700,33 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.ResultsCoins:
 			with (objResults) {
 				results_coins();
+			}
+			break;
+			
+		case ClientTCP.ResultsBonus:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var scores_ids = buffer_read_array(buffer, buffer_string);
+			var scores_scores = buffer_read_array(buffer, buffer_s32);
+			global.bonus_shines_ready[player_id - 1] = true;
+			
+			for (var i = 0; i < array_length(scores_ids); i++) {
+				global.bonus_shines[$ scores_ids[i]].scores[player_id - 1] = scores_scores[i];
+			}
+		
+			with (objResults) {
+				results_bonus();
+			}
+			break;
+			
+		case ClientTCP.ResultsBonusShineGoUp:
+			with (objResultsBonusShine) {
+				go_up();
+			}
+			break;
+			
+		case ClientTCP.ResultsBonusShineNextBonus:
+			with (objResultsBonusShine) {
+				next_bonus();
 			}
 			break;
 		

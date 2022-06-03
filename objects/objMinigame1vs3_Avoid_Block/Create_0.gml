@@ -20,7 +20,7 @@ function activate(image, network = false) {
 		}
 	
 		image_index = image_number - 1;
-		alarm[10] = get_frames(2.2);
+		alarm[10] = get_frames(2.4);
 		alarm[11] = get_frames(2);
 	}
 }

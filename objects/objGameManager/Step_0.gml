@@ -17,3 +17,7 @@ if (keyboard_check_pressed(vk_f2)) {
 	instance_destroy(objNetworkClient);
 	game_restart();
 }
+
+if (keyboard_check_pressed(vk_escape)) {
+	game_end();
+}

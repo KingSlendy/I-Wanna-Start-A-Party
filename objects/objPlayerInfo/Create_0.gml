@@ -1,3 +1,8 @@
+if (room == rParty) {
+	visible = false;
+	persistent = false;
+}
+
 depth = -10000;
 player_info = null;
 draw_w = 240;

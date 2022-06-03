@@ -22,7 +22,10 @@ global.skin_sprites = [
 	"Scare",
 	"Dark",
 	"Easy",
-	"Miku"
+	"Miku",
+	"Miki",
+	"Producer",
+	"Kami2"
 ];
 
 global.skin_current = 0;

@@ -32,7 +32,7 @@ if (lost_count >= global.player_max - 1) {
 		}
 		
 		with (objMinigameController) {
-			minigame_4vs_points(info, other.network_id - 1);
+			minigame_4vs_points(info, other.network_id);
 		}
 		
 		break;

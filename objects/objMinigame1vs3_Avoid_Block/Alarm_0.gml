@@ -1,3 +1,4 @@
+next_seed_inline();
 var rnd = irandom(359);
 
 for (var i = 0; i < 360; i += 360 / 20) {

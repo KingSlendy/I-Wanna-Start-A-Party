@@ -13,6 +13,9 @@ with (objPlayerBase) {
 	lost = false;
 }
 
+bonus_started = false;
+bonus_candidates = [];
+bonus_round = 0;
 lights_moving = false;
 lights_spd = [];
 
@@ -37,6 +40,53 @@ function results_coins() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ResultsCoins);
 		network_send_tcp_packet();
+	}
+}
+
+function results_bonus() {
+	if (!bonus_started) {
+		for (var i = 1; i <= global.player_max; i++) {
+			if (is_player_local(i)) {
+				buffer_seek_begin();
+				buffer_write_action(ClientTCP.ResultsBonus);
+				buffer_write_data(buffer_u8, i);
+				global.bonus_shines_ready[i - 1] = true;
+				var names = variable_struct_get_names(global.bonus_shines);
+				var scores_ids = [];
+				var scores_scores = [];
+			
+				for (var j = 0; j < array_length(names); j++) {
+					array_push(scores_ids, names[j]);
+					array_push(scores_scores, global.bonus_shines[$ names[j]].scores[i - 1]);
+				}
+			
+				buffer_write_array(buffer_string, scores_ids);
+				buffer_write_array(buffer_s32, scores_scores);
+				network_send_tcp_packet();
+			}
+		}
+		
+		bonus_started = true;
+	}
+	
+	if (array_count(global.bonus_shines_ready, true) == global.player_max) {
+		if (array_length(bonus_candidates) == 0) {
+			next_seed_inline();
+			
+			var names = variable_struct_get_names(global.bonus_shines);
+		
+			for (var i = 0; i < array_length(names); i++) {
+				var bonus = global.bonus_shines[$ names[i]];
+		
+				if (bonus.is_candidate()) {
+					array_push(bonus_candidates, bonus);
+				}
+			}
+		
+			array_shuffle(bonus_candidates);
+		}
+	
+		alarm[3] = get_frames(0.25);
 	}
 }
 

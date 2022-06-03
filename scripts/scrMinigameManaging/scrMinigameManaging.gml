@@ -105,7 +105,7 @@ function player_1vs3_positioning(info) {
 	
 	with (objPlayerInfo) {
 		if (player_info.space == info.player_colors[0]) {
-			var player = focus_player_by_id(player_info.network_id);
+			var player = focus_player_by_turn(player_info.turn);
 			
 			with (objPlayerReference) {
 				if (reference == index) {
@@ -121,7 +121,7 @@ function player_1vs3_positioning(info) {
 	
 	with (objPlayerInfo) {
 		if (player_info.space == info.player_colors[1]) {
-			var player = focus_player_by_id(player_info.network_id);
+			var player = focus_player_by_turn(player_info.turn);
 			
 			with (objPlayerReference) {
 				if (reference == 0) {
@@ -192,7 +192,7 @@ function minigame_max_points() {
 
 function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
 	if (!info.is_finished) {
-		var scoring = info.player_scores[player_id];
+		var scoring = info.player_scores[player_id - 1];
 		
 		if (!scoring.ready) {
 			scoring.points += points;

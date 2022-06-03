@@ -41,5 +41,9 @@ switch (info.type) {
 		break;
 }
 
+for (var i = 0; i < array_length(info.players_won); i++) {
+	bonus_shine_by_id("most_minigames").increase_score(info.players_won[i]);
+}
+
 show_popup(winner_title,,,,,, 3.5);
 alarm[3] = get_frames(4);

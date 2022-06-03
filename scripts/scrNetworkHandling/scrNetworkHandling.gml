@@ -9,6 +9,8 @@ global.player_id = 0;
 global.master_id = 0;
 global.player_name = "Player";
 global.lobby_started = false;
+global.game_id = "";
+global.same_game_ids = array_create(global.player_max, null);
 
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
@@ -218,13 +220,23 @@ function player_read_data(buffer) {
 	}
 }
 
+function obtain_same_game_id(names = variable_struct_get_names(global.board_games)) {
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.LobbyGameID);
+	buffer_write_data(buffer_u8, global.player_id + 1);
+	buffer_write_array(buffer_string, names);
+	network_send_tcp_packet();
+}
+
 function network_disable() {
-	if (instance_exists(objNetworkClient)) {
-		instance_destroy(objNetworkClient);
-	} else {
-		global.lobby_started = false;
-		player_leave_all();
-	}
+	event_perform_object(objNetworkClient, ev_destroy, 0);
+	
+	//if (instance_exists(objNetworkClient)) {
+	//	instance_destroy(objNetworkClient);
+	//} else {
+	//	global.lobby_started = false;
+	//	player_leave_all();
+	//}
 	
 	instance_destroy(objPlayerInfo);
 	instance_deactivate_all(false);

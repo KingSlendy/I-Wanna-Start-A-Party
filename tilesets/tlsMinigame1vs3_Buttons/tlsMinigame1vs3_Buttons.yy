@@ -67,7 +67,7 @@
         1,
         1,
         1,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Autotile_1","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,"resourceVersion":"1.0","name":"Neos","tags":[],"resourceType":"GMAutoTileSet",},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 15.0,

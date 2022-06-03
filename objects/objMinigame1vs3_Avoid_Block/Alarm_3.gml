@@ -1,3 +1,4 @@
+next_seed_inline();
 var a = instance_create_layer(0, irandom_range(160 + 16, 608 - 32 - 16), "Actors", objMinigame1vs3_Avoid_Cherry);
 a.image_index = attack;
 a.hspeed = irandom_range(4, 6);

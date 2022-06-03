@@ -9,16 +9,46 @@ for (var i = 0; i < global.player_max; i++) {
 var draw_x = 160;
 var draw_y = 32;
 var draw_w = 32 * 15;
-var draw_h = 32 * 15 - 118;
+var draw_h = 32 * 15 - 112;
 draw_box(draw_x, draw_y, draw_w, draw_h, c_gray, c_dkgray);
 
 if (!surface_exists(surf)) {
-	surf = surface_create(472, 472 - 118);
+	surf = surface_create(472, 472 - 112);
 }
 
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 menu_x = lerp(menu_x, -menu_sep * menu_page, 0.3);
+
+//Save present
+var save_x = menu_x - menu_sep;
+var save_y = 0;
+
+if (save_present) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player_info = focus_info_by_turn(i);
+	
+		with (player_info) {
+			target_draw_x = save_x;
+			self.draw_x = save_x;
+			event_perform(ev_draw, ev_gui);
+		}
+	}
+	
+	draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
+	draw_set_font(fntPlayerInfo);
+	draw_text_outline(save_x + 270, save_y + 140, "Turn: 1/20", c_black);
+}
+
+var text = new Text(fntDialogue);
+
+for (var i = 0; i < 2; i++) {
+	var option_x = save_x + 290;
+	var option_y = save_y + 270 + 45 * i;
+	draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_gray : c_dkgray);
+	text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
+	text.draw(option_x + 10, option_y + 6); 
+}
 
 //Skin selection
 var length = array_length(skins)
@@ -37,12 +67,12 @@ for (var r = -2; r <= 2; r++) {
 			color = c_black;
 		}
 		
-		var box_x = menu_x + 118 * c;
-		var box_y = skin_y + 118 * r;
-		draw_set_alpha(remap(point_distance(box_y, 0, 118, 0), 0, 118, 1, 0.5));
+		var box_x = menu_x + skin_w * c;
+		var box_y = skin_y + skin_h * r;
+		draw_set_alpha(remap(point_distance(box_y, 0, skin_h, 0), 0, skin_h, 1, 0.5));
 		//draw_set_alpha((r == 0) ? 1 : 0.5);
-		draw_box(box_x, box_y, 118, 118, c_dkgray, color);
-		draw_sprite_ext(get_skin(skin)[$ "Idle"], 0, box_x + 118 / 2 + 3, box_y + 118 / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());
+		draw_box(box_x, box_y, skin_w, skin_h, c_dkgray, color);
+		draw_sprite_ext(get_skin(skin)[$ "Idle"], 0, box_x + skin_w / 2 + 3, box_y + skin_h / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());
 		draw_set_alpha(1);
 	}
 }
@@ -50,16 +80,16 @@ for (var r = -2; r <= 2; r++) {
 //Board selection
 var box_x = menu_x + menu_sep;
 var box_y = 0;
-draw_sprite_stretched(sprPartyBoardMark, 1, box_x + 60, box_y + 32, 352, 224);
+draw_sprite_stretched(sprPartyBoardMark, 1, box_x + 60, box_y + 32, board_w, board_h);
 gpu_set_colorwriteenable(true, true, true, false);
 var length = sprite_get_number(sprPartyBoardTest);
 
 for (var i = -1; i <= 1; i++) {
-	draw_sprite_stretched(sprPartyBoardTest, (board_selected + length + i) % length, box_x + 104 + 264 * i + board_x, box_y + 47, 264, 193);
+	draw_sprite_stretched(sprPartyBoardTest, (board_selected + length + i) % length, box_x + 104 + 264 * i + board_x, box_y + 47, board_img_w, board_img_h);
 }
 
 gpu_set_colorwriteenable(true, true, true, true);
-draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, 352, 224);
+draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, board_w, board_h);
 
 surface_reset_target();
 
