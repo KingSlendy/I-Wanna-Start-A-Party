@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprMinigame1vs3_Buttons_Button",
-    "path": "sprites/sprMinigame1vs3_Buttons_Button/sprMinigame1vs3_Buttons_Button.yy",
+    "name": "sprMinigame2vs2_Buttons_Button",
+    "path": "sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,10 +30,10 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Buttons",
-    "path": "folders/Objects/Minigames/1vs3/Buttons.yy",
+    "path": "folders/Objects/Minigames/2vs2/Buttons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Buttons_Button",
+  "name": "objMinigame2vs2_Buttons_Button",
   "tags": [],
   "resourceType": "GMObject",
 }

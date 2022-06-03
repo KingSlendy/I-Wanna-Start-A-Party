@@ -29,6 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
+	//self.items = [null, null, global.board_items[ItemType.Reverse]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;

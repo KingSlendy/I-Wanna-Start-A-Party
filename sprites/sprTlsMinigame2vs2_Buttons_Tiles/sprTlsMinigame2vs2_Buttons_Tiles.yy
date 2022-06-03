@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},"LayerId":{"name":"dab497dc-6142-4a94-bff4-01bd0b534a63","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTlsMinigame1vs3_Buttons_Tiles","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},"resourceVersion":"1.0","name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},"LayerId":{"name":"dab497dc-6142-4a94-bff4-01bd0b534a63","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprTlsMinigame2vs2_Buttons_Tiles","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},"resourceVersion":"1.0","name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTlsMinigame1vs3_Buttons_Tiles","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},
+    "spriteId": {"name":"sprTlsMinigame2vs2_Buttons_Tiles","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f30d5372-c6af-473e-baf8-37b84d68e5cd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f30d5372-c6af-473e-baf8-37b84d68e5cd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e5db364e-06ab-4c1b-a5c4-845ede4c53b7","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTlsMinigame1vs3_Buttons_Tiles","path":"sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",},
+    "parent": {"name":"sprTlsMinigame2vs2_Buttons_Tiles","path":"sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",},
     "resourceVersion": "1.4",
-    "name": "sprTlsMinigame1vs3_Buttons_Tiles",
+    "name": "sprTlsMinigame2vs2_Buttons_Tiles",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -70,10 +70,10 @@
   "nineSlice": null,
   "parent": {
     "name": "Buttons",
-    "path": "folders/Sprites/Tilesets/Minigames/1vs3/Buttons.yy",
+    "path": "folders/Sprites/Tilesets/Minigames/2vs2/Buttons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sprTlsMinigame1vs3_Buttons_Tiles",
+  "name": "sprTlsMinigame2vs2_Buttons_Tiles",
   "tags": [],
   "resourceType": "GMSprite",
 }

@@ -5,11 +5,11 @@ space_directions_reverse = array_create(4, null);
 
 var paths = ds_list_create();
 var count = instance_place_list(x, y, objPath, paths, false);
-mask_index = sprNothing;
+instance_deactivate_object(id);
 
 for (var i = 0; i < count; i++) {
 	var path = paths[| i];
-	var space_collide = null;
+	var space_collide;
 		
 	with (path) {
 		space_collide = instance_place(x, y, objSpaces);
@@ -33,21 +33,21 @@ for (var i = 0; i < count; i++) {
 		case 180: space_array[@ abs(invert - 2)] = space_collide; break;
 		case 270: space_array[@ abs(invert - 3)] = space_collide; break;
 	}
-
-	if (array_count(space_directions_normal, null) == 3) {
-		space_next = array_first(space_directions_normal, function(x) {
-			return (x != null);
-		});
-	}
-	
-	if (array_count(space_directions_reverse, null) == 3) {
-		space_previous = array_first(space_directions_reverse, function(x) {
-			return (x != null);
-		});
-	}
 }
 
-mask_index = sprite_index;
+if (array_count(space_directions_normal, null) == 3) {
+	space_next = array_first(space_directions_normal, function(x) {
+		return (x != null);
+	});
+}
+	
+if (array_count(space_directions_reverse, null) == 3) {
+	space_previous = array_first(space_directions_reverse, function(x) {
+		return (x != null);
+	});
+}
+
+instance_activate_object(id);
 ds_list_destroy(paths);
 
 space_shine = false;
@@ -113,6 +113,7 @@ function space_passing_event() {
 					new Message("You don't have enough coins ({SPRITE,sprCoin,0,0,0,0.6,0.6}20) to buy the shine!\nCome back later.",, board_advance)
 				]);
 			}
+			
 			return true;
 	}
 	

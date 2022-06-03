@@ -32,10 +32,10 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Buttons",
-    "path": "folders/Objects/Minigames/1vs3/Buttons.yy",
+    "path": "folders/Objects/Minigames/2vs2/Buttons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Buttons_Controller",
+  "name": "objMinigame2vs2_Buttons_Controller",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -46,10 +46,11 @@ switch (state) {
 				//Temp
 			
 				//If there's players with colors other than blue and red, it picks a random one for them
-				next_seed_inline();
+				//next_seed_inline();
+				var options = [c_blue, c_red];
 				
 				if (player_info.space != c_blue && player_info.space != c_red) {
-					player_info.space = choose(c_blue, c_red);
+					player_info.space = options[player_info.coins % 2];
 				}
 			
 				//Gets the count of colors

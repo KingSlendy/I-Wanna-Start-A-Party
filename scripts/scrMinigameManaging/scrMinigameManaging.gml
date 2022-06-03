@@ -13,13 +13,13 @@ m[$ "4vs"] = [
 ];
 
 m[$ "1vs3"] = [
-	new Minigame("Buttons Everywhere", ["Just press"],, rMinigame1vs3_Buttons),
 	new Minigame("Avoid The Anguish", ["Just avoid"],, rMinigame1vs3_Avoid)
 ];
 
 m[$ "2vs2"] = [
 	new Minigame("A-Maze-Ing", ["Just win"],, rMinigame2vs2_Maze),
-	new Minigame("Catch The Fruits", ["Just collect the fruits"],, rMinigame2vs2_Fruits)
+	new Minigame("Catch The Fruits", ["Just collect the fruits"],, rMinigame2vs2_Fruits),
+	new Minigame("Buttons Everywhere", ["Just press"],, rMinigame2vs2_Buttons)
 ];
 
 function minigame_info_reset() {

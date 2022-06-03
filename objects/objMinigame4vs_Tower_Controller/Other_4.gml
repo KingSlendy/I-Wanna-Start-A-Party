@@ -52,4 +52,8 @@ repeat (4) {
 }
 
 event_inherited();
-objCameraSplit4.lock_x = true;
+
+with (objCameraSplit4) {
+	lock_x = true;
+	//lock_y = true;
+}

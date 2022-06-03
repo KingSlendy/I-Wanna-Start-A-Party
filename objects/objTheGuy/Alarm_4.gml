@@ -1,2 +1,5 @@
 objTheGuy.alarm[5] = get_frames(1);
-options[global.choice_selected].action();
+
+if (is_local_turn()) {
+	options[global.choice_selected].action();
+}

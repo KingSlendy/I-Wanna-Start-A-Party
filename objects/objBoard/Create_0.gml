@@ -107,3 +107,7 @@ minigame_info_reset();
 tell_choices = false;
 
 alarm[11] = 1;
+
+//Baba Is Board
+tile_image_speed = 0.12;
+tile_image_index = 0;

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprTlsMinigame1vs3_Buttons_Tiles",
-    "path": "sprites/sprTlsMinigame1vs3_Buttons_Tiles/sprTlsMinigame1vs3_Buttons_Tiles.yy",
+    "name": "sprTlsMinigame2vs2_Buttons_Tiles",
+    "path": "sprites/sprTlsMinigame2vs2_Buttons_Tiles/sprTlsMinigame2vs2_Buttons_Tiles.yy",
   },
   "tileWidth": 32,
   "tileHeight": 32,

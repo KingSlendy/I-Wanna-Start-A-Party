@@ -6,7 +6,6 @@ for (var i = 1; i <= 6; i++) {
 	draw_text_transformed_color_outline(title_x, title_y + i, title_text, title_scale, title_scale, 0, c_black, c_black, c_black, c_black, title_alpha, c_ltgray);
 }
 
-
 draw_sprite_ext(title_sprite, 0, title_x, title_y, title_scale, title_scale, 0, c_white, title_alpha);
 
 if (start_visible) {
