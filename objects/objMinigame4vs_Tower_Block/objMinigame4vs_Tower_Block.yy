@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprMinigame4vs_Tower_Platform",
-    "path": "sprites/sprMinigame4vs_Tower_Platform/sprMinigame4vs_Tower_Platform.yy",
+    "name": "sprMinigame4vs_Tower_Block",
+    "path": "sprites/sprMinigame4vs_Tower_Block/sprMinigame4vs_Tower_Block.yy",
   },
   "solid": false,
   "visible": true,
@@ -23,7 +23,9 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -31,7 +33,7 @@
     "path": "folders/Objects/Minigames/4vs/Tower.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Tower_Platform",
+  "name": "objMinigame4vs_Tower_Block",
   "tags": [],
   "resourceType": "GMObject",
 }

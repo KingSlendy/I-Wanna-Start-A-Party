@@ -67,21 +67,21 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	info.type = "2vs2";
 }
 
-//minigame_list = [
-//	global.minigames[$ info.type][0],
-//	global.minigames[$ info.type][0],
-//	global.minigames[$ info.type][0],
-//	global.minigames[$ info.type][0],
-//	global.minigames[$ info.type][0],
-//];
+minigame_list = [
+	global.minigames[$ info.type][1],
+	global.minigames[$ info.type][1],
+	global.minigames[$ info.type][1],
+	global.minigames[$ info.type][1],
+	global.minigames[$ info.type][1],
+];
 
-minigame_list = [];
+//minigame_list = [];
 
-var minigames_now = global.minigames[$ info.type];
+//var minigames_now = global.minigames[$ info.type];
 
-for (var i = 0; i < 5; i++) {
-	array_push(minigame_list, minigames_now[irandom(array_length(minigames_now) - 1)]);
-}
+//for (var i = 0; i < 5; i++) {
+//	array_push(minigame_list, minigames_now[irandom(array_length(minigames_now) - 1)]);
+//}
 
 show_popup("VS");
 alarm[1] = get_frames(2);

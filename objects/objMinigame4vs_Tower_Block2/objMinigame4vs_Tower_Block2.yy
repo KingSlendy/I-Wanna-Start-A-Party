@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "sprMinigame4vs_Tower_Platform",
-    "path": "sprites/sprMinigame4vs_Tower_Platform/sprMinigame4vs_Tower_Platform.yy",
+    "name": "sprMinigame4vs_Tower_Block2",
+    "path": "sprites/sprMinigame4vs_Tower_Block2/sprMinigame4vs_Tower_Block2.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
+    "name": "objMinigame4vs_Tower_Block",
+    "path": "objects/objMinigame4vs_Tower_Block/objMinigame4vs_Tower_Block.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Minigames/4vs/Tower.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Tower_Platform",
+  "name": "objMinigame4vs_Tower_Block2",
   "tags": [],
   "resourceType": "GMObject",
 }

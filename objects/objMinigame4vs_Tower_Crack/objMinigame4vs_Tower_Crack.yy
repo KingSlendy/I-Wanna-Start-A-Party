@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "sprMinigame4vs_Tower_Platform",
-    "path": "sprites/sprMinigame4vs_Tower_Platform/sprMinigame4vs_Tower_Platform.yy",
+    "name": "sprMinigame4vs_Tower_Crack",
+    "path": "sprites/sprMinigame4vs_Tower_Crack/sprMinigame4vs_Tower_Crack.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,7 +20,9 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -31,7 +30,7 @@
     "path": "folders/Objects/Minigames/4vs/Tower.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Tower_Platform",
+  "name": "objMinigame4vs_Tower_Crack",
   "tags": [],
   "resourceType": "GMObject",
 }

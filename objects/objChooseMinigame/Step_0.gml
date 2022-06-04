@@ -30,19 +30,19 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			//Temp
-			//var test2 = 2//irandom(2);
-			//var test = [1, 2, 3, 4];
-			//array_shuffle(test);
-			//array_delete(test, 2, test2);
+			var test2 = 0//irandom(2);
+			var test = [1, 2, 3, 4];
+			array_shuffle(test);
+			array_delete(test, 2, test2);
 			//Temp
 			
 			with (objPlayerInfo) {
 				//Temp
-				//if (array_contains(test, player_info.turn)) {
-				//	player_info.space = c_blue;
-				//} else {
-				//	player_info.space = c_red;
-				//}
+				if (array_contains(test, player_info.turn)) {
+					player_info.space = c_blue;
+				} else {
+					player_info.space = c_red;
+				}
 				//Temp
 			
 				//If there's players with colors other than blue and red, it picks a random one for them

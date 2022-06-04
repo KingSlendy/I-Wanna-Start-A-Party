@@ -2,6 +2,8 @@ if (global.player_id != 1) {
 	exit;
 }
 
+instance_deactivate_object(objMinigame4vs_Tower_Crack);
+
 for (var i = 2; i <= global.player_max; i++) {
 	var actions = check_player_actions_by_id(i);
 
@@ -49,4 +51,5 @@ for (var i = 2; i <= global.player_max; i++) {
 	}
 }
 
+instance_activate_object(objMinigame4vs_Tower_Crack);
 alarm[11] = 1;
