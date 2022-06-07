@@ -9,21 +9,20 @@ minigames_alpha = 0;
 minigames_width = 300;
 minigames_height = 40;
 minigames_timer = 3;
-next_seed_inline();
+shuffle_seed_inline();
+reset_seed_inline();
 minigames_chosen = irandom(minigame_total - 1);
 global.choice_selected = irandom(minigame_total - 1);
 
+//Temp
+force_type = "4vs";
+force_num = 2;
+//Temp
 objBoard.alarm[11] = 0;
 
 function choosed_minigame() {
 	info.reference = minigame_list[global.choice_selected];
 	alarm[3] = get_frames(1);
-	
-	if (global.player_id == 1) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.ChooseMinigameChoosed);
-		network_send_tcp_packet();
-	}
 }
 
 function send_to_minigame() {

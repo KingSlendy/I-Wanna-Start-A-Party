@@ -79,7 +79,7 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"objMinigame2vs2_Buttons_Controller","path":"objects/objMinigame2vs2_Buttons_Controller/objMinigame2vs2_Buttons_Controller.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":-32.0,"resourceVersion":"1.0","name":"inst_45128011","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Managers","tags":[],"resourceType":"GMRInstanceLayer",},
-    {"tilesetId":{"name":"tlsMinigame1vs3_Buttons","path":"tilesets/tlsMinigame1vs3_Buttons/tlsMinigame1vs3_Buttons.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":25,"SerialiseHeight":19,"TileSerialiseData":[
+    {"tilesetId":{"name":"tlsMinigame2vs2_Buttons","path":"tilesets/tlsMinigame2vs2_Buttons/tlsMinigame2vs2_Buttons.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":25,"SerialiseHeight":19,"TileSerialiseData":[
 1,2,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,1,
 4,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,4,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,0,4,
 4,2147483648,2147483648,2147483648,0,2147483648,2147483648,2147483648,0,0,2147483648,2147483648,4,2147483648,2147483648,0,2147483648,2147483648,2147483648,2147483648,0,0,0,0,4,

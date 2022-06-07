@@ -1,6 +1,6 @@
 if (fade_start) {
 	if (global.lobby_started || back) {
-		fade_alpha += 0.03;
+		fade_alpha += 0.02;
 	
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
@@ -109,7 +109,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							ai_join_all();
 							global.lobby_started = true;
 							fade_start = true;
-							music_stop();
+							global.game_id = "Offline";
+							global.player_game_ids = [1, 2, 3, 4];
+							audio_sound_gain(global.music_current, 0, 1000);
+							audio_play_sound(global.sound_cursor_big_select, 0, false);
+							exit;
 						} else {
 							online_show = true;
 							menu_type = 3;
@@ -201,9 +205,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						}
 						
 						ai_join_all();
-						//obtain_same_game_id();
 						alarm[0] = get_frames(1);
-						break;
+						audio_sound_gain(global.music_current, 0, 1000);
+						audio_play_sound(global.sound_cursor_big_select, 0, false);
+						exit;
 				}
 			} else {
 				var lobby = lobby_list[lobby_selected];

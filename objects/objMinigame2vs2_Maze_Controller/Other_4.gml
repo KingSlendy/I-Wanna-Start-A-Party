@@ -155,3 +155,5 @@ with (objPlayerBase) {
 	move_delay_timer = 0;
 	jump_delay_timer = 0;
 }
+
+objCameraSplit4.boundaries = true;

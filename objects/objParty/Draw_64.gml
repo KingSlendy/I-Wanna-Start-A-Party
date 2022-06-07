@@ -10,7 +10,7 @@ var draw_x = 160;
 var draw_y = 32;
 var draw_w = 32 * 15;
 var draw_h = 32 * 15 - 112;
-draw_box(draw_x, draw_y, draw_w, draw_h, c_gray, c_dkgray);
+draw_box(draw_x, draw_y, draw_w, draw_h, #3B8A66, c_gray);
 
 if (!surface_exists(surf)) {
 	surf = surface_create(472, 472 - 112);
@@ -37,7 +37,7 @@ if (save_present) {
 	
 	draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
 	draw_set_font(fntPlayerInfo);
-	draw_text_outline(save_x + 270, save_y + 140, "Turn: 1/20", c_black);
+	draw_text_outline(save_x + 270, save_y + 140, string_interp("Turn: {0}/{1}", save_turn, save_max_turns), c_black);
 }
 
 var text = new Text(fntDialogue);
@@ -82,10 +82,10 @@ var box_x = menu_x + menu_sep;
 var box_y = 0;
 draw_sprite_stretched(sprPartyBoardMark, 1, box_x + 60, box_y + 32, board_w, board_h);
 gpu_set_colorwriteenable(true, true, true, false);
-var length = sprite_get_number(sprPartyBoardTest);
+var length = sprite_get_number(sprPartyBoardPictures);
 
 for (var i = -1; i <= 1; i++) {
-	draw_sprite_stretched(sprPartyBoardTest, (board_selected + length + i) % length, box_x + 104 + 264 * i + board_x, box_y + 47, board_img_w, board_img_h);
+	draw_sprite_stretched(sprPartyBoardPictures, (board_selected + length + i) % length, box_x + 104 + 264 * i + board_x, box_y + 47, board_img_w, board_img_h);
 }
 
 gpu_set_colorwriteenable(true, true, true, true);

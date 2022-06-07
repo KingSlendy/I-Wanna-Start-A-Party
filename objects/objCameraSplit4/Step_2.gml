@@ -18,8 +18,8 @@ for (var i = 0; i < global.player_max; i++) {
 	var height = camera_get_view_height(view_camera[i]);
 	
 	if (boundaries) {
-		view_x[i] = clamp(view_x[i], 0, room_width - width / 2);
-		view_y[i] = clamp(view_y[i], 0, room_height - height / 2);
+		view_x[i] = clamp(view_x[i], width / 2, room_width - width / 2);
+		view_y[i] = clamp(view_y[i], height / 2, room_height - height / 2);
 	}
 	
 	camera_set_view_pos(view_camera[i], view_x[i] - width / 2, view_y[i] - height / 2);

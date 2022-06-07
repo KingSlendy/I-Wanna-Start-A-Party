@@ -33,3 +33,32 @@ function Random() constructor {
 
 global.rng_class = new Random();
 #macro rng global.rng_class
+
+function next_seed_inline() {
+	var next_seed = ++global.current_seed;
+	
+	if (next_seed == array_length(global.seed_bag)) {
+		next_seed = 0;
+		global.current_seed = 0;
+	}
+	
+	random_set_seed(global.seed_bag[next_seed]);
+}
+
+function set_seed_inline(n) {
+	global.current_seed = n;
+	global.current_seed %= array_length(global.seed_bag);
+	random_set_seed(global.seed_bag[global.current_seed]);
+}
+
+function shuffle_seed_inline() {
+	for (var i = 0; i < array_length(global.seed_bag); i++) {
+		global.seed_bag[i] += 3141592;
+		global.seed_bag[i] %= 9999999999;
+	}
+}
+
+function reset_seed_inline() {
+	global.current_seed = 0;
+	random_set_seed(global.seed_bag[global.current_seed]);
+}

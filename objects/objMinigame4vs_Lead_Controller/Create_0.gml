@@ -14,7 +14,6 @@ minigame_time_end = function() {
 	}
 }
 
-music = bgmMinigameB;
 player_check = objPlayerPlatformer;
 state = 0;
 sequence_actions = [

@@ -1,9 +1,9 @@
 global.board_games = {};
-global.load_board = false;
+global.game_id = "";
+global.player_game_ids = [];
+global.board_selected = -1;
 
 function save_file() {
-	return;
-	
 	var save = {
 		board_games: global.board_games
 	};
@@ -17,7 +17,9 @@ function save_file() {
 }
 
 function load_file() {
-	return;
+	if (!file_exists("Save")) {
+		return;
+	}
 	
 	var buffer = buffer_load("Save");
 	buffer_seek_begin(buffer);
@@ -28,18 +30,20 @@ function load_file() {
 }
 
 function save_board() {
-	return;
-	
 	var board = {
+		saved_id: global.player_id,
 		saved_board: {
+			saved_board: global.board_selected,
 			saved_max_turns: global.max_board_turns,
 			saved_turn: global.board_turn,
 			saved_shine_position: [objShine.x, objShine.y],
 			saved_spaces: [],
-			saved_first_space: global.board_first_space
+			saved_first_space: global.board_first_space,
+			saved_minigame_history: global.minigame_history,
+			saved_seed_bag: global.seed_bag
 		},
 		
-		saved_players: {}
+		saved_players: array_create(global.player_max, null)
 	};
 	
 	with (objSpaces) {
@@ -47,20 +51,29 @@ function save_board() {
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
-		if (is_player_local(i)) {
-			var player = focus_player_by_id(i);
-			var player_info = player_info_by_id(i);
+		var player = focus_player_by_id(i);
+		var player_info = player_info_by_id(i);
 			
-			board.saved_players[$ player.network_name] = {
-				saved_skin: player.skin,
-				saved_turn: player_info.turn,
-				saved_shines: player_info.shines,
-				saved_coins: player_info.coins,
-				saved_items: player_info.items,
-				saved_place: player_info.place,
-				saved_item_effect: player_info.item_effect,
-				saved_position: [player.x, player.y],
-			};
+		board.saved_players[i - 1] = {
+			saved_skin: sprite_get_name(get_skin_pose_object(player, "Idle")),
+			saved_turn: player_info.turn,
+			saved_shines: player_info.shines,
+			saved_coins: player_info.coins,
+			saved_items: [],
+			saved_item_effect: player_info.item_effect ?? -1,
+			saved_position: [player.x, player.y],
+		};
+			
+		for (var j = 0; j < array_length(player_info.items); j++) {
+			var item = player_info.items[j];
+				
+			if (item != null) {
+				item = item.id;
+			} else {
+				item = -1;
+			}
+				
+			array_push(board.saved_players[i - 1].saved_items, item);
 		}
 	}
 	

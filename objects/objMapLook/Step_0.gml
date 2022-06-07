@@ -1,4 +1,5 @@
 if (global.actions.shoot.pressed(network_id)) {
+	audio_play_sound(global.sound_cursor_back, 0, false);
 	io_clear();
 	instance_destroy();
 	exit;

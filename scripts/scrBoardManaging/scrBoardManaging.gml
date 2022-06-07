@@ -150,7 +150,7 @@ function spawn_player_info(order, turn) {
 		setup();
 	}
 	
-	if (room != rParty && is_local_turn()) {
+	if (array_length(global.player_game_ids) == 0 && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.SpawnPlayerInfo);
 		buffer_write_data(buffer_u8, order);
@@ -214,6 +214,18 @@ function get_player_count(index) {
 	return count;
 }
 
+function get_ai_count() {
+	var count = 0;
+	
+	with (objPlayerBase) {
+		if (ai) {
+			count++;
+		}
+	}
+	
+	return count;
+}
+
 function player_color_by_turn(turn) {
 	var colors = [c_blue, c_red, c_green, c_yellow];
 	return colors[turn - 1];
@@ -233,17 +245,6 @@ function switch_camera_target(x, y) {
 	return s;
 }
 
-function next_seed_inline() {
-	var next_seed = ++global.current_seed;
-	
-	if (next_seed == array_length(global.seed_bag)) {
-		next_seed = 0;
-		global.current_seed = 0;
-	}
-	
-	random_set_seed(global.seed_bag[next_seed]);
-}
-
 function board_start() {
 	if (!is_local_turn()) {
 		return;
@@ -253,7 +254,6 @@ function board_start() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardStart);
 		buffer_write_data(buffer_string, global.game_id);
-		buffer_write_array(buffer_u8, global.initial_rolls);
 		buffer_write_array(buffer_u64, global.seed_bag);
 		network_send_tcp_packet();
 		
@@ -262,7 +262,6 @@ function board_start() {
 			new Message("Let's choose the turns",, choose_turns)
 		]);
 	} else {
-		save_board();
 		turn_start();
 	}
 }
@@ -354,14 +353,28 @@ function tell_turns() {
 }
 
 function turn_start() {
-	if (player_info_by_turn().item_effect == ItemType.Ice) {
-		turn_next();
-		return;
+	if (global.board_turn == 1 && global.board_first_space[focused_player().network_id - 1]) {
+		if (is_local_turn()) {
+			global.dice_roll = -1;
+			board_advance();
+			return;
+		} else {
+			global.board_first_space[focused_player().network_id - 1] = false;
+			return;
+		}
 	}
 	
-	if (is_local_turn() && global.board_first_space[focused_player().network_id - 1] && global.board_turn == 1) {
-		global.dice_roll = -1;
-		board_advance();
+	if (global.player_turn == 1) {
+		shuffle_seed_inline();
+		reset_seed_inline();
+		
+		if (global.board_turn > 1) {
+			save_board();
+		}
+	}
+	
+	if (player_info_by_turn().item_effect == ItemType.Ice) {
+		turn_next();
 		return;
 	}
 	
@@ -393,6 +406,7 @@ function turn_next() {
 		if (is_local_turn()) {
 			choose_minigame();
 		}
+		
 		return;
 	}
 
@@ -423,6 +437,14 @@ function board_advance() {
 			if (BOARD_NORMAL) {
 				next_space = space.space_next;
 			} else {
+				var space_array = space_directions_reverse;
+	
+				if (array_count(space_array, null) < 3) {
+					var p = instance_create_layer(0, 0, "Managers", objPathChange);
+					p.space = next_space;
+					return;
+				}
+				
 				next_space = space.space_previous;
 			}
 		} else {

@@ -41,6 +41,22 @@ function get_skin(type = global.skin_current) {
 	return skin;
 }
 
+function get_skin_by_sprite(sprite) {
+	var name = sprite_get_name(sprite);
+	var check = "";
+	
+	for (var i = 4; i <= string_length(name); i++) {
+		check += string_char_at(name, i);
+		var index = array_index(global.skin_sprites, check);
+		
+		if (index != -1) {
+			return get_skin(index);
+		}
+	}
+	
+	return sprNothing;
+}
+
 function get_skin_pose_object(object, pose) {
 	if (object == null) {
 		return sprNothing;

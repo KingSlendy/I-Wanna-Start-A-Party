@@ -17,7 +17,6 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-music = bgmMinigameF;
 points_draw = true;
 points_number = true;
 player_check = objPlayerPlatformer;

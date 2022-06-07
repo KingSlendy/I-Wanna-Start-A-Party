@@ -1,3 +1,4 @@
+next_seed_inline();
 var start_y = infinity;
 
 with (objMinigame4vs_Tower_Block) {
@@ -7,7 +8,7 @@ with (objMinigame4vs_Tower_Block) {
 start_y -= 32;
 
 for (var i = 0; i < global.player_max; i++) {
-	var can_crack = (rng.irand(5) == 0);
+	var can_crack = (irandom(4) == 0);
 	var created_crack = false;
 	var start_x = 32 + (32 * 6) * i;
 
@@ -22,9 +23,9 @@ for (var i = 0; i < global.player_max; i++) {
 	var opening = -1;
 		
 	if (prev_openings[i] == -1) {
-		var opening = rng.irand(5);
+		var opening = irandom(4);
 	} else {
-		var opening = clamp(prev_openings[i] + rng.choice(-1, 1), 0, 4);
+		var opening = clamp(prev_openings[i] + choose(-1, 1), 0, 4);
 	}
 		
 	for (var j = 0; j < 5; j++) {
@@ -35,7 +36,7 @@ for (var i = 0; i < global.player_max; i++) {
 		instance_create_layer(start_x + 32 * j, start_y, "Collisions", objMinigame4vs_Tower_Block);
 		instance_create_layer(start_x + 32 * j, start_y + 32, "Actors", objMinigame4vs_Tower_Spike);
 		
-		if (j < 4 && !can_crack && !created_crack && rng.irand(4) == 0) {
+		if (j < 4 && !can_crack && !created_crack && irandom(4) == 0) {
 			instance_create_layer(start_x + 32 * (j - 1), start_y - 32 * 4, "Cracks", objMinigame4vs_Tower_Crack);
 			created_crack = true;
 		}

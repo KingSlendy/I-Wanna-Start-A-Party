@@ -10,7 +10,8 @@ enum ClientTCP {
 	LeaveLobby,
 	LobbyList,
 	LobbyStart,
-	LobbyGameID,
+	BoardGameID,
+	BoardPlayerIDs,
 	PartyAction,
 	PlayerMove,
 	PlayerShoot,
@@ -55,7 +56,6 @@ enum ClientTCP {
 	RepositionChanceTime,
 	EndChanceTime,
 	ChooseMinigame,
-	ChooseMinigameChoosed,
 	StartTheGuy,
 	ShowTheGuyOptions,
 	CrushTheGuy,
@@ -71,8 +71,9 @@ enum ClientTCP {
 	MinigameOverviewStart,
 	MinigameFinish,
 	Minigame4vs_Lead_Input,
-	Minigame1vs3_Buttons_Button,
+	Minigame2vs2_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
+	Minigame1vs3_Conveyor_Switch,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	
@@ -254,19 +255,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.LobbyGameID:
+		case ClientTCP.LobbyStart:
+			global.lobby_started = true;
+			objFiles.fade_start = true;
+			music_stop();
+			break;
+			
+		case ClientTCP.BoardGameID:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var received_names = buffer_read_array(buffer, buffer_string);
 			
-			if (player_id == 5) {
-				if (array_length(received_names) > 0) {
-					global.game_id = received_names[0];
-				} else {
-					//buffer_seek_begin();
-					//buffer_write_action(ClientTCP.LobbySavedPlayers);
-					//buffer_write_action();
-				}
-				
+			if (check_same_game_id(player_id, received_names)) {
 				return;
 			}
 			
@@ -284,10 +283,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.LobbyStart:
-			global.lobby_started = true;
-			objFiles.fade_start = true;
-			music_stop();
+		case ClientTCP.BoardPlayerIDs:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var player_ids = buffer_read_array(buffer, buffer_u8);
+
+			if (check_player_game_ids(player_id, player_ids)) {
+				return;
+			}
+			
+			if (global.player_id == player_id) {
+				obtain_player_game_ids(player_ids);
+			}
 			break;
 			
 		case ClientTCP.PartyAction:
@@ -513,7 +519,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		#region Events
 		case ClientTCP.BoardStart:
 			global.game_id = buffer_read(buffer, buffer_string);
-			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
 			global.seed_bag = buffer_read_array(buffer, buffer_u64);
 			break;
 		
@@ -550,12 +555,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.ChooseMinigame:
 			choose_minigame();
-			break;
-			
-		case ClientTCP.ChooseMinigameChoosed:
-			with (objChooseMinigame) {
-				choosed_minigame();
-			}
 			break;
 			
 		case ClientTCP.StartTheGuy:
@@ -647,7 +646,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.Minigame1vs3_Buttons_Button:
+		case ClientTCP.Minigame2vs2_Buttons_Button:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var is_inside = buffer_read(buffer, buffer_bool);
 			var outside_current = buffer_read(buffer, buffer_u8);
@@ -659,7 +658,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				objMinigameController.buttons_inside_current = inside_current;
 			}
 			
-			with (objMinigame1vs3_Buttons_Button) {
+			with (objMinigame2vs2_Buttons_Button) {
 				if (inside == is_inside) {
 					press_button(player_id);
 				}
@@ -672,6 +671,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objMinigame1vs3_Avoid_Block) {
 				if (image_index == attack) {
 					activate(attack, true);
+					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Conveyor_Switch:
+			var image = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame1vs3_Conveyor_Switch) {
+				if (image_index == image) {
+					activate(image, true);
 					break;
 				}
 			}

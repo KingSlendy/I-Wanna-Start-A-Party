@@ -1,6 +1,5 @@
 global.choice_selected = (global.choice_selected + 1 + minigame_total) % minigame_total;
 audio_play_sound(sndCursorSelect, 0, false);
-next_seed_inline();
 
 minigames_timer += 0.10;
 

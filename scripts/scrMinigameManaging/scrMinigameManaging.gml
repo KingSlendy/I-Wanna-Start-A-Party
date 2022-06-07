@@ -1,4 +1,4 @@
-function Minigame(title = "Generic Minigame", instructions = ["Generic Instructions"], preview = sprBox, scene = rTemplate) constructor {
+function Minigame(title = "Generic Minigame", instructions = ["Generic Instructions"], preview = -1, scene = rTemplate) constructor {
 	self.title = title;
 	self.instructions = instructions;
 	self.preview = preview;
@@ -8,18 +8,20 @@ function Minigame(title = "Generic Minigame", instructions = ["Generic Instructi
 global.minigames = {};
 var m = global.minigames;
 m[$ "4vs"] = [
-	new Minigame("Follow The Lead", ["Just lead"],, rMinigame4vs_Lead),
-	new Minigame("Tower Ascension", ["Just climb"],, rMinigame4vs_Tower)
+	new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame4vs_Lead),
+	new Minigame("Tower Ascension", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 3, rMinigame4vs_Tower),
+	new Minigame("Haunted Forest", ["Game is still in development.\nMore things will be added.\nThings are subject to change."],, rMinigame4vs_Haunted)
 ];
 
 m[$ "1vs3"] = [
-	new Minigame("Avoid The Anguish", ["Just avoid"],, rMinigame1vs3_Avoid)
+	new Minigame("Avoid The Anguish", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 4, rMinigame1vs3_Avoid),
+	new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame1vs3_Conveyor)
 ];
 
 m[$ "2vs2"] = [
-	new Minigame("A-Maze-Ing", ["Just win"],, rMinigame2vs2_Maze),
-	new Minigame("Catch The Fruits", ["Just collect the fruits"],, rMinigame2vs2_Fruits),
-	new Minigame("Buttons Everywhere", ["Just press"],, rMinigame2vs2_Buttons)
+	new Minigame("A-Maze-Ing", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 0, rMinigame2vs2_Maze),
+	new Minigame("Catch The Fruits", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 5, rMinigame2vs2_Fruits),
+	new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame2vs2_Buttons)
 ];
 
 function minigame_info_reset() {

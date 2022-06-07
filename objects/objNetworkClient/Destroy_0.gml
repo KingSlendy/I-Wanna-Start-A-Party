@@ -14,7 +14,7 @@ global.master_id = 0;
 global.player_id = 0;
 global.lobby_started = false;
 global.game_id = "";
-global.same_game_ids = array_create(global.player_max, null);
+global.player_game_ids = [];
 player_leave_all();
 
 if (room == rFiles) {

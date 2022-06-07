@@ -30,27 +30,184 @@ switch (state) {
 	
 		if (alpha <= 0) {
 			//Temp
-			var test2 = 0//irandom(2);
-			var test = [1, 2, 3, 4];
-			array_shuffle(test);
-			array_delete(test, 2, test2);
+			if (force_type != null) {
+				objPlayerInfo.player_info.space = c_white;
+			}
 			//Temp
 			
+			var color_count = {};
+			color_count[$ c_blue] = 0;
+			color_count[$ c_red] = 0;
+			color_count[$ c_white] = 0;
+			
 			with (objPlayerInfo) {
+				if (player_info.space != c_blue && player_info.space != c_red) {
+					color_count[$ c_white]++;
+					continue;
+				}
+				
+				color_count[$ player_info.space]++;
+			}
+			
+			var choose_colors = [];
+			var current_choose = 0;
+			
+			if (color_count[$ c_white] > 0) {
+				var types = variable_struct_get_names(global.minigames);
+				var quantity_types = {}
+				var percentage_types = {};
+				var total_types = 0;
+			
+				for (var i = 0; i < array_length(types); i++) {
+					quantity_types[$ types[i]] = 0;
+					percentage_types[$ types[i]] = 0;
+				}
+			
+				for (var i = 0; i < array_length(global.minigame_history); i++) {
+					quantity_types[$ global.minigame_history[i]]++;
+					total_types++;
+				}
+			
+				for (var i = 0; i < array_length(types); i++) {
+					percentage_types[$ types[i]] = (total_types > 0) ? quantity_types[$ types[i]] / total_types : 0;
+				}
+			
+				var min_type = infinity;
+			
+				for (var i = 0; i < array_length(types); i++) {
+					min_type = min(min_type, percentage_types[$ types[i]]);
+				}
+				
+				var min_types = [];
+			
+				for (var i = 0; i < array_length(types); i++) {
+					if (percentage_types[$ types[i]] == min_type) {
+						array_push(min_types, types[i]);
+					}
+				}
+			
+				var chosen_type = min_types[array_length(min_types) - 1];
+				
 				//Temp
-				if (array_contains(test, player_info.turn)) {
-					player_info.space = c_blue;
-				} else {
-					player_info.space = c_red;
+				if (force_type != null) {
+					chosen_type = force_type;
 				}
 				//Temp
-			
-				//If there's players with colors other than blue and red, it picks a random one for them
-				//next_seed_inline();
-				var options = [c_blue, c_red];
 				
-				if (player_info.space != c_blue && player_info.space != c_red) {
-					player_info.space = options[player_info.coins % 2];
+				switch (chosen_type) {
+					case "4vs":
+						switch (color_count[$ c_white]) {
+							case 1:
+								if (color_count[$ c_blue] == 3 || color_count[$ c_red] == 3) {
+									array_push(choose_colors, (color_count[$ c_blue] == 3) ? c_blue : c_red);
+								} else {
+									array_push(choose_colors, (color_count[$ c_blue] == 1) ? c_blue : c_red);
+								}
+								break;
+								
+							case 2:
+								if (color_count[$ c_blue] == 2 || color_count[$ c_red] == 2) {
+									repeat (2) {
+										array_push(choose_colors, (color_count[$ c_blue] == 2) ? c_blue : c_red);
+									}
+								} else {
+									array_push(choose_colors, c_blue, c_red);
+								}
+								break;
+								
+							case 3:
+								repeat (3) {
+									array_push(choose_colors, (color_count[$ c_blue] == 1) ? c_blue : c_red);
+								}
+								break;
+								
+							case 4:
+								var color = choose(c_blue, c_red);
+							
+								repeat (4) {
+									array_push(choose_colors, color);
+								}
+								break;
+						}
+						break;
+						
+					case "1vs3":
+						switch (color_count[$ c_white]) {
+							case 1:
+								if (color_count[$ c_blue] == 3 || color_count[$ c_red] == 3) {
+									array_push(choose_colors, (color_count[$ c_blue] == 3) ? c_red : c_blue);
+								} else {
+									array_push(choose_colors, (color_count[$ c_blue] == 2) ? c_blue : c_red);
+								}
+								break;
+								
+							case 2:
+								if (color_count[$ c_blue] == 2 || color_count[$ c_red] == 2) {
+									array_push(choose_colors, c_blue, c_red);
+								} else {
+									var color = choose(c_blue, c_red);
+									array_push(choose_colors, color, color);
+								}
+								break;
+								
+							case 3:
+								repeat (3) {
+									array_push(choose_colors, (color_count[$ c_blue] == 1) ? c_red : c_blue);
+								}
+								break;
+								
+							case 4:
+								var one_color = choose(c_blue, c_red);
+								var three_color = (one_color == c_blue) ? c_red : c_blue;
+								array_push(choose_colors, one_color);
+								
+								repeat (3) {
+									array_push(choose_colors, three_color);
+								}
+								break;
+						}
+						break;
+						
+					case "2vs2":
+						switch (color_count[$ c_white]) {
+							case 1:
+								if (color_count[$ c_blue] == 3 || color_count[$ c_red] == 3) {
+									array_push(choose_colors, (color_count[$ c_blue] == 3) ? c_blue : c_red);
+								} else {
+									array_push(choose_colors, (color_count[$ c_blue] == 1) ? c_blue : c_red);
+								}
+								break;
+								
+							case 2:
+								if (color_count[$ c_blue] == 2 || color_count[$ c_red] == 2) {
+									repeat (2) {
+										array_push(choose_colors, (color_count[$ c_blue] == 0) ? c_blue : c_red);
+									}
+								} else {
+									array_push(choose_colors, c_blue, c_red);
+								}
+								break;
+								
+							case 3:
+								var one_color = (color_count[$ c_blue] == 1) ? c_blue : c_red;
+								var two_color = (color_count[$ c_blue] == 1) ? c_red : c_blue;
+								array_push(choose_colors, one_color, two_color, two_color);
+								break;
+								
+							case 4:
+								array_push(choose_colors, c_blue, c_blue, c_red, c_red);
+								break;
+						}
+						break;
+				}
+			}
+			
+			array_shuffle(choose_colors);
+			
+			with (objPlayerInfo) {
+				//If there's players with colors other than blue and red, it picks a random one for them
+				if (player_info.space != c_blue && player_info.space != c_red && array_length(choose_colors) > 0) {
+					player_info.space = choose_colors[current_choose++];
 				}
 			
 				//Gets the count of colors

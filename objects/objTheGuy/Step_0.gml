@@ -10,6 +10,10 @@ if (broken_sprite != noone) {
 	broken_y += broken_vspd;
 }
 
+if (!follow_player) {
+	objCamera.target_follow = null;
+}
+
 if (options_fade == 0) {
 	options_alpha += 0.04;
 	
@@ -23,7 +27,6 @@ if (options_fade == 0) {
 	
 	if (options_alpha <= 0) {
 		options_alpha = 0;
-		options_fade = -1;
 		
 		with (objPlayerBase) {
 			change_to_object(objPlayerTheGuy);
@@ -32,9 +35,15 @@ if (options_fade == 0) {
 		var view_x = camera_get_view_x(view_camera[0]);
 			
 		with (objPlayerBase) {
-			x = view_x - 600;
+			x = view_x - 800;
 			y = camera_get_view_y(view_camera[0]) - 70;
 		}
+			
+		if (get_player_count(objPlayerTheGuy) != global.player_max) {
+			exit;
+		}
+		
+		options_fade = -1;
 		
 		var option = options[global.choice_selected];
 		
@@ -50,8 +59,4 @@ if (options_fade == 0) {
 		
 		alarm[4] = get_frames(2);
 	}
-}
-
-if (!follow_player) {
-	objCamera.target_follow = null;
 }

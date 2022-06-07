@@ -12,19 +12,19 @@ for (var i = 2; i <= global.player_max; i++) {
 	var player = focus_player_by_id(i);
 	var player_info = player_info_by_id(i);
 	
-	with (objMinigame1vs3_Buttons_Button) {
+	with (objMinigame2vs2_Buttons_Button) {
 		if (inside == (player_info.space == other.info.player_colors[0]) || image_index == 0) {
 			instance_deactivate_object(id);
 		}
 	}
 	
-	if (!instance_exists(objMinigame1vs3_Buttons_Button)) {
-		instance_activate_object(objMinigame1vs3_Buttons_Button);
+	if (!instance_exists(objMinigame2vs2_Buttons_Button)) {
+		instance_activate_object(objMinigame2vs2_Buttons_Button);
 		continue;
 	}
 	
-	var near = instance_nearest(player.x, player.y, objMinigame1vs3_Buttons_Button);
-	instance_activate_object(objMinigame1vs3_Buttons_Button);
+	var near = instance_nearest(player.x, player.y, objMinigame2vs2_Buttons_Button);
+	instance_activate_object(objMinigame2vs2_Buttons_Button);
 	var dir = null;
 		
 	with (player) {

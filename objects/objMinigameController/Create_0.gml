@@ -1,4 +1,5 @@
-next_seed_inline();
+shuffle_seed_inline();
+reset_seed_inline();
 info = global.minigame_info;
 
 with (objPlayerBase) {
@@ -10,7 +11,8 @@ minigame_start = minigame_4vs_start;
 minigame_split = false;
 minigame_time = -1;
 minigame_time_end = minigame_finish;
-music = bgmMinigameA;
+var name = room_get_name(room);
+music = asset_get_index(string_copy(name, 2, string_length(name) - 1));
 started = false;
 announcer_started = false;
 alpha = 1;

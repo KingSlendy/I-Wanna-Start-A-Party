@@ -34,6 +34,12 @@ if (dir != 0) {
 	sprite_index = skin[$ "Idle"];
 }
 
+var c = instance_place(x, y + 1, objMinigame1vs3_Conveyor_Conveyor);
+
+if (c != noone) {
+	hspd += c.spd;
+}
+
 if (!on_platform) {
 	if (vspd * orientation < -0.05) {
 	    sprite_index = skin[$ "Jump"];

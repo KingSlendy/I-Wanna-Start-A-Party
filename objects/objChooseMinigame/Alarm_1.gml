@@ -7,4 +7,3 @@ with (objPlayerInfo) {
 }
 
 state = 2;
-//room_goto(rMinigameOverview);

@@ -7,7 +7,7 @@ if (global.board_started) {
 
 //Baba Is Board
 if (room == rBoardBabaIsBoard) {
-	tile_image_index += tile_image_speed * (game_get_speed(gamespeed_fps) / 50);
+	tile_image_index += tile_image_speed * (50 / game_get_speed(gamespeed_fps));
 	tile_image_index %= 3;
 
 	for (var i = 1; i <= 3; i++) {

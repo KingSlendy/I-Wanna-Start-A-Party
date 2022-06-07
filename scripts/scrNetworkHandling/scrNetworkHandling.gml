@@ -9,8 +9,6 @@ global.player_id = 0;
 global.master_id = 0;
 global.player_name = "Player";
 global.lobby_started = false;
-global.game_id = "";
-global.same_game_ids = array_create(global.player_max, null);
 
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
@@ -177,6 +175,7 @@ function player_write_data() {
 	
 		buffer_write_data(buffer_u8, network_id);
 		buffer_write_data(buffer_string, network_name);
+		buffer_write_data(buffer_bool, ai);
 		buffer_write_data(buffer_u16, object_index);
 		buffer_write_data(buffer_u16, sprite_index);
 		buffer_write_data(buffer_u8, image_alpha);
@@ -209,6 +208,7 @@ function player_read_data(buffer) {
 		instance.alarm[11] = get_frames(0.5);
 		
 		instance.network_name = buffer_read(buffer, buffer_string);
+		instance.ai = buffer_read(buffer, buffer_bool);
 		instance.network_index = buffer_read(buffer, buffer_u16);
 		instance.sprite_index = buffer_read(buffer, buffer_u16);
 		instance.image_alpha = buffer_read(buffer, buffer_u8);
@@ -222,10 +222,58 @@ function player_read_data(buffer) {
 
 function obtain_same_game_id(names = variable_struct_get_names(global.board_games)) {
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.LobbyGameID);
+	buffer_write_action(ClientTCP.BoardGameID);
 	buffer_write_data(buffer_u8, global.player_id + 1);
 	buffer_write_array(buffer_string, names);
 	network_send_tcp_packet();
+	
+	check_same_game_id(global.player_id + 1, names);
+}
+
+function check_same_game_id(player_id, received_names) {
+	if (player_id < (global.player_max - get_ai_count()) + 1) {
+		return false;
+	}
+	
+	if (array_length(received_names) > 0) {
+		global.game_id = received_names[0];
+		
+		with (objPlayerBase) {
+			change_to_object(objPlayerBoardData);
+		}
+	} else {
+		instance_destroy(objBoardGame);
+	}
+				
+	return true;
+}
+
+function obtain_player_game_ids(player_ids = []) {
+	player_ids[global.player_id - 1] = global.board_games[$ global.game_id].saved_id;
+	
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.BoardPlayerIDs);
+	buffer_write_data(buffer_u8, global.player_id + 1);
+	buffer_write_array(buffer_u8, player_ids);
+	network_send_tcp_packet();
+	
+	check_player_game_ids(global.player_id + 1, player_ids);
+}
+
+function check_player_game_ids(player_id, player_ids) {	
+	if (player_id < (global.player_max - get_ai_count()) + 1) {
+		return false;
+	}
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		if (i > array_length(player_ids)) {
+			array_push(player_ids, i);
+		}
+	}
+	
+	global.player_game_ids = player_ids;
+	instance_destroy(objBoardGame);
+	return true;
 }
 
 function network_disable() {

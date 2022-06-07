@@ -19,10 +19,9 @@ minigame_time_end = function() {
 		}
 	}
 	
-	minigame_finish(true);
+	minigame_finish();
 }
 
-music = bgmMinigameG;
 points_draw = true;
 points_number = false;
 player_check = objPlayerPlatformer;

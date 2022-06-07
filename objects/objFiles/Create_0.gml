@@ -1,5 +1,6 @@
 fade_start = true;
 fade_alpha = 1;
+fade_ready = true;
 
 files_alpha = 0;
 files_fade = -1;

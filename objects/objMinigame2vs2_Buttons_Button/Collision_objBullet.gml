@@ -7,7 +7,7 @@ if (image_index == 1) {
 	instance_destroy(other);
 	
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.Minigame1vs3_Buttons_Button);
+	buffer_write_action(ClientTCP.Minigame2vs2_Buttons_Button);
 	buffer_write_data(buffer_u8, other.network_id);
 	buffer_write_data(buffer_bool, inside);
 	buffer_write_data(buffer_u8, objMinigameController.buttons_outside_current);

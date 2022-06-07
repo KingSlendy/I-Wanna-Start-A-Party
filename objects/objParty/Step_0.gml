@@ -10,12 +10,13 @@ if (fade_start) {
 			}
 		}
 	} else {
-		fade_alpha += 0.01;
+		fade_alpha += 0.0075;
 	
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
 			fade_start = false;
 			music_pause();
+			global.board_selected = board_selected;
 			room_goto(board_rooms[board_selected]);
 		}
 	}
@@ -146,7 +147,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				var scroll = (sync_actions("right", 1) - sync_actions("left", 1));
 				
 				if (scroll != 0) {
-					var length = sprite_get_number(sprPartyBoardTest);
+					var length = sprite_get_number(sprPartyBoardPictures);
 					board_target_x -= 264 * scroll;
 					board_target_selected = (board_selected + length + scroll) % length;
 					audio_play_sound(global.sound_cursor_move, 0, false);

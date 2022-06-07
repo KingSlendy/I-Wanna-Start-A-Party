@@ -9,7 +9,6 @@ with (objPlayerBase) {
 
 event_inherited();
 
-minigame_start = minigame_4vs_start;
 minigame_split = true;
 //minigame_time = 40;
 minigame_time_end = function() {
@@ -28,7 +27,6 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-music = bgmMinigameD;
 player_check = objPlayerPlatformer;
 
 scene_spd = 0;
