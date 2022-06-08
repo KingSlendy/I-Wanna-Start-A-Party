@@ -10,7 +10,8 @@ var m = global.minigames;
 m[$ "4vs"] = [
 	new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame4vs_Lead),
 	new Minigame("Tower Ascension", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 3, rMinigame4vs_Tower),
-	new Minigame("Haunted Forest", ["Game is still in development.\nMore things will be added.\nThings are subject to change."],, rMinigame4vs_Haunted)
+	new Minigame("Haunted Forest", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 7, rMinigame4vs_Haunted),
+	//new Minigame("Magic Memory", ["Game is still in development.\nMore things will be added.\nThings are subject to change."],, rMinigame4vs_Magic)
 ];
 
 m[$ "1vs3"] = [
@@ -209,6 +210,7 @@ function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_ma
 
 function minigame_finish(signal = false) {
 	with (objMinigameController) {
+		action_end();
 		alarm[10] = 0;
 		
 		if (info.calculated) {

@@ -10,7 +10,7 @@ var draw_x = 160;
 var draw_y = 32;
 var draw_w = 32 * 15;
 var draw_h = 32 * 15 - 112;
-draw_box(draw_x, draw_y, draw_w, draw_h, #3B8A66, c_gray);
+draw_box(draw_x, draw_y, draw_w, draw_h, #3B8A66, c_ltgray);
 
 if (!surface_exists(surf)) {
 	surf = surface_create(472, 472 - 112);

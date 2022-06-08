@@ -115,6 +115,9 @@ options = [
 		
 		objTheGuyEye.image_speed = 1;
 		objTheGuy.alarm[8] = get_frames(1.5);
+		buffer_seek_begin();
+		buffer_write_action(ClientUDP.NoNoTheGuy);
+		network_send_udp_packet();
 	})
 ];
 

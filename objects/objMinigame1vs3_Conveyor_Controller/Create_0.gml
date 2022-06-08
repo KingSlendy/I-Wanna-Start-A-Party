@@ -13,8 +13,6 @@ event_inherited();
 minigame_start = minigame_1vs3_start;
 minigame_time = 40;
 minigame_time_end = function() {
-	action_end();
-	
 	with (objPlayerBase) {
 		if (y > 288) {
 			minigame_4vs_points(objMinigameController.info, network_id);
@@ -25,9 +23,6 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-points_draw = true;
-points_number = false;
-player_check = objPlayerPlatformer;
 action_end = function() {
 	with (objMinigame1vs3_Conveyor_Conveyor) {
 		sprite_index = sprMinigame1vs3_Conveyor_ConveyorStill;
@@ -36,3 +31,7 @@ action_end = function() {
 	
 	alarm[4] = 0;
 }
+
+points_draw = true;
+points_number = false;
+player_check = objPlayerPlatformer;

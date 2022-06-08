@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprItemMirror",
+    "path": "sprites/sprItemMirror/sprItemMirror.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

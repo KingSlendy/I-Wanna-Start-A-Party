@@ -8,8 +8,8 @@ if (global.board_started) {
 }
 
 switch (player_info.item_effect) {
-	case ItemType.Dice: image_index = 1; break;
-	case ItemType.DoubleDice: image_index = 2; break;
+	case ItemType.DoubleDice: image_index = 1; break;
+	case ItemType.TripleDice: image_index = 2; break;
 	case ItemType.Poison: image_index = 3; break;
 	case ItemType.Clock: image_index = 4; break;
 }

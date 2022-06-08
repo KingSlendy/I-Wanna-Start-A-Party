@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [null, null, global.board_items[ItemType.Reverse]];
+	//self.items = [null, global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_gray;
@@ -255,6 +255,7 @@ function board_start() {
 		buffer_write_action(ClientTCP.BoardStart);
 		buffer_write_data(buffer_string, global.game_id);
 		buffer_write_array(buffer_u64, global.seed_bag);
+		buffer_write_array(buffer_u8, global.initial_rolls);
 		network_send_tcp_packet();
 		
 		start_dialogue([
@@ -437,14 +438,6 @@ function board_advance() {
 			if (BOARD_NORMAL) {
 				next_space = space.space_next;
 			} else {
-				var space_array = space_directions_reverse;
-	
-				if (array_count(space_array, null) < 3) {
-					var p = instance_create_layer(0, 0, "Managers", objPathChange);
-					p.space = next_space;
-					return;
-				}
-				
 				next_space = space.space_previous;
 			}
 		} else {
@@ -540,7 +533,7 @@ function roll_dice() {
 	var rolled_all_die = false;
 	
 	switch (player_info.item_effect) {
-		case ItemType.Dice:
+		case ItemType.DoubleDice:
 			switch (instance_number(objDiceRoll)) {
 				case 1:
 					r.hspeed = -2;
@@ -553,7 +546,7 @@ function roll_dice() {
 			}
 			break;
 			
-		case ItemType.DoubleDice:
+		case ItemType.TripleDice:
 			switch (instance_number(objDiceRoll)) {
 				case 1:
 					r.hspeed = -2;
@@ -747,8 +740,8 @@ function item_applied(item) {
 	var player_info = player_info_by_turn();
 	
 	switch (item.id) {
-		case ItemType.Dice:
 		case ItemType.DoubleDice:
+		case ItemType.TripleDice:
 		case ItemType.Clock:
 		case ItemType.Reverse:
 			player_info.item_effect = item.id;
@@ -774,8 +767,12 @@ function item_applied(item) {
 				break;
 			
 			case ItemType.Warp:
+				item_animation(ItemType.Warp);
+				break;
+			
+			case ItemType.SuperWarp:
 				show_multiple_player_choices(function(_) { return true; }, true).final_action = function() {
-					item_animation(ItemType.Warp);
+					item_animation(ItemType.SuperWarp);
 				}
 				break;
 			

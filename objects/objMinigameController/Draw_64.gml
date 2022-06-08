@@ -1,8 +1,19 @@
 if (minigame_time != -1) {
 	var w = 100;
 	var h = 32;
-	var xx = display_get_gui_width() / 2 - w / 2;
-	var yy = display_get_gui_height();
+	
+	switch (minigame_time_halign) {
+		case fa_left: var xx = 0; break;
+		case fa_center: var xx = display_get_gui_width() / 2 - w / 2; break;
+		case fa_right: var xx = display_get_gui_width() - w; break;
+	}
+	
+	switch (minigame_time_valign) {
+		case fa_top: var yy = h; break;
+		case fa_middle: var yy = display_get_gui_height() / 2 + h / 2; break;
+		case fa_bottom: var yy = display_get_gui_height(); break;
+	}
+	
 	draw_box(xx, yy - h, w, h, c_dkgray, c_white);
 	draw_set_font(fntDialogue);
 	

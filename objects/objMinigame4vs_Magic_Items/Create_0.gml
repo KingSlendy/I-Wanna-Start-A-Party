@@ -1,0 +1,1 @@
+image_index = objMinigameController.item_order[order];

@@ -19,7 +19,6 @@ repeat (100) {
 }
 
 global.current_seed = -1;
-next_seed_inline();
 
 if (array_length(global.player_game_ids) == 0) {
 	if (instance_exists(objNetworkClient)) {

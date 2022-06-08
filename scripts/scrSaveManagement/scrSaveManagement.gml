@@ -59,7 +59,7 @@ function save_board() {
 			saved_turn: player_info.turn,
 			saved_shines: player_info.shines,
 			saved_coins: player_info.coins,
-			saved_items: [],
+			saved_items: array_create(array_length(player_info.items), -1),
 			saved_item_effect: player_info.item_effect ?? -1,
 			saved_position: [player.x, player.y],
 		};
@@ -73,7 +73,7 @@ function save_board() {
 				item = -1;
 			}
 				
-			array_push(board.saved_players[i - 1].saved_items, item);
+			board.saved_players[i - 1].saved_items[j] = item;
 		}
 	}
 	

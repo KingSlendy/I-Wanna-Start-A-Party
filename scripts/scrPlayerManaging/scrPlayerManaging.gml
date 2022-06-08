@@ -25,7 +25,9 @@ global.skin_sprites = [
 	"Miku",
 	"Miki",
 	"Producer",
-	"Kami2"
+	"Kami2",
+	"Baba",
+	"Megaman"
 ];
 
 global.skin_current = 0;

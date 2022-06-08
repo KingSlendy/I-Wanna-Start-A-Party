@@ -109,8 +109,12 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							ai_join_all();
 							global.lobby_started = true;
 							fade_start = true;
-							global.game_id = "Offline";
-							global.player_game_ids = [1, 2, 3, 4];
+							
+							if (variable_struct_exists(global.board_games, "Offline")) {
+								global.game_id = "Offline";
+								global.player_game_ids = [1, 2, 3, 4];
+							}
+							
 							audio_sound_gain(global.music_current, 0, 1000);
 							audio_play_sound(global.sound_cursor_big_select, 0, false);
 							exit;

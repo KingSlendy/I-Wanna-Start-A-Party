@@ -22,6 +22,17 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
+action_end = function() {
+	with (objMinigame1vs3_Avoid_Block) {
+		alarm[0] = 0;
+		alarm[1] = 0;
+		alarm[2] = 0;
+		alarm[3] = 0;
+	}
+	
+	instance_destroy(objMinigame1vs3_Avoid_Cherry);
+}
+
 points_draw = true;
 points_number = false;
 player_check = objPlayerPlatformer;

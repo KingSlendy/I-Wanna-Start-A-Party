@@ -15,6 +15,6 @@ if (is_local_turn()) {
 	]);
 	
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.CrushTheGuy);
-	network_send_tcp_packet();
+	buffer_write_action(ClientUDP.CrushTheGuy);
+	network_send_udp_packet();
 }

@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprItemWarp",
+    "path": "sprites/sprItemWarp/sprItemWarp.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

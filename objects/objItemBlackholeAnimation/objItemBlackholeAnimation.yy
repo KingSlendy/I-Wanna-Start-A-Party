@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprItemBlackhole",
+    "path": "sprites/sprItemBlackhole/sprItemBlackhole.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

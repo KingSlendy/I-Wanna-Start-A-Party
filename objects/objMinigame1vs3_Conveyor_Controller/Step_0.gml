@@ -9,8 +9,6 @@ with (objPlayerBase) {
 }
 
 if (lost_count == global.player_max - 1) {
-	action_end();
-	
 	with (objPlayerBase) {
 		if (y < 288) {
 			minigame_4vs_points(objMinigameController.info, network_id);

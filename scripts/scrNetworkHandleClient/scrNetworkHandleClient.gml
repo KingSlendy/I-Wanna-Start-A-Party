@@ -58,7 +58,6 @@ enum ClientTCP {
 	ChooseMinigame,
 	StartTheGuy,
 	ShowTheGuyOptions,
-	CrushTheGuy,
 	EndTheGuy,
 	
 	//Animations
@@ -71,6 +70,7 @@ enum ClientTCP {
 	MinigameOverviewStart,
 	MinigameFinish,
 	Minigame4vs_Lead_Input,
+	Minigame4vs_Haunted_Boo,
 	Minigame2vs2_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
@@ -95,7 +95,11 @@ enum ClientUDP {
 	ChangeChoiceSelected,
 	ChangeDialogueAnswer,
 	ChangeShopSelected,
-	ChangeBlackholeSelected
+	ChangeBlackholeSelected,
+	
+	//Events
+	CrushTheGuy,
+	NoNoTheGuy
 }
 
 function network_read_client(ip, port, buffer) {
@@ -520,6 +524,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.BoardStart:
 			global.game_id = buffer_read(buffer, buffer_string);
 			global.seed_bag = buffer_read_array(buffer, buffer_u64);
+			global.initial_rolls = buffer_read_array(buffer, buffer_u8);
 			break;
 		
 		case ClientTCP.TurnStart:
@@ -565,10 +570,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objTheGuy) {
 				show_the_guy_options();
 			}
-			break;
-			
-		case ClientTCP.CrushTheGuy:
-			objTheGuy.alarm[5] = 1;
 			break;
 			
 		case ClientTCP.EndTheGuy:
@@ -642,6 +643,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				
 				if (alarm[9] == -1) {
 					alarm[9] = 1;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Haunted_Boo:
+			var player_id = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Haunted_Boo) {
+				if (!array_contains(player_targets, player_id)) {
+					array_push(player_targets, player_id);
 				}
 			}
 			break;
@@ -803,6 +814,20 @@ function network_read_client_udp(buffer, data_id) {
 				objBlackhole.option_selected = buffer_read(buffer, buffer_u8);
 				audio_play_sound(global.sound_cursor_select, 0, false);
 			}
+			break;
+			
+		//Events
+		case ClientUDP.CrushTheGuy:
+			objTheGuy.alarm[5] = 1;
+			break;
+			
+		case ClientUDP.NoNoTheGuy:
+			with (objTheGuyHead) {
+				snd = audio_play_sound(sndTheGuyNoNo, 0, false);
+				image_speed = 1;
+			}
+		
+			objTheGuyEye.image_speed = 1;
 			break;
 	}
 }

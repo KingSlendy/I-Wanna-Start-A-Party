@@ -12,10 +12,6 @@ event_inherited();
 minigame_split = true;
 //minigame_time = 40;
 minigame_time_end = function() {
-	set_spd(0);
-	alarm[4] = 0;
-	alarm[5] = 0;
-	
 	with (objPlayerBase) {
 		if (lost) {
 			continue;
@@ -27,10 +23,16 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
+action_end = function() {
+	set_spd(0);
+	alarm[4] = 0;
+	alarm[5] = 0;
+}
+
 player_check = objPlayerPlatformer;
 
 scene_spd = 0;
-prev_openings = array_create(global.player_max, -1);
+prev_openings = array_create(global.player_max, 2);
 
 function set_spd(spd) {
 	scene_spd = spd;

@@ -31,7 +31,9 @@ switch (state) {
 		if (alpha <= 0) {
 			//Temp
 			if (force_type != null) {
-				objPlayerInfo.player_info.space = c_white;
+				with (objPlayerInfo) {
+					player_info.space = c_white;
+				}
 			}
 			//Temp
 			

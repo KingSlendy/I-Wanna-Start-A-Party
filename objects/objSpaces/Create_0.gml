@@ -47,6 +47,10 @@ if (array_count(space_directions_reverse, null) == 3) {
 	});
 }
 
+if (array_count(space_directions_normal, null) < 3 || array_count(space_directions_reverse, null) < 3) {
+	image_index = SpaceType.PathChange;
+}
+
 instance_activate_object(id);
 ds_list_destroy(paths);
 

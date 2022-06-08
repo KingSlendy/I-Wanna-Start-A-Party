@@ -10,14 +10,15 @@ function Item(id, name, desc, sprite, price, animation = null, stock_criteria = 
 }
 
 enum ItemType {
-	Dice,
 	DoubleDice,
+	TripleDice,
 	Clock,
 	Poison,
 	Reverse,
 	Ice,
 	ItemSteal,
 	Warp,
+	SuperWarp,
 	Cellphone,
 	Blackhole,
 	Mirror,
@@ -27,8 +28,8 @@ enum ItemType {
 }
 
 global.board_items = [
-	new Item(ItemType.Dice, "Dice", "Lets you roll two dice.", sprItemDice, 10),
-	new Item(ItemType.DoubleDice, "Double Dice", "Lets you roll three dice.", sprItemDoubleDice, 20),
+	new Item(ItemType.DoubleDice, "Double Dice", "Lets you roll two die.", sprItemDoubleDice, 10),
+	new Item(ItemType.TripleDice, "Triple Dice", "Lets you roll three die.", sprItemTripleDice, 20),
 	new Item(ItemType.Clock, "Clock", "Makes your dice roll slow.", sprItemClock, 20),
 	new Item(ItemType.Poison, "Poison", "Dice gets only a roll from 1-3.\nCan be used on other players.", sprItemPoison, 5, objItemPoisonAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
@@ -52,8 +53,9 @@ global.board_items = [
 	}),
 	
 	new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 1000),
-	new Item(ItemType.Warp, "Warp", "Changes location with the player you choose.", sprItemWarp, 25, objItemWarpAnimation),
-	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 12,,, function() {
+	new Item(ItemType.Warp, "Warp", "Changes location with a random player.", sprItemWarp, 12, objItemWarpAnimation),
+	new Item(ItemType.SuperWarp, "Super Warp", "Changes location with the player you choose.", sprItemSuperWarp, 25, objItemSuperWarpAnimation),
+	new Item(ItemType.Cellphone, "Cellphone", "You can get an item from the shop delivered.", sprItemCellphone, 8,,, function() {
 		return (player_info_by_turn().coins >= global.min_shop_coins && global.board_turn < global.max_board_turns);
 	}),
 	

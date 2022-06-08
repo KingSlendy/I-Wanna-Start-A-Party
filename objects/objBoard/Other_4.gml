@@ -28,36 +28,29 @@ if (IS_BOARD) {
 		}
 	
 		for (var i = 1; i <= global.player_max; i++) {
-			for (var j = 1; j <= global.player_max; j++) {
-				if (i == global.player_game_ids[j - 1]) {
-					var saved_player = board.saved_players[j - 1];
-					var player = focus_player_by_id(i);
-					var sprite = asset_get_index(saved_player.saved_skin);
-					player.sprite_index = sprite;
-					player.skin = get_skin_by_sprite(sprite);
-					player.x = saved_player.saved_position[0];
-					player.y = saved_player.saved_position[1];
-					spawn_player_info(i, saved_player.saved_turn);
-					var player_info = player_info_by_id(i);
-					player_info.shines = saved_player.saved_shines;
-					player_info.coins = saved_player.saved_coins;
-					player_info.items = [];
+			var saved_player = board.saved_players[global.player_game_ids[i - 1] - 1];
+			var player = focus_player_by_id(i);
+			var sprite = asset_get_index(saved_player.saved_skin);
+			player.sprite_index = sprite;
+			player.skin = get_skin_by_sprite(sprite);
+			player.x = saved_player.saved_position[0];
+			player.y = saved_player.saved_position[1];
+			spawn_player_info(i, saved_player.saved_turn);
+			var player_info = player_info_by_id(i);
+			player_info.shines = saved_player.saved_shines;
+			player_info.coins = saved_player.saved_coins;
 				
-					for (var k = 0; k < array_length(player_info.items); k++) {
-						var item = saved_player.saved_items[k];
+			for (var j = 0; j < array_length(player_info.items); j++) {
+				var item = saved_player.saved_items[j];
 					
-						if (item != -1) {
-							player_info.items[k] = global.board_items[item];
-						} else {
-							player_info.items[k] = null;
-						}
-					}
-				
-					player_info.item_effect = (saved_player.saved_item_effect != -1) ? saved_player.saved_item_effect : null;
-				
-					break;
+				if (item != -1) {
+					player_info.items[j] = global.board_items[item];
+				} else {
+					player_info.items[j] = null;
 				}
 			}
+				
+			player_info.item_effect = (saved_player.saved_item_effect != -1) ? saved_player.saved_item_effect : null;
 		}
 	
 		calculate_player_place();
