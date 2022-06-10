@@ -1,10 +1,3 @@
-if (global.board_started) {
-	for (var i = 1; i <= global.player_max; i++) {
-		var player = focus_player_by_turn(i);
-		player.depth = (global.player_turn == i) ? -10 : 0;
-	}
-}
-
 //Baba Is Board
 if (room == rBoardBabaIsBoard) {
 	tile_image_index += tile_image_speed * (50 / game_get_speed(gamespeed_fps));

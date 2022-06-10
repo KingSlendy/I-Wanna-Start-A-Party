@@ -43,7 +43,7 @@ if (global.actions.jump.pressed(network_id)) {
 		
 		case 2:
 			if (!focus_player.ai) {
-				instance_create_layer(0, 0, "Managers", objMapLook);
+				show_map();
 			}
 			break;
 	}

@@ -17,7 +17,7 @@ minigame_time_end = function() {
 			continue;
 		}
 		
-		minigame_4vs_points(objMinigameController.info, network_id);
+		minigame4vs_points(objMinigameController.info, network_id);
 	}
 	
 	minigame_finish();

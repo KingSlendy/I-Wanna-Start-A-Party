@@ -1,6 +1,6 @@
 network_id = 0;
 network_name = "";
-//network_stats = [];
+network_mode = PlayerDataMode.Heartbeat;
 skin = null;
 ai = false;
 send_timer = 0;

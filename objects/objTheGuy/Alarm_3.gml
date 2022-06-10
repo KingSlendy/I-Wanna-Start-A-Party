@@ -1,5 +1,5 @@
 global.choice_selected = (global.choice_selected + options_dir + options_total) % options_total;
-audio_play_sound(sndCursorSelect, 0, false);
+audio_play_sound(sndRouletteRoll, 0, false);
 
 if (options_dir == 1) {
 	options_timer += 0.10;

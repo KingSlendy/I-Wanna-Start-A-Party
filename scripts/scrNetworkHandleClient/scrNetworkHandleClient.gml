@@ -28,6 +28,8 @@ enum ClientTCP {
 	//Interfaces
 	SpawnPlayerInfo,
 	ChangeChoiceAlpha,
+	ShowMap,
+	EndMap,
 	LessRoll,
 	SkipDialogueText,
 	ChangeDialogueText,
@@ -71,6 +73,8 @@ enum ClientTCP {
 	MinigameFinish,
 	Minigame4vs_Lead_Input,
 	Minigame4vs_Haunted_Boo,
+	Minigame4vs_Magic_Hold,
+	Minigame4vs_Magic_Release,
 	Minigame2vs2_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
@@ -89,9 +93,10 @@ enum ClientTCP {
 enum ClientUDP {
 	//Networking
 	Heartbeat,
-	PlayerMove,
+	PlayerData,
 	
 	//Interfaces
+	MapLook,
 	ChangeChoiceSelected,
 	ChangeDialogueAnswer,
 	ChangeShopSelected,
@@ -386,6 +391,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				objTurnChoices.alpha_target = buffer_read(buffer, buffer_u8);
 			}
 			break;
+			
+		case ClientTCP.ShowMap:
+			show_map();
+			break;
+			
+		case ClientTCP.EndMap:
+			end_map();
+			break;
 		
 		case ClientTCP.LessRoll:
 			global.dice_roll--;
@@ -657,6 +670,34 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame4vs_Magic_Hold:
+			var player_turn = buffer_read(buffer, buffer_u8);
+			var order = buffer_read(buffer, buffer_s8);
+			
+			with (objMinigame4vs_Magic_Items) {
+				if (self.order == order && self.player_turn == player_turn) {
+					hold_item(false);
+					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Magic_Release:
+			var player_turn = buffer_read(buffer, buffer_u8);
+			var order = buffer_read(buffer, buffer_s8);
+			var item_x = buffer_read(buffer, buffer_s32);
+			var item_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigame4vs_Magic_Items) {
+				if (self.order == order && self.player_turn == player_turn) {
+					x = item_x;
+					y = item_y;
+					release_item(false, false);
+					break;
+				}
+			}
+			break;
+			
 		case ClientTCP.Minigame2vs2_Buttons_Button:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var is_inside = buffer_read(buffer, buffer_bool);
@@ -713,7 +754,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.Minigame2vs2_Fruits_Fruit:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var points = buffer_read(buffer, buffer_s8);
-			minigame_4vs_points(objMinigameController.info, player_id, points);
+			minigame4vs_points(objMinigameController.info, player_id, points);
 			break;
 		#endregion
 		
@@ -775,11 +816,21 @@ function network_read_client_udp(buffer, data_id) {
 			}
 			break;
 		
-		case ClientUDP.PlayerMove:
+		case ClientUDP.PlayerData:
 			player_read_data(buffer);
 			break;
 			
 		//Interfaces
+		case ClientUDP.MapLook:
+			var look_x = buffer_read(buffer, buffer_f32);
+			var look_y = buffer_read(buffer, buffer_f32);
+			
+			with (objMapLook) {
+				self.look_x = look_x;
+				self.look_y = look_y;
+			}
+			break;
+		
 		case ClientUDP.ChangeChoiceSelected:
 			if (room != rMinigameOverview) {
 				if (instance_exists(objTurnChoices)) {

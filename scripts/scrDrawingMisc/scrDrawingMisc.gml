@@ -110,3 +110,7 @@ function draw_2vs2_squares(info) {
 		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, draw_get_color(), 0);
 	}
 }
+
+function draw_action(action) {
+	return "{SPRITE," + sprite_get_name(bind_to_key(action.button)) + ",0,0,0,0.5,0.5}";
+}

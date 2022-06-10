@@ -2,7 +2,7 @@ image_index = 1;
 image_xscale *= -1;
 lookout = false;
 
-if (info.is_finished) {
+if (objMinigameController.info.is_finished) {
 	exit;
 }
 

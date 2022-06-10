@@ -2,7 +2,7 @@ if (y < other.bbox_bottom) {
 	var player_id = other.follow.network_id;
 	
 	if (is_player_local(player_id)) {
-		minigame_4vs_points(objMinigameController.info, player_id, type + 1);
+		minigame4vs_points(objMinigameController.info, player_id, type + 1);
 	
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Fruits_Fruit);

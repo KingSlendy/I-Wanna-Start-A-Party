@@ -33,6 +33,7 @@ if (title_start) {
 }
 
 if (!fade_start && global.actions.jump.pressed()) {
+	audio_play_sound(sndTitleSelect, 0, false);
 	music_stop();
 	fade_start = true;
 	pressed = true;

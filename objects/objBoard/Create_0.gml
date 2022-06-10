@@ -3,7 +3,7 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 
-depth = -10000;
+//depth = -10000;
 
 fade_start = true;
 fade_alpha = 1;

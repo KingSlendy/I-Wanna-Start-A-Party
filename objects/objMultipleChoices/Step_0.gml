@@ -33,7 +33,7 @@ if (global.choice_selected != prev_choice) {
 if (global.actions.jump.pressed(network_id)) {
 	if (availables[global.choice_selected]) {
 		alpha_target = 0;
-		audio_play_sound(global.sound_cursor_select, 0, false);
+		audio_play_sound(global.sound_cursor_select2, 0, false);
 	} else {
 		//audio_play_sound(global.sound_cursor_select, 0, false);
 	}

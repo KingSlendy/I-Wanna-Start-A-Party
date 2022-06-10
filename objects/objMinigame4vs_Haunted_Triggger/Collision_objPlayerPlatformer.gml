@@ -1,5 +1,5 @@
 if (!other.won) {
-	minigame_4vs_points(objMinigameController.info, other.network_id);
+	minigame4vs_points(objMinigameController.info, other.network_id);
 	minigame_finish(true);
 	
 	with (other) {

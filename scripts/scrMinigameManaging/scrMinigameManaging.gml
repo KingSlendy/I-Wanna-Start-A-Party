@@ -6,24 +6,27 @@ function Minigame(title = "Generic Minigame", instructions = ["Generic Instructi
 }
 
 global.minigames = {};
-var m = global.minigames;
-m[$ "4vs"] = [
-	new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame4vs_Lead),
-	new Minigame("Tower Ascension", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 3, rMinigame4vs_Tower),
-	new Minigame("Haunted Forest", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 7, rMinigame4vs_Haunted),
-	//new Minigame("Magic Memory", ["Game is still in development.\nMore things will be added.\nThings are subject to change."],, rMinigame4vs_Magic)
-];
 
-m[$ "1vs3"] = [
-	new Minigame("Avoid The Anguish", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 4, rMinigame1vs3_Avoid),
-	new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame1vs3_Conveyor)
-];
+function minigame_init() {
+	var m = global.minigames;
+	m[$ "4vs"] = [
+		new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame4vs_Lead),
+		new Minigame("Tower Ascension", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 3, rMinigame4vs_Tower),
+		new Minigame("Haunted Forest", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 7, rMinigame4vs_Haunted),
+		new Minigame("Magic Memory", [draw_action(global.actions.left) + " " + draw_action(global.actions.up) + " " + draw_action(global.actions.down) + " " + draw_action(global.actions.right) + " Move\n\n" + draw_action(global.actions.jump) + " Hold Item/Release Item"],, rMinigame4vs_Magic)
+	];
 
-m[$ "2vs2"] = [
-	new Minigame("A-Maze-Ing", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 0, rMinigame2vs2_Maze),
-	new Minigame("Catch The Fruits", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 5, rMinigame2vs2_Fruits),
-	new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame2vs2_Buttons)
-];
+	m[$ "1vs3"] = [
+		new Minigame("Avoid The Anguish", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 4, rMinigame1vs3_Avoid),
+		new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame1vs3_Conveyor)
+	];
+
+	m[$ "2vs2"] = [
+		new Minigame("A-Maze-Ing", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 0, rMinigame2vs2_Maze),
+		new Minigame("Catch The Fruits", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 5, rMinigame2vs2_Fruits),
+		new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame2vs2_Buttons)
+	];
+}
 
 function minigame_info_reset() {
 	global.minigame_info = {
@@ -193,7 +196,7 @@ function minigame_max_points() {
 	return get_frames(1000000);
 }
 
-function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
+function minigame4vs_points(info, player_id, points = minigame_max_points()) {
 	if (!info.is_finished) {
 		var scoring = info.player_scores[player_id - 1];
 		
@@ -203,9 +206,9 @@ function minigame_4vs_points(info, player_id, points = minigame_max_points()) {
 	}
 }
 
-function minigame_2vs2_points(info, player_id1, player_id2, points = minigame_max_points()) {
-	minigame_4vs_points(info, player_id1, points);
-	minigame_4vs_points(info, player_id2, points);
+function minigame2vs2_points(info, player_id1, player_id2, points = minigame_max_points()) {
+	minigame4vs_points(info, player_id1, points);
+	minigame4vs_points(info, player_id2, points);
 }
 
 function minigame_finish(signal = false) {

@@ -7,7 +7,7 @@ if (keyboard_check_pressed(vk_f2)) {
 	player_leave_all();
 	global.lobby_started = false;
 	instance_destroy(objNetworkClient);
-	game_restart();
+	room_goto(rTitle);
 }
 
 if (keyboard_check_pressed(vk_escape)) {

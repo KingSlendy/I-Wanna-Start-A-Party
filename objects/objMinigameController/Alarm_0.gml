@@ -1,4 +1,4 @@
-show_popup("START");
+show_popup("START",,,,,, 0.5);
 announcer_started = true;
 music_play(music, true);
 audio_play_sound(sndMinigameStart, 0, false);

@@ -10,6 +10,13 @@ global.master_id = 0;
 global.player_name = "Player";
 global.lobby_started = false;
 
+enum PlayerDataMode {
+	Heartbeat,
+	Basic,
+	Hand,
+	All
+}
+
 function buffer_seek_begin(buffer = global.buffer) {
 	buffer_seek(buffer, buffer_seek_start, 0);
 }
@@ -156,48 +163,53 @@ function ai_leave(id) {
 }
 
 function player_write_data() {
-	//var stats = [
-	//	network_id,
-	//	network_name,
-	//	object_index,
-	//	sprite_index,
-	//	image_alpha,
-	//	image_xscale * ((object_index == objPlayerPlatformer) ? xscale : 1),
-	//	image_yscale,
-	//	x,
-	//	y,
-	//	room
-	//]
+	buffer_seek_begin();
+	buffer_write_action(ClientUDP.PlayerData);
+	buffer_write_data(buffer_u8, network_mode);
+	buffer_write_data(buffer_u8, network_id);
+	buffer_write_data(buffer_string, network_name);
+	buffer_write_data(buffer_bool, ai);
+	buffer_write_data(buffer_u16, object_index);
+	buffer_write_data(buffer_u16, room);
 	
-	//if (!array_equals(stats, network_stats)) {
-		buffer_seek_begin();
-		buffer_write_action(ClientUDP.PlayerMove);
-	
-		buffer_write_data(buffer_u8, network_id);
-		buffer_write_data(buffer_string, network_name);
-		buffer_write_data(buffer_bool, ai);
-		buffer_write_data(buffer_u16, object_index);
-		buffer_write_data(buffer_u16, sprite_index);
-		buffer_write_data(buffer_u8, image_alpha);
-	
-		if (object_index == objPlayerPlatformer) {
-			buffer_write_data(buffer_s8, image_xscale * xscale);
-		} else {
+	switch (network_mode) {
+		case PlayerDataMode.Basic:
+			buffer_write_data(buffer_u16, sprite_index);
 			buffer_write_data(buffer_s8, image_xscale);
-		}
+			buffer_write_data(buffer_s8, image_yscale);
+			buffer_write_data(buffer_s32, x);
+			buffer_write_data(buffer_s32, y);
+			break;
+		
+		case PlayerDataMode.Hand:
+			buffer_write_data(buffer_u16, sprite_index);
+			buffer_write_data(buffer_u8, image_index);
+			buffer_write_data(buffer_u64, image_blend);
+			buffer_write_data(buffer_s32, x);
+			buffer_write_data(buffer_s32, y);
+			break;
+		
+		case PlayerDataMode.All:
+			buffer_write_data(buffer_u16, sprite_index);
+			buffer_write_data(buffer_u8, image_alpha);
 	
-		buffer_write_data(buffer_s8, image_yscale);
-		buffer_write_data(buffer_s16, x);
-		buffer_write_data(buffer_s16, y);
-		buffer_write_data(buffer_u16, room);
+			if (object_index == objPlayerPlatformer) {
+				buffer_write_data(buffer_s8, image_xscale * xscale);
+			} else {
+				buffer_write_data(buffer_s8, image_xscale);
+			}
 	
-		network_send_udp_packet();
+			buffer_write_data(buffer_s8, image_yscale);
+			buffer_write_data(buffer_s32, x);
+			buffer_write_data(buffer_s32, y);
+			break;
+	}
 	
-		//network_stats = stats;
-	//}
+	network_send_udp_packet();
 }
 
 function player_read_data(buffer) {
+	var mode = buffer_read(buffer, buffer_u8);
 	var network_id = buffer_read(buffer, buffer_u8);
 	var instance = global.player_client_list[network_id - 1];
 		
@@ -206,17 +218,37 @@ function player_read_data(buffer) {
 		instance.hspeed = 0;
 		instance.vspeed = 0;
 		instance.alarm[11] = get_frames(0.5);
-		
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.ai = buffer_read(buffer, buffer_bool);
 		instance.network_index = buffer_read(buffer, buffer_u16);
-		instance.sprite_index = buffer_read(buffer, buffer_u16);
-		instance.image_alpha = buffer_read(buffer, buffer_u8);
-		instance.image_xscale = buffer_read(buffer, buffer_s8);
-		instance.image_yscale = buffer_read(buffer, buffer_s8);
-		instance.x = buffer_read(buffer, buffer_s16);
-		instance.y = buffer_read(buffer, buffer_s16);
 		instance.network_room = buffer_read(buffer, buffer_u16);
+		
+		switch (mode) {
+			case PlayerDataMode.Basic:
+				instance.sprite_index = buffer_read(buffer, buffer_u16);
+				instance.image_xscale = buffer_read(buffer, buffer_s8);
+				instance.image_yscale = buffer_read(buffer, buffer_s8);
+				instance.x = buffer_read(buffer, buffer_s32);
+				instance.y = buffer_read(buffer, buffer_s32);
+				break;
+			
+			case PlayerDataMode.Hand:
+				instance.sprite_index = buffer_read(buffer, buffer_u16);
+				instance.image_index = buffer_read(buffer, buffer_u8);
+				instance.image_blend = buffer_read(buffer, buffer_u64);
+				instance.x = buffer_read(buffer, buffer_s32);
+				instance.y = buffer_read(buffer, buffer_s32);
+				break;
+			
+			case PlayerDataMode.All:
+				instance.sprite_index = buffer_read(buffer, buffer_u16);
+				instance.image_alpha = buffer_read(buffer, buffer_u8);
+				instance.image_xscale = buffer_read(buffer, buffer_s8);
+				instance.image_yscale = buffer_read(buffer, buffer_s8);
+				instance.x = buffer_read(buffer, buffer_s32);
+				instance.y = buffer_read(buffer, buffer_s32);
+				break;
+		}
 	}
 }
 

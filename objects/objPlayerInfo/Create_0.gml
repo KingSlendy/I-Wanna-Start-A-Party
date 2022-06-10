@@ -39,4 +39,10 @@ function setup() {
 	target_draw_y = draw_y;
 	main_draw_x = draw_x;
 	main_draw_y = draw_y;
+
+	if (draw_x < 400) {
+		draw_x -= draw_w;
+	} else {
+		draw_x += draw_w;
+	}
 }

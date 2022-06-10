@@ -33,10 +33,11 @@ if (options_fade == 0) {
 		}
 			
 		var view_x = camera_get_view_x(view_camera[0]);
+		var view_y = camera_get_view_y(view_camera[0]);
 			
 		with (objPlayerBase) {
 			x = view_x - 800;
-			y = camera_get_view_y(view_camera[0]) - 70;
+			y = view_y + 800;
 		}
 			
 		if (get_player_count(objPlayerTheGuy) != global.player_max) {
@@ -50,13 +51,15 @@ if (options_fade == 0) {
 		if (option.only_me) {
 			var player = focused_player();
 			player.x = view_x + 400;
+			player.y = view_y + 70;
 		} else {
 			for (var i = 1; i <= global.player_max; i++) {
 				var player = focus_player_by_turn(i);
 				player.x = view_x + 150 + 166 * (i - 1);
+				player.y = view_y + 70;
 			}
 		}
 		
-		alarm[4] = get_frames(2);
+		alarm[4] = get_frames(1);
 	}
 }

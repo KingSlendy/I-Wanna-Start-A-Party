@@ -19,7 +19,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 		}
 	}
 	
-	show_popup("4 player minigame",, 100,,, false);
+	show_popup("4 vs. minigame",, 100,,, false);
 	info.type = "4vs";
 } else if (blue_count == 3 || red_count == 3) { //1vs3	
 	for (var i = 1; i <= global.player_max; i++) {
@@ -90,4 +90,5 @@ if (force_type != null) {
 //Temp
 
 show_popup("VS");
+audio_play_sound(sndChooseMinigame, 0, false);
 alarm[1] = get_frames(2);

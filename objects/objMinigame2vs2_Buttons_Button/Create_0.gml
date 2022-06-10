@@ -8,6 +8,6 @@ function press_button(player_id) {
 			objMinigameController.alarm[5] = get_frames(0.4);
 		}
 		
-		minigame_4vs_points(objMinigameController.info, player_id, 1);
+		minigame4vs_points(objMinigameController.info, player_id, 1);
 	}
 }

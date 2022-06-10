@@ -826,6 +826,26 @@ function show_popup(text, x = display_get_gui_width() / 2, y = display_get_gui_h
 	return p;
 }
 
+function show_map() {
+	instance_create_layer(0, 0, "Managers", objMapLook);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ShowMap);
+		network_send_tcp_packet();
+	}
+}
+
+function end_map() {
+	instance_destroy(objMapLook);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.EndMap);
+		network_send_tcp_packet();
+	}
+}
+
 function call_shop() {
 	var player_info = player_info_by_turn();
 	

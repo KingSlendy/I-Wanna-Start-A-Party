@@ -129,3 +129,88 @@ function check_player_actions_by_id(player_id) {
 	
 	return actions;
 }
+
+function bind_to_key(bind) {
+	switch (bind) {
+		//Alphanumeric keys
+		case ord("0"): return 0;
+		case ord("1"): return 1;
+		case ord("2"): return 2;
+		case ord("3"): return 3;
+		case ord("4"): return 4;
+		case ord("5"): return 5;
+		case ord("6"): return 6;
+		case ord("7"): return 7;
+		case ord("8"): return 8;
+		case ord("9"): return 9;
+		case ord("A"): return 10;
+		case ord("B"): return 17;
+		case ord("C"): return 25;
+		
+	    //Special keys
+	    case vk_space: return 77;
+	    case vk_shift: case vk_lshift: case vk_rshift: return sprKey_Shift;
+	    case vk_control: case vk_lcontrol: case vk_rcontrol: return 27;
+	    case vk_alt: case vk_lalt: case vk_ralt: return 11;
+	    case vk_enter: return 34;
+	    case vk_up: return sprKey_ArrowUp;
+	    case vk_down: return sprKey_ArrowDown;
+	    case vk_left: return sprKey_ArrowLeft;
+	    case vk_right: return sprKey_ArrowRight;
+	    case vk_backspace: return 19;
+	    case vk_tab: return 79;
+	    case vk_insert: return "Insert";
+	    case vk_delete: return "Delete";
+	    case vk_pageup: return "Page Up";
+	    case vk_pagedown: return "Page Down";
+	    case vk_home: return "Home";
+	    case vk_end: return "End";
+	    case vk_escape: return "Escape";
+	    case vk_printscreen: return "Print Screen";
+	    case vk_f1: return 37;
+	    case vk_f2: return 38;
+	    case vk_f3: return 39;
+	    case vk_f4: return 40;
+	    case vk_f5: return 41;
+	    case vk_f6: return 42;
+	    case vk_f7: return 43;
+	    case vk_f8: return 44;
+	    case vk_f9: return 45;
+	    case vk_f10: return 46;
+	    case vk_f11: return 47;
+	    case vk_f12: return 48;
+    
+	    //Numpad keys
+	    case 96: return "0";
+	    case 97: return "1";
+	    case 98: return "2";
+	    case 99: return "3";
+	    case 100: return "4";
+	    case 101: return "5";
+	    case 102: return "6";
+	    case 103: return "7";
+	    case 104: return "8";
+	    case 105: return "9";
+	    case 106: return "*";
+	    case 107: return "+";
+	    case 109: return "-";
+	    case 110: return ".";
+	    case 111: return "/";
+    
+	    //Misc. keys
+	    case 186: return ";";
+	    case 187: return "=";
+	    case 188: return ",";
+	    case 189: return "-";
+	    case 190: return ".";
+	    case 191: return "/";
+	    case 192: return "`";
+	    case 219: return "[";
+	    case 220: return "\\";
+	    case 221: return "]";
+	    case 222: return "'";
+    
+	    //Other characters
+	    default: return chr(bind);
+	}
+}

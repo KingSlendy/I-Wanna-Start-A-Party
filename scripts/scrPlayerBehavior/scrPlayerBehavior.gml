@@ -53,9 +53,8 @@ function set_mask() {
 //}
 
 function player_kill(network = false) {
-	if (visible && (is_player_local(network_id) || network)) {
+	if (!lost && (is_player_local(network_id) || network)) {
 		instance_create_layer(x, y, "Actors", objBloodEmitter);
-		visible = false;
 		frozen = true;
 		grav_amount = 0;
 		lost = true;

@@ -7,7 +7,7 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 32,
+  "bbox_left": 2,
   "bbox_right": 287,
   "bbox_top": 0,
   "bbox_bottom": 639,
@@ -21,8 +21,8 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 0,
-  "gridY": 0,
+  "gridX": 32,
+  "gridY": 32,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"9989dd0d-fb89-44ce-b827-2017e35089d9","path":"sprites/sprTlsMinigame4vs_Magic/sprTlsMinigame4vs_Magic.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"9989dd0d-fb89-44ce-b827-2017e35089d9","path":"sprites/sprTlsMinigame4vs_Magic/sprTlsMinigame4vs_Magic.yy",},"LayerId":{"name":"94e9ea60-11cb-4bca-9fd2-a19b3f4f4974","path":"sprites/sprTlsMinigame4vs_Magic/sprTlsMinigame4vs_Magic.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},

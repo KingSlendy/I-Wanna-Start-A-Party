@@ -7,6 +7,12 @@ var v = (global.actions.down.held(network_id) - global.actions.up.held(network_i
 hspd = h * max_spd;
 vspd = v * max_spd;
 
+if (global.actions.jump.held(network_id)) {
+	image_index = 1;
+} else {
+	image_index = 0;
+}
+
 xprevious = x;
 yprevious = y;
 

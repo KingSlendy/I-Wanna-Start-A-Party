@@ -10,6 +10,10 @@ if (global.board_first_space[network_id - 1]) {
 	return;
 }
 
+with (objSpaces) {
+	space_glow(false);
+}
+
 var space = instance_place(x, y, objSpaces);
 var passing = false;
 
@@ -17,11 +21,17 @@ with (space) {
 	passing = space_passing_event();
 }
 
-if (passing) {
+if (passing == 1) {
 	exit;
 }
 
-global.dice_roll--;
+if (passing == 0) {
+	global.dice_roll--;
+	
+	with (space) {
+		space_glow(true);
+	}
+}
 
 buffer_seek_begin();
 buffer_write_action(ClientTCP.LessRoll);

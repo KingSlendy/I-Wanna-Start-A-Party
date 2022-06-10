@@ -63,17 +63,25 @@ if (image_index == SpaceType.Shine) {
 
 glowing = false;
 
+function space_glow(state) {
+	glowing = state;
+	
+	if (glowing) {
+		audio_play_sound(sndSpacePass, 0, false);
+	}
+}
+
 function space_passing_event() {
 	var player_info = player_info_by_turn();
 	
 	switch (image_index) {
 		case SpaceType.Shop:
 			call_shop();
-			return true;
+			return 1;
 			
 		case SpaceType.Blackhole:
 			call_blackhole();
-			return true;
+			return 1;
 		
 		case SpaceType.Shine:
 			if (player_info.coins >= global.shine_price) {
@@ -118,7 +126,7 @@ function space_passing_event() {
 				]);
 			}
 			
-			return true;
+			return 1;
 	}
 	
 	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
@@ -126,10 +134,14 @@ function space_passing_event() {
 	if (array_count(space_array, null) < 3) {
 		var p = instance_create_layer(0, 0, "Managers", objPathChange);
 		p.space = id;
-		return true;
+		return 1;
 	}
 	
-	return false;
+	if (image_index == SpaceType.PathChange) {
+		return 2;
+	}
+	
+	return 0;
 }
 
 function space_finish_event() {

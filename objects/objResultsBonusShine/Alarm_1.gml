@@ -18,7 +18,7 @@ if (global.player_id == 1) {
 	switch (array_length(players)) {
 		case 1: text = "Congratulations!"; break;
 		case 2: text = "I applaud both of you!"; break;
-		case 3: text = "Wow, three of you got it!\nI'm impressed"; break;
+		case 3: text = "Wow, three of you got it!\nI'm impressed!"; break;
 		case 4: text = "What!? All of you managed to get it??\nYou're all so good!"
 	}
 

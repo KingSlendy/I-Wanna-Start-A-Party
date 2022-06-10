@@ -1,4 +1,5 @@
 event_inherited();
+network_mode = PlayerDataMode.Basic;
 skin = get_skin();
 max_speed = 5;
 follow_path = null;

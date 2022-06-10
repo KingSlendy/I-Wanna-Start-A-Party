@@ -1,4 +1,5 @@
 event_inherited();
+network_mode = PlayerDataMode.All;
 orientation = 1;
 set_mask();
 xscale = 1;

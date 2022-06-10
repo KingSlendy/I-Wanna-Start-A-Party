@@ -5,5 +5,5 @@ if (spawned_shine == noone) {
 	alarm[ShineChangeType.Lose] = get_frames(1);
 } else {
 	spawned_shine.vspeed = -6;
-	alarm[11] = get_frames(1);
+	alarm[11] = get_frames(2);
 }
