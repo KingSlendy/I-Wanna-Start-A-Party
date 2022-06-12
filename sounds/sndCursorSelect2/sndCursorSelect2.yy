@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndCursorSelect2.wav",
-  "duration": 1.352708,
+  "duration": 0.845562,
   "parent": {
     "name": "Managers",
     "path": "folders/Sounds/SFX/Managers.yy",

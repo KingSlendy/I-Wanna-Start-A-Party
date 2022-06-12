@@ -41,7 +41,10 @@ with (objPlayerBase) {
 		if (image_alpha >= 1) {
 			door = null;
 			fade = -1;
-			frozen = false;
+			
+			if (!objMinigameController.info.is_finished) {
+				frozen = false;
+			}
 		}
 	}
 }

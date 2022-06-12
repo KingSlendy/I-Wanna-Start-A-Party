@@ -15,8 +15,8 @@ minigames_chosen = irandom(minigame_total - 1);
 global.choice_selected = irandom(minigame_total - 1);
 
 //Temp
-force_type = null;
-force_num = 4;
+force_type = "1vs3";
+force_num = 1;
 //Temp
 
 objBoard.alarm[11] = 0;

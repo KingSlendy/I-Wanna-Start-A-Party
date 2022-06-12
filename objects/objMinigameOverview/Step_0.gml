@@ -30,7 +30,7 @@ switch (state) {
 		break;
 }
 
-if (global.player_id != 1) {
+if (state != -1) {
 	exit;
 }
 
@@ -42,7 +42,7 @@ if (instructions_page != prev_page) {
 	//audio_play_sound(global.sound_cursor_move, 0, false);
 }
 
-if (state != -1) {
+if (global.player_id != 1) {
 	exit;
 }
 

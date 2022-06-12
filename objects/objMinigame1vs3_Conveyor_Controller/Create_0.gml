@@ -35,3 +35,4 @@ action_end = function() {
 points_draw = true;
 points_number = false;
 player_check = objPlayerPlatformer;
+spikes_close = 0;

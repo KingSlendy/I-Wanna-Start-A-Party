@@ -4,9 +4,7 @@ if (keyboard_check_pressed(ord("D"))) {
 }
 
 if (keyboard_check_pressed(vk_f2)) {
-	player_leave_all();
-	global.lobby_started = false;
-	instance_destroy(objNetworkClient);
+	network_disable();
 	room_goto(rTitle);
 }
 

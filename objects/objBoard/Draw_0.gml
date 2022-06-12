@@ -1,6 +1,6 @@
 var draw_player = function(player) {
 	with (player) {
-		if (!lost) {
+		if (draw && !lost) {
 			event_perform(ev_draw, 0);
 		}
 	}

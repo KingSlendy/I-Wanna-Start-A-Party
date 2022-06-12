@@ -22,5 +22,5 @@ if (global.actions.jump.pressed(network_id)) {
 }
 
 if (global.actions.shoot.pressed(global.player_id)) {
-	instance_create_layer(0, 0, "Managers", objMapLook);
+	show_map();
 }

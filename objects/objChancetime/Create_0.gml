@@ -291,7 +291,7 @@ function end_chance_time() {
 	for (var i = 1; i <= global.player_max; i++) {
 		var player = focus_player_by_turn(i);
 		var prev_pos = prev_player_positions[i - 1];
-		player.visible = true;
+		player.draw = true;
 		player.x = prev_pos.x;
 		player.y = prev_pos.y;
 	}

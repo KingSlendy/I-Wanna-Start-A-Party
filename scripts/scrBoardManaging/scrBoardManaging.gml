@@ -1044,7 +1044,7 @@ function choose_shine() {
 	var choices = [];
 	
 	with (objSpaces) {
-		if (space_shine) {
+		if (space_shine && image_index != SpaceType.Shine) {
 			array_push(choices, id);
 		}
 	}

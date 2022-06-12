@@ -192,7 +192,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 5:
-						if (global.player_id != 1 || alarm[0] > 0) {
+						if (global.player_id != 1 || alarm[0] > 0 || global.lobby_started) {
 							exit;
 						}
 						
@@ -212,6 +212,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						alarm[0] = get_frames(1);
 						audio_sound_gain(global.music_current, 0, 1000);
 						audio_play_sound(global.sound_cursor_big_select, 0, false);
+						
+						buffer_seek_begin();
+						buffer_write_action(ClientUDP.LobbyStart);
+						network_send_udp_packet();
 						exit;
 				}
 			} else {

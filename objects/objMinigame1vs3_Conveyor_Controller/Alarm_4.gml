@@ -4,4 +4,8 @@ with (objMinigame1vs3_Conveyor_Spike) {
 	}
 }
 
-alarm[4] = get_frames(11);
+if (++spikes_close == 3) {
+	exit;
+}
+
+alarm[4] = get_frames(5);

@@ -1,12 +1,7 @@
 info = global.minigame_info;
 shuffle_seed_inline();
 reset_seed_inline();
-
-with (objPlayerBase) {
-	frozen = true;
-	lost = false;
-}
-
+objPlayerBase.frozen = true;
 minigame_start = minigame_4vs_start;
 minigame_camera = CameraMode.Static;
 minigame_time = -1;
@@ -39,7 +34,7 @@ function back_to_board() {
 		room_goto(info.previous_board);
 	
 		with (objPlayerBase) {
-			change_to_object(objPlayerBase);
+			change_to_object(objPlayerBoardData);
 		}
 	} else {
 		room_goto(rMinigameOverview);

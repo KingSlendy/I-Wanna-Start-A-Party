@@ -5,6 +5,7 @@ skin = null;
 ai = false;
 send_timer = 0;
 lost = false;
+draw = true;
 
 function change_to_object(obj) {
 	if (object_index != objNetworkPlayer) {

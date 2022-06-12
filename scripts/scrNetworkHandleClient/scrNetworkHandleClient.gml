@@ -94,6 +94,7 @@ enum ClientTCP {
 enum ClientUDP {
 	//Networking
 	Heartbeat,
+	LobbyStart,
 	PlayerData,
 	
 	//Interfaces
@@ -402,7 +403,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 		
 		case ClientTCP.LessRoll:
+			var space_x = buffer_read(buffer, buffer_s32);
+			var space_y = buffer_read(buffer, buffer_s32);
 			global.dice_roll--;
+			
+			with (objSpaces) {
+				space_glow(false);
+				
+				if (x == space_x && y == space_y) {
+					space_glow(true);
+				}
+			}
 			break;
 			
 		case ClientTCP.SkipDialogueText:
@@ -827,6 +838,11 @@ function network_read_client_udp(buffer, data_id) {
 			if (instance_exists(objNetworkClient)) {
 				objNetworkClient.alarm[0] = get_frames(9);
 			}
+			break;
+			
+		case ClientUDP.LobbyStart:
+			audio_sound_gain(global.music_current, 0, 1000);
+			audio_play_sound(global.sound_cursor_big_select, 0, false);
 			break;
 		
 		case ClientUDP.PlayerData:

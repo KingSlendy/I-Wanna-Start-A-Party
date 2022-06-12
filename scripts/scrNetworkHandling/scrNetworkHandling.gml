@@ -113,7 +113,7 @@ function player_join(id) {
 			p.network_id = id;
 			global.player_client_list[id - 1] = p;
 		} else {
-			player.visible = true;
+			player.draw = true;
 		}
 	} else {
 		var player = instance_create_layer(0, 0, "Actors", objPlayerBase);
@@ -125,14 +125,14 @@ function player_join(id) {
 function player_leave(id) {
 	if (id != global.player_id) {
 		var player = global.player_client_list[id - 1];
-		player.visible = false;
+		player.draw = false;
 		player.network_name = "";
 	}
 }
 
 function ai_join_all() {
 	for (var i = 2; i <= global.player_max; i++) {
-		if (!focus_player_by_id(i).visible) {
+		if (!focus_player_by_id(i).draw) {
 			ai_join(i);
 		}
 	}
@@ -175,6 +175,7 @@ function player_write_data() {
 	switch (network_mode) {
 		case PlayerDataMode.Basic:
 			buffer_write_data(buffer_u16, sprite_index);
+			buffer_write_data(buffer_s8, image_alpha);
 			buffer_write_data(buffer_s8, image_xscale);
 			buffer_write_data(buffer_s8, image_yscale);
 			buffer_write_data(buffer_s32, x);
@@ -185,13 +186,15 @@ function player_write_data() {
 			buffer_write_data(buffer_u16, sprite_index);
 			buffer_write_data(buffer_u8, image_index);
 			buffer_write_data(buffer_u64, image_blend);
+			buffer_write_data(buffer_s8, image_xscale);
+			buffer_write_data(buffer_s8, image_yscale);
 			buffer_write_data(buffer_s32, x);
 			buffer_write_data(buffer_s32, y);
 			break;
 		
 		case PlayerDataMode.All:
 			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_u8, image_alpha);
+			buffer_write_data(buffer_s8, image_alpha);
 	
 			if (object_index == objPlayerPlatformer) {
 				buffer_write_data(buffer_s8, image_xscale * xscale);
@@ -214,7 +217,7 @@ function player_read_data(buffer) {
 	var instance = global.player_client_list[network_id - 1];
 		
 	if (instance != null) {
-		instance.visible = true;
+		instance.draw = true;
 		instance.hspeed = 0;
 		instance.vspeed = 0;
 		instance.alarm[11] = get_frames(0.5);
@@ -226,6 +229,7 @@ function player_read_data(buffer) {
 		switch (mode) {
 			case PlayerDataMode.Basic:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
+				instance.image_alpha = buffer_read(buffer, buffer_s8);
 				instance.image_xscale = buffer_read(buffer, buffer_s8);
 				instance.image_yscale = buffer_read(buffer, buffer_s8);
 				instance.x = buffer_read(buffer, buffer_s32);
@@ -236,13 +240,15 @@ function player_read_data(buffer) {
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
 				instance.image_index = buffer_read(buffer, buffer_u8);
 				instance.image_blend = buffer_read(buffer, buffer_u64);
+				instance.image_xscale = buffer_read(buffer, buffer_s8);
+				instance.image_yscale = buffer_read(buffer, buffer_s8);
 				instance.x = buffer_read(buffer, buffer_s32);
 				instance.y = buffer_read(buffer, buffer_s32);
 				break;
 			
 			case PlayerDataMode.All:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_alpha = buffer_read(buffer, buffer_u8);
+				instance.image_alpha = buffer_read(buffer, buffer_s8);
 				instance.image_xscale = buffer_read(buffer, buffer_s8);
 				instance.image_yscale = buffer_read(buffer, buffer_s8);
 				instance.x = buffer_read(buffer, buffer_s32);
@@ -310,6 +316,7 @@ function check_player_game_ids(player_id, player_ids) {
 
 function network_disable() {
 	event_perform_object(objNetworkClient, ev_destroy, 0);
+	instance_destroy(objNetworkClient, false);
 	
 	//if (instance_exists(objNetworkClient)) {
 	//	instance_destroy(objNetworkClient);

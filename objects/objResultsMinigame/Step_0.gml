@@ -13,7 +13,7 @@ if (info.is_finished) {
 
 switch (state) {
 	case 0:
-		if (get_player_count(objPlayerBase) != global.player_max) {
+		if (get_player_count(objPlayerBoardData) != global.player_max) {
 			exit;
 		}
 	
@@ -52,9 +52,9 @@ switch (state) {
 			for (var i = 0; i < array_length(info.player_positions); i++) {
 				var pos = info.player_positions[i];
 				var player = focus_player_by_id(i + 1);
-				player.visible = true;
 				player.x = pos.x;
 				player.y = pos.y;
+				player.lost = false;
 			}
 			
 			minigame_info_reset();
