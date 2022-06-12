@@ -1,0 +1,1 @@
+sprite_delete(title_sprite);

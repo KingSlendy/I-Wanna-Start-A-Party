@@ -1,0 +1,1 @@
+draw_sprite_ext(sprMinigame2vs2_Maze_Item, image_index, focus_player.x - 16, focus_player.y - 40, 1, 1, 0, image_blend, 1);

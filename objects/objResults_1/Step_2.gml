@@ -1,0 +1,3 @@
+with (objPlayerBase) {
+	visible = !lost;
+}

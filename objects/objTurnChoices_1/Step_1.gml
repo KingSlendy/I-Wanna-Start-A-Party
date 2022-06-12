@@ -1,0 +1,1 @@
+available_item = (player_info.item_used == false && player_info.has_item_slot());
