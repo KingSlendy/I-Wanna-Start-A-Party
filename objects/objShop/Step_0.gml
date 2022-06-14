@@ -45,7 +45,7 @@ if (shopping && is_local_turn()) {
 		if (player_info.coins >= item_selected.price) {
 			change_dialogue([
 				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
-					["Buy (" + draw_coins_price(item_selected.price) + ")", [
+					["Buy " + draw_coins_price(item_selected.price), [
 						new Message("Thank you for buying!",, function() {
 							with (objShop) {
 								shop_end();

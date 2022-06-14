@@ -13,19 +13,21 @@ function minigame_init() {
 		new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame4vs_Lead),
 		new Minigame("Tower Ascension", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 3, rMinigame4vs_Tower),
 		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 7, rMinigame4vs_Haunted),
-		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!\nCareful because there will be dummy items\non the floor, ignore these.", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 8, rMinigame4vs_Magic),
-		new Minigame("Mansion Escape", ["You've been trapped in the atic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n\n" + draw_action(global.actions.up) + " Open Door"], 9, rMinigame4vs_Mansion),
+		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 8, rMinigame4vs_Magic),
+		new Minigame("Mansion Escape", ["You've been trapped in the atic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 9, rMinigame4vs_Mansion),
 	];
 
 	m[$ "1vs3"] = [
 		new Minigame("Avoid The Anguish", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 4, rMinigame1vs3_Avoid),
-		new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame1vs3_Conveyor)
+		new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame1vs3_Conveyor),
+		new Minigame("Number Showdown", ["{COLOR,0000FFa}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 10, rMinigame1vs3_Showdown)
 	];
 
 	m[$ "2vs2"] = [
 		new Minigame("A-Maze-Ing", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 0, rMinigame2vs2_Maze),
 		new Minigame("Catch The Fruits", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 5, rMinigame2vs2_Fruits),
-		new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame2vs2_Buttons)
+		new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame2vs2_Buttons),
+		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 11, rMinigame2vs2_Squares)
 	];
 }
 
@@ -69,7 +71,7 @@ enum CameraMode {
 	Split4
 }
 
-function minigame_4vs_start(info, mode = CameraMode.Static) {
+function minigame4vs_start(info, mode = CameraMode.Static) {
 	player_4vs_positioning();
 	
 	switch (mode) {
@@ -78,7 +80,7 @@ function minigame_4vs_start(info, mode = CameraMode.Static) {
 	}
 }
 
-function minigame_1vs3_start(info, mode = CameraMode.Static) {
+function minigame1vs3_start(info, mode = CameraMode.Static) {
 	player_1vs3_positioning(info);
 	
 	switch (mode) {
@@ -87,7 +89,7 @@ function minigame_1vs3_start(info, mode = CameraMode.Static) {
 	}
 }
 
-function minigame_2vs2_start(info, mode = CameraMode.Static) {
+function minigame2vs2_start(info, mode = CameraMode.Static) {
 	player_2vs2_positioning(info);
 	
 	switch (mode) {

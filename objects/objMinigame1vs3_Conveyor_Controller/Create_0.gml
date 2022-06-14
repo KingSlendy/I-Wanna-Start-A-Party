@@ -10,7 +10,7 @@ with (objPlayerBase) {
 
 event_inherited();
 
-minigame_start = minigame_1vs3_start;
+minigame_start = minigame1vs3_start;
 minigame_time = 40;
 minigame_time_end = function() {
 	with (objPlayerBase) {
@@ -28,11 +28,8 @@ action_end = function() {
 		sprite_index = sprMinigame1vs3_Conveyor_ConveyorStill;
 		spd = 0;
 	}
-	
-	alarm[4] = 0;
 }
 
 points_draw = true;
 points_number = false;
 player_check = objPlayerPlatformer;
-spikes_close = 0;

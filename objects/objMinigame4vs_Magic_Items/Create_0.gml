@@ -1,15 +1,8 @@
 depth = 500;
-
-if (order >= 0) {
-	image_index = objMinigameController.item_order[order];
+image_index = objMinigameController.item_order[order];
 	
-	with (instance_create_layer(x, y, "Actors", objMinigame4vs_Magic_Holder)) {
-		order = other.order;
-	}
-} else {
-	image_index = objMinigameController.mimic_order[abs(order) - 1];
-	next_seed_inline();
-	x += irandom_range(-32, 32);
+with (instance_create_layer(x, y, "Actors", objMinigame4vs_Magic_Holder)) {
+	order = other.order;
 }
 
 player_turn = 0;
@@ -56,6 +49,7 @@ function release_item(place = true, network = true) {
 		
 		holder.item = order;
 	} else {
+		vspd = 0;
 		grav = 0.1;
 	}
 	

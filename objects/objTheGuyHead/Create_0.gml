@@ -1,4 +1,4 @@
-depth = -10000;
+depth = -9004;
 image_xscale = 40;
 image_yscale = 40;
 instance_create_layer(x - 45, y + 20, "Actors", objTheGuyEye);

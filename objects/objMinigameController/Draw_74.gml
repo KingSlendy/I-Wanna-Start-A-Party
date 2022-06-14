@@ -18,7 +18,14 @@ if (instance_exists(objCameraSplit4)) {
 	for (var i = 0; i < global.player_max; i++) {
 		var draw_x, draw_y, text_x, text_y;
 		
-		switch (i) {
+		if (info.type == "2vs2") {
+			var set_i = [0, 2, 1, 3];
+			var check_i = set_i[i];
+		} else {
+			var check_i = i;
+		}
+		
+		switch (check_i) {
 			case 0:
 				draw_x = 18;
 				draw_y = 18;
@@ -52,12 +59,30 @@ if (instance_exists(objCameraSplit4)) {
 
 		draw_set_color(c_black);
 		draw_circle(draw_x, draw_y, 16, false);
-		draw_set_color(player_color_by_turn(i + 1));
+		
+		switch (info.type) {
+			case "4vs":
+			case "1vs3":
+				draw_set_color(player_color_by_turn(i + 1));
+				break;
+				
+			case "2vs2": draw_set_color(info.player_colors[i div 2]); break;
+		}
+		
 		draw_circle(draw_x, draw_y, 15, false);
 		draw_set_color(c_white);
-		var player = focus_player_by_turn(i + 1);
+		
+		switch (info.type) {
+			case "4vs":
+			case "1vs3":
+				var player = focus_player_by_turn(i + 1);
+				break;
+				
+			case "2vs2": var player = points_teams[i div 2][i % 2]; break;
+		}
+		
 		draw_sprite(get_skin_pose_object(player, "Idle"), 0, draw_x + 2, draw_y + 2);
-		draw_text_outline(text_x, text_y, player.network_name, c_black);
+		draw_player_name(text_x, text_y, player.network_id);
 		draw_set_halign(fa_left);
 	}
 	

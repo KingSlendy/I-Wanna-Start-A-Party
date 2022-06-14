@@ -53,7 +53,7 @@
     "spriteId": {"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 40.0,
+    "playbackSpeed": 60.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

@@ -42,6 +42,7 @@ function BonusShine(sprite, index, text) constructor {
 global.bonus_shines = {
 	most_shines: new BonusShine(sprShine, 0, "got the most shines"),
 	most_coins: new BonusShine(sprCoin, 0, "got the most coins"),
+	most_items: new BonusShine(sprItemItemBag, 0, "used items the most"),
 	most_minigames: new BonusShine(sprNothing, 0, "won the most minigames"),
 	most_roll: new BonusShine(sprDie, 0, "rolled the biggest numbers on the dice"),
 	most_blue_spaces: new BonusShine(sprSpaces, 0, "landed on the most Blue spaces"),
@@ -49,7 +50,7 @@ global.bonus_shines = {
 	most_green_spaces: new BonusShine(sprSpaces, 2, "landed on the most Green spaces"),
 	most_chance_time_spaces: new BonusShine(sprSpaces, 7, "landed on the most Chance Time spaces"),
 	most_the_guy_spaces: new BonusShine(sprSpaces, 8, "landed on the most The Guy spaces"),
-	most_purchases: new BonusShine(sprShop, 0, "purchased the most items on the shop")
+	most_purchases: new BonusShine(sprShop, 0, "purchased the most items in the shop")
 };
 
 global.bonus_shines_ready = array_create(global.player_max, false);

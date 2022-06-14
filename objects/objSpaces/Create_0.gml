@@ -91,7 +91,7 @@ function space_passing_event() {
 					}
 				}
 				
-				var buy_option = "Buy (" + draw_coins_price(global.shine_price) + ")";
+				var buy_option = "Buy " + draw_coins_price(global.shine_price);
 				
 				start_dialogue([
 					new Message("Do you wanna buy a shine?", [
@@ -122,7 +122,7 @@ function space_passing_event() {
 				]);
 			} else {
 				start_dialogue([
-					new Message("You don't have enough coins ({SPRITE,sprCoin,0,0,0,0.6,0.6}20) to buy the shine!\nCome back later.",, board_advance)
+					new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the shine!\nCome back later.",, board_advance)
 				]);
 			}
 			

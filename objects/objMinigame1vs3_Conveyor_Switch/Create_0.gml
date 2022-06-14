@@ -2,12 +2,12 @@ function activate(image, network = false) {
 	switch (image_index) {
 		case 0:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorRight;
-			var c_spd = 3;
+			var c_spd = 15;
 			break;
 		
 		case 1:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorLeft;
-			var c_spd = -3;
+			var c_spd = -15;
 			break;
 		
 		case 2:

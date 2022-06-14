@@ -37,6 +37,7 @@ if (global.actions.jump.pressed(network_id)) {
 				show_multiple_choices(items.names, items.sprites, items.descs, items.availables).final_action = function() {
 					var item = player_info_by_turn().items[global.choice_selected];
 					change_items(item, ItemChangeType.Use);
+					bonus_shine_by_id("most_items").increase_score();
 				}
 			}
 			break;

@@ -1,4 +1,4 @@
-depth = -9999;
+depth = -8999;
 surf = surface_create(surface_get_width(application_surface), surface_get_height(application_surface));
 surface_copy(surf, 0, 0, application_surface);
 switch_x = null;

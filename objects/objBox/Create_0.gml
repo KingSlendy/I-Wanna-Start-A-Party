@@ -1,7 +1,7 @@
 focus_player = focused_player();
 network_id = focus_player.network_id;
 focus_player.can_jump = true;
-depth = -10000;
+depth = -9000;
 image_xscale = 0;
 image_yscale = 0;
 sequence = layer_sequence_create("Assets", x, y, seqBoxes);

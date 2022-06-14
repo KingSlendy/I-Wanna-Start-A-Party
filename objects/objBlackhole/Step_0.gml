@@ -45,7 +45,7 @@ if (selecting && is_local_turn()) {
 		if (player_info.coins >= item_selected.price && item_selected.can_select) {
 			change_dialogue([
 				new Message("Are you sure you wanna steal {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
-					["Yes (" + draw_coins_price(item_selected.price) + ")", [
+					["Yes " + draw_coins_price(item_selected.price), [
 						new Message("Good choice.",, function() {
 							with (objBlackhole) {
 								blackhole_end();

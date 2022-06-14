@@ -33,7 +33,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		}
 		
 		if (0.05 > random(1)) {
-			move_delay_timer = irandom_range(get_frames(0.5), get_frames(2));
+			move_delay_timer = irandom_range(get_frames(0.25), get_frames(0.5));
 		}
 	}
 }

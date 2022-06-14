@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 191,
+  "bbox_right": 95,
   "bbox_top": 0,
-  "bbox_bottom": 191,
+  "bbox_bottom": 95,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 192,
-  "height": 192,
+  "width": 96,
+  "height": 96,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,15 +24,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"efd7ec51-ed69-4733-9f42-5f42383b2c2c","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"efd7ec51-ed69-4733-9f42-5f42383b2c2c","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"LayerId":{"name":"3b8004a6-1f7c-4828-a4af-a8c50d0d7d42","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBoxFrame","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","name":"efd7ec51-ed69-4733-9f42-5f42383b2c2c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"99d60f58-2522-4f86-8a0c-1bb2bb1ebf2b","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"99d60f58-2522-4f86-8a0c-1bb2bb1ebf2b","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"LayerId":{"name":"a08a8036-9701-46e0-878f-3543e8d27097","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprBoxFrame","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","name":"99d60f58-2522-4f86-8a0c-1bb2bb1ebf2b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprBoxFrame","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"607e4661-45f3-47f2-bd79-dbba4d9887c4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"efd7ec51-ed69-4733-9f42-5f42383b2c2c","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e0dabfd3-a49f-4231-9d65-fb43f6ae1004","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"99d60f58-2522-4f86-8a0c-1bb2bb1ebf2b","path":"sprites/sprBoxFrame/sprBoxFrame.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,13 +65,13 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3b8004a6-1f7c-4828-a4af-a8c50d0d7d42","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a08a8036-9701-46e0-878f-3543e8d27097","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": {
-    "left": 4,
-    "top": 4,
-    "right": 4,
-    "bottom": 4,
+    "left": 18,
+    "top": 17,
+    "right": 18,
+    "bottom": 17,
     "guideColour": [
       4294902015,
       4294902015,

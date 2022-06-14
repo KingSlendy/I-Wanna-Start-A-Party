@@ -11,7 +11,7 @@ with (objPlayerBase) {
 
 event_inherited();
 
-minigame_start = minigame_2vs2_start;
+minigame_start = minigame2vs2_start;
 minigame_camera = CameraMode.Split4;
 player_check = objPlayerPlatformer;
 distance_to_win = 16;

@@ -65,7 +65,7 @@ switch (state) {
 				target_draw_y = main_draw_y;
 				draw_x = target_draw_x;
 				draw_y = target_draw_y;
-				player_info.space = c_gray;
+				player_info.space = c_ltgray;
 			}
 			
 			//Add a way to check if all the 4 players are moved

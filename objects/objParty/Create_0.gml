@@ -97,6 +97,7 @@ with (objPlayerBase) {
 }
 
 with (objPlayerBase) {
+	draw = true;
 	image_xscale = 2;
 	image_yscale = 2;
 	x = 230 + 110 * (network_id - 1);

@@ -8,6 +8,8 @@ for (var i = 0; i < global.player_max; i++) {
 
 for (var i = 1; i <= global.player_max; i++) {
 	with (focus_player_by_id(i)) {
-		event_perform(ev_draw, 0);
+		if (draw) {
+			event_perform(ev_draw, 0);
+		}
 	}
 }

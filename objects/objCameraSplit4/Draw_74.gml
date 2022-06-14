@@ -30,6 +30,5 @@ for (var i = 0; i < global.player_max; i++) {
 	draw_surface(surf, surf_x, surf_y);
 	draw_set_font(fntPlayerInfo);
 	draw_set_color(c_white);
-	var name = target_follow[i].network_name;
-	draw_text_outline(surf_x + 5, surf_y + height - string_height(name), name, c_black);
+	draw_player_name(surf_x + 20, surf_y + height - 16, target_follow[i].network_id);
 }

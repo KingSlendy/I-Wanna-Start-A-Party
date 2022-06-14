@@ -130,6 +130,26 @@ function player_leave(id) {
 	}
 }
 
+function player_disconnection(player_id) {
+	if (!global.lobby_started) {
+		player_leave(player_id);
+		
+		if (player_id < global.player_id) {
+			with (objPlayerBase) {
+				if (network_id == global.player_id) {
+					network_id--;
+					break;
+				}
+			}
+				
+			global.player_id--;
+		}
+	} else {
+		popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
+		network_disable();
+	}
+}
+
 function ai_join_all() {
 	for (var i = 2; i <= global.player_max; i++) {
 		if (!focus_player_by_id(i).draw) {
@@ -217,10 +237,7 @@ function player_read_data(buffer) {
 	var instance = global.player_client_list[network_id - 1];
 		
 	if (instance != null) {
-		instance.draw = true;
-		instance.hspeed = 0;
-		instance.vspeed = 0;
-		instance.alarm[11] = get_frames(0.5);
+		instance.alarm[11] = get_frames(10);
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.ai = buffer_read(buffer, buffer_bool);
 		instance.network_index = buffer_read(buffer, buffer_u16);
@@ -273,9 +290,9 @@ function check_same_game_id(player_id, received_names) {
 		return false;
 	}
 	
-	if (array_length(received_names) > 0) {
+	if (array_length(received_names) > 0 && get_ai_count() == global.board_games[$ received_names[0]].saved_ai_count) {
 		global.game_id = received_names[0];
-		
+
 		with (objPlayerBase) {
 			change_to_object(objPlayerBoardData);
 		}

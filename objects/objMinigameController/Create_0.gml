@@ -1,8 +1,13 @@
 info = global.minigame_info;
 shuffle_seed_inline();
 reset_seed_inline();
-objPlayerBase.frozen = true;
-minigame_start = minigame_4vs_start;
+
+with (objPlayerBase) {
+	draw = true;
+	frozen = true;
+}
+
+minigame_start = minigame4vs_start;
 minigame_camera = CameraMode.Static;
 minigame_time = -1;
 minigame_time_halign = fa_center;

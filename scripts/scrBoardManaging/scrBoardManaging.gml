@@ -29,10 +29,10 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [null, global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
+	//self.items = [global.board_items[ItemType.SuperWarp], global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
 	self.score = 0;
 	self.place = 1;
-	self.space = c_gray;
+	self.space = c_ltgray;
 	self.item_used = false;
 	self.item_effect = null;
 	
@@ -366,12 +366,9 @@ function turn_start() {
 	}
 	
 	if (global.player_turn == 1) {
+		save_board();
 		shuffle_seed_inline();
 		reset_seed_inline();
-		
-		if (global.board_turn > 1) {
-			save_board();
-		}
 	}
 	
 	if (player_info_by_turn().item_effect == ItemType.Ice) {

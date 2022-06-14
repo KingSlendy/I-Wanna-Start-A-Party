@@ -1,4 +1,4 @@
-depth = -9999;
+depth = -9003;
 fade_alpha = 0;
 surf = noone;
 draw_surf = false;

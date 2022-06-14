@@ -35,34 +35,35 @@ if (files_fade == 0) {
 }
 
 for (var i = 0; i < array_length(file_sprites); i++) {
-	var target = (i == file_selected) ? 1 : 0.8;
+	var target = (i == global.file_selected) ? 1 : 0.8;
 	file_highlights[i] = lerp(file_highlights[i], target, 0.3);
 }
 
 if (!fade_start && files_fade == -1 && !global.lobby_started) {
 	if (file_opened == -1) {
 		var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
-		var prev_file = file_selected;
+		var prev_file = global.file_selected;
 
-		if (file_selected == -1) {
-			file_selected = 0;
+		if (global.file_selected == -1) {
+			global.file_selected = 0;
 		}
 
-		file_selected = (file_selected + 3 + scroll) % 3;
+		global.file_selected = (global.file_selected + array_length(file_sprites) + scroll) % array_length(file_sprites);
 
-		if (file_selected != prev_file) {
+		if (global.file_selected != prev_file) {
 			audio_play_sound(global.sound_cursor_move, 0, false);
 		}
 		
 		if (global.actions.jump.pressed()) {
-			file_opened = file_selected;
+			file_opened = global.file_selected;
+			load_file();
 			audio_play_sound(global.sound_cursor_select, 0, false);
 		}
 		
 		if (global.actions.shoot.pressed()) {
 			fade_start = true;
 			back = true;
-			music_stop();
+			audio_sound_gain(global.music_current, 0, 1000);
 			audio_play_sound(global.sound_cursor_back, 0, false);
 		}
 	} else if (!online_reading) {

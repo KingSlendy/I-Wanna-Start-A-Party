@@ -1,1 +1,1 @@
-player_leave(network_id);
+player_disconnection(network_id);

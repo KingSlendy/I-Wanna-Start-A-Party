@@ -27,7 +27,11 @@ global.skin_sprites = [
 	"Producer",
 	"Kami2",
 	"Baba",
-	"Megaman"
+	"Megaman",
+	"Sora",
+	"Subaru",
+	"Whispered",
+	"Hearts"
 ];
 
 global.skin_current = 0;

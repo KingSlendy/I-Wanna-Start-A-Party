@@ -1,4 +1,4 @@
-depth = -10002;
+depth = (!instance_exists(objTheGuy)) ? -9002 : -9005;
 image_alpha = 0;
 spawning = true;
 floating = false;

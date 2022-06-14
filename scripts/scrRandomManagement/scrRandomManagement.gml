@@ -34,6 +34,16 @@ function Random() constructor {
 global.rng_class = new Random();
 #macro rng global.rng_class
 
+function generate_seed_bag() {
+	global.seed_bag = [];
+
+	repeat (100) {
+		array_push(global.seed_bag, irandom(9999999));
+	}
+	
+	global.current_seed = -1;
+}
+
 function next_seed_inline() {
 	var next_seed = ++global.current_seed;
 	

@@ -10,3 +10,5 @@ for (var i = 0; i < options_total; i++) {
 	var text = new Text(fntDialogue, options[i].text);
 	text.draw(options_x + 5, draw_y + 7);
 }
+
+draw_set_alpha(1);

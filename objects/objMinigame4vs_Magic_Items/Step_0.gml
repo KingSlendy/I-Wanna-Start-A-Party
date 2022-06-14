@@ -18,45 +18,15 @@ if (state == 0) {
 	}
 }
 
-xprevious = x;
-yprevious = y;
-
 vspd += grav;
 x += hspd;
 y += vspd;
 
-var block = instance_place(x, y, objBlock);
-
-if (block != noone) {
-	x = xprevious;
-	y = yprevious;
-
-	//Detect horizontal collision
-	if (place_meeting(x + hspd, y, objBlock)) {
-		while (!place_meeting(x + sign(hspd), y, objBlock)) {
-			x += sign(hspd);
-		}
-	
-	    hspd = 0;
-		vspd = 0;
-	}
-
-	//Detect vertical collision
-	if (place_meeting(x, y + vspd, objBlock)) {
-		while (!place_meeting(x, y + sign(vspd), objBlock)) {
-			y += sign(vspd);
-		}
-	
-		hspd = 0;
-	    vspd = 0;
-		grav = 0;
-	}
-
-	//Detect diagonal collision
-	if (place_meeting(x + hspd, y + vspd, objBlock)) {
-		hspd = 0;
-	}
-
-	x += hspd;
-	y += vspd;
+if (bbox_bottom >= giver.bbox_bottom) {
+	hspd = 0;
+	vspd = 0;
+	grav = 0;
 }
+
+x = clamp(x, giver.bbox_left + 15, giver.bbox_right - 15);
+y = clamp(y, giver.bbox_top + 15, giver.bbox_bottom - 15);

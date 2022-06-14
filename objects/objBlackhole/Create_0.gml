@@ -1,6 +1,6 @@
 event_inherited();
 width = 400;
-height = 150;
+height = 180;
 stock = [
 	{text: "{SPRITE,sprCoin,0,0,2,0.6,0.6} ", name: "Coins", desc: "Steals coins from a player. Mash to reduce the amount.", price: 5, can_select: function() {
 		for (var i = 1; i <= global.player_max; i++) {

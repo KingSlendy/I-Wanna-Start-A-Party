@@ -3,9 +3,9 @@ if (room == rParty) {
 	persistent = false;
 }
 
-depth = -10000;
+depth = -9000;
 player_info = null;
-draw_w = 240;
+draw_w = 230;
 draw_h = 90;
 
 function setup() {

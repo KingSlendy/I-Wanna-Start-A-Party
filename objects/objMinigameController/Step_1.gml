@@ -4,7 +4,7 @@ if (!started && get_player_count(player_check) == global.player_max) {
 	if (alpha <= 0) {
 		alpha = 0;
 		started = true;
-		alarm[0] = get_frames(0.75);
+		alarm[0] = get_frames(1);
 	}
 }
 

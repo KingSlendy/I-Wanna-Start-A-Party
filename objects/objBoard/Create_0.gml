@@ -12,26 +12,6 @@ with (objPlayerBase) {
 	change_to_object(objPlayerBoard);
 }
 
-global.seed_bag = [];
-
-repeat (100) {
-	array_push(global.seed_bag, irandom(9999999));
-}
-
-global.current_seed = -1;
-
-if (array_length(global.player_game_ids) == 0) {
-	if (instance_exists(objNetworkClient)) {
-		global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
-	} else {
-		global.game_id = "Offline";
-	}
-}
-
-global.initial_rolls = array_sequence(1, 10);
-array_shuffle(global.initial_rolls);
-array_delete(global.initial_rolls, global.player_max, array_length(global.initial_rolls) - global.player_max);
-
 //Board controllers
 global.board_started = false;
 global.board_first_space = array_create(global.player_max, true);

@@ -3,7 +3,7 @@ if (dialogue_sprite == noone) {
 
 	surface_set_target(surf);
 	draw_clear_alpha(c_black, 0);
-	draw_box(0, 0, width, height, c_dkgray);
+	draw_box(0, 0, width, height, c_blue,, 0.8);
 	surface_reset_target();
 
 	dialogue_sprite = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
@@ -38,7 +38,7 @@ if (array_length(answer_displays) > 0 && answers > 0 && !text_display.text.tw_ac
 }
 
 var text = new Text(fntDialogue, draw_action_small(global.actions.jump));
-text.draw(440, 110);
+text.draw(435, 102);
 surface_reset_target();
 
 draw_surface_ext(text_surf, x + border_width, y + border_width, 1, 1, 0, c_white, image_alpha);

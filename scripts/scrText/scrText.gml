@@ -333,6 +333,7 @@ function change_dialogue(texts, tw_spd = 1) {
 	
 	with (objDialogue) {
 		event_perform(ev_create, 0);
+		image_alpha = 1;
 		width = ww;
 		height = hh;
 		self.texts = texts;

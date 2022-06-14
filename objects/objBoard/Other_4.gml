@@ -1,13 +1,19 @@
 if (IS_BOARD) {
-	//Load game
-	if (array_length(global.player_game_ids) > 0) {
+	if (array_length(global.player_game_ids) > 0) { //Load board
 		global.board_started = true;
 		var board = global.board_games[$ global.game_id];
 		global.max_board_turns = board.saved_board.saved_max_turns;
 		global.board_turn = board.saved_board.saved_turn;
 		global.board_first_space = board.saved_board.saved_first_space;
-		global.seed_bag = board.saved_board.saved_seed_bag;
 		global.minigame_history = board.saved_board.saved_minigame_history;
+	
+		if (global.game_id != "Offline") {
+			var split = string_split(global.game_id, " ");
+			var seed = split[array_length(split) - 1];
+			random_set_seed(seed + 333 * (global.board_turn - 1));
+		}
+		
+		generate_seed_bag();
 	
 		with (instance_create_layer(board.saved_board.saved_shine_position[0], board.saved_board.saved_shine_position[1], "Actors", objShine)) {
 			image_xscale = 1;
@@ -55,6 +61,18 @@ if (IS_BOARD) {
 	
 		calculate_player_place();
 		global.player_game_ids = [];
+	} else { //Initialize board
+		generate_seed_bag();
+		
+		if (instance_exists(objNetworkClient)) {
+			global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
+		} else {
+			global.game_id = "Offline";
+		}
+		
+		global.initial_rolls = array_sequence(1, 10);
+		array_shuffle(global.initial_rolls);
+		array_delete(global.initial_rolls, global.player_max, array_length(global.initial_rolls) - global.player_max);
 	}
 
 	if (!global.board_started) {

@@ -1,1 +1,0 @@
-visible = (!instance_exists(objTheGuy));

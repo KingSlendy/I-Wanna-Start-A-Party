@@ -4,7 +4,7 @@ if (amount == 0) {
 	exit;
 }
 
-var c = instance_create_layer(focus_player.x, focus_player.y - 69, "Actors", objCoin);
+var c = instance_create_layer(focus_player.x, focus_player.y - 100, "Actors", objCoin);
 c.focus_player = focus_player;
 c.vspeed = 6;
 

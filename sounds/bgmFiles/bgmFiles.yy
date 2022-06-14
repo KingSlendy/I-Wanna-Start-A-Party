@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmFiles.mp3",
-  "duration": 33.09714,
+  "duration": 163.992,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

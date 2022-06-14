@@ -2,8 +2,8 @@
 var blue_count = array_count(player_colors, c_blue);
 var red_count = array_count(player_colors, c_red);
 info.player_colors = [
-	(blue_count > red_count) ? c_blue : c_red,
-	(blue_count > red_count) ? c_red : c_blue
+	(blue_count >= red_count) ? c_blue : c_red,
+	(blue_count >= red_count) ? c_red : c_blue
 ];
 
 var colors = info.player_colors;

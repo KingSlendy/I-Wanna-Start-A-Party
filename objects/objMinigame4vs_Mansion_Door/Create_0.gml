@@ -5,7 +5,7 @@ link = null;
 linked = false;
 
 function open_door(network = true) {
-	if (image_speed != 0) {
+	if (image_speed > 0) {
 		return;
 	}
 	

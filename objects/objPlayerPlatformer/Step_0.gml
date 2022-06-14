@@ -36,8 +36,12 @@ if (dir != 0) {
 
 var c = instance_place(x, y + 1, objMinigame1vs3_Conveyor_Conveyor);
 
-if (c != noone) {
-	hspd += c.spd;
+if (c != noone && c.spd != 0) {
+	if (hspd == 0 || (sign(hspd) == sign(c.spd))) {
+		hspd += c.spd;
+	} else {
+		hspd = 0;
+	}
 }
 
 if (!on_platform) {

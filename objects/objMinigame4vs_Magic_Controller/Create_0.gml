@@ -15,6 +15,3 @@ player_check = objPlayerHand;
 state = 0;
 item_order = array_sequence(0, sprite_get_number(sprMinigame4vs_Magic_Items));
 array_shuffle(item_order);
-mimic_order = [];
-array_copy(mimic_order, 0, item_order, 10, array_length(item_order) - 10);
-array_shuffle(mimic_order);

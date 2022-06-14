@@ -25,7 +25,7 @@ if (minigame_time != -1) {
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_outline(xx + w / 2, yy - h / 2, string(minigame_time), c_black);
+	draw_text_outline(xx + w / 2, yy - h / 2 + 2, string(minigame_time), c_black);
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 }

@@ -2,7 +2,6 @@ enum ClientTCP {
 	//Network
 	ReceiveMasterID,
 	ReceiveID,
-	ResendID,
 	PlayerConnect,
 	PlayerDisconnect,
 	CreateLobby,
@@ -79,6 +78,7 @@ enum ClientTCP {
 	Minigame2vs2_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
+	Minigame1vs3_Showdown_Block,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	
@@ -106,7 +106,10 @@ enum ClientUDP {
 	
 	//Events
 	CrushTheGuy,
-	NoNoTheGuy
+	NoNoTheGuy,
+	
+	//Minigames
+	Minigame2vs2_Squares_Halfs
 }
 
 function network_read_client(ip, port, buffer) {
@@ -164,12 +167,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.ResendID:
-			player_leave_all();
-			global.player_id = buffer_read(buffer, buffer_u8);
-			player_join_all();
-			break;
-			
 		case ClientTCP.PlayerConnect:
 			var player_id = buffer_read(buffer, buffer_u8);
 			player_join(player_id);
@@ -177,13 +174,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				
 		case ClientTCP.PlayerDisconnect:
 			var player_id = buffer_read(buffer, buffer_u8);
-		
-			if (!global.lobby_started) {
-				player_leave(player_id);
-			} else {
-				popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
-				network_disable();
-			}
+			player_disconnection(player_id);
 			break;
 			
 		case ClientTCP.CreateLobby:
@@ -763,6 +754,26 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame1vs3_Showdown_Block:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var number = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame1vs3_Showdown_Block) {
+				if (self.player_id == player_id) {
+					self.number = number;
+					break;
+				}
+			}
+			
+			with (objMinigame1vs3_Showdown_Block) {
+				if (self.number == -1) {
+					return;
+				}
+			}
+			
+			objMinigameController.alarm[4] = get_frames(1);
+			break;
+			
 		case ClientTCP.Minigame2vs2_Maze_Item:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var item_x = buffer_read(buffer, buffer_s16);
@@ -833,7 +844,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 
 function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
-		//Network
+		#region Network
 		case ClientUDP.Heartbeat:
 			if (instance_exists(objNetworkClient)) {
 				objNetworkClient.alarm[0] = get_frames(9);
@@ -848,8 +859,9 @@ function network_read_client_udp(buffer, data_id) {
 		case ClientUDP.PlayerData:
 			player_read_data(buffer);
 			break;
+		#endregion
 			
-		//Interfaces
+		#region Interfaces
 		case ClientUDP.MapLook:
 			var look_x = buffer_read(buffer, buffer_f32);
 			var look_y = buffer_read(buffer, buffer_f32);
@@ -895,8 +907,9 @@ function network_read_client_udp(buffer, data_id) {
 				audio_play_sound(global.sound_cursor_select, 0, false);
 			}
 			break;
+		#endregion
 			
-		//Events
+		#region Events
 		case ClientUDP.CrushTheGuy:
 			objTheGuy.alarm[5] = 1;
 			break;
@@ -909,5 +922,20 @@ function network_read_client_udp(buffer, data_id) {
 		
 			objTheGuyEye.image_speed = 1;
 			break;
+		#endregion
+		
+		#region Minigames
+		case ClientUDP.Minigame2vs2_Squares_Halfs:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var angle = buffer_read(buffer, buffer_u16);
+			
+			with (objMinigame2vs2_Squares_Halfs) {
+				if (network_id == player_id) {
+					image_angle = angle;
+					break;
+				}
+			}
+			break;
+		#endregion
 	}
 }

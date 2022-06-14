@@ -1,5 +1,5 @@
 event_inherited();
-depth = -10009;
+depth = -9999;
 image_alpha = 0;
 
 width = 0;

@@ -6,7 +6,7 @@ objPlayerBase.jump_total = -1;
 
 event_inherited();
 
-minigame_start = minigame_2vs2_start;
+minigame_start = minigame2vs2_start;
 minigame_time = 40;
 points_draw = true;
 player_check = objPlayerPlatformer;

@@ -15,7 +15,6 @@ file_pos = [];
 array_copy(file_pos, 0, file_original_pos, 0, array_length(file_original_pos));
 
 file_highlights = array_create(3, 0.8);
-file_selected = -1;
 file_opened = -1;
 menu_type = 0;
 
@@ -25,7 +24,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	var surf = surface_create(w, h);
 	surface_set_target(surf);
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, w, h, color, 1);
-	draw_set_font(fntFilesFile);
+	draw_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text_color_outline(w / 2, h / 2, label, #FFA545, #FFA545, #FF8400, #FF8400, 1, c_black);
@@ -75,18 +74,33 @@ menu_buttons = [
 menu_selected = array_create(array_length(menu_buttons), 0);
 
 for (var i = 0; i < array_length(file_sprites); i++) {
+	global.file_selected = i;
+	load_file();
 	var surf = surface_create(file_width, file_width);
 	surface_set_target(surf);
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_width, #7FC1FA, 1);
 	draw_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
 	draw_text_color_outline(file_width / 2, 10, "FILE " + string(i + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
+	draw_set_font(fntFilesData);
+	draw_set_color(c_white);
 	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
+	draw_sprite_ext(sprShine, 0, 40, 85, 0.6, 0.6, 0, c_white, 1);
+	draw_text_outline(70, 85, string(global.collected_shines), c_black);
+	draw_sprite_ext(sprCoin, 0, 40, 115, 0.7, 0.7, 0, c_white, 1);
+	draw_text_outline(70, 115, string(global.collected_coins), c_black);
+	draw_sprite_ext(sprNormalPlayerIdle, 0, 40, 145, 1, 1, 0, c_white, 1);
+	draw_text_outline(70, 145, string(array_length(global.collected_skins)) + "/" + string(array_length(global.skin_sprites)), c_black);
+	draw_sprite_ext(sprTrigger, 0, 40 - 16, 175 - 16, 1, 1, 0, c_white, 1);
+	draw_text_outline(70, 175, string(array_length(global.collected_achievements)) + "/" + string(0), c_black);
+	draw_set_valign(fa_top);
 	surface_reset_target();
 	file_sprites[i] = sprite_create_from_surface(surf, 0, 0, file_width, file_width, false, false, file_width / 2, file_width / 2);
 	surface_free(surf);
 }
 
+global.file_selected = -1;
 upper_type = 0;
 upper_text = "";
 

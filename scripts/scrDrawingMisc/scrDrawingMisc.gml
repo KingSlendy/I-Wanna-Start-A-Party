@@ -60,9 +60,19 @@ function draw_text_transformed_outline(x, y, text, xscale, yscale, angle, border
 	draw_text_transformed(x, y, text, xscale, yscale, angle);
 }
 
-function draw_box(x, y, w, h, fill_color, outline_color = c_yellow, fill_alpha = draw_get_alpha(), outline_alpha = draw_get_alpha()) {
-	draw_sprite_stretched_ext(sprBoxFill, 0, x, y, w, h, fill_color, fill_alpha);
+function draw_box(x, y, w, h, fill_color, outline_color = c_yellow, fill_alpha = draw_get_alpha(), outline_alpha = draw_get_alpha(), fill_index = 0) {
+	draw_sprite_stretched_ext(sprBoxFill, fill_index, x, y, w, h, fill_color, fill_alpha);
 	draw_sprite_stretched_ext(sprBoxFrame, 0, x, y, w, h, outline_color, outline_alpha);
+}
+
+function draw_player_name(x, y, player_id) {
+	var font = draw_get_font();
+	var valign = draw_get_valign();
+	draw_set_font(fntPlayerName);
+	draw_set_valign(fa_middle);
+	draw_text_outline(x, y, focus_player_by_id(player_id).network_name, c_black);
+	draw_set_valign(valign);
+	draw_set_font(font);
 }
 
 function draw_coins_price(price) {

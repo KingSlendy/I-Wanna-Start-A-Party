@@ -2,7 +2,7 @@ draw_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 
 for (var i = 0; i < global.player_max; i++) {
-	draw_box(0, 32 * i, 160, 32, player_color_by_turn(i + 1),, 0.8);
+	draw_box(0, 32 * i, 160, 32, player_color_by_turn(i + 1),, 0.8,, 1);
 	draw_text_outline(5, 32 * i + 5, focus_player_by_id(i + 1).network_name, c_black);
 }
 
@@ -10,7 +10,6 @@ var draw_x = 160;
 var draw_y = 32;
 var draw_w = 32 * 15;
 var draw_h = 32 * 15 - 112;
-draw_box(draw_x, draw_y, draw_w, draw_h, #3B8A66, c_ltgray);
 
 if (!surface_exists(surf)) {
 	surf = surface_create(472, 472 - 112);
@@ -38,16 +37,15 @@ if (save_present) {
 	draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
 	draw_set_font(fntPlayerInfo);
 	draw_text_outline(save_x + 270, save_y + 140, string_interp("Turn: {0}/{1}", save_turn, save_max_turns), c_black);
-}
+	var text = new Text(fntDialogue);
 
-var text = new Text(fntDialogue);
-
-for (var i = 0; i < 2; i++) {
-	var option_x = save_x + 290;
-	var option_y = save_y + 270 + 45 * i;
-	draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_gray : c_dkgray);
-	text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
-	text.draw(option_x + 10, option_y + 6); 
+	for (var i = 0; i < 2; i++) {
+		var option_x = save_x + 290;
+		var option_y = save_y + 270 + 45 * i;
+		draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray,,,, 1);
+		text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
+		text.draw(option_x + 15, option_y + 6); 
+	}
 }
 
 //Skin selection
@@ -69,7 +67,7 @@ for (var r = -2; r <= 2; r++) {
 		
 		var box_x = menu_x + skin_w * c;
 		var box_y = skin_y + skin_h * r;
-		draw_set_alpha(remap(point_distance(box_y, 0, skin_h, 0), 0, skin_h, 1, 0.5));
+		draw_set_alpha(remap(point_distance(box_y, 0, skin_h, 0), 0, skin_h, 1, 0.75));
 		//draw_set_alpha((r == 0) ? 1 : 0.5);
 		draw_box(box_x, box_y, skin_w, skin_h, c_dkgray, color);
 		draw_sprite_ext(get_skin(skin)[$ "Idle"], 0, box_x + skin_w / 2 + 3, box_y + skin_h / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());
@@ -93,4 +91,6 @@ draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, board_w, boa
 
 surface_reset_target();
 
+draw_sprite_stretched_ext(sprBoxFill, 1, draw_x, draw_y, draw_w, draw_h, #3B8A66, 1);
 draw_surface(surf, draw_x + 4, draw_y + 4);
+draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_yellow, 1);

@@ -1,3 +1,8 @@
+with (objPlayerBase) {
+	draw = false;
+	lost = false;
+}
+
 info = global.minigame_info;
 instructions = [];
 
