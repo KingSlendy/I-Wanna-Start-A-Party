@@ -57,7 +57,7 @@ function GiftKids(angle, title) constructor {
 }
 
 kids = [];
-skins = array_sequence(0, array_length(global.skin_sprites));
+skins = array_sequence(0, array_length(global.skins));
 array_shuffle(skins);
 
 for (var i = 0; i < 360; i += 360 / 7) {

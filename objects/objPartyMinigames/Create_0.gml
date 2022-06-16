@@ -16,7 +16,7 @@ skin_y = skin_h;
 skin_target_y = skin_y;
 skin_target_row = skin_row;
 
-for (var i = 0; i < array_length(global.skin_sprites); i++) {
+for (var i = 0; i < array_length(global.skins); i++) {
 	var r = i % skin_show;
 	var c = floor(i / skin_show);
 	
@@ -94,6 +94,38 @@ if (save_present) {
 	}
 	
 	calculate_player_place();
+}
+
+minigames_show_x = 0;
+minigames_show_y = 0;
+minigames_target_show_x = 0;
+minigames_target_show_y = 0;
+minigames_row_selected = 0;
+minigames_col_selected = 0;
+minigames_target_row_selected = 0;
+minigames_target_col_selected = 0;
+minigames_portraits = {};
+var names = variable_struct_get_names(global.minigames);
+
+for (var i = 0; i < array_length(names); i++) {
+	var minigames = global.minigames[$ names[i]];
+	minigames_portraits[$ names[i]] = [];
+	
+	for (var j = 0; j < array_length(minigames); j++) {
+		var minigame = minigames[j];
+		var w = sprite_get_width(sprMinigameOverview_Preview);
+		var h = sprite_get_height(sprMinigameOverview_Preview);
+		var p_surf = surface_create(w, h);
+		surface_set_target(p_surf);
+		draw_sprite(sprMinigameOverview_Preview, 1, w / 2, h / 2);
+		gpu_set_colorwriteenable(true, true, true, false);
+		draw_sprite_stretched(sprMinigameOverview_Pictures, (array_contains(global.seen_minigames, minigame.title)) ? minigame.preview : 0, 44, 15,  w - 88, h - 31);
+		gpu_set_colorwriteenable(true, true, true, true);
+		draw_sprite(sprMinigameOverview_Preview, 0, w / 2, h / 2);
+		surface_reset_target();
+		array_push(minigames_portraits[$ names[i]], sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w / 2, h / 2));
+		surface_free(p_surf);
+	}
 }
 
 with (objPlayerBase) {

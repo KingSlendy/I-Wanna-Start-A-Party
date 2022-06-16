@@ -42,13 +42,35 @@ if (skin_row != skin_target_row) {
 	}
 }
 
-if (board_selected != board_target_selected) {
-	board_x = lerp(board_x, board_target_x, 0.4);
+if (room == rParty) {
+	if (board_selected != board_target_selected) {
+		board_x = lerp(board_x, board_target_x, 0.4);
 	
-	if (point_distance(board_x, 0, board_target_x, 0) < 1.5) {
-		board_x = 0;
-		board_target_x = board_x;
-		board_selected = board_target_selected;
+		if (point_distance(board_x, 0, board_target_x, 0) < 1.5) {
+			board_x = 0;
+			board_target_x = board_x;
+			board_selected = board_target_selected;
+		}
+	}
+} else {
+	if (minigames_col_selected != minigames_target_col_selected) {
+		minigames_show_x = lerp(minigames_show_x, minigames_target_show_x, 0.4);
+	
+		if (point_distance(minigames_show_x, 0, minigames_target_show_x, 0) < 1.5) {
+			minigames_show_x = 0;
+			minigames_target_show_x = minigames_show_x;
+			minigames_col_selected = minigames_target_col_selected;
+		}
+	}
+	
+	if (minigames_row_selected != minigames_target_row_selected) {
+		minigames_show_y = lerp(minigames_show_y, minigames_target_show_y, 0.4);
+	
+		if (point_distance(minigames_show_y, 0, minigames_target_show_y, 0) < 1.5) {
+			minigames_show_y = 0;
+			minigames_target_show_y = minigames_show_y;
+			minigames_row_selected = minigames_target_row_selected;
+		}
 	}
 }
 
@@ -103,10 +125,10 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				if (sync_actions("jump", skin_player + 1)) {
 					var now_skin = skins[skin_row][skin_col];
 					
-					//if (is_player_local(skin_player + 1) && !array_contains(global.collected_skins, now_skin)) {
-					//	//audio_play_sound(global.sound_cursor_wrong, 0, false);
-					//	exit;
-					//}
+					if (is_player_local(skin_player + 1) && !array_contains(global.collected_skins, now_skin)) {
+						//audio_play_sound(global.sound_cursor_wrong, 0, false);
+						exit;
+					}
 				
 					if (array_contains(skin_selected, now_skin)) {
 						exit;
@@ -170,43 +192,95 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 			break;
 			
 		case 1:
-			if (board_selected == board_target_selected) {
-				var scroll = (sync_actions("right", 1) - sync_actions("left", 1));
+			if (room == rParty) {
+				if (board_selected == board_target_selected) {
+					var scroll = (sync_actions("right", 1) - sync_actions("left", 1));
 				
-				if (scroll != 0) {
-					var length = sprite_get_number(sprPartyBoardPictures);
-					board_target_x -= 264 * scroll;
-					board_target_selected = (board_selected + length + scroll) % length;
-					audio_play_sound(global.sound_cursor_move, 0, false);
-					exit;
-				}
+					if (scroll != 0) {
+						switch (board_options_selected) {
+							case 0:
+								var length = sprite_get_number(sprPartyBoardPictures);
+								board_target_x -= 264 * scroll;
+								board_target_selected = (board_selected + length + scroll) % length;
+								break;
+							
+							case 1: global.max_board_turns = (global.max_board_turns + 40 + scroll * 10) % 50 + 10; break;
+							case 2: global.give_bonus_shines = !global.give_bonus_shines; break;
+						}
+					
+						audio_play_sound(global.sound_cursor_move, 0, false);
+						exit;
+					}
 				
-				if (sync_actions("jump", 1)) {
-					if (++board_options_selected == 3) {
-						global.player_game_ids = [];
-						start_board();
-					} else {
-						audio_play_sound(global.sound_cursor_select, 0, false);
+					if (sync_actions("jump", 1)) {
+						if (++board_options_selected == 3) {
+							board_options_selected = 2;
+							global.player_game_ids = [];
+							start_board();
+						} else {
+							audio_play_sound(global.sound_cursor_select, 0, false);
+						}
+					
+						exit;
 					}
 					
-					exit;
-				}
+					if (sync_actions("shoot", 1)) {
+						if (--board_options_selected == -1) {
+							menu_page = 0;
+							board_options_selected = 0;
+							skin_selected[skin_player] = null;
 				
-				if (sync_actions("shoot", 1)) {
-					if (--board_options_selected == -1) {
-						menu_page = 0;
-						board_options_selected = 0;
-						skin_selected[skin_player] = null;
-				
-						with (objPlayerBase) {
-							if (network_id == other.skin_player + 1) {
-								skin = null;
-								break;
+							with (objPlayerBase) {
+								if (network_id == other.skin_player + 1) {
+									skin = null;
+									break;
+								}
 							}
+						}
+					
+						audio_play_sound(global.sound_cursor_back, 0, false);
+					}
+				}
+			} else {
+				if (minigames_col_selected == minigames_target_col_selected && minigames_row_selected == minigames_target_row_selected) {
+					var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
+	
+					if (scroll_h != 0) {
+						var types = ["4vs", "1vs3", "2vs2"];
+						var length = array_length(minigames_portraits[$ types[minigames_row_selected]]);
+						minigames_target_show_x -= 240 * scroll_h;
+						minigames_target_col_selected = (minigames_target_col_selected + length + scroll_h) % length;
+						audio_play_sound(global.sound_cursor_move, 0, false);
+						exit;
+					}
+					
+					var scroll_v = (sync_actions("down", 1) - sync_actions("up", 1));
+					
+					if (scroll_v != 0) {
+						if (scroll_v == -1 && minigames_row_selected > 0 || scroll_v == 1 && minigames_row_selected < 2) {
+							minigames_target_show_y -= 350 * scroll_v;
+							minigames_target_row_selected += scroll_v;
+							audio_play_sound(global.sound_cursor_move, 0, false);
+							exit;
 						}
 					}
 					
-					audio_play_sound(global.sound_cursor_back, 0, false);
+					if (sync_actions("shoot", 1)) {
+						if (--board_options_selected == -1) {
+							menu_page = 0;
+							board_options_selected = 0;
+							skin_selected[skin_player] = null;
+				
+							with (objPlayerBase) {
+								if (network_id == other.skin_player + 1) {
+									skin = null;
+									break;
+								}
+							}
+						}
+					
+						audio_play_sound(global.sound_cursor_back, 0, false);
+					}
 				}
 			}
 			break;

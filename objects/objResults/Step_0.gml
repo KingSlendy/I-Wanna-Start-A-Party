@@ -27,6 +27,7 @@ if (fade_start) {
 				variable_struct_remove(global.board_games, global.game_id);
 			}
 			
+			global.games_played++;
 			save_file();
 			room_goto(rResults);
 		}

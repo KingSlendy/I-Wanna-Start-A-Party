@@ -20,13 +20,11 @@ global.dice_roll = 0;
 global.choice_selected = -1;
 
 //Board values
-global.max_board_turns = 20;
 global.shine_price = 20;
 global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
 
 //Bonus values
-global.give_bonus_shines = true;
 var names = variable_struct_get_names(global.bonus_shines);
 
 for (var i = 0; i < array_length(names); i++) {

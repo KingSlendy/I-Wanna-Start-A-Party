@@ -32,11 +32,7 @@ var surf = surface_create(w, h);
 surface_set_target(surf);
 draw_sprite(sprMinigameOverview_Preview, 1, w / 2, h / 2);
 gpu_set_colorwriteenable(true, true, true, false);
-
-if (info.reference.preview != -1) {
-	draw_sprite_stretched(sprMinigameOverview_Pictures, info.reference.preview, 44, 15,  w - 88, h - 31);
-}
-
+draw_sprite_stretched(sprMinigameOverview_Pictures, info.reference.preview, 44, 15,  w - 88, h - 31);
 gpu_set_colorwriteenable(true, true, true, true);
 draw_sprite(sprMinigameOverview_Preview, 0, w / 2, h / 2);
 surface_reset_target();

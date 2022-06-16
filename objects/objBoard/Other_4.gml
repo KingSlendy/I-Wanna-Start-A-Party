@@ -5,6 +5,7 @@ if (IS_BOARD) {
 			var board = global.board_games[$ global.game_id];
 			global.max_board_turns = board.saved_board.saved_max_turns;
 			global.board_turn = board.saved_board.saved_turn;
+			global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 			global.minigame_type_history = board.saved_board.saved_minigame_type_history;
 			var names = variable_struct_get_names(global.bonus_shines);
 			
@@ -61,7 +62,6 @@ if (IS_BOARD) {
 		} else { //Initialize board
 			variable_struct_remove(global.board_games, global.game_id);
 			save_file();
-			global.games_played++;
 		
 			if (IS_ONLINE) {
 				global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));

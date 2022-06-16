@@ -24,6 +24,7 @@ if (fade_start) {
 					
 				case 1: room_goto(rParty); break;
 				case 2: room_goto(rMinigames); break;
+				case 3: room_goto(rSkins); break;
 			}
 		}
 	}

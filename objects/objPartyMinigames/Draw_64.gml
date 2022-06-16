@@ -69,7 +69,6 @@ for (var r = -2; r <= 2; r++) {
 		var box_x = menu_x + skin_w * c;
 		var box_y = skin_y + skin_h * r;
 		draw_set_alpha(remap(point_distance(box_y, 0, skin_h, 0), 0, skin_h, 1, 0.75));
-		//draw_set_alpha((r == 0) ? 1 : 0.5);
 		draw_box(box_x, box_y, skin_w, skin_h, c_dkgray, color);
 		
 		if (!is_selected && already_selected) {
@@ -78,11 +77,11 @@ for (var r = -2; r <= 2; r++) {
 			gpu_set_blendmode(bm_normal);
 		}
 		
-		//if (array_contains(global.collected_skins, skin)) {
+		if (array_contains(global.collected_skins, skin)) {
 			var skin_sprite = get_skin(skin)[$ "Idle"];
-		//} else {
-		//	var skin_sprite = sprPlayerIdle;
-		//}
+		} else {
+			var skin_sprite = sprPlayerIdle;
+		}
 		
 		draw_sprite_ext(skin_sprite, 0, box_x + skin_w / 2 + 3, box_y + skin_h / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());
 		draw_set_alpha(1);
@@ -112,9 +111,9 @@ if (room == rParty) {
 	draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, board_w, board_h);
 	
 	var text = new Text(fntFilesButtons);
-	text.set("Turns: " + string(20) + " turns{COLOR,FFFFFF}");
+	text.set("Turns: " + ((board_options_selected == 1) ? "{WAVE}{RAINBOW}" : "") + string(global.max_board_turns));
 	text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10);
-	text.set("Bonus: " + "ON{COLOR,FFFFFF}");
+	text.set("Bonus: " + ((board_options_selected == 2) ? "{WAVE}{RAINBOW}" : "") + ((global.give_bonus_shines) ? "ON" : "OFF"));
 	text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10 + 40);
 	var target_y, target_h;
 	
@@ -140,12 +139,46 @@ if (room == rParty) {
 	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, box_x + 16 + 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
 	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, box_x + 16 + board_options_w - 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
 } else {
+	var minigames_x = menu_x + menu_sep;
+	var minigames_y = minigames_show_y + 350 * -minigames_row_selected;
+	var names = variable_struct_get_names(minigames_portraits);
+	var types = ["4 vs.", "1 vs. 3", "2 vs. 2"];
 	
+	for (var i = 0; i < array_length(names); i++) {
+		var row_y = minigames_y + 10 + 350 * i;
+		draw_set_font(fntFilesFile);
+		draw_set_halign(fa_left);
+		draw_text_color_outline(minigames_x + 10, row_y, types[i], c_red, c_red, c_yellow, c_yellow, 1, c_black);
+		var portraits = minigames_portraits[$ names[i]];
+		
+		for (var j = -2; j <= 2; j++) {
+			var row_x = minigames_show_x + 240 * j;
+			var location = (minigames_col_selected + array_length(portraits) + j) % array_length(portraits);
+			var portrait = portraits[location];
+			var dist = remap(point_distance(row_x, minigames_show_y, 0, minigames_target_show_y), 0, 480, 1, 0.5);
+			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
+			draw_set_font(fntPlayerInfo);
+			draw_set_halign(fa_middle);
+			var title = global.minigames[$ names[i]][location].title;
+			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title :  "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
+		}
+	}
+	
+	if (minigames_row_selected > 0) {
+		draw_sprite_ext(bind_to_key(global.actions.up.button), 0, minigames_x + draw_w / 2, 30, 0.5, 0.5, 0, c_white, 1);
+	}
+	
+	if (minigames_row_selected < 2) {
+		draw_sprite_ext(bind_to_key(global.actions.down.button), 0, minigames_x + draw_w / 2, draw_h - 30, 0.5, 0.5, 0, c_white, 1);
+	}
+	
+	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, minigames_x + 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, minigames_x + draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
 }
 
 surface_reset_target();
 
-draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, #3B8A66, 1);
+draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, (room == rParty) ? #3B8A66 : #3B8A66, 0.75);
 draw_surface(surf, draw_x + 4, draw_y + 4);
 draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_yellow, 1);
 var text = new Text(fntDialogue);

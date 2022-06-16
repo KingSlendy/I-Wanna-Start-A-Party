@@ -1,17 +1,23 @@
-//Main data
-global.file_selected = -1;
-global.board_games = {};
-global.game_id = "";
-global.player_game_ids = [];
-global.board_selected = -1;
+function save_variables() {
+	//Main data
+	global.file_selected = -1;
+	global.board_games = {};
+	global.game_id = "";
+	global.player_game_ids = [];
+	global.board_selected = -1;
 
-//Global information
-global.games_played = 0;
-global.collected_shines = 0;
-global.collected_coins = 0;
-global.collected_skins = array_sequence(0, 4);
-global.seen_minigames = [];
-global.collected_achievements = [];
+	//Global information
+	global.games_played = 0;
+	global.collected_shines = 0;
+	global.collected_coins = 0;
+	global.collected_skins = array_sequence(0, 4);
+	global.seen_minigames = [];
+	global.collected_achievements = [];
+
+	//Board information
+	global.max_board_turns = 20;
+	global.give_bonus_shines = true;
+}
 
 function save_file() {
 	var save_name = "Save" + string(global.file_selected + 1);
@@ -65,6 +71,14 @@ function load_file() {
 	return true;
 }
 
+function delete_file() {
+	if (file_exists("Save" + string(global.file_selected + 1))) {
+		file_delete("Save" + string(global.file_selected + 1));
+	}
+	
+	save_variables();
+}
+
 function save_board() {
 	var board = {
 		saved_id: global.player_id,
@@ -73,6 +87,7 @@ function save_board() {
 			saved_board: global.board_selected,
 			saved_max_turns: global.max_board_turns,
 			saved_turn: global.board_turn,
+			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_position: [objShine.x, objShine.y],
 			saved_spaces: [],
 			saved_minigame_type_history: global.minigame_type_history,

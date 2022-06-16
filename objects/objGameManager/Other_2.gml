@@ -1,3 +1,5 @@
+save_variables();
+
 for (var i = 0; i < 3; i++) {
 	global.file_selected = i;
 	

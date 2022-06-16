@@ -37,12 +37,14 @@ function shines_coins_exchange_chance_time() {
 		} else if (player_coins_diff == 0) {
 			shines_exchange_chance_time();
 		} else {
-			change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[0].turn).final_action = function() {
+			has_more_shines = (player_infos[0].shines > player_infos[1].shines);
+			has_more_coins = (player_infos[0].coins > player_infos[1].coins);
+			change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[!has_more_shines].turn).final_action = function() {
 				player_shines_diff *= -1;
-				change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[1].turn).final_action = function() {
-					change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[0].turn).final_action = function() {
+				change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[has_more_shines].turn).final_action = function() {
+					change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[!has_more_coins].turn).final_action = function() {
 						player_coins_diff *= -1;
-						change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[1].turn).final_action = objChanceTime.advance_chance_time;
+						change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[has_more_coins].turn).final_action = objChanceTime.advance_chance_time;
 					}
 				}
 			}
@@ -60,9 +62,11 @@ function shines_exchange_chance_time() {
 			return;
 		}
 		
-		change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[0].turn).final_action = function() {
+		has_more_shines = (player_infos[0].shines > player_infos[1].shines);
+		
+		change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[!has_more_shines].turn).final_action = function() {
 			player_shines_diff *= -1;
-			change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[1].turn).final_action = objChanceTime.advance_chance_time;
+			change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[has_more_shines].turn).final_action = objChanceTime.advance_chance_time;
 		}
 	}
 }
@@ -77,9 +81,11 @@ function coins_exchange_chance_time() {
 			return;
 		}
 		
-		change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[0].turn).final_action = function() {
+		has_more_coins = (player_infos[0].coins > player_infos[1].coins);
+		
+		change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[!has_more_coins].turn).final_action = function() {
 			player_coins_diff *= -1;
-			change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[1].turn).final_action = objChanceTime.advance_chance_time;
+			change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[has_more_coins].turn).final_action = objChanceTime.advance_chance_time;
 		}
 	}
 }
@@ -126,12 +132,6 @@ events = [
 	new ChanceTimeEvent("{p1} will give 1 shine to {p2}!", shines_give_chance_time, 1, false),
 	new ChanceTimeEvent("{p2} will give 2 shines to {p1}!", shines_give_chance_time, 2, true),
 	new ChanceTimeEvent("{p1} will give 2 shines to {p2}!", shines_give_chance_time, 2, false),
-	new ChanceTimeEvent("{p2} will give 3 shines to {p1}!", shines_give_chance_time, 3, true),
-	new ChanceTimeEvent("{p1} will give 3 shines to {p2}!", shines_give_chance_time, 3, false),
-	new ChanceTimeEvent("{p2} will give 10 coins to {p1}!", coins_give_chance_time, 10, true),
-	new ChanceTimeEvent("{p1} will give 10 coins to {p2}!", coins_give_chance_time, 10, false),
-	new ChanceTimeEvent("{p2} will give 20 coins to {p1}!", coins_give_chance_time, 20, true),
-	new ChanceTimeEvent("{p1} will give 20 coins to {p2}!", coins_give_chance_time, 20, false),
 	new ChanceTimeEvent("{p2} will give 30 coins to {p1}!", coins_give_chance_time, 30, true),
 	new ChanceTimeEvent("{p1} will give 30 coins to {p2}!", coins_give_chance_time, 30, false)
 ];
