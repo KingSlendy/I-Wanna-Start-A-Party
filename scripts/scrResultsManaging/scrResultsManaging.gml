@@ -48,6 +48,7 @@ global.bonus_shines = {
 	most_blue_spaces: new BonusShine(sprSpaces, 0, "landed on the most Blue spaces"),
 	most_red_spaces: new BonusShine(sprSpaces, 1, "landed on the most Red spaces"),
 	most_green_spaces: new BonusShine(sprSpaces, 2, "landed on the most Green spaces"),
+	most_item_spaces: new BonusShine(sprSpaces, 5, "landed on the most Item spaces"),
 	most_chance_time_spaces: new BonusShine(sprSpaces, 7, "landed on the most Chance Time spaces"),
 	most_the_guy_spaces: new BonusShine(sprSpaces, 8, "landed on the most The Guy spaces"),
 	most_purchases: new BonusShine(sprShop, 0, "purchased the most items in the shop")

@@ -65,8 +65,8 @@ switch (state) {
 					percentage_types[$ types[i]] = 0;
 				}
 			
-				for (var i = 0; i < array_length(global.minigame_history); i++) {
-					quantity_types[$ global.minigame_history[i]]++;
+				for (var i = 0; i < array_length(global.minigame_type_history); i++) {
+					quantity_types[$ global.minigame_type_history[i]]++;
 					total_types++;
 				}
 			

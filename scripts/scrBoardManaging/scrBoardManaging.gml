@@ -7,7 +7,7 @@ enum SpaceType {
 	Green,
 	Shop,
 	Blackhole,
-	Battle,
+	Item,
 	Duel,
 	ChanceTime,
 	TheGuy,
@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [global.board_items[ItemType.SuperWarp], global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
+	//self.items = [global.board_items[ItemType.Ice], global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -206,7 +206,7 @@ function get_player_count(index) {
 	var count = 0;
 	
 	with (objPlayerBase) {
-		if (object_index == index || (!is_player_local(network_id) && network_index == index)) {
+		if (object_index == index || (!is_player_local(network_id) && network_index == index && network_room == room)) {
 			count++;
 		}
 	}
@@ -354,40 +354,45 @@ function tell_turns() {
 }
 
 function turn_start() {
-	if (global.board_turn == 1 && global.board_first_space[focused_player().network_id - 1]) {
+	var in_space = true;
+	
+	with (focused_player()) {
+		in_space = place_meeting(x, y, objSpaces);
+	}
+	
+	if (global.board_turn == 1 && !in_space) {
 		if (is_local_turn()) {
 			global.dice_roll = -1;
 			board_advance();
-			return;
-		} else {
-			global.board_first_space[focused_player().network_id - 1] = false;
-			return;
 		}
+		
+		return;
 	}
 	
 	if (global.player_turn == 1) {
 		save_board();
-		shuffle_seed_inline();
-		reset_seed_inline();
+		generate_seed_bag();
 	}
+	
+	var freezed = false;
 	
 	if (player_info_by_turn().item_effect == ItemType.Ice) {
-		turn_next();
-		return;
+		objBoard.alarm[4] = get_frames(1);
+		freezed = true;
 	}
 	
-	if (!instance_exists(objTurnChoices)) {
-		instance_create_layer(0, 0, "Managers", objTurnChoices);
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.TurnStart);
+		network_send_tcp_packet();
+	}
 	
-		if (is_local_turn()) {
-			buffer_seek_begin();
-			buffer_write_action(ClientTCP.TurnStart);
-			network_send_tcp_packet();
-		}
+	if (!freezed && !instance_exists(objTurnChoices)) {
+		instance_create_layer(0, 0, "Managers", objTurnChoices);
 	}
 }
 
-function turn_next() {
+function turn_next(network = true) {
 	var player_info = player_info_by_turn();
 	player_info.item_used = false;
 	player_info.item_effect = null;
@@ -426,10 +431,10 @@ function board_advance() {
 	with (focused_player()) {
 		follow_path = path_add();
 		path_add_point(follow_path, x, y, 100);
+		var space = instance_place(x, y, objSpaces);
 		var next_space;
 		
-		if (!global.board_first_space[network_id - 1]) {
-			var space = instance_place(x, y, objSpaces);
+		if (space != noone) {
 			var next_space;
 		
 			if (BOARD_NORMAL) {
@@ -609,6 +614,10 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 	s.animation_type = type;
 	
 	if (sign(amount) == 1) {
+		if (s.network_id == global.player_id) {
+			global.collected_shines += amount;
+		}
+		
 		bonus_shine_by_id("most_shines").increase_score(s.network_id);
 	}
 
@@ -639,6 +648,10 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 	c.animation_type = type;
 	
 	if (sign(amount) == 1) {
+		if (c.network_id == global.player_id) {
+			global.collected_coins += amount;
+		}
+		
 		bonus_shine_by_id("most_coins").increase_score(c.network_id);
 	}
 	
@@ -758,7 +771,7 @@ function item_applied(item) {
 			case ItemType.Ice:
 				show_multiple_player_choices(function(i) {
 					return (player_info_by_turn(i).item_effect == null);
-				}, true).final_action = function() {
+				}, false).final_action = function() {
 					item_animation(ItemType.Ice);
 				}
 				break;

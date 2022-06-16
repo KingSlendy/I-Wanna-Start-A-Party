@@ -176,6 +176,21 @@ function space_finish_event() {
 			bonus_shine_by_id("most_green_spaces").increase_score();
 			break;
 			
+		case SpaceType.Item:
+			var rnd = irandom(100);
+			
+			if (rnd <= 80) {
+				var item = choose(ItemType.Poison, ItemType.Cellphone);
+			} else if (rnd >= 81 && rnd <= 95) {
+				var item = choose(ItemType.DoubleDice, ItemType.TripleDice);
+			} else {
+				var item = choose(ItemType.Blackhole, ItemType.Mirror);
+			}
+		
+			change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
+			bonus_shine_by_id("most_item_spaces").increase_score();
+			break;
+			
 		case SpaceType.ChanceTime:
 			start_chance_time();
 			bonus_shine_by_id("most_chance_time_spaces").increase_score();

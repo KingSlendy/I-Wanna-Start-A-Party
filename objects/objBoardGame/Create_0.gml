@@ -1,4 +1,4 @@
-if (!instance_exists(objNetworkClient)) {
+if (!IS_ONLINE || room != rParty) {
 	instance_destroy();
 	exit;
 }

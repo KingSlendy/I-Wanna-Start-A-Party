@@ -17,9 +17,9 @@ draw_set_color(player_color_by_turn(player_info.turn));
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
 draw_set_color(c_white);
 draw_sprite(player_idle_image, 0, draw_x + 25, draw_y + 23);
-var text = new Text(fntPlayerInfo, "{SPRITE,sprShine,0,0,-4,0.5,0.5}x" + string(player_info.shines));
+var text = new Text(fntPlayerInfo, "{SPRITE,sprShine,0,0,-4,0.5,0.5}" + string(player_info.shines));
 text.draw(draw_x + 40, draw_y + 35);
-var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} x" + string(player_info.coins));
+var text = new Text(fntPlayerInfo, "{SPRITE,sprCoin,0,0,2,0.6,0.6} " + string(player_info.coins));
 text.draw(draw_x + 46, draw_y + 61);
 draw_set_halign(fa_right);
 

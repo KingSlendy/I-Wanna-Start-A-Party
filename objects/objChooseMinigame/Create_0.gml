@@ -15,14 +15,20 @@ minigames_chosen = irandom(minigame_total - 1);
 global.choice_selected = irandom(minigame_total - 1);
 
 //Temp
-force_type = "1vs3";
+force_type = null;
 force_num = 1;
 //Temp
 
 objBoard.alarm[11] = 0;
 
 function choosed_minigame() {
-	info.reference = minigame_list[global.choice_selected];
+	var minigame = minigame_list[global.choice_selected];
+	info.reference = minigame;
+	
+	if (!array_contains(global.seen_minigames, minigame.title)) {
+		array_push(global.seen_minigames, minigame.title);
+	}
+	
 	alarm[3] = get_frames(1);
 	audio_play_sound(sndRoulettePick, 0, false);
 }

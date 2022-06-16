@@ -31,7 +31,8 @@ global.skin_sprites = [
 	"Sora",
 	"Subaru",
 	"Whispered",
-	"Hearts"
+	"Hearts",
+	"Aqua"
 ];
 
 global.skin_current = 0;

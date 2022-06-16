@@ -35,6 +35,12 @@ global.rng_class = new Random();
 #macro rng global.rng_class
 
 function generate_seed_bag() {
+	if (global.game_id != "" && global.game_id != "Offline") {
+		var split = string_split(global.game_id, " ");
+		var seed = real(split[array_length(split) - 1]);
+		random_set_seed(seed + 333 * (global.board_turn - 1));
+	}
+	
 	global.seed_bag = [];
 
 	repeat (100) {
@@ -59,6 +65,10 @@ function set_seed_inline(n) {
 	global.current_seed = n;
 	global.current_seed %= array_length(global.seed_bag);
 	random_set_seed(global.seed_bag[global.current_seed]);
+}
+
+function simulate_seed_inline(n) {
+	random_set_seed(global.seed_bag[n]);
 }
 
 function shuffle_seed_inline() {

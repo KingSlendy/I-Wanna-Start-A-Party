@@ -8,6 +8,8 @@ scale = 0;
 angle = 0;
 stealed = false;
 
+steal_min = irandom_range(7, 11);
+
 alarm[0] = 1;
 
 function start_blackhole_steal() {

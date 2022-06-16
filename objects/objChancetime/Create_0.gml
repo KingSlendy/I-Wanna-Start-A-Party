@@ -244,9 +244,9 @@ function advance_chance_time() {
 
 function reposition_chance_time() {
 	//Failsafe because a bug appeared for being null, which doesn't make sense
-	if (player_ids == null || array_contains(player_ids, null)) {
-		return;
-	}
+	//if (player_ids == null || array_contains(player_ids, null)) {
+	//	return;
+	//}
 	
 	//Puts the chosen players in its respective positions
 	for (var i = 0; i < array_length(player_ids); i++) {
@@ -301,7 +301,7 @@ function end_chance_time() {
 	instance_destroy(objChanceTimeChoice);
 	
 	switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
-		audio_sound_gain(global.music_current, 0, 1000);
+		music_fade();
 		objChanceTime.alarm[1] = get_frames(1);
 	}
 	
@@ -312,5 +312,5 @@ function end_chance_time() {
 	}
 }
 
-audio_sound_gain(global.music_current, 0, 1000);
+music_fade();
 alarm[0] = get_frames(1);

@@ -1,3 +1,8 @@
+if (instance_exists(objStatChange)) {
+	alarm[7] = 1;
+	exit;
+}
+
 music_stop();
 music_resume();
 audio_sound_gain(global.music_current, 1, 0);

@@ -713,25 +713,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
-		case ClientTCP.Minigame2vs2_Buttons_Button:
-			var player_id = buffer_read(buffer, buffer_u8);
-			var is_inside = buffer_read(buffer, buffer_bool);
-			var outside_current = buffer_read(buffer, buffer_u8);
-			var inside_current = buffer_read(buffer, buffer_u8);
-			
-			if (!is_inside) {
-				objMinigameController.buttons_outside_current = outside_current;
-			} else {
-				objMinigameController.buttons_inside_current = inside_current;
-			}
-			
-			with (objMinigame2vs2_Buttons_Button) {
-				if (inside == is_inside) {
-					press_button(player_id);
-				}
-			}
-			break;
-			
 		case ClientTCP.Minigame1vs3_Avoid_Block:
 			var attack = buffer_read(buffer, buffer_u8);
 			
@@ -791,6 +772,25 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var points = buffer_read(buffer, buffer_s8);
 			minigame4vs_points(objMinigameController.info, player_id, points);
 			break;
+			
+		case ClientTCP.Minigame2vs2_Buttons_Button:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var is_inside = buffer_read(buffer, buffer_bool);
+			var outside_current = buffer_read(buffer, buffer_u8);
+			var inside_current = buffer_read(buffer, buffer_u8);
+			
+			if (!is_inside) {
+				objMinigameController.buttons_outside_current = outside_current;
+			} else {
+				objMinigameController.buttons_inside_current = inside_current;
+			}
+			
+			with (objMinigame2vs2_Buttons_Button) {
+				if (inside == is_inside) {
+					press_button(player_id);
+				}
+			}
+			break;
 		#endregion
 		
 		#region Results
@@ -846,13 +846,13 @@ function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
 		#region Network
 		case ClientUDP.Heartbeat:
-			if (instance_exists(objNetworkClient)) {
+			if (IS_ONLINE) {
 				objNetworkClient.alarm[0] = get_frames(9);
 			}
 			break;
 			
 		case ClientUDP.LobbyStart:
-			audio_sound_gain(global.music_current, 0, 1000);
+			music_fade();
 			audio_play_sound(global.sound_cursor_big_select, 0, false);
 			break;
 		
@@ -930,7 +930,7 @@ function network_read_client_udp(buffer, data_id) {
 			var angle = buffer_read(buffer, buffer_u16);
 			
 			with (objMinigame2vs2_Squares_Halfs) {
-				if (network_id == player_id) {
+				if (!done && network_id == player_id) {
 					image_angle = angle;
 					break;
 				}

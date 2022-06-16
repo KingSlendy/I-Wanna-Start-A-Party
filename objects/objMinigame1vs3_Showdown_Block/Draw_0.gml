@@ -9,7 +9,7 @@ draw_set_valign(fa_top);
 if (selecting) {
 	draw_set_font(fntMinigame1vs3_Showdown_Select);
 	draw_set_color(c_black);
-	var text = new Text(fntMinigame1vs3_Showdown_Select, "{SPRITE,sprKey_ArrowLeft,0,0,5,0.35,0.35} " + string(show + 1) + " {SPRITE,sprKey_ArrowRight,0,1,5,0.35,0.35}");
+	var text = new Text(fntMinigame1vs3_Showdown_Select, "{SPRITE," +  + ",0,0,5,0.35,0.35} " + string(show + 1) + " {SPRITE,sprKey_ArrowRight,0,1,5,0.35,0.35}");
 	text.draw(x + sprite_width / 2 - 40, y + sprite_height + 5);
 	//draw_text(x + sprite_width / 2, y + sprite_height + 5, );
 }

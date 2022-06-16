@@ -8,7 +8,7 @@ broken_y = 304;
 broken_hspd = 0;
 broken_vspd = 0;
 broken_grav = 0;
-audio_sound_gain(global.music_current, 0, 1000);
+music_fade();
 alarm[0] = get_frames(1);
 
 prev_player_positions = store_player_positions();
@@ -148,7 +148,7 @@ function end_the_guy() {
 	}
 	
 	switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
-		audio_sound_gain(global.music_current, 0, 1000);
+		music_fade();
 		objTheGuy.alarm[7] = get_frames(1);
 	}
 	

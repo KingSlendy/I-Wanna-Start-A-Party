@@ -36,7 +36,7 @@ if (state == 0) {
 	}
 }
 
-if (is_local_turn() && state == -1 && global.actions.jump.pressed(player2.network_id)) {
+if (is_local_turn() && state == -1 && player_info_by_turn().item_effect != ItemType.Ice && global.actions.jump.pressed(player2.network_id)) {
 	steal_count -= 0.2;
-	steal_count = max(steal_count, 8);
+	steal_count = max(steal_count, steal_min);
 }

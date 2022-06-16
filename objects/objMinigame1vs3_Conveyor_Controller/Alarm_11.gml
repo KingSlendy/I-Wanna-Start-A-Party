@@ -31,7 +31,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				action.hold(6);
 			} else {
 				actions.jump.hold(15);
-				move_delay_timer = irandom_range(get_frames(0.5), get_frames(1));
+				move_delay_timer = irandom_range(get_frames(0.1), get_frames(0.25));
 				chosed_conveyor = -1;
 			}
 		} else {

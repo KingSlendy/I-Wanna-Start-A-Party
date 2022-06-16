@@ -53,7 +53,7 @@ if (array_contains([3, 4, 5], menu_type)) {
 		case 5: texts = player_texts; break;
 	}
 
-	draw_set_font(fntFilesFile);
+	draw_set_font(fntFilesButtons);
 	draw_set_valign(fa_middle);
 	
 	for (var i = 0; i < array_length(texts); i++) {
@@ -90,7 +90,7 @@ if (array_contains([3, 4, 5], menu_type)) {
 	
 	draw_set_valign(fa_top);
 	
-	if (instance_exists(objNetworkClient) && online_reading) {
+	if (IS_ONLINE && online_reading) {
 		draw_sprite(sprFilesLoading, current_time / 60, 330, 412 - 80 * (menu_type == 5));
 	}
 }

@@ -67,7 +67,7 @@ if (blue_count == 4 || red_count == 4) { //4vs
 	info.type = "2vs2";
 }
 
-array_push(global.minigame_history, info.type);
+array_push(global.minigame_type_history, info.type);
 
 minigame_list = [];
 

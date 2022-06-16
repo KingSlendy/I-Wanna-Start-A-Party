@@ -18,6 +18,10 @@ function start_target_player() {
 }
 
 function next_target_player() {
+	if (objMinigameController.info.is_finished) {
+		return;
+	}
+	
 	if (array_length(player_targets) == 0) {
 		target_player = null;
 		target_x = xstart;

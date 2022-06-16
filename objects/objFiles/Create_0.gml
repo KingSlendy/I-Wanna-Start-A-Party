@@ -1,11 +1,11 @@
 fade_start = true;
 fade_alpha = 1;
-fade_ready = true;
 
 files_alpha = 0;
 files_fade = -1;
 file_sprites = array_create(3, null);
 file_width = 32 * 7;
+file_height = 32 * 9;
 
 for (var i = 0; i < array_length(file_sprites); i++) {
 	file_original_pos[i] = [32 + (file_width + 32) * i, 128];
@@ -27,7 +27,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	draw_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_color_outline(w / 2, h / 2, label, #FFA545, #FFA545, #FF8400, #FF8400, 1, c_black);
+	draw_text_color_outline(w / 2, h / 2, label, c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	
@@ -63,22 +63,23 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 }
 
 menu_buttons = [
-	[new FileButton(400, 352, file_width, 64, -1, "START", c_blue), new FileButton(400, 432, file_width, 64, 1, "DELETE", c_red)],
-	[new FileButton(400, 352, file_width, 64, -1, "OFFLINE", c_white), new FileButton(400, 432, file_width, 64, 1, "ONLINE", c_aqua)],
-	[new FileButton(400, 352, file_width, 64, -1, "CANCEL", c_green), new FileButton(400, 432, file_width, 64, 1, "CONFIRM", c_red)],
+	[new FileButton(400, 400, file_width, 64, -1, "START", c_blue), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
+	[new FileButton(400, 400, file_width, 64, -1, "OFFLINE", c_white), new FileButton(400, 480, file_width, 64, 1, "ONLINE", c_aqua)],
+	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_green), new FileButton(400, 480, file_width, 64, 1, "CONFIRM", c_red)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "IP", c_white), new FileButton(150, 332, file_width, 64, -1, "PORT", c_white), new FileButton(150, 412, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 332, file_width * 2, 64, 1, "", c_white, false)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false)],
 	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "",, false), new FileButton(400, 230, file_width * 2, 64, 1, "",, false), new FileButton(400, 310, file_width * 2, 64, -1, "",, false), new FileButton(400, 390, file_width * 2, 64, 1, "",, false)]
 ];
 
 menu_selected = array_create(array_length(menu_buttons), 0);
+var prev_selected = global.file_selected;
 
 for (var i = 0; i < array_length(file_sprites); i++) {
 	global.file_selected = i;
 	load_file();
-	var surf = surface_create(file_width, file_width);
+	var surf = surface_create(file_width, file_height);
 	surface_set_target(surf);
-	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_width, #7FC1FA, 1);
+	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, #7FC1FA, 1);
 	draw_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
 	draw_text_color_outline(file_width / 2, 10, "FILE " + string(i + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
@@ -86,21 +87,25 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	draw_sprite_ext(sprShine, 0, 40, 85, 0.6, 0.6, 0, c_white, 1);
-	draw_text_outline(70, 85, string(global.collected_shines), c_black);
-	draw_sprite_ext(sprCoin, 0, 40, 115, 0.7, 0.7, 0, c_white, 1);
-	draw_text_outline(70, 115, string(global.collected_coins), c_black);
-	draw_sprite_ext(sprNormalPlayerIdle, 0, 40, 145, 1, 1, 0, c_white, 1);
-	draw_text_outline(70, 145, string(array_length(global.collected_skins)) + "/" + string(array_length(global.skin_sprites)), c_black);
-	draw_sprite_ext(sprTrigger, 0, 40 - 16, 175 - 16, 1, 1, 0, c_white, 1);
-	draw_text_outline(70, 175, string(array_length(global.collected_achievements)) + "/" + string(0), c_black);
+	draw_sprite_stretched(sprModesParty, 0, 40 - 14, 85 - 20, 32, 32);
+	draw_text_outline(70, 85, string(global.games_played), c_black);
+	draw_sprite_ext(sprShine, 0, 40, 120, 0.6, 0.6, 0, c_white, 1);
+	draw_text_outline(70, 120, string(global.collected_shines), c_black);
+	draw_sprite_ext(sprCoin, 0, 40, 155, 0.75, 0.75, 0, c_white, 1);
+	draw_text_outline(70, 155, string(global.collected_coins), c_black);
+	draw_sprite_ext(sprNormalPlayerIdle, 0, 40, 190, 1, 1, 0, c_white, 1);
+	draw_text_outline(70, 190, string(array_length(global.collected_skins)) + "/" + string(array_length(global.skin_sprites)), c_black);
+	draw_sprite_stretched(sprModesMinigames, 0, 40 - 16, 225 - 16, 32, 32);
+	draw_text_outline(70, 225, string(array_length(global.seen_minigames)) + "/" + string(array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])), c_black);
+	draw_sprite_ext(sprTrigger, 0, 40 - 16, 260 - 16, 1, 1, 0, c_white, 1);
+	draw_text_outline(70, 260, string(array_length(global.collected_achievements)) + "/" + string(0), c_black);
 	draw_set_valign(fa_top);
 	surface_reset_target();
-	file_sprites[i] = sprite_create_from_surface(surf, 0, 0, file_width, file_width, false, false, file_width / 2, file_width / 2);
+	file_sprites[i] = sprite_create_from_surface(surf, 0, 0, file_width, file_height, false, false, file_width / 2, file_width / 2);
 	surface_free(surf);
 }
 
-global.file_selected = -1;
+global.file_selected = prev_selected;
 upper_type = 0;
 upper_text = "";
 

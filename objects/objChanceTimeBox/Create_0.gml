@@ -14,7 +14,7 @@ box_activate = function() {
 	
 	with (objChanceTime) {
 		if (other.flag < 2) {
-			player_ids[other.flag] = array_index(all_player_sprites(), sprite);
+			player_ids[array_index(player_ids, null)] = array_index(all_player_sprites(), sprite);
 		} else {
 			event = events[index];
 		}

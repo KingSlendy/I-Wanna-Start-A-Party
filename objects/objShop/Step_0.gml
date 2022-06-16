@@ -54,21 +54,29 @@ if (shopping && is_local_turn()) {
 							with (objDialogue) {
 								text_end();
 							}
-							
-							bonus_shine_by_id("most_purchases").increase_score();
 						
 							if (item_selected.id != ItemType.ItemBag) {
-								
-								change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
+								var action = function() {
 									change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
 								}
 							} else {
-								var bag_choose = function() {
-									return change_items(global.board_items[irandom(ItemType.Length - 1)]);
+								global.bag_items = [];
+								
+								repeat (3) {
+									array_push(global.bag_items, global.board_items[irandom(ItemType.Length - 2)]);
 								}
 								
-								bag_choose().final_action = bag_choose;
+								var action = function() {
+									change_items(global.bag_items[0], ItemChangeType.Gain).final_action = function() {
+										change_items(global.bag_items[1], ItemChangeType.Gain).final_action = function() {
+											change_items(global.bag_items[2], ItemChangeType.Gain).final_action = board_advance;
+										}
+									}
+								}
 							}
+						
+							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = action;
+							bonus_shine_by_id("most_purchases").increase_score();
 						})
 					]],
 				

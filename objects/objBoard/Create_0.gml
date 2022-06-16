@@ -14,7 +14,6 @@ with (objPlayerBase) {
 
 //Board controllers
 global.board_started = false;
-global.board_first_space = array_create(global.player_max, true);
 global.board_turn = 1;
 global.player_turn = 1;
 global.dice_roll = 0;
@@ -40,7 +39,7 @@ for (var i = 0; i < global.player_max; i++) {
 
 //Minigame values
 minigame_info_reset();
-global.minigame_history = [];
+global.minigame_type_history = [];
 
 tell_choices = false;
 

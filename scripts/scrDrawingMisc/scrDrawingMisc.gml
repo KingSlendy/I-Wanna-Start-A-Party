@@ -70,7 +70,15 @@ function draw_player_name(x, y, player_id) {
 	var valign = draw_get_valign();
 	draw_set_font(fntPlayerName);
 	draw_set_valign(fa_middle);
-	draw_text_outline(x, y, focus_player_by_id(player_id).network_name, c_black);
+	var name = focus_player_by_id(player_id).network_name;
+	
+	if (string_length(name) > 5) {
+		var scale = remap(string_length(name), 1, 16, 1, 0.22);
+	} else {
+		var scale = 1;
+	}
+	
+	draw_text_transformed_outline(x, y, name, scale, scale, 0, c_black);
 	draw_set_valign(valign);
 	draw_set_font(font);
 }
@@ -136,13 +144,13 @@ function draw_2vs2_squares(info) {
 }
 
 function draw_action(action) {
-	return "{SPRITE," + sprite_get_name(bind_to_key(action.button)) + ",0,0,0,0.5,0.5}";
+	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.5,0.5}";
 }
 
 function draw_action_big(action) {
-	return "{SPRITE," + sprite_get_name(bind_to_key(action.button)) + ",0,0,0,0.75,0.75}";
+	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.75,0.75}";
 }
 
 function draw_action_small(action) {
-	return "{SPRITE," + sprite_get_name(bind_to_key(action.button)) + ",0,0,0,0.35,0.35}";
+	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.35,0.35}";
 }

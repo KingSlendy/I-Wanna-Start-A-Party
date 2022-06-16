@@ -56,3 +56,7 @@ function music_resume() {
 	global.music_current = global.music_previous;
 	audio_resume_sound(global.music_current);
 }
+
+function music_fade(time = 1000) {
+	audio_sound_gain(global.music_current, 0, time);
+}

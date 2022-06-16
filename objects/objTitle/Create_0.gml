@@ -46,7 +46,7 @@ function GiftKids(angle, title) constructor {
 	self.display();
 	
 	static draw = function() {
-		draw_sprite_ext(sprite, 0, 400 + 300 * dcos(self.angle), 330 + 50 * dsin(self.angle), 5, 5, 0, c_white, 1);
+		draw_sprite_ext(sprite, 0, 400 + 300 * dcos(self.angle), 360 + 50 * dsin(self.angle), 5, 5, 0, c_white, 1);
 		self.angle = (self.angle + 360 + 0.5) % 360;
 		
 		if (floor(self.angle) == 270) {

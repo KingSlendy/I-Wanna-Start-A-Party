@@ -11,7 +11,7 @@ if (fade_start) {
 			}
 			
 			if (global.lobby_started) {
-				room_goto(rParty);
+				room_goto(rModes);
 			}
 		}
 	} else {
@@ -63,7 +63,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 		if (global.actions.shoot.pressed()) {
 			fade_start = true;
 			back = true;
-			audio_sound_gain(global.music_current, 0, 1000);
+			music_fade();
 			audio_play_sound(global.sound_cursor_back, 0, false);
 		}
 	} else if (!online_reading) {
@@ -116,7 +116,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								global.player_game_ids = [1, 2, 3, 4];
 							}
 							
-							audio_sound_gain(global.music_current, 0, 1000);
+							music_fade();
 							audio_play_sound(global.sound_cursor_big_select, 0, false);
 							exit;
 						} else {
@@ -149,11 +149,15 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						
 							online_texts[select] = get_string(signs[select], online_texts[select]);
 						
+							if (select == 0 && string_length(online_texts[select]) == 0) {
+								online_texts[select] = "Player";
+							}
+						
 							if (online_limits[select] != -1) {
 								online_texts[select] = string_copy(online_texts[select], 1, online_limits[select]);
 							}
 						} else {
-							if (!instance_exists(objNetworkClient)) {
+							if (!IS_ONLINE) {
 								global.player_name = online_texts[0];
 								global.ip = online_texts[1];
 								global.port = online_texts[2];
@@ -211,7 +215,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						
 						ai_join_all();
 						alarm[0] = get_frames(1);
-						audio_sound_gain(global.music_current, 0, 1000);
+						music_fade();
 						audio_play_sound(global.sound_cursor_big_select, 0, false);
 						
 						buffer_seek_begin();

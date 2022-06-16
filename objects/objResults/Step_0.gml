@@ -23,12 +23,12 @@ if (fade_start) {
 			fade_alpha = 1;
 			fade_start = false;
 			
-			if (instance_exists(objNetworkClient)) {
+			if (IS_ONLINE) {
 				variable_struct_remove(global.board_games, global.game_id);
 			}
 			
 			save_file();
-			network_disable();
+			room_goto(rResults);
 		}
 	}
 }

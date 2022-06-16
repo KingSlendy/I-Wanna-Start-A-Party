@@ -6,17 +6,30 @@ global.player_game_ids = [];
 global.board_selected = -1;
 
 //Global information
+global.games_played = 0;
 global.collected_shines = 0;
 global.collected_coins = 0;
 global.collected_skins = array_sequence(0, 4);
+global.seen_minigames = [];
 global.collected_achievements = [];
 
 function save_file() {
+	var save_name = "Save" + string(global.file_selected + 1);
+	var save_name_backup = save_name + "_Backup";
+	
+	if (file_exists(save_name_backup)) {
+		file_delete(save_name_backup);
+	}
+	
+	file_rename(save_name, save_name_backup);
+	
 	var save = {
 		main_game: {
+			saved_games_played: global.games_played,
 			saved_collected_shines: global.collected_shines,
 			saved_collected_coins: global.collected_coins,
 			saved_collected_skins: global.collected_skins,
+			saved_seen_minigames: global.seen_minigames,
 			saved_collected_achievements: global.collected_achievements
 		},
 		
@@ -41,9 +54,11 @@ function load_file() {
 	var data = buffer_read(buffer, buffer_string);
 	var save = json_parse(data);
 	
+	global.games_played = save.main_game.saved_games_played;
 	global.collected_shines = save.main_game.saved_collected_shines;
 	global.collected_coins = save.main_game.saved_collected_coins;
 	global.collected_skins = save.main_game.saved_collected_skins;
+	global.seen_minigames = save.main_game.saved_seen_minigames;
 	global.collected_achievements = save.main_game.saved_collected_achievements;
 	global.board_games = save.board_games;
 	
@@ -60,8 +75,8 @@ function save_board() {
 			saved_turn: global.board_turn,
 			saved_shine_position: [objShine.x, objShine.y],
 			saved_spaces: [],
-			saved_first_space: global.board_first_space,
-			saved_minigame_history: global.minigame_history
+			saved_minigame_type_history: global.minigame_type_history,
+			saved_bonus_shines: {}
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -69,6 +84,12 @@ function save_board() {
 	
 	with (objSpaces) {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
+	}
+	
+	var names = variable_struct_get_names(global.bonus_shines);
+	
+	for (var i = 0; i < array_length(names); i++) {
+		board.saved_board.saved_bonus_shines[$ names[i]] = global.bonus_shines[$ names[i]].scores;
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {

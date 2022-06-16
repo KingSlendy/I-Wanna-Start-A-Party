@@ -1,3 +1,5 @@
+#macro IS_ONLINE (instance_exists(objNetworkClient))
+
 global.ip = null;
 global.port = 33321;
 global.tcp_socket = null;
@@ -7,7 +9,7 @@ global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
 global.player_id = 0;
 global.master_id = 0;
-global.player_name = "Player";
+global.player_name = "WWWWWWWWWWWWWWWW";
 global.lobby_started = false;
 
 enum PlayerDataMode {
@@ -73,14 +75,14 @@ function buffer_read_array(buffer, type) {
 }
 
 function network_send_tcp_packet() {
-	if (instance_exists(objNetworkClient)) {
+	if (IS_ONLINE) {
 		buffer_sanity_checks(true);
 		network_send_packet(global.tcp_socket, global.buffer, buffer_tell(global.buffer));
 	}
 }
 
 function network_send_udp_packet() {
-	if (instance_exists(objNetworkClient)) {
+	if (IS_ONLINE) {
 		buffer_sanity_checks(false);
 		network_send_udp_raw(global.udp_socket, global.ip, global.port, global.buffer, buffer_tell(global.buffer));
 	}
@@ -334,17 +336,9 @@ function check_player_game_ids(player_id, player_ids) {
 function network_disable() {
 	event_perform_object(objNetworkClient, ev_destroy, 0);
 	instance_destroy(objNetworkClient, false);
-	
-	//if (instance_exists(objNetworkClient)) {
-	//	instance_destroy(objNetworkClient);
-	//} else {
-	//	global.lobby_started = false;
-	//	player_leave_all();
-	//}
-	
 	instance_destroy(objPlayerInfo);
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);
 	application_surface_draw_enable(true);
-	room_goto(rFiles);
+	room_goto(rResults);
 }

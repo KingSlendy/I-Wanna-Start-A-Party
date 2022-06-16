@@ -2,24 +2,24 @@ function Action(button) constructor {
 	self.button = button;
 	self.label = "";
 	
-	static held = function(id = null) {
-		if (id != null && id > 0 && id != global.player_id) {
+	static held = function(id = 0) {
+		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.label].held(id);
 		}
 		
 		return keyboard_check(self.button);
 	}
 	
-	static pressed = function(id = null) {
-		if (id != null && id > 0 && id != global.player_id) {
+	static pressed = function(id = 0) {
+		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.label].pressed(id);
 		}
 		
 		return keyboard_check_pressed(self.button);
 	}
 	
-	static released = function(id = null) {
-		if (id != null && id > 0 && id != global.player_id) {
+	static released = function(id = 0) {
+		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.label].released(id);
 		}
 		
@@ -203,4 +203,8 @@ function bind_to_key(bind) {
 	    //Other characters
 	    default: return chr(bind);
 	}
+}
+
+function bind_to_string(bind) {
+	return sprite_get_name(bind_to_key(bind));
 }

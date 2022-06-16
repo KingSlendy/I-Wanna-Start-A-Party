@@ -17,5 +17,5 @@ with (objMinigame1vs3_Showdown_Block) {
 	}
 }
 
-minigame_time = 10;
+minigame_time = 6;
 alarm[10] = get_frames(1);

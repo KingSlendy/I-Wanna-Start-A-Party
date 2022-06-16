@@ -6,6 +6,7 @@ if (array_length(player_info.items) > 3) {
 		change.slot_removed = global.choice_selected;
 		change.final_action = final_action;
 	}
+	
 	exit;
 }
 
