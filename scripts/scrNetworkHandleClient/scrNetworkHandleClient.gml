@@ -12,8 +12,6 @@ enum ClientTCP {
 	BoardGameID,
 	BoardPlayerIDs,
 	PartyAction,
-	PlayerMove,
-	PlayerShoot,
 	PlayerKill,
 	
 	//Interactables
@@ -23,6 +21,7 @@ enum ClientTCP {
 	ShowChest,
 	OpenChest,
 	SpawnChanceTimeBox,
+	SpawnLastTurnsBox,
 	
 	//Interfaces
 	SpawnPlayerInfo,
@@ -41,6 +40,7 @@ enum ClientTCP {
 	ChangeMultipleChoiceSelected,
 	EndMultipleChoices,
 	HitChanceTimeBox,
+	HitLastTurnsBox,
 	
 	//Stats
 	ChangeShines,
@@ -60,6 +60,9 @@ enum ClientTCP {
 	StartTheGuy,
 	ShowTheGuyOptions,
 	EndTheGuy,
+	LastTurnsSayPlayerPlace,
+	LastTurnsHelpLastPlace,
+	LastTurnsEndLastTurns,
 	
 	//Animations
 	ItemApplied,
@@ -96,6 +99,7 @@ enum ClientUDP {
 	Heartbeat,
 	LobbyStart,
 	PlayerData,
+	PlayerShoot,
 	
 	//Interfaces
 	MapLook,
@@ -301,25 +305,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.PartyAction:
 			var action = buffer_read(buffer, buffer_string);
 			var player_id = buffer_read(buffer, buffer_u8);
+			
+			switch (room) {
+				case rModes: var menu = objModes; break;
+				case rParty: case rMinigames: var menu = objPartyMinigames; break;
+				case rSkins: var menu = objSkins; break;
+			}
 		
-			with (objParty) {
+		
+			with (menu) {
 				array_push(network_actions, [action, player_id]);
 				//print(network_actions);
 			}
-			break;
-			
-		case ClientTCP.PlayerMove:
-			player_read_data(buffer);
-			break;
-			
-		case ClientTCP.PlayerShoot:
-			var player_id = buffer_read(buffer, buffer_u8);
-			var xx = buffer_read(buffer, buffer_s16);
-			var yy = buffer_read(buffer, buffer_s16);
-			var hspd = buffer_read(buffer, buffer_s8);
-			var b = instance_create_layer(xx, yy, "Actors", objBullet);
-			b.network_id = player_id;
-			b.hspeed = hspd;
 			break;
 			
 		case ClientTCP.PlayerKill:
@@ -368,6 +365,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				var b = advance_chance_time();
 				b.sprites = buffer_read_array(buffer, buffer_u32);
 				b.indexes = buffer_read(buffer, buffer_bool);
+			}
+			break;
+			
+		case ClientTCP.SpawnLastTurnsBox:
+			with (objLastTurns) {
+				spawn_last_turns_box();
 			}
 			break;
 		#endregion
@@ -506,6 +509,13 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				box_activate();
 			}
 			break;
+			
+		case ClientTCP.HitLastTurnsBox:
+			with (objLastTurnsBox) {
+				show_sprites[0] = buffer_read(buffer, buffer_u16);
+				box_activate();
+			}
+			break;
 		#endregion
 			
 		#region Stats
@@ -592,6 +602,24 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objTheGuy) {
 				rotate_turn = false;
 				end_the_guy();
+			}
+			break;
+			
+		case ClientTCP.LastTurnsSayPlayerPlace:
+			with (objLastTurns) {
+				say_player_place();
+			}
+			break;
+			
+		case ClientTCP.LastTurnsHelpLastPlace:
+			with (objLastTurns) {
+				help_last_place();
+			}
+			break;
+			
+		case ClientTCP.LastTurnsEndLastTurns:
+			with (objLastTurns) {
+				end_last_turns();
 			}
 			break;
 		#endregion
@@ -858,6 +886,16 @@ function network_read_client_udp(buffer, data_id) {
 		
 		case ClientUDP.PlayerData:
 			player_read_data(buffer);
+			break;
+			
+		case ClientUDP.PlayerShoot:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var xx = buffer_read(buffer, buffer_s16);
+			var yy = buffer_read(buffer, buffer_s16);
+			var hspd = buffer_read(buffer, buffer_s8);
+			var b = instance_create_layer(xx, yy, "Actors", objBullet);
+			b.network_id = player_id;
+			b.hspeed = hspd;
 			break;
 		#endregion
 			

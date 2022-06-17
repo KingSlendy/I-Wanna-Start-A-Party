@@ -154,7 +154,7 @@ rotate_turn = true;
 function begin_chance_time() {
 	if (is_local_turn()) {
 		start_dialogue([
-			"Welcome to chance time!\nThe exciting event that could change the board around!",
+			"Welcome to chance time!\nThe exciting event that can change everything!",
 			new Message("Jump and hit the blocks to decide what players are gonna be involved!",, objChanceTime.advance_chance_time)
 		]);
 	}

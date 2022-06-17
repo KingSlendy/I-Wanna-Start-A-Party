@@ -27,6 +27,7 @@ for (var i = 0; i < global.player_max; i++) {
 
 lights_angle = array_create(global.player_max, 0);
 revealed = false;
+previous_place = -1;
 
 global.board_started = false;
 info = global.minigame_info;

@@ -63,12 +63,14 @@ if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
 
 with (objNothing) {
 	if (y >= 540) {
-		global.skins[other.skin_selected].price--;
+		if (global.player_id == 1) {
+			global.skins[other.skin_selected].price--;
 		
-		if (global.skins[other.skin_selected].price == 0) {
-			array_push(global.collected_skins, other.skin_selected);
-			save_file();
-			other.buying = -1;
+			if (global.skins[other.skin_selected].price == 0) {
+				array_push(global.collected_skins, other.skin_selected);
+				save_file();
+				other.buying = -1;
+			}
 		}
 		
 		audio_play_sound(sndCoinGet, 0, false);

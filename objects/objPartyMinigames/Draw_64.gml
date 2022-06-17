@@ -141,7 +141,7 @@ if (room == rParty) {
 } else {
 	var minigames_x = menu_x + menu_sep;
 	var minigames_y = minigames_show_y + 350 * -minigames_row_selected;
-	var names = variable_struct_get_names(minigames_portraits);
+	var names = ["4vs", "1vs3", "2vs2"];
 	var types = ["4 vs.", "1 vs. 3", "2 vs. 2"];
 	
 	for (var i = 0; i < array_length(names); i++) {
@@ -160,7 +160,7 @@ if (room == rParty) {
 			draw_set_font(fntPlayerInfo);
 			draw_set_halign(fa_middle);
 			var title = global.minigames[$ names[i]][location].title;
-			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title :  "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
+			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title : "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 		}
 	}
 	

@@ -72,11 +72,15 @@ function load_file() {
 }
 
 function delete_file() {
+	var file_selected = global.file_selected;
+	
 	if (file_exists("Save" + string(global.file_selected + 1))) {
 		file_delete("Save" + string(global.file_selected + 1));
 	}
 	
 	save_variables();
+	global.file_selected = file_selected;
+	save_file();
 }
 
 function save_board() {

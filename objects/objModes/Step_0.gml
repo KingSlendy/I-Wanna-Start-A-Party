@@ -35,8 +35,8 @@ if (!fade_start) {
 		mode_selected = 0;
 	}
 	
-	var scroll_h = (global.actions.right.pressed(1) - global.actions.left.pressed(1));
-	var scroll_v = (global.actions.down.pressed(1) - global.actions.up.pressed(1));
+	var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
+	var scroll_v = (sync_actions("down", 1) - sync_actions("up", 1));
 	
 	if (scroll_h != 0) {
 		scroll_v = 0;
@@ -55,7 +55,7 @@ if (!fade_start) {
 		audio_play_sound(global.sound_cursor_move, 0, false);
 	}
 	
-	if (global.actions.jump.pressed(1)) {
+	if (sync_actions("jump", 1)) {
 		global.mode_selected = mode_selected;
 		state = mode_selected + 1;
 		fade_start = true;
@@ -63,7 +63,7 @@ if (!fade_start) {
 		audio_play_sound(global.sound_cursor_big_select, 0, false);
 	}
 	
-	if (global.actions.shoot.pressed(1)) {
+	if (sync_actions("shoot", 1)) {
 		state = 0;
 		fade_start = true;
 		music_fade();

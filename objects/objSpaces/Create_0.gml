@@ -155,12 +155,12 @@ function space_finish_event() {
 				blue_event = show_chest;
 			}
 			
-			change_coins(3, CoinChangeType.Gain).final_action = blue_event;
+			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
 			bonus_shine_by_id("most_blue_spaces").increase_score();
 			break;
 			
 		case SpaceType.Red:
-			change_coins(-3, CoinChangeType.Lose).final_action = turn_next;
+			change_coins(-((global.board_turn <= global.max_board_turns - 5) ? 3 : 6), CoinChangeType.Lose).final_action = turn_next;
 			bonus_shine_by_id("most_red_spaces").increase_score();
 			break;
 			
@@ -177,7 +177,7 @@ function space_finish_event() {
 			break;
 			
 		case SpaceType.Item:
-			var rnd = irandom(100);
+			var rnd = irandom(99);
 			
 			if (rnd <= 80) {
 				var item = choose(ItemType.Poison, ItemType.Cellphone);
@@ -189,6 +189,12 @@ function space_finish_event() {
 		
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
 			bonus_shine_by_id("most_item_spaces").increase_score();
+			break;
+			
+		case SpaceType.Warp:
+			global.warp_space = true;
+			item_animation(ItemType.Warp).final_action = turn_next;
+			bonus_shine_by_id("most_warp_spaces").increase_score();
 			break;
 			
 		case SpaceType.ChanceTime:

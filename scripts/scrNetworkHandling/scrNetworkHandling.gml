@@ -9,7 +9,7 @@ global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
 global.player_id = 0;
 global.master_id = 0;
-global.player_name = "WWWWWWWWWWWWWWWW";
+global.player_name = "Player";
 global.lobby_started = false;
 
 enum PlayerDataMode {
@@ -340,5 +340,5 @@ function network_disable() {
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);
 	application_surface_draw_enable(true);
-	room_goto(rResults);
+	room_goto(rFiles);
 }

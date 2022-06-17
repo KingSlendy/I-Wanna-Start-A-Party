@@ -12,5 +12,8 @@ with (focus_player) {
 
 current_follow = {x: focus_player.x, y: focus_player.y};
 
-switch_camera_target(focus_player.x, focus_player.y).final_action = begin_chance_time;
+switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
+	objChanceTime.alarm[2] = get_frames(0.5);
+}
+
 started = true;

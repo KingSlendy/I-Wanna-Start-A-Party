@@ -4,6 +4,6 @@ if (spawned_shine == noone) {
 	spawned_shine.focus_player = focus_player;
 	alarm[ShineChangeType.Lose] = get_frames(1);
 } else {
-	spawned_shine.vspeed = -6;
-	alarm[11] = get_frames(2);
+	spawned_shine.vspeed = -10;
+	alarm[11] = get_frames(1);
 }

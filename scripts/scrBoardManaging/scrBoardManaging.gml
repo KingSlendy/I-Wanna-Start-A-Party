@@ -8,7 +8,7 @@ enum SpaceType {
 	Shop,
 	Blackhole,
 	Item,
-	Duel,
+	Warp,
 	ChanceTime,
 	TheGuy,
 	Shine,
@@ -374,11 +374,10 @@ function turn_start() {
 		generate_seed_bag();
 	}
 	
-	var freezed = false;
+	var freezed = (player_info_by_turn().item_effect == ItemType.Ice);
 	
-	if (player_info_by_turn().item_effect == ItemType.Ice) {
+	if (freezed) {
 		objBoard.alarm[4] = get_frames(1);
-		freezed = true;
 	}
 	
 	if (is_local_turn()) {
@@ -730,7 +729,8 @@ function change_space(space) {
 	switch (space) {
 		case SpaceType.Blue: color = c_blue; break;
 		case SpaceType.Red: color = c_red; break;
-		case SpaceType.Green: color = c_green; break;
+		case SpaceType.Green: case SpaceType.Item: color = c_green; break;
+		case SpaceType.Warp: color = c_purple; break;
 		case SpaceType.ChanceTime: color = c_yellow; break;
 		case SpaceType.TheGuy: color = c_dkgray; break;
 		default: color = c_gray; break;

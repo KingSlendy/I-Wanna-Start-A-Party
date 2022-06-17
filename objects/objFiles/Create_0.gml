@@ -74,15 +74,20 @@ menu_buttons = [
 menu_selected = array_create(array_length(menu_buttons), 0);
 var prev_selected = global.file_selected;
 
-for (var i = 0; i < array_length(file_sprites); i++) {
-	global.file_selected = i;
+function file_sprite(file) {
+	try {
+		sprite_delete(file_sprites[file]);
+	} catch (_) {
+	}
+	
+	global.file_selected = file;
 	load_file();
 	var surf = surface_create(file_width, file_height);
 	surface_set_target(surf);
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, #7FC1FA, 1);
 	draw_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
-	draw_text_color_outline(file_width / 2, 10, "FILE " + string(i + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
+	draw_text_color_outline(file_width / 2, 10, "FILE " + string(file + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
 	draw_set_font(fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -101,8 +106,12 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 	draw_text_outline(70, 260, string(array_length(global.collected_achievements)) + "/" + string(0), c_black);
 	draw_set_valign(fa_top);
 	surface_reset_target();
-	file_sprites[i] = sprite_create_from_surface(surf, 0, 0, file_width, file_height, false, false, file_width / 2, file_width / 2);
+	file_sprites[file] = sprite_create_from_surface(surf, 0, 0, file_width, file_height, false, false, file_width / 2, file_width / 2);
 	surface_free(surf);
+}
+
+for (var i = 0; i < array_length(file_sprites); i++) {
+	file_sprite(i);
 }
 
 global.file_selected = prev_selected;

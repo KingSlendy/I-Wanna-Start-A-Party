@@ -13,7 +13,6 @@ var scroll = (global.actions.right.pressed(network_id) - global.actions.left.pre
 var prev_choice = global.choice_selected;
 
 if (global.choice_selected == -1) {
-	global.choice_selected = 0;
 	skip_empty_choice(1);
 }
 

@@ -1,9 +1,6 @@
 info = global.minigame_info;
 state = 0;
 alpha = 1;
-places_minigame_repeated = [];
-places_minigame_info = [];
-places_minigame_order = [];
 
 function minigame_info_placement() {
 	places_minigame_repeated = array_create(global.player_max, 0);
@@ -11,20 +8,15 @@ function minigame_info_placement() {
 	places_minigame_order = [];
 		
 	for (var i = 1; i <= global.player_max; i++) {
-		var info = player_info_by_turn(i);
-		var order = info.place + places_minigame_repeated[info.place - 1];
-		places_minigame_repeated[info.place - 1]++;
-		
-		with (objPlayerInfo) {
-			if (player_info.turn == i) {
-				array_push(other.places_minigame_info, id);
-				array_push(other.places_minigame_order, order);
-			}
-		}
+		var info = focus_info_by_turn(i);
+		var order = info.player_info.place + places_minigame_repeated[info.player_info.place - 1];
+		places_minigame_repeated[info.player_info.place - 1]++;
+		array_push(places_minigame_info, info);
+		array_push(places_minigame_order, order);
 	}
 }
 
-minigame_info_placement()
+minigame_info_placement();
 
 var player_reference = null;
 

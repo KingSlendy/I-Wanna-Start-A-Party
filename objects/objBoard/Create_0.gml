@@ -25,6 +25,7 @@ global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
 
 //Bonus values
+global.warp_space = false;
 var names = variable_struct_get_names(global.bonus_shines);
 
 for (var i = 0; i < array_length(names); i++) {

@@ -32,10 +32,10 @@ box_activate = function() {
 		network_send_tcp_packet();
 	}
 	
+	audio_play_sound(sndChanceTime, 0, false);
 	instance_destroy();
 }
 
-sprites = [];
 show_sprites = array_create(3, null);
 surf = noone;
 yy = -32;

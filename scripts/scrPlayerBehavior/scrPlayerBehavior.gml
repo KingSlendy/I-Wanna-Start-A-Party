@@ -28,12 +28,12 @@ function player_shoot() {
 	b.hspeed = 16 * sign((object_index == objPlayerPlatformer) ? xscale : image_xscale);
 	
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.PlayerShoot);
+	buffer_write_action(ClientUDP.PlayerShoot);
 	buffer_write_data(buffer_u8, network_id);
 	buffer_write_data(buffer_s16, x);
 	buffer_write_data(buffer_s16, y);
 	buffer_write_data(buffer_s8, b.hspeed);
-	network_send_tcp_packet();
+	network_send_udp_packet();
 }
 
 function reset_jumps() {

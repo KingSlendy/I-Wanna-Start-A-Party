@@ -128,13 +128,17 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 					
 					case 2:
-						menu_type = 0;
-					
-						//if (menu_selected[menu_type] == 0) {
-						//	menu_type = 0;
-						//} else {
+						if (menu_selected[menu_type] == 0) {
+							menu_type = 0;
+						} else {
+							delete_file();
+							file_sprite(file_opened);
+							file_opened = -1;
+							menu_selected[0] = 0;
+							menu_selected[1] = 0;
+						}
 						
-						//}
+						menu_type = 0;
 						break;
 					
 					case 3:

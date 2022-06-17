@@ -20,6 +20,13 @@ for (var i = 4; i >= 1; i--) {
 	}
 }
 
+if (place == previous_place) {
+	alarm[1] = 1;
+	exit;
+}
+
+previous_place = place;
+
 if (place == 1) {
 	alarm[2] = get_frames(0.5);
 	exit;
