@@ -421,7 +421,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.ChangeDialogueText:
 			var d = objDialogue;
 		
-			if (!instance_exists(objDialogue)) {
+			if (!instance_exists(objDialogue) || d.alpha_target == 0) {
 				d = start_dialogue([]);
 				d.active = false;
 				d.endable = false;

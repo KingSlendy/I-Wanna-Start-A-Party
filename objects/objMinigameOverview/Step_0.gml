@@ -2,7 +2,7 @@ switch (state) {
 	case 0:
 		if (get_player_count(objPlayerBase) == global.player_max) {
 			alpha -= 0.03;
-			music_play(bgmMinigameOverview, true);
+			music_play(bgmMinigameOverview);
 		
 			if (alpha <= 0) {
 				alpha = 0;
@@ -26,6 +26,16 @@ switch (state) {
 		if (alpha >= 1) {
 			info.is_practice = true;
 			room_goto(info.reference.scene);
+		}
+		break;
+		
+	case 3:
+		music_fade();
+		alpha += 0.02;
+		
+		if (alpha >= 1) {
+			disable_board();
+			room_goto(rMinigames);
 		}
 		break;
 }
@@ -66,6 +76,16 @@ if (option_selected != prev_choice) {
 
 if (global.actions.jump.pressed(global.player_id)) {
 	start_minigame(option_selected + 1);
+	
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.MinigameOverviewStart);
+	buffer_write_data(buffer_u8, state);
+	network_send_tcp_packet();
+}
+
+if (global.actions.shoot.pressed(global.player_id)) {
+	state = 3;
+	audio_play_sound(global.sound_cursor_back, 0, false);
 	
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.MinigameOverviewStart);

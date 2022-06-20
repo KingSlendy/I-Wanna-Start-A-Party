@@ -64,9 +64,9 @@ function shines_exchange_chance_time() {
 		
 		has_more_shines = (player_infos[0].shines > player_infos[1].shines);
 		
-		change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[!has_more_shines].turn).final_action = function() {
+		change_shines(player_shines_diff, (!has_more_shines) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[!has_more_shines].turn).final_action = function() {
 			player_shines_diff *= -1;
-			change_shines(player_shines_diff, (player_shines_diff > 0) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[has_more_shines].turn).final_action = objChanceTime.advance_chance_time;
+			change_shines(player_shines_diff, (has_more_shines) ? ShineChangeType.Spawn : ShineChangeType.Lose, player_infos[has_more_shines].turn).final_action = objChanceTime.advance_chance_time;
 		}
 	}
 }
@@ -83,9 +83,9 @@ function coins_exchange_chance_time() {
 		
 		has_more_coins = (player_infos[0].coins > player_infos[1].coins);
 		
-		change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[!has_more_coins].turn).final_action = function() {
+		change_coins(player_coins_diff, (!has_more_coins) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[!has_more_coins].turn).final_action = function() {
 			player_coins_diff *= -1;
-			change_coins(player_coins_diff, (player_coins_diff > 0) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[has_more_coins].turn).final_action = objChanceTime.advance_chance_time;
+			change_coins(player_coins_diff, (has_more_coins) ? CoinChangeType.Gain : CoinChangeType.Lose, player_infos[has_more_coins].turn).final_action = objChanceTime.advance_chance_time;
 		}
 	}
 }

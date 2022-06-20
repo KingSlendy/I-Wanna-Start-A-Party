@@ -105,26 +105,47 @@ minigames_col_selected = 0;
 minigames_target_row_selected = 0;
 minigames_target_col_selected = 0;
 minigames_portraits = {};
+minigame_selected = null;
+minigame_colors = [
+	[1, 2, 3, 4],
+	[1],
+	[1, 2],
+];
+
 var names = variable_struct_get_names(global.minigames);
 
-for (var i = 0; i < array_length(names); i++) {
-	var minigames = global.minigames[$ names[i]];
-	minigames_portraits[$ names[i]] = [];
+if (room == rMinigames) {
+	for (var i = 0; i < array_length(names); i++) {
+		var minigames = global.minigames[$ names[i]];
+		minigames_portraits[$ names[i]] = [];
 	
-	for (var j = 0; j < array_length(minigames); j++) {
-		var minigame = minigames[j];
-		var w = sprite_get_width(sprMinigameOverview_Preview);
-		var h = sprite_get_height(sprMinigameOverview_Preview);
-		var p_surf = surface_create(w, h);
-		surface_set_target(p_surf);
-		draw_sprite(sprMinigameOverview_Preview, 1, w / 2, h / 2);
-		gpu_set_colorwriteenable(true, true, true, false);
-		draw_sprite_stretched(sprMinigameOverview_Pictures, (array_contains(global.seen_minigames, minigame.title)) ? minigame.preview : 0, 44, 15,  w - 88, h - 31);
-		gpu_set_colorwriteenable(true, true, true, true);
-		draw_sprite(sprMinigameOverview_Preview, 0, w / 2, h / 2);
-		surface_reset_target();
-		array_push(minigames_portraits[$ names[i]], sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w / 2, h / 2));
-		surface_free(p_surf);
+		for (var j = 0; j < array_length(minigames); j++) {
+			var minigame = minigames[j];
+			var w = sprite_get_width(sprMinigameOverview_Preview);
+			var h = sprite_get_height(sprMinigameOverview_Preview);
+			var p_surf = surface_create(w, h);
+			surface_set_target(p_surf);
+			draw_sprite(sprMinigameOverview_Preview, 1, w / 2, h / 2);
+			gpu_set_colorwriteenable(true, true, true, false);
+			draw_sprite_stretched(sprMinigameOverview_Pictures, (array_contains(global.seen_minigames, minigame.title)) ? minigame.preview : 0, 44, 15,  w - 88, h - 31);
+			gpu_set_colorwriteenable(true, true, true, true);
+			draw_sprite(sprMinigameOverview_Preview, 0, w / 2, h / 2);
+			surface_reset_target();
+			array_push(minigames_portraits[$ names[i]], sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w / 2, h / 2));
+			surface_free(p_surf);
+		}
+	}
+
+	var info = global.minigame_info;
+
+	if (info.is_modes) {
+		menu_page = 1;
+		var types = ["4vs", "1vs3", "2vs2"];
+		minigames_row_selected = array_index(types, info.type);
+		minigames_target_row_selected = minigames_row_selected;
+		minigames_col_selected = array_index(global.minigames[$ types[minigames_row_selected]], info.reference);
+		minigames_target_col_selected = minigames_col_selected;
+		minigame_info_reset();
 	}
 }
 
@@ -155,13 +176,19 @@ function start_board() {
 	audio_play_sound(sndBoardEnter, 0, false);
 }
 
+action_delay = 0;
 network_actions = [];
 
 function sync_actions(action, network_id) {
+	if (action_delay > 0) {
+		return false;
+	}
+	
 	if (array_length(network_actions) > 0) {
 		var network_action = network_actions[0];
 	
 		if (network_action[0] == action && network_action[1] == network_id) {
+			action_delay = get_frames(0.1);
 			array_delete(network_actions, 0, 1);
 			return true;
 		}
@@ -176,6 +203,7 @@ function sync_actions(action, network_id) {
 	var pressed = global.actions[$ action].pressed(check_id);
 	
 	if (pressed) {
+		action_delay = get_frames(0.1);
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.PartyAction);
 		buffer_write_data(buffer_string, action);

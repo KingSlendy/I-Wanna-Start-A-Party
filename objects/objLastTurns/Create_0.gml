@@ -5,7 +5,7 @@ with (objPlayerReference) {
 	}
 }
 
-current_follow = {x: focus_player.x, y: focus_player.y};
+current_follow = {x: focus_player.x + 17, y: focus_player.y + 23};
 prev_player_positions = store_player_positions();
 
 function minigame_info_placement() {
@@ -66,7 +66,9 @@ function say_player_place() {
 	
 	if (current_player == 4) {
 		if (is_local_turn()) {
-			start_dialogue([
+			objDialogue.endable = true;
+			
+			change_dialogue([
 				new Message("Looks like {COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is having some trouble... let's give them a little bit of help!",, help_last_place)
 			]);
 		}
@@ -80,9 +82,12 @@ function say_player_place() {
 	}
 	
 	if (is_local_turn()) {
-		start_dialogue([
+		var dialogue = (current_player == 0) ? start_dialogue : change_dialogue;
+		dialogue([
 			new Message("{COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is in {SPRITE,sprPlayerInfoPlaces," + string(p_info.player_info.place - 1) + ",0,0,0.6,0.6} place.",, say_player_place)
 		]);
+		
+		objDialogue.endable = false;
 	}
 	
 	current_player++;

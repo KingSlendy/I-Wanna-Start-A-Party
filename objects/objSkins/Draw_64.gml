@@ -14,6 +14,9 @@ for (var i = -2; i <= 2; i++) {
 	var skin = global.skins[(skin_selected + array_length(global.skins) + i) % array_length(global.skins)];
 	var box_x = remap(skin_x, 400 - 150, 400 + 150, -draw_w, draw_w) + draw_w * i;
 	draw_sprite_stretched(sprFangameMark, 1, box_x + 72, 60, 200, 152);
+	gpu_set_colorwriteenable(true, true, true, false);
+	draw_sprite_stretched(sprSkinsFangames, skin.fangame_index, box_x + 72, 60, 200, 152);
+	gpu_set_colorwriteenable(true, true, true, true);
 	draw_sprite_stretched(sprFangameMark, 0, box_x + 72, 60, 200, 152);
 	draw_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);

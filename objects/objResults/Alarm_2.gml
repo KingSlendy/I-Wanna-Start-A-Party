@@ -1,19 +1,22 @@
-music_play(bgmPartyStar, true);
+audio_stop_sound(sndResultsDrumRoll);
+music_play(bgmPartyStar);
 revealed = true;
 
-if (global.player_id == 1) {
-	var count = 0;
-	var winners = "";
+var winners = "";
 	
-	with (objPlayerBase) {
-		if (lost) {
-			continue;
-		}
-		
-		winners += string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
-		count++;
+with (objPlayerBase) {
+	if (lost) {
+		continue;
 	}
 	
+	if (network_id == global.player_id) {
+		gain_trophy(9);
+	}
+	
+	winners += string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
+}
+
+if (global.player_id == 1) {
 	winners = string_copy(winners, 1, string_length(winners) - 2);
 	var text = "";
 	

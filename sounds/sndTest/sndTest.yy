@@ -14,8 +14,8 @@
   "soundFile": "sndTest.wav",
   "duration": 3.204354,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Misc",
+    "path": "folders/Sounds/SFX/Misc.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndTest",

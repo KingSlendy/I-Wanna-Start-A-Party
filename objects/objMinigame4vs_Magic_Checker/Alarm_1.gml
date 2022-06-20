@@ -1,4 +1,21 @@
 if (current_order == 10) {
+	if (objMinigameController.info.player_scores[global.player_id - 1] == 10) {
+		gain_trophy(7);
+	}
+	
+	var empty = true;
+	
+	with (objMinigame4vs_Magic_Holder) {
+		if (network_id == global.player_id && place_meeting(x, y, objMinigame4vs_Magic_Items)) {
+			empty = false;
+			break;
+		}
+	}
+	
+	if (empty) {
+		gain_trophy(8);
+	}
+	
 	minigame_finish();
 	exit;
 }

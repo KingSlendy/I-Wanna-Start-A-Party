@@ -11,13 +11,13 @@ for (var i = -2; i <= 2; i++) {
 	var sprite = skin[$ ((skin_selected == skin_target_selected) ? "Idle" : "Run")];
 	draw_sprite_ext(sprite, timer * sprite_get_speed(sprite) / game_get_speed(gamespeed_fps), s_x, s_y, 2 * dir, 2, 0, c_white, 1);
 	
-	if (!array_contains(global.collected_skins, location)) {
+	if (!have_skin(location)) {
 		draw_sprite(sprCoin, 0, s_x - 30, s_y + 40);
 		var skin = global.skins[location];
 		draw_set_font(fntPlayerInfo);
-		draw_set_color((skin.price <= global.collected_coins) ? c_white : c_red);
+		draw_set_color((skin.shop_price <= global.collected_coins) ? c_white : c_red);
 		draw_set_valign(fa_middle);
-		draw_text_outline(s_x - 10, s_y + 40, string(skin.price), c_black);
+		draw_text_outline(s_x - 10, s_y + 40, string(skin.shop_price), c_black);
 		draw_set_valign(fa_top);
 	}
 }

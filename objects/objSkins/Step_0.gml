@@ -64,11 +64,10 @@ if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
 with (objNothing) {
 	if (y >= 540) {
 		if (global.player_id == 1) {
-			global.skins[other.skin_selected].price--;
+			global.skins[other.skin_selected].shop_price -= 10;
 		
-			if (global.skins[other.skin_selected].price == 0) {
-				array_push(global.collected_skins, other.skin_selected);
-				save_file();
+			if (global.skins[other.skin_selected].shop_price == 0) {
+				gain_skin(other.skin_selected);
 				other.buying = -1;
 			}
 		}

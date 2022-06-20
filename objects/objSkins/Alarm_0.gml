@@ -6,9 +6,11 @@ var c = instance_create_layer(draw_x + 146, draw_y + draw_h + 80, "Actors", objN
 c.sprite_index = sprCoin;
 c.image_speed = 0;
 c.vspeed = 4;
-global.collected_coins--;
 
-if (--buying == 0) {
+global.collected_coins -= 10;
+buying -= 10;
+
+if (buying == 0) {
 	exit;
 }
 

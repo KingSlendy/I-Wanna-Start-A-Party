@@ -585,6 +585,10 @@ function show_chest() {
 	instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objHiddenChest);
 	audio_play_sound(sndHiddenChestSpawn, 0, false);
 	
+	if (focus_player.network_id == global.player_id) {
+		gain_trophy(3);
+	}
+	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowChest);
@@ -614,7 +618,16 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 	
 	if (sign(amount) == 1) {
 		if (s.network_id == global.player_id) {
+			gain_trophy(0);
 			global.collected_shines += amount;
+			
+			if (global.collected_shines >= 50) {
+				gain_trophy(1);
+			}
+			
+			if (global.collected_shines >= 100) {
+				gain_trophy(2);
+			}
 		}
 		
 		bonus_shine_by_id("most_shines").increase_score(s.network_id);
@@ -1110,3 +1123,8 @@ function start_the_guy() {
 	}
 }
 #endregion
+
+function disable_board() {
+	instance_destroy(objPlayerInfo);
+	instance_destroy(objBoard);
+}

@@ -22,14 +22,12 @@ if (fade_start) {
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
 			fade_start = false;
-			
-			if (IS_ONLINE) {
-				variable_struct_remove(global.board_games, global.game_id);
-			}
-			
 			global.games_played++;
+			increase_collected_coins(player_info_by_id(global.player_id).shines * 100 + 100);
+			variable_struct_remove(global.board_games, global.game_id);
 			save_file();
-			room_goto(rResults);
+			disable_board();
+			room_goto(rModes);
 		}
 	}
 }

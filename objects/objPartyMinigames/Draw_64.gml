@@ -7,7 +7,7 @@ for (var i = 0; i < global.player_max; i++) {
 	var box_h = 32;
 	var box_x = player.x - box_w / 2;
 	var box_y = display_get_gui_height() - box_h;
-	draw_box(box_x, box_y, box_w, box_h, player_color_by_turn(i + 1),, 0.8,, 1);
+	draw_box(box_x, box_y, box_w, box_h, player_color_by_turn(i + 1), c_white, 0.8,, 1);
 	draw_player_name(box_x + 20, box_y + box_h / 2 + 2, i + 1);
 }
 
@@ -77,7 +77,7 @@ for (var r = -2; r <= 2; r++) {
 			gpu_set_blendmode(bm_normal);
 		}
 		
-		if (array_contains(global.collected_skins, skin)) {
+		if (have_skin(skin)) {
 			var skin_sprite = get_skin(skin)[$ "Idle"];
 		} else {
 			var skin_sprite = sprPlayerIdle;
@@ -161,6 +161,7 @@ if (room == rParty) {
 			draw_set_halign(fa_middle);
 			var title = global.minigames[$ names[i]][location].title;
 			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title : "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
+			draw_set_halign(fa_left);
 		}
 	}
 	
@@ -174,6 +175,84 @@ if (room == rParty) {
 	
 	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, minigames_x + 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
 	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, minigames_x + draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+
+	var info_x = menu_x + menu_sep * 2;
+	
+	if (minigame_selected != null) {
+		draw_set_font(fntFilesButtons);
+		draw_set_halign(fa_center);
+		draw_text_color_outline(info_x + draw_w / 2, 10, minigame_selected.reference.title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_sprite(minigame_selected.portrait, 0, info_x + 140, 150);
+		draw_sprite_stretched(sprFangameMark, 1, info_x + 300, 95, 150, 114);
+		draw_sprite_stretched(sprFangameMark, 0, info_x + 300, 95, 150, 114);
+		draw_set_font(fntFilesData);
+		draw_text_outline(info_x + draw_w / 2, 250, minigame_selected.reference.fangame_name, c_black);
+		var colors = minigame_colors[minigames_row_selected];
+		
+		switch (minigames_row_selected) {
+			case 0:
+				for (var i = 1; i <= global.player_max; i++) {
+					var square_x = info_x + 91 + 80 * (i - 1);
+					draw_box(square_x, 280, 40, 40, (array_contains(colors, i)) ? c_blue : c_red, player_color_by_turn(i), 0.85,, 3);
+					draw_sprite(get_skin_pose_object(focus_player_by_id(i), "Idle"), 0, square_x + 21, 280 + 23);
+					
+					if (i != global.player_max) {
+						draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+					}
+				}
+				break;
+				
+			case 1:
+				var players = [colors[0]];
+				
+				for (var i = 1; i <= global.player_max; i++) {
+					if (!array_contains(players, i)) {
+						array_push(players, i);
+					}
+				}
+			
+				for (var i = 1; i <= global.player_max; i++) {
+					if (i == 1) {
+						var square_x = info_x + 140;
+					} else {
+						var square_x = info_x + 140 + 80 + 40 * (i - 2);
+					}
+					
+					draw_box(square_x, 280, 40, 40, (array_contains(colors, players[i - 1])) ? c_blue : c_red, c_white, 0.85,, 3);
+					draw_sprite(get_skin_pose_object(focus_player_by_id(players[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
+					
+					if (i == 1) {
+						draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+					}
+				}
+				break;
+				
+			case 2:
+				var players = [colors[0], colors[1]];
+				
+				for (var i = 1; i <= global.player_max; i++) {
+					if (!array_contains(players, i)) {
+						array_push(players, i);
+					}
+				}
+			
+				for (var i = 1; i <= global.player_max; i++) {
+					if (i <= 2) {
+						var square_x = info_x + 140 + 40 * (i - 1);
+					} else {
+						var square_x = info_x + 140 + 80 + 40 * (i - 2);
+					}
+					
+					draw_box(square_x, 280, 40, 40, (array_contains(colors, players[i - 1])) ? c_blue : c_red, c_white, 0.85,, 3);
+					draw_sprite(get_skin_pose_object(focus_player_by_id(players[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
+					
+					if (i == 2) {
+						draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+					}
+				}
+				break;
+		}
+	}
 }
 
 surface_reset_target();

@@ -191,12 +191,6 @@ function space_finish_event() {
 			bonus_shine_by_id("most_item_spaces").increase_score();
 			break;
 			
-		case SpaceType.Warp:
-			global.warp_space = true;
-			item_animation(ItemType.Warp).final_action = turn_next;
-			bonus_shine_by_id("most_warp_spaces").increase_score();
-			break;
-			
 		case SpaceType.ChanceTime:
 			start_chance_time();
 			bonus_shine_by_id("most_chance_time_spaces").increase_score();

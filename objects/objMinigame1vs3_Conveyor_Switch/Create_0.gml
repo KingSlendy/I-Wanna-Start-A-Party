@@ -1,4 +1,8 @@
 function activate(image, network = false) {
+	if (objMinigameController.info.is_finished) {
+		return;
+	}
+	
 	switch (image_index) {
 		case 0:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorRight;

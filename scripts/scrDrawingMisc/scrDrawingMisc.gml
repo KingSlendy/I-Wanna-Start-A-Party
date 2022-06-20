@@ -60,9 +60,13 @@ function draw_text_transformed_outline(x, y, text, xscale, yscale, angle, border
 	draw_text_transformed(x, y, text, xscale, yscale, angle);
 }
 
-function draw_box(x, y, w, h, fill_color, outline_color = c_yellow, fill_alpha = draw_get_alpha(), outline_alpha = draw_get_alpha(), fill_index = 0) {
+function draw_box(x, y, w, h, fill_color, outline_color = c_yellow, fill_alpha = draw_get_alpha(), outline_alpha = draw_get_alpha(), fill_index = 0, stars = false) {
 	draw_sprite_stretched_ext(sprBoxFill, fill_index, x, y, w, h, fill_color, fill_alpha);
 	draw_sprite_stretched_ext(sprBoxFrame, 0, x, y, w, h, outline_color, outline_alpha);
+	
+	if (stars) {
+		draw_sprite_stretched(sprBoxStars, 0, x, y, w, h)
+	}
 }
 
 function draw_player_name(x, y, player_id) {
@@ -73,7 +77,7 @@ function draw_player_name(x, y, player_id) {
 	var name = focus_player_by_id(player_id).network_name;
 	
 	if (string_length(name) > 5) {
-		var scale = remap(string_length(name), 1, 16, 1, 0.22);
+		var scale = remap(string_length(name), 1, 16, 1, 0.3);
 	} else {
 		var scale = 1;
 	}

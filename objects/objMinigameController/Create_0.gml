@@ -31,6 +31,17 @@ function back_to_board() {
 	event_perform(ev_cleanup, 0);
 	
 	if (!info.is_practice) {
+		if (info.is_modes) {
+			if (array_contains(info.players_won, global.player_id)) {
+				increase_collected_coins(10);
+			}
+			
+			save_file();
+			disable_board();
+			room_goto(rMinigames);
+			return;
+		}
+		
 		if (++global.board_turn > global.max_board_turns) {
 			board_finish();
 			return;	

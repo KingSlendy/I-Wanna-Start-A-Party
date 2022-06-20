@@ -96,6 +96,8 @@ switch (state) {
 				}
 				//Temp
 				
+				next_seed_inline();
+				
 				switch (chosen_type) {
 					case "4vs":
 						switch (color_count[$ c_white]) {

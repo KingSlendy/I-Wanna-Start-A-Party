@@ -35,7 +35,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		}
 			
 		if (move_delay_timer == 0 && on_block && 0.01 > random(1)) {
-			move_delay_timer = irandom_range(get_frames(1), get_frames(2));
+			move_delay_timer = irandom_range(get_frames(0.5), get_frames(1));
 			break;
 		}
 			

@@ -71,6 +71,7 @@ array_push(global.minigame_type_history, info.type);
 
 minigame_list = [];
 
+next_seed_inline();
 var minigames_now = global.minigames[$ info.type];
 
 for (var i = 0; i < 5; i++) {

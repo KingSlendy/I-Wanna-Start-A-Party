@@ -102,8 +102,8 @@ function file_sprite(file) {
 	draw_text_outline(70, 190, string(array_length(global.collected_skins)) + "/" + string(array_length(global.skins)), c_black);
 	draw_sprite_stretched(sprModesMinigames, 0, 40 - 16, 225 - 16, 32, 32);
 	draw_text_outline(70, 225, string(array_length(global.seen_minigames)) + "/" + string(array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])), c_black);
-	draw_sprite_ext(sprTrigger, 0, 40 - 16, 260 - 16, 1, 1, 0, c_white, 1);
-	draw_text_outline(70, 260, string(array_length(global.collected_achievements)) + "/" + string(0), c_black);
+	draw_sprite_stretched(sprModesTrophies, 0, 40 - 16, 260 - 16, 32, 32);
+	draw_text_outline(70, 260, string(array_length(global.collected_trophies)) + "/" + string(array_length(global.trophies)), c_black);
 	draw_set_valign(fa_top);
 	surface_reset_target();
 	file_sprites[file] = sprite_create_from_surface(surf, 0, 0, file_width, file_height, false, false, file_width / 2, file_width / 2);
@@ -142,3 +142,4 @@ lobby_return = false;
 player_texts = array_create(4, "");
 
 back = false;
+global.mode_selected = -1;

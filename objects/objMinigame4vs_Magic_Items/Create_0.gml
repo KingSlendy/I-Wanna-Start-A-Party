@@ -1,9 +1,5 @@
 depth = 500;
 image_index = objMinigameController.item_order[order];
-	
-with (instance_create_layer(x, y, "Actors", objMinigame4vs_Magic_Holder)) {
-	order = other.order;
-}
 
 player_turn = 0;
 player = null;

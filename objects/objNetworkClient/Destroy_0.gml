@@ -25,4 +25,6 @@ if (room == rFiles) {
 			menu_type = 1;
 		}
 	}
+} else {
+	room_goto(rFiles);
 }

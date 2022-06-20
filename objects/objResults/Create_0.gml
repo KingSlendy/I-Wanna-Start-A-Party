@@ -94,6 +94,8 @@ function results_bonus() {
 }
 
 function results_won() {
+	music_fade();
+	audio_play_sound(sndResultsDrumRoll, 0, false);
 	alarm[1] = get_frames(3);
 	lights_moving = true;
 	

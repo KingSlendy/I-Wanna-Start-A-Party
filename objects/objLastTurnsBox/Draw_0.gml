@@ -9,6 +9,7 @@ if (layer_sequence_is_finished(sequence)) {
 	draw_clear_alpha(c_black, 0);
 
 	for (var i = 0; i < array_length(show_sprites); i++) {
+		var sprite = sprLastTurnsEvents;
 		draw_sprite(sprLastTurnsEvents, show_sprites[i], sprite_get_xoffset(sprite), sprite_get_yoffset(sprite) + yy + (32 * i));
 	}
 

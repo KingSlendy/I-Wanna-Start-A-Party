@@ -24,6 +24,7 @@ switch (info.type) {
 			winner_title = "TIE";
 			music_play(bgmMinigameTie, false);
 			audio_play_sound(sndMinigameTie, 0, false);
+			gain_trophy(9);
 		}
 		break;
 		
@@ -37,6 +38,7 @@ switch (info.type) {
 			winner_title = "TIE";
 			music_play(bgmMinigameTie, false);
 			audio_play_sound(sndMinigameTie, 0, false);
+			gain_trophy(9);
 		}
 		break;
 }

@@ -3,7 +3,7 @@ if (dialogue_sprite == noone) {
 
 	surface_set_target(surf);
 	draw_clear_alpha(c_black, 0);
-	draw_box(0, 0, width, height, c_blue, player_color_by_turn(focus_player_by_id(network_id).turn), 0.8);
+	draw_box(0, 0, width, height, c_blue, (global.board_started) ? player_color_by_turn(player_info_by_id(network_id).turn) : c_blue, 0.8);
 	surface_reset_target();
 
 	dialogue_sprite = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
