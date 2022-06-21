@@ -305,7 +305,13 @@ function set_texts_deep(texts, font, tw_spd) {
 
 function start_dialogue(texts, tw_spd = 1) {
 	var xx = (display_get_gui_width() - global.main_dialogue_width) / 2;
-	var yy = display_get_gui_height() - global.main_dialogue_height;
+	
+	if (room != rResults) {
+		var yy = display_get_gui_height() - global.main_dialogue_height;
+	} else {
+		var yy = 0;
+	}
+	
 	var ww = global.main_dialogue_width;
 	var hh = global.main_dialogue_height;
 	var font = fntDialogue;

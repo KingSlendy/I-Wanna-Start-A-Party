@@ -1,7 +1,14 @@
 image_alpha = 0;
 space_x = 0;
 space_y = 0;
-final_action = (global.dice_roll == 0) ? turn_start : board_advance;
+final_action = null;
+
+if (global.board_turn == 1) {
+	final_action = turn_start;
+} else if (global.dice_roll > 0) {
+	final_action = board_advance;
+}
+
 fade_state = 0;
 
 function spawn_shine() {

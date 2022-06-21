@@ -12,6 +12,7 @@ enum ClientTCP {
 	BoardGameID,
 	BoardPlayerIDs,
 	PartyAction,
+	MinigameMode,
 	PlayerKill,
 	
 	//Interactables
@@ -82,6 +83,9 @@ enum ClientTCP {
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
+	Minigame1vs3_Coins_Coin,
+	Minigame1vs3_Coins_HoldSpike,
+	Minigame1vs3_Coins_ThrowSpike,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	
@@ -96,6 +100,7 @@ enum ClientTCP {
 
 enum ClientUDP {
 	//Networking
+	Initialize,
 	Heartbeat,
 	LobbyStart,
 	PlayerData,
@@ -157,6 +162,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		#region Network
 		case ClientTCP.ReceiveMasterID:
 			global.master_id = buffer_read(buffer, buffer_u64);
+			objNetworkClient.alarm[1] = 1;
 			break;
 		
 		case ClientTCP.ReceiveID:
@@ -310,13 +316,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				case rModes: var menu = objModes; break;
 				case rParty: case rMinigames: var menu = objPartyMinigames; break;
 				case rSkins: var menu = objSkins; break;
+				case rTrophies: var menu = objTrophies; break;
 			}
-		
 		
 			with (menu) {
 				array_push(network_actions, [action, player_id]);
-				//print(network_actions);
 			}
+			break;
+			
+		case ClientTCP.MinigameMode:
+			global.seed_bag = buffer_read_array(buffer, buffer_u64);
 			break;
 			
 		case ClientTCP.PlayerKill:
@@ -783,6 +792,47 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			objMinigameController.alarm[4] = get_frames(1);
 			break;
 			
+		case ClientTCP.Minigame1vs3_Coins_Coin:
+			if (objMinigameController.info.is_finished) {
+				return;
+			}
+			
+			var player_id = buffer_read(buffer, buffer_u8);
+			minigame4vs_points(objMinigameController.info, player_id, 1);
+			break;
+			
+		case ClientTCP.Minigame1vs3_Coins_HoldSpike:
+			var spike_count = buffer_read(buffer, buffer_u32);
+			
+			with (objMinigame1vs3_Coins_Spike) {
+				if (count == spike_count) {
+					with (objPlayerBase) {
+						if (x < 400) {
+							other.follow = id;
+						}
+					}
+		
+					objMinigameController.alarm[5] = get_frames(0.25);
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Coins_ThrowSpike:
+			var spike_count = buffer_read(buffer, buffer_u32);
+			var spike_x = buffer_read(buffer, buffer_s32);
+			var spike_y = buffer_read(buffer, buffer_s32);
+			var vspd = buffer_read(buffer, buffer_f16);
+		
+			with (objMinigame1vs3_Coins_Spike) {
+				if (count == spike_count) {
+					x = spike_x;
+					y = spike_y;
+					vspeed = vspd;
+					throw_spike(false);
+				}
+			}	
+			break;
+			
 		case ClientTCP.Minigame2vs2_Maze_Item:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var item_x = buffer_read(buffer, buffer_s16);
@@ -873,6 +923,15 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 function network_read_client_udp(buffer, data_id) {
 	switch (data_id) {
 		#region Network
+		case ClientUDP.Initialize:
+			global.udp_ready = true;
+			objNetworkClient.alarm[1] = 0;
+			
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.LobbyList);
+			network_send_tcp_packet();
+			break;
+		
 		case ClientUDP.Heartbeat:
 			if (IS_ONLINE) {
 				objNetworkClient.alarm[0] = get_frames(9);

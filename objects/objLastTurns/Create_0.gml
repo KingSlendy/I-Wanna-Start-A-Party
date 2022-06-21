@@ -66,9 +66,9 @@ function say_player_place() {
 	
 	if (current_player == 4) {
 		if (is_local_turn()) {
-			objDialogue.endable = true;
+			//objDialogue.endable = true;
 			
-			change_dialogue([
+			start_dialogue([
 				new Message("Looks like {COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is having some trouble... let's give them a little bit of help!",, help_last_place)
 			]);
 		}
@@ -82,12 +82,9 @@ function say_player_place() {
 	}
 	
 	if (is_local_turn()) {
-		var dialogue = (current_player == 0) ? start_dialogue : change_dialogue;
-		dialogue([
+		start_dialogue([
 			new Message("{COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is in {SPRITE,sprPlayerInfoPlaces," + string(p_info.player_info.place - 1) + ",0,0,0.6,0.6} place.",, say_player_place)
 		]);
-		
-		objDialogue.endable = false;
 	}
 	
 	current_player++;
@@ -156,12 +153,9 @@ function event_decided() {
 		}
 		
 		start_dialogue([
-			new Message(text,, function() {
-				start_dialogue([
-					"Remember that Blue and Red spaces are double the amount of coins too!",
-					new Message("I wish good luck to everyone and have a great party!",, end_last_turns)
-				]);
-			})
+			text,
+			"And also...\nRemember that Blue and Red spaces are double the amount of coins too!",
+			new Message("I wish good luck to everyone and have a great party!",, end_last_turns)
 		]);
 	}
 }

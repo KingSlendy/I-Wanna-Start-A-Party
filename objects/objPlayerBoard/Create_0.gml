@@ -5,6 +5,7 @@ max_speed = 5;
 follow_path = null;
 can_jump = false;
 dice_hit_y = y;
+alpha_target = 1;
 
 function snap_to_object(obj) {
 	y = yprevious;

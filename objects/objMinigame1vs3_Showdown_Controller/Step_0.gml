@@ -11,6 +11,10 @@ with (objPlayerBase) {
 if (lost_count == global.player_max - 1) {
 	with (objPlayerBase) {
 		if (y < 272) {
+			if (network_id == global.player_id && other.rounds == 0) {
+				gain_trophy(13);
+			}
+			
 			minigame4vs_points(objMinigameController.info, network_id);
 			break;
 		}

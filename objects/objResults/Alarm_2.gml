@@ -2,6 +2,7 @@ audio_stop_sound(sndResultsDrumRoll);
 music_play(bgmPartyStar);
 revealed = true;
 
+var count = 0;
 var winners = "";
 	
 with (objPlayerBase) {
@@ -13,6 +14,7 @@ with (objPlayerBase) {
 		gain_trophy(9);
 	}
 	
+	count++;
 	winners += string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
 }
 

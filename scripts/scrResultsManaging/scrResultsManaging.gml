@@ -40,7 +40,6 @@ function BonusShine(sprite, index, text) constructor {
 }
 
 global.bonus_shines = {
-	most_shines: new BonusShine(sprShine, 0, "got the most shines"),
 	most_coins: new BonusShine(sprCoin, 0, "got the most coins"),
 	most_items: new BonusShine(sprItemItemBag, 0, "used items the most"),
 	most_minigames: new BonusShine(sprModesMinigames, 0, "won the most minigames"),

@@ -1,10 +1,9 @@
-function Minigame(title, instructions, preview, scene, fangame_name, fangame_index) constructor {
+function Minigame(title, instructions, preview, scene, fangame_name) constructor {
 	self.title = title;
 	self.instructions = instructions;
 	self.preview = preview;
 	self.scene = scene;
 	self.fangame_name = fangame_name;
-	self.fangame_index = fangame_index;
 }
 
 global.minigames = {};
@@ -12,24 +11,25 @@ global.minigames = {};
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame("Follow The Lead", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy", 0),
-		new Minigame("Tower Ascension", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 4, rMinigame4vs_Tower, "I Wanna Be The Guy", 1),
-		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy", 2),
-		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game", 3),
-		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World", 4),
+		new Minigame("Follow The Lead", ["Instructions TBD."], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		new Minigame("Tower Ascension", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
+		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
+		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
+		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
 	];
 
 	m[$ "1vs3"] = [
-		new Minigame("Avoid The Anguish", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 5, rMinigame1vs3_Avoid, "Avoidance", 5),
-		new Minigame("Conveyor Havoc", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game", 6),
-		new Minigame("Number Showdown", ["{COLOR,0000FFa}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown", 7)
+		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "Avoidance"),
+		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
+		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
+		new Minigame("Getting Coins", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\n"], 0, rMinigame1vs3_Coins, "I Wanna Get The Coins")
 	];
 
 	m[$ "2vs2"] = [
-		new Minigame("A-Maze-Ing", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3", 8),
-		new Minigame("Catch The Fruits", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura", 9),
-		new Minigame("Buttons Everywhere", ["Game is still in development.\nMore things will be added.\nThings are subject to change."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players", 10),
-		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon", 11)
+		new Minigame("A-Maze-Ing", ["Instructions TBD."], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
+		new Minigame("Catch The Fruits", ["Instructions TBD."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
+		new Minigame("Buttons Everywhere", ["Instructions TBD."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
+		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon")
 	];
 }
 

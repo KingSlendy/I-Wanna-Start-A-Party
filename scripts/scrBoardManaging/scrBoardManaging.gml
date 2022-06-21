@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [global.board_items[ItemType.Ice], global.board_items[ItemType.SuperWarp], global.board_items[ItemType.Warp]];
+	//self.items = [global.board_items[ItemType.Mirror], global.board_items[ItemType.Mirror], global.board_items[ItemType.Reverse]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -428,8 +428,6 @@ function board_advance() {
 	}
 
 	with (focused_player()) {
-		follow_path = path_add();
-		path_add_point(follow_path, x, y, 100);
 		var space = instance_place(x, y, objSpaces);
 		var next_space;
 		
@@ -450,6 +448,8 @@ function board_advance() {
 			}
 		}
 		
+		follow_path = path_add();
+		path_add_point(follow_path, x, y, 100);
 		path_add_point(follow_path, next_space.x + 16, next_space.y + 16, 100);	
 		image_xscale = (next_space.x + 16 >= x) ? 1 : -1;
 		path_set_closed(follow_path, false);
@@ -629,8 +629,6 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 				gain_trophy(2);
 			}
 		}
-		
-		bonus_shine_by_id("most_shines").increase_score(s.network_id);
 	}
 
 	if (is_local_turn()) {
@@ -872,7 +870,7 @@ function end_map() {
 function call_shop() {
 	var player_info = player_info_by_turn();
 	
-	if (global.board_turn == global.max_board_turns) {
+	if (global.board_turn == global.max_board_turns || !global.board_day) {
 		start_dialogue([
 			new Message("We're currently closed!\nSorry for the inconvenience!",, board_advance)
 		]);

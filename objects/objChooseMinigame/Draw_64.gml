@@ -10,7 +10,7 @@ if (minigames_alpha > 0) {
 		draw_box(minigames_x, draw_y, minigames_width, minigames_height, (i == global.choice_selected && minigames_alpha == 1) ? c_gray : c_dkgray, c_orange);
 		var title = minigame_list[i].title;
 		var text = new Text(fntDialogue, (array_contains(global.seen_minigames, title)) ? title : "?????????");
-		text.draw(minigames_x + 5, draw_y + 7);
+		text.draw(minigames_x + 15, draw_y + 7);
 	}
 }
 

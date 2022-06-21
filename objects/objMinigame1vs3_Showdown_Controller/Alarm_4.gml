@@ -9,7 +9,6 @@ with (objMinigame1vs3_Showdown_Block) {
 
 with (objMinigame1vs3_Showdown_Block) {
 	if (y > 304 && number == up_number) {
-		//
 		instance_destroy();
 	}
 }

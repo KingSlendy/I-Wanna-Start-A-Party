@@ -9,6 +9,7 @@ if (global.udp_socket >= 0) {
 }
 
 global.udp_socket = null;
+global.udp_ready = false;
 global.player_client_list = array_create(global.player_max, null);
 global.master_id = 0;
 global.player_id = 0;

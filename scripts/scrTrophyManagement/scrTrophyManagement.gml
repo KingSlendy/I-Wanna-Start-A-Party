@@ -10,13 +10,17 @@ global.trophies = [
 	new Trophy(1, 2, "Shiny!", "You obtained your first Shine!\nBut just one isn't enough, ain't it?", "You're gonna obtain one sooner or later."),
 	new Trophy(2, 1, "Shinier!", "You obtained 50 Shines!\nBut is it really enough?", "I love me something shiny."),
 	new Trophy(3, 0, "Shiny yet Shinier!", "You obtained 100 Shines!\nNow that's a decent amount.", "I WANT MORE SHINY!!!"),
-	new Trophy(4, 2, "Chest", "You found a Hidden Chest!\n", "Something's hidden in this space... I swear..."),
-	new Trophy(5, 0, "Lucky Chest", "You found a Shine within a Hidden Chest!?\nNow that's what I call lucky, I bet the others are angry.", "Why must this always give me coins?"),
+	new Trophy(4, 1, "Kidiana Jones", "You found a Hidden Chest!\nEvery good explorer finds treasure! Or wait... maybe you're just lucky.", "Something's hidden in this space... I swear..."),
+	new Trophy(5, 0, "Shiny Chest", "You found a Shine within a Hidden Chest!?\nNow that's peak exploring... I mean luck right there.", "Why must this always give me coins?"),
 	new Trophy(6, 1, "Money Money", "You reached 100 Coins in Party!\nWhat does it feel to be rich?", "I want to have more and more!"),
-	new Trophy(7, 1, "Spaceless", "You went down to 0 Coins in Party...\nWelp, time to live in the streets.", "You don't wanna lose that many."),
+	new Trophy(7, 1, "Coinless", "You went down to 0 Coins in Party...\nWelp, time to live in the streets.", "You don't wanna lose that many."),
 	new Trophy(8, 2, "Memory Magician", "You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?", "How can you keep so many items in your head?"),
 	new Trophy(9, 2, "Messed Memory", "You didn't put any items in the pedestals in Magic Memory...\nAt least try!", "You can't have that bad of a memory..."),
-	new Trophy(10, 2, "Tie your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?")
+	new Trophy(10, 2, "Tie your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?"),
+	new Trophy(11, 2, "Ghost Flex", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff isn't that spooky."),
+	new Trophy(12, 2, "Shine Denier", "You said 'No' to the Shine.\nLeaving in darkness it is.", "I have too many, I don't need it."),
+	new Trophy(13, 0, "Showdown Survivor", "You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?", "That was certainly a showdown teamwork."),
+	new Trophy(14, 0, "Showdown Killer", "You killed the whole team in the first round in Number Showdown.\nIn cold blood.", "You better not murder the showdown.")
 ];
 
 global.collected_trophies_stack = [];

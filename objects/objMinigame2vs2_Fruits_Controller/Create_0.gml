@@ -18,7 +18,6 @@ minigame_time_end = function() {
 }
 
 points_draw = true;
-points_number = true;
 player_check = objPlayerPlatformer;
 
 for (var i = 1; i <= global.player_max; i++) {

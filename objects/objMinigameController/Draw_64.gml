@@ -32,17 +32,23 @@ if (minigame_time != -1) {
 
 if (points_draw) {
 	var colors;
+	var is_4vs = (array_length(points_teams) == 4);
 	
-	if (array_length(points_teams) == 4) {
+	if (is_4vs) {
 		colors = [c_blue, c_red, c_green, c_yellow];
 	} else {
 		colors = info.player_colors;
 	}
 	
 	for (var i = 0; i < array_length(points_teams); i++) {
-		var xx = 274 + 140 * i;
+		if (is_4vs) {
+			var xx = 170 + 120 * i;
+		} else {
+			var xx = 245 + 180 * i;
+		}
+		
 		var yy = 0;
-		draw_box(xx, yy, 110, 32, colors[i], c_white);
+		draw_box(xx, yy, (is_4vs) ? 100 : 130, 32, colors[i], c_white);
 		draw_set_font(fntDialogue);
 	
 		var team = points_teams[i];
@@ -51,13 +57,13 @@ if (points_draw) {
 		for (var j = 0; j < array_length(team); j++) {
 			var player = team[j];
 			points += info.player_scores[player.network_id - 1].points;
-			draw_sprite(get_skin_pose_object(player, "Idle"), 0, xx + 95 - 20 * j, yy + 18);
+			draw_sprite(get_skin_pose_object(player, "Idle"), 0, xx + ((is_4vs) ? 75 : 105) - 20 * j, yy + 19);
 		}
 	
 		draw_set_color(c_white);
 		
 		if (points_number) {
-			draw_text_outline(xx + 5, yy + 5, string(points), c_black);
+			draw_text_outline(xx + 15, yy + 5, string(points), c_black);
 		}
 	}
 }

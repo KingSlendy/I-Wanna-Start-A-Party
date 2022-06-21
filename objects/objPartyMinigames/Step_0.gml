@@ -33,6 +33,10 @@ if (fade_start) {
 					break;
 					
 				case 2:
+					if (array_length(global.seed_bag) == 0) {
+						exit;
+					}
+				
 					with (objPlayerBase) {
 						change_to_object(objPlayerBase);
 					}
@@ -134,18 +138,9 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					exit;
 				}
 			
-				if (sync_actions("jump", skin_player + 1)) {
-					var now_skin = skins[skin_row][skin_col];
-					
-					if (is_player_local(skin_player + 1) && !have_skin(now_skin)) {
-						//audio_play_sound(global.sound_cursor_wrong, 0, false);
-						exit;
-					}
-				
-					if (array_contains(skin_selected, now_skin)) {
-						exit;
-					}
-				
+				var now_skin = skins[skin_row][skin_col];
+			
+				if (have_skin(now_skin) && !array_contains(skin_selected, now_skin) && sync_actions("jump", skin_player + 1)) {
 					skin_selected[skin_player] = now_skin;
 				
 					with (objPlayerBase) {
@@ -267,14 +262,20 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						if (scroll_v == -1 && minigames_row_selected > 0 || scroll_v == 1 && minigames_row_selected < 2) {
 							minigames_target_show_y -= 350 * scroll_v;
 							minigames_target_row_selected += scroll_v;
+							var types = ["4vs", "1vs3", "2vs2"];
+							var length = array_length(minigames_portraits[$ types[minigames_target_row_selected]]);
+							minigames_col_selected %= length;
+							minigames_target_col_selected = minigames_col_selected;
 							audio_play_sound(global.sound_cursor_move, 0, false);
 							exit;
 						}
 					}
 					
-					if (sync_actions("jump", 1)) {
+					var names = ["4vs", "1vs3", "2vs2"];
+					var title = global.minigames[$ names[minigames_row_selected]][minigames_col_selected].title;
+					
+					if (array_contains(global.seen_minigames, title) && sync_actions("jump", 1)) {
 						menu_page = 2;
-						var names = ["4vs", "1vs3", "2vs2"];
 						minigame_selected = {portrait: minigames_portraits[$ names[minigames_row_selected]][minigames_col_selected], reference: global.minigames[$ names[minigames_row_selected]][minigames_col_selected]};
 						audio_play_sound(global.sound_cursor_select, 0, false);
 						exit;
@@ -323,15 +324,28 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				}
 				
 				info.is_modes = true;
-				random_set_seed(0);
-				generate_seed_bag();
-				global.player_game_ids = [0];
+				
+				if (global.player_id == 1) {
+					generate_seed_bag();
+				
+					buffer_seek_begin();
+					buffer_write_action(ClientTCP.MinigameMode);
+					buffer_write_array(buffer_u64, global.seed_bag);
+					network_send_tcp_packet();
+				}
+				
+				if (IS_ONLINE || array_length(global.player_game_ids) == 0) {
+					global.player_game_ids = [null];
+				}
 				
 				for (var i = 1; i <= global.player_max; i++) {
 					spawn_player_info(i, i);
 				}
 				
-				global.player_game_ids = [];
+				if (IS_ONLINE || global.player_game_ids[0] == null) {
+					global.player_game_ids = [];
+				}
+				
 				var colors = minigame_colors[minigames_row_selected];
 				
 				with (objPlayerInfo) {

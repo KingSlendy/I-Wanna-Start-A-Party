@@ -1,2 +1,2 @@
-popup("Server has lost connection!");
+popup("A network error occurred.");
 instance_destroy();

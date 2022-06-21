@@ -15,6 +15,10 @@ for (var i = 0; i < array_length(arrows); i++) {
 	}
 }
 
+if (arrow_selected == -1) {
+	exit;
+}
+
 if (global.actions.jump.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_select, 0, false);
 	instance_destroy();

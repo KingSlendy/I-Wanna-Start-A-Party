@@ -4,6 +4,7 @@ global.ip = null;
 global.port = 33321;
 global.tcp_socket = null;
 global.udp_socket = null;
+global.udp_ready = false;
 global.buffer = buffer_create(1024, buffer_fixed, 1);
 global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
@@ -197,7 +198,7 @@ function player_write_data() {
 	switch (network_mode) {
 		case PlayerDataMode.Basic:
 			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_s8, image_alpha);
+			buffer_write_data(buffer_f16, image_alpha);
 			buffer_write_data(buffer_s8, image_xscale);
 			buffer_write_data(buffer_s8, image_yscale);
 			buffer_write_data(buffer_s32, x);
@@ -216,7 +217,7 @@ function player_write_data() {
 		
 		case PlayerDataMode.All:
 			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_s8, image_alpha);
+			buffer_write_data(buffer_f16, image_alpha);
 	
 			if (object_index == objPlayerPlatformer) {
 				buffer_write_data(buffer_s8, image_xscale * xscale);
@@ -248,7 +249,7 @@ function player_read_data(buffer) {
 		switch (mode) {
 			case PlayerDataMode.Basic:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_alpha = buffer_read(buffer, buffer_s8);
+				instance.image_alpha = buffer_read(buffer, buffer_f16);
 				instance.image_xscale = buffer_read(buffer, buffer_s8);
 				instance.image_yscale = buffer_read(buffer, buffer_s8);
 				instance.x = buffer_read(buffer, buffer_s32);
@@ -267,7 +268,7 @@ function player_read_data(buffer) {
 			
 			case PlayerDataMode.All:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_alpha = buffer_read(buffer, buffer_s8);
+				instance.image_alpha = buffer_read(buffer, buffer_f16);
 				instance.image_xscale = buffer_read(buffer, buffer_s8);
 				instance.image_yscale = buffer_read(buffer, buffer_s8);
 				instance.x = buffer_read(buffer, buffer_s32);

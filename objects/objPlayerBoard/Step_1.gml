@@ -1,3 +1,5 @@
+image_alpha = lerp(image_alpha, alpha_target, 0.3);
+
 if (vspeed == 0) {
 	sprite_index = (follow_path == null) ? skin[$ "Idle"] : skin[$ "Run"];
 } else {

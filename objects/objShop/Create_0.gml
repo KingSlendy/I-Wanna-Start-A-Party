@@ -27,6 +27,15 @@ if (is_local_turn()) {
 			}
 		}
 	}
+	
+	if (room == rBoardBasement) {
+		for (var i = 0; i < array_length(stock); i++) {
+			if (stock[i].id == ItemType.Reverse) {
+				array_delete(stock, i, 1);
+				break;
+			}
+		}
+	}
 
 	//stock[0] = global.board_items[ItemType.ItemBag];
 	array_resize(stock, 5);

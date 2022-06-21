@@ -14,7 +14,7 @@ for (var i = 0; i < count; i++) {
 	with (path) {
 		space_collide = instance_place(x, y, objSpaces);
 	}
-	
+
 	if (path.x == x + 16 && path.y == y + 16) {
 		var space_array = space_directions_normal;
 		var invert = 0;
@@ -112,7 +112,10 @@ function space_passing_event() {
 										]],
 										
 										["Pass", [
-											new Message("Well too bad then, I hope next time you think it through.",, board_advance)
+											new Message("Well too bad then, I hope next time you think it through.",, function() {
+												board_advance();
+												gain_trophy(11);
+											})
 										]]
 									])
 								]]
@@ -132,8 +135,7 @@ function space_passing_event() {
 	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
 	
 	if (array_count(space_array, null) < 3) {
-		var p = instance_create_layer(0, 0, "Managers", objPathChange);
-		p.space = id;
+		space_choose_path();
 		return 1;
 	}
 	
@@ -201,4 +203,9 @@ function space_finish_event() {
 			bonus_shine_by_id("most_the_guy_spaces").increase_score();
 			break;
 	}
+}
+
+function space_choose_path() {
+	var p = instance_create_layer(0, 0, "Managers", objPathChange);
+	p.space = id;
 }

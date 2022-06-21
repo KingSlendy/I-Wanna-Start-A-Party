@@ -8,7 +8,7 @@ scale = 0;
 angle = 0;
 stealed = false;
 
-steal_min = irandom_range(7, 11);
+steal_min = min(irandom_range(7, 11), player_info_by_id(player2.network_id).coins);
 
 alarm[0] = 1;
 

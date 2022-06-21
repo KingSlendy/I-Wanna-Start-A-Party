@@ -28,8 +28,8 @@ enum ItemType {
 }
 
 global.board_items = [
-	new Item(ItemType.DoubleDice, "Double Dice", "Lets you roll two die.", sprItemDoubleDice, 10),
-	new Item(ItemType.TripleDice, "Triple Dice", "Lets you roll three die.", sprItemTripleDice, 20),
+	new Item(ItemType.DoubleDice, "Double Dice", "Lets you roll two dice.", sprItemDoubleDice, 10),
+	new Item(ItemType.TripleDice, "Triple Dice", "Lets you roll three dice.", sprItemTripleDice, 20),
 	new Item(ItemType.Clock, "Clock", "Makes your dice roll slow.", sprItemClock, 15),
 	new Item(ItemType.Poison, "Poison", "Dice gets only a roll from 1-3.\nCan be used on other players.", sprItemPoison, 5, objItemPoisonAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {

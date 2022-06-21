@@ -1,6 +1,6 @@
 var focus = focused_player();
-var draw_x = focus.x - camera_get_view_x(view_camera[0]) - 100;
-var draw_y = focus.y - camera_get_view_y(view_camera[0]) - 50;
+var draw_x = display_get_gui_width() / 2 - 100;
+var draw_y = display_get_gui_height() / 2 - 50;
 var text = new Text(fntDialogue);
 draw_set_alpha(image_alpha);
 	

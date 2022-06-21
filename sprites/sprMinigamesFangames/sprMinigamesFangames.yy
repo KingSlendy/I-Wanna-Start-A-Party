@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 399,
   "bbox_top": 0,
-  "bbox_bottom": 0,
+  "bbox_bottom": 303,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 800,
-  "height": 608,
+  "width": 400,
+  "height": 304,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,45 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b2deefd7-fae1-40c7-abee-cd19efcf4a5e","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b2deefd7-fae1-40c7-abee-cd19efcf4a5e","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"b2deefd7-fae1-40c7-abee-cd19efcf4a5e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"8638212c-0708-433d-b6d5-2c32e24368b4","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"8638212c-0708-433d-b6d5-2c32e24368b4","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"8638212c-0708-433d-b6d5-2c32e24368b4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"13e94237-d216-4ab9-ae74-5386f9408d7c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"13e94237-d216-4ab9-ae74-5386f9408d7c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"13e94237-d216-4ab9-ae74-5386f9408d7c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b32125d1-6a8e-4a81-9c8b-d7d4f78ac1db","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b32125d1-6a8e-4a81-9c8b-d7d4f78ac1db","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"b32125d1-6a8e-4a81-9c8b-d7d4f78ac1db","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"33c388f6-033b-4da9-b7c8-2f33ef8f5751","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"33c388f6-033b-4da9-b7c8-2f33ef8f5751","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"33c388f6-033b-4da9-b7c8-2f33ef8f5751","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1425280b-ca51-4bf9-b9c2-d217d04dd14d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1425280b-ca51-4bf9-b9c2-d217d04dd14d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"1425280b-ca51-4bf9-b9c2-d217d04dd14d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c2e2e86b-0835-405b-86c8-13ac8c98e653","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c2e2e86b-0835-405b-86c8-13ac8c98e653","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"c2e2e86b-0835-405b-86c8-13ac8c98e653","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"53fa0090-f995-4844-a83a-0c340455db2a","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"53fa0090-f995-4844-a83a-0c340455db2a","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"53fa0090-f995-4844-a83a-0c340455db2a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c69e92f6-50b8-4cfb-b8be-8e5aa02c9852","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c69e92f6-50b8-4cfb-b8be-8e5aa02c9852","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"c69e92f6-50b8-4cfb-b8be-8e5aa02c9852","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"dae02d22-f663-4530-b953-be94dd71160c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"dae02d22-f663-4530-b953-be94dd71160c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"dae02d22-f663-4530-b953-be94dd71160c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6bcac08e-368b-4a1b-a932-4f938b24852d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6bcac08e-368b-4a1b-a932-4f938b24852d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"6bcac08e-368b-4a1b-a932-4f938b24852d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0dd33ed1-2c9b-40b6-ac0d-f165e3d87e62","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0dd33ed1-2c9b-40b6-ac0d-f165e3d87e62","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"0dd33ed1-2c9b-40b6-ac0d-f165e3d87e62","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"98ac8e3b-5060-4478-8ce9-0b5e919cbf70","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"98ac8e3b-5060-4478-8ce9-0b5e919cbf70","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"98ac8e3b-5060-4478-8ce9-0b5e919cbf70","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3a794dec-486c-4640-82cd-597f384a70c6","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3a794dec-486c-4640-82cd-597f384a70c6","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"3a794dec-486c-4640-82cd-597f384a70c6","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},
@@ -36,12 +72,24 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 13.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"261632cf-a27e-437c-a5d7-a1a8c5531e84","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b2deefd7-fae1-40c7-abee-cd19efcf4a5e","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fa890f71-5198-4057-aa15-3cf2cab08c88","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8638212c-0708-433d-b6d5-2c32e24368b4","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"46b126d1-215e-4d1b-9e36-2a3b9d01bc10","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"13e94237-d216-4ab9-ae74-5386f9408d7c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"72196742-0f1a-4f71-8b51-109574f4a909","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b32125d1-6a8e-4a81-9c8b-d7d4f78ac1db","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"50650b8b-7010-4b0d-9328-60a537964718","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"33c388f6-033b-4da9-b7c8-2f33ef8f5751","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"406d5d98-cf72-48c6-922e-827d0a57ef44","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1425280b-ca51-4bf9-b9c2-d217d04dd14d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3f72de51-c22a-49c9-8b83-746cd67c55a9","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c2e2e86b-0835-405b-86c8-13ac8c98e653","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"eaf69561-4310-4d6d-b111-15a873ccc9e7","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"53fa0090-f995-4844-a83a-0c340455db2a","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"8badcc6c-f0ae-41c8-9db2-9b15c17e8121","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c69e92f6-50b8-4cfb-b8be-8e5aa02c9852","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bd4fc289-44fe-45e4-a756-f6fc54817f4a","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dae02d22-f663-4530-b953-be94dd71160c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f9daedbe-fa60-41b8-bb97-9f76c50dfea8","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6bcac08e-368b-4a1b-a932-4f938b24852d","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6e46630e-9c5f-4d73-9e24-5ed736e54d00","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0dd33ed1-2c9b-40b6-ac0d-f165e3d87e62","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e1049fba-0432-4cb2-ae09-3871092597be","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"98ac8e3b-5060-4478-8ce9-0b5e919cbf70","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"eea52c1a-95ce-4b84-9f5e-e58e7e781467","Key":12.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3a794dec-486c-4640-82cd-597f384a70c6","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

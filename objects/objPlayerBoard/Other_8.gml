@@ -14,7 +14,7 @@ with (objSpaces) {
 }
 
 var space = instance_place(x, y, objSpaces);
-var passing = false;
+var passing = 0;
 
 with (space) {
 	passing = space_passing_event();
