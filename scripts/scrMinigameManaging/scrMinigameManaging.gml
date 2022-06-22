@@ -22,7 +22,7 @@ function minigame_init() {
 		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "Avoidance"),
 		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
-		new Minigame("Getting Coins", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\n"], 0, rMinigame1vs3_Coins, "I Wanna Get The Coins")
+		new Minigame("Getting Coins", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\n"], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins")
 	];
 
 	m[$ "2vs2"] = [

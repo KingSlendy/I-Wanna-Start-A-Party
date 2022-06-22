@@ -372,6 +372,15 @@ function turn_start() {
 	if (global.player_turn == 1) {
 		save_board();
 		generate_seed_bag();
+		
+		if (room == rBoardIsland) {
+			if (!global.board_day) {
+				next_seed_inline();
+				global.shine_price = irandom(5) * 10;
+			} else {
+				global.shine_price = 20;
+			}
+		}
 	}
 	
 	var freezed = (player_info_by_turn().item_effect == ItemType.Ice);

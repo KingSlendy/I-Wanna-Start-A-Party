@@ -59,6 +59,7 @@ function check_input(input_id, network = true) {
 		array_push(sequence, input_id);
 		alarm[4] = get_frames(1);
 		alarm[10] = 0;
+		alarm[11] = get_frames(random_range(2, 3));
 		return;
 	}
 			

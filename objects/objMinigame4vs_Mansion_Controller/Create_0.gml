@@ -12,3 +12,5 @@ with (objPlayerBase) {
 event_inherited();
 minigame_camera = CameraMode.Follow;
 player_check = objPlayerPlatformer;
+
+trophy_doors = true;

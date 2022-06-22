@@ -33,12 +33,16 @@ for (var i = 2; i <= global.player_max; i++) {
 		var other_x = near.x + 20 * near.image_xscale;
 		var other_y = near.y;
 		
+		if (point_distance(me_x, me_y, other_x, other_y) > 128 && point_distance(me_x, me_y, other_x, other_y) > point_distance(teammate.x - 1, teammate.y - 7, other_x, other_y)) {
+			break;
+		}
+		
 		if (point_distance(me_x, me_y, other_x, other_y) <= 3) {
 			actions.shoot.press();
 			break;
 		}
 		
-		mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, false);
+		mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, true);
 		dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 		if (point_distance(0, dir, 0, 270) >= 16) {
@@ -49,9 +53,9 @@ for (var i = 2; i <= global.player_max; i++) {
 				action.press();
 			}
 		
-			if (--jump_delay_timer <= 0 && dist_to_up < 16 && vspeed >= 0) {
+			if (--jump_delay_timer <= 0 && dist_to_up < 45 && vspeed >= 0) {
 				actions.jump.hold(6);
-				jump_delay_timer = 10;
+				jump_delay_timer = 12;
 			}
 		}
 	}

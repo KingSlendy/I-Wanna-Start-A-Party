@@ -58,6 +58,8 @@ if (check != -1) {
 	array_delete(global.all_ai_actions, check, 1);
 }
 
+minigame_info_reset();
+
 action_delay = 0;
 network_actions = [];
 

@@ -35,7 +35,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		}
 			
 		if (move_delay_timer == 0 && on_block && 0.01 > random(1)) {
-			move_delay_timer = irandom_range(get_frames(0.5), get_frames(1));
+			move_delay_timer = irandom_range(get_frames(0.75), get_frames(1.25));
 			break;
 		}
 			
@@ -48,7 +48,7 @@ for (var i = 2; i <= global.player_max; i++) {
 			break;
 		}
 			
-		mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, false);
+		mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, true);
 		dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 		if (point_distance(0, dir, 0, 270) >= 16) {
@@ -59,9 +59,9 @@ for (var i = 2; i <= global.player_max; i++) {
 				action.press();
 			}
 		
-			if (--jump_delay_timer <= 0 && dist_to_up < 16 && vspeed >= 0) {
+			if (--jump_delay_timer <= 0 && dist_to_up < 45 && vspeed >= 0) {
 				actions.jump.hold(6);
-				jump_delay_timer = 10;
+				jump_delay_timer = 12;
 			}
 		}
 	}

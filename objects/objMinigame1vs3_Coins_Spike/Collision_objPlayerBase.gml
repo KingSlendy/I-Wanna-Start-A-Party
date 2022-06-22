@@ -2,7 +2,7 @@ if (objMinigameController.info.is_finished) {
 	exit;
 }
 
-if (x < 400) {
+if (x < 192) {
 	with (objMinigame1vs3_Coins_Spike) {
 		if (follow != null) {
 			exit;
@@ -20,9 +20,9 @@ if (x < 400) {
 	}
 } else {
 	with (other) {
-		if (image_alpha == 1) {
+		if (hittable && image_alpha == 1) {
 			with (objPlayerBase) {
-				if (x < 400) {
+				if (x < 192) {
 					minigame4vs_points(objMinigameController.info, network_id, 1);
 					break;
 				}
@@ -31,9 +31,15 @@ if (x < 400) {
 			audio_play_sound(sndDeath, 0, false);
 		}
 		
+		hittable = false;
+		
 		if (is_player_local(network_id)) {
 			image_alpha = 0.5;
 			alarm[0] = get_frames(1);
+		}
+		
+		if (network_id == global.player_id) {
+			objMinigameController.trophy_hit = false;
 		}
 	}
 }

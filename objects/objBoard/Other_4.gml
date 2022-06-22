@@ -108,10 +108,13 @@ if (global.minigame_info.is_finished) {
 }
 
 if (room == rBoardIsland) {
-	global.board_day = ((global.board_turn - 1) % 5 < 3);
+	global.board_day = ((global.board_turn - 1) % 6 < 3);
 	
 	if (!global.board_day) {
 		layer_set_visible("Night", true);
-		objShine.sprite_index = sprEvilShine;
+	}
+	
+	if (instance_exists(objShine)) {
+		objShine.sprite_index = (global.board_day) ? sprShine : sprShineNight;
 	}
 }

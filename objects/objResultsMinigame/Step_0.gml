@@ -25,7 +25,7 @@ switch (state) {
 			bgm_name += "Night";
 		}
 		
-		music_play(bgm_name);
+		music_play(asset_get_index(bgm_name));
 	
 		if (alpha <= 0) {
 			alpha = 0;

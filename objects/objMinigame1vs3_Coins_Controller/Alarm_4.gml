@@ -8,4 +8,4 @@ if (coin_count++ % 2 == 0) {
 
 c.hspeed = choose(-1, 1);
 
-alarm[4] = get_frames(1);
+alarm[4] = get_frames(0.6);

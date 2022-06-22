@@ -123,11 +123,7 @@ function check_player_actions_by_id(player_id) {
 	
 	var actions = ai_actions(player_id);
 
-	if (actions == null) {
-		return null;
-	}
-
-	if (!is_player_local(player_id)) {
+	if (actions == null || !is_player_local(player_id) || !focus_player_by_id(player_id).ai) {
 		return null;
 	}
 	

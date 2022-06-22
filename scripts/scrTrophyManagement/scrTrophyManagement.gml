@@ -20,7 +20,10 @@ global.trophies = [
 	new Trophy(11, 2, "Ghost Flex", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff isn't that spooky."),
 	new Trophy(12, 2, "Shine Denier", "You said 'No' to the Shine.\nLeaving in darkness it is.", "I have too many, I don't need it."),
 	new Trophy(13, 0, "Showdown Survivor", "You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?", "That was certainly a showdown teamwork."),
-	new Trophy(14, 0, "Showdown Killer", "You killed the whole team in the first round in Number Showdown.\nIn cold blood.", "You better not murder the showdown.")
+	new Trophy(14, 0, "Showdown Killer", "You killed the whole team in the first round in Number Showdown.\nIn cold blood.", "You better not murder the showdown."),
+	new Trophy(15, 1, "Professional Escapist", "You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.", "Escaping? Piece of cake."),
+	new Trophy(16, 2, "Spiky Dodger", "You dodged all of the spikes in Getting Coins.\nSquare shaped spikes are just that easy to dodge.", "I prefer triangular spikes."),
+	new Trophy(17, 0, "Red Coin", "You collected a red coin in Getting Coins!\nFINALLY! The red coin in this G stage was really hard. Or wait... is this the wrong game?", "The red in G is pretty tough.")
 ];
 
 global.collected_trophies_stack = [];
@@ -38,6 +41,20 @@ function gain_trophy(trophy) {
 	
 	array_push(global.collected_trophies, trophy);
 	array_sort(global.collected_trophies, true);
+	
+	if (!global.minigame_info.is_modes) {
+		var amount = 0;
+		var now_trophy = global.trophies[trophy];
+		
+		switch (now_trophy.rank) {
+			case 2: amount = 50; break;
+			case 1: amount = 200; break;
+			case 0: amount = 1000; break;
+		}
+		
+		increase_collected_coins(amount);
+	}
+	
 	save_file();
 }
 

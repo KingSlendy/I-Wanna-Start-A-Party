@@ -1,4 +1,4 @@
-depth = 500;
+depth = 499;
 image_index = objMinigameController.item_order[order];
 
 player_turn = 0;

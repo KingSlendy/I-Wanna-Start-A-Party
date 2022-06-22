@@ -88,7 +88,7 @@ switch (info.type) {
 }
 
 draw_set_halign(fa_left);
-draw_box(75, 400, 500, 200, c_blue, c_yellow, 1, 1);
+draw_box(75, 400, 500, 200, c_blue, c_white, 1, 1);
 instructions[instructions_page].draw(85, 410);
 var text = new Text(fntControls);
 text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}Page (" + string(instructions_page + 1) + "/" + string(array_length(instructions)) + ")");

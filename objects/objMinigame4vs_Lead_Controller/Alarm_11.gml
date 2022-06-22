@@ -9,8 +9,11 @@ for (var i = 2; i <= global.player_max; i++) {
 		continue;
 	}
 	
-	var action = actions[$ sequence_actions[irandom(array_length(sequence_actions) - 1)]];
-	action.press();
+	if (current < array_length(sequence) && (irandom(max(39 - array_length(sequence), 1)) != 0)) {
+		actions[$ sequence_actions[sequence[current]]].press();
+	} else {
+		actions[$ sequence_actions[irandom(array_length(sequence_actions) - 1)]].press();
+	}
 }
 
-alarm[11] = get_frames(1);
+alarm[11] = get_frames(0.3);

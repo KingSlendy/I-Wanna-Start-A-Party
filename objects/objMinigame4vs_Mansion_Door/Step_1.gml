@@ -34,6 +34,10 @@ with (objPlayerBase) {
 				
 			door = other.link;
 			fade = 1;
+			
+			if (other.y == other.link.y) {
+				objMinigameController.trophy_doors = false;
+			}
 		}
 	} else if (fade == 1) {
 		image_alpha += 0.04;
