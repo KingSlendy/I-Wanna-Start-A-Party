@@ -33,11 +33,11 @@ for (var i = 2; i <= global.player_max; i++) {
 		var other_x = near.x + 20 * near.image_xscale;
 		var other_y = near.y;
 		
-		if (point_distance(me_x, me_y, other_x, other_y) > 128 && point_distance(me_x, me_y, other_x, other_y) > point_distance(teammate.x - 1, teammate.y - 7, other_x, other_y)) {
+		if (point_distance(me_x, me_y, other_x, other_y) > 224 && point_distance(me_x, me_y, other_x, other_y) > point_distance(teammate.x - 1, teammate.y - 7, other_x, other_y)) {
 			break;
 		}
 		
-		if (point_distance(me_x, me_y, other_x, other_y) <= 3) {
+		if (point_distance(me_x, me_y, other_x, other_y) <= 6) {
 			actions.shoot.press();
 			break;
 		}

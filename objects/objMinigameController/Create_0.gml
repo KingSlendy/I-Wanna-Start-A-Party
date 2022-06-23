@@ -48,17 +48,8 @@ function back_to_board() {
 		}
 		
 		room_goto(info.previous_board);
-	
-		with (objPlayerBase) {
-			change_to_object(objPlayerBoardData);
-		}
 	} else {
 		room_goto(rMinigameOverview);
-	
-		with (objPlayerBase) {
-			change_to_object(objPlayerBase);
-		}
-		
 		return;
 	}
 	

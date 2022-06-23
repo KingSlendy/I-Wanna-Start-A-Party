@@ -1,4 +1,8 @@
 with (objPlayerBase) {
+	change_to_object(objPlayerBase);
+}
+
+with (objPlayerBase) {
 	draw = false;
 	lost = false;
 }

@@ -1,6 +1,6 @@
 var draw_x = (display_get_gui_width() - width) / 2;
 var draw_y = (display_get_gui_height() - height) / 2;
-draw_box(draw_x, draw_y + offset_y, width, height, c_dkgray,, 0.6,, 3);
+draw_box(draw_x, draw_y + offset_y, width, height, c_dkgray, c_white, 0.6,, 3);
 var text = new Text(fntDialogue);
 
 for (var i = 0; i < array_length(stock); i++) {

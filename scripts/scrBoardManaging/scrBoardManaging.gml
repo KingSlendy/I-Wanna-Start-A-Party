@@ -376,7 +376,7 @@ function turn_start() {
 		if (room == rBoardIsland) {
 			if (!global.board_day) {
 				next_seed_inline();
-				global.shine_price = irandom(5) * 10;
+				global.shine_price = choose(0, 1, 3, 4) * 10;
 			} else {
 				global.shine_price = 20;
 			}

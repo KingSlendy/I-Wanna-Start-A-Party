@@ -33,7 +33,8 @@ global.actions = {
 	up: new Action(vk_up),
 	down: new Action(vk_down),
 	jump: new Action(vk_shift),
-	shoot: new Action(ord("Z"))
+	shoot: new Action(ord("Z")),
+	back: new Action(vk_backspace)
 };
 
 var keys = variable_struct_get_names(global.actions);
@@ -147,7 +148,7 @@ function bind_to_key(bind) {
 	    case vk_down: return sprKey_ArrowDown;
 	    case vk_left: return sprKey_ArrowLeft;
 	    case vk_right: return sprKey_ArrowRight;
-	    case vk_backspace: return 19;
+	    case vk_backspace: return sprKey_Backspace;
 	    case vk_tab: return 79;
 	    case vk_insert: return "Insert";
 	    case vk_delete: return "Delete";

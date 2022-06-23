@@ -34,10 +34,6 @@ function choosed_minigame() {
 }
 
 function send_to_minigame() {
-	with (objPlayerBase) {
-		change_to_object(objPlayerBase);
-	}
-	
 	info.previous_board = room;
 	
 	for (var i = 1; i <= global.player_max; i++) {

@@ -10,9 +10,10 @@ function save_variables() {
 	global.games_played = 0;
 	global.collected_shines = 0;
 	global.collected_coins = 0;
-	global.collected_skins = array_sequence(0, 4);
 	global.seen_minigames = [];
+	global.collected_skins = array_sequence(0, 4);
 	global.collected_trophies = [];
+	global.ellapsed_time = 0;
 
 	//Board information
 	global.max_board_turns = 20;
@@ -34,9 +35,10 @@ function save_file() {
 			saved_games_played: global.games_played,
 			saved_collected_shines: global.collected_shines,
 			saved_collected_coins: global.collected_coins,
-			saved_collected_skins: global.collected_skins,
 			saved_seen_minigames: global.seen_minigames,
-			saved_collected_trophies: global.collected_trophies
+			saved_collected_skins: global.collected_skins,
+			saved_collected_trophies: global.collected_trophies,
+			saved_ellapsed_time: global.ellapsed_time
 		},
 		
 		board_games: global.board_games
@@ -63,13 +65,19 @@ function load_file() {
 	global.games_played = save.main_game.saved_games_played;
 	global.collected_shines = save.main_game.saved_collected_shines;
 	global.collected_coins = save.main_game.saved_collected_coins;
-	global.collected_skins = save.main_game.saved_collected_skins;
 	global.seen_minigames = save.main_game.saved_seen_minigames;
+	global.collected_skins = save.main_game.saved_collected_skins;
 	
 	try {
 		global.collected_trophies = save.main_game.saved_collected_trophies;
 	} catch (_) {
 		global.collected_trophies = [];
+	}
+	
+	try {
+		global.ellapsed_time = save.main_game.saved_ellapsed_time;
+	} catch (_) {
+		global.ellapsed_time = 0;
 	}
 	
 	global.board_games = save.board_games;

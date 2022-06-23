@@ -29,7 +29,8 @@ function minigame_init() {
 		new Minigame("A-Maze-Ing", ["Instructions TBD."], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
 		new Minigame("Catch The Fruits", ["Instructions TBD."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
 		new Minigame("Buttons Everywhere", ["Instructions TBD."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
-		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon")
+		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
+		new Minigame("Colorful Insanity", ["Instructions TBD."], 0, rMinigame2vs2_Colorful, "I Wanna Be A Charr")
 	];
 }
 

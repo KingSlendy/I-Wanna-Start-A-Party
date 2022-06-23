@@ -18,6 +18,7 @@ global.board_turn = 1;
 global.player_turn = 1;
 global.dice_roll = 0;
 global.choice_selected = -1;
+global.item_choice = false;
 global.board_day = true;
 
 //Board values

@@ -17,3 +17,11 @@ if (finished) {
 		back_to_board();
 	}
 }
+
+if (info.is_modes && !info.is_finished && alpha == 0 && !IS_ONLINE && global.actions.back.pressed(1)) {
+	with (objPlayerBase) {
+		change_to_object(objPlayerBase);
+	}
+	
+	room_goto(rMinigameOverview);
+}

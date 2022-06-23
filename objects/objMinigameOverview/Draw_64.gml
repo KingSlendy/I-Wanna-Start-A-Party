@@ -104,6 +104,11 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 }
 
 draw_set_color(c_white);
-var text = new Text(fntControls);
-text.set(draw_action_small(global.actions.jump) + " {COLOR,00FFFF}Select\n\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Mode");
-text.draw(620, 544);
+var label = draw_action_small(global.actions.jump) + " {COLOR,00FFFF}Select\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Mode";
+
+if (info.is_modes) {
+	label += "\n" + draw_action_small(global.actions.back) + " Return here\n" + draw_action_small(global.actions.shoot) + " Back";
+}
+
+var text = new Text(fntControls, label);
+text.draw(620, 500);

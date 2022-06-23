@@ -9,7 +9,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		continue;
 	}
 	
-	if (current < array_length(sequence) && (irandom(max(39 - array_length(sequence), 1)) != 0)) {
+	if (current < array_length(sequence) && irandom(max(20 - array_length(sequence), 1)) != 0) {
 		actions[$ sequence_actions[sequence[current]]].press();
 	} else {
 		actions[$ sequence_actions[irandom(array_length(sequence_actions) - 1)]].press();

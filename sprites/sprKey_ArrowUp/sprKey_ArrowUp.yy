@@ -32,7 +32,7 @@
     "spriteId": {"name":"sprKey_ArrowUp","path":"sprites/sprKey_ArrowUp/sprKey_ArrowUp.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

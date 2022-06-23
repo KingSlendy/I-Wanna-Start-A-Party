@@ -33,6 +33,7 @@ if (global.actions.jump.pressed(network_id)) {
 		case 1:
 			if (available_item) {
 				var items = all_item_stats(player_info);
+				global.item_choice = true;
 				
 				show_multiple_choices(items.names, items.sprites, items.descs, items.availables).final_action = function() {
 					var item = player_info_by_turn().items[global.choice_selected];

@@ -6,7 +6,7 @@ titles = [];
 choices = [];
 descriptions = [];
 availables = [];
-length = 96;
+length = 128;
 separation = 20;
 final_action = null;
 

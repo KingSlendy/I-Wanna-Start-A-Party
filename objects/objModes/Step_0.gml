@@ -18,6 +18,7 @@ if (fade_start) {
 			
 			switch (state) {
 				case 0:
+					save_file();
 					network_disable();
 					room_goto(rFiles);
 					break;
