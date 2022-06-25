@@ -36,7 +36,7 @@ function random_roll() {
 	} until (roll != previous);
 	
 	//roll = max_roll;
-	//roll = 1;
+	//roll = 10;
 }
 
 roll = 0;

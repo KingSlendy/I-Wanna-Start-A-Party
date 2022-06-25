@@ -5,6 +5,10 @@ for (var i = 2; i <= global.player_max; i++) {
 	if (actions == null) {
 		continue;
 	}
+	
+	if (irandom(3) == 0) {
+		continue;
+	}
 		
 	switch (irandom(2)) {
 		case 0: actions.left.press(); break;

@@ -23,7 +23,7 @@ if (array_length(descriptions) > 0) {
 	var desc_width = 400;
 	var desc_x = display_get_gui_width() / 2 - desc_width / 2;
 	var desc_y = draw_y + length + 10;
-	draw_box(desc_x, desc_y, desc_width, 80, c_dkgray, color);
+	draw_box(desc_x, desc_y, desc_width, 150, c_dkgray, color);
 	var text = new Text(fntDialogue, descriptions[global.choice_selected]);
 	text.draw(desc_x + 15, desc_y + 15, desc_width - 30);
 }

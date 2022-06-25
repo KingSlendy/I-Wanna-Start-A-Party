@@ -1,6 +1,6 @@
 next_seed_inline();
 
-if (irandom(253) == 0) {
+if (object_index == objMinigame1vs3_Coins_Coin && irandom(332) == 0) {
 	sprite_index = sprMinigame1vs3_Coins_RedCoin;
 }
 

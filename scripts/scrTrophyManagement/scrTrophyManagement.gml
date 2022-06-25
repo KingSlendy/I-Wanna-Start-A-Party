@@ -17,13 +17,18 @@ global.trophies = [
 	new Trophy(8, 2, "Memory Magician", "You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?", "How can you keep so many items in your head?"),
 	new Trophy(9, 2, "Messed Memory", "You didn't put any items in the pedestals in Magic Memory...\nAt least try!", "You can't have that bad of a memory..."),
 	new Trophy(10, 2, "Tie your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?"),
-	new Trophy(11, 2, "Flexing Ghosts", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff isn't that spooky."),
-	new Trophy(12, 2, "Shine Denier", "You said 'No' to the Shine.\nLeaving in darkness it is.", "I have too many, I don't need it."),
+	new Trophy(11, 2, "Flexing Ghosts", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff ain't that scary for you."),
+	new Trophy(12, 2, "Darkness' Friend", "You said 'No' to the Shine.\nLiving in darkness it is.", "I prefer not being too bright, thank you very much."),
 	new Trophy(13, 0, "Showdown Survivor", "You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?", "That was certainly a showdown teamwork."),
 	new Trophy(14, 0, "Showdown Killer", "You killed the whole team in the first round in Number Showdown.\nIn cold blood.", "You better not murder the showdown."),
-	new Trophy(15, 1, "Professional Escapist", "You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.", "Escaping? Piece of cake."),
+	new Trophy(15, 1, "Expert Escapist", "You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.", "Escaping? Piece of cake."),
 	new Trophy(16, 2, "Spiky Dodger", "You dodged all of the spikes in Getting Coins.\nSquare shaped spikes are just that easy to dodge.", "I prefer triangular spikes."),
-	new Trophy(17, 0, "Red Coin", "You collected a red coin in Getting Coins!\nFINALLY! The red coin in this G stage was really hard. Or wait... is this the wrong game?", "The red in G is pretty tough.")
+	new Trophy(17, 0, "Red Coin", "You collected a red coin in Getting Coins!\nFINALLY! The red coin in this G stage was really hard. Or wait... is this the wrong game?", "The red in G is pretty tough."),
+	new Trophy(18, 2, "Broken Elevator", "You died on the very first row of spikes in Tower Ascension.\nHaving the high ground wasn't appealing.", "I have the lower ground!"),
+	new Trophy(19, 2, "Conveyor Victory", "You jumped directly to the ceiling spikes in Conveyor Havoc.\nDid you think you could escape the conveyor by jumping? Think again.", "Jump straight to victory! And by victory I mean death."),
+	new Trophy(20, 0, "Double Trouble", "You rolled two identical numbers with Double Dice!\nMore rolling for me!", "Double the numbers, double the fun."),
+	new Trophy(21, 0, "Sonic Speed", "You rolled 25 or more with Triple Dice!\nJust casually going for a walk around the board, no big deal.", "Hey slow down a little bit!"),
+	new Trophy(22, 2, "Snail Pace", "You rolled 10 or less with a Triple Dice.\nI'm gonna reach the Shine, I swear...", "I would've used a regular one if I knew this was gonna happen...")
 ];
 
 global.collected_trophies_stack = [];
@@ -49,7 +54,7 @@ function gain_trophy(trophy) {
 		switch (now_trophy.rank) {
 			case 2: amount = 50; break;
 			case 1: amount = 200; break;
-			case 0: amount = 1000; break;
+			case 0: amount = 500; break;
 		}
 		
 		increase_collected_coins(amount);

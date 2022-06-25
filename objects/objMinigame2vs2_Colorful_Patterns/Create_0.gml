@@ -1,5 +1,5 @@
-pattern_rows = 6;
-pattern_cols = 10;
+pattern_rows = 5;
+pattern_cols = 8;
 pattern_grid = [];
 pattern_round = -1;
 pattern_player_ids = null;
@@ -81,7 +81,7 @@ function pattern_grid_generate() {
 	pattern_round++;
 	
 	if (pattern_round == 4) {
-		minigame2vs2_points(objMinigameController.info, pattern_player_ids[0], pattern_player_ids[1]);
+		minigame2vs2_points(pattern_player_ids[0], pattern_player_ids[1]);
 		minigame_finish();
 		return;
 	}
@@ -109,7 +109,7 @@ function pattern_grid_generate() {
 	}
 	
 	with (objPlayerBase) {
-		find_timer = irandom_range(get_frames(20), get_frames(30));
+		find_timer = irandom_range(get_frames(15), get_frames(25));
 		found = false;
 	}
 }
@@ -148,7 +148,8 @@ function pattern_select(index, network = true) {
 			
 	if (pattern_selected[index] && pattern_grid[pattern_row_selected[index]][pattern_col_selected[index]].equals(pattern_chosen)) {
 		var player = focus_player_by_id(player_id);
-		player.teammate.find_timer *= 0.75;
+		player.teammate.find_timer *= 0.25;
+		player.teammate.find_timer = ceil(player.teammate.find_timer);
 	}
 			
 	audio_play_sound(sndMinigame2vs2_Colorful_PatternSelect, 0, false);

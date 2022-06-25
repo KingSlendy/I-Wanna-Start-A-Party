@@ -114,7 +114,10 @@ function space_passing_event() {
 										["Pass", [
 											new Message("Well too bad then, I hope next time you think it through.",, function() {
 												board_advance();
-												gain_trophy(11);
+												
+												if (focused_player().network_id == global.player_id) {
+													gain_trophy(11);
+												}
 											})
 										]]
 									])

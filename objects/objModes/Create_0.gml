@@ -49,6 +49,7 @@ mode_selected = global.mode_selected;
 
 with (objPlayerBase) {
 	draw = false;
+	skin = null;
 	change_to_object(objPlayerBase);
 }
 

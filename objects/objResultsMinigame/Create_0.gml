@@ -2,6 +2,10 @@ info = global.minigame_info;
 state = 0;
 alpha = 1;
 
+with (objPlayerBase) {
+	change_to_object(objPlayerBoardData);
+}
+
 function minigame_info_placement() {
 	places_minigame_repeated = array_create(global.player_max, 0);
 	places_minigame_info = [];

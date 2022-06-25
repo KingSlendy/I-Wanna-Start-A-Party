@@ -23,7 +23,7 @@ if (x < 192) {
 		if (hittable && image_alpha == 1) {
 			with (objPlayerBase) {
 				if (x < 192) {
-					minigame4vs_points(objMinigameController.info, network_id, 1);
+					minigame4vs_points(network_id, 1);
 					break;
 				}
 			}

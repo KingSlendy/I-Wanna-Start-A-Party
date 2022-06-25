@@ -15,7 +15,7 @@ if (lost_count == global.player_max - 1) {
 				gain_trophy(13);
 			}
 			
-			minigame4vs_points(objMinigameController.info, network_id);
+			minigame4vs_points(network_id);
 			break;
 		}
 	}

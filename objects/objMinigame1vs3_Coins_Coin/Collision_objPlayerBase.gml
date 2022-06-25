@@ -1,5 +1,5 @@
 if (!objMinigameController.info.is_finished && is_player_local(other.network_id) && !other.frozen) {
-	minigame4vs_points(objMinigameController.info, other.network_id, 1);
+	minigame4vs_points(other.network_id, 1);
 	
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.Minigame1vs3_Coins_Coin);

@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [global.board_items[ItemType.Mirror], global.board_items[ItemType.Mirror], global.board_items[ItemType.Reverse]];
+	//self.items = [global.board_items[ItemType.DoubleDice], global.board_items[ItemType.TripleDice], null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -464,6 +464,48 @@ function board_advance() {
 		path_set_closed(follow_path, false);
 		path_start(follow_path, max_speed, path_action_stop, true);
 	}
+}
+
+function board_path_finding() {
+	global.path_spaces = [];
+	global.path_spaces_record = infinity;
+	objSpaces.visited = false;
+	
+	with (focused_player()) {
+		space_path_finding(instance_place(x, y, objSpaces), []);
+	}
+}
+
+function space_path_finding(space, path_spaces) {
+	array_push(path_spaces, space);
+	
+	with (space) {
+		if (image_index == SpaceType.Shine) {
+			global.path_spaces_record = array_length(path_spaces);
+			array_copy(global.path_spaces, 0, path_spaces, 0, array_length(path_spaces));
+			break;
+		}
+		
+		if (visited || array_length(path_spaces) > global.path_spaces_record) {
+			break;
+		}
+		
+		visited = true;
+
+		for (var i = 0; i < array_length(space_directions_normal); i++) {
+			var space_normal_next = space_directions_normal[i];
+				
+			if (space_normal_next == null) {
+				continue;
+			}
+				
+			space_path_finding(space_normal_next, path_spaces);
+		}
+		
+		visited = false;
+	}
+	
+	array_pop(path_spaces);
 }
 
 function choose_minigame() {

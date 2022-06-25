@@ -35,7 +35,7 @@ function skin_init() {
 		new Skin("Easy", "Punky", "I Wanna Be Easy!", 20, "superstarjonesbros", 300),
 		new Skin("Miku", "Hatsune Miku", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 		new Skin("Miki", "The Girl", "I Want To Meet Miki", 22, "riktoi", 400),
-		new Skin("Producer", "Produccer Kid", "I Wanna Be THE iDOLM@STER", 23, "eden", 300),
+		new Skin("Produccer", "Produccer Kid", "I Wanna Be THE iDOLM@STER", 23, "eden", 300),
 		new Skin("Kami2", "Reimu", "I Wanna Kami2Kami2Kami2", 24, "Reimu2020", 500),
 		new Skin("Baba", "Baba Is Kid", "I Wanna Stop The Simulation", 25, "RandomErik", 700),
 		new Skin("Megaman", "Megaman", "I Wanna Be The Rockman", 26, "DakaArts", 700),
@@ -55,6 +55,10 @@ function skin_init() {
 		new Skin("Camouflage", "Camouflage Kid", "I Wanna Be The Tribute", 3, "shaman666", 200),
 		new Skin("Robot", "Robot Kid", "I Wanna Be The Tribute", 3, "shaman666", 400),
 		new Skin("Knight", "Knight Kid", "I Wanna Be The Tribute", 3, "shaman666", 500),
+		new Skin("Erina", "Erina", "Erina Mou Tsuyokunatta!", 35, "Komichi Aya", 600),
+		new Skin("MasterR", "MasterR", "I Wanna Be Myself", 36, "SirRouven", 400),
+		new Skin("8bit", "8 Bit Kid", "I Wanna Be The 8bit", 37, "Sephalos", 500),
+		new Skin("Spiritia", "Spiritia Rosenberg", "The Mage's Lair", 38, "BlueMage0", 600)
 	];
 }
 

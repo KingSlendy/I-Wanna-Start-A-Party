@@ -12,7 +12,7 @@ if (++rounds == instance_number(objMinigame1vs3_Showdown_Rounds)) {
 				below = true;
 			}
 			
-			minigame4vs_points(objMinigameController.info, network_id);
+			minigame4vs_points(network_id);
 		}
 	}
 	

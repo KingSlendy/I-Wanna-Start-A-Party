@@ -16,7 +16,7 @@ minigame_time_end = function() {
 			continue;
 		}
 		
-		minigame4vs_points(objMinigameController.info, network_id);
+		minigame4vs_points(network_id);
 	}
 	
 	minigame_finish();
@@ -39,4 +39,10 @@ function set_spd(spd) {
 	objMinigame4vs_Tower_Spike.vspeed = scene_spd;
 	objMinigame4vs_Tower_Block.vspeed = scene_spd;
 	objMinigame4vs_Tower_Crack.vspeed = scene_spd;
+	
+	if (instance_exists(objMinigame4vs_Tower_Trophy)) {
+		objMinigame4vs_Tower_Trophy.vspeed = scene_spd;
+	}
 }
+
+trophy_floor = true;

@@ -3,10 +3,10 @@ space_x = 0;
 space_y = 0;
 final_action = null;
 
-if (global.board_turn == 1) {
-	final_action = turn_start;
-} else if (global.dice_roll > 0) {
+if (global.dice_roll > 0) {
 	final_action = board_advance;
+} else if (global.board_turn == 1) {
+	final_action = turn_start;
 }
 
 fade_state = 0;

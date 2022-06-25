@@ -1,4 +1,4 @@
-if (instance_exists(objCameraSplit4)) {
+if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 	switch (info.type) {
 		case "4vs":
 			draw_4vs_squares();

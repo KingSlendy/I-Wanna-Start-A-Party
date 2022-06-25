@@ -1,5 +1,5 @@
 with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
+	change_to_object(objPlayerStatic);
 }
 
 event_inherited();
@@ -18,7 +18,7 @@ minigame_time_end = function() {
 	}
 }
 
-player_check = objPlayerPlatformer;
+player_check = objPlayerStatic;
 state = 0;
 sequence_actions = [
 	"right",

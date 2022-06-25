@@ -1,5 +1,5 @@
 with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
+	change_to_object(objPlayerStatic);
 }
 
 event_inherited();
@@ -12,4 +12,4 @@ action_end = function() {
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_check = objPlayerStatic;

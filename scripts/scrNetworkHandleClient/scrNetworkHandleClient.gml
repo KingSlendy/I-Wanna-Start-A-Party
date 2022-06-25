@@ -86,6 +86,8 @@ enum ClientTCP {
 	Minigame1vs3_Coins_Coin,
 	Minigame1vs3_Coins_HoldSpike,
 	Minigame1vs3_Coins_ThrowSpike,
+	Minigame1vs3_Chase_Solo,
+	Minigame1vs3_Chase_Team,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	Minigame2vs2_Colorful_PatternMoveVertical,
@@ -801,7 +803,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			
 			var player_id = buffer_read(buffer, buffer_u8);
-			minigame4vs_points(objMinigameController.info, player_id, 1);
+			minigame4vs_points(player_id, 1);
 			break;
 			
 		case ClientTCP.Minigame1vs3_Coins_HoldSpike:
@@ -836,6 +838,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}	
 			break;
 			
+		case ClientTCP.Minigame1vs3_Chase_Solo:
+			var action = buffer_read(buffer, buffer_string);
+			array_push(objMinigame1vs3_Chase_Controller.network_solo_actions, action);
+			break;
+			
+		case ClientTCP.Minigame1vs3_Chase_Team:
+			var action = buffer_read(buffer, buffer_string);
+			array_push(objMinigame1vs3_Chase_Controller.network_team_actions, action);
+			break;
+			
 		case ClientTCP.Minigame2vs2_Maze_Item:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var item_x = buffer_read(buffer, buffer_s16);
@@ -851,7 +863,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.Minigame2vs2_Fruits_Fruit:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var points = buffer_read(buffer, buffer_s8);
-			minigame4vs_points(objMinigameController.info, player_id, points);
+			minigame4vs_points(player_id, points);
 			break;
 			
 		case ClientTCP.Minigame2vs2_Buttons_Button:

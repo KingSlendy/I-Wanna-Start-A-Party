@@ -23,7 +23,7 @@ if (fade_start) {
 			fade_alpha = 1;
 			fade_start = false;
 			global.games_played++;
-			increase_collected_coins(player_info_by_id(global.player_id).shines * 100 + 100);
+			increase_collected_coins(player_info_by_id(global.player_id).shines * 100);
 			variable_struct_remove(global.board_games, global.game_id);
 			save_file();
 			disable_board();

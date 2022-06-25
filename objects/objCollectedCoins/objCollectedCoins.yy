@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Menu",
-    "path": "folders/Objects/Menu.yy",
+    "name": "Managers",
+    "path": "folders/Objects/Managers.yy",
   },
   "resourceVersion": "1.0",
   "name": "objCollectedCoins",

@@ -48,7 +48,7 @@ if (save_present) {
 	for (var i = 0; i < 2; i++) {
 		var option_x = save_x + 290;
 		var option_y = save_y + 270 + 45 * i;
-		draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray,,,, 1);
+		draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray, c_white,,, 1);
 		text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
 		text.draw(option_x + 15, option_y + 6); 
 	}

@@ -5,7 +5,7 @@ with (objMinigameController) {
 		gain_trophy(14);
 	}
 	
-	minigame4vs_points(info, network_id);
+	minigame4vs_points(network_id);
 	minigame_finish();
 }
 

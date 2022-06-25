@@ -28,7 +28,7 @@ with (objMinigame4vs_Magic_Holder) {
 			item.state = 0;
 			
 			if (item.player_turn != 0) {
-				minigame4vs_points(objMinigameController.info, item.player.network_id, 1);
+				minigame4vs_points(item.player.network_id, 1);
 			}
 		}
 	}

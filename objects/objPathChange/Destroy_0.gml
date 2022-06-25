@@ -6,3 +6,6 @@ if (BOARD_NORMAL) {
 
 instance_destroy(objArrow);
 board_advance();
+
+space.space_next = null;
+space.space_previous = null;

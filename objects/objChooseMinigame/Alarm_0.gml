@@ -73,9 +73,11 @@ minigame_list = [];
 
 next_seed_inline();
 var minigames_now = global.minigames[$ info.type];
+var minigames_order = array_sequence(0, array_length(minigames_now));
+array_shuffle(minigames_order);
 
 for (var i = 0; i < 5; i++) {
-	array_push(minigame_list, minigames_now[irandom(array_length(minigames_now) - 1)]);
+	array_push(minigame_list, minigames_now[minigames_order[i]]);
 }
 
 //Temp

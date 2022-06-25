@@ -22,7 +22,8 @@ function minigame_init() {
 		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "Avoidance"),
 		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
-		new Minigame("Getting Coins", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\n"], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins")
+		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
+		new Minigame("Gigantic Chase", ["Instructions TBD."], 15, rMinigame1vs3_Chase, "I Wanna Kill The Kamilia 2")
 	];
 
 	m[$ "2vs2"] = [
@@ -30,7 +31,7 @@ function minigame_init() {
 		new Minigame("Catch The Fruits", ["Instructions TBD."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
 		new Minigame("Buttons Everywhere", ["Instructions TBD."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
-		new Minigame("Colorful Insanity", ["Instructions TBD."], 0, rMinigame2vs2_Colorful, "I Wanna Be A Charr")
+		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr")
 	];
 }
 
@@ -89,7 +90,7 @@ function minigame1vs3_start(info, mode = CameraMode.Static) {
 	
 	switch (mode) {
 		case CameraMode.Follow: camera_start(objCamera); break;
-		//case CameraMode.Split4: camera4vs_split4(camera_start(objCameraSplit4)); break;
+		case CameraMode.Split4: camera4vs_split4(camera_start(objCameraSplit4)); break;
 	}
 }
 
@@ -125,10 +126,11 @@ function player_1vs3_positioning(info) {
 	objMinigameController.points_teams = [[], []];
 	var index = 1;
 	
-	with (objPlayerInfo) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		var player_info = player_info_by_turn(i);
+		
 		if (player_info.space == info.player_colors[0]) {
-			var player = focus_player_by_turn(player_info.turn);
-			
 			with (objPlayerReference) {
 				if (reference == index) {
 					player.x = x + 17;
@@ -141,10 +143,11 @@ function player_1vs3_positioning(info) {
 		}
 	}
 	
-	with (objPlayerInfo) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		var player_info = player_info_by_turn(i);
+		
 		if (player_info.space == info.player_colors[1]) {
-			var player = focus_player_by_turn(player_info.turn);
-			
 			with (objPlayerReference) {
 				if (reference == 0) {
 					player.x = x + 17;
@@ -212,7 +215,9 @@ function minigame_max_points() {
 	return get_frames(1000000);
 }
 
-function minigame4vs_points(info, player_id, points = minigame_max_points()) {
+function minigame4vs_points(player_id, points = minigame_max_points()) {
+	var info = global.minigame_info;
+	
 	if (!info.is_finished) {
 		var scoring = info.player_scores[player_id - 1];
 		
@@ -222,9 +227,9 @@ function minigame4vs_points(info, player_id, points = minigame_max_points()) {
 	}
 }
 
-function minigame2vs2_points(info, player_id1, player_id2, points = minigame_max_points()) {
-	minigame4vs_points(info, player_id1, points);
-	minigame4vs_points(info, player_id2, points);
+function minigame2vs2_points(player_id1, player_id2, points = minigame_max_points()) {
+	minigame4vs_points(player_id1, points);
+	minigame4vs_points(player_id2, points);
 }
 
 function minigame_finish(signal = false) {
@@ -259,31 +264,16 @@ function minigame_finish(signal = false) {
 			}
 		}
 		
-		//popup(string(global.player_id) +  ": " + string(info.player_scores));
-		
 		for (var i = 0; i < global.player_max; i++) {
 			if (!info.player_scores[i].ready) {
 				return;
 			}
 		}
 		
-		//popup(string(global.player_id) +  ": " + string(info.player_scores));
-		//var file = file_text_open_write("Debug.txt");
-		//file_text_write_string(file, string(global.player_id) +  ": " + string(info.player_scores));
-		//file_text_close(file);
-		
 		switch (info.type) {
-			case "4vs":
-				minigame_4vs_winner(info);
-				break;
-				
-			case "1vs3":
-				minigame_1vs3_winner(info);
-				break;
-			
-			case "2vs2":
-				minigame_2vs2_winner(info);
-				break;
+			case "4vs": minigame4vs_winner(); break;
+			case "1vs3": minigame1vs3_winner(); break;
+			case "2vs2": minigame2vs2_winner(); break;
 		}
 			
 		info.calculated = true;
@@ -291,7 +281,8 @@ function minigame_finish(signal = false) {
 	}
 }
 
-function minigame_4vs_winner(info) {
+function minigame4vs_winner() {
+	var info = global.minigame_info;
 	var max_score = -infinity;
 	
 	for (var i = 0; i < global.player_max; i++) {
@@ -308,7 +299,8 @@ function minigame_4vs_winner(info) {
 	}
 }
 
-function minigame_1vs3_winner(info) {
+function minigame1vs3_winner() {
+	var info = global.minigame_info;
 	var scores = array_create(2, 0);
 	
 	for (var i = 0; i < global.player_max; i++) {
@@ -334,7 +326,8 @@ function minigame_1vs3_winner(info) {
 	}
 }
 
-function minigame_2vs2_winner(info) {
+function minigame2vs2_winner() {
+	var info = global.minigame_info;
 	var scores = array_create(2, 0);
 	
 	for (var i = 0; i < global.player_max; i++) {

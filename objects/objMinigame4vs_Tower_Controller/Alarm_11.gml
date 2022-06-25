@@ -3,6 +3,7 @@ if (global.player_id != 1) {
 }
 
 instance_deactivate_object(objMinigame4vs_Tower_Crack);
+instance_deactivate_object(objMinigame4vs_Tower_Trophy);
 
 for (var i = 2; i <= global.player_max; i++) {
 	var actions = check_player_actions_by_id(i);
@@ -52,4 +53,5 @@ for (var i = 2; i <= global.player_max; i++) {
 }
 
 instance_activate_object(objMinigame4vs_Tower_Crack);
+instance_activate_object(objMinigame4vs_Tower_Trophy);
 alarm[11] = 1;
