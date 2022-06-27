@@ -33,3 +33,13 @@ if (getting) {
 	
 	vspeed = 1;
 }
+
+if (losing) {
+	image_xscale -= 0.03;
+	image_yscale -= 0.03;
+	
+	if (image_xscale <= 0) {
+		objShineChange.alarm[11] = 1;
+		instance_destroy();
+	}
+}

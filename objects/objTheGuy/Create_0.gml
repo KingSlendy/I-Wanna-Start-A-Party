@@ -65,18 +65,13 @@ reset_seed_inline();
 options_chosen = irandom(options_total - 1);
 global.choice_selected = irandom(options_total - 1);
 options = [
-	new TheGuyOption(true, 5,,),
 	new TheGuyOption(true, 10,,),
 	new TheGuyOption(true, 15,,),
 	new TheGuyOption(true, 20,,),
-	new TheGuyOption(true, 25,,),
 	new TheGuyOption(true, 30,,),
-	new TheGuyOption(false, 5,,),
 	new TheGuyOption(false, 10,,),
-	new TheGuyOption(false, 15,,),
-	new TheGuyOption(false, 20,,),
 	new TheGuyOption(false, 25,,),
-	new TheGuyOption(false, 30,,),
+	new TheGuyOption(true, ceil(player_info_by_turn().coins / 2), "You {COLOR,0000FF}lose{COLOR,FFFFFF} half {SPRITE,sprCoin,0,0,2,0.6,0.6}"),
 	
 	new TheGuyOption(true, 0, "You {COLOR,0000FF}lose{COLOR,FFFFFF} {SPRITE,sprShine,0,0,-2,0.5,0.5}1", function() {
 		var player_info = player_info_by_turn();
@@ -105,6 +100,23 @@ options = [
 		}
 		
 		change_shines(-1, ShineChangeType.Lose);
+	}),
+	
+	new TheGuyOption(false, 0, "{COLOR,0000FF}The Guy{COLOR,FFFFFF} revolution", function() {
+		total_coins = 0;
+		
+		for (var i = 1; i <= global.player_max; i++) {
+			total_coins += player_info_by_turn(i).coins;
+		}
+		
+		total_coins = floor(total_coins / 4);
+		
+		for (var i = 1; i <= global.player_max; i++) {
+			change_coins(-999, CoinChangeType.Lose, i);
+		}
+		
+		objTheGuy.alarm[5] = 0;
+		objTheGuy.alarm[9] = get_frames(1);
 	}),
 	
 	new TheGuyOption(true, 0, "You {COLOR,00FFFF}get{COLOR,FFFFFF} {SPRITE,sprShine,0,0,-2,0.5,0.5}100", function() {

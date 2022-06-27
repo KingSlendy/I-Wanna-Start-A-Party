@@ -95,7 +95,7 @@ function results_bonus() {
 
 function results_won() {
 	music_fade();
-	audio_play_sound(sndResultsDrumRoll, 0, false);
+	audio_play_sound(sndResultsDrumRoll, 0, true);
 	alarm[1] = get_frames(3);
 	lights_moving = true;
 	
@@ -107,11 +107,22 @@ function results_won() {
 }
 
 function results_end() {
-	fade_start = true;
+	instance_create_layer(0, 0, "Managers", objResultsStats);
 	
 	if (global.player_id == 1) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ResultsEnd);
+		network_send_tcp_packet();
+	}
+}
+
+function results_proceed() {
+	fade_start = true;
+	audio_play_sound(global.sound_cursor_select, 0, false);
+		
+	if (global.player_id == 1) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ResultsProceed);
 		network_send_tcp_packet();
 	}
 }

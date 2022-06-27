@@ -79,6 +79,7 @@ enum ClientTCP {
 	Minigame4vs_Magic_Hold,
 	Minigame4vs_Magic_Release,
 	Minigame4vs_Mansion_Door,
+	Minigame4vs_Painting_Platform,
 	Minigame2vs2_Buttons_Button,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
@@ -100,7 +101,8 @@ enum ClientTCP {
 	ResultsBonusShineGoUp,
 	ResultsBonusShineNextBonus,
 	ResultsWon,
-	ResultsEnd
+	ResultsEnd,
+	ResultsProceed
 }
 
 enum ClientUDP {
@@ -755,6 +757,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame4vs_Painting_Platform:
+			var platform_x = buffer_read(buffer, buffer_s32);
+			var platform_y = buffer_read(buffer, buffer_s32);
+			var new_id = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Painting_Platform) {
+				if (x == platform_x && y == platform_y) {
+					platform_paint(new_id, false);
+					break;
+				}
+			}
+			break;
+			
 		case ClientTCP.Minigame1vs3_Avoid_Block:
 			var attack = buffer_read(buffer, buffer_u8);
 			
@@ -967,6 +982,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.ResultsEnd:
 			with (objResults) {
 				results_end();
+			}
+			break;
+			
+		case ClientTCP.ResultsProceed:
+			with (objResults) {
+				results_proceed();
 			}
 			break;
 		#endregion

@@ -44,6 +44,10 @@ global.board_items = [
 	new Item(ItemType.Reverse, "Reverse", "Board direction is reversed with this item.", sprItemReverse, 9),
 	new Item(ItemType.Ice, "Ice", "Completely freezes a player of your choosing.\nDisabling all actions on their turn.", sprItemIce, 12, objItemIceAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
+			if (i == global.player_turn) {
+				continue;
+			}
+			
 			if (player_info_by_turn(i).item_effect == null) {
 				return true;
 			}

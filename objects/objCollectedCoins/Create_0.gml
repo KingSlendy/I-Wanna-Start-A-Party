@@ -1,3 +1,11 @@
+if (instance_number(object_index) > 1) {
+	with (object_index) {
+		if (id != other.id) {
+			instance_destroy();
+		}
+	}
+}
+
 depth = -9999;
 y = -20;
 yt = 20;

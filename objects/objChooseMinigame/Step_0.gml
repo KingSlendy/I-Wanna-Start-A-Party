@@ -52,11 +52,10 @@ switch (state) {
 			}
 			
 			var choose_colors = [];
-			var current_choose = 0;
 			
 			if (color_count[$ c_white] > 0) {
-				var types = variable_struct_get_names(global.minigames);
-				var quantity_types = {}
+				var types = ["4vs", "1vs3", "2vs2"];
+				var quantity_types = {};
 				var percentage_types = {};
 				var total_types = 0;
 			
@@ -95,9 +94,7 @@ switch (state) {
 					chosen_type = force_type;
 				}
 				//Temp
-				
-				next_seed_inline();
-				
+
 				switch (chosen_type) {
 					case "4vs":
 						switch (color_count[$ c_white]) {
@@ -126,10 +123,8 @@ switch (state) {
 								break;
 								
 							case 4:
-								var color = choose(c_blue, c_red);
-							
 								repeat (4) {
-									array_push(choose_colors, color);
+									array_push(choose_colors, c_blue);
 								}
 								break;
 						}
@@ -149,8 +144,7 @@ switch (state) {
 								if (color_count[$ c_blue] == 2 || color_count[$ c_red] == 2) {
 									array_push(choose_colors, c_blue, c_red);
 								} else {
-									var color = choose(c_blue, c_red);
-									array_push(choose_colors, color, color);
+									array_push(choose_colors, c_blue, c_blue);
 								}
 								break;
 								
@@ -161,12 +155,10 @@ switch (state) {
 								break;
 								
 							case 4:
-								var one_color = choose(c_blue, c_red);
-								var three_color = (one_color == c_blue) ? c_red : c_blue;
-								array_push(choose_colors, one_color);
+								array_push(choose_colors, c_blue);
 								
 								repeat (3) {
-									array_push(choose_colors, three_color);
+									array_push(choose_colors, c_red);
 								}
 								break;
 						}
@@ -206,7 +198,7 @@ switch (state) {
 				}
 			}
 			
-			array_shuffle(choose_colors);
+			var current_choose = 0;
 			
 			with (objPlayerInfo) {
 				//If there's players with colors other than blue and red, it picks a random one for them
@@ -223,6 +215,19 @@ switch (state) {
 				target_draw_x = draw_x + lengthdir_x(len, dir);
 				target_draw_y = draw_y + lengthdir_y(len, dir) + ((draw_y > 304) ? -50 : 50);
 				other.alarm[0] = get_frames(1);
+			}
+			
+			var all_reds = true;
+			
+			with (objPlayerInfo) {
+				if (player_info.space != c_red) {
+					all_reds = false;
+					break;
+				}
+			}
+			
+			if (all_reds) {
+				gain_trophy(24);
 			}
 		
 			alpha = 0;

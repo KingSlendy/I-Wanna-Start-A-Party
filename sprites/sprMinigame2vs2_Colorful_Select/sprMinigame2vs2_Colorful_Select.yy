@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Colorful",
-    "path": "folders/Sprites/Objects/Minigames/1vs3/Colorful.yy",
+    "path": "folders/Sprites/Objects/Minigames/2vs2/Colorful.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprMinigame2vs2_Colorful_Select",

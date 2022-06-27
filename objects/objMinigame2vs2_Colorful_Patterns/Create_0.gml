@@ -83,6 +83,11 @@ function pattern_grid_generate() {
 	if (pattern_round == 4) {
 		minigame2vs2_points(pattern_player_ids[0], pattern_player_ids[1]);
 		minigame_finish();
+		
+		if (array_contains(pattern_player_ids, global.player_id) && objMinigameController.trophy_found) {
+			gain_trophy(22);
+		}
+		
 		return;
 	}
 	
@@ -143,6 +148,10 @@ function pattern_move_horizontal(index, h, network = true) {
 }
 
 function pattern_select(index, network = true) {
+	if (alarm[0] != -1) {
+		exit;
+	}
+	
 	var player_id = pattern_player_ids[index];
 	pattern_selected[index] ^= true;
 			
@@ -150,6 +159,12 @@ function pattern_select(index, network = true) {
 		var player = focus_player_by_id(player_id);
 		player.teammate.find_timer *= 0.25;
 		player.teammate.find_timer = ceil(player.teammate.find_timer);
+		
+		if (player_id == global.player_id) {
+			if (pattern_selected[!index]) {
+				objMinigameController.trophy_found = false;
+			}
+		}
 	}
 			
 	audio_play_sound(sndMinigame2vs2_Colorful_PatternSelect, 0, false);

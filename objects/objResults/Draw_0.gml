@@ -1,5 +1,5 @@
 for (var i = 0; i < global.player_max; i++) {
-	var color = player_color_by_turn(i + 1);
+	var color = player_color_by_turn(player_info_by_id(i + 1).turn);
 	draw_sprite_ext(sprPartyLightReflector, 0, 230 + 110 * i, 200, 1, 1, 10 * dsin(lights_angle[i]), color, 1);
 	
 	if (focus_player_by_turn(i + 1).lost) {

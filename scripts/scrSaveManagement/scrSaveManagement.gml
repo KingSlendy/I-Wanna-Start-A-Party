@@ -108,7 +108,6 @@ function save_board() {
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_position: [objShine.x, objShine.y],
 			saved_spaces: [],
-			saved_minigame_type_history: global.minigame_type_history,
 			saved_bonus_shines: {}
 		},
 		

@@ -9,7 +9,6 @@ if (!global.board_started) {
 		global.max_board_turns = board.saved_board.saved_max_turns;
 		global.board_turn = board.saved_board.saved_turn;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
-		global.minigame_type_history = board.saved_board.saved_minigame_type_history;
 		var names = variable_struct_get_names(global.bonus_shines);
 			
 		for (var i = 0; i < array_length(names); i++) {

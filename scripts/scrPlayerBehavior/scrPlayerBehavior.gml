@@ -1,5 +1,5 @@
 function player_jump() {
-	if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform)) {
+	if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y, objMinigame4vs_Painting_Platform)) {
 		vspd = -(jump_height[0] * orientation);
 		sprite_index = skin[$ "Jump"];
 		reset_jumps();

@@ -24,12 +24,12 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = 3;
-	//self.coins = 100;
+	//self.shines = irandom_range(0, 6);
+	//self.coins = irandom_range(0, 100);
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.items = [global.board_items[ItemType.DoubleDice], global.board_items[ItemType.TripleDice], null];
+	//self.items = [global.board_items[ItemType.Reverse], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -427,6 +427,7 @@ function turn_next(network = true) {
 	}
 	
 	instance_create_layer(0, 0, "Managers", objNextTurn);
+	instance_destroy(objInterface);
 	instance_destroy(objDiceRoll);
 	instance_destroy(objHiddenChest);
 }
@@ -491,15 +492,16 @@ function space_path_finding(space, path_spaces) {
 		}
 		
 		visited = true;
+		var space_directions = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
 
-		for (var i = 0; i < array_length(space_directions_normal); i++) {
-			var space_normal_next = space_directions_normal[i];
+		for (var i = 0; i < array_length(space_directions); i++) {
+			var space_check = space_directions[i];
 				
-			if (space_normal_next == null) {
+			if (space_check == null) {
 				continue;
 			}
 				
-			space_path_finding(space_normal_next, path_spaces);
+			space_path_finding(space_check, path_spaces);
 		}
 		
 		visited = false;
@@ -713,7 +715,7 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 			global.collected_coins += amount;
 		}
 		
-		bonus_shine_by_id("most_coins").increase_score(c.network_id);
+		bonus_shine_by_id("most_coins").increase_score(c.network_id, amount);
 	}
 	
 	if (is_local_turn()) {
@@ -833,7 +835,7 @@ function item_applied(item) {
 			case ItemType.Ice:
 				show_multiple_player_choices(function(i) {
 					return (player_info_by_turn(i).item_effect == null);
-				}, false).final_action = function() {
+				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
 				}
 				break;
@@ -1094,7 +1096,7 @@ function all_item_stats(player_info) {
 			array_push(item_names, item.name);
 			array_push(item_sprites, "{SPRITE," + sprite_get_name(item.sprite) + ",0,-32,-32,1,1}");
 			array_push(item_descs, item.desc);
-			array_push(item_availables, item.use_criteria());
+			array_push(item_availables, (array_length(player_info.items) <= 3) ? item.use_criteria() : true);
 		}
 	}
 	

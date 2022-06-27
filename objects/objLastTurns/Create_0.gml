@@ -105,8 +105,8 @@ function help_last_place() {
 	with (objPlayerInfo) {
 		if (order == 4) {
 			var player = focus_player_by_id(player_info.network_id);
-			player.x = other.focus_player.x;
-			player.y = other.focus_player.y;
+			player.x = other.focus_player.x + 17;
+			player.y = other.focus_player.y + 23;
 			global.player_turn = player_info.turn;
 			break;
 		}
@@ -132,7 +132,7 @@ function give_last_place() {
 }
 
 function spawn_last_turns_box() {
-	instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objLastTurnsBox);
+	instance_create_layer(focus_player.x + 17, focus_player.y + 23 - 37, "Actors", objLastTurnsBox);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();

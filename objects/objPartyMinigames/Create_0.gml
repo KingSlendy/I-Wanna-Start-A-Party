@@ -30,6 +30,9 @@ for (var i = 0; i < array_length(global.skins); i++) {
 skin_player = 0;
 skin_selected = array_create(global.player_max, null);
 
+global.max_board_turns = 20;
+global.give_bonus_shines = true;
+
 board_selected = 0;
 board_target_selected = 0;
 board_w = 352;
@@ -112,7 +115,7 @@ minigame_colors = [
 	[1, 2],
 ];
 
-var names = variable_struct_get_names(global.minigames);
+var names = ["4vs", "1vs3", "2vs2"];
 
 if (room == rMinigames) {
 	for (var i = 0; i < array_length(names); i++) {

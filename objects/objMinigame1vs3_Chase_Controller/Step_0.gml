@@ -13,7 +13,11 @@ for (var i = 0; i < array_length(press_actions); i++) {
 		if (global.actions[$ action].pressed(points_teams[1][0].network_id) || (array_length(network_solo_actions) > 0 && network_solo_actions[0] == action)) {
 			if (action == solo_action) {
 				with (points_teams[1][0]) {
-					hspeed = 3;
+					if (is_player_local(network_id)) {
+						if (network_id) {
+							hspeed = 4;
+						}
+					}
 				}
 				
 				solo_correct = true;
@@ -31,17 +35,17 @@ for (var i = 0; i < array_length(press_actions); i++) {
 			} else {
 				array_delete(network_solo_actions, 0, 1);
 			}
-			
-			break;
 		}
 	}
 
 	if (team_action != null && !team_correct && !team_wrong) {
-		if (global.actions[$ action].pressed(points_teams[0][team_turn].network_id)  || (array_length(network_team_actions) > 0 && network_team_actions[0] == action)) {
+		if (global.actions[$ action].pressed(points_teams[0][team_turn].network_id) || (array_length(network_team_actions) > 0 && network_team_actions[0] == action)) {
 			if (action == team_action) {
 				for (var j = 0; j < array_length(points_teams[0]); j++) {
 					with (points_teams[0][j]) {
-						hspeed = 3;
+						if (is_player_local(network_id)) {
+							hspeed = 3;
+						}
 					}
 				}
 				
@@ -65,8 +69,6 @@ for (var i = 0; i < array_length(press_actions); i++) {
 			} else {
 				array_delete(network_team_actions, 0, 1);
 			}
-			
-			break;
 		}
 	}
 }

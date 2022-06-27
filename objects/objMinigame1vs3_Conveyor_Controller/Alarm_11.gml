@@ -12,6 +12,9 @@ for (var i = 2; i <= global.player_max; i++) {
 	var player = focus_player_by_id(i);
 	
 	with (player) {
+		var me_x = x - 1;
+		var me_y = y - 7;
+		
 		if (y < 288) {
 			if (move_delay_timer > 0) {
 				move_delay_timer--;
@@ -21,9 +24,6 @@ for (var i = 2; i <= global.player_max; i++) {
 			if (chosed_conveyor == -1) {
 				chosed_conveyor = choose(320, 384, 448) + 16;
 			}
-
-			var me_x = x - 1;
-			var me_y = y - 7;
 			
 			if (point_distance(me_x, me_y, chosed_conveyor, me_y) > 3) {
 				var dir = floor(point_direction(me_x, me_y, chosed_conveyor, me_y));
@@ -42,7 +42,17 @@ for (var i = 2; i <= global.player_max; i++) {
 			}
 			
 			if (action != null) {
-				action.hold(irandom_range(2, 6));
+				action.hold(irandom_range(get_frames(0.1), get_frames(0.2)));
+			} else {
+				var dist = point_distance(me_x, me_y, 400, me_y);
+				
+				if (dist > 64) {
+					var dir = point_direction(me_x, me_y, 400, me_y);
+					var action = (dir == 0) ? actions.right : actions.left;
+					actions.left.release();
+					actions.right.release();
+					action.hold(irandom_range(get_frames(0.1), get_frames(0.2)));
+				}
 			}
 		}
 	}

@@ -16,10 +16,11 @@ function minigame_init() {
 		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
 		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
 		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
+		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT")
 	];
 
 	m[$ "1vs3"] = [
-		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "Avoidance"),
+		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
 		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
 		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),

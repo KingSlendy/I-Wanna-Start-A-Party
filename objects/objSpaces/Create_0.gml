@@ -167,6 +167,10 @@ function space_finish_event() {
 		case SpaceType.Red:
 			change_coins(-((global.board_turn <= global.max_board_turns - 5) ? 3 : 6), CoinChangeType.Lose).final_action = turn_next;
 			bonus_shine_by_id("most_red_spaces").increase_score();
+			
+			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
+				gain_trophy(23);
+			}
 			break;
 			
 		case SpaceType.Green:

@@ -7,6 +7,8 @@ with (objPlayerBase) {
 	enable_shoot = false;
 	door = null;
 	fade = -1;
+	entered = [];
+	target = null;
 }
 
 event_inherited();

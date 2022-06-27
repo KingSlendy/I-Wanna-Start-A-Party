@@ -20,13 +20,14 @@ with (objPlayerBase) {
 	if (fade == -1) {
 		if (other.image_index >= other.image_number - 1) {
 			fade = 0;
+			target = null;
 		}
 	} else if (fade == 0) {
 		image_alpha -= 0.04;
 		
 		if (image_alpha <= 0) {
 			x = other.link.x + 64 + 1;
-			y = other.link.y + 96 - 23;
+			y = other.link.y + 96 - 9;
 			
 			with (other.link) {
 				open_door();
@@ -35,7 +36,7 @@ with (objPlayerBase) {
 			door = other.link;
 			fade = 1;
 			
-			if (other.y == other.link.y) {
+			if (network_id == global.player_id && other.y == other.link.y) {
 				objMinigameController.trophy_doors = false;
 			}
 		}

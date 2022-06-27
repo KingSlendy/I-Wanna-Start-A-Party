@@ -9,8 +9,8 @@ function BonusShine(sprite, index, text) constructor {
 	
 	self.reset_scores();
 	
-	static increase_score = function(player_id = focused_player().network_id) {
-		self.scores[player_id - 1]++;
+	static increase_score = function(player_id = focused_player().network_id, amount = 1) {
+		self.scores[player_id - 1] += amount;
 	}
 	
 	static set_score = function(score, player_id = focused_player().network_id) {

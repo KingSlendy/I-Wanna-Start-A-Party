@@ -14,7 +14,7 @@ function skin_init() {
 		new Skin("Normal", "The Kid", "I Wanna Be The Guy", 1, "Kayin", 0),
 		new Skin("Crimson", "Crimson Kid", "I Wanna Be The Crimson", 2, "Carnival", 0),
 		new Skin("Tribute", "Tribute Kid", "I Wanna Be The Tribute", 3, "shaman666", 0),
-		new Skin("Justice", "Justice Kid", "I Wanna Be The Justice", 4, "Carnival", 0),
+		new Skin("Demon", "Demon Kid", "I Wanna Be The Justice", 4, "Carnival", 0),
 		new Skin("Sepia", "Sepia Kid", "Sepia Needle", 5, "Kogami Takara"),
 		new Skin("Shiver", "Shiver Kid", "I Wanna Shiver", 6, "PlasmaNapkin", 200),
 		new Skin("Kitten", "The Kitten", "I Wanna Be The Cat", 7, "Nemega", 400),
@@ -58,7 +58,23 @@ function skin_init() {
 		new Skin("Erina", "Erina", "Erina Mou Tsuyokunatta!", 35, "Komichi Aya", 600),
 		new Skin("MasterR", "MasterR", "I Wanna Be Myself", 36, "SirRouven", 400),
 		new Skin("8bit", "8 Bit Kid", "I Wanna Be The 8bit", 37, "Sephalos", 500),
-		new Skin("Spiritia", "Spiritia Rosenberg", "The Mage's Lair", 38, "BlueMage0", 600)
+		new Skin("Spiritia", "Spiritia Rosenberg", "The Mage's Lair", 38, "BlueMage0", 600),
+		new Skin("Glitch", "Glitch Kid", "Soulless", 39, "Redire", 400),
+		new Skin("Angel", "Angel Kid", "I Wanna Be The HeavenTrap", 40, "Carnival", 400),
+		new Skin("Satan", "Satan Kid", "I Wanna Be The HeavenTrap 2", 41, "Carnival", 400),
+		new Skin("Farewell", "Farewell Kid", "I Wanna Be The Farewell", 42, "azure", 400),
+		new Skin("Owata", "Owata", "I Wanna Be The Guy Re.", 43, "Natsu", 500),
+		new Skin("Bread", "The Bread", "I Wanna Bread", 44, "Patrickgh3", 500),
+		new Skin("Critic", "Critic", "I Wanna Kill The 3sweepor", 45, "RandomErik", 400),
+		new Skin("Troller", "The Troller", "I Wanna Kill The 3sweepor", 45, "RandomErik", 300),
+		new Skin("Explorer", "Explorer Kid", "I Wanna Be The Explorer", 46, "Hone", 200),
+		new Skin("Syobon", "Syobon Cat", "Original", 0, "SergioGameMaker", 500),
+		new Skin("Cute", "Cute Girl", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
+		new Skin("Stand", "Kid And Stand", "I Wanna Nonamed Spike 2", 47, "Nyinmir", 400),
+		new Skin("PD", "PDPlayer Kid", "I Wanna Nonamed Spike 2", 47, "PDPlayer", 500),
+		new Skin("Round", "Round Kid", "I Wanna Nonamed Spike 2", 47, "Dengol", 300),
+		new Skin("Science", "Science Kid", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
+		new Skin("Soap", "Soap", "I Wanna Nonamed Spike 2", 47, "Soap", 300)
 	];
 }
 
