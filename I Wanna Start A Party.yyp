@@ -348,6 +348,7 @@
     {"id":{"name":"sprDiverPlayerFall","path":"sprites/sprDiverPlayerFall/sprDiverPlayerFall.yy",},"order":3,},
     {"id":{"name":"sndMinigame2vs2_Colorful_PatternSelect","path":"sounds/sndMinigame2vs2_Colorful_PatternSelect/sndMinigame2vs2_Colorful_PatternSelect.yy",},"order":1,},
     {"id":{"name":"fntTrophiesDesc","path":"fonts/fntTrophiesDesc/fntTrophiesDesc.yy",},"order":8,},
+    {"id":{"name":"sprShop456","path":"sprites/sprShop456/sprShop456.yy",},"order":7,},
     {"id":{"name":"rMinigame4vs_Painting","path":"rooms/rMinigame4vs_Painting/rMinigame4vs_Painting.yy",},"order":5,},
     {"id":{"name":"objMinigame1vs3_Showdown_Block","path":"objects/objMinigame1vs3_Showdown_Block/objMinigame1vs3_Showdown_Block.yy",},"order":1,},
     {"id":{"name":"sprExplorerPlayerFall","path":"sprites/sprExplorerPlayerFall/sprExplorerPlayerFall.yy",},"order":3,},
@@ -1138,7 +1139,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.3.0.625",
+    "IDEVersion": "2022.5.1.16",
   },
   "resourceVersion": "1.5",
   "name": "I Wanna Start A Party",
