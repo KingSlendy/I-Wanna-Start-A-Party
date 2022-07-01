@@ -27,10 +27,8 @@ global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
 
 //Bonus values
-var names = variable_struct_get_names(global.bonus_shines);
-
-for (var i = 0; i < array_length(names); i++) {
-	global.bonus_shines[$ names[i]].reset_scores();
+for (var i = 0; i < array_length(global.bonus_shines); i++) {
+	global.bonus_shines[i].reset_scores();
 }
 
 for (var i = 0; i < global.player_max; i++) {

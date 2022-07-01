@@ -154,6 +154,8 @@ with (objPlayerBase) {
 	path = path_add();
 	move_delay_timer = 0;
 	jump_delay_timer = 0;
+	xstart = x;
+	ystart = y;
 }
 
 objCameraSplit4.boundaries = true;

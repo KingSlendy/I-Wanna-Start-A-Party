@@ -16,6 +16,23 @@ if (spawning) {
 		spawning = false;
 		floating = true;
 	}
+} else {
+	if (losing) {
+		image_xscale -= 0.03;
+		image_yscale -= 0.03;
+	
+		if (image_xscale <= 0) {
+			if (!faker) {
+				if (!instance_exists(objBoardHotlandAnnoyingDog)) {
+					objShineChange.alarm[11] = 1;
+				} else {
+					objBoardHotlandAnnoyingDog.alarm[0] = get_frames(0.5);
+				}
+			}
+			
+			instance_destroy();
+		}
+	}
 }
 
 if (getting) {
@@ -32,14 +49,4 @@ if (getting) {
 	}
 	
 	vspeed = 1;
-}
-
-if (losing) {
-	image_xscale -= 0.03;
-	image_yscale -= 0.03;
-	
-	if (image_xscale <= 0) {
-		objShineChange.alarm[11] = 1;
-		instance_destroy();
-	}
 }

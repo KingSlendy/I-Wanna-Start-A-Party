@@ -1,8 +1,6 @@
 depth = -999;
 
-show_popup("TIMES UP");
-audio_play_sound(sndMinigameTimesUp, 0, false);
-music_stop();
+minigame_times_up();
 objPlayerBase.frozen = true;
 
 view_visible[6] = true;

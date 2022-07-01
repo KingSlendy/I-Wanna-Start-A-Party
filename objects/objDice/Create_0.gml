@@ -36,7 +36,10 @@ function random_roll() {
 	} until (roll != previous);
 	
 	//roll = max_roll;
-	//roll = 1;
+	
+	if (global.board_started) {
+		roll = 100;
+	}
 }
 
 roll = 0;

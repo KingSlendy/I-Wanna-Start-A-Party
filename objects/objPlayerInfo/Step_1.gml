@@ -1,6 +1,9 @@
 var player = focus_player_by_id(player_info.network_id);
-player.image_speed = 1;
-player.image_blend = c_white;
+
+if (player != null) {
+	player.image_speed = 1;
+	player.image_blend = c_white;
+}
 
 if (!IS_BOARD) {
 	exit;

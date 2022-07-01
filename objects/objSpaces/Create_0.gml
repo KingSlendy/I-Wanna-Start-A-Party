@@ -87,6 +87,11 @@ function space_passing_event() {
 			if (player_info.coins >= global.shine_price) {
 				var buy_shine = function() {
 					change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
+						if (room == rBoardHotland && instance_number(objShine) > 1 && irandom(1) == 0) {
+							board_hotland_annoying_dog();
+							return;
+						}
+						
 						change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 					}
 				}
@@ -161,12 +166,12 @@ function space_finish_event() {
 			}
 			
 			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
-			bonus_shine_by_id("most_blue_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostBlueSpaces).increase_score();
 			break;
 			
 		case SpaceType.Red:
 			change_coins(-((global.board_turn <= global.max_board_turns - 5) ? 3 : 6), CoinChangeType.Lose).final_action = turn_next;
-			bonus_shine_by_id("most_red_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostRedSpaces).increase_score();
 			
 			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
 				gain_trophy(23);
@@ -182,7 +187,7 @@ function space_finish_event() {
 				change_coins(-6, CoinChangeType.Lose).final_action = turn_next;
 			}
 			
-			bonus_shine_by_id("most_green_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostGreenSpaces).increase_score();
 			break;
 			
 		case SpaceType.Item:
@@ -197,17 +202,17 @@ function space_finish_event() {
 			}
 		
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
-			bonus_shine_by_id("most_item_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostItemSpaces).increase_score();
 			break;
 			
 		case SpaceType.ChanceTime:
 			start_chance_time();
-			bonus_shine_by_id("most_chance_time_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostChanceTimeSpaces).increase_score();
 			break;
 			
 		case SpaceType.TheGuy:
 			start_the_guy();
-			bonus_shine_by_id("most_the_guy_spaces").increase_score();
+			bonus_shine_by_id(BonusShines.MostTheGuySpaces).increase_score();
 			break;
 	}
 }

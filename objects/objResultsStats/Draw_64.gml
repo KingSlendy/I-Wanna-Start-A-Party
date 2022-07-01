@@ -11,7 +11,7 @@ draw_set_font(fntFilesButtons);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-for (var i = 0; i < array_length(stats_bonuses); i++) {
+for (var i = 0; i < array_length(global.bonus_shines); i++) {
 	var draw_x = stats_x + i * 80;
 	var draw_y = 80;
 	
@@ -22,16 +22,10 @@ for (var i = 0; i < array_length(stats_bonuses); i++) {
 		var draw_alpha = (dist < 80) ? remap(dist, 0, 80, 1, 0) : 0;
 	}
 	
-	var bonus = global.bonus_shines[$ stats_bonuses[i]];
+	var bonus = global.bonus_shines[i];
 	draw_set_alpha(draw_alpha);
 	draw_sprite_stretched(sprResultsMark, 0, draw_x, draw_y, 64, 64);
-	var xoff = sprite_get_xoffset(bonus.sprite);
-	var yoff = sprite_get_yoffset(bonus.sprite);
-	var w = sprite_get_width(bonus.sprite);
-	var h = sprite_get_height(bonus.sprite);
-	sprite_set_offset(bonus.sprite, w / 2, h / 2);
-	draw_sprite_stretched(bonus.sprite, bonus.index, draw_x + 8, draw_y + 8, 48, 48);
-	sprite_set_offset(bonus.sprite, xoff, yoff);
+	draw_sprite_stretched(sprResultsBonus, bonus.index, draw_x + 8, draw_y + 8, 48, 48);
 	draw_sprite_stretched(sprResultsMarkStats, 0, draw_x, draw_y + 70, 64, 390);
 	
 	for (var j = 1; j <= global.player_max; j++) {
@@ -66,6 +60,6 @@ if (show_inputs) {
 		draw_sprite_ext(bind_to_key(global.actions.right.button), 0, 760, 570, 0.5, 0.5, 0, c_white, 1);
 	}
 	
-	var text = new Text(fntDialogue, draw_action(global.actions.jump) + ": Proceed");
+	var text = new Text(fntDialogue, draw_action(global.actions.jump) + ": {COLOR,00FFFFF}Proceed");
 	text.draw(50, 565);
 }

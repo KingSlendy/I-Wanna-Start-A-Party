@@ -8,6 +8,7 @@ dir_y_float = 0;
 dir_angle_float = 90;
 getting = false;
 losing = false;
+faker = false;
 
 if (room == rBoardIsland && !global.board_day) {
 	sprite_index = sprShineNight;

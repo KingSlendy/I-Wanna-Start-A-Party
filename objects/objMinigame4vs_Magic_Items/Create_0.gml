@@ -23,6 +23,7 @@ function hold_item(network = true) {
 		}
 	}
 	
+	vspd = 0;
 	held = true;
 	
 	if (network) {
@@ -45,10 +46,10 @@ function release_item(place = true, network = true) {
 		
 		holder.item = order;
 	} else {
-		vspd = 0;
 		grav = 0.1;
 	}
 	
+	vspd = 0;
 	held = false;
 	
 	with (object_index) {

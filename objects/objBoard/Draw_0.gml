@@ -7,15 +7,19 @@ var draw_player = function(player) {
 }
 
 if (IS_BOARD) {
-	var focus_player = (global.board_started) ? focus_player_by_turn : focus_player_by_id;
-	
-	for (var i = 1; i <= global.player_max; i++) {
-		if (i == global.player_turn) {
-			continue;
+	if (!global.board_started) {
+		for (var i = 1; i <= global.player_max; i++) {
+			draw_player(focus_player_by_id(i));
 		}
+	} else {
+		for (var i = 1; i <= global.player_max; i++) {
+			if (i == global.player_turn) {
+				continue;
+			}
 		
-		draw_player(focus_player(i));
-	}
+			draw_player(focus_player_by_turn(i));
+		}
 	
-	draw_player(focus_player());
+		draw_player(focus_player_by_turn());
+	}
 }

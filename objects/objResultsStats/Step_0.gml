@@ -8,7 +8,7 @@ if (point_distance(stats_x, 0, stats_target_x, 0) < 0.5) {
 }
 
 if (!objResults.fade_start && show_inputs && stats_x == stats_target_x) {
-	var scroll = (global.actions.right.pressed(1) - global.actions.left.pressed(1));
+	var scroll = (global.actions.right.pressed(global.player_id) - global.actions.left.pressed(global.player_id));
 
 	if (scroll != 0) {
 		if ((scroll < 0 && stats_page > 0) || (scroll > 0 && stats_page < stats_total_page)) {

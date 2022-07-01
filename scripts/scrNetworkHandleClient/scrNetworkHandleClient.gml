@@ -64,6 +64,7 @@ enum ClientTCP {
 	LastTurnsSayPlayerPlace,
 	LastTurnsHelpLastPlace,
 	LastTurnsEndLastTurns,
+	BoardHotlandAnnoyingDog,
 	
 	//Animations
 	ItemApplied,
@@ -80,7 +81,7 @@ enum ClientTCP {
 	Minigame4vs_Magic_Release,
 	Minigame4vs_Mansion_Door,
 	Minigame4vs_Painting_Platform,
-	Minigame2vs2_Buttons_Button,
+	Minigame4vs_Bugs_Counting,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
@@ -91,12 +92,12 @@ enum ClientTCP {
 	Minigame1vs3_Chase_Team,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
+	Minigame2vs2_Buttons_Button,
 	Minigame2vs2_Colorful_PatternMoveVertical,
 	Minigame2vs2_Colorful_PatternMoveHorizontal,
 	Minigame2vs2_Colorful_PatternSelect,
 	
 	//Results
-	ResultsCoins,
 	ResultsBonus,
 	ResultsBonusShineGoUp,
 	ResultsBonusShineNextBonus,
@@ -638,6 +639,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				end_last_turns();
 			}
 			break;
+			
+		case ClientTCP.BoardHotlandAnnoyingDog:
+			board_hotland_annoying_dog();
+			break;
 		#endregion
 			
 		#region Animations
@@ -765,6 +770,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objMinigame4vs_Painting_Platform) {
 				if (x == platform_x && y == platform_y) {
 					platform_paint(new_id, false);
+					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Bugs_Counting:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var count = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Bugs_Counting) {
+				if (network_id == player_id) {
+					self.count = count;
 					break;
 				}
 			}
@@ -940,21 +957,15 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		#endregion
 		
 		#region Results
-		case ClientTCP.ResultsCoins:
-			with (objResults) {
-				results_coins();
-			}
-			break;
-			
 		case ClientTCP.ResultsBonus:
 			var player_id = buffer_read(buffer, buffer_u8);
-			var scores_ids = buffer_read_array(buffer, buffer_string);
 			var scores_scores = buffer_read_array(buffer, buffer_s32);
-			global.bonus_shines_ready[player_id - 1] = true;
 			
-			for (var i = 0; i < array_length(scores_ids); i++) {
-				global.bonus_shines[$ scores_ids[i]].scores[player_id - 1] = scores_scores[i];
+			for (var i = 0; i < array_length(global.bonus_shines); i++) {
+				global.bonus_shines[i].scores[player_id - 1] = scores_scores[i];
 			}
+			
+			global.bonus_shines_ready[player_id - 1] = true;
 		
 			with (objResults) {
 				results_bonus();

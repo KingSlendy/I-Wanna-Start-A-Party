@@ -1,5 +1,4 @@
-function BonusShine(sprite, index, text) constructor {
-	self.sprite = sprite;
+function BonusShine(index, text) constructor {
 	self.index = index;
 	self.text = text;
 	
@@ -39,22 +38,36 @@ function BonusShine(sprite, index, text) constructor {
 	}
 }
 
-global.bonus_shines = {
-	most_coins: new BonusShine(sprCoin, 0, "got the most coins"),
-	most_items: new BonusShine(sprItemItemBag, 0, "used items the most"),
-	most_minigames: new BonusShine(sprModesMinigames, 0, "won the most minigames"),
-	most_roll: new BonusShine(sprDie, 0, "rolled the biggest numbers on the dice"),
-	most_blue_spaces: new BonusShine(sprSpaces, 0, "landed on the most Blue spaces"),
-	most_red_spaces: new BonusShine(sprSpaces, 1, "landed on the most Red spaces"),
-	most_green_spaces: new BonusShine(sprSpaces, 2, "landed on the most Green spaces"),
-	most_item_spaces: new BonusShine(sprSpaces, 5, "landed on the most Item spaces"),
-	most_chance_time_spaces: new BonusShine(sprSpaces, 7, "landed on the most Chance Time spaces"),
-	most_the_guy_spaces: new BonusShine(sprSpaces, 8, "landed on the most The Guy spaces"),
-	most_purchases: new BonusShine(sprShop, 0, "purchased the most items in the shop")
-};
+enum BonusShines {
+	MostCoins,
+	MostItems,
+	MostMinigames,
+	MostRoll,
+	MostBlueSpaces,
+	MostRedSpaces,
+	MostGreenSpaces,
+	MostItemSpaces,
+	MostChanceTimeSpaces,
+	MostTheGuySpaces,
+	MostPurchases
+}
+
+global.bonus_shines = [
+	new BonusShine(0, "got the most Coins"),
+	new BonusShine(1, "used the most Items"),
+	new BonusShine(2, "won the most Minigames"),
+	new BonusShine(3, "rolled the biggest Numbers on the die"),
+	new BonusShine(4, "landed on the most Blue spaces"),
+	new BonusShine(5, "landed on the most Red spaces"),
+	new BonusShine(6, "landed on the most Green spaces"),
+	new BonusShine(7, "landed on the most Item spaces"),
+	new BonusShine(8, "landed on the most Chance Time spaces"),
+	new BonusShine(9, "landed on the most The Guy spaces"),
+	new BonusShine(10, "spent the most money on the Shop")
+];
 
 global.bonus_shines_ready = array_create(global.player_max, false);
 
 function bonus_shine_by_id(bonus_id) {
-	return global.bonus_shines[$ bonus_id];
+	return global.bonus_shines[bonus_id];
 }

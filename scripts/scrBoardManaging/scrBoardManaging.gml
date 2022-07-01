@@ -24,15 +24,16 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = irandom_range(0, 6);
-	//self.coins = irandom_range(0, 100);
 	self.shines = 0;
-	self.coins = 0;
+	self.coins = 100;
+	//self.shines = 0;
+	//self.coins = 0;
 	self.items = array_create(3, null);
 	//self.items = [global.board_items[ItemType.Reverse], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
+	self.item_used = false;
 	self.item_used = false;
 	self.item_effect = null;
 	
@@ -579,7 +580,7 @@ function roll_dice() {
 	
 	if (global.board_started) {
 		var player_info = player_info_by_turn();
-		bonus_shine_by_id("most_roll").set_score(roll);
+		bonus_shine_by_id(BonusShines.MostRoll).increase_score(focused_player().network_id, roll);
 	} else {
 		var player_info = {item_effect: -1};
 	}
@@ -715,7 +716,7 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 			global.collected_coins += amount;
 		}
 		
-		bonus_shine_by_id("most_coins").increase_score(c.network_id, amount);
+		bonus_shine_by_id(BonusShines.MostCoins).increase_score(c.network_id, amount);
 	}
 	
 	if (is_local_turn()) {
@@ -956,6 +957,14 @@ function call_shop() {
 function call_blackhole() {
 	var player_info = player_info_by_turn();
 	
+	if (room == rBoardIsland && global.board_day) {
+		start_dialogue([
+			new Message("I hate the day... please come back when it's nighttime.",, board_advance)
+		]);
+		
+		exit;
+	}
+	
 	if (player_info.coins >= global.min_blackhole_coins) {
 		start_dialogue([
 			new Message("Do you wanna use the blackhole?", [
@@ -1111,7 +1120,7 @@ function all_item_stats(player_info) {
 
 #region Event Management
 function choose_shine() {
-	if (instance_exists(objShine)) {
+	if (instance_exists(objShine) && (room != rBoardHotland)) {
 		return;
 	}
 	
@@ -1136,9 +1145,11 @@ function choose_shine() {
 }
 
 function place_shine(space_x, space_y) {
-	with (objSpaces) {
-		if (space_shine) {
-			image_index = SpaceType.Blue;
+	if (room != rBoardHotland || !instance_exists(objShine)) { 
+		with (objSpaces) {
+			if (space_shine) {
+				image_index = SpaceType.Blue;
+			}
 		}
 	}
 			
@@ -1170,6 +1181,16 @@ function start_the_guy() {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.StartTheGuy);
+		network_send_tcp_packet();
+	}
+}
+
+function board_hotland_annoying_dog() {
+	instance_create_layer(0, 0, "Managers", objBoardHotlandAnnoyingDog);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardHotlandAnnoyingDog);
 		network_send_tcp_packet();
 	}
 }

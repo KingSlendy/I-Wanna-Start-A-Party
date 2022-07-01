@@ -106,7 +106,7 @@ function save_board() {
 			saved_max_turns: global.max_board_turns,
 			saved_turn: global.board_turn,
 			saved_give_bonus_shines: global.give_bonus_shines,
-			saved_shine_position: [objShine.x, objShine.y],
+			saved_shine_positions: [],
 			saved_spaces: [],
 			saved_bonus_shines: {}
 		},
@@ -114,14 +114,16 @@ function save_board() {
 		saved_players: array_create(global.player_max, null)
 	};
 	
+	with (objShine) {
+		array_push(board.saved_board.saved_shine_positions, [x, y]);
+	}
+	
 	with (objSpaces) {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
 	}
 	
-	var names = variable_struct_get_names(global.bonus_shines);
-	
-	for (var i = 0; i < array_length(names); i++) {
-		board.saved_board.saved_bonus_shines[$ names[i]] = global.bonus_shines[$ names[i]].scores;
+	for (var i = 0; i < array_length(global.bonus_shines); i++) {
+		board.saved_board.saved_bonus_shines[i] = global.bonus_shines[i].scores;
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {

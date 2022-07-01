@@ -76,7 +76,7 @@ if (shopping && is_local_turn()) {
 							}
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = action;
-							bonus_shine_by_id("most_purchases").increase_score();
+							bonus_shine_by_id(BonusShines.MostPurchases).increase_score(focused_player().network_id, item_selected.price);
 						})
 					]],
 				

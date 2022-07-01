@@ -38,12 +38,6 @@ function results_coins() {
 	}
 	
 	alarm[0] = get_frames(3.3);
-	
-	if (global.player_id == 1) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.ResultsCoins);
-		network_send_tcp_packet();
-	}
 }
 
 function results_bonus() {
@@ -54,16 +48,12 @@ function results_bonus() {
 				buffer_write_action(ClientTCP.ResultsBonus);
 				buffer_write_data(buffer_u8, i);
 				global.bonus_shines_ready[i - 1] = true;
-				var names = variable_struct_get_names(global.bonus_shines);
-				var scores_ids = [];
 				var scores_scores = [];
 			
-				for (var j = 0; j < array_length(names); j++) {
-					array_push(scores_ids, names[j]);
-					array_push(scores_scores, global.bonus_shines[$ names[j]].scores[i - 1]);
+				for (var j = 0; j < array_length(global.bonus_shines); j++) {
+					array_push(scores_scores, global.bonus_shines[j].scores[i - 1]);
 				}
 			
-				buffer_write_array(buffer_string, scores_ids);
 				buffer_write_array(buffer_s32, scores_scores);
 				network_send_tcp_packet();
 			}
@@ -75,11 +65,9 @@ function results_bonus() {
 	if (array_count(global.bonus_shines_ready, true) == global.player_max) {
 		if (array_length(bonus_candidates) == 0) {
 			next_seed_inline();
-			
-			var names = variable_struct_get_names(global.bonus_shines);
 		
-			for (var i = 0; i < array_length(names); i++) {
-				var bonus = global.bonus_shines[$ names[i]];
+			for (var i = 0; i < array_length(global.bonus_shines); i++) {
+				var bonus = global.bonus_shines[i];
 		
 				if (bonus.is_candidate()) {
 					array_push(bonus_candidates, bonus);
@@ -88,7 +76,7 @@ function results_bonus() {
 		
 			array_shuffle(bonus_candidates);
 		}
-	
+		
 		alarm[3] = get_frames(0.25);
 	}
 }

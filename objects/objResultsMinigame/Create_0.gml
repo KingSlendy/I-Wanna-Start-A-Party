@@ -52,9 +52,13 @@ for (var i = 0; i < array_length(info.space_indexes); i++) {
 	}
 }
 
-with (instance_create_layer(info.shine_position.x, info.shine_position.y, "Actors", objShine)) {
-	image_xscale = 1;
-	image_yscale = 1;
-	spawning = false;
-	floating = true;
+for (var i = 0; i < array_length(info.shine_positions); i++) {
+	var position = info.shine_positions[i];
+	
+	with (instance_create_layer(position[0], position[1], "Actors", objShine)) {
+		image_xscale = 1;
+		image_yscale = 1;
+		spawning = false;
+		floating = true;
+	}
 }

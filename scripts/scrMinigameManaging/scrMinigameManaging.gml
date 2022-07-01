@@ -16,7 +16,8 @@ function minigame_init() {
 		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
 		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
 		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT")
+		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
+		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug")
 	];
 
 	m[$ "1vs3"] = [
@@ -48,7 +49,7 @@ function minigame_info_reset() {
 		previous_board: null,
 		player_positions: [],
 		space_indexes: [],
-		shine_position: {x: 0, y: 0}
+		shine_positions: []
 	}
 	
 	minigame_info_score_reset();
@@ -233,6 +234,15 @@ function minigame2vs2_points(player_id1, player_id2, points = minigame_max_point
 	minigame4vs_points(player_id2, points);
 }
 
+function minigame4vs_get_points(player_id) {
+	var info = global.minigame_info;
+	return info.player_scores[player_id - 1];
+}
+
+function minigame2vs2_get_points(player_id1, player_id2) {
+	return minigame4vs_get_points(player_id1) - minigame4vs_get_points(player_id2);
+}
+
 function minigame_finish(signal = false) {
 	with (objMinigameController) {
 		action_end();
@@ -352,4 +362,10 @@ function minigame2vs2_winner() {
 			array_push(info.players_won, i);
 		}
 	}
+}
+
+function minigame_times_up() {
+	show_popup("TIMES UP");
+	audio_play_sound(sndMinigameTimesUp, 0, false);
+	music_stop();
 }

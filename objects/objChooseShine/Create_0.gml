@@ -2,6 +2,7 @@ image_alpha = 0;
 space_x = 0;
 space_y = 0;
 final_action = null;
+spawned = false;
 
 if (global.dice_roll > 0) {
 	final_action = board_advance;
@@ -12,9 +13,10 @@ if (global.dice_roll > 0) {
 fade_state = 0;
 
 function spawn_shine() {
-	if (!instance_exists(objShine)) {
+	if (!spawned) {
 		instance_create_layer(space_x + 16, space_y + 16, "Actors", objShine);
-		alarm[0] = get_frames(2);
+		spawned = true;
 		audio_play_sound(sndShineSpawn, 0, false);
+		alarm[0] = get_frames(2);
 	}
 }

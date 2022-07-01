@@ -4,9 +4,11 @@ if (amount == 0) {
 	exit;
 }
 
-var c = instance_create_layer(focus_player.x, focus_player.y - 100, "Actors", objCoin);
-c.focus_player = focus_player;
-c.vspeed = 6;
+if (focus_player != null && instance_exists(focus_player)) {
+	var c = instance_create_layer(focus_player.x, focus_player.y - 100, "Actors", objCoin);
+	c.focus_player = focus_player;
+	c.vspeed = 6;
+}
 
 if (++animation_amount == abs(amount)) {
 	alarm[11] = 20;

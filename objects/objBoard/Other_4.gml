@@ -9,17 +9,20 @@ if (!global.board_started) {
 		global.max_board_turns = board.saved_board.saved_max_turns;
 		global.board_turn = board.saved_board.saved_turn;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
-		var names = variable_struct_get_names(global.bonus_shines);
 			
-		for (var i = 0; i < array_length(names); i++) {
-			global.bonus_shines[$ names[i]].scores = board.saved_board.saved_bonus_shines[$ names[i]];
+		for (var i = 0; i < array_length(global.bonus_shines); i++) {
+			global.bonus_shines[i].scores = board.saved_board.saved_bonus_shines[i];
 		}
 	
-		with (instance_create_layer(board.saved_board.saved_shine_position[0], board.saved_board.saved_shine_position[1], "Actors", objShine)) {
-			image_xscale = 1;
-			image_yscale = 1;
-			spawning = false;
-			floating = true;
+		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
+			var position = board.saved_board.saved_shine_positions[i];
+			
+			with (instance_create_layer(position[0], position[1], "Actors", objShine)) {
+				image_xscale = 1;
+				image_yscale = 1;
+				spawning = false;
+				floating = true;
+			}
 		}
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_spaces); i++) {

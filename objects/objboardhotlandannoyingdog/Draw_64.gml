@@ -1,0 +1,1 @@
+draw_sprite_ext(sprite_index, image_index, x + irandom_range(-2, 2), y + irandom_range(-2, 2), image_xscale, 1, 0, c_white, 1);

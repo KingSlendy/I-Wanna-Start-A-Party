@@ -46,8 +46,7 @@ function send_to_minigame() {
 	}
 	
 	with (objShine) {
-		other.info.shine_position.x = x;
-		other.info.shine_position.y = y;
+		array_push(other.info.shine_positions, [x, y]);
 	}
 	
 	room_goto(rMinigameOverview);

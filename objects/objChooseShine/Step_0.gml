@@ -27,6 +27,13 @@ if (fade_state == 1) {
 		}
 		
 		fade_state = 2;
+		
+		with (objChooseShine) {
+			if (id != other.id) {
+				final_action = null;
+				instance_destroy();
+			}
+		}
 	}
 } else if (fade_state == 2) {
 	image_alpha -= 0.05;

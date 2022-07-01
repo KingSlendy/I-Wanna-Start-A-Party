@@ -28,15 +28,15 @@ if (x < 192) {
 				}
 			}
 			
+			if (is_player_local(network_id)) {
+				image_alpha = 0.5;
+				alarm[0] = get_frames(1);
+			}
+			
 			audio_play_sound(sndDeath, 0, false);
 		}
 		
 		hittable = false;
-		
-		if (is_player_local(network_id)) {
-			image_alpha = 0.5;
-			alarm[0] = get_frames(1);
-		}
 		
 		if (network_id == global.player_id) {
 			objMinigameController.trophy_hit = false;

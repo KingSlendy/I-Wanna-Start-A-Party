@@ -15,6 +15,14 @@ minigame_time = 40;
 minigame_time_end = function() {
 	alarm[4] = 0;
 	minigame_finish();
+	
+	if (trophy_small > 0) {
+		gain_trophy(25);
+	}
+	
+	if (trophy_gordos > 0) {
+		gain_trophy(26);
+	}
 }
 
 points_draw = true;
@@ -40,3 +48,6 @@ repeat (2000) {
 		array_push(fruit_types[i], choose(-2, 0, 1, 2));
 	}
 }
+
+trophy_small = 5;
+trophy_gordos = 3;
