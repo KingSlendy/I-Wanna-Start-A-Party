@@ -5,6 +5,7 @@
   },
   "solid": false,
   "visible": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "sprPlayerMask",
     "path": "sprites/sprPlayerMask/sprPlayerMask.yy",

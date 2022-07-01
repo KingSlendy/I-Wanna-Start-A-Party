@@ -24,12 +24,12 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	self.shines = 0;
-	self.coins = 100;
 	//self.shines = 0;
-	//self.coins = 0;
-	self.items = array_create(3, null);
-	//self.items = [global.board_items[ItemType.Reverse], null, null];
+	//self.coins = 100;
+	self.shines = 0;
+	self.coins = 0;
+	//self.items = array_create(3, null);
+	self.items = [global.board_items[ItemType.DoubleDice], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -355,6 +355,7 @@ function tell_turns() {
 }
 
 function turn_start() {
+	global.dice_roll = 0;
 	var in_space = true;
 	
 	with (focused_player()) {

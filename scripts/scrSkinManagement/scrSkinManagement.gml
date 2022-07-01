@@ -74,7 +74,11 @@ function skin_init() {
 		new Skin("PD", "PDPlayer Kid", "I Wanna Nonamed Spike 2", 47, "PDPlayer", 500),
 		new Skin("Round", "Round Kid", "I Wanna Nonamed Spike 2", 47, "Dengol", 300),
 		new Skin("Science", "Science Kid", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
-		new Skin("Soap", "Soap", "I Wanna Nonamed Spike 2", 47, "Soap", 300)
+		new Skin("Soap", "Soap", "I Wanna Nonamed Spike 2", 47, "Soap", 300),
+		new Skin("Orga", "Orga Itsuka", "I Wanna Can't Stop", 48, "Doruppi", 500),
+		new Skin("Limit", "Hot Limit Kid", "I Wanna Can't Stop", 48, "Doruppi", 100),
+		new Skin("Crush", "Crush Kid", "I Wanna Can't Stop", 48, "Doruppi", 400),
+		new Skin("Tennis", "Tennis Kid", "I Wanna Can't Stop", 48, "Doruppi", 300)
 	];
 }
 

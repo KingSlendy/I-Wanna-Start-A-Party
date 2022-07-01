@@ -130,6 +130,10 @@ options = [
 		buffer_seek_begin();
 		buffer_write_action(ClientUDP.NoNoTheGuy);
 		network_send_udp_packet();
+		
+		if (focused_player().network_id == global.player_id) {
+			gain_trophy(30);
+		}
 	})
 ];
 

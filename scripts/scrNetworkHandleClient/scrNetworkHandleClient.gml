@@ -919,11 +919,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.Minigame2vs2_Colorful_PatternMoveVertical:
 			var pattern_x = buffer_read(buffer, buffer_u16);
+			var pattern_round = buffer_read(buffer, buffer_u8);
 			var index = buffer_read(buffer, buffer_u8);
 			var v = buffer_read(buffer, buffer_s8);
 			
 			with (objMinigame2vs2_Colorful_Patterns) {
-				if (x == pattern_x) {
+				if (x == pattern_x && self.pattern_round == pattern_round) {
 					pattern_move_vertical(index, v, false);
 					break;
 				}
@@ -932,11 +933,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.Minigame2vs2_Colorful_PatternMoveHorizontal:
 			var pattern_x = buffer_read(buffer, buffer_u16);
+			var pattern_round = buffer_read(buffer, buffer_u8);
 			var index = buffer_read(buffer, buffer_u8);
 			var h = buffer_read(buffer, buffer_s8);
 			
 			with (objMinigame2vs2_Colorful_Patterns) {
-				if (x == pattern_x) {
+				if (x == pattern_x && self.pattern_round == pattern_round) {
 					pattern_move_horizontal(index, h, false);
 					break;
 				}
@@ -945,10 +947,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.Minigame2vs2_Colorful_PatternSelect:
 			var pattern_x = buffer_read(buffer, buffer_u16);
+			var pattern_round = buffer_read(buffer, buffer_u8);
 			var index = buffer_read(buffer, buffer_u8);
 			
 			with (objMinigame2vs2_Colorful_Patterns) {
-				if (x == pattern_x) {
+				if (x == pattern_x && self.pattern_round == pattern_round) {
 					pattern_select(index, false);
 					break;
 				}

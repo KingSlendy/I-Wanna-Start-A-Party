@@ -17,7 +17,8 @@ function minigame_init() {
 		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
 		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
 		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
-		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug")
+		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
+		new Minigame("Unstable Blocks", ["Instructions TBD"], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG")
 	];
 
 	m[$ "1vs3"] = [
@@ -35,6 +36,10 @@ function minigame_init() {
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
 		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr")
 	];
+}
+
+function minigame_types() {
+	return ["4vs", "1vs3", "2vs2"];
 }
 
 function minigame_info_reset() {
@@ -236,7 +241,7 @@ function minigame2vs2_points(player_id1, player_id2, points = minigame_max_point
 
 function minigame4vs_get_points(player_id) {
 	var info = global.minigame_info;
-	return info.player_scores[player_id - 1];
+	return info.player_scores[player_id - 1].points;
 }
 
 function minigame2vs2_get_points(player_id1, player_id2) {

@@ -127,6 +127,7 @@ function pattern_move_vertical(index, v, network = true) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Colorful_PatternMoveVertical);
 		buffer_write_data(buffer_u16, x);
+		buffer_write_data(buffer_u8, pattern_round);
 		buffer_write_data(buffer_u8, index);
 		buffer_write_data(buffer_s8, v);
 		network_send_tcp_packet();
@@ -141,6 +142,7 @@ function pattern_move_horizontal(index, h, network = true) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Colorful_PatternMoveHorizontal);
 		buffer_write_data(buffer_u16, x);
+		buffer_write_data(buffer_u8, pattern_round);
 		buffer_write_data(buffer_u8, index);
 		buffer_write_data(buffer_s8, h);
 		network_send_tcp_packet();
@@ -185,6 +187,7 @@ function pattern_select(index, network = true) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Colorful_PatternSelect);
 		buffer_write_data(buffer_u16, x);
+		buffer_write_data(buffer_u8, pattern_round);
 		buffer_write_data(buffer_u8, index);
 		network_send_tcp_packet();
 	}

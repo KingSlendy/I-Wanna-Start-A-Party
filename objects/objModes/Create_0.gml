@@ -98,3 +98,10 @@ function sync_actions(action, network_id) {
 
 	return pressed;
 }
+
+function back_to_files() {
+	state = 0;
+	fade_start = true;
+	music_fade();
+	audio_play_sound(global.sound_cursor_back, 0, false);
+}

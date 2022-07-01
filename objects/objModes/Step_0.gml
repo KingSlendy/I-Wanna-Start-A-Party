@@ -66,9 +66,6 @@ if (!fade_start) {
 	}
 	
 	if (sync_actions("shoot", 1)) {
-		state = 0;
-		fade_start = true;
-		music_fade();
-		audio_play_sound(global.sound_cursor_back, 0, false);
+		back_to_files();
 	}
 }

@@ -147,6 +147,12 @@ function player_disconnection(player_id) {
 				
 			global.player_id--;
 		}
+	} else if (room == rModes) {
+		with (objModes) {
+			if (state != 0) {
+				back_to_files();
+			}
+		}
 	} else {
 		popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
 		network_disable();
@@ -341,5 +347,6 @@ function network_disable() {
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);
 	application_surface_draw_enable(true);
+	audio_stop_all();
 	room_goto(rFiles);
 }

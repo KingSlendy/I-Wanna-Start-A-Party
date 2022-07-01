@@ -34,7 +34,13 @@ global.trophies = [
 	new Trophy(25, 1, "Turning Red", "All of you turned Red before the minigame was chosen.\nRed everywhere you see.", "Living all the red!"),
 	new Trophy(26, 1, "Catch The ", "You catched most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp", "It's just like playing osu!\nBut I go small."),
 	new Trophy(27, 1, "Catch The Gordos", "You catched almost all or all the gordos in Catch The Fruits.\nIs spikes your thing or what?", "Meh fruits isn't the thing for me."),
-	new Trophy(28, 2, "Cornered Maze", "You went to the opposite corner in A-Maze-Ing.\nAre you just lost or...?", "I'm so lost I'm on the other end!")
+	new Trophy(28, 2, "Cornered Maze", "You went to the opposite corner in A-Maze-Ing.\nWere you that lost?", "I'm so lost I'm on the other end!"),
+	new Trophy(29, 2, "Lonely Spikes", "You died to the top spikes in Unstable Blocks.\nWait, why? It's literally not moving.\nYou did it on purpose I swear.", "Those are at the very top, that can't seriously happen."),
+	new Trophy(30, 2, "Scoring Squares", "You scored 22 in Fitting Squares!\nI bet you can do a T-Spin with that level of precision.", "I hope all that Tetris training will pay off."),
+	new Trophy(31, 1, "100 Shine Debt", "You obtained 100 Shines landing on The Guy space!\nYES! 100 SHINES SIGN ME UP!\nWait... where are my Shines!!??", "Even a bad guy can give you something shiny."),
+	new Trophy(32, 1, "Party Winner", "You won a Party!\nI want more parties! Bring it on!", "A winner is you."),
+	new Trophy(33, 1, "Party Loser", "You lost a Party...\nWell there's always next time I guess.", "A loser is you."),
+	new Trophy(34, 1, "Where's My Shiny?", "You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting shines.", "Wait... isn't the whole point getting shiny?")
 ];
 
 global.collected_trophies_stack = [];
