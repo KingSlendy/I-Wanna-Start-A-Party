@@ -147,16 +147,19 @@ function player_disconnection(player_id) {
 				
 			global.player_id--;
 		}
+		
+		return;
 	} else if (room == rModes) {
 		with (objModes) {
-			if (state != 0) {
+			if (state == -1) {
 				back_to_files();
+				return;
 			}
 		}
-	} else {
-		popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
-		network_disable();
 	}
+	
+	popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
+	network_disable();
 }
 
 function ai_join_all() {

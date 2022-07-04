@@ -74,7 +74,6 @@ switch (state) {
 				player_info.space = c_ltgray;
 			}
 			
-			global.player_turn = 1;
 			state = 2;
 			
 			if (global.board_turn == global.max_board_turns - 4) {

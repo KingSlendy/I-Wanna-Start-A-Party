@@ -7,7 +7,7 @@ if (sprite != null) {
 	draw_set_alpha(1);
 }
 
-draw_set_font(fntFilesButtons);
+draw_set_font(fntTrophies);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
@@ -39,7 +39,7 @@ for (var i = 0; i < array_length(global.bonus_shines); i++) {
 			}
 		}
 	
-		draw_text_color_outline(draw_x + 48 / 2 + 10, player_info.draw_y + player_info.draw_h / 2, bonus.scores[player_id - 1], #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
+		draw_text_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, bonus.scores[player_id - 1], #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
 	}
 	
 	draw_set_alpha(1);

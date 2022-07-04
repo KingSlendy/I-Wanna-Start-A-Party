@@ -108,7 +108,7 @@ function save_board() {
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_positions: [],
 			saved_spaces: [],
-			saved_bonus_shines: {}
+			saved_bonus_shines: []
 		},
 		
 		saved_players: array_create(global.player_max, null)

@@ -63,9 +63,9 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 }
 
 menu_buttons = [
-	[new FileButton(400, 400, file_width, 64, -1, "START", c_blue), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
+	[new FileButton(400, 400, file_width, 64, -1, "START", c_lime), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
 	[new FileButton(400, 400, file_width, 64, -1, "OFFLINE", c_white), new FileButton(400, 480, file_width, 64, 1, "ONLINE", c_aqua)],
-	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_green), new FileButton(400, 480, file_width, 64, 1, "CONFIRM", c_red)],
+	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "CONFIRM", c_red)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "IP", c_white), new FileButton(150, 332, file_width, 64, -1, "PORT", c_white), new FileButton(150, 412, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 332, file_width * 2, 64, 1, "", c_white, false)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false)],
 	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "",, false), new FileButton(400, 230, file_width * 2, 64, 1, "",, false), new FileButton(400, 310, file_width * 2, 64, -1, "",, false), new FileButton(400, 390, file_width * 2, 64, 1, "",, false)]

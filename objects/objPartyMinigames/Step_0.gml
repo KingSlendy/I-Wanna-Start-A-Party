@@ -274,7 +274,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					var names = ["4vs", "1vs3", "2vs2"];
 					var title = global.minigames[$ names[minigames_row_selected]][minigames_col_selected].title;
 					
-					if (array_contains(global.seen_minigames, title) && sync_actions("jump", 1)) {
+					if ((array_contains(global.seen_minigames, title) || global.player_id != 1) && sync_actions("jump", 1)) {
 						menu_page = 2;
 						minigame_selected = {portrait: minigames_portraits[$ names[minigames_row_selected]][minigames_col_selected], reference: global.minigames[$ names[minigames_row_selected]][minigames_col_selected]};
 						audio_play_sound(global.sound_cursor_select, 0, false);

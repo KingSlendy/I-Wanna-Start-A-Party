@@ -47,6 +47,7 @@ function back_to_board() {
 			return;	
 		}
 		
+		global.player_turn = 1;
 		room_goto(info.previous_board);
 	} else {
 		room_goto(rMinigameOverview);

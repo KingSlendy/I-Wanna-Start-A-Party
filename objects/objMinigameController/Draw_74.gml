@@ -8,7 +8,7 @@ if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 			break;
 			
 		case "2vs2":
-			draw_2vs2_squares(info);
+			draw_2vs2_squares();
 			break;
 	}
 } else {

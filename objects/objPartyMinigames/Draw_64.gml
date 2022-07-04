@@ -158,7 +158,7 @@ if (room == rParty) {
 			var dist = remap(point_distance(row_x, minigames_show_y, 0, minigames_target_show_y), 0, 480, 1, 0.5);
 			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
 			draw_set_font(fntPlayerInfo);
-			draw_set_halign(fa_middle);
+			draw_set_halign(fa_center);
 			var title = global.minigames[$ names[i]][location].title;
 			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title : "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 			draw_set_halign(fa_left);

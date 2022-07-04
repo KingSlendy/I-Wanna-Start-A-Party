@@ -17,6 +17,12 @@ switch (room) {
 		mode = 2;
 		draw_names = false;
 		break;
+		
+	case rMinigame2vs2_Duos:
+		var w = 800;
+		var h = 152;
+		mode = 2;
+		break;
 	
 	default:
 		var w = 400;

@@ -135,12 +135,22 @@ function draw_4vs_squares() {
 	}
 }
 
-function draw_2vs2_squares(info) {
+function draw_2vs2_squares() {
+	var info = global.minigame_info;
 	var draw_w = camera_get_view_width(view_camera[0]);
 	var draw_h = camera_get_view_height(view_camera[0]);
+	
+	if (room == rMinigame2vs2_Duos) {
+		draw_h *= 2;
+	}
 
 	for (var i = 0; i < global.player_max; i++) {
-		draw_set_color(info.player_colors[(i >= 2)]);
+		if (room != rMinigame2vs2_Duos) {
+			draw_set_color(info.player_colors[(i >= 2)]);
+		} else {
+			draw_set_color(info.player_colors[(i > 0)]);
+		}
+		
 		var draw_x = draw_w * (i div 2);
 		var draw_y = draw_h * (i % 2);
 		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, draw_get_color(), 0);

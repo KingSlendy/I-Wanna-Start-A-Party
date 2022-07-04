@@ -47,6 +47,9 @@ function results_bonus() {
 				buffer_seek_begin();
 				buffer_write_action(ClientTCP.ResultsBonus);
 				buffer_write_data(buffer_u8, i);
+				var player_info = player_info_by_id(i);
+				buffer_write_data(buffer_u16, player_info.shines);
+				buffer_write_data(buffer_u16, player_info.coins);
 				global.bonus_shines_ready[i - 1] = true;
 				var scores_scores = [];
 			

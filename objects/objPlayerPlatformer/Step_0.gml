@@ -56,8 +56,14 @@ if (!on_platform) {
 	}
 }
 
-if (abs(vspd) > max_vspd) {
-	vspd = max_vspd * sign(vspd);
+if (room != rMinigame2vs2_Springing) {
+	if (abs(vspd) > max_vspd) {
+		vspd = max_vspd * sign(vspd);
+	}
+} else {
+	if (vspd > max_vspd) {
+		vspd = max_vspd;
+	}
 }
 
 if (!frozen) {

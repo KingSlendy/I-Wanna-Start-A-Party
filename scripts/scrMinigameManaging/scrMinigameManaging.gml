@@ -18,7 +18,8 @@ function minigame_init() {
 		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
 		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
 		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
-		new Minigame("Unstable Blocks", ["Instructions TBD"], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG")
+		new Minigame("Unstable Blocks", ["Instructions TBD."], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
+		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame")
 	];
 
 	m[$ "1vs3"] = [
@@ -34,7 +35,9 @@ function minigame_init() {
 		new Minigame("Catch The Fruits", ["Instructions TBD."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
 		new Minigame("Buttons Everywhere", ["Instructions TBD."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
-		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr")
+		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
+		new Minigame("Springing Piranha", ["Instructions TBD."], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
+		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
 	];
 }
 

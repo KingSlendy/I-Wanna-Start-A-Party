@@ -82,6 +82,7 @@ enum ClientTCP {
 	Minigame4vs_Mansion_Door,
 	Minigame4vs_Painting_Platform,
 	Minigame4vs_Bugs_Counting,
+	Minigame4vs_Chests_ChestSelected,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
@@ -787,6 +788,23 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame4vs_Chests_ChestSelected:
+			var n = buffer_read(buffer, buffer_u8);
+			var selected = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Chests_Chest) {
+				if (self.n == n) {
+					if (self.selected == -1) {
+						self.selected = selected;
+						target_y = ystart - 32;
+					} else if (self.selected != selected) {
+						self.selected = -1;
+						target_y = ystart;
+					}
+				}
+			}
+			break;
+			
 		case ClientTCP.Minigame1vs3_Avoid_Block:
 			var attack = buffer_read(buffer, buffer_u8);
 			
@@ -842,7 +860,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var spike_count = buffer_read(buffer, buffer_u32);
 			
 			with (objMinigame1vs3_Coins_Spike) {
-				if (count == spike_count) {
+				if (self.count == spike_count) {
 					with (objPlayerBase) {
 						if (x < 400) {
 							other.follow = id;
@@ -861,7 +879,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var vspd = buffer_read(buffer, buffer_f16);
 		
 			with (objMinigame1vs3_Coins_Spike) {
-				if (count == spike_count) {
+				if (self.count == spike_count) {
 					x = spike_x;
 					y = spike_y;
 					vspeed = vspd;
@@ -962,6 +980,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		#region Results
 		case ClientTCP.ResultsBonus:
 			var player_id = buffer_read(buffer, buffer_u8);
+			var player_shines = buffer_read(buffer, buffer_u16);
+			var player_coins = buffer_read(buffer, buffer_u16);
+			var player_info = player_info_by_id(player_id);
+			player_info.shines = player_shines;
+			player_info.coins = player_coins;
 			var scores_scores = buffer_read_array(buffer, buffer_s32);
 			
 			for (var i = 0; i < array_length(global.bonus_shines); i++) {

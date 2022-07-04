@@ -47,22 +47,26 @@ for (var i = 0; i < array_length(keys); i++) {
 function AIAction() constructor {
 	self.triggered = false;
 	self.untriggered = false;
+	self.just_triggered = false;
 	self.frames = 0;
 	
 	static hold = function(frames) {
 		self.frames = frames;
 		self.triggered = true;
 		self.untriggered = false;
+		self.just_triggered = true;
 	}
 	
 	static press = function() {
 		self.triggered = true;
 		self.untriggered = false;
+		self.just_triggered = true;
 	}
 	
 	static release = function(force = false) {
 		var prev_untriggered = self.untriggered;
 		self.untriggered = false;
+		self.just_triggered = false;
 		
 		if (self.frames > 0 && !force) {
 			self.frames--;
@@ -78,7 +82,7 @@ function AIAction() constructor {
 	}
 	
 	static pressed = function() {
-		return self.held();
+		return self.triggered && self.just_triggered;
 	}
 	
 	static released = function() {

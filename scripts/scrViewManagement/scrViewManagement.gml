@@ -47,7 +47,12 @@ function camera2vs2_split4(camera, info) {
 		
 		if (player_info.space == info.player_colors[0]) {
 			with (camera) {
-				var j = (!index) ? 0 : 2;
+				if (room != rMinigame2vs2_Duos) {
+					var j = (!index) ? 0 : 2;
+				} else {
+					var j = index;
+				}
+				
 				target_follow[j] = player;
 				target_x[j] = target_follow[j].x;
 				target_y[j] = target_follow[j].y;
@@ -67,7 +72,12 @@ function camera2vs2_split4(camera, info) {
 		
 		if (player_info.space == info.player_colors[1]) {
 			with (camera) {
-				var j = (!index) ? 1 : 3;
+				if (room != rMinigame2vs2_Duos) {
+					var j = (!index) ? 1 : 3;
+				} else {
+					var j = index + 2;
+				}
+				
 				target_follow[j] = player;
 				target_x[j] = target_follow[j].x;
 				target_y[j] = target_follow[j].y;
