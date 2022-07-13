@@ -87,6 +87,16 @@ function space_passing_event() {
 			if (player_info.coins >= global.shine_price) {
 				var buy_shine = function() {
 					change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
+						if (room == rBoardIsland && !global.board_day) {
+							if (global.shine_price == 0) {
+								gain_trophy(34);
+							}
+							
+							if (global.shine_price == 40) {
+								gain_trophy(35);
+							}
+						}
+						
 						if (room == rBoardHotland && instance_number(objShine) > 1 && irandom(1) == 0) {
 							board_hotland_annoying_dog();
 							return;

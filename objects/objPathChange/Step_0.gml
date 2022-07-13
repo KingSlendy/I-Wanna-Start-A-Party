@@ -25,6 +25,6 @@ if (global.actions.jump.pressed(network_id)) {
 	exit;
 }
 
-if (global.actions.shoot.pressed(global.player_id)) {
+if (!focus_player_by_id().ai && global.actions.shoot.pressed(global.player_id)) {
 	show_map();
 }

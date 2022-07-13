@@ -113,6 +113,12 @@ x += hspd;
 y += vspd;
 
 //Collision with block
+if (room == rMinigame1vs3_Warping) {
+	with (instance_place(x, y, objMinigame1vs3_Warping_Push)) {
+		push_block(other.id);
+	}
+}
+
 var block = instance_place(x, y, objBlock);
 
 if (block != noone) {

@@ -247,6 +247,20 @@ function switch_camera_target(x, y) {
 }
 
 function board_start() {
+	if (global.board_started) {
+		save_board();
+		generate_seed_bag();
+		
+		if (room == rBoardIsland) {
+			if (!global.board_day) {
+				next_seed_inline();
+				global.shine_price = choose(0, 1, 3, 4) * 10;
+			} else {
+				global.shine_price = 20;
+			}
+		}
+	}
+	
 	if (!is_local_turn()) {
 		return;
 	}
@@ -361,20 +375,6 @@ function turn_start() {
 		}
 		
 		return;
-	}
-	
-	if (global.player_turn == 1) {
-		save_board();
-		generate_seed_bag();
-		
-		if (room == rBoardIsland) {
-			if (!global.board_day) {
-				next_seed_inline();
-				global.shine_price = choose(0, 1, 3, 4) * 10;
-			} else {
-				global.shine_price = 20;
-			}
-		}
 	}
 	
 	var freezed = (player_info_by_turn().item_effect == ItemType.Ice);

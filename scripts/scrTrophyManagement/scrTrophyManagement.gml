@@ -40,7 +40,9 @@ global.trophies = [
 	new Trophy(31, 1, "100 Shine Debt", "You obtained 100 Shines landing on The Guy space!\nYES! 100 SHINES SIGN ME UP!\nWait... where are my Shines!!??", "Even a bad guy can give you something shiny."),
 	new Trophy(32, 1, "Party Winner", "You won a Party!\nI want more parties! Bring it on!", "A winner is you."),
 	new Trophy(33, 1, "Party Loser", "You lost a Party...\nWell there's always next time I guess.", "A loser is you."),
-	new Trophy(34, 1, "Where's My Shiny?", "You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting shines.", "Wait... isn't the whole point getting shiny?")
+	new Trophy(34, 1, "Where's My Shiny?", "You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting shines.", "Wait... isn't the whole point getting shiny?"),
+	new Trophy(35, 1, "Free Night", "You received a Night Shine for 0 coins!\nThat was free trial, next time you won't be so lucky.", "This one is on the house."),
+	new Trophy(36, 1, "Expensive Night", "You bought a Night Shine for 40 coins.\nIt'd be best if you waited for sales next time.", "Gimme full price! I ain't waiting for the hot sale.")
 ];
 
 global.collected_trophies_stack = [];
