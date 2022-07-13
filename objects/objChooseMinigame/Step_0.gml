@@ -72,6 +72,10 @@ switch (state) {
 				for (var i = 0; i < array_length(types); i++) {
 					percentage_types[$ types[i]] = (total_types > 0) ? quantity_types[$ types[i]] / total_types : 0;
 				}
+				
+				if (variable_struct_exists(percentage_types, "4vs")) {
+					percentage_types[$ "4vs"] *= 0.75;
+				}
 			
 				var min_type = infinity;
 			

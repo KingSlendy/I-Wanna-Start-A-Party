@@ -99,7 +99,7 @@ options = [
 			return;
 		}
 		
-		change_shines(-1, ShineChangeType.Lose);
+		change_shines(-1, ShineChangeType.Lose).final_action = null;
 	}),
 	
 	new TheGuyOption(false, 0, "{COLOR,0000FF}The Guy{COLOR,FFFFFF} revolution", function() {

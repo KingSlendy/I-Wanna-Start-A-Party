@@ -12,7 +12,7 @@ enum SpaceType {
 	ChanceTime,
 	TheGuy,
 	Shine,
-	Event,
+	PathEvent,
 	PathChange
 }
 
@@ -271,14 +271,6 @@ function board_start() {
 function choose_turns() {
 	for (var i = 1; i <= global.player_max; i++) {
 		show_dice(i);
-	}
-	
-	for (var i = 1; i <= global.player_max; i++) {
-		var actions = ai_actions(i);
-		
-		if (actions != null) {
-			actions.jump.hold(2);
-		}
 	}
 }
 
@@ -1194,6 +1186,19 @@ function board_hotland_annoying_dog() {
 		buffer_write_action(ClientTCP.BoardHotlandAnnoyingDog);
 		network_send_tcp_packet();
 	}
+}
+
+function board_dreams_teleports(reference) {
+	var player = focused_player();
+	
+	with (objPlayerReference) {
+		if (self.reference == reference) {
+			player.x = x + 16;
+			player.y = y + 16;
+		}
+	}
+	
+	switch_camera_target(player.x, player.y).final_action = board_advance;
 }
 #endregion
 

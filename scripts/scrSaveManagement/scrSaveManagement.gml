@@ -11,7 +11,7 @@ function save_variables() {
 	global.collected_shines = 0;
 	global.collected_coins = 0;
 	global.seen_minigames = [];
-	global.collected_skins = array_sequence(0, 4);
+	global.collected_skins = array_sequence(0, 8);
 	global.collected_trophies = [];
 	global.ellapsed_time = 0;
 

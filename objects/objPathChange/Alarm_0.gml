@@ -30,7 +30,7 @@ for (var i = 0; i < array_length(paths); i++) {
 		continue;
 	}
 	
-	if (paths[i] == global.path_spaces[1]) {
+	if ((array_length(global.path_spaces) == 0 || paths[i] == global.path_spaces[1])) {
 		var arrow = arrows[i];
 		arrow.image_index = 0;
 		arrow_selected = i;

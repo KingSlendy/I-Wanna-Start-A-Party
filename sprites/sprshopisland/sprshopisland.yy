@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Interfaces",
-    "path": "folders/Sprites/Objects/Boards/Interfaces.yy",
+    "name": "Island",
+    "path": "folders/Sprites/Objects/Boards/Island.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprShopIsland",

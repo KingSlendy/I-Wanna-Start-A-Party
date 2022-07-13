@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Interfaces",
-    "path": "folders/Sprites/Objects/Boards/Interfaces.yy",
+    "name": "Hotland",
+    "path": "folders/Sprites/Objects/Boards/Hotland.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprSansHotland",

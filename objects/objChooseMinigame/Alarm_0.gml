@@ -77,7 +77,7 @@ var minigames_order = array_sequence(0, array_length(minigames_now));
 array_shuffle(minigames_order);
 
 for (var i = 0; i < 5; i++) {
-	array_push(minigame_list, minigames_now[minigames_order[i]]);
+	array_push(minigame_list, minigames_now[minigames_order[min(i, array_length(minigames_now) - 1)]]);
 }
 
 //Temp

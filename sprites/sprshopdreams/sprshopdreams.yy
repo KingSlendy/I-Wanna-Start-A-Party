@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Interfaces",
-    "path": "folders/Sprites/Objects/Boards/Interfaces.yy",
+    "name": "Dreams",
+    "path": "folders/Sprites/Objects/Boards/Dreams.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprShopDreams",

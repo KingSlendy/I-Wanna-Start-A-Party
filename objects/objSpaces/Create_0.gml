@@ -138,6 +138,10 @@ function space_passing_event() {
 			}
 			
 			return 1;
+			
+		case SpaceType.PathEvent:
+			event();
+			return 1;
 	}
 	
 	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;

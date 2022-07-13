@@ -8,4 +8,4 @@ if (f.hspeed == 0) {
 f.vspeed = irandom_range(-7, -9);
 f.gravity = 0.25;
 
-alarm[0] = get_frames(0.15);
+alarm[0] = get_frames(0.2);

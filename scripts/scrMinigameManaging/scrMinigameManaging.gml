@@ -27,7 +27,7 @@ function minigame_init() {
 		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
 		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
-		new Minigame("Gigantic Chase", ["Instructions TBD."], 15, rMinigame1vs3_Chase, "I Wanna Kill The Kamilia 2")
+		//new Minigame("Gigantic Chase", ["Instructions TBD."], 15, rMinigame1vs3_Chase, "I Wanna Kill The Kamilia 2")
 	];
 
 	m[$ "2vs2"] = [
@@ -37,7 +37,7 @@ function minigame_init() {
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
 		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
 		new Minigame("Springing Piranha", ["Instructions TBD."], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
+		//new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
 	];
 }
 

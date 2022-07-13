@@ -8,7 +8,7 @@ show_inputs = true;
 var player_info = player_info_by_id(global.player_id);
 
 global.games_played++;
-increase_collected_coins(player_info.shines * 100);
+increase_collected_coins(global.max_board_turns * 10 + player_info.shines * 100);
 variable_struct_remove(global.board_games, global.game_id);
 save_file();
 
