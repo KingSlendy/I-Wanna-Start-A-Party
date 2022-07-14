@@ -91,6 +91,8 @@ enum ClientTCP {
 	Minigame1vs3_Coins_ThrowSpike,
 	Minigame1vs3_Chase_Solo,
 	Minigame1vs3_Chase_Team,
+	Minigame1vs3_Warping_Push,
+	Minigame1vs3_Warping_Warp,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	Minigame2vs2_Buttons_Button,
@@ -896,6 +898,23 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.Minigame1vs3_Chase_Team:
 			var action = buffer_read(buffer, buffer_string);
 			array_push(objMinigame1vs3_Chase_Controller.network_team_actions, action);
+			break;
+			
+		case ClientTCP.Minigame1vs3_Warping_Push:
+			var push_x = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigame1vs3_Warping_Push) {
+				x = push_x;
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Warping_Warp:
+			var warp_x = buffer_read(buffer, buffer_s32);
+			var warp_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigameController) {
+				create_warp(warp_x, warp_y);
+			}
 			break;
 			
 		case ClientTCP.Minigame2vs2_Maze_Item:

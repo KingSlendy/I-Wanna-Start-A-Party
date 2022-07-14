@@ -1,13 +1,1 @@
-if (x < 400) {
-	with (objPlayerBase) {
-		if (player_info_by_id(network_id).turn == 2) {
-			other.x = x - 16;
-		}
-	}
-} else {
-	with (objPlayerBase) {
-		if (player_info_by_id(network_id).turn == 4) {
-			other.x = x - 16;
-		}
-	}
-}
+x = objMinigameController.points_teams[(x > 400)][1].x - 16;

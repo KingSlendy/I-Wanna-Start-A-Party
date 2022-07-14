@@ -82,7 +82,7 @@ function skin_init() {
 		new Skin("Migueto", "Migueto", "Original", 29, "PlayerDash2017", 400),
 		new Skin("Monkey", "The Monkey", "I Wanna See You Suffer", 49, "UltraJDude", 700),
 		new Skin("Crewmate", "Crewmate", "Original", 29, "JPRG666", 900),
-		new Skin("Adventurer", "The Adventurer", "I Wanna Escape From The Dun.", 0, "AlejoFangamer", 1000),
+		new Skin("Adventurer", "The Adventurer", "I Wanna Escape From The Dun.", 50, "AlejoFangamer", 1000),
 		new Skin("Meiki", "Meiki", "Original", 29, "AlejoFangamer", 1000),
 		new Skin("Jota", "Jota", "Original", 29, "AlejoFangamer", 1000),
 		new Skin("Renex", "Renex", "Original", 29, "AlejoFangamer", 1000),
@@ -99,6 +99,10 @@ function skin_init() {
 		new Skin("Yuri", "Yuri", "Original", 29, "Kaurosu", 1000),
 		new Skin("Natsuki", "Natsuki", "Original", 29, "Kaurosu", 1000),
 		new Skin("Sayori", "Sayori", "Original", 29, "Kaurosu", 1000),
+		new Skin("Tanjiro", "Tanjiro Kamado", "Original", 29, "JPRG666", 1000),
+		new Skin("Geno", "Geno", "Original", 29, "JPRG666", 1000),
+		new Skin("Kris", "Kris", "I Wanna Travel Alone", 51, "EchoMask", 600),
+		new Skin("Ninja", "Ninja Kid", "Crimson Needle 2", 52, "Kale", 500)
 	];
 }
 

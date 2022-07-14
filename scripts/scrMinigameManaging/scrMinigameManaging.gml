@@ -28,7 +28,7 @@ function minigame_init() {
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
 		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
 		//new Minigame("Gigantic Chase", ["Instructions TBD."], 15, rMinigame1vs3_Chase, "I Wanna Kill The Kamilia 2"),
-		//new Minigame("Warping Up", ["Instructions TBD."], 22, rMinigame1vs3_Warping, "I Wanna GameOver")
+		new Minigame("Warping Up", ["Instructions TBD."], 22, rMinigame1vs3_Warping, "I Wanna GameOver")
 	];
 
 	m[$ "2vs2"] = [
