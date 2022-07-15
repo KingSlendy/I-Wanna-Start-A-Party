@@ -17,7 +17,7 @@ for (var i = 2; i <= global.player_max; i++) {
 		}
 		
 		switch (state) {
-			case 0:
+			case 0: //Jump to first switch.
 				if (!state_presses[state]) {
 					actions.jump.hold(20);
 					state_presses[state] = true;
@@ -26,11 +26,11 @@ for (var i = 2; i <= global.player_max; i++) {
 				actions.right.press();
 				break;
 			
-			case 1:
+			case 1: //Hold right for the door to open.
 				actions.right.press();
 				break;
 				
-			case 2: case 5: case 9: case 11:
+			case 2: case 5: case 9: case 11: //Start shooting switch.
 				if (!state_presses[2][0]) {
 					actions.right.hold(get_frames(0.1));
 					state_presses[2][0] = true;
@@ -46,7 +46,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				}
 				break;
 				
-			case 3: case 6:
+			case 3: case 6: //Get out of switch, continue.
 				if (!state_presses[state]) {
 					actions.left.hold(get_frames(0.3));
 					state_presses[state] = true;
@@ -70,7 +70,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				}
 				break;
 				
-			case 7: case 8: case 12: case 14:
+			case 7: case 8: case 12: case 14: //Jump out of switch hole.
 				if (!state_presses[state]) {
 					if (state == 7) {
 						actions.right.hold(get_frames(0.75));
@@ -85,7 +85,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				}
 				break;
 				
-			case 10: case 13:
+			case 10: case 13: //Jump to platform.
 				if (--state_presses[state][0] <= 0) {
 					actions.right.hold(get_frames(0.5));
 					
@@ -95,6 +95,46 @@ for (var i = 2; i <= global.player_max; i++) {
 					}
 					
 					state_presses[state][1]++;
+				}
+				break;
+				
+			case 15: case 16: //We've arrived at the warp batches, choose a warp at random.
+				if (state == 16 && teammate.state < state && prev_chosed_warp != null) {
+					teammate.chosed_warp = prev_chosed_warp;
+					prev_chosed_warp = null;
+				}
+				
+				if (chosed_warp == null && state_presses[state] != null) {
+					var iter = (state == 15) ? 5 : 13;
+					var start_x = (state == 15) ? 1152 : 1472;
+					var choices = [];
+					
+					for (var i = 0; i < iter; i++) {
+						var warp_x = start_x + 32 * i;
+						
+						if (!array_contains(state_presses[state], warp_x)) {
+							array_push(choices, warp_x);
+						}
+					}
+					
+					if (array_length(choices) > 0) {
+						array_shuffle(choices);
+						chosed_warp = choices[0] + 16;
+					}
+				}
+				
+				if (chosed_warp != null) {
+					var me_x = x - 1;
+					var me_y = y - 7;
+					var dist = point_distance(me_x, me_y, chosed_warp, me_y);
+				
+					if (dist <= 3) {
+						actions.jump.hold(10);
+					} else if (place_meeting(x, y + 1, objBlock)) {
+						var dir = point_direction(me_x, me_y, chosed_warp, me_y);
+						var action = (dir == 0) ? actions.right : actions.left;
+						action.press();
+					}
 				}
 				break;
 		}

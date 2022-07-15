@@ -38,7 +38,7 @@ function minigame_init() {
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
 		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
 		new Minigame("Springing Piranha", ["Instructions TBD."], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		//new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
+		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
 	];
 }
 

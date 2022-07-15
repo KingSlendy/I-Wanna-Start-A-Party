@@ -141,7 +141,7 @@ if (room == rParty) {
 } else {
 	var minigames_x = menu_x + menu_sep;
 	var minigames_y = minigames_show_y + 350 * -minigames_row_selected;
-	var names = ["4vs", "1vs3", "2vs2"];
+	var names = minigame_types();
 	var types = ["4 vs.", "1 vs. 3", "2 vs. 2"];
 	
 	for (var i = 0; i < array_length(names); i++) {

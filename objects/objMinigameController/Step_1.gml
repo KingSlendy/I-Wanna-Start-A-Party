@@ -17,3 +17,7 @@ if (finished) {
 		back_to_board();
 	}
 }
+
+if (!IS_ONLINE && announcer_started && !info.is_finished && global.actions.back.pressed()) {
+	room_goto(rMinigameOverview);
+}

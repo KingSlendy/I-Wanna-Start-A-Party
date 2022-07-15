@@ -1,3 +1,7 @@
+if (!is_player_local(other.network_id)) {
+	exit;
+}
+
 var player = other;
 
 if (image_index == 0) {

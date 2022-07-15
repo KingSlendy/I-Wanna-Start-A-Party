@@ -1,10 +1,10 @@
 {
   "spriteId": {
-    "name": "sprMinigame4vs_Bugs_BugR",
-    "path": "sprites/sprMinigame4vs_Bugs_BugR/sprMinigame4vs_Bugs_BugR.yy",
+    "name": "sprTrigger",
+    "path": "sprites/sprTrigger/sprTrigger.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
@@ -22,18 +22,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"reference","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bugs",
-    "path": "folders/Objects/Minigames/4vs/Bugs.yy",
+    "name": "Duos",
+    "path": "folders/Objects/Minigames/2vs2/Duos.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Bugs_Bug",
+  "name": "objMinigame2vs2_Duos_WarpChooser",
   "tags": [],
   "resourceType": "GMObject",
 }

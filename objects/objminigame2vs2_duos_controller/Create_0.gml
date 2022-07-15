@@ -19,8 +19,13 @@ with (objPlayerBase) {
 		null,
 		false,
 		[get_frames(7), 0],
-		false
+		false,
+		[],
+		[]
 	];
+	
+	chosed_warp = null;
+	prev_chosed_warp = null;
 }
 
 event_inherited();

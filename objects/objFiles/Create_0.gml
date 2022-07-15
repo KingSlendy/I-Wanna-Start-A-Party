@@ -123,7 +123,7 @@ upper_text = "";
 finish = false;
 online_texts = [
 	"Player",
-	"iwannastartaparty.sytes.net",
+	"startaparty.sytes.net",
 	"33321"
 ]
 

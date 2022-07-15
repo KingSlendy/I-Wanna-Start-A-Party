@@ -248,7 +248,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
 	
 					if (scroll_h != 0) {
-						var types = ["4vs", "1vs3", "2vs2"];
+						var types = minigame_types();
 						var length = array_length(minigames_portraits[$ types[minigames_row_selected]]);
 						minigames_target_show_x -= 240 * scroll_h;
 						minigames_target_col_selected = (minigames_target_col_selected + length + scroll_h) % length;
@@ -262,7 +262,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						if (scroll_v == -1 && minigames_row_selected > 0 || scroll_v == 1 && minigames_row_selected < 2) {
 							minigames_target_show_y -= 350 * scroll_v;
 							minigames_target_row_selected += scroll_v;
-							var types = ["4vs", "1vs3", "2vs2"];
+							var types = minigame_types();
 							var length = array_length(minigames_portraits[$ types[minigames_target_row_selected]]);
 							minigames_col_selected %= length;
 							minigames_target_col_selected = minigames_col_selected;
@@ -271,7 +271,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						}
 					}
 					
-					var names = ["4vs", "1vs3", "2vs2"];
+					var names = minigame_types();
 					var title = global.minigames[$ names[minigames_row_selected]][minigames_col_selected].title;
 					
 					if ((array_contains(global.seen_minigames, title) || global.player_id != 1) && sync_actions("jump", 1)) {
@@ -312,7 +312,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 		
 			if (sync_actions("jump", 1)) {
 				minigame_info_reset();
-				var types = ["4vs", "1vs3", "2vs2"];
+				var types = minigame_types();
 				var info = global.minigame_info;
 				info.reference = minigame_selected.reference;
 				info.type = types[minigames_row_selected];

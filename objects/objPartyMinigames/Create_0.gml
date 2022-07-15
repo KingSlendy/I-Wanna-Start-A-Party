@@ -115,7 +115,7 @@ minigame_colors = [
 	[1, 2],
 ];
 
-var names = ["4vs", "1vs3", "2vs2"];
+var names = minigame_types();
 
 if (room == rMinigames) {
 	for (var i = 0; i < array_length(names); i++) {
@@ -143,7 +143,7 @@ if (room == rMinigames) {
 
 	if (info.is_modes) {
 		menu_page = 1;
-		var types = ["4vs", "1vs3", "2vs2"];
+		var types = minigame_types();
 		minigames_row_selected = array_index(types, info.type);
 		minigames_target_row_selected = minigames_row_selected;
 		minigames_col_selected = array_index(global.minigames[$ types[minigames_row_selected]], info.reference);

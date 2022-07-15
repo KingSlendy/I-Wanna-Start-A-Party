@@ -36,6 +36,5 @@ minigame_time_end = function() {
 }
 
 player_check = objPlayerStatic;
-count_bug = null;
 bugs = [];
 total_bugs = 0;

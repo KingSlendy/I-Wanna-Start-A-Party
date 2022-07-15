@@ -54,7 +54,7 @@ switch (state) {
 			var choose_colors = [];
 			
 			if (color_count[$ c_white] > 0) {
-				var types = ["4vs", "1vs3", "2vs2"];
+				var types = minigame_types();
 				var quantity_types = {};
 				var percentage_types = {};
 				var total_types = 0;
