@@ -1,14 +1,14 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprMinigame2vs2_Duos_Leek",
+    "path": "sprites/sprMinigame2vs2_Duos_Leek/sprMinigame2vs2_Duos_Leek.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "objMinigameController",
-    "path": "objects/objMinigameController/objMinigameController.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,18 +23,17 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":11,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"trg","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Duos",
     "path": "folders/Objects/Minigames/2vs2/Duos.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Duos_Controller",
+  "name": "objMinigame2vs2_Duos_Leek",
   "tags": [],
   "resourceType": "GMObject",
 }

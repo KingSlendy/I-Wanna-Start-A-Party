@@ -99,6 +99,7 @@ enum ClientTCP {
 	Minigame2vs2_Colorful_PatternMoveVertical,
 	Minigame2vs2_Colorful_PatternMoveHorizontal,
 	Minigame2vs2_Colorful_PatternSelect,
+	Minigame2vs2_Duos_Button,
 	
 	//Results
 	ResultsBonus,
@@ -991,6 +992,16 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				if (x == pattern_x && self.pattern_round == pattern_round) {
 					pattern_select(index, false);
 					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame2vs2_Duos_Button:
+			var trg = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame2vs2_Duos_Button) {
+				if (self.trg == trg) {
+					press_button(false);
 				}
 			}
 			break;

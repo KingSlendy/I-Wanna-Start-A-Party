@@ -23,16 +23,15 @@ if (target != null) {
 with (player) {
 	var state = (other.x < 1344) ? 15 : 16;
 	
-	if (!array_contains(state_presses[state], other.x)) {
-		array_push(state_presses[state], other.x);
+	if (!array_contains(state_presses[state][0], other.x)) {
+		array_push(state_presses[state][0], other.x);
 		
 		if (other.target != null) {
-			array_push(state_presses[state], other.target.x);
+			array_push(state_presses[state][0], other.target.x);
 		} else {
-			state_presses[state] = null;
+			teammate.state_presses[state][1] = state_presses[state][1];
 		}
 	}
 	
-	prev_chosed_warp = chosed_warp;
-	chosed_warp = null;
+	state_presses[state][1] = null;
 }
