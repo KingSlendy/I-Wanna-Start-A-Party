@@ -15,10 +15,10 @@ function skin_init() {
 		new Skin("Crimson", "Crimson Kid", "I Wanna Be The Crimson", 2, "Carnival", 0),
 		new Skin("Tribute", "Tribute Kid", "I Wanna Be The Tribute", 3, "shaman666", 0),
 		new Skin("Demon", "Demon Kid", "I Wanna Be The Justice", 4, "Carnival", 0),
-		new Skin("Sepia", "Sepia Kid", "Sepia Needle", 5, "Kogami Takara"),
-		new Skin("Shiver", "Shiver Kid", "I Wanna Shiver", 6, "PlasmaNapkin", 200),
-		new Skin("Kitten", "The Kitten", "I Wanna Be The Cat", 7, "Nemega", 400),
-		new Skin("Kamilia", "Kamilia", "I Wanna Kill The Kamilia", 8, "OyO", 200),
+		new Skin("Sepia", "Sepia Kid", "Sepia Needle", 5, "Kogami Takara", 0),
+		new Skin("Shiver", "Shiver Kid", "I Wanna Shiver", 6, "PlasmaNapkin", 0),
+		new Skin("Kitten", "The Kitten", "I Wanna Be The Cat", 7, "Nemega", 0),
+		new Skin("Kamilia", "Kamilia", "I Wanna Kill The Kamilia", 8, "OyO", 0),
 		new Skin("HappyCherry", "Happy Cherry", "I Wanna Thank You MJIWBT", 9, "PlayerDash2017", 200),
 		new Skin("Ghost", "Ghost Kid", "I Wanna Spook Jam", 10, "Patrickgh3", 400),
 		new Skin("Happil", "Happil Kid", "I Wanna Kill The Happil", 11, "Just"),
@@ -102,7 +102,11 @@ function skin_init() {
 		new Skin("Tanjiro", "Tanjiro Kamado", "Original", 29, "JPRG666", 1000),
 		new Skin("Geno", "Geno", "Original", 29, "JPRG666", 1000),
 		new Skin("Kris", "Kris", "I Wanna Travel Alone", 51, "EchoMask", 600),
-		new Skin("Ninja", "Ninja Kid", "Crimson Needle 2", 52, "Kale", 500)
+		new Skin("Ninja", "Ninja Kid", "Crimson Needle 2", 52, "Kale", 500),
+		new Skin("Cowboy", "Cowboy Kid", "I Wanna Be The Gun Fighter", 53, "eden", 600),
+		new Skin("Raiden", "Raiden", "Not Another Hentai Game", 54, "Reimu2020", 300),
+		new Skin("Nightmare", "Nightmare Kamilia", "???", 55, "SquareDork", 1000),
+		new Skin("Wolsk", "Wolsk", "Secret Santa For Wolsk", 56, "Kady", 500)
 	];
 }
 

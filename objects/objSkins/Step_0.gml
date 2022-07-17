@@ -46,8 +46,13 @@ if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
 	
 	if (sync_actions("jump", 1)) {
 		if (!array_contains(global.collected_skins, skin_selected) && global.skins[skin_selected].price <= global.collected_coins) {
-			buying = global.skins[skin_selected].price;
-			alarm[0] = 1;
+			if (global.skins[other.skin_selected].shop_price > 0) {
+				buying = global.skins[skin_selected].price;
+				alarm[0] = 1;
+			} else {
+				gain_skin(other.skin_selected);
+			}
+			
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;
 		}
