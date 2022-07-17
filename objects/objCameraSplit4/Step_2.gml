@@ -18,7 +18,7 @@ for (var i = 0; i < global.player_max; i++) {
 	}
 
 	if (room == rMinigame2vs2_Duos && lock_y) {
-		target_y[i] = height * (player_info_by_id(follow.network_id).turn - 1) + height / 2;
+		target_y[i] = height * i + height / 2;
 	}
 	
 	view_x[i] = lerp(view_x[i], target_x[i], view_spd);

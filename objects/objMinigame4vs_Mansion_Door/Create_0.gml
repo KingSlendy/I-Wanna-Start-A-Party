@@ -1,4 +1,4 @@
-depth = 200;
+depth = layer_get_depth("Tiles") - 1;
 image_speed = 0;
 player = null;
 link = null;

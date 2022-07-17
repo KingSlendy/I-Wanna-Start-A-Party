@@ -1,7 +1,6 @@
 function save_variables() {
 	//Main data
 	global.file_selected = -1;
-	global.board_games = {};
 	global.game_id = "";
 	global.player_game_ids = [];
 	global.board_selected = -1;
@@ -14,8 +13,12 @@ function save_variables() {
 	global.collected_skins = array_sequence(0, 8);
 	global.collected_trophies = [];
 	global.ellapsed_time = 0;
+	global.player_name = "Player";
+	global.ip = "startaparty.sytes.net";
+	global.port = "33321";
 
 	//Board information
+	global.board_games = {};
 	global.max_board_turns = 20;
 	global.give_bonus_shines = true;
 }
@@ -38,7 +41,10 @@ function save_file() {
 			saved_seen_minigames: global.seen_minigames,
 			saved_collected_skins: global.collected_skins,
 			saved_collected_trophies: global.collected_trophies,
-			saved_ellapsed_time: global.ellapsed_time
+			saved_ellapsed_time: global.ellapsed_time,
+			saved_player_name: global.player_name,
+			saved_ip: global.ip,
+			saved_port: global.port
 		},
 		
 		board_games: global.board_games
@@ -78,6 +84,24 @@ function load_file() {
 		global.ellapsed_time = save.main_game.saved_ellapsed_time;
 	} catch (_) {
 		global.ellapsed_time = 0;
+	}
+	
+	try {
+		global.player_name = save.main_game.saved_player_name;
+	} catch (_) {
+		global.player_name = "Player";
+	}
+	
+	try {
+		global.ip = save.main_game.saved_ip;
+	} catch (_) {
+		global.ip = "startaparty.sytes.net";
+	}
+	
+	try {
+		global.port = save.main_game.saved_port;
+	} catch (_) {
+		global.port = "33321";
 	}
 	
 	global.board_games = save.board_games;

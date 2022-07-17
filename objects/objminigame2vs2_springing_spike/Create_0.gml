@@ -1,1 +1,1 @@
-depth = 301;
+depth = layer_get_depth("Tiles") + 1;

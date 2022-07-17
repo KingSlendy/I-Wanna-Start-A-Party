@@ -3,7 +3,7 @@ image_yscale += 0.09;
 image_angle += 3;
 
 if (image_xscale >= 2) {
-	depth = 100;
+	depth = layer_get_depth("Collisions");
 	image_xscale = 2;
 	image_yscale = 2;
 }

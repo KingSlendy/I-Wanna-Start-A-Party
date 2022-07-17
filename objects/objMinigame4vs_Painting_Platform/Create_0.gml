@@ -1,4 +1,4 @@
-depth = 299;
+depth = layer_get_depth("Tiles") - 1;
 player_id = 0;
 
 function platform_paint(new_id, network = true) {

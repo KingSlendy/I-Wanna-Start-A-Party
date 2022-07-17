@@ -1,20 +1,19 @@
 function button_event() {
-	image_xscale += 0.05;
-	image_yscale += 0.05;
+	image_xscale += 0.09;
+	image_yscale += 0.09;
 	
 	if (image_xscale >= 3) {
 		image_xscale = 3;
 		image_yscale = 3;
-		var player_id;
+		var player;
 		
 		switch (trg) {
-			case 9: player_id = 1; break;
-			case 8: player_id = 2; break;
-			case 11: player_id = 3; break;
-			case 10: player_id = 4; break;
+			case 9: player = objMinigameController.points_teams[0][0]; break;
+			case 8: player = objMinigameController.points_teams[0][1]; break;
+			case 11: player = objMinigameController.points_teams[1][0]; break;
+			case 10: player = objMinigameController.points_teams[1][1]; break;
 		}
 		
-		var player = focus_player_by_id(player_id);
 		player.finished = true;
 	}
 }

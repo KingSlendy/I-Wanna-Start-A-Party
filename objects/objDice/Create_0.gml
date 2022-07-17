@@ -24,7 +24,7 @@ function random_roll() {
 			
 		case ItemType.Clock:
 			if (++roll > 10) {
-				roll = 10;
+				roll = 1;
 			}
 			return;
 	}

@@ -1,7 +1,5 @@
 #macro IS_ONLINE (instance_exists(objNetworkClient))
 
-global.ip = null;
-global.port = 33321;
 global.tcp_socket = null;
 global.udp_socket = null;
 global.udp_ready = false;
@@ -10,7 +8,6 @@ global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
 global.player_id = 0;
 global.master_id = 0;
-global.player_name = "Player";
 global.lobby_started = false;
 
 enum PlayerDataMode {
@@ -151,11 +148,10 @@ function player_disconnection(player_id) {
 		return;
 	} else if (room == rModes) {
 		with (objModes) {
-			if (state == -1) {
-				back_to_files();
-				return;
-			}
+			back_to_files();
 		}
+		
+		return;
 	}
 	
 	popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");

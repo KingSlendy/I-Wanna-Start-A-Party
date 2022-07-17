@@ -1,3 +1,5 @@
+depth = layer_get_depth("Tiles") - 1;
+
 function press_button(network = true) {
 	image_index = 1;
 	

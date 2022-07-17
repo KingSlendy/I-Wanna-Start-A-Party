@@ -30,13 +30,13 @@ for (var i = 2; i <= global.player_max; i++) {
 				actions.right.press();
 				break;
 				
-			case 2: case 5: case 9: case 11: case 18: //Start shooting switch.
+			case 2: case 5: case 9: case 11: //Start shooting switch.
 				if (!state_presses[2][0]) {
 					actions.right.hold(get_frames(0.1));
 					state_presses[2][0] = true;
 				}
 				
-				if (state == 11 || state == 18) {
+				if (state == 11) {
 					actions.right.release(true);
 				}
 			
@@ -139,6 +139,18 @@ for (var i = 2; i <= global.player_max; i++) {
 				if (!state_presses[state][1] && --state_presses[state][0] <= 0) {
 					actions.jump.hold(20);
 					state_presses[state][1] = true;
+				}
+				break;
+				
+			case 18:
+				if (!state_presses[state][0]) {
+					actions.right.hold(3);
+					state_presses[state][0] = true;
+				}
+			
+				if (--state_presses[state][1] <= 0) {
+					actions.jump.hold(8);
+					state_presses[state][1] = get_frames(random_range(0.75, 0.9));
 				}
 				break;
 		}

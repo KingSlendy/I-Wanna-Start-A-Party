@@ -1,4 +1,4 @@
-depth = 299;
+depth = layer_get_depth("Tiles") - 1;
 target_x = x;
 target_y = y;
 target_spd = 10;

@@ -11,6 +11,8 @@ event_inherited();
 
 minigame_start = minigame1vs3_start;
 minigame_time = 60;
+points_draw = true;
+points_number = false;
 action_end = function() {
 	if (points_teams[1][0].lost) {
 		minigame4vs_points(points_teams[1][0].network_id);

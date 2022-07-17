@@ -8,7 +8,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objPlayerKiller",
+    "path": "objects/objPlayerKiller/objPlayerKiller.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

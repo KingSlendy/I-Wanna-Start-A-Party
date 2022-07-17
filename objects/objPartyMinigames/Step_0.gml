@@ -44,6 +44,8 @@ if (fade_start) {
 					room_goto(rMinigameOverview);
 					break;
 			}
+			
+			exit;
 		}
 	}
 }

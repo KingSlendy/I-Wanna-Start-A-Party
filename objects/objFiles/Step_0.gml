@@ -57,6 +57,12 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 		if (global.actions.jump.pressed()) {
 			file_opened = global.file_selected;
 			load_file();
+			online_texts = [
+				global.player_name,
+				global.ip,
+				global.port
+			]
+			
 			audio_play_sound(global.sound_cursor_select, 0, false);
 		}
 		
@@ -151,10 +157,20 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								"Enter the port."
 							];
 						
-							online_texts[select] = get_string(signs[select], online_texts[select]);
+							online_texts[select] = "";
+							var text = get_string(signs[select] + " (A~Z 0~9)", online_texts[select]);
+							
+							for (var i = 1; i <= string_length(text); i++) {
+								var char = string_char_at(text, i);
+								online_texts[select] += string_letters(char) + string_digits(char);
+							}
 						
-							if (select == 0 && string_length(online_texts[select]) == 0) {
-								online_texts[select] = "Player";
+							if (string_length(online_texts[select]) == 0) {
+								switch (select) {
+									case 0: online_texts[select] = "Player"; break;
+									case 1: online_texts[select] = "startaparty.sytes.net"; break;
+									case 2: online_texts[select] = "33321"; break;
+								}
 							}
 						
 							if (online_limits[select] != -1) {
@@ -180,7 +196,13 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								"Enter the password."
 							];
 						
-							lobby_texts[select] = get_string(signs[select], lobby_texts[select]);
+							lobby_texts[select] = "";
+							var text = get_string(signs[select] + " (A~Z 0~9)", lobby_texts[select]);
+							
+							for (var i = 1; i <= string_length(text); i++) {
+								var char = string_char_at(text, i);
+								lobby_texts[select] += string_letters(char) + string_digits(char);
+							}
 						
 							if (lobby_limits[select] != -1) {
 								lobby_texts[select] = string_copy(lobby_texts[select], 1, lobby_limits[select]);

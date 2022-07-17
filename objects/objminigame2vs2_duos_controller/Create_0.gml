@@ -23,7 +23,7 @@ with (objPlayerBase) {
 		[[], null],
 		[[], null],
 		[get_frames(0.25), false],
-		null
+		[false, get_frames(1)]
 	];
 	
 	finished = false;

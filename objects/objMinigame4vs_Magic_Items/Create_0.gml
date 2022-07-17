@@ -1,4 +1,4 @@
-depth = 499;
+depth = layer_get_depth("Tiles") - 1;
 image_index = objMinigameController.item_order[order];
 
 player_turn = 0;
