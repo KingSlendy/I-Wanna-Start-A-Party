@@ -4,12 +4,10 @@ if (amount == 0) {
 	exit;
 }
 
-if (focus_player != null && instance_exists(focus_player)) {
-	var c = instance_create_layer(focus_player.x, focus_player.y, "Actors", objCoin);
-	c.focus_player = focus_player;
-	c.vspeed = -8;
-}
-
+focus_player = focus_player_by_id(network_id);
+var c = instance_create_layer(focus_player.x, focus_player.y, "Actors", objCoin);
+c.focus_player = focus_player;
+c.vspeed = -8;
 audio_play_sound(sndCoinLose, 0, false);
 
 if (++animation_amount == abs(amount)) {

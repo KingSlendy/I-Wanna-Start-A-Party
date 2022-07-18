@@ -33,7 +33,7 @@ function back_to_board() {
 	if (!info.is_practice) {
 		if (info.is_modes) {
 			if (array_contains(info.players_won, global.player_id)) {
-				increase_collected_coins(10);
+				increase_collected_coins(20);
 			}
 			
 			save_file();

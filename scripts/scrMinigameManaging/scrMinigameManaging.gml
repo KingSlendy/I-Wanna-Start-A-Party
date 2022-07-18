@@ -19,7 +19,8 @@ function minigame_init() {
 		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
 		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
 		new Minigame("Unstable Blocks", ["Instructions TBD."], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
-		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame")
+		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
+		new Minigame("Slime Annoyer", ["Instructions TBD."], 23, rMinigame4vs_Slime, "SlimePark")
 	];
 
 	m[$ "1vs3"] = [

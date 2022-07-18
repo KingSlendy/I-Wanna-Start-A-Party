@@ -240,23 +240,24 @@ function advance_chance_time() {
 }
 
 function reposition_chance_time() {
-	//Failsafe because a bug appeared for being null, which doesn't make sense
-	//if (player_ids == null || array_contains(player_ids, null)) {
-	//	return;
-	//}
+	with (objChanceTimeChoice) {
+		if (flag < 2) {
+			instance_destroy();
+		}
+	}
 	
 	//Puts the chosen players in its respective positions
 	for (var i = 0; i < array_length(player_ids); i++) {
 		var player = focus_player_by_turn(player_ids[i] + 1);
-								
-		with (objChanceTimeChoice) {
-			if (flag == i) {
-				player.image_xscale = 1;
-				player.x = x + 17;
-				player.y = other.current_follow.y;
-				instance_destroy();
-			}
+		player.image_xscale = 1;
+		
+		if (i == 0) {
+			player.x = current_follow.x - 48;
+		} else {
+			player.x = current_follow.x + 48;
 		}
+		
+		player.y = current_follow.y;
 	}
 	
 	show_others = true;

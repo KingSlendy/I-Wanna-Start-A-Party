@@ -66,7 +66,7 @@ function skin_init() {
 		new Skin("Owata", "Owata", "I Wanna Be The Guy Re.", 43, "Natsu", 500),
 		new Skin("Bread", "The Bread", "I Wanna Bread", 44, "Patrickgh3", 500),
 		new Skin("Critic", "Critic", "I Wanna Kill The 3sweepor", 45, "RandomErik", 400),
-		new Skin("Troller", "The Troller", "I Wanna Kill The 3sweepor", 45, "RandomErik", 300),
+		new Skin("Troller", "The Troller", "I Wanna Kill The 3sweepor", 45, "Tralexium", 300),
 		new Skin("Explorer", "Explorer Kid", "I Wanna Be The Explorer", 46, "Hone", 200),
 		new Skin("Syobon", "Syobon Cat", "Original", 29, "SergioGameMaker", 500),
 		new Skin("Cute", "Cute Girl", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),

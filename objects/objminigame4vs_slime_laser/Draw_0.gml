@@ -1,0 +1,2 @@
+draw_sprite_ext(sprMinigame4vs_Slime_LaserA, 0, x, y, -1, scale, image_angle, image_blend, image_alpha);
+draw_sprite_ext(sprMinigame4vs_Slime_LaserB, 0, x - sprite_get_width(sprite_index), y, -700, scale, image_angle, image_blend, image_alpha);

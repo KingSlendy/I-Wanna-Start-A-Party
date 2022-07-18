@@ -83,6 +83,8 @@ enum ClientTCP {
 	Minigame4vs_Painting_Platform,
 	Minigame4vs_Bugs_Counting,
 	Minigame4vs_Chests_ChestSelected,
+	Minigame4vs_Slime_UnfreezePlayer,
+	Minigame4vs_Slime_BlockEntrance,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
@@ -805,6 +807,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 						target_y = ystart;
 					}
 				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Slime_UnfreezePlayer:
+			with (objMinigameController) {
+				unfreeze_player(false);
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Slime_BlockEntrance:
+			with (objMinigameController) {
+				block_entrance(false);
 			}
 			break;
 			
