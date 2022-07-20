@@ -74,6 +74,12 @@ function load_file() {
 	global.seen_minigames = save.main_game.saved_seen_minigames;
 	global.collected_skins = save.main_game.saved_collected_skins;
 	
+	var index = array_index(global.seen_minigames, "Gigantic Chase");
+	
+	if (index != -1) {
+		global.seen_minigames[index] = "Gigantic Race";
+	}
+	
 	try {
 		global.collected_trophies = save.main_game.saved_collected_trophies;
 	} catch (_) {

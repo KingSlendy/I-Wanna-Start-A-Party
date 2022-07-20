@@ -11,7 +11,7 @@ switch (room) {
 		mode = 1;
 		break;
 		
-	case rMinigame1vs3_Chase:
+	case rMinigame1vs3_Race:
 		var w = 800;
 		var h = 304;
 		mode = 2;

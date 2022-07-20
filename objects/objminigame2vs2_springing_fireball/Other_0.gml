@@ -1,1 +1,3 @@
-instance_destroy();
+if (y > 608) {
+	instance_destroy();
+}

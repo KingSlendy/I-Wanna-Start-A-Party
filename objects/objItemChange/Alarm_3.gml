@@ -9,7 +9,7 @@ if (!used_item) {
 	used_item = true;
 	alarm[3] = get_frames(1.5);
 } else {
-	if (spawned_item != null) {
+	if (spawned_item != null && instance_exists(spawned_item)) {
 		spawned_item.vspeed = 3;
 		spawned_item.used = true;
 	}

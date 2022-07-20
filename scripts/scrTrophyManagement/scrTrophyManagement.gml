@@ -42,7 +42,10 @@ global.trophies = [
 	new Trophy(33, 1, "Party Loser", "You lost a Party...\nWell there's always next time I guess.", "A loser is you."),
 	new Trophy(34, 1, "Where's My Shiny?", "You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting shines.", "Wait... isn't the whole point getting shiny?"),
 	new Trophy(35, 1, "Free Night", "You received a Night Shine for 0 coins!\nThat was free trial, next time you won't be so lucky.", "This one is on the house."),
-	new Trophy(36, 1, "Expensive Night", "You bought a Night Shine for 40 coins.\nIt'd be best if you waited for sales next time.", "Gimme full price! I ain't waiting for the hot sale.")
+	new Trophy(36, 1, "Expensive Night", "You bought a Night Shine for 40 coins.\nIt'd be best if you waited for sales next time.", "Gimme full price! I ain't waiting for the hot sale."),
+	new Trophy(37, 0, "Triple Threat", "You rolled three identical numbers with Triple Dice!\nI can't stop rolling!", "Oh baby, a triple!"),
+	new Trophy(38, 1, "Dyslexic Pusher", "You pushed the block in Warping Up the wrong way.\nBut that's harder! Why would you think of doing that!?", "Wait, pushing it to the other side...?"),
+	new Trophy(39, 2, "Slime Hugger", "You touched the slime in Slime Annoyer.\nIt's cute, I know, but it's deadly!", "I know it's tempting, but it's not huggable.")
 ];
 
 global.collected_trophies_stack = [];

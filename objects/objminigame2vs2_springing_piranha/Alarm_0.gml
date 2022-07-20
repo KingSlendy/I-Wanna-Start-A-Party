@@ -8,4 +8,8 @@ if (f.hspeed == 0) {
 f.vspeed = irandom_range(-7, -9);
 f.gravity = 0.25;
 
-alarm[0] = get_frames(0.2);
+if (objMinigameController.points_teams[0][1].lost && objMinigameController.points_teams[1][1].lost) {
+	alarm[0] = get_frames(0.1);
+} else {
+	alarm[0] = get_frames(0.2);
+}

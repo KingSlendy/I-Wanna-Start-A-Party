@@ -123,7 +123,7 @@ upper_text = "";
 finish = false;
 online_texts = [
 	"Player",
-	"startaparty.sytes.net",
+	"66.228.52.202",
 	"33321"
 ]
 

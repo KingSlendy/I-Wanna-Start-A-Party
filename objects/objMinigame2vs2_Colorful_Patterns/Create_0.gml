@@ -77,7 +77,6 @@ function pattern_grid_generate() {
 		return;
 	}
 	
-	next_seed_inline();
 	pattern_round++;
 	
 	if (pattern_round == 4) {
@@ -91,6 +90,7 @@ function pattern_grid_generate() {
 		return;
 	}
 	
+	random_set_seed(objMinigameController.round_seed[pattern_round][(x < 400)]);
 	pattern_selected = [false, false];
 	pattern_chosen = pattern_choose();
 
@@ -120,33 +120,37 @@ function pattern_grid_generate() {
 }
 
 function pattern_move_vertical(index, v, network = true) {
-	pattern_row_selected[index] = (pattern_row_selected[index] + pattern_rows + v) % pattern_rows;
-	audio_play_sound(sndMinigame2vs2_Colorful_PatternMove, 0, false);
-	
 	if (network) {
+		pattern_row_selected[index] = (pattern_row_selected[index] + pattern_rows + v) % pattern_rows;
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Colorful_PatternMoveVertical);
 		buffer_write_data(buffer_u16, x);
 		buffer_write_data(buffer_u8, pattern_round);
 		buffer_write_data(buffer_u8, index);
-		buffer_write_data(buffer_s8, v);
+		buffer_write_data(buffer_u8, pattern_row_selected[index]);
 		network_send_tcp_packet();
+	} else {
+		pattern_row_selected[index] = v;
 	}
+	
+	audio_play_sound(sndMinigame2vs2_Colorful_PatternMove, 0, false);
 }
 
 function pattern_move_horizontal(index, h, network = true) {
-	pattern_col_selected[index] = (pattern_col_selected[index] + pattern_cols + h) % pattern_cols;
-	audio_play_sound(sndMinigame2vs2_Colorful_PatternMove, 0, false);
-	
 	if (network) {
+		pattern_col_selected[index] = (pattern_col_selected[index] + pattern_cols + h) % pattern_cols;
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Colorful_PatternMoveHorizontal);
 		buffer_write_data(buffer_u16, x);
 		buffer_write_data(buffer_u8, pattern_round);
 		buffer_write_data(buffer_u8, index);
-		buffer_write_data(buffer_s8, h);
+		buffer_write_data(buffer_u8, pattern_col_selected[index]);
 		network_send_tcp_packet();
+	} else {
+		pattern_col_selected[index] = h;
 	}
+	
+	audio_play_sound(sndMinigame2vs2_Colorful_PatternMove, 0, false);
 }
 
 function pattern_select(index, network = true) {

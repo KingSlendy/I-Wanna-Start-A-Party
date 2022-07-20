@@ -17,7 +17,7 @@ for (var i = 0; i < global.player_max; i++) {
 		target_y[i] = follow.y;
 	}
 
-	if (room == rMinigame2vs2_Duos && lock_y) {
+	if ((room == rMinigame1vs3_Race || room == rMinigame2vs2_Duos) && lock_y) {
 		target_y[i] = height * i + height / 2;
 	}
 	

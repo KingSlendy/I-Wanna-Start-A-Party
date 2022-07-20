@@ -53,8 +53,10 @@ function music_pause() {
 }
 
 function music_resume() {
-	global.music_current = global.music_previous;
-	audio_resume_sound(global.music_current);
+	if (global.music_previous != null) {
+		global.music_current = global.music_previous;
+		audio_resume_sound(global.music_current);
+	}
 }
 
 function music_fade(time = 1000) {

@@ -32,7 +32,7 @@ function unfreeze_player(network = true) {
 		frozen = true;
 	}
 	
-	if (network) {
+	if (player_turn > 0 && network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Slime_UnfreezePlayer);
 		network_send_tcp_packet();

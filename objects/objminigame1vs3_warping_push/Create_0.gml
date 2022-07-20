@@ -7,7 +7,11 @@ function push_block(player, network = true) {
 	}
 	
 	x += 2 * sign(player.hspd);
-	x = min(x, xstart);
+	x = min(x, xstart + 32 * 3);
+	
+	if (x >= xstart + 32 * 3) {
+		gain_trophy(37);
+	}
 	
 	if (network) {
 		buffer_seek_begin();

@@ -53,7 +53,7 @@ if (global.dice_roll > 0) {
 			]);
 				
 			if (network_id == global.player_id) {
-				gain_trophy(19);
+				gain_trophy(36);
 			}
 				
 			exit;

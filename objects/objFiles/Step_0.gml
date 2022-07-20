@@ -158,11 +158,24 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							];
 						
 							online_texts[select] = "";
-							var text = get_string(signs[select] + " (A~Z 0~9)", online_texts[select]);
+							var text = get_string(signs[select], online_texts[select]);
 							
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
-								online_texts[select] += string_letters(char) + string_digits(char);
+								
+								if (select == 0 && (char == "!" || char == " " || char == ".")) {
+									online_texts[select] += char;
+								}
+								
+								if (select == 1 && char == ".") {
+									online_texts[select] += char;
+								}
+								
+								if (select == 2) {
+									online_texts[select] += string_digits(char);
+								} else {
+									online_texts[select] += string_letters(char) + string_digits(char);
+								}
 							}
 						
 							if (string_length(online_texts[select]) == 0) {

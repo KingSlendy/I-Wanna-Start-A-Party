@@ -85,14 +85,15 @@ enum ClientTCP {
 	Minigame4vs_Chests_ChestSelected,
 	Minigame4vs_Slime_UnfreezePlayer,
 	Minigame4vs_Slime_BlockEntrance,
+	Minigame4vs_Slime_SlimeShot,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
 	Minigame1vs3_Coins_Coin,
 	Minigame1vs3_Coins_HoldSpike,
 	Minigame1vs3_Coins_ThrowSpike,
-	Minigame1vs3_Chase_Solo,
-	Minigame1vs3_Chase_Team,
+	Minigame1vs3_Race_Solo,
+	Minigame1vs3_Race_Team,
 	Minigame1vs3_Warping_Push,
 	Minigame1vs3_Warping_Warp,
 	Minigame2vs2_Maze_Item,
@@ -822,6 +823,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame4vs_Slime_SlimeShot:
+			with (objMinigame4vs_Slime_Slime) {
+				slime_shot(false);
+			}
+			break;
+			
 		case ClientTCP.Minigame1vs3_Avoid_Block:
 			var attack = buffer_read(buffer, buffer_u8);
 			
@@ -905,14 +912,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}	
 			break;
 			
-		case ClientTCP.Minigame1vs3_Chase_Solo:
+		case ClientTCP.Minigame1vs3_Race_Solo:
 			var action = buffer_read(buffer, buffer_string);
-			array_push(objMinigame1vs3_Chase_Controller.network_solo_actions, action);
+			array_push(objMinigame1vs3_Race_Controller.network_solo_actions, action);
 			break;
 			
-		case ClientTCP.Minigame1vs3_Chase_Team:
+		case ClientTCP.Minigame1vs3_Race_Team:
 			var action = buffer_read(buffer, buffer_string);
-			array_push(objMinigame1vs3_Chase_Controller.network_team_actions, action);
+			array_push(objMinigame1vs3_Race_Controller.network_team_actions, action);
 			break;
 			
 		case ClientTCP.Minigame1vs3_Warping_Push:
@@ -973,11 +980,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var pattern_x = buffer_read(buffer, buffer_u16);
 			var pattern_round = buffer_read(buffer, buffer_u8);
 			var index = buffer_read(buffer, buffer_u8);
-			var v = buffer_read(buffer, buffer_s8);
+			var row_selected = buffer_read(buffer, buffer_u8);
 			
 			with (objMinigame2vs2_Colorful_Patterns) {
 				if (x == pattern_x && self.pattern_round == pattern_round) {
-					pattern_move_vertical(index, v, false);
+					pattern_move_vertical(index, row_selected, false);
 					break;
 				}
 			}
@@ -987,11 +994,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var pattern_x = buffer_read(buffer, buffer_u16);
 			var pattern_round = buffer_read(buffer, buffer_u8);
 			var index = buffer_read(buffer, buffer_u8);
-			var h = buffer_read(buffer, buffer_s8);
+			var col_selected = buffer_read(buffer, buffer_u8);
 			
 			with (objMinigame2vs2_Colorful_Patterns) {
 				if (x == pattern_x && self.pattern_round == pattern_round) {
-					pattern_move_horizontal(index, h, false);
+					pattern_move_horizontal(index, col_selected, false);
 					break;
 				}
 			}
