@@ -23,3 +23,11 @@ if (player_info.place == 4) {
 if (player_info.shines == 0) {
 	gain_trophy(33);
 }
+
+if (global.max_board_turns == 50) {
+	gain_trophy(39);
+}
+
+if (array_count(player_info.items, null) == 0) {
+	gain_trophy(40);
+}

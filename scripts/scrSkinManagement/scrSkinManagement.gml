@@ -106,7 +106,11 @@ function skin_init() {
 		new Skin("Cowboy", "Cowboy Kid", "I Wanna Be The Gun Fighter", 53, "eden", 600),
 		new Skin("Raiden", "Raiden", "Not Another Hentai Game", 54, "Reimu2020", 300),
 		new Skin("Nightmare", "Nightmare Kamilia", "???", 55, "SquareDork", 1000),
-		new Skin("Wolsk", "Wolsk", "Secret Santa For Wolsk", 56, "Kady", 500)
+		new Skin("Wolsk", "Wolsk", "Secret Santa For Wolsk", 56, "Kady", 500),
+		new Skin("Fighter", "Fighter Kid", "I Wanna Warp The Worlds", 57, "???", 300),
+		new Skin("Rock", "Rock Kid", "I Wanna Warp The Worlds", 57, "???", 500),
+		new Skin("Bomb", "Bomb Kid", "I Wanna Warp The Worlds", 57, "???", 700),
+		new Skin("Fire", "Fire Kid", "I Wanna Warp The Worlds", 57, "???", 900),
 	];
 }
 

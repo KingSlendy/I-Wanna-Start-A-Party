@@ -66,11 +66,11 @@ function say_player_place() {
 	
 	if (current_player == 4) {
 		if (is_local_turn()) {
-			//objDialogue.endable = true;
-			
 			start_dialogue([
 				new Message("Looks like {COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is having some trouble... let's give them a little bit of help!",, help_last_place)
 			]);
+			
+			//objDialogue.endable = true;
 		}
 		
 		return;
@@ -121,7 +121,7 @@ function give_last_place() {
 		
 		var rnd = irandom(99);
 		
-		if (rnd <= 50) {
+		if (rnd <= 50 || array_count(player_info_by_turn().items, null) == 0) {
 			change_coins(30, CoinChangeType.Gain).final_action = final_action;
 		} else if (rnd >= 51 && rnd <= 98) {
 			change_items(global.board_items[choose(ItemType.Blackhole, ItemType.Mirror)], ItemChangeType.Gain).final_action = final_action;

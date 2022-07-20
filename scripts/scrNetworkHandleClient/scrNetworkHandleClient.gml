@@ -1036,7 +1036,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var player_info = player_info_by_id(player_id);
 			player_info.shines = player_shines;
 			player_info.coins = player_coins;
-			var scores_scores = buffer_read_array(buffer, buffer_s32);
+			var scores_scores = buffer_read_array(buffer, buffer_u16);
 			
 			for (var i = 0; i < array_length(global.bonus_shines); i++) {
 				global.bonus_shines[i].scores[player_id - 1] = scores_scores[i];

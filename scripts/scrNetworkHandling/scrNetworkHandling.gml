@@ -14,6 +14,7 @@ enum PlayerDataMode {
 	Heartbeat,
 	Basic,
 	Hand,
+	Rocket,
 	All
 }
 
@@ -213,9 +214,13 @@ function player_write_data() {
 		case PlayerDataMode.Hand:
 			buffer_write_data(buffer_u16, sprite_index);
 			buffer_write_data(buffer_u8, image_index);
-			buffer_write_data(buffer_u64, image_blend);
-			buffer_write_data(buffer_s8, image_xscale);
-			buffer_write_data(buffer_s8, image_yscale);
+			buffer_write_data(buffer_s32, x);
+			buffer_write_data(buffer_s32, y);
+			break;
+			
+		case PlayerDataMode.Rocket:
+			buffer_write_data(buffer_u16, sprite_index);
+			buffer_write_data(buffer_u8, image_angle);
 			buffer_write_data(buffer_s32, x);
 			buffer_write_data(buffer_s32, y);
 			break;
@@ -251,6 +256,12 @@ function player_read_data(buffer) {
 		instance.network_index = buffer_read(buffer, buffer_u16);
 		instance.network_room = buffer_read(buffer, buffer_u16);
 		
+		//Reset values
+		instance.image_alpha = 1;
+		instance.image_blend = c_white;
+		instance.image_xscale = 1;
+		instance.image_yscale = 1;
+		
 		switch (mode) {
 			case PlayerDataMode.Basic:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
@@ -264,9 +275,13 @@ function player_read_data(buffer) {
 			case PlayerDataMode.Hand:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);
 				instance.image_index = buffer_read(buffer, buffer_u8);
-				instance.image_blend = buffer_read(buffer, buffer_u64);
-				instance.image_xscale = buffer_read(buffer, buffer_s8);
-				instance.image_yscale = buffer_read(buffer, buffer_s8);
+				instance.x = buffer_read(buffer, buffer_s32);
+				instance.y = buffer_read(buffer, buffer_s32);
+				break;
+				
+			case PlayerDataMode.Rocket:
+				instance.sprite_index = buffer_read(buffer, buffer_u16);
+				instance.image_angle = buffer_read(buffer, buffer_u8);
 				instance.x = buffer_read(buffer, buffer_s32);
 				instance.y = buffer_read(buffer, buffer_s32);
 				break;

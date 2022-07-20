@@ -34,7 +34,6 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.place = 1;
 	self.space = c_ltgray;
 	self.item_used = false;
-	self.item_used = false;
 	self.item_effect = null;
 	
 	static free_item_slot = function() {
@@ -917,7 +916,19 @@ function end_map() {
 function call_shop() {
 	var player_info = player_info_by_turn();
 	
-	if (global.board_turn == global.max_board_turns || !global.board_day) {
+	if (!global.board_day) {
+		start_dialogue([
+			new Message("Sorry but the shop is closed during the night, visit us at any time during the day. Thanks!",, board_advance)
+		]);
+		
+		if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Cellphone) {
+			gain_trophy(42);
+		}
+		
+		exit;
+	}
+	
+	if (global.board_turn == global.max_board_turns) {
 		start_dialogue([
 			new Message("We're currently closed!\nSorry for the inconvenience!",, board_advance)
 		]);

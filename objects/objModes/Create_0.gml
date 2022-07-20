@@ -16,7 +16,7 @@ function ModeButton(x, y, w, h, label, sprite, scale, offset, color = c_white, s
 	draw_set_valign(fa_top);
 	
 	if (sprite != null) {
-		draw_sprite_ext(sprite, 0, w / 2, offset, scale, scale, 0, c_white, 1);
+		draw_sprite_ext(sprite, (sprite == sprModesTrophies), w / 2, offset, scale, scale, 0, c_white, 1);
 	}
 	
 	surface_reset_target();

@@ -145,6 +145,10 @@ function space_passing_event() {
 				start_dialogue([
 					new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the shine!\nCome back later.",, board_advance)
 				]);
+				
+				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
+					gain_trophy(41);
+				}
 			}
 			
 			return 1;

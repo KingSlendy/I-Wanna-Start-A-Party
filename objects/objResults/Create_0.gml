@@ -57,7 +57,7 @@ function results_bonus() {
 					array_push(scores_scores, global.bonus_shines[j].scores[i - 1]);
 				}
 			
-				buffer_write_array(buffer_s32, scores_scores);
+				buffer_write_array(buffer_u16, scores_scores);
 				network_send_tcp_packet();
 			}
 		}
