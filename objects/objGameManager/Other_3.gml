@@ -1,3 +1,3 @@
-if (room != rTitle && room != rFiles) {
+if (room != rVersion && room != rTitle && room != rFiles) {
 	save_file();
 }

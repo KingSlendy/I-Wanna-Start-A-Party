@@ -19,7 +19,6 @@ if (global.udp_socket < 0) {
 	exit;
 }
 
-//objPlayerBase.network_name = global.player_name;
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_async(global.tcp_socket, global.ip, global.port);

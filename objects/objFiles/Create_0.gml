@@ -18,7 +18,7 @@ file_highlights = array_create(3, 0.8);
 file_opened = -1;
 menu_type = 0;
 
-function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, sprite = null) constructor {
+function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, sprite = null, lobby = null) constructor {
 	self.w = w;
 	self.h = h;
 	var surf = surface_create(w, h);
@@ -27,12 +27,25 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	draw_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_color_outline(w / 2, h / 2, label, c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
 	
-	if (sprite != null) {
-		draw_sprite(sprite, 0, w / 2, h / 2);
+	if (lobby == null) {
+		draw_text_color_outline(w / 2, h / 2, label, c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+	
+		if (sprite != null) {
+			draw_sprite(sprite, 0, w / 2, h / 2);
+		}
+	} else {
+		draw_set_halign(fa_left);
+		draw_text_color_outline(20, h / 2, lobby.lobby_name, c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+		draw_set_halign(fa_right);
+		draw_text_color_outline(w - 20, h / 2, string(lobby.lobby_clients) + "/4", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
+		draw_set_halign(fa_left);
+		
+		if (lobby.lobby_password) {
+			draw_sprite(sprFilesLock, 0, w - 120, h / 2);
+		}
 	}
 	
 	surface_reset_target();
@@ -45,6 +58,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	self.main_pos = [x, y];
 	self.target_pos = [x, y];
 	self.selectable = selectable;
+	self.lobby = (lobby != null);
 	self.highlight = 1;
 	
 	self.draw = function(alpha) {
@@ -59,6 +73,17 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 		if (self.selectable) {
 			self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.8 : 1, 0.3);
 		}
+		
+		if (self.lobby) {
+			var dist = point_distance(0, self.pos[1], 0, 412);
+			var highlight = remap(dist, 0, 100, 1, 0);
+			
+			if (!condition_highlight) {
+				highlight *= 0.75;
+			}
+			
+			self.highlight = lerp(self.highlight, highlight, 0.3);
+		}
 	}
 }
 
@@ -67,11 +92,18 @@ menu_buttons = [
 	[new FileButton(400, 400, file_width, 64, -1, "OFFLINE", c_white), new FileButton(400, 480, file_width, 64, 1, "ONLINE", c_aqua)],
 	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "CONFIRM", c_red)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "IP", c_white), new FileButton(150, 332, file_width, 64, -1, "PORT", c_white), new FileButton(150, 412, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 332, file_width * 2, 64, 1, "", c_white, false)],
-	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false)],
+	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), new FileButton(150, 562, file_width, 64, -1, "REFRESH", c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false)],
 	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "",, false), new FileButton(400, 230, file_width * 2, 64, 1, "",, false), new FileButton(400, 310, file_width * 2, 64, -1, "",, false), new FileButton(400, 390, file_width * 2, 64, 1, "",, false)]
 ];
 
 menu_selected = array_create(array_length(menu_buttons), 0);
+
+option_buttons = [
+	new FileButton(144, 480, file_width, file_width - 64, 0, "OPTIONS")
+];
+
+option_selected = 0;
+
 var prev_selected = global.file_selected;
 
 function file_sprite(file) {

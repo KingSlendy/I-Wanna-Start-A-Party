@@ -1,3 +1,8 @@
+enum ClientVER {
+	SendVersion,
+	Executable
+}
+
 enum ClientTCP {
 	//Network
 	ReceiveMasterID,
@@ -255,30 +260,44 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 						data[3] = (data[3] == "True");
 						var name = data[0];
 					
-						if (string_length(name) > 5) {
-							name = string_copy(name, 1, 5) + "-";
+						if (string_length(name) > 8) {
+							name = string_copy(name, 1, 8) + "-";
 						}
 					
-						var text = string_interp("{0}\n\n\n{1}/4", name, data[2]);
-						var button = new FileButton(550, 402, file_width, 160, 1, text, (data[2] == 4 || data[3]) ? c_red : c_white,, (data[1]) ? sprFilesLock : null);
+						//var text = string_interp("{0}\n\n\n{1}/4", name, data[2]);
+						var button = new FileButton(520, 412 + 60 * i, file_width * 2, 64, 1, "", (data[2] == 4 || data[3]) ? c_red : c_white,,, {
+							lobby_name: name,
+							lobby_password: data[1],
+							lobby_clients: data[2]
+						});
+						
 						array_push(lobby_list, button);
 						button.name = data[0];
 						button.has_password = data[1];
 					}
 				}
 				
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "WWWWWWWW\n\n\n1/4", c_white,, sprFilesLock));
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME1\n\n\n1/4", c_white,, sprFilesLock));
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME2\n\n\n1/4", c_white,, sprFilesLock));
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "AAAAAAAA\n\n\n1/4", c_white,, sprFilesLock));
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME3\n\n\n1/4", c_white,, sprFilesLock));
-				//array_push(lobby_list, new FileButton(550, 402, 192, 160, 1, "NAME4\n\n\n1/4", c_white,, sprFilesLock));
+				//array_push(lobby_list, new FileButton(520, 412 + 60 * (array_length(lobbies) - 1), file_width * 2, 64, 1, "", c_white,,, {
+				//	lobby_name: "TESTAAAA",
+				//	lobby_password: false,
+				//	lobby_clients: 3
+				//}));
+				
+				//array_push(lobby_list, new FileButton(520, 412 + 60 * (array_length(lobbies) + 0), file_width * 2, 64, 1, "", c_white,,, {
+				//	lobby_name: "Hello!",
+				//	lobby_password: true,
+				//	lobby_clients: 2
+				//}));
 			
 				lobby_return = false;
 				online_reading = false;
-				menu_type = 4;
-				upper_type = menu_type;
-				upper_text = "LOBBY DATA";
+				
+				if (menu_type != 4) {
+					menu_type = 4;
+					upper_type = menu_type;
+					upper_text = "LOBBY DATA";
+					lobby_selected = 0;
+				}
 			}
 			break;
 			

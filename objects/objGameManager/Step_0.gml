@@ -9,7 +9,7 @@ if (keyboard_check_pressed(vk_f4)) {
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }
 
-if (keyboard_check_pressed(vk_escape)) {
+if (room != rVersion && keyboard_check_pressed(vk_escape)) {
 	if (room != rTitle) {
 		if (room != rTitle && room != rFiles) {
 			save_file();

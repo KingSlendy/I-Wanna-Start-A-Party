@@ -1,7 +1,7 @@
 ///@desc Item Use Animation
 if (!used_item) {
 	player_info.items[global.choice_selected] = null;
-	player_info.item_used = true;
+	player_info.item_used = item.id;
 	focus_player = focus_player_by_id(network_id);
 	spawned_item = instance_create_layer(focus_player.x, focus_player.y - 40, "Actors", objItem);
 	spawned_item.focus_player = focus_player;

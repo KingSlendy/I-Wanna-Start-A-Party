@@ -88,7 +88,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 				audio_play_sound(global.sound_cursor_move, 0, false);
 			}
 		} else {
-			var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
+			var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
 			var prev_selected = lobby_selected;
 			var length = array_length(lobby_list);
 			lobby_selected = (lobby_selected + length + scroll) % length;
@@ -228,9 +228,14 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								buffer_write_data(buffer_text, lobby_texts[0] + "|" + sha1_string_utf8(lobby_texts[1]));
 								network_send_tcp_packet();
 								online_reading = true;
-							} else if (array_length(lobby_list) > 0) {
+							} else if (select == 4 && array_length(lobby_list) > 0) {
 								menu_selected[menu_type] = -1;
 								lobby_seeing = true;
+							} else if (select == 5) {
+								online_reading = true;
+								buffer_seek_begin();
+								buffer_write_action(ClientTCP.LobbyList);
+								network_send_tcp_packet();
 							}
 						}
 						break;
@@ -243,9 +248,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						var player_count = 0;
 						
 						with (objPlayerBase) {
-							if (network_id != 0) {
-								player_count++;
-							}
+							player_count += draw;
 						}
 						
 						if (player_count < 2) {

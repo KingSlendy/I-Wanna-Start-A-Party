@@ -33,7 +33,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
-	self.item_used = false;
+	self.item_used = null;
 	self.item_effect = null;
 	
 	static free_item_slot = function() {
@@ -395,7 +395,7 @@ function turn_start() {
 
 function turn_next(network = true) {
 	var player_info = player_info_by_turn();
-	player_info.item_used = false;
+	player_info.item_used = null;
 	player_info.item_effect = null;
 	
 	if (is_local_turn()) {

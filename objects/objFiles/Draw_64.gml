@@ -23,6 +23,12 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 	draw_sprite_ext(file_sprites[i], 0, file_x + file_width / 2, file_y + file_width / 2, highlight, highlight, 0, c_white, highlight - files_alpha);
 }
 
+for (var i = 0; i < array_length(option_buttons); i++) {
+	var button = option_buttons[i];
+	button.check((file_opened == -1), option_selected == i);
+	//button.draw(files_alpha);
+}
+
 for (var i = 0; i < array_length(menu_buttons); i++) {
 	for (var j = 0; j < array_length(menu_buttons[i]); j++) {
 		var button = menu_buttons[i][j];
@@ -102,21 +108,23 @@ var length = array_length(lobby_list);
 for (var i = 0; i < length; i++) {
 	var lobby = lobby_list[i];
 	lobby.check((menu_type == 4), (lobby_seeing && lobby_selected == i));
-	var left = (lobby_selected + length - 1) % length;
-	var right = (lobby_selected + length + 1) % length;
+	//var left = (lobby_selected + length - 1) % length;
+	//var right = (lobby_selected + length + 1) % length;
 	
 	if (menu_type == 4) {
-		if (i == lobby_selected) {
-			lobby.target_pos = [lobby.main_pos[0], lobby.main_pos[1]];
-		} else if (i == left) {
-			lobby.target_pos[0] = lobby.main_pos[0] - (192 - 20);
-			lobby.target_pos[1] = lobby.main_pos[1] + 80;
-		} else if (i == right) {
-			lobby.target_pos[0] = lobby.main_pos[0] + (192 - 20);
-			lobby.target_pos[1] = lobby.main_pos[1] + 80;
-		} else {
-			lobby.target_pos[1] = 700;
-		}
+		lobby.target_pos[1] = lobby.main_pos[1] - 60 * lobby_selected
+		
+		//if (i == lobby_selected) {
+		//	lobby.target_pos = [lobby.main_pos[0], lobby.main_pos[1]];
+		//} else if (i == left) {
+		//	lobby.target_pos[0] = lobby.main_pos[0] - (192 - 20);
+		//	lobby.target_pos[1] = lobby.main_pos[1] + 80;
+		//} else if (i == right) {
+		//	lobby.target_pos[0] = lobby.main_pos[0] + (192 - 20);
+		//	lobby.target_pos[1] = lobby.main_pos[1] + 80;
+		//} else {
+		//	lobby.target_pos[1] = 700;
+		//}
 	} else {
 		lobby.target_pos = [lobby.original_pos[0], lobby.original_pos[1]];
 	}

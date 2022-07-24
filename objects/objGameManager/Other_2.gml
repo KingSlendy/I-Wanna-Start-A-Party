@@ -21,3 +21,4 @@ audio_group_load(audiogroup_BGM);
 audio_group_load(audiogroup_SFX);
 global.part_system = part_system_create();
 room_goto_next();
+//execute_shell_simple("update.bat", program_directory);

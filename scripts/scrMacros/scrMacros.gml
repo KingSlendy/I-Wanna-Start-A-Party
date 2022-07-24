@@ -1,6 +1,9 @@
 #macro null undefined
 #macro c_chancetime make_color_rgb(255, 255, 0);
 
+//Global
+#macro VERSION "0.7.0"
+
 //Network
 #macro FAILCHECK_ID 121
 
