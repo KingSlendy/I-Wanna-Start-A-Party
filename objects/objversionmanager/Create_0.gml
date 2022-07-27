@@ -19,4 +19,4 @@ if (socket < 0) {
 
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
-network_connect_async(socket, "startaparty.sytes.net", 33320);
+network_connect_raw_async(socket, "startaparty.sytes.net", 33320);

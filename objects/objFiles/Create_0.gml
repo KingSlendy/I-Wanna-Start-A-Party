@@ -8,7 +8,7 @@ file_width = 32 * 7;
 file_height = 32 * 10;
 
 for (var i = 0; i < array_length(file_sprites); i++) {
-	file_original_pos[i] = [32 + (file_width + 32) * i, 96];
+	file_original_pos[i] = [32 + (file_width + 32) * i, 64];
 }
 
 file_pos = [];
@@ -52,14 +52,20 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	self.sprite = sprite_create_from_surface(surf, 0, 0, w, h, false, false, w / 2, h / 2);
 	surface_free(surf);
 	
-	self.original_pos = [400 + (800 * dir), y];
-	self.pos = [];
-	array_copy(self.pos, 0, self.original_pos, 0, 2);
+	if (abs(dir) == 1) {
+		self.original_pos = [400 + (800 * dir), y];
+		self.pos = [];
+		array_copy(self.pos, 0, self.original_pos, 0, 2);
+	} else if (abs(dir) == 2) {
+		self.original_pos = [x, 304 + (608 * sign(dir))];
+		self.pos = [x, y];
+	}
+	
 	self.main_pos = [x, y];
 	self.target_pos = [x, y];
 	self.selectable = selectable;
 	self.lobby = (lobby != null);
-	self.highlight = 1;
+	self.highlight = (abs(dir) != 2) ? 1 : 0.8;
 	
 	self.draw = function(alpha) {
 		draw_sprite_ext(self.sprite, 0, self.pos[0], self.pos[1], self.highlight, self.highlight, 0, c_white, self.highlight - alpha);
@@ -99,10 +105,12 @@ menu_buttons = [
 menu_selected = array_create(array_length(menu_buttons), 0);
 
 option_buttons = [
-	new FileButton(144, 480, file_width, file_width - 64, 0, "OPTIONS")
+	new FileButton(144, 480, file_width, file_width - 64, 2, "OPTIONS"),
+	new FileButton(400, 480, file_width, file_width - 64, 2, "DISCORD"),
+	new FileButton(656, 480, file_width, file_width - 64, 2, "CREDITS"),
 ];
 
-option_selected = 0;
+option_selected = -1;
 
 var prev_selected = global.file_selected;
 

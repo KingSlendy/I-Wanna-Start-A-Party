@@ -13,6 +13,16 @@ if (fade_start) {
 			if (global.lobby_started) {
 				room_goto(rModes);
 			}
+			
+			switch (option_selected) {
+				case 0:
+					break;
+					
+				case 2:
+					break;
+			}
+			
+			exit;
 		}
 	} else {
 		fade_alpha -= 0.03;
@@ -41,29 +51,68 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 
 if (!fade_start && files_fade == -1 && !global.lobby_started) {
 	if (file_opened == -1) {
-		var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
-		var prev_file = global.file_selected;
-
-		if (global.file_selected == -1) {
+		if (global.file_selected == -1 && option_selected == -1) {
 			global.file_selected = 0;
 		}
 
-		global.file_selected = (global.file_selected + array_length(file_sprites) + scroll) % array_length(file_sprites);
+		var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
 
-		if (global.file_selected != prev_file) {
+		if (global.file_selected != -1) {
+			var prev = global.file_selected;
+			global.file_selected = (global.file_selected + array_length(file_sprites) + scroll) % array_length(file_sprites);
+
+			if (global.file_selected != prev) {
+				audio_play_sound(global.sound_cursor_move, 0, false);
+				exit;
+			}
+		} else {
+			var prev = option_selected;
+			option_selected = (option_selected + array_length(option_buttons) + scroll) % array_length(option_buttons);
+
+			if (option_selected != prev) {
+				audio_play_sound(global.sound_cursor_move, 0, false);
+				exit;
+			}
+		}
+		
+		if (global.actions.down.pressed() || global.actions.up.pressed()) {
+			if (global.file_selected != -1) {
+				option_selected = global.file_selected;
+				global.file_selected = -1;
+			} else {
+				global.file_selected = option_selected;
+				option_selected = -1;
+			}
+			
 			audio_play_sound(global.sound_cursor_move, 0, false);
+			exit;
 		}
 		
 		if (global.actions.jump.pressed()) {
-			file_opened = global.file_selected;
-			load_file();
-			online_texts = [
-				global.player_name,
-				global.ip,
-				global.port
-			]
+			if (global.file_selected != -1) {
+				file_opened = global.file_selected;
+				load_file();
+				online_texts = [
+					global.player_name,
+					global.ip,
+					global.port
+				]
+			} else {
+				switch (option_selected) {
+					case 0: case 2:
+						fade_start = true;
+						music_fade();
+						audio_play_sound(global.sound_cursor_big_select, 0, false);
+						exit;
+					
+					case 1:
+						url_open("https://discord.gg/XFfJDbxfVU");
+						break;
+				}
+			}
 			
 			audio_play_sound(global.sound_cursor_select, 0, false);
+			exit;
 		}
 		
 		if (global.actions.shoot.pressed()) {

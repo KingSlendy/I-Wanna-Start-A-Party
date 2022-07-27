@@ -10,5 +10,7 @@ if (downloading) {
 	draw_set_color(c_white);
 	draw_rectangle(220, 220, 220 + (580 - 220) * (sent / size), 280, false);
 	draw_set_font(fntTitleStart);
-	draw_text(0, 0, string_format(sent / 1000000, 2, 3) + "MB/" + string_format(size / 1000000, 2, 3) + "MB");
+	draw_set_valign(fa_bottom);
+	draw_text(200, 200 - 8, string_format(sent / 1000000, 2, 3) + "MB/" + string_format(size / 1000000, 2, 3) + "MB");
+	draw_set_valign(fa_top);
 }

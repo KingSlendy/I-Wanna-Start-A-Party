@@ -4,7 +4,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 			file_pos[i][0] = lerp(file_pos[i][0], 400 - file_width / 2, 0.2);
 			
 			if (menu_type < 3) {
-				file_pos[i][1] = lerp(file_pos[i][1], file_original_pos[i][1] - 64, 0.2);
+				file_pos[i][1] = lerp(file_pos[i][1], file_original_pos[i][1] - 32, 0.2);
 			} else {
 				file_pos[i][1] = lerp(file_pos[i][1], -400, 0.2);
 			}
@@ -26,7 +26,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 for (var i = 0; i < array_length(option_buttons); i++) {
 	var button = option_buttons[i];
 	button.check((file_opened == -1), option_selected == i);
-	//button.draw(files_alpha);
+	button.draw(files_alpha);
 }
 
 for (var i = 0; i < array_length(menu_buttons); i++) {

@@ -75,6 +75,7 @@ next_seed_inline();
 var minigames_now = global.minigames[$ info.type];
 var minigames_order = array_sequence(0, array_length(minigames_now));
 array_shuffle(minigames_order);
+array_delete(minigames_order, 5, array_length(minigames_order) - 5);
 array_sort(minigames_order, true);
 
 for (var i = 0; i < 5; i++) {

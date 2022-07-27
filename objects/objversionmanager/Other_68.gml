@@ -20,52 +20,34 @@ switch (type) {
 		
 		try {
 			buffer_seek(buffer, buffer_seek_start, 0);
-			var data_id = buffer_read(buffer, buffer_u16);
 			
-			switch (data_id) {
-				case ClientVER.SendVersion:
-					size = buffer_read(buffer, buffer_u64);
-					version = buffer_read(buffer, buffer_string);
+			if (!downloading) {
+				version = buffer_read(buffer, buffer_string);
+				size = buffer_read(buffer, buffer_u64);
 					
-					if (version != VERSION) {
-						bytes = buffer_create(size, buffer_fast, 1);
-						buffer_seek(bytes, buffer_seek_start, 0);
-						
-						if (file_exists(version + ".zip")) {
-							file_delete(version + ".zip");
-						}
-						
-						text = "Downloading version...";
-						downloading = true;
-					} else {
-						instance_destroy();
-					}
-					break;
+				if (version != VERSION) {
+					bytes = buffer_create(size, buffer_fast, 1);
+					buffer_seek(bytes, buffer_seek_start, 0);
+					text = "Downloading version...";
+					downloading = true;
+				} else {
+					instance_destroy();
+				}
+			} else {
+				var check = buffer_get_size(buffer);
+				buffer_copy(buffer, 0, check, bytes, sent);
+				sent += check;
 					
-				case ClientVER.Executable:
-					var check = buffer_get_size(buffer) - 2;
-					
-					repeat (check) {
-						buffer_write(bytes, buffer_u8, buffer_read(buffer, buffer_u8));
-					}
-					
-					sent += check;
-					
-					if (sent == size) {
-						text = "Downloaded version!";
-						var path = get_save_filename_ext("ZIP|*.zip", version + ".zip", program_directory, "Save Version");
-						
-						if (path == "") {
-							text = "Cancelled saving.";
-							exit;
-						}
-						
-						buffer_save(bytes, path);
-						alarm[1] = get_frames(3);
-						alarm[2] = 0;
-						exit;
-					}
-					break;
+				if (sent == size) {
+					text = "Downloaded version!";
+					buffer_save(bytes, "Version.zip");
+					zip_unzip("Version.zip", game_save_id);
+					file_delete("Version.zip");
+					execute_shell_simple(game_save_id + "update.bat");
+					alarm[1] = get_frames(3);
+					alarm[2] = 0;
+					exit;
+				}
 			}
 		} catch (_) {
 			alarm[2] = 1;
