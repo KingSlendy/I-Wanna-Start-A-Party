@@ -28,6 +28,8 @@ if (fade_start) {
 				case 3: room_goto(rSkins); break;
 				case 4: room_goto(rTrophies); break;
 			}
+			
+			exit;
 		}
 	}
 }

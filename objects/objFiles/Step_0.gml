@@ -99,11 +99,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 				]
 			} else {
 				switch (option_selected) {
-					case 0: case 2:
-						fade_start = true;
-						music_fade();
-						audio_play_sound(global.sound_cursor_big_select, 0, false);
-						exit;
+					//case 0: case 2:
+					//	fade_start = true;
+					//	music_fade();
+					//	audio_play_sound(global.sound_cursor_big_select, 0, false);
+					//	exit;
 					
 					case 1:
 						url_open("https://discord.gg/XFfJDbxfVU");

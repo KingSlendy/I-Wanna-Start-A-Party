@@ -10,10 +10,6 @@ with (objPlayerBase) {
 		continue;
 	}
 	
-	if (network_id == global.player_id) {
-		gain_trophy(9);
-	}
-	
 	count++;
 	winners += string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
 }

@@ -664,8 +664,11 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 	
 	if (sign(amount) == 1) {
 		if (s.network_id == global.player_id) {
-			gain_trophy(0);
 			global.collected_shines += amount;
+			
+			if (global.collected_shines >= 10) {
+				gain_trophy(0);
+			}
 			
 			if (global.collected_shines >= 50) {
 				gain_trophy(1);

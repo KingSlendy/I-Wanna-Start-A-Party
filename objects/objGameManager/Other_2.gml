@@ -33,9 +33,8 @@ for (var i = 0; i < array_length(files); i++) {
 	file_check(files[i]);
 }
 
-save_variables();
-
 for (var i = 0; i < 3; i++) {
+	save_variables();
 	global.file_selected = i;
 	
 	if (!load_file()) {
@@ -44,6 +43,14 @@ for (var i = 0; i < 3; i++) {
 }
 
 global.file_selected = -1;
+
+config_variables();
+
+if (!load_config()) {
+	save_config();
+}
+
+apply_config();
 
 skin_init();
 minigame_init();

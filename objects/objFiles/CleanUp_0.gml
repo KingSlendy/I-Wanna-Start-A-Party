@@ -14,6 +14,10 @@ for (var i = 0; i < array_length(menu_buttons); i++) {
 	}
 }
 
+for (var i = 0; i < array_length(option_buttons); i++) {
+	sprite_delete(option_buttons[i].sprite);
+}
+
 for (var i = 0; i < array_length(lobby_list); i++) {
 	sprite_delete(lobby_list[i].sprite);
 }

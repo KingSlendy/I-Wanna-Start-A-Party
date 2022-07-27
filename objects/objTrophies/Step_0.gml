@@ -16,6 +16,7 @@ if (fade_start) {
 			fade_alpha = 1;
 			fade_start = false;
 			room_goto(rModes);
+			exit;
 		}
 	}
 }

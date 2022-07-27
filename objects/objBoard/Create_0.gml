@@ -40,6 +40,7 @@ minigame_info_reset();
 global.minigame_type_history = [];
 
 tell_choices = false;
+cpu_wait = true;
 
 alarm[11] = 1;
 

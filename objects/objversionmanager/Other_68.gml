@@ -19,15 +19,15 @@ switch (type) {
 		var buffer = async_load[? "buffer"];
 		
 		try {
-			buffer_seek(buffer, buffer_seek_start, 0);
+			buffer_seek_begin(buffer);
 			
 			if (!downloading) {
 				version = buffer_read(buffer, buffer_string);
 				size = buffer_read(buffer, buffer_u64);
 					
 				if (version != VERSION) {
-					bytes = buffer_create(size, buffer_fast, 1);
-					buffer_seek(bytes, buffer_seek_start, 0);
+					bytes = buffer_create(size, buffer_fixed, 1);
+					buffer_seek_begin(bytes);
 					text = "Downloading version...";
 					downloading = true;
 				} else {
@@ -39,10 +39,11 @@ switch (type) {
 				sent += check;
 					
 				if (sent == size) {
-					text = "Downloaded version!";
+					text = "Finished download!";
 					buffer_save(bytes, "Version.zip");
 					zip_unzip("Version.zip", game_save_id);
 					file_delete("Version.zip");
+					buffer_delete(bytes);
 					execute_shell_simple(game_save_id + "update.bat");
 					alarm[1] = get_frames(3);
 					alarm[2] = 0;

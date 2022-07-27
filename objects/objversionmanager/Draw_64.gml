@@ -12,5 +12,7 @@ if (downloading) {
 	draw_set_font(fntTitleStart);
 	draw_set_valign(fa_bottom);
 	draw_text(200, 200 - 8, string_format(sent / 1000000, 2, 3) + "MB/" + string_format(size / 1000000, 2, 3) + "MB");
+	draw_set_font(fntTitleCreator);
 	draw_set_valign(fa_top);
+	draw_text(200, 300 + 8, VERSION + " -> " + version);
 }

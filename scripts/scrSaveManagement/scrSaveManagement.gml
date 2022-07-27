@@ -23,6 +23,12 @@ function save_variables() {
 	global.give_bonus_shines = true;
 }
 
+function config_variables() {
+	global.master_volume = 0.5;
+	global.bgm_volume = 1;
+	global.sfx_volume = 1;
+}
+
 function save_file() {
 	var save_name = "Save" + string(global.file_selected + 1);
 	var save_name_backup = save_name + "_Backup";
@@ -51,9 +57,9 @@ function save_file() {
 	};
 	
 	var data = json_stringify(save);
-	var buffer = buffer_create(256, buffer_grow, 1);
+	var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
 	buffer_seek_begin(buffer);
-	buffer_write(buffer, buffer_string, data);
+	buffer_write(buffer, buffer_text, data);
 	buffer_save(buffer, "Save" + string(global.file_selected + 1));
 	buffer_delete(buffer);
 }
@@ -65,7 +71,7 @@ function load_file() {
 	
 	var buffer = buffer_load("Save" + string(global.file_selected + 1));
 	buffer_seek_begin(buffer);
-	var data = buffer_read(buffer, buffer_string);
+	var data = buffer_read(buffer, buffer_text);
 	var save = json_parse(data);
 	
 	global.games_played = save.main_game.saved_games_played;
@@ -125,6 +131,46 @@ function delete_file() {
 	save_variables();
 	global.file_selected = file_selected;
 	save_file();
+}
+
+function save_config() {
+	var config = {
+		settings: {
+			saved_master_volume: global.master_volume,
+			saved_bgm_volume: global.bgm_volume,
+			saved_sfx_volume: global.sfx_volume
+		}
+	};
+	
+	var data = json_stringify(config);
+	var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
+	buffer_seek_begin(buffer);
+	buffer_write(buffer, buffer_text, data);
+	buffer_save(buffer, "Config");
+	buffer_delete(buffer);
+}
+
+function load_config() {
+	if (!file_exists("Config")) {
+		return false;
+	}
+	
+	var buffer = buffer_load("Config");
+	buffer_seek_begin(buffer);
+	var data = buffer_read(buffer, buffer_text);
+	var config = json_parse(data);
+	
+	global.master_volume = config.settings.saved_master_volume;
+	global.bgm_volume = config.settings.saved_bgm_volume;
+	global.sfx_volume = config.settings.saved_sfx_volume;
+	
+	return true;
+}
+
+function apply_config() {
+	audio_master_gain(global.master_volume);
+	audio_group_set_gain(audiogroup_BGM, global.bgm_volume, 0);
+	audio_group_set_gain(audiogroup_SFX, global.sfx_volume, 0);
 }
 
 function save_board() {

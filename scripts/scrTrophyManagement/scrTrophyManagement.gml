@@ -15,7 +15,7 @@ enum TrophyRank {
 }
 
 global.trophies = [
-	new Trophy(1, TrophyRank.Bronze, "Shiny!", "You obtained your first Shine!\nBut just one isn't enough, ain't it?", "You're gonna obtain one sooner or later."),
+	new Trophy(1, TrophyRank.Bronze, "Shiny!", "You obtained 10 Shines!\nBut just ten isn't enough, ain't it?", "You're gonna obtain the shiny sooner or later."),
 	new Trophy(2, TrophyRank.Silver, "Shinier!", "You obtained 50 Shines!\nBut is it really enough?", "I love me something shiny."),
 	new Trophy(3, TrophyRank.Gold, "Shiny yet Shinier!", "You obtained 100 Shines!\nNow that's a decent amount.", "I WANT MORE SHINY!!!"),
 	new Trophy(4, TrophyRank.Silver, "Kidiana Jones", "You found a Hidden Chest!\nEvery good explorer finds treasure! Or wait... maybe you're just lucky.", "Something's hidden in this space... I swear..."),
@@ -24,7 +24,7 @@ global.trophies = [
 	new Trophy(7, TrophyRank.Bronze, "Coinless", "You went down to 0 Coins in Party...\nWelp, time to live in the streets.", "You don't wanna lose that many."),
 	new Trophy(8, TrophyRank.Bronze, "Memory Magician", "You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?", "How can you keep so many items in your head?"),
 	new Trophy(9, TrophyRank.Bronze, "Messed Memory", "You didn't put any items in the pedestals in Magic Memory...\nAt least try!", "You can't have that bad of a memory..."),
-	new Trophy(10, TrophyRank.Bronze, "Tie your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?"),
+	new Trophy(10, TrophyRank.Bronze, "Tie Your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?"),
 	new Trophy(11, TrophyRank.Bronze, "Flexing Ghosts", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff ain't that scary for you."),
 	new Trophy(12, TrophyRank.Bronze, "Darkness' Friend", "You said 'No' to the Shine.\nLiving in darkness it is.", "I prefer not being too bright, thank you very much."),
 	new Trophy(13, TrophyRank.Gold, "Showdown Survivor", "You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?", "That was certainly a showdown teamwork."),

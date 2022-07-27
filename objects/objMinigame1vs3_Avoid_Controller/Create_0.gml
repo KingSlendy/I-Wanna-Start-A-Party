@@ -10,7 +10,7 @@ with (objPlayerBase) {
 event_inherited();
 
 minigame_start = minigame1vs3_start;
-minigame_time = 30;
+minigame_time = 25;
 minigame_time_end = function() {
 	with (objPlayerBase) {
 		if (y > 128) {
