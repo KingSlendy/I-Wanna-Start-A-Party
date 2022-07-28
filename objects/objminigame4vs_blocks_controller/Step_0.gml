@@ -1,10 +1,8 @@
-var lost_count = 0;
-
-with (objPlayerBase) {
-	lost_count += lost;
+if (info.is_finished) {
+	exit;
 }
 
-if (lost_count >= global.player_max - 1) {
+if (minigame_lost_all()) {
 	with (objMinigame4vs_Blocks_Block) {
 		enabled = false;
 		active = false;
@@ -12,11 +10,6 @@ if (lost_count >= global.player_max - 1) {
 		alarm[0] = 0;
 	}
 	
-	with (objPlayerBase) {
-		if (!lost) {
-			minigame4vs_points(network_id);
-		}
-	}
-	
+	minigame_lost_points();
 	minigame_finish();
 }

@@ -18,6 +18,8 @@ function music_check() {
 }
 
 function music_play(music, loop = true) {
+	global.music_previous = null;
+	
 	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
 		audio_stop_sound(global.music_current);
 	}

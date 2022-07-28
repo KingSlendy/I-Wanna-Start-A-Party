@@ -1,3 +1,5 @@
+window_frame_update();
+
 if (keyboard_check_pressed(ord("D"))) {
 	game_set_speed((!a) ? 200 : 50, gamespeed_fps);
 	a = !a;

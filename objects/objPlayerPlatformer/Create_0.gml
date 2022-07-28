@@ -12,6 +12,7 @@ grav_amount = 0.4;
 
 jump_height = [8.5, 7];
 jump_total = 2;
+shoot_delay = 0;
 
 on_block = false;
 on_platform = false;

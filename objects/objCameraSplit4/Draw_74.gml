@@ -34,4 +34,10 @@ for (var i = 0; i < global.player_max; i++) {
 		draw_set_color(c_white);
 		draw_player_name(surf_x + 20, surf_y + height - 16, target_follow[i].network_id);
 	}
+	
+	if (room == rMinigame4vs_Rocket) {
+		for (var j = 0; j < target_follow[i].hp; j++) {
+			draw_sprite_stretched(sprPlayerRocket, 0, surf_x + width - 48 - 32 * j, surf_y + height - 40, 32, 32);
+		}
+	}
 }

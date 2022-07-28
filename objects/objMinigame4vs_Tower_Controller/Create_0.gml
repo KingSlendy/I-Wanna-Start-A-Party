@@ -11,14 +11,7 @@ event_inherited();
 
 minigame_camera = CameraMode.Split4;
 minigame_time_end = function() {
-	with (objPlayerBase) {
-		if (lost) {
-			continue;
-		}
-		
-		minigame4vs_points(network_id);
-	}
-	
+	minigame_lost_points();
 	minigame_finish();
 }
 

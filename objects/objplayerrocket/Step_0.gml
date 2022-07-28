@@ -1,32 +1,23 @@
 if (!frozen) {
-    var left = global.actions.left.held(network_id);
-    var right = global.actions.right.held(network_id);
-    var up = global.actions.up.held(network_id);
-    var down = global.actions.down.held(network_id);
-        
-    if (gravity == 0 && (left || right || up || down)) {
-        gravity = 0.008;
-		friction = 0.0005;
+	image_angle = (image_angle + 360 + (global.actions.left.held(network_id) - global.actions.right.held(network_id))) % 360;
+	
+    if (global.actions.up.held(network_id)) {
+		motion_add(image_angle + 90, 0.025);
     }
-        
-    if (up) {
-		motion_add(image_angle + 90, 0.013);
-    }
+	
+	if (global.actions.down.held(network_id)) {
+		motion_add(image_angle + 90, -0.025);
+	}
 
-	image_angle = (image_angle + 360 + (left - right)) % 360;
+	speed = clamp(speed, -max_spd, max_spd);
+	
+	if (shoot_delay == 0 && global.actions.shoot.pressed(network_id)) {
+		shoot_delay = get_frames(1);
+		player_shoot(10, image_angle + 90);
+	}
+	
+	shoot_delay = max(--shoot_delay, 0);
 } else {
     hspeed = 0;
     vspeed = 0;
 }
-
-//if (hspd != 0) {
-//	hspd -= fric;
-//}
-
-//if (vspd != 0) {
-//	vspd -= fric;
-//}
-
-//vspd += grav;
-//x += hspd;
-//y += vspd;

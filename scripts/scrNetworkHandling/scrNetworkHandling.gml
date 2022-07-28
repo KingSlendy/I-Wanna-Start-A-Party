@@ -223,6 +223,7 @@ function player_write_data() {
 			buffer_write_data(buffer_u8, image_angle);
 			buffer_write_data(buffer_s32, x);
 			buffer_write_data(buffer_s32, y);
+			buffer_write_data(buffer_u8, hp);
 			break;
 		
 		case PlayerDataMode.All:
@@ -284,6 +285,7 @@ function player_read_data(buffer) {
 				instance.image_angle = buffer_read(buffer, buffer_u8);
 				instance.x = buffer_read(buffer, buffer_s32);
 				instance.y = buffer_read(buffer, buffer_s32);
+				instance.hp = buffer_read(buffer, buffer_u8);
 				break;
 			
 			case PlayerDataMode.All:

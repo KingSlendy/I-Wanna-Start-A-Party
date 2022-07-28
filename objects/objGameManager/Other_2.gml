@@ -1,3 +1,10 @@
+sprite_prefetch(sprBkgTitle);
+sprite_prefetch(sprMinigamesFangames);
+sprite_prefetch(sprSkinsFangames);
+sprite_prefetch(sprMinigameOverview_Pictures);
+audio_group_load(audiogroup_BGM);
+audio_group_load(audiogroup_SFX);
+
 var files = [
 	"audiogroup1.dat",
 	"audiogroup2.dat",
@@ -55,13 +62,5 @@ apply_config();
 skin_init();
 minigame_init();
 minigame_info_reset();
-sprite_prefetch(sprBkgTitle);
-sprite_prefetch(sprMinigamesFangames);
-sprite_prefetch(sprSkinsFangames);
-sprite_prefetch(sprMinigameOverview_Pictures);
-audio_group_load(audiogroup_BGM);
-audio_group_load(audiogroup_SFX);
 global.part_system = part_system_create();
 room_goto_next();
-
-execute_shell_simple(game_save_id + "I wanna be the Goner.exe");

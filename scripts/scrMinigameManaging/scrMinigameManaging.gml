@@ -21,7 +21,7 @@ function minigame_init() {
 		new Minigame("Unstable Blocks", ["Instructions TBD."], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
 		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
 		new Minigame("Slime Annoyer", ["Instructions TBD."], 23, rMinigame4vs_Slime, "SlimePark"),
-		//new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna WOIT Morning Dew")
+		new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew")
 	];
 
 	m[$ "1vs3"] = [
@@ -379,4 +379,25 @@ function minigame_times_up() {
 	show_popup("TIMES UP");
 	audio_play_sound(sndMinigameTimesUp, 0, false);
 	music_stop();
+}
+
+function minigame_lost_all(count_last = false) {
+	var lost_count = 0;
+
+	with (objPlayerBase) {
+		lost_count += lost;
+	}
+	
+	var count = (!count_last) ? global.player_max - 1 : global.player_ax;
+	return (lost_count >= count);
+}
+
+function minigame_lost_points() {
+	with (objPlayerBase) {
+		if (lost) {
+			continue;
+		}
+		
+		minigame4vs_points(network_id);
+	}
 }

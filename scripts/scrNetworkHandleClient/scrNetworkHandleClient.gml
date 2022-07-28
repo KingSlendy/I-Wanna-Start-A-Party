@@ -1132,10 +1132,12 @@ function network_read_client_udp(buffer, data_id) {
 			var player_id = buffer_read(buffer, buffer_u8);
 			var xx = buffer_read(buffer, buffer_s16);
 			var yy = buffer_read(buffer, buffer_s16);
-			var hspd = buffer_read(buffer, buffer_s8);
+			var spd = buffer_read(buffer, buffer_s8);
+			var dir = buffer_read(buffer, buffer_u16);
 			var b = instance_create_layer(xx, yy, "Actors", objBullet);
 			b.network_id = player_id;
-			b.hspeed = hspd;
+			b.speed = spd;
+			b.direction = dir;
 			break;
 		#endregion
 			

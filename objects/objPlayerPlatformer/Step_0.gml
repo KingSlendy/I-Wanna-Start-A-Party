@@ -77,9 +77,12 @@ if (!frozen) {
 		}
 	}
 	
-	if (enable_shoot && global.actions.shoot.pressed(network_id)) {
+	if (enable_shoot && shoot_delay == 0 && global.actions.shoot.pressed(network_id)) {
 		player_shoot();
+		shoot_delay = get_frames(0.1);
 	}
+	
+	shoot_delay = max(--shoot_delay, 0);
 	
 	//if (on_vineR || on_vineL) {
 	//	xscale = (on_vineR) ? 1 : -1;
