@@ -44,7 +44,7 @@ switch (type) {
 					zip_unzip("Version.zip", game_save_id);
 					file_delete("Version.zip");
 					buffer_delete(bytes);
-					execute_shell_simple(game_save_id + "update.bat");
+					execute_shell_simple(game_save_id + "update.bat",,, 0);
 					alarm[1] = get_frames(3);
 					alarm[2] = 0;
 					exit;

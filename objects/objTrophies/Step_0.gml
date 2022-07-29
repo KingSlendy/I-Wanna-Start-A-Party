@@ -22,7 +22,7 @@ if (fade_start) {
 }
 
 if (trophy_selected != trophy_target_selected) {
-	trophy_x = lerp(trophy_x, trophy_target_x, 0.4);
+	trophy_x = lerp(trophy_x, trophy_target_x, (held_time == 25) ? 0.6 : 0.4);
 
 	if (point_distance(trophy_x, 0, trophy_target_x, 0) < 1.5) {
 		trophy_x = 400;
@@ -32,16 +32,24 @@ if (trophy_selected != trophy_target_selected) {
 }
 
 if (!fade_start && trophy_selected == trophy_target_selected) {
-	var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
+	var held_h = (global.actions.right.held() - global.actions.left.held());
 	
-	if (scroll_h != 0) {
-		trophy_target_x -= 200 * scroll_h;
-		trophy_target_selected = (trophy_selected + array_length(global.trophies) + scroll_h) % array_length(global.trophies);
+	if (held_h != 0) {
+		held_time = min(++held_time, 25);
+	} else {
+		held_time = 0;
+	}
+	
+	var scroll_h = (global.actions.right.pressed() - global.actions.left.pressed());
+	
+	if ((held_h != 0 && held_time == 25) || scroll_h != 0) {
+		trophy_target_x -= 200 * held_h;
+		trophy_target_selected = (trophy_selected + array_length(global.trophies) + held_h) % array_length(global.trophies);
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		exit;
 	}
 	
-	if (sync_actions("shoot", 1)) {
+	if (global.actions.shoot.pressed()) {
 		back = true;
 		fade_start = true;
 		music_fade();

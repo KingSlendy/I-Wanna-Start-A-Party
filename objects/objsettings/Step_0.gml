@@ -37,6 +37,8 @@ if (!fade_start) {
 			audio_play_sound(global.sound_cursor_move, 0, false);
 			exit;
 		}
+	} else {
+		section.options[section.in_option].check_option();
 	}
 	
 	if (global.actions.jump.pressed()) {
@@ -51,6 +53,7 @@ if (!fade_start) {
 			fade_start = true;
 			back = true;
 			music_fade();
+			save_config();
 		} else {
 			section.in_option = -1;
 		}

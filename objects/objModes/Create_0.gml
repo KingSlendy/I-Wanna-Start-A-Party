@@ -41,8 +41,8 @@ function ModeButton(x, y, w, h, label, sprite, scale, offset, color = c_white, s
 mode_buttons = [
 	new ModeButton(200, 140, 200, 170, "PARTY", sprModesParty, 0.5, 60, c_white),
 	new ModeButton(200, 468, 220, 170, "MINIGAMES", sprModesMinigames, 0.5, 60, c_white),
-	new ModeButton(600, 140, 200, 170, "SKINS", sprNormalPlayerIdle, 4, 80, c_white),
-	new ModeButton(600, 468, 220, 170, "TROPHIES", sprModesTrophies, 0.7, 125, c_white)
+	new ModeButton(600, 140, 200, 170, "SKINS", sprNormalPlayerIdle, 4, 80, (!IS_ONLINE) ? c_white : c_gray),
+	new ModeButton(600, 468, 220, 170, "TROPHIES", sprModesTrophies, 0.7, 125, (!IS_ONLINE) ? c_white : c_gray)
 ];
 
 mode_selected = global.mode_selected;

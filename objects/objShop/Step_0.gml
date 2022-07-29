@@ -103,7 +103,7 @@ if (shopping && is_local_turn()) {
 		}
 	}
 	
-	if (global.actions.shoot.pressed()) {
+	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
 			new Message("Hope to see you again soon!",, function() {
 				with (objShop) {

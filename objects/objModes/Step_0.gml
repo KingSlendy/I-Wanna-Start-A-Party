@@ -60,11 +60,13 @@ if (!fade_start) {
 	}
 	
 	if (sync_actions("jump", 1)) {
-		global.mode_selected = mode_selected;
-		state = mode_selected + 1;
-		fade_start = true;
-		music_fade();
-		audio_play_sound(global.sound_cursor_big_select, 0, false);
+		if (!IS_ONLINE || mode_selected < 2) {
+			global.mode_selected = mode_selected;
+			state = mode_selected + 1;
+			fade_start = true;
+			music_fade();
+			audio_play_sound(global.sound_cursor_big_select, 0, false);
+		}
 	}
 	
 	if (sync_actions("shoot", 1)) {

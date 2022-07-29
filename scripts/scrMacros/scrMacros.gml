@@ -5,7 +5,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "0.7.1.3"
+#macro VERSION "0.7.1.4"
 
 //Network
 #macro FAILCHECK_ID 121

@@ -25,9 +25,9 @@ for (var i = 0; i < array_length(files); i++) {
 	file_text_writeln(file);
 }
 
-file_text_write_string(file, string_interp("\"{0}{1}\"", program_directory, files[array_length(files) - 1]));
+file_text_write_string(file, string_interp("start \"{0}{1}\"", program_directory, files[array_length(files) - 1]));
 file_text_writeln(file);
-file_text_write_string(file, "exit");
+file_text_write_string(file, "exit 0");
 file_text_close(file);
 
 var file_check = function(file) {

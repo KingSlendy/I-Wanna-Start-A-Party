@@ -93,7 +93,7 @@ if (selecting && is_local_turn()) {
 		}
 	}
 	
-	if (global.actions.shoot.pressed()) {
+	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
 			new Message("What a shame...",, function() {
 				with (objBlackhole) {
