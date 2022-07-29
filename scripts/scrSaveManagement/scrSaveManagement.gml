@@ -23,12 +23,6 @@ function save_variables() {
 	global.give_bonus_shines = true;
 }
 
-function config_variables() {
-	global.master_volume = 0.5;
-	global.bgm_volume = 1;
-	global.sfx_volume = 1;
-}
-
 function save_file() {
 	var save_name = "Save" + string(global.file_selected + 1);
 	var save_name_backup = save_name + "_Backup";
@@ -65,14 +59,24 @@ function save_file() {
 }
 
 function load_file() {
-	if (!file_exists("Save" + string(global.file_selected + 1))) {
+	var save_name = "Save" + string(global.file_selected + 1);
+	var save_name_backup = save_name + "_Backup";
+	
+	if (!file_exists(save_name)) {
 		return false;
 	}
 	
-	var buffer = buffer_load("Save" + string(global.file_selected + 1));
-	buffer_seek_begin(buffer);
-	var data = buffer_read(buffer, buffer_text);
-	var save = json_parse(data);
+	try {
+		var buffer = buffer_load(save_name);
+		buffer_seek_begin(buffer);
+		var data = buffer_read(buffer, buffer_text);
+		var save = json_parse(data);
+	} catch (_) {
+		var buffer = buffer_load(save_name_backup);
+		buffer_seek_begin(buffer);
+		var data = buffer_read(buffer, buffer_text);
+		var save = json_parse(data);
+	}
 	
 	global.games_played = save.main_game.saved_games_played;
 	global.collected_shines = save.main_game.saved_collected_shines;
@@ -88,33 +92,23 @@ function load_file() {
 	
 	try {
 		global.collected_trophies = save.main_game.saved_collected_trophies;
-	} catch (_) {
-		global.collected_trophies = [];
-	}
+	} catch (_) {}
 	
 	try {
 		global.ellapsed_time = save.main_game.saved_ellapsed_time;
-	} catch (_) {
-		global.ellapsed_time = 0;
-	}
+	} catch (_) {}
 	
 	try {
 		global.player_name = save.main_game.saved_player_name;
-	} catch (_) {
-		global.player_name = "Player";
-	}
+	} catch (_) {}
 	
 	try {
 		global.ip = save.main_game.saved_ip;
-	} catch (_) {
-		global.ip = "startaparty.sytes.net";
-	}
+	} catch (_) {}
 	
 	try {
 		global.port = save.main_game.saved_port;
-	} catch (_) {
-		global.port = "33321";
-	}
+	} catch (_) {}
 	
 	global.board_games = save.board_games;
 	
@@ -131,46 +125,6 @@ function delete_file() {
 	save_variables();
 	global.file_selected = file_selected;
 	save_file();
-}
-
-function save_config() {
-	var config = {
-		settings: {
-			saved_master_volume: global.master_volume,
-			saved_bgm_volume: global.bgm_volume,
-			saved_sfx_volume: global.sfx_volume
-		}
-	};
-	
-	var data = json_stringify(config);
-	var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-	buffer_seek_begin(buffer);
-	buffer_write(buffer, buffer_text, data);
-	buffer_save(buffer, "Config");
-	buffer_delete(buffer);
-}
-
-function load_config() {
-	if (!file_exists("Config")) {
-		return false;
-	}
-	
-	var buffer = buffer_load("Config");
-	buffer_seek_begin(buffer);
-	var data = buffer_read(buffer, buffer_text);
-	var config = json_parse(data);
-	
-	global.master_volume = config.settings.saved_master_volume;
-	global.bgm_volume = config.settings.saved_bgm_volume;
-	global.sfx_volume = config.settings.saved_sfx_volume;
-	
-	return true;
-}
-
-function apply_config() {
-	audio_master_gain(global.master_volume);
-	audio_group_set_gain(audiogroup_BGM, global.bgm_volume, 0);
-	audio_group_set_gain(audiogroup_SFX, global.sfx_volume, 0);
 }
 
 function save_board() {
@@ -231,4 +185,78 @@ function save_board() {
 	
 	global.board_games[$ global.game_id] = board;
 	save_file();
+}
+
+function config_variables() {
+	global.master_volume = 0.5;
+	global.bgm_volume = 1;
+	global.sfx_volume = 1;
+	
+	global.fullscreen_display = false;
+	global.vsync_display = false;
+	global.smooth_display = false;
+}
+
+function save_config() {
+	var config = {
+		settings: {
+			saved_master_volume: global.master_volume,
+			saved_bgm_volume: global.bgm_volume,
+			saved_sfx_volume: global.sfx_volume,
+			
+			saved_fullscreen_display: global.fullscreen_display,
+			saved_vsync_display: global.vsync_display,
+			saved_smooth_display: global.smooth_display
+		}
+	};
+	
+	var data = json_stringify(config);
+	var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
+	buffer_seek_begin(buffer);
+	buffer_write(buffer, buffer_text, data);
+	buffer_save(buffer, "Config");
+	buffer_delete(buffer);
+}
+
+function load_config() {
+	if (!file_exists("Config")) {
+		return false;
+	}
+	
+	var buffer = buffer_load("Config");
+	buffer_seek_begin(buffer);
+	var data = buffer_read(buffer, buffer_text);
+	var config = json_parse(data);
+	
+	global.master_volume = config.settings.saved_master_volume;
+	global.bgm_volume = config.settings.saved_bgm_volume;
+	global.sfx_volume = config.settings.saved_sfx_volume;
+	
+	global.fullscreen_display = config.settings.saved_fullscreen_display;
+	global.vsync_display = config.settings.saved_vsync_display;
+	global.smooth_display = config.settings.saved_smooth_display;
+	
+	return true;
+}
+
+function apply_config() {
+	apply_volume();
+	apply_display();
+}
+
+function apply_volume() {
+	audio_master_gain(global.master_volume);
+	audio_group_set_gain(audiogroup_BGM, global.bgm_volume, 0);
+	audio_group_set_gain(audiogroup_SFX, global.sfx_volume, 0);
+}
+
+function apply_display() {
+	window_set_fullscreen(global.fullscreen_display);
+	
+	if (global.vsync_display) {
+	    display_reset(0, global.vsync_display);
+	}
+
+	gpu_set_texfilter(global.smooth_display);
+	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }

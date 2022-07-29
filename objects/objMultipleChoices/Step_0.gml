@@ -38,7 +38,7 @@ if (global.actions.jump.pressed(network_id)) {
 	}
 }
 
-if (global.item_choice && global.actions.shoot.pressed()) {
+if (global.item_choice && global.actions.shoot.pressed(network_id)) {
 	final_action = null;
 	alpha_target = 0;
 	audio_play_sound(global.sound_cursor_back, 0, false);

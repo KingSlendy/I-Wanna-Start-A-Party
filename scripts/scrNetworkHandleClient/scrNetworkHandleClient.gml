@@ -710,12 +710,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var player_id = buffer_read(buffer, buffer_u8);
 			var timer = buffer_read(buffer, buffer_s32);
 			var points = buffer_read(buffer, buffer_s32);
+			var shines = buffer_read(buffer, buffer_u16);
+			var coins = buffer_read(buffer, buffer_u16);
 			var signal = buffer_read(buffer, buffer_bool);
 			var info = global.minigame_info;
 			var scoring = info.player_scores[player_id - 1];
 			scoring.ready = true;
 			scoring.timer = timer;
 			scoring.points = points;
+			var player_info = player_info_by_id(player_id);
+			player_info.shines = shines;
+			player_info.coins = coins;
 			
 			if (info.is_finished || signal) {
 				minigame_finish();

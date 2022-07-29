@@ -1,5 +1,5 @@
 if (fade_start) {
-	if (global.lobby_started || back) {
+	if (global.lobby_started || back || back_option) {
 		fade_alpha += 0.02;
 	
 		if (fade_alpha >= 1) {
@@ -14,12 +14,13 @@ if (fade_start) {
 				room_goto(rModes);
 			}
 			
-			switch (option_selected) {
-				case 0:
-					break;
+			if (back_option) {
+				switch (option_selected) {
+					case 0: room_goto(rSettings); break;
 					
-				case 2:
-					break;
+					case 2:
+						break;
+				}
 			}
 			
 			exit;
@@ -99,11 +100,12 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 				]
 			} else {
 				switch (option_selected) {
-					//case 0: case 2:
-					//	fade_start = true;
-					//	music_fade();
-					//	audio_play_sound(global.sound_cursor_big_select, 0, false);
-					//	exit;
+					case 0: //case 2:
+						fade_start = true;
+						back_option = true;
+						music_fade();
+						audio_play_sound(global.sound_cursor_big_select, 0, false);
+						exit;
 					
 					case 1:
 						url_open("https://discord.gg/XFfJDbxfVU");

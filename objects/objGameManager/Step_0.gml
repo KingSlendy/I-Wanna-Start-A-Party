@@ -1,17 +1,15 @@
-window_frame_update();
-
 if (keyboard_check_pressed(ord("D"))) {
 	game_set_speed((!a) ? 200 : 50, gamespeed_fps);
 	a = !a;
 }
 
 if (keyboard_check_pressed(vk_f4)) {
-	fullscreen ^= true;
-	window_set_fullscreen(fullscreen);
-	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
+	global.fullscreen_display ^= true;
+	apply_display();
+	save_config();
 }
 
-if (room != rVersion && keyboard_check_pressed(vk_escape)) {
+if (keyboard_check_pressed(vk_escape)) {
 	if (room != rTitle) {
 		if (room != rTitle && room != rFiles) {
 			save_file();

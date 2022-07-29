@@ -11,6 +11,7 @@ function music_check() {
 	
 	switch (room) {
 		case rFiles: music = bgmFiles; break;
+		case rSettings: music = bgmSettings; break;
 		default: break;
 	}
 	

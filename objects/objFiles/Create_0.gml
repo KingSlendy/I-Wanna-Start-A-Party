@@ -184,4 +184,5 @@ lobby_return = false;
 player_texts = array_create(4, "");
 
 back = false;
+back_option = false;
 global.mode_selected = -1;

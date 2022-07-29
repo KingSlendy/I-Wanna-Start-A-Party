@@ -1,8 +1,11 @@
 #macro null undefined
+
+//Colors
 #macro c_chancetime make_color_rgb(255, 255, 0);
+#macro c_gold #926F34
 
 //Global
-#macro VERSION "0.7.0.2"
+#macro VERSION "0.7.1.3"
 
 //Network
 #macro FAILCHECK_ID 121

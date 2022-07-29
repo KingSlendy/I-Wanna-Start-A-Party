@@ -1,3 +1,7 @@
+if (lost) {
+	exit;
+}
+
 if (other.network_id != network_id) {
 	instance_destroy(other);
 }

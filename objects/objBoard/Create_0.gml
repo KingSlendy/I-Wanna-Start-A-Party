@@ -41,6 +41,9 @@ global.minigame_type_history = [];
 
 tell_choices = false;
 cpu_wait = true;
+cpu_staled = true;
+cpu_performed = true;
+cpu_item = -1;
 
 alarm[11] = 1;
 

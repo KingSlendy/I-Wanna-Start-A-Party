@@ -47,7 +47,7 @@ draw_set_alpha(1 - files_alpha);
 draw_set_halign(fa_center);
 var button = menu_buttons[upper_type][0];
 var target_map = remap(button.pos[0], button.original_pos[0], button.target_pos[0], 0, 1);
-draw_text_color_outline(400, -100 + 150 * target_map, upper_text, #FFF269, #FFF269, #FFE900, #FFE900, 1 - files_alpha, c_black);
+draw_text_color_outline(400, -100 + 150 * target_map, upper_text, c_gold, c_gold, c_yellow, c_yellow, 1 - files_alpha, c_black);
 draw_set_halign(fa_left);
 
 if (array_contains([3, 4, 5], menu_type)) {
@@ -101,33 +101,19 @@ if (array_contains([3, 4, 5], menu_type)) {
 	}
 }
 
-draw_set_alpha(1);
-
 var length = array_length(lobby_list);
 
 for (var i = 0; i < length; i++) {
 	var lobby = lobby_list[i];
 	lobby.check((menu_type == 4), (lobby_seeing && lobby_selected == i));
-	//var left = (lobby_selected + length - 1) % length;
-	//var right = (lobby_selected + length + 1) % length;
 	
 	if (menu_type == 4) {
 		lobby.target_pos[1] = lobby.main_pos[1] - 60 * lobby_selected
-		
-		//if (i == lobby_selected) {
-		//	lobby.target_pos = [lobby.main_pos[0], lobby.main_pos[1]];
-		//} else if (i == left) {
-		//	lobby.target_pos[0] = lobby.main_pos[0] - (192 - 20);
-		//	lobby.target_pos[1] = lobby.main_pos[1] + 80;
-		//} else if (i == right) {
-		//	lobby.target_pos[0] = lobby.main_pos[0] + (192 - 20);
-		//	lobby.target_pos[1] = lobby.main_pos[1] + 80;
-		//} else {
-		//	lobby.target_pos[1] = 700;
-		//}
 	} else {
 		lobby.target_pos = [lobby.original_pos[0], lobby.original_pos[1]];
 	}
 	
 	lobby.draw(files_alpha);
 }
+
+draw_set_alpha(1);

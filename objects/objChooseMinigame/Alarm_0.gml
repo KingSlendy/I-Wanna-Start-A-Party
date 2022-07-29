@@ -76,6 +76,18 @@ var minigames_now = global.minigames[$ info.type];
 var minigames_order = array_sequence(0, array_length(minigames_now));
 array_shuffle(minigames_order);
 array_delete(minigames_order, 5, array_length(minigames_order) - 5);
+
+//Temp
+if (force_minigames) {
+	switch (info.type) {
+		case "4vs":
+			minigames_order[3] = 9;
+			minigames_order[4] = 10;
+			break;
+	}
+}
+//
+
 array_sort(minigames_order, true);
 
 for (var i = 0; i < 5; i++) {
@@ -83,7 +95,7 @@ for (var i = 0; i < 5; i++) {
 }
 
 //Temp
-if (force_type != null) {
+if (force_type != null && force_num != -1) {
 	minigame_list = [
 		global.minigames[$ info.type][force_num],
 		global.minigames[$ info.type][force_num],

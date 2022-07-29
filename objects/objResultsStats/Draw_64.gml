@@ -39,7 +39,9 @@ for (var i = 0; i < array_length(global.bonus_shines); i++) {
 			}
 		}
 	
-		draw_text_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, bonus.scores[player_id - 1], #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
+		var text = bonus.scores[player_id - 1];
+		var scale = (string_length(text) < 3) ? 1 : 0.8;
+		draw_text_transformed_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, text, scale, scale, 0, #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
 	}
 	
 	draw_set_alpha(1);

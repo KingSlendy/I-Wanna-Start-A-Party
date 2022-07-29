@@ -280,6 +280,9 @@ function minigame_finish(signal = false) {
 					scoring.ready = true;
 					buffer_write_data(buffer_s32, scoring.timer);
 					buffer_write_data(buffer_s32, scoring.points);
+					var player_info = player_info_by_id(i);
+					buffer_write_data(buffer_u16, player_info.shines);
+					buffer_write_data(buffer_u16, player_info.coins);
 					buffer_write_data(buffer_bool, signal);
 					network_send_tcp_packet();
 				}
@@ -388,7 +391,7 @@ function minigame_lost_all(count_last = false) {
 		lost_count += lost;
 	}
 	
-	var count = (!count_last) ? global.player_max - 1 : global.player_ax;
+	var count = (!count_last) ? global.player_max - 1 : global.player_max;
 	return (lost_count >= count);
 }
 
