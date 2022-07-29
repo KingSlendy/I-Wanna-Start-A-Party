@@ -257,12 +257,6 @@ function player_read_data(buffer) {
 		instance.network_index = buffer_read(buffer, buffer_u16);
 		instance.network_room = buffer_read(buffer, buffer_u16);
 		
-		//Reset values
-		instance.image_alpha = 1;
-		instance.image_blend = c_white;
-		instance.image_xscale = 1;
-		instance.image_yscale = 1;
-		
 		switch (mode) {
 			case PlayerDataMode.Basic:
 				instance.sprite_index = buffer_read(buffer, buffer_u16);

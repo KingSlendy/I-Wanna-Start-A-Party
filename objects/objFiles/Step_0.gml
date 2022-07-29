@@ -46,7 +46,7 @@ if (files_fade == 0) {
 }
 
 for (var i = 0; i < array_length(file_sprites); i++) {
-	var target = (i == global.file_selected) ? 1 : 0.8;
+	var target = (i == global.file_selected) ? 1 : 0.75;
 	file_highlights[i] = lerp(file_highlights[i], target, 0.3);
 }
 

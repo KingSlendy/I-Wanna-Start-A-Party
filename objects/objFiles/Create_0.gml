@@ -14,7 +14,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 file_pos = [];
 array_copy(file_pos, 0, file_original_pos, 0, array_length(file_original_pos));
 
-file_highlights = array_create(3, 0.8);
+file_highlights = array_create(3, 0.75);
 file_opened = -1;
 menu_type = 0;
 
@@ -65,7 +65,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	self.target_pos = [x, y];
 	self.selectable = selectable;
 	self.lobby = (lobby != null);
-	self.highlight = (abs(dir) != 2) ? 1 : 0.8;
+	self.highlight = (abs(dir) != 2) ? 1 : 0.75;
 	
 	self.draw = function(alpha) {
 		draw_sprite_ext(self.sprite, 0, self.pos[0], self.pos[1], self.highlight, self.highlight, 0, c_white, self.highlight - alpha);
@@ -77,7 +77,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 		self.pos[1] = lerp(self.pos[1], set_pos[1], 0.2);
 		
 		if (self.selectable) {
-			self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.8 : 1, 0.3);
+			self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.75 : 1, 0.3);
 		}
 		
 		if (self.lobby) {
