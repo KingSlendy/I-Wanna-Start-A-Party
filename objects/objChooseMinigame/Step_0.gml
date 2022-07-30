@@ -74,7 +74,7 @@ switch (state) {
 				}
 				
 				if (variable_struct_exists(percentage_types, "4vs")) {
-					percentage_types[$ "4vs"] *= 0.75;
+					percentage_types[$ "4vs"] *= 0.5;
 				}
 			
 				var min_type = infinity;

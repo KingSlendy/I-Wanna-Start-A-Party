@@ -257,6 +257,5 @@ function apply_display() {
 	    display_reset(0, global.vsync_display);
 	}
 
-	gpu_set_texfilter(global.smooth_display);
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }

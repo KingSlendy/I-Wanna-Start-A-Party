@@ -21,7 +21,8 @@ function minigame_init() {
 		new Minigame("Unstable Blocks", ["Instructions TBD."], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
 		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
 		new Minigame("Slime Annoyer", ["Instructions TBD."], 23, rMinigame4vs_Slime, "SlimePark"),
-		new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew")
+		new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
+		new Minigame("Dizzy Conundrum", ["Instructions TBD."], 25, rMinigame4vs_Dizzy, "VoVoVo")
 	];
 
 	m[$ "1vs3"] = [

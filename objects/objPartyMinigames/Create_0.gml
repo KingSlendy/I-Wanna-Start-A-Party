@@ -128,11 +128,11 @@ if (room == rMinigames) {
 			var h = sprite_get_height(sprMinigameOverview_Preview);
 			var p_surf = surface_create(w, h);
 			surface_set_target(p_surf);
-			draw_sprite(sprMinigameOverview_Preview, 1, w / 2, h / 2);
+			draw_sprite(sprMinigameOverview_Preview, 1, floor(w / 2), floor(h / 2));
 			gpu_set_colorwriteenable(true, true, true, false);
-			draw_sprite_stretched(sprMinigameOverview_Pictures, (array_contains(global.seen_minigames, minigame.title)) ? minigame.preview : 0, 44, 15,  w - 88, h - 31);
+			draw_sprite_stretched(sprMinigameOverview_Pictures, (array_contains(global.seen_minigames, minigame.title)) ? minigame.preview : 0, 44, 15, w - 88, h - 31);
 			gpu_set_colorwriteenable(true, true, true, true);
-			draw_sprite(sprMinigameOverview_Preview, 0, w / 2, h / 2);
+			draw_sprite(sprMinigameOverview_Preview, 0, floor(w / 2), floor(h / 2));
 			surface_reset_target();
 			array_push(minigames_portraits[$ names[i]], sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w / 2, h / 2));
 			surface_free(p_surf);

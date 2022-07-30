@@ -105,9 +105,9 @@ menu_buttons = [
 menu_selected = array_create(array_length(menu_buttons), 0);
 
 option_buttons = [
-	new FileButton(144, 480, file_width, file_width - 64, 2, "SETTINGS"),
-	new FileButton(400, 480, file_width, file_width - 64, 2, "DISCORD"),
-	new FileButton(656, 480, file_width, file_width - 64, 2, "CREDITS"),
+	new FileButton(144, 480, file_width, file_width - 96, 2, "SETTINGS"),
+	new FileButton(400, 480, file_width, file_width - 96, 2, "DISCORD"),
+	new FileButton(656, 480, file_width, file_width - 96, 2, "CREDITS"),
 ];
 
 option_selected = -1;

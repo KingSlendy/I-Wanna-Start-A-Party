@@ -1,5 +1,5 @@
 event_inherited();
-var cells = [];
+next_seed_inline();
 maze_width = 19;
 maze_height = 16;
 maze = null;
@@ -8,135 +8,77 @@ for (var r = -1; r < maze_height * 2; r++) {
     for (var c = -1; c < maze_width * 2; c++) {
 		var b = instance_create_layer(x + 32 * c, y + 32 * r, "Collisions", objBlock);
         b.visible = true;
-        b.sprite_index = sprMinigame2vs2_Maze_Block;
+        b.sprite_index = sprite_index;
 	}
 }
 
-for (var r = 0; r < maze_height * 2 - 1; r++) {
-    for (var c = 0; c < maze_width * 2 - 1; c++) {
+for (var r = 0; r < maze_height; r++) {
+    for (var c = 0; c < maze_width; c++) {
         maze[r, c] = [];
     }
 }
 
-var row = 0;
-var col = 0;
-var directions = [
+var row = irandom(maze_height - 1);
+var col = irandom(maze_width - 1);
+directions = [
     [-1, 0],
     [0, 1],
     [0, -1],
     [1, 0],
 ];
 
-var finished = false;
-array_push(cells, [row, col]);
-
-while (true) {
-    var choice = -1;
-	var adjacent = false;
-
-    while (!adjacent) {
-        if (choice != -1) {
-			if (array_length(maze[row, col]) == 0) {
-				array_push(maze[row, col], -1);
-			}
-			
-			array_delete(cells, choice, 1);
-		}
-		
-        if (array_length(cells) == 0) {
-			finished = true;
-			break;
-		}
-
-        choice = (irandom(1) == 0) ? 0 : array_length(cells) - 1;
-        var cell = cells[choice];
-		row = cell[0];
-		col = cell[1];
-		
-		adjacent = false;
-		
-        for (var i = 0; i < 4; i++) {
-	        var d = directions[i];
-        
-	        if (row + d[0] > -1 && row + d[0] < maze_height && col + d[1] > -1 && col + d[1] < maze_width && array_length(maze[row + d[0], col + d[1]]) == 0) {
-	            adjacent = true;
-	            break;
-	        }    
-	    }
-    }
-
-	if (finished) {
-		break;
-	}
-
-    var pr = row;
-    var pc = col;
-    var rnd = irandom(3);
-    
-    for (var i = 0; i < 4; i++) {
-        var n = (i + rnd) % 4;
-        var d = directions[n];
-            
-        if (row + d[0] > -1 && row + d[0] < maze_height && col + d[1] > -1 && col + d[1] < maze_width && array_length(maze[row + d[0], col + d[1]]) == 0) {
-            row += d[0];
-            col += d[1];
-            break;
-        }    
-    }
-        
-	array_push(maze[pr, pc], n);
-	array_push(cells, [row, col]);
+var cells = [[row, col]];
+check_adjacent = function(r, c) {
+	return (r >= 0 && r < maze_height && c >= 0 && c < maze_width && array_length(maze[r, c]) == 0);
 }
 
-/*while (array_length(cells) > 0) {
-    var adjacent = false;
-    
-    for (var i = 0; i < 4; i++) {
-        var d = directions[i];
-        
-        if (row + d[0] > -1 && row + d[0] < maze_height && col + d[1] > -1 && col + d[1] < maze_width && array_length(maze[row + d[0], col + d[1]]) == 0) {
-            adjacent = true;
-            break;
-        }    
-    }
-    
-    if (adjacent) {
-        var pr = row;
-        var pc = col;
-        var rnd = irandom(3);
-    
-        for (var i = 0; i < 4; i++) {
-            var n = (i + rnd) % 4;
-            var d = directions[n];
-            
-            if (row + d[0] > -1 && row + d[0] < maze_height && col + d[1] > -1 && col + d[1] < maze_width && array_length(maze[row + d[0], col + d[1]]) == 0) {
-                row += d[0];
-                col += d[1];
-                break;
-            }    
-        }
-        
-		array_push(maze[pr, pc], n);
-		array_push(cells, [row, col]);
-    } else {
-        if (array_length(maze[row, col]) == 0) {
-            array_push(maze[row, col], -1);
-        }
-    
-        var current = array_pop(cells);
-        row = current[0];
-        col = current[1];
-    }
-}*/
+var check_neighbors = function(r, c) {
+	var neighbors = [];
+	
+	for (var i = 0; i < 4; i++) {
+		var dir = directions[i];
+		
+		if (check_adjacent(r + dir[0], c + dir[1])) {
+			array_push(neighbors, i);
+		}
+	}
+	
+	return neighbors;
+}
+
+while (true) {
+	if (array_length(cells) == 0) {
+		break;
+	}
+	
+	var index = (irandom(1) == 0) ? 0 : array_length(cells) - 1;
+	var cell = cells[index];
+	var row = cell[0];
+	var col = cell[1];
+	var neighbors = check_neighbors(row, col);
+	
+	if (array_length(neighbors) == 0) {
+		array_delete(cells, index, 1);
+		continue;
+	}
+	
+	array_shuffle(neighbors);
+	var neighbor = neighbors[0];
+	var next = directions[neighbor];
+	var next_row = row + next[0];
+	var next_col = col + next[1];
+	array_push(maze[row, col], neighbor);
+	array_push(maze[next_row, next_col], 3 - neighbor);
+	array_push(cells, [next_row, next_col]);
+}
 
 for (var r = 0; r < maze_height; r++) {
     for (var c = 0; c < maze_width; c++) {
         instance_destroy(instance_place(x + 32 * (c * 2), y + 32 * (r * 2), objBlock));
         
         var current = maze[r, c];
-        var size = array_length(current);
         
-        for (var i = 0; i < size; i++) {
+        for (var i = 0; i < array_length(current); i++) {
             if (current[i] == -1) {
                 break;
             }

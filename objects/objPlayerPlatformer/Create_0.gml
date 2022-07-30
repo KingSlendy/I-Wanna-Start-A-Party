@@ -23,3 +23,7 @@ enable_shoot = true;
 
 skin = get_skin();
 reset_jumps();
+
+left_action = "left";
+right_action = "right";
+jump_action = "jump";

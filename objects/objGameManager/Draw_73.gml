@@ -1,0 +1,1 @@
+gpu_set_texfilter(global.smooth_display);

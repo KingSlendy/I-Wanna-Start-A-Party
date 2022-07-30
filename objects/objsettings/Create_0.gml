@@ -92,6 +92,10 @@ var display_draw = function(x, y) {
 	draw_text_outline(x + 40, y, (display) ? "ON" : "OFF", c_black);
 }
 
+var controls_draw = function(x, y) {
+	draw_sprite_ext(bind_to_key(global.actions[$ string_lower(self.label)].button), 0, x + 40, y, 0.75, 0.75, 0, c_white, 1);
+}
+
 sections = [
 	new Section("VOLUME", [
 		new Option("MASTER", volume_check, volume_draw),
@@ -103,8 +107,19 @@ sections = [
 		new Option("FULLSCREEN", display_check, display_draw),
 		new Option("VSYNC", display_check, display_draw),
 		new Option("SMOOTH", display_check, display_draw)
-	])
+	]),
+	
+	new Section("CONTROLS", [])
 ];
+
+var keys = variable_struct_get_names(global.actions);
+
+for (var i = 0; i < array_length(keys); i++) {
+	var name = keys[i];
+	var action = global.actions[$ name];
+	
+	array_push(sections[2].options, new Option(string_upper(name), function() {}, controls_draw));
+}
 
 section_selected = 0;
 section_x = 0;

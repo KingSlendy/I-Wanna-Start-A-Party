@@ -1,24 +1,35 @@
 function player_jump() {
-	if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y, objMinigame4vs_Painting_Platform) || place_meeting(x, y + 1, objMinigame2vs2_Duos_Platform)) {
-		vspd = -(jump_height[0] * orientation);
-		sprite_index = skin[$ "Jump"];
-		reset_jumps();
-		audio_play_sound(sndJump, 0, false);
-	} else if (jump_left > 0 || jump_total == -1) {
-		vspd = -(jump_height[1] * orientation);
-		sprite_index = skin[$ "Jump"];
+	if (room != rMinigame4vs_Dizzy) {
+		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y, objMinigame4vs_Painting_Platform) || place_meeting(x, y + 1, objMinigame2vs2_Duos_Platform)) {
+			vspd = -(jump_height[0] * orientation);
+			sprite_index = skin[$ "Jump"];
+			reset_jumps();
+			audio_play_sound(sndJump, 0, false);
+		} else if (jump_left > 0 || jump_total == -1) {
+			vspd = -(jump_height[1] * orientation);
+			sprite_index = skin[$ "Jump"];
 		
-		if (jump_left > 0) {
-			jump_left--;
+			if (jump_left > 0) {
+				jump_left--;
+			}
+		
+			audio_play_sound(sndDoubleJump, 0, false);
 		}
+	} else {
+		if (on_block) {
+			flip_orientation();
+			vspd = jump_height[0] * orientation;
 		
-		audio_play_sound(sndDoubleJump, 0, false);
+			audio_play_sound((orientation == -1) ? sndFlipU : sndFlipD, 0, false);
+		}
 	}
 }
 
 function player_fall() {
-	if (vspd * orientation < 0) {
-		vspd *= 0.45;
+	if (room != rMinigame4vs_Dizzy) {
+		if (vspd * orientation < 0) {
+			vspd *= 0.45;
+		}
 	}
 }
 
@@ -51,16 +62,16 @@ function reset_jumps() {
 }
 
 function set_mask() {
-	mask_index = (orientation == 1) ? sprPlayerMask : sprPlayerMask;
+	mask_index = (orientation == 1) ? sprPlayerMask : sprPlayerMaskFlip;
 }
 
-//function flip_grav() {
-//	orientation *= -1;
-//	set_mask();
-//	vspd = 0;
-//	y += 4 * orientation;
-//	reset_jumps();
-//}
+function flip_orientation() {
+	orientation *= -1;
+	set_mask();
+	vspd = 0;
+	y += 4 * orientation;
+	reset_jumps();
+}
 
 function player_kill(network = false) {
 	if (!lost && (is_player_local(network_id) || network)) {

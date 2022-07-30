@@ -917,7 +917,7 @@ function end_map() {
 }
 
 function call_shop() {
-	var player_info = player_info_by_turn();
+	player_info = player_info_by_turn();
 	
 	if (!global.board_day) {
 		start_dialogue([
@@ -950,7 +950,13 @@ function call_shop() {
 				]],
 						
 				["No", [
-					new Message("",, board_advance)
+					new Message("",, function() {
+						board_advance();
+						
+						if (player_info.item_used == ItemType.Cellphone) {
+							gain_trophy(45);
+						}
+					})
 				]]
 			])
 		]);
@@ -983,7 +989,13 @@ function call_blackhole() {
 				]],
 						
 				["No", [
-					new Message("",, board_advance)
+					new Message("",, function() {
+						board_advance();
+						
+						if (player_info.item_used == ItemType.Blackhole) {
+							gain_trophy(46);
+						}
+					})
 				]]
 			])
 		]);

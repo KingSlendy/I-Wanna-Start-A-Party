@@ -232,11 +232,12 @@ function player_write_data() {
 	
 			if (object_index == objPlayerPlatformer) {
 				buffer_write_data(buffer_s8, image_xscale * xscale);
+				buffer_write_data(buffer_s8, image_yscale * orientation);
 			} else {
 				buffer_write_data(buffer_s8, image_xscale);
+				buffer_write_data(buffer_s8, image_yscale);
 			}
 	
-			buffer_write_data(buffer_s8, image_yscale);
 			buffer_write_data(buffer_s32, x);
 			buffer_write_data(buffer_s32, y);
 			break;

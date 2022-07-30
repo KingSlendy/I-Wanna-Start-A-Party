@@ -1,8 +1,8 @@
 #region Movement
 grav = grav_amount * orientation;
 
-var dir_left = global.actions.left.held(network_id);
-var dir_right = global.actions.right.held(network_id);
+var dir_left = global.actions[$ left_action].held(network_id);
+var dir_right = global.actions[$ right_action].held(network_id);
 var dir = 0;
 
 //If the player is frozen no movement is applied
@@ -68,7 +68,7 @@ if (room != rMinigame2vs2_Springing) {
 
 if (!frozen) {
 	if (enable_jump) {
-		if (global.actions.jump.pressed(network_id)) {
+		if (global.actions[$ jump_action].pressed(network_id)) {
 			player_jump();
 		}
 	
