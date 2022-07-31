@@ -138,7 +138,8 @@ function save_board() {
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_positions: [],
 			saved_spaces: [],
-			saved_bonus_shines: []
+			saved_bonus_shines: [],
+			saved_shine_power_type: global.shine_power_type
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -168,6 +169,7 @@ function save_board() {
 			saved_items: array_create(array_length(player_info.items), -1),
 			saved_item_effect: player_info.item_effect ?? -1,
 			saved_position: [player.x, player.y],
+			saved_power_type: player_info.power_type ?? -1
 		};
 			
 		for (var j = 0; j < array_length(player_info.items); j++) {

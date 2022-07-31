@@ -70,6 +70,7 @@ enum ClientTCP {
 	LastTurnsHelpLastPlace,
 	LastTurnsEndLastTurns,
 	BoardHotlandAnnoyingDog,
+	BoardPalletTownPower,
 	
 	//Animations
 	ItemApplied,
@@ -88,7 +89,6 @@ enum ClientTCP {
 	Minigame4vs_Painting_Platform,
 	Minigame4vs_Bugs_Counting,
 	Minigame4vs_Chests_ChestSelected,
-	Minigame4vs_Slime_UnfreezePlayer,
 	Minigame4vs_Slime_BlockEntrance,
 	Minigame4vs_Slime_SlimeShot,
 	Minigame4vs_Dizzy_GrabCoin,
@@ -670,6 +670,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		case ClientTCP.BoardHotlandAnnoyingDog:
 			board_hotland_annoying_dog();
 			break;
+			
+		case ClientTCP.BoardPalletTownPower:
+			var power_type = buffer_read(buffer, buffer_u8);
+			board_pallet_powers(power_type);
+			break;
 		#endregion
 			
 		#region Animations
@@ -833,12 +838,6 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 						target_y = ystart;
 					}
 				}
-			}
-			break;
-			
-		case ClientTCP.Minigame4vs_Slime_UnfreezePlayer:
-			with (objMinigameController) {
-				unfreeze_player(false);
 			}
 			break;
 			

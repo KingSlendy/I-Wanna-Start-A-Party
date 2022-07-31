@@ -50,3 +50,14 @@ alarm[11] = 1;
 //Baba Is Board
 tile_image_speed = 0.12;
 tile_image_index = 0;
+
+//Pallet Town
+enum ShinePowerType {
+	None,
+	Fire,
+	Grass,
+	Pshycic
+}
+
+global.shine_power_type = ShinePowerType.None;
+global.power_price = 10;

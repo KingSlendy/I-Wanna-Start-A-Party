@@ -13,7 +13,7 @@ if (x == target_x && y == target_y) {
 	
 	if (returning) {
 		with (objPlayerBase) {
-			if (!lost && !won) {
+			if (!lost && draw && !won) {
 				frozen = false;
 			}
 		}

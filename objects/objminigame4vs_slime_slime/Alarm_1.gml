@@ -7,10 +7,6 @@ if (instance_exists(objMinigame4vs_Slime_Block)) {
 music_resume();
 var player = focus_player_by_turn(objMinigameController.player_turn);
 
-if (!is_player_local(player.network_id)) {
-	exit;
-}
-
 if (player.lost) {
 	with (objMinigameController) {
 		unfreeze_player();

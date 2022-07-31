@@ -15,7 +15,7 @@ function unfreeze_player(network = true) {
 		objMinigame4vs_Slime_Block.scale_target = 0;
 	}
 	
-	if (info.is_finished || (player_turn != 0 && !is_player_local(focus_player_by_turn(player_turn).network_id))) {
+	if (info.is_finished) {
 		return;
 	}
 	
@@ -32,18 +32,7 @@ function unfreeze_player(network = true) {
 		frozen = true;
 	}
 	
-	if (player_turn > 0 && network) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.Minigame4vs_Slime_UnfreezePlayer);
-		network_send_tcp_packet();
-	}
-	
 	var player = focus_player_by_turn(player_turn);
-	
-	if (!is_player_local(player.network_id)) {
-		return;
-	}
-	
 	player.frozen = false;
 	instance_create_layer(384, 384, "Collisions", objMinigame4vs_Slime_Blocking, {
 		image_xscale: 5

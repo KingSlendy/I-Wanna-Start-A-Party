@@ -2,11 +2,7 @@ if (lost) {
 	exit;
 }
 
-if (other.network_id != network_id) {
-	instance_destroy(other);
-}
-
-if (image_alpha < 1 || !is_player_local(other.network_id) || other.network_id == network_id) {
+if (image_alpha < 1 || other.network_id == network_id) {
 	exit;
 }
 

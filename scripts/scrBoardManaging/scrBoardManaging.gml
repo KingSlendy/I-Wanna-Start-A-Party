@@ -35,6 +35,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.space = c_ltgray;
 	self.item_used = null;
 	self.item_effect = null;
+	self.power_type = ShinePowerType.None;
 	
 	static free_item_slot = function() {
 		for (var i = 0; i < 3; i++) {
@@ -227,7 +228,7 @@ function get_ai_count() {
 }
 
 function player_color_by_turn(turn) {
-	var colors = [c_blue, c_red, c_green, c_yellow];
+	var colors = [c_blue, c_red, c_lime, c_yellow];
 	return colors[turn - 1];
 }
 #endregion
@@ -257,6 +258,11 @@ function board_start() {
 			} else {
 				global.shine_price = 20;
 			}
+		}
+		
+		if (room == rBoardPalletTown) {
+			next_seed_inline();
+			global.shine_power_type = choose(ShineType.Fire, ShineType.Grass, ShineType.Pshycic);
 		}
 	}
 	
@@ -1210,6 +1216,46 @@ function board_hotland_annoying_dog() {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardHotlandAnnoyingDog);
+		network_send_tcp_packet();
+	}
+}
+
+function board_pallet_pokemons(type) {
+	power_type = type;
+	
+	switch (power_type) {
+		case ShinePowerType.Fire: var power_name = "Fire"; break;
+		case ShinePowerType.Grass: var power_name = "Grass"; break;
+		case ShinePowerType.Pshycic: var power_name = "Psychic"; break;
+	}
+	
+	var buy_option = "Buy " + draw_coins_price(global.power_price);
+	
+	start_dialogue([
+		"Hey, this Pokémon over here would like to grant you the " + power_name + " power.",
+		new Message("Would you like to buy it?\nTake in mind you'll lose your previous power if you had one!", [
+			[buy_option, [
+				new Message("The Pokémon looks grateful!",, function() {
+					change_coins(-global.power_price, CoinChangeType.Spend).final_action = function() {
+						board_pallet_powers(power_type);
+					}
+				})
+			]],
+			
+			["No", [
+				new Message("Well, too bad, next time it is.",, board_advance)
+			]]
+		])
+	]);
+}
+
+function board_pallet_powers(power_type) {
+	instance_create_layer(0, 0, "Managers", objBoardPalletTownPower);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardPalletTownPower);
+		buffer_write_data(buffer_u8, power_type);
 		network_send_tcp_packet();
 	}
 }

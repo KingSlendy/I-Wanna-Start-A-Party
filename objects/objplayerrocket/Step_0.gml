@@ -1,15 +1,13 @@
 if (!frozen) {
 	image_angle = (image_angle + 360 + (global.actions.left.held(network_id) - global.actions.right.held(network_id))) % 360;
+	var move = (global.actions.up.held(network_id) - global.actions.down.held(network_id));
 	
-    if (global.actions.up.held(network_id)) {
-		motion_add(image_angle + 90, 0.025);
-    }
-	
-	if (global.actions.down.held(network_id)) {
-		motion_add(image_angle + 90, -0.025);
+	if (move != 0) {
+		motion_add(image_angle + 90, move * 0.05);
 	}
 
 	speed = clamp(speed, -max_spd, max_spd);
+	spd = speed;
 	
 	if (shoot_delay == 0 && global.actions.shoot.pressed(network_id)) {
 		shoot_delay = get_frames(1);

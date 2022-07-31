@@ -13,6 +13,8 @@ if (!global.board_started) {
 		for (var i = 0; i < array_length(global.bonus_shines); i++) {
 			global.bonus_shines[i].scores = board.saved_board.saved_bonus_shines[i];
 		}
+		
+		global.shine_power_type = board.saved_board.saved_shine_power_type;
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
 			var position = board.saved_board.saved_shine_positions[i];
@@ -60,6 +62,7 @@ if (!global.board_started) {
 			}
 				
 			player_info.item_effect = (saved_player.saved_item_effect != -1) ? saved_player.saved_item_effect : null;
+			player_info.power_type = (saved_player.saved_power_type != -1) ? saved_player.saved_power_type : null;
 		}
 	
 		calculate_player_place();

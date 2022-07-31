@@ -5,3 +5,5 @@ if (place_meeting(x + hspeed, y, objBlock)) {
 if (place_meeting(x, y + vspeed, objBlock)) {
 	vspeed *= -0.8;
 }
+
+event_inherited();

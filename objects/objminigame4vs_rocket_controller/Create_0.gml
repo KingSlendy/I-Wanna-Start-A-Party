@@ -2,7 +2,10 @@ with (objPlayerBase) {
 	change_to_object(objPlayerRocket);
 }
 
-objPlayerBase.hp = 3;
+with (objPlayerBase) {
+	hp = 3;
+	spd = 0;
+}
 
 event_inherited();
 

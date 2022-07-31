@@ -14,8 +14,7 @@ enum PlayerDataMode {
 	Heartbeat,
 	Basic,
 	Hand,
-	Rocket,
-	All
+	Rocket
 }
 
 function buffer_seek_begin(buffer = global.buffer) {
@@ -200,46 +199,29 @@ function player_write_data() {
 	buffer_write_data(buffer_bool, ai);
 	buffer_write_data(buffer_u16, object_index);
 	buffer_write_data(buffer_u16, room);
+	buffer_write_data(buffer_u16, sprite_index);
+	buffer_write_data(buffer_f16, image_alpha);
+	
+	if (object_index == objPlayerPlatformer) {
+		buffer_write_data(buffer_s8, image_xscale * xscale);
+		buffer_write_data(buffer_s8, image_yscale * orientation);
+	} else {
+		buffer_write_data(buffer_s8, image_xscale);
+		buffer_write_data(buffer_s8, image_yscale);
+	}
+	
+	buffer_write_data(buffer_u16, image_angle);
+	buffer_write_data(buffer_s32, x);
+	buffer_write_data(buffer_s32, y);
 	
 	switch (network_mode) {
-		case PlayerDataMode.Basic:
-			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_f16, image_alpha);
-			buffer_write_data(buffer_s8, image_xscale);
-			buffer_write_data(buffer_s8, image_yscale);
-			buffer_write_data(buffer_s32, x);
-			buffer_write_data(buffer_s32, y);
-			break;
-		
 		case PlayerDataMode.Hand:
-			buffer_write_data(buffer_u16, sprite_index);
 			buffer_write_data(buffer_u8, image_index);
-			buffer_write_data(buffer_s32, x);
-			buffer_write_data(buffer_s32, y);
 			break;
 			
 		case PlayerDataMode.Rocket:
-			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_u8, image_angle);
-			buffer_write_data(buffer_s32, x);
-			buffer_write_data(buffer_s32, y);
 			buffer_write_data(buffer_u8, hp);
-			break;
-		
-		case PlayerDataMode.All:
-			buffer_write_data(buffer_u16, sprite_index);
-			buffer_write_data(buffer_f16, image_alpha);
-	
-			if (object_index == objPlayerPlatformer) {
-				buffer_write_data(buffer_s8, image_xscale * xscale);
-				buffer_write_data(buffer_s8, image_yscale * orientation);
-			} else {
-				buffer_write_data(buffer_s8, image_xscale);
-				buffer_write_data(buffer_s8, image_yscale);
-			}
-	
-			buffer_write_data(buffer_s32, x);
-			buffer_write_data(buffer_s32, y);
+			buffer_write_data(buffer_s8, speed);
 			break;
 	}
 	
@@ -257,39 +239,22 @@ function player_read_data(buffer) {
 		instance.ai = buffer_read(buffer, buffer_bool);
 		instance.network_index = buffer_read(buffer, buffer_u16);
 		instance.network_room = buffer_read(buffer, buffer_u16);
+		instance.sprite_index = buffer_read(buffer, buffer_u16);
+		instance.image_alpha = buffer_read(buffer, buffer_f16);
+		instance.image_xscale = buffer_read(buffer, buffer_s8);
+		instance.image_yscale = buffer_read(buffer, buffer_s8);
+		instance.image_angle = buffer_read(buffer, buffer_u16);
+		instance.x = buffer_read(buffer, buffer_s32);
+		instance.y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
-			case PlayerDataMode.Basic:
-				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_alpha = buffer_read(buffer, buffer_f16);
-				instance.image_xscale = buffer_read(buffer, buffer_s8);
-				instance.image_yscale = buffer_read(buffer, buffer_s8);
-				instance.x = buffer_read(buffer, buffer_s32);
-				instance.y = buffer_read(buffer, buffer_s32);
-				break;
-			
 			case PlayerDataMode.Hand:
-				instance.sprite_index = buffer_read(buffer, buffer_u16);
 				instance.image_index = buffer_read(buffer, buffer_u8);
-				instance.x = buffer_read(buffer, buffer_s32);
-				instance.y = buffer_read(buffer, buffer_s32);
 				break;
 				
 			case PlayerDataMode.Rocket:
-				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_angle = buffer_read(buffer, buffer_u8);
-				instance.x = buffer_read(buffer, buffer_s32);
-				instance.y = buffer_read(buffer, buffer_s32);
 				instance.hp = buffer_read(buffer, buffer_u8);
-				break;
-			
-			case PlayerDataMode.All:
-				instance.sprite_index = buffer_read(buffer, buffer_u16);
-				instance.image_alpha = buffer_read(buffer, buffer_f16);
-				instance.image_xscale = buffer_read(buffer, buffer_s8);
-				instance.image_yscale = buffer_read(buffer, buffer_s8);
-				instance.x = buffer_read(buffer, buffer_s32);
-				instance.y = buffer_read(buffer, buffer_s32);
+				instance.spd = buffer_read(buffer, buffer_s8);
 				break;
 		}
 	}
