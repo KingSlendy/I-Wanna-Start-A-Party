@@ -81,13 +81,16 @@ array_delete(minigames_order, 5, array_length(minigames_order) - 5);
 if (force_minigames) {
 	switch (info.type) {
 		case "4vs":
-			minigames_order[2] = 9;
-			minigames_order[3] = 10;
-			minigames_order[4] = 11;
+			break;
+			
+		case "1vs3":
+			break;
+			
+		case "2vs2":
 			break;
 	}
 }
-//
+//Temp
 
 array_sort(minigames_order, true);
 

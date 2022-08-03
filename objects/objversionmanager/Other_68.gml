@@ -55,6 +55,6 @@ switch (type) {
 			exit;
 		}
 		
-		alarm[2] = get_frames(10);
+		alarm[2] = get_frames(15);
 		break;
 }

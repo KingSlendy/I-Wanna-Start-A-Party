@@ -50,7 +50,6 @@ function results_bonus() {
 				var player_info = player_info_by_id(i);
 				buffer_write_data(buffer_u16, player_info.shines);
 				buffer_write_data(buffer_u16, player_info.coins);
-				global.bonus_shines_ready[i - 1] = true;
 				var scores_scores = [];
 			
 				for (var j = 0; j < array_length(global.bonus_shines); j++) {
@@ -59,6 +58,8 @@ function results_bonus() {
 			
 				buffer_write_array(buffer_u16, scores_scores);
 				network_send_tcp_packet();
+				
+				global.bonus_shines_ready[i - 1] = true;
 			}
 		}
 		

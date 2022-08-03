@@ -10,14 +10,10 @@ getting = false;
 losing = false;
 faker = false;
 
-if (room == rBoardIsland && !global.board_day) {
-	sprite_index = sprShineNight;
-}
-
-if (room == rBoardPalletTown && global.shine_power_type != ShinePowerType.None) {
-	switch (global.shine_power_type) {
-		case ShinePowerType.Fire: sprite_index = sprShineFire; break;
-		case ShinePowerType.Grass: sprite_index = sprShineGrass; break;
-		case ShinePowerType.Pshycic: sprite_index = sprShinePsychic; break;
-	}
+switch (room) {
+	case rBoardIsland:
+		if (!global.board_day) {
+			sprite_index = sprShineNight;
+		}
+		break;
 }

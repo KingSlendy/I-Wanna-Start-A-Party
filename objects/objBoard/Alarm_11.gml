@@ -73,7 +73,11 @@ if (global.board_started) {
 			}
 				
 			array_shuffle(most_percentage);
-			cpu_item = most_percentage[0];
+			var chosen_percentage = most_percentage[0];
+			
+			if (chosen_percentage != 0) {
+				cpu_item = chosen_percentage;
+			}
 		}
 		
 		if (cpu_item == -1) {

@@ -9,12 +9,6 @@ if (!global.board_started) {
 		global.max_board_turns = board.saved_board.saved_max_turns;
 		global.board_turn = board.saved_board.saved_turn;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
-			
-		for (var i = 0; i < array_length(global.bonus_shines); i++) {
-			global.bonus_shines[i].scores = board.saved_board.saved_bonus_shines[i];
-		}
-		
-		global.shine_power_type = board.saved_board.saved_shine_power_type;
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
 			var position = board.saved_board.saved_shine_positions[i];
@@ -62,7 +56,12 @@ if (!global.board_started) {
 			}
 				
 			player_info.item_effect = (saved_player.saved_item_effect != -1) ? saved_player.saved_item_effect : null;
-			player_info.power_type = (saved_player.saved_power_type != -1) ? saved_player.saved_power_type : null;
+			
+			for (var j = 0; j < array_length(global.bonus_shines); j++) {
+				global.bonus_shines[j].scores[player_info.turn - 1] = saved_player.saved_bonus_shines_scores[j];
+			}
+			
+			player_info.pokemon = saved_player.pokemon;
 		}
 	
 		calculate_player_place();

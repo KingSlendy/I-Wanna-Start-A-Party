@@ -1,3 +1,4 @@
+global.game_started = true;
 fade_alpha = 1;
 fade_start = true;
 state = -1;

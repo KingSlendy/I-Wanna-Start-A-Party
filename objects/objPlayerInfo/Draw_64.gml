@@ -41,6 +41,10 @@ for (var i = 0; i < min(array_length(player_info.items), 3); i++) {
 	draw_sprite_ext(item.sprite, 0, item_x, item_y, 0.5, 0.5, 0, c_white, 1);
 }
 
+if (player_info.pokemon != -1) {
+	draw_sprite_ext(player_info.pokemon, 0, draw_x + 100, draw_y - 15, 0.75, 0.75, 0, c_white, 1);
+}
+
 draw_sprite_ext(sprPlayerInfoPlaces, player_info.place - 1, draw_x + 10, draw_y + 57, 0.6, 0.6, 0, c_white, 1);
 draw_set_color(c_white);
 draw_set_halign(fa_left);

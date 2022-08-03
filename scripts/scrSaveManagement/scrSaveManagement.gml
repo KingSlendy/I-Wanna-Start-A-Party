@@ -1,5 +1,6 @@
 function save_variables() {
 	//Main data
+	global.game_started = false;
 	global.file_selected = -1;
 	global.game_id = "";
 	global.player_game_ids = [];
@@ -115,18 +116,6 @@ function load_file() {
 	return true;
 }
 
-function delete_file() {
-	var file_selected = global.file_selected;
-	
-	if (file_exists("Save" + string(global.file_selected + 1))) {
-		file_delete("Save" + string(global.file_selected + 1));
-	}
-	
-	save_variables();
-	global.file_selected = file_selected;
-	save_file();
-}
-
 function save_board() {
 	var board = {
 		saved_id: global.player_id,
@@ -137,9 +126,7 @@ function save_board() {
 			saved_turn: global.board_turn,
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_positions: [],
-			saved_spaces: [],
-			saved_bonus_shines: [],
-			saved_shine_power_type: global.shine_power_type
+			saved_spaces: []
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -151,10 +138,6 @@ function save_board() {
 	
 	with (objSpaces) {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
-	}
-	
-	for (var i = 0; i < array_length(global.bonus_shines); i++) {
-		board.saved_board.saved_bonus_shines[i] = global.bonus_shines[i].scores;
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
@@ -169,8 +152,11 @@ function save_board() {
 			saved_items: array_create(array_length(player_info.items), -1),
 			saved_item_effect: player_info.item_effect ?? -1,
 			saved_position: [player.x, player.y],
-			saved_power_type: player_info.power_type ?? -1
+			saved_bonus_shines_score: [],
+			saved_pokemon: player_info.pokemon
 		};
+		
+		var saved_player = board.saved_players[i - 1];
 			
 		for (var j = 0; j < array_length(player_info.items); j++) {
 			var item = player_info.items[j];
@@ -181,11 +167,27 @@ function save_board() {
 				item = -1;
 			}
 				
-			board.saved_players[i - 1].saved_items[j] = item;
+			saved_player.saved_items[j] = item;
+		}
+		
+		for (var j = 0; j < array_length(global.bonus_shines); j++) {
+			saved_player.saved_bonus_shines_score[j] = global.bonus_shines[j].scores[player_info.turn - 1];
 		}
 	}
 	
 	global.board_games[$ global.game_id] = board;
+	save_file();
+}
+
+function delete_file() {
+	var file_selected = global.file_selected;
+	
+	if (file_exists("Save" + string(global.file_selected + 1))) {
+		file_delete("Save" + string(global.file_selected + 1));
+	}
+	
+	save_variables();
+	global.file_selected = file_selected;
 	save_file();
 }
 

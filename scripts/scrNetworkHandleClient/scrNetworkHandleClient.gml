@@ -70,7 +70,8 @@ enum ClientTCP {
 	LastTurnsHelpLastPlace,
 	LastTurnsEndLastTurns,
 	BoardHotlandAnnoyingDog,
-	BoardPalletTownPower,
+	BoardPalletObtain,
+	BoardPalletBattle,
 	
 	//Animations
 	ItemApplied,
@@ -671,9 +672,14 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			board_hotland_annoying_dog();
 			break;
 			
-		case ClientTCP.BoardPalletTownPower:
-			var power_type = buffer_read(buffer, buffer_u8);
-			board_pallet_powers(power_type);
+		case ClientTCP.BoardPalletObtain:
+			var pokemon = buffer_read(buffer, buffer_u16);
+			board_pallet_obtain(pokemon);
+			break;
+			
+		case ClientTCP.BoardPalletBattle:
+			var pokemon = buffer_read(buffer, buffer_u16);
+			board_pallet_battle(pokemon);
 			break;
 		#endregion
 			

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprTlsBoardPalletTown_Buildings",
-    "path": "sprites/sprTlsBoardPalletTown_Buildings/sprTlsBoardPalletTown_Buildings.yy",
+    "name": "sprTlsBoardPallet_Buildings",
+    "path": "sprites/sprTlsBoardPallet_Buildings/sprTlsBoardPallet_Buildings.yy",
   },
   "tileWidth": 32,
   "tileHeight": 32,

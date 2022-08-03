@@ -1,0 +1,1 @@
+draw_sprite_ext(sprite_index, 0, focused_player().x - 1, focused_player().y - 7, image_xscale, image_yscale, 0, c_white, image_alpha);

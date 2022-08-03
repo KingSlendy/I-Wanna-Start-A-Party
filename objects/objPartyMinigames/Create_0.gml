@@ -41,7 +41,7 @@ board_img_w = 264;
 board_img_h = 193;
 board_x = 0;
 board_target_x = 0;
-board_rooms = [rBoardIsland, rBoardHotland, rBoardBabaIsBoard, rBoardPalletTown, rBoardDreams];
+board_rooms = [rBoardIsland, rBoardHotland, rBoardBaba, rBoardPallet, rBoardDreams];
 board_options_selected = 0;
 board_options_y = 0;
 board_options_w = 440;
@@ -54,49 +54,56 @@ save_max_turns = 0;
 save_selected = 0;
 
 if (save_present && room == rParty) {
-	board = global.board_games[$ global.game_id];
-	board_selected = board.saved_board.saved_board;
-	board_target_selected = board_selected;
-	save_turn = board.saved_board.saved_turn;
-	save_max_turns = board.saved_board.saved_max_turns;
+	try {
+		board = global.board_games[$ global.game_id];
+		board_selected = board.saved_board.saved_board;
+		board_target_selected = board_selected;
+		save_turn = board.saved_board.saved_turn;
+		save_max_turns = board.saved_board.saved_max_turns;
 	
-	var surf_board = surface_create(board_w, board_h);
-	surface_set_target(surf_board);
-	draw_sprite_stretched(sprPartyBoardMark, 1, 0, 0, board_w, board_h);
-	gpu_set_colorwriteenable(true, true, true, false);
-	draw_sprite_stretched(sprPartyBoardPictures, board_selected, 44, 15, board_img_w, board_img_h);
-	gpu_set_colorwriteenable(true, true, true, true);
-	draw_sprite_stretched(sprPartyBoardMark, 0, 0, 0, board_w, board_h);
-	surface_reset_target();
-	save_sprite = sprite_create_from_surface(surf_board, 0, 0, board_w, board_h, false, false, 0, 0);
-	surface_free(surf_board);
-	menu_page = -1;
+		var surf_board = surface_create(board_w, board_h);
+		surface_set_target(surf_board);
+		draw_sprite_stretched(sprPartyBoardMark, 1, 0, 0, board_w, board_h);
+		gpu_set_colorwriteenable(true, true, true, false);
+		draw_sprite_stretched(sprPartyBoardPictures, board_selected, 44, 15, board_img_w, board_img_h);
+		gpu_set_colorwriteenable(true, true, true, true);
+		draw_sprite_stretched(sprPartyBoardMark, 0, 0, 0, board_w, board_h);
+		surface_reset_target();
+		save_sprite = sprite_create_from_surface(surf_board, 0, 0, board_w, board_h, false, false, 0, 0);
+		surface_free(surf_board);
+		menu_page = -1;
 	
-	for (var i = 1; i <= global.player_max; i++) {
-		var saved_player = board.saved_players[global.player_game_ids[i - 1] - 1];
-		spawn_player_info(i, saved_player.saved_turn);
-		var player_info = focus_info_by_id(i);
-		player_info.player_idle_image = asset_get_index(saved_player.saved_skin);
-		player_info.player_info.shines = saved_player.saved_shines;
-		player_info.player_info.coins = saved_player.saved_coins;
+		for (var i = 1; i <= global.player_max; i++) {
+			var saved_player = board.saved_players[global.player_game_ids[i - 1] - 1];
+			spawn_player_info(i, saved_player.saved_turn);
+			var player_info = focus_info_by_id(i);
+			player_info.player_idle_image = asset_get_index(saved_player.saved_skin);
+			player_info.player_info.shines = saved_player.saved_shines;
+			player_info.player_info.coins = saved_player.saved_coins;
 				
-		for (var j = 0; j < array_length(player_info.player_info.items); j++) {
-			var item = saved_player.saved_items[j];
+			for (var j = 0; j < array_length(player_info.player_info.items); j++) {
+				var item = saved_player.saved_items[j];
 					
-			if (item != -1) {
-				player_info.player_info.items[j] = global.board_items[item];
-			} else {
-				player_info.player_info.items[j] = null;
+				if (item != -1) {
+					player_info.player_info.items[j] = global.board_items[item];
+				} else {
+					player_info.player_info.items[j] = null;
+				}
 			}
-		}
+		
+			player_info.pokemon = saved_player.pokemon;
 				
-		player_info.target_draw_x = 0;
-		player_info.draw_x = player_info.target_draw_x;
-		player_info.target_draw_y = player_info.draw_h * (player_info.player_info.turn - 1);
-		player_info.draw_y = player_info.target_draw_y;
-	}
+			player_info.target_draw_x = 0;
+			player_info.draw_x = player_info.target_draw_x;
+			player_info.target_draw_y = player_info.draw_h * (player_info.player_info.turn - 1);
+			player_info.draw_y = player_info.target_draw_y;
+		}
 	
-	calculate_player_place();
+		calculate_player_place();
+	} catch (_) {
+		save_present = false;
+		menu_page = 0;
+	}
 }
 
 minigames_show_x = 0;

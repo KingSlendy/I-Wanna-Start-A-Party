@@ -110,7 +110,9 @@ function remap(value, from1, to1, from2, to2) {
 }
 
 function get_frames(seconds) {
-	return game_get_speed(gamespeed_fps) * seconds;
+	var game_fps = game_get_speed(gamespeed_fps);
+	var real_fps = (fps != 0) ? fps : game_fps;
+	return game_fps * (game_fps / real_fps) * seconds;
 }
 
 function instance_activate_important() {

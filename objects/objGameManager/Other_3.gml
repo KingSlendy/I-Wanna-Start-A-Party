@@ -1,4 +1,4 @@
-if (room != rVersion && room != rTitle && room != rFiles) {
+if (global.game_started) {
 	save_file();
 }
 

@@ -11,10 +11,6 @@ if (keyboard_check_pressed(vk_f4)) {
 
 if (keyboard_check_pressed(vk_escape)) {
 	if (room != rTitle) {
-		if (room != rTitle && room != rFiles) {
-			save_file();
-		}
-	
 		network_disable();
 		audio_stop_all();
 		room_goto(rTitle);

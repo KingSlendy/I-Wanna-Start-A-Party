@@ -1,5 +1,4 @@
-function BonusShine(index, text) constructor {
-	self.index = index;
+function BonusShine(text) constructor {
 	self.text = text;
 	
 	static reset_scores = function() {
@@ -8,12 +7,12 @@ function BonusShine(index, text) constructor {
 	
 	self.reset_scores();
 	
-	static increase_score = function(player_id = focused_player().network_id, amount = 1) {
-		self.scores[player_id - 1] += amount;
+	static increase_score = function(player_turn = player_info_by_id().turn, amount = 1) {
+		self.scores[player_turn - 1] += amount;
 	}
 	
-	static set_score = function(score, player_id = focused_player().network_id) {
-		self.scores[player_id - 1] = score;
+	static set_score = function(player_turn = player_info_by_id().turn, score = 0) {
+		self.scores[player_turn - 1] = score;
 	}
 	
 	static is_candidate = function() {
@@ -53,17 +52,17 @@ enum BonusShines {
 }
 
 global.bonus_shines = [
-	new BonusShine(0, "got the most Coins"),
-	new BonusShine(1, "used the most Items"),
-	new BonusShine(2, "won the most Minigames"),
-	new BonusShine(3, "rolled the biggest Numbers on the die"),
-	new BonusShine(4, "landed on the most Blue spaces"),
-	new BonusShine(5, "landed on the most Red spaces"),
-	new BonusShine(6, "landed on the most Green spaces"),
-	new BonusShine(7, "landed on the most Item spaces"),
-	new BonusShine(8, "landed on the most Chance Time spaces"),
-	new BonusShine(9, "landed on the most The Guy spaces"),
-	new BonusShine(10, "spent the most money on the Shop")
+	new BonusShine("got the most Coins"),
+	new BonusShine("used the most Items"),
+	new BonusShine("won the most Minigames"),
+	new BonusShine("rolled the biggest Numbers on the die"),
+	new BonusShine("landed on the most Blue spaces"),
+	new BonusShine("landed on the most Red spaces"),
+	new BonusShine("landed on the most Green spaces"),
+	new BonusShine("landed on the most Item spaces"),
+	new BonusShine("landed on the most Chance Time spaces"),
+	new BonusShine("landed on the most The Guy spaces"),
+	new BonusShine("spent the most money on the Shop")
 ];
 
 global.bonus_shines_ready = array_create(global.player_max, false);

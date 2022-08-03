@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprTlsBoardBabaIsBoard_Decoration",
-    "path": "sprites/sprTlsBoardBabaIsBoard_Decoration/sprTlsBoardBabaIsBoard_Decoration.yy",
+    "name": "sprTlsBoardBaba_Decoration",
+    "path": "sprites/sprTlsBoardBaba_Decoration/sprTlsBoardBaba_Decoration.yy",
   },
   "tileWidth": 48,
   "tileHeight": 48,

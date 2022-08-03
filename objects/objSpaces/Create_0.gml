@@ -61,6 +61,7 @@ if (image_index == SpaceType.Shine) {
 	image_index = SpaceType.Blue;
 }
 
+event = null;
 glowing = false;
 
 function space_glow(state) {
@@ -84,77 +85,117 @@ function space_passing_event() {
 			return 1;
 		
 		case SpaceType.Shine:
-			if (player_info.coins >= global.shine_price) {
-				var buy_shine = function() {
-					change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
-						if (room == rBoardIsland && !global.board_day) {
-							if (global.shine_price == 0) {
-								gain_trophy(34);
-							}
+			if (room != rBoardPallet) {
+				if (player_info.coins >= global.shine_price) {
+					var buy_shine = function() {
+						change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
+							switch (room) {
+								case rBoardIsland:
+									if (!global.board_day) {
+										if (global.shine_price == 0) {
+											gain_trophy(34);
+										}
 							
-							if (global.shine_price == 40) {
-								gain_trophy(35);
+										if (global.shine_price == 40) {
+											gain_trophy(35);
+										}
+									}
+									break;
+								
+								case rBoardHotland:
+									if (instance_number(objShine) > 1 && irandom(1) == 0) {
+										board_hotland_annoying_dog();
+										return;
+									}
+									break;
 							}
-						}
 						
-						if (room == rBoardHotland && instance_number(objShine) > 1 && irandom(1) == 0) {
-							board_hotland_annoying_dog();
-							return;
+							change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 						}
+					}
+				
+					var buy_option = "Buy " + draw_coins_price(global.shine_price);
+				
+					start_dialogue([
+						new Message("Do you wanna buy a shine?", [
+							[buy_option, [
+								new Message("Here you go! The shine is yours!",, buy_shine)
+							]],
 						
-						change_shines(1, ShineChangeType.Get).final_action = choose_shine;
+							["Pass", [
+								new Message("Are you really sure you don't want it?", [
+									[buy_option, [
+										new Message("Good choice! Here you go!",, buy_shine)
+									]],
+								
+									["Pass", [
+										new Message("Are you really really sure?", [
+											[buy_option, [
+												new Message("You were starting to worry me for a second!",, buy_shine)
+											]],
+										
+											["Pass", [
+												new Message("Well too bad then, I hope next time you think it through.",, function() {
+													board_advance();
+												
+													if (focused_player().network_id == global.player_id) {
+														gain_trophy(11);
+													}
+												})
+											]]
+										])
+									]]
+								])
+							]]
+						])
+					]);
+				} else {
+					start_dialogue([
+						new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the shine!\nCome back later.",, board_advance)
+					]);
+				
+					if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
+						gain_trophy(41);
 					}
 				}
-				
-				var buy_option = "Buy " + draw_coins_price(global.shine_price);
-				
+			} else {
 				start_dialogue([
-					new Message("Do you wanna buy a shine?", [
-						[buy_option, [
-							new Message("Here you go! The shine is yours!",, buy_shine)
+					new Message("The shine wants a duel, are you ready to battle?", [
+						["Bring it on!", [
 						]],
 						
 						["Pass", [
-							new Message("Are you really sure you don't want it?", [
-								[buy_option, [
-									new Message("Good choice! Here you go!",, buy_shine)
+							new Message("Are you sure you don't want to battle?", [
+								["Bring it on!", [
 								]],
 								
 								["Pass", [
 									new Message("Are you really really sure?", [
-										[buy_option, [
-											new Message("You were starting to worry me for a second!",, buy_shine)
+										["Bring it on!", [
 										]],
 										
 										["Pass", [
-											new Message("Well too bad then, I hope next time you think it through.",, function() {
-												board_advance();
-												
-												if (focused_player().network_id == global.player_id) {
-													gain_trophy(11);
-												}
-											})
+											new Message("Well okay then, your loss!",, board_advance)
 										]]
 									])
-								]]
+								]],
 							])
-						]]
+						]],
 					])
 				]);
-			} else {
-				start_dialogue([
-					new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the shine!\nCome back later.",, board_advance)
-				]);
-				
-				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
-					gain_trophy(41);
-				}
 			}
 			
 			return 1;
 			
 		case SpaceType.PathEvent:
-			event();
+			if (event != null) {
+				event();
+			} else {
+				if (room == rBoardPallet) {
+					board_pallet_pokemons();
+				}
+			}
+			
 			return 1;
 	}
 	

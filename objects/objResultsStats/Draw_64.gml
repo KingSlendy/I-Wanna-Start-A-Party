@@ -25,21 +25,20 @@ for (var i = 0; i < array_length(global.bonus_shines); i++) {
 	var bonus = global.bonus_shines[i];
 	draw_set_alpha(draw_alpha);
 	draw_sprite_stretched(sprResultsMark, 0, draw_x, draw_y, 64, 64);
-	draw_sprite_stretched(sprResultsBonus, bonus.index, draw_x + 8, draw_y + 8, 48, 48);
+	draw_sprite_stretched(sprResultsBonus, i, draw_x + 8, draw_y + 8, 48, 48);
 	draw_sprite_stretched(sprResultsMarkStats, 0, draw_x, draw_y + 70, 64, 390);
 	
 	for (var j = 1; j <= global.player_max; j++) {
-		var player_info, player_id;
+		var player_info;
 	
 		with (objPlayerInfo) {
 			if (order == j) {
 				player_info = id;
-				player_id = self.player_info.network_id;
 				break;
 			}
 		}
 	
-		var text = bonus.scores[player_id - 1];
+		var text = bonus.scores[player_info.player_info.turn - 1];
 		var scale = (string_length(text) < 3) ? 1 : 0.9;
 		draw_text_transformed_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, text, scale, scale, 0, #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
 	}

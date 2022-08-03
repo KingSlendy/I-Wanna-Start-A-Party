@@ -111,6 +111,10 @@ function skin_init() {
 		new Skin("Rock", "Rock Kid", "I Wanna Warp The Worlds", 57, "???", 500),
 		new Skin("Bomb", "Bomb Kid", "I Wanna Warp The Worlds", 57, "???", 700),
 		new Skin("Fire", "Fire Kid", "I Wanna Warp The Worlds", 57, "???", 900),
+		new Skin("Kakkun", "Kakkun", "I Wanna Be The Cocktail", 58, "Sankakkun", 400),
+		new Skin("Neko", "Neko Kid", "Avoidance Collab 4", 59, "???", 500),
+		new Skin("Boshy", "Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 600),
+		new Skin("Bashy", "Dark Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 600)
 	];
 }
 

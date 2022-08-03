@@ -35,7 +35,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.space = c_ltgray;
 	self.item_used = null;
 	self.item_effect = null;
-	self.power_type = ShinePowerType.None;
+	self.pokemon = -1;
 	
 	static free_item_slot = function() {
 		for (var i = 0; i < 3; i++) {
@@ -89,12 +89,6 @@ function focused_player() {
 				return id;
 			}
 		}
-		
-		/*with (objNetworkPlayer) {
-			if (network_id == 1) {
-				return id;
-			}
-		}*/
 	}
 	
 	with (objPlayerBase) {
@@ -104,14 +98,6 @@ function focused_player() {
 			return id;
 		}
 	}
-	
-	/*with (objNetworkPlayer) {
-		var player_info = player_info_by_id(network_id);
-		
-		if (player_info.turn == global.player_turn) {
-			return id;
-		}
-	}*/
 	
 	return null;
 }
@@ -122,12 +108,6 @@ function focus_player_by_id(player_id = global.player_id) {
 			return id;
 		}
 	}
-
-	/*with (objNetworkPlayer) {
-		if (network_id == player_id) {
-			return id;
-		}
-	}*/
 	
 	return null;
 }
@@ -251,18 +231,15 @@ function board_start() {
 		save_board();
 		generate_seed_bag();
 		
-		if (room == rBoardIsland) {
-			if (!global.board_day) {
-				next_seed_inline();
-				global.shine_price = choose(0, 1, 3, 4) * 10;
-			} else {
-				global.shine_price = 20;
-			}
-		}
-		
-		if (room == rBoardPalletTown) {
-			next_seed_inline();
-			global.shine_power_type = choose(ShineType.Fire, ShineType.Grass, ShineType.Pshycic);
+		switch (room) {
+			case rBoardIsland:
+				if (!global.board_day) {
+					next_seed_inline();
+					global.shine_price = choose(0, 1, 3, 4) * 10;
+				} else {
+					global.shine_price = 20;
+				}
+				break;
 		}
 	}
 	
@@ -317,13 +294,6 @@ function tell_turns() {
 				break;
 			}
 		}
-		
-		/*with (objNetworkPlayer) {
-			if (network_id == turn_id) {
-				other.turn_names[i - 1] = network_name;
-				break;
-			}
-		}*/
 	}
 	
 	dialogue_player_info = function(turn) {
@@ -959,7 +929,7 @@ function call_shop() {
 					new Message("",, function() {
 						board_advance();
 						
-						if (player_info.item_used == ItemType.Cellphone) {
+						if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Cellphone) {
 							gain_trophy(45);
 						}
 					})
@@ -974,7 +944,7 @@ function call_shop() {
 }
 
 function call_blackhole() {
-	var player_info = player_info_by_turn();
+	player_info = player_info_by_turn();
 	
 	if (room == rBoardIsland && global.board_day) {
 		start_dialogue([
@@ -998,7 +968,7 @@ function call_blackhole() {
 					new Message("",, function() {
 						board_advance();
 						
-						if (player_info.item_used == ItemType.Blackhole) {
+						if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Blackhole) {
 							gain_trophy(46);
 						}
 					})
@@ -1151,14 +1121,25 @@ function choose_shine() {
 	
 	var choices = [];
 	
-	with (objSpaces) {
-		if (space_shine && image_index != SpaceType.Shine) {
+	if (room != rBoardPallet) {
+		with (objSpaces) {
+			if (space_shine && image_index != SpaceType.Shine) {
+				array_push(choices, id);
+			}
+		}
+	} else {
+		with (objBoardPalletPokemon) {
 			array_push(choices, id);
 		}
 	}
 	
 	array_shuffle(choices);
 	var space = array_pop(choices);
+	
+	if (room == rBoardPallet) {
+		space = {x: space.x + 32, y: space.y + 32};
+	}
+	
 	space.image_index = SpaceType.Shine;
 	place_shine(space.x, space.y);
 	
@@ -1220,44 +1201,73 @@ function board_hotland_annoying_dog() {
 	}
 }
 
-function board_pallet_pokemons(type) {
-	power_type = type;
-	
-	switch (power_type) {
-		case ShinePowerType.Fire: var power_name = "Fire"; break;
-		case ShinePowerType.Grass: var power_name = "Grass"; break;
-		case ShinePowerType.Pshycic: var power_name = "Psychic"; break;
+function board_pallet_pokemons() {
+	pokemon = collision_circle(x + 16, y + 16, 64, objBoardPalletPokemon, false, true);
+	var player_info = player_info_by_turn();
+
+	if (player_info.coins >= global.pokemon_price) {
+		bring_dialogues = [
+			new Message("The Pokemon looks happy!",, function() {
+				change_coins(-global.pokemon_price, CoinChangeType.Spend).final_action = function() {
+					board_pallet_obtain(pokemon.sprite_index);
+				}
+			})
+		];
+	} else {
+		bring_dialogues = [
+			new Message("But you don't have " + draw_coins_price(global.pokemon_price) + "!",, board_advance)
+		];
 	}
 	
-	var buy_option = "Buy " + draw_coins_price(global.power_price);
-	
+	if (player_info.pokemon != -1) {
+		battle_dialogues = [
+			new Message("Give it your best shot!",, function() {
+				board_pallet_battle(pokemon.sprite_index);
+			})
+		]
+	} else {
+		battle_dialogues = [
+			new Message("You can't battle without a Pokemon!",, board_advance)
+		];
+	}
+
 	start_dialogue([
-		"Hey, this Pokémon over here would like to grant you the " + power_name + " power.",
-		new Message("Would you like to buy it?\nTake in mind you'll lose your previous power if you had one!", [
-			[buy_option, [
-				new Message("The Pokémon looks grateful!",, function() {
-					change_coins(-global.power_price, CoinChangeType.Spend).final_action = function() {
-						board_pallet_powers(power_type);
-					}
-				})
-			]],
+		"Hey, there's a Pokemon here with the " + pokemon.power_type + " power.",
+		new Message("What would you like to do with it?", [
+			["Bring " + draw_coins_price(global.pokemon_price), bring_dialogues],
+			["Battle", battle_dialogues],
 			
-			["No", [
-				new Message("Well, too bad, next time it is.",, board_advance)
+			["Pass", [
+				new Message("See you around!",, board_advance)
 			]]
 		])
 	]);
 }
 
-function board_pallet_powers(power_type) {
-	instance_create_layer(0, 0, "Managers", objBoardPalletTownPower);
+function board_pallet_obtain(pokemon) {
+	instance_create_layer(0, 0, "Managers", objBoardPalletObtain, {
+		sprite: pokemon
+	});
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardPalletTownPower);
-		buffer_write_data(buffer_u8, power_type);
+		buffer_write_action(ClientTCP.BoardPalletObtain);
+		buffer_write_data(buffer_u16, pokemon);
 		network_send_tcp_packet();
 	}
+}
+
+function board_pallet_battle(pokemon) {
+	instance_create_layer(0, 0, "Managers", objBoardPalletBattle, {
+		sprite: pokemon
+	});
+	
+	//if (is_local_turn()) {
+	//	buffer_seek_begin();
+	//	buffer_write_action(ClientTCP.BoardPalletBattle);
+	//	buffer_write_data(buffer_u16, pokemon);
+	//	network_send_tcp_packet();
+	//}
 }
 
 function board_dreams_teleports(reference) {
