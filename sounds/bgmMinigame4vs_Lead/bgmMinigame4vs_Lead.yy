@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame4vs_Lead.mp3",
-  "duration": 73.06449,
+  "soundFile": "bgmminigame4vs_lead.ogg",
+  "duration": 33.241634,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

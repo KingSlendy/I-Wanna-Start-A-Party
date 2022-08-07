@@ -53,8 +53,6 @@ action_end = function() {
 	}
 }
 
-points_draw = true;
-points_number = false;
 player_check = objPlayerPlatformer;
 
 rounds = -1;

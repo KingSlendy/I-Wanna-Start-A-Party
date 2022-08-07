@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame2vs2_Colorful.mp3",
-  "duration": 52.56,
+  "soundFile": "bgmminigame2vs2_colorful.ogg",
+  "duration": 32.15946,
   "parent": {
     "name": "2vs2",
     "path": "folders/Sounds/BGM/Minigames/2vs2.yy",

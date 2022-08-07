@@ -84,6 +84,7 @@ if (force_minigames) {
 			break;
 			
 		case "1vs3":
+			minigames_order[4] = 6;
 			break;
 			
 		case "2vs2":

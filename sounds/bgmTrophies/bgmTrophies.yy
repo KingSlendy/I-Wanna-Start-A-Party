@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmTrophies.mp3",
-  "duration": 79.488,
+  "soundFile": "bgmtrophies.ogg",
+  "duration": 61.2125,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

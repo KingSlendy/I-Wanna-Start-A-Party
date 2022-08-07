@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame4vs_Tower.mp3",
-  "duration": 84.096,
+  "soundFile": "bgmminigame4vs_tower.ogg",
+  "duration": 40.012123,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

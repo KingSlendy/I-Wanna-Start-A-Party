@@ -30,7 +30,6 @@ switch (state) {
 		break;
 		
 	case 3:
-		music_fade();
 		alpha += 0.02;
 		
 		if (alpha >= 1) {

@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigameOverview.mp3",
-  "duration": 54.384,
+  "soundFile": "bgmminigameoverview.ogg",
+  "duration": 37.486126,
   "parent": {
     "name": "Minigames",
     "path": "folders/Sounds/BGM/Minigames.yy",

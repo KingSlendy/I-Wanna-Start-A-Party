@@ -225,7 +225,6 @@ function space_finish_event() {
 			}
 			
 			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
-			bonus_shine_by_id(BonusShines.MostBlueSpaces).increase_score();
 			break;
 			
 		case SpaceType.Red:

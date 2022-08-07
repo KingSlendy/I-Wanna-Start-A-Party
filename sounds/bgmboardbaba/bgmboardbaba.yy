@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 0.6,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmboardbaba.mp3",
-  "duration": 237.888,
+  "soundFile": "bgmboardbaba.ogg",
+  "duration": 119.23683,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

@@ -27,6 +27,7 @@ minigame_info_score_reset();
 
 function start_minigame(set) {
 	state = set;
+	music_fade();
 	audio_play_sound(sndMinigameOverviewPick, 0, false);
 }
 

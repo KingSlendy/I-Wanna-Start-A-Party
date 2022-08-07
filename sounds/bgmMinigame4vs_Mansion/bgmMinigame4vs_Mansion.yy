@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame4vs_Mansion.mp3",
-  "duration": 191.664,
+  "soundFile": "bgmminigame4vs_mansion.ogg",
+  "duration": 34.50871,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

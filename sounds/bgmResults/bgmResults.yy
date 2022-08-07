@@ -8,11 +8,11 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_BGM",
-    "path": "audiogroups/audiogroup_BGM",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "bgmResults.mp3",
-  "duration": 23.712,
+  "soundFile": "bgmresults.ogg",
+  "duration": 13.873271,
   "parent": {
     "name": "Results",
     "path": "folders/Sounds/BGM/Results.yy",

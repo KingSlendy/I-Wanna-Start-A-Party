@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmChanceTime.mp3",
-  "duration": 43.56,
+  "soundFile": "bgmchancetime.ogg",
+  "duration": 38.980145,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

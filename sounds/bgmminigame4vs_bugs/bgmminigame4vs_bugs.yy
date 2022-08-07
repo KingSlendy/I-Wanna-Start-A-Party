@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigame4vs_bugs.mp3",
-  "duration": 83.256,
+  "soundFile": "bgmminigame4vs_bugs.ogg",
+  "duration": 39.3005,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame4vs_Magic.mp3",
-  "duration": 187.488,
+  "soundFile": "bgmminigame4vs_magic.ogg",
+  "duration": 36.137314,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

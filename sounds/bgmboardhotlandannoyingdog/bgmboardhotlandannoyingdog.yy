@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmboardhotlandannoyingdog.mp3",
-  "duration": 125.352,
+  "soundFile": "bgmboardhotlandannoyingdog.ogg",
+  "duration": 37.257896,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

@@ -1,4 +1,4 @@
-if (room == rBoardHotland && instance_number(objShine) <= 1) {
+if (instance_number(objShine) < global.shine_spawn_count) {
 	if (is_local_turn()) {
 		choose_shine();
 	}

@@ -4,6 +4,7 @@ with (objPlayerBase) {
 
 with (objPlayerBase) {
 	enable_shoot = false;
+	grav_amount = 0;
 }
 
 event_inherited();

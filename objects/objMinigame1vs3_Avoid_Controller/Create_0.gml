@@ -12,11 +12,10 @@ event_inherited();
 minigame_start = minigame1vs3_start;
 minigame_time = 25;
 minigame_time_end = function() {
-	with (objPlayerBase) {
-		if (y > 128) {
-			minigame4vs_points(network_id);
-			break;
-		}
+	if (!minigame1vs3_lost()) {
+		minigame1vs3_points();
+	} else {
+		minigame4vs_points(points_teams[1][0].network_id);
 	}
 	
 	minigame_finish();
@@ -33,6 +32,4 @@ action_end = function() {
 	instance_destroy(objMinigame1vs3_Avoid_Cherry);
 }
 
-points_draw = true;
-points_number = false;
 player_check = objPlayerPlatformer;

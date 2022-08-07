@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 0.8,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmBoardBasement.mp3",
-  "duration": 329.208,
+  "soundFile": "bgmboardbasement.ogg",
+  "duration": 203.10988,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

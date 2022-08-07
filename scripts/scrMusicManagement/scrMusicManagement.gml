@@ -5,18 +5,8 @@ global.sound_cursor_select = sndCursorSelect;
 global.sound_cursor_select2 = sndCursorSelect2;
 global.sound_cursor_big_select = sndCursorBigSelect;
 global.sound_cursor_back = sndCursorBack;
-
-function music_check() {
-	var music = null;
-	
-	switch (room) {
-		case rFiles: music = bgmFiles; break;
-		case rSettings: music = bgmSettings; break;
-		default: break;
-	}
-	
-	music_play(music);
-}
+global.music_loop_start = -1;
+global.music_loop_end = -1;
 
 function music_play(music, loop = true) {
 	global.music_previous = null;
@@ -31,7 +21,89 @@ function music_play(music, loop = true) {
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
 		global.music_current = audio_play_sound(music, 0, loop);
+		music_set_loop_points(music);
 	}
+}
+
+function LoopPoint(start_point, end_point) constructor {
+	self.start_point = start_point;
+	self.end_point = end_point;
+}
+
+global.music_loop_points = {};
+var mlp = global.music_loop_points;
+
+//Menu
+mlp[$ bgmFiles] = new LoopPoint(1.967, 63.921);
+mlp[$ bgmSettings] = new LoopPoint(0.048, 16.048);
+mlp[$ bgmModes] = new LoopPoint(113.773, 149.373);
+mlp[$ bgmParty] = new LoopPoint(1.866, 22.189);
+mlp[$ bgmMinigames] = new LoopPoint(5.445, 41.943);
+mlp[$ bgmSkins] = new LoopPoint(2.356, 20.473);
+mlp[$ bgmTrophies] = new LoopPoint(1.657, 60.433);
+	
+//Boards
+mlp[$ bgmBoardIsland] = new LoopPoint(5.377, 68.542);
+mlp[$ bgmBoardIslandNight] = new LoopPoint(5.338, 68.513);
+mlp[$ bgmBoardHotland] = new LoopPoint(37.010, 110.858);
+mlp[$ bgmBoardHotlandAnnoyingDog] = new LoopPoint(0.005, 36.102);
+mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
+mlp[$ bgmBoardPallet] = new LoopPoint(0.368, 34.640);
+mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
+mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
+	
+//Minigames
+mlp[$ bgmMinigameOverview] = new LoopPoint(2.109, 35.502);
+mlp[$ bgmMinigameNA] = new LoopPoint(2.070, 45.698);
+	
+//4vs
+mlp[$ bgmMinigame4vs_Lead] = new LoopPoint(0.226, 32.226);
+mlp[$ bgmMinigame4vs_Tower] = new LoopPoint(2.105, 39.576);
+mlp[$ bgmMinigame4vs_Haunted] = new LoopPoint(2.469, 26.860);
+mlp[$ bgmMinigame4vs_Magic] = new LoopPoint(2.093, 35.193);
+mlp[$ bgmMinigame4vs_Mansion] = new LoopPoint(4.858, 33.825);
+mlp[$ bgmMinigame4vs_Painting] = new LoopPoint(0.921, 28.614);
+mlp[$ bgmMinigame4vs_Bugs] = new LoopPoint(1.511, 38.392);
+mlp[$ bgmMinigame4vs_Blocks] = new LoopPoint(2.296, 34.764);
+mlp[$ bgmMinigame4vs_Chests] = new LoopPoint(0.980, 31.700);
+mlp[$ bgmMinigame4vs_Slime] = new LoopPoint(2.543, 25.949);
+mlp[$ bgmMinigame4vs_Rocket] = new LoopPoint(2.265, 26.268);
+mlp[$ bgmMinigame4vs_Dizzy] = new LoopPoint(1.809, 32.023);
+	
+//1vs3
+mlp[$ bgmMinigame1vs3_Avoid] = new LoopPoint(0.851, 27.852);
+mlp[$ bgmMinigame1vs3_Conveyor] = new LoopPoint(2.628, 32.828);
+mlp[$ bgmMinigame1vs3_Showdown] = new LoopPoint(2.307, 41.207);
+mlp[$ bgmMinigame1vs3_Coins] = new LoopPoint(3.609, 34.342);
+mlp[$ bgmMinigame1vs3_Race] = new LoopPoint(4.401, 36.943);
+mlp[$ bgmMinigame1vs3_Warping] = new LoopPoint(2.658, 36.962);
+	
+//2vs2
+mlp[$ bgmMinigame2vs2_Maze] = new LoopPoint(3.330, 43.047);
+mlp[$ bgmMinigame2vs2_Fruits] = new LoopPoint(0.783, 24.056);
+mlp[$ bgmMinigame2vs2_Buttons] = new LoopPoint(0.056, 35.078);
+mlp[$ bgmMinigame2vs2_Squares] = new LoopPoint(2.042, 48.478);
+mlp[$ bgmMinigame2vs2_Colorful] = new LoopPoint(1.703, 31.706);
+mlp[$ bgmMinigame2vs2_Springing] = new LoopPoint(1.640, 27.586);
+mlp[$ bgmMinigame2vs2_Duos] = new LoopPoint(1.600, 35.859);
+	
+//Results
+mlp[$ bgmResults] = new LoopPoint(5.552, 13.415);
+mlp[$ bgmPartyStar] = new LoopPoint(0.560, 35.942);
+
+function music_set_loop_points(music) {	
+	var loop_start = -1;
+	var loop_end = -1;
+	var music_id = asset_get_index(audio_get_name(music));
+	
+	if (variable_struct_exists(global.music_loop_points, music_id)) {
+		var loop_point = global.music_loop_points[$ music_id];
+		loop_start = loop_point.start_point;
+		loop_end = loop_point.end_point;
+	}
+	
+	global.music_loop_start = loop_start;
+	global.music_loop_end = loop_end - loop_start;
 }
 
 function music_is_same(music) {

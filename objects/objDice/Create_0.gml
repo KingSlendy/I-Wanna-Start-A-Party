@@ -35,8 +35,11 @@ function random_roll() {
 		roll = irandom_range(1, max_roll);
 	} until (roll != previous);
 	
-	//roll = max_roll;
-	//roll = 1;
+	//if (global.board_started) {
+	//	//roll = max_roll;
+	//	//roll = 1;
+	//	roll = 100;
+	//}
 }
 
 roll = 0;

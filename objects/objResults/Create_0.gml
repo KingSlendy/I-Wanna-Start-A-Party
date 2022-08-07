@@ -43,11 +43,13 @@ function results_coins() {
 function results_bonus() {
 	if (!bonus_started) {
 		for (var i = 1; i <= global.player_max; i++) {
-			if (is_player_local(i)) {
+			var player = focus_player_by_turn(i);
+			
+			if (is_player_local(player.network_id)) {
 				buffer_seek_begin();
 				buffer_write_action(ClientTCP.ResultsBonus);
 				buffer_write_data(buffer_u8, i);
-				var player_info = player_info_by_id(i);
+				var player_info = player_info_by_turn(i);
 				buffer_write_data(buffer_u16, player_info.shines);
 				buffer_write_data(buffer_u16, player_info.coins);
 				var scores_scores = [];

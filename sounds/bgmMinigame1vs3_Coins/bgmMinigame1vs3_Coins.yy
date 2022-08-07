@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame1vs3_Coins.mp3",
-  "duration": 187.488,
+  "soundFile": "bgmminigame1vs3_coins.ogg",
+  "duration": 35.044605,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

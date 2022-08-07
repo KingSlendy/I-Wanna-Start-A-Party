@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmParty.mp3",
-  "duration": 48.888,
+  "soundFile": "bgmparty.ogg",
+  "duration": 22.668167,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

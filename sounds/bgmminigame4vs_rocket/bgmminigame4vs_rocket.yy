@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigame4vs_rocket.mp3",
-  "duration": 64.008,
+  "soundFile": "bgmminigame4vs_rocket.ogg",
+  "duration": 26.909645,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

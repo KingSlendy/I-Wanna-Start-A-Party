@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmSkins.mp3",
-  "duration": 0.0,
+  "soundFile": "bgmskins.ogg",
+  "duration": 20.962791,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

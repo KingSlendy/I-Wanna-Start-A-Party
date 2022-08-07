@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame2vs2_Squares.mp3",
-  "duration": 106.824,
+  "soundFile": "bgmminigame2vs2_squares.ogg",
+  "duration": 49.093063,
   "parent": {
     "name": "2vs2",
     "path": "folders/Sounds/BGM/Minigames/2vs2.yy",

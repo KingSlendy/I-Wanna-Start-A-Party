@@ -5,6 +5,11 @@ function player_jump() {
 			sprite_index = skin[$ "Jump"];
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
+			
+			buffer_seek_begin();
+			buffer_write_action(ClientUDP.PlayerJump);
+			buffer_write_data(buffer_u32, sndJump);
+			network_send_udp_packet();
 		} else if (jump_left > 0 || jump_total == -1) {
 			vspd = -(jump_height[1] * orientation);
 			sprite_index = skin[$ "Jump"];
@@ -14,6 +19,11 @@ function player_jump() {
 			}
 		
 			audio_play_sound(sndDoubleJump, 0, false);
+			
+			buffer_seek_begin();
+			buffer_write_action(ClientUDP.PlayerJump);
+			buffer_write_data(buffer_u32, sndDoubleJump);
+			network_send_udp_packet();
 		}
 	} else {
 		if (on_block) {
@@ -21,6 +31,11 @@ function player_jump() {
 			vspd = jump_height[0] * orientation;
 		
 			audio_play_sound((orientation == -1) ? sndFlipU : sndFlipD, 0, false);
+			
+			buffer_seek_begin();
+			buffer_write_action(ClientUDP.PlayerJump);
+			buffer_write_data(buffer_u32, (orientation == -1) ? sndFlipU : sndFlipD);
+			network_send_udp_packet();
 		}
 	}
 }

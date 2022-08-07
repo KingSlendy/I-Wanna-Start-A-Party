@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmTheGuy.mp3",
-  "duration": 36.858776,
+  "soundFile": "bgmtheguy.ogg",
+  "duration": 36.781975,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

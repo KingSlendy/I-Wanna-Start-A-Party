@@ -22,6 +22,7 @@ global.item_choice = false;
 global.board_day = true;
 
 //Board values
+global.shine_spawn_count = 1;
 global.shine_price = 20;
 global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
@@ -52,4 +53,4 @@ tile_image_speed = 0.12;
 tile_image_index = 0;
 
 //Pallet's Board
-global.pokemon_price = 10;
+global.pokemon_price = 15;

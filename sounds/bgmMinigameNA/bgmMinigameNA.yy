@@ -8,11 +8,11 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_BGM",
-    "path": "audiogroups/audiogroup_BGM",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "bgmMinigameNA.mp3",
-  "duration": 65.856,
+  "soundFile": "bgmminigamena.ogg",
+  "duration": 46.16275,
   "parent": {
     "name": "Minigames",
     "path": "folders/Sounds/BGM/Minigames.yy",

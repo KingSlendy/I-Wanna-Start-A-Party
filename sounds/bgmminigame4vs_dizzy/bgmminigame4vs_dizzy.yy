@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigame4vs_dizzy.mp3",
-  "duration": 50.472,
+  "soundFile": "bgmminigame4vs_dizzy.ogg",
+  "duration": 32.60427,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

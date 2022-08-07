@@ -2,8 +2,8 @@ if (++rounds == instance_number(objMinigame1vs3_Showdown_Rounds)) {
 	var survived = true;
 	var below = false;
 	
-	with (objPlayerBase) {
-		if (y > 272) {
+	for (var i = 0; i < array_length(points_teams[0]); i++) {
+		with (points_teams[0][i]) {
 			if (lost) {
 				survived = false;
 			}

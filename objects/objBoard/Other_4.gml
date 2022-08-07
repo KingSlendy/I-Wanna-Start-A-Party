@@ -58,10 +58,10 @@ if (!global.board_started) {
 			player_info.item_effect = (saved_player.saved_item_effect != -1) ? saved_player.saved_item_effect : null;
 			
 			for (var j = 0; j < array_length(global.bonus_shines); j++) {
-				global.bonus_shines[j].scores[player_info.turn - 1] = saved_player.saved_bonus_shines_scores[j];
+				global.bonus_shines[j].scores[player_info.turn - 1] = saved_player.saved_bonus_shines_score[j];
 			}
 			
-			player_info.pokemon = saved_player.pokemon;
+			player_info.pokemon = saved_player.saved_pokemon;
 		}
 	
 		calculate_player_place();
@@ -106,7 +106,7 @@ with (objPlayerReference) {
 }
 
 camera_start_follow(target_follow, objCameraBoard);
-	
+
 if (global.minigame_info.is_finished) {
 	instance_create_layer(0, 0, "Managers", objResultsMinigame);
 }
@@ -121,4 +121,8 @@ if (room == rBoardIsland) {
 	if (instance_exists(objShine)) {
 		objShine.sprite_index = (global.board_day) ? sprShine : sprShineNight;
 	}
+}
+
+if (room == rBoardHotland || room == rBoardPallet) {
+	global.shine_spawn_count = 2;
 }

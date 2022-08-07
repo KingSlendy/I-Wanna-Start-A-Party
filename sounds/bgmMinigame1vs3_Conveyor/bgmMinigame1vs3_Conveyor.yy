@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame1vs3_Conveyor.mp3",
-  "duration": 66.336,
+  "soundFile": "bgmminigame1vs3_conveyor.ogg",
+  "duration": 33.687126,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

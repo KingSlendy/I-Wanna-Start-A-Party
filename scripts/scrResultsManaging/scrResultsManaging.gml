@@ -7,11 +7,11 @@ function BonusShine(text) constructor {
 	
 	self.reset_scores();
 	
-	static increase_score = function(player_turn = player_info_by_id().turn, amount = 1) {
+	static increase_score = function(player_turn = global.player_turn, amount = 1) {
 		self.scores[player_turn - 1] += amount;
 	}
 	
-	static set_score = function(player_turn = player_info_by_id().turn, score = 0) {
+	static set_score = function(player_turn = global.player_turn, score = 0) {
 		self.scores[player_turn - 1] = score;
 	}
 	
@@ -42,7 +42,6 @@ enum BonusShines {
 	MostItems,
 	MostMinigames,
 	MostRoll,
-	MostBlueSpaces,
 	MostRedSpaces,
 	MostGreenSpaces,
 	MostItemSpaces,
@@ -56,7 +55,6 @@ global.bonus_shines = [
 	new BonusShine("used the most Items"),
 	new BonusShine("won the most Minigames"),
 	new BonusShine("rolled the biggest Numbers on the die"),
-	new BonusShine("landed on the most Blue spaces"),
 	new BonusShine("landed on the most Red spaces"),
 	new BonusShine("landed on the most Green spaces"),
 	new BonusShine("landed on the most Item spaces"),
@@ -64,6 +62,10 @@ global.bonus_shines = [
 	new BonusShine("landed on the most The Guy spaces"),
 	new BonusShine("spent the most money on the Shop")
 ];
+
+for (var i = 0; i < array_length(global.bonus_shines); i++) {
+	global.bonus_shines[i].index = i;
+}
 
 global.bonus_shines_ready = array_create(global.player_max, false);
 

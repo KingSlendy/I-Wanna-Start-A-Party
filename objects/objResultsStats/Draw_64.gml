@@ -25,7 +25,7 @@ for (var i = 0; i < array_length(global.bonus_shines); i++) {
 	var bonus = global.bonus_shines[i];
 	draw_set_alpha(draw_alpha);
 	draw_sprite_stretched(sprResultsMark, 0, draw_x, draw_y, 64, 64);
-	draw_sprite_stretched(sprResultsBonus, i, draw_x + 8, draw_y + 8, 48, 48);
+	draw_sprite_stretched(sprResultsBonus, bonus.index, draw_x + 8, draw_y + 8, 48, 48);
 	draw_sprite_stretched(sprResultsMarkStats, 0, draw_x, draw_y + 70, 64, 390);
 	
 	for (var j = 1; j <= global.player_max; j++) {

@@ -1,3 +1,4 @@
+#region Input Checking
 if (keyboard_check_pressed(ord("D"))) {
 	game_set_speed((!a) ? 200 : 50, gamespeed_fps);
 	a = !a;
@@ -18,3 +19,19 @@ if (keyboard_check_pressed(vk_escape)) {
 		game_end();
 	}
 }
+#endregion
+
+#region Music Loop System
+if (global.music_current != null && global.music_loop_start != -1) {
+    var current_position = audio_sound_get_track_position(global.music_current);
+    var total_length = global.music_loop_start + global.music_loop_end;
+    
+	if (keyboard_check_pressed(ord("E"))) {
+        audio_sound_set_track_position(global.music_current, total_length - 3);
+	}
+	
+    if (current_position > total_length) {
+        audio_sound_set_track_position(global.music_current, current_position - global.music_loop_end);    
+    }
+}
+#endregion

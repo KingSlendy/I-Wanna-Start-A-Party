@@ -1,0 +1,1 @@
+audio_play_sound(sndShoot, 0, false);

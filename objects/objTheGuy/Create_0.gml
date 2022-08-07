@@ -79,8 +79,8 @@ options = [
 		if (player_info.shines == 0) {
 			if (player_info.coins > 0) {
 				start_dialogue([
-					"I see you don't have any shine on you.",
-					new Message("To compensate I'm gonna take a couple coins from you.",, function() {
+					"I see you don't have a shine on you.",
+					new Message("To compensate I'm gonna take a couple coins instead.",, function() {
 						change_coins(-30, CoinChangeType.Lose);
 						objTheGuy.alarm[5] = get_frames(1);
 					})

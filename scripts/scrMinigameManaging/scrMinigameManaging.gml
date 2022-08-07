@@ -31,7 +31,8 @@ function minigame_init() {
 		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
 		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
 		new Minigame("Gigantic Race", ["Instructions TBD."], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
-		new Minigame("Warping Up", ["Instructions TBD."], 22, rMinigame1vs3_Warping, "I Wanna GameOver")
+		new Minigame("Warping Up", ["Instructions TBD."], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
+		new Minigame("Hunt Trouble", ["Instructions TBD."], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum")
 	];
 
 	m[$ "2vs2"] = [
@@ -71,7 +72,6 @@ function minigame_info_score_reset() {
 	var info = global.minigame_info;
 	info.player_scores = [];
 	info.players_won = [];
-	info.color_won = c_white;
 	info.is_finished = false;
 	info.calculated = false;
 	
@@ -241,6 +241,12 @@ function minigame4vs_points(player_id, points = minigame_max_points()) {
 	}
 }
 
+function minigame1vs3_points(points = minigame_max_points()) {
+	for (var i = 0; i < array_length(points_teams[0]); i++) {
+		minigame4vs_points(points_teams[0][i].network_id, points);
+	}
+}
+
 function minigame2vs2_points(player_id1, player_id2, points = minigame_max_points()) {
 	minigame4vs_points(player_id1, points);
 	minigame4vs_points(player_id2, points);
@@ -337,16 +343,16 @@ function minigame1vs3_winner() {
 	
 	if (scores[0] == scores[1]) {
 		//Both teams have tied
-		info.color_won = c_white;
+		var color_won = c_white;
 	} else {
 		//Determines which team color wins
-		info.color_won = info.player_colors[(scores[1] > scores[0])];
+		var color_won = info.player_colors[(scores[1] > scores[0])];
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
 		var color = player_info_by_id(i).space;
 			
-		if (color == info.color_won) {
+		if (color == color_won) {
 			array_push(info.players_won, i);
 		}
 	}
@@ -364,16 +370,16 @@ function minigame2vs2_winner() {
 	
 	if (scores[0] == scores[1]) {
 		//Both teams have tied
-		info.color_won = c_white;
+		var color_won = c_white;
 	} else {
 		//Determines which team color wins
-		info.color_won = info.player_colors[(scores[1] > scores[0])];
+		var color_won = info.player_colors[(scores[1] > scores[0])];
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
 		var color = player_info_by_id(i).space;
 			
-		if (color == info.color_won) {
+		if (color == color_won) {
 			array_push(info.players_won, i);
 		}
 	}
@@ -404,4 +410,14 @@ function minigame_lost_points() {
 		
 		minigame4vs_points(network_id);
 	}
+}
+
+function minigame1vs3_lost() {
+	for (var i = 0; i < array_length(points_teams[0]); i++) {
+		if (!points_teams[0][i].lost) {
+			return false;
+		}
+	}
+	
+	return true;
 }

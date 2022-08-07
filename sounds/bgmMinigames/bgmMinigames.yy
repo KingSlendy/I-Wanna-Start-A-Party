@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 1.0,
+  "volume": 0.04,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigames.mp3",
-  "duration": 115.368,
+  "soundFile": "bgmminigames.ogg",
+  "duration": 42.824833,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

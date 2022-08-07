@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 1,
-  "volume": 1.0,
+  "volume": 0.07,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmModes.mp3",
-  "duration": 157.224,
+  "soundFile": "bgmmodes.ogg",
+  "duration": 157.21298,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",

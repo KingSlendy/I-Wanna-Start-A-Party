@@ -14,6 +14,7 @@ if (fade_start) {
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;
 			fade_start = false;
+			music_play(bgmSettings);
 		}
 	}
 }

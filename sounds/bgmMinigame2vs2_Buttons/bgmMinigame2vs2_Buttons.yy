@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame2vs2_Buttons.mp3",
-  "duration": 82.2,
+  "soundFile": "bgmminigame2vs2_buttons.ogg",
+  "duration": 35.53425,
   "parent": {
     "name": "2vs2",
     "path": "folders/Sounds/BGM/Minigames/2vs2.yy",

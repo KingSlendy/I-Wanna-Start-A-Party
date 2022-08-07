@@ -1,11 +1,22 @@
 event_inherited();
 
 if (is_local_turn()) {
-	with (objSpaces) {
-		if (image_index == SpaceType.Shine) {
-			other.focus_player.x = x + 16;
-			other.focus_player.y = y + 16;
-			break;
+	if (room != rBoardPallet) {
+		with (objSpaces) {
+			if (image_index == SpaceType.Shine) {
+				other.focus_player.x = x + 16;
+				other.focus_player.y = y + 16;
+				break;
+			}
+		}
+	} else {
+		with (objBoardPalletPokemon) {
+			if (has_shine()) {
+				var near = instance_nearest(x, y, objSpaces);
+				other.focus_player.x = near.x + 16;
+				other.focus_player.y = near.y + 16;
+				break;
+			}
 		}
 	}
 

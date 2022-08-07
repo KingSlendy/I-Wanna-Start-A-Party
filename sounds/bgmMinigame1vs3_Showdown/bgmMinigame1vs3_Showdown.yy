@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame1vs3_Showdown.mp3",
-  "duration": 187.488,
+  "soundFile": "bgmminigame1vs3_showdown.ogg",
+  "duration": 42.030125,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

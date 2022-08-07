@@ -24,11 +24,11 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.network_id = network_id;
 	self.name = name;
 	self.turn = turn;
-	//self.shines = 0;
-	//self.coins = 100;
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
+	//self.shines = 0;
+	//self.coins = 100;
 	//self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.TripleDice], global.board_items[ItemType.TripleDice]];
 	self.score = 0;
 	self.place = 1;
@@ -450,7 +450,7 @@ function space_path_finding(space, path_spaces) {
 	array_push(path_spaces, space);
 	
 	with (space) {
-		if (image_index == SpaceType.Shine) {
+		if (image_index == SpaceType.Shine || (room == rBoardPallet && image_index == SpaceType.PathEvent && instance_nearest(x, y, objBoardPalletPokemon).has_shine())) {
 			global.path_spaces_record = array_length(path_spaces);
 			array_copy(global.path_spaces, 0, path_spaces, 0, array_length(path_spaces));
 			break;
@@ -1115,10 +1115,6 @@ function all_item_stats(player_info) {
 
 #region Event Management
 function choose_shine() {
-	if (instance_exists(objShine) && (room != rBoardHotland)) {
-		return;
-	}
-	
 	var choices = [];
 	
 	if (room != rBoardPallet) {
@@ -1129,18 +1125,21 @@ function choose_shine() {
 		}
 	} else {
 		with (objBoardPalletPokemon) {
-			array_push(choices, id);
+			if (!has_shine()) {
+				array_push(choices, id);
+			}
 		}
 	}
 	
 	array_shuffle(choices);
 	var space = array_pop(choices);
 	
-	if (room == rBoardPallet) {
+	if (room != rBoardPallet) {
+		space.image_index = SpaceType.Shine;
+	} else {
 		space = {x: space.x + 32, y: space.y + 32};
 	}
 	
-	space.image_index = SpaceType.Shine;
 	place_shine(space.x, space.y);
 	
 	buffer_seek_begin();
@@ -1151,18 +1150,30 @@ function choose_shine() {
 }
 
 function place_shine(space_x, space_y) {
-	if (room != rBoardHotland || !instance_exists(objShine)) { 
-		with (objSpaces) {
-			if (space_shine) {
-				image_index = SpaceType.Blue;
+	with (focused_player()) {
+		if (room != rBoardPallet) {
+			if (!instance_exists(objShine)) {
+				with (objSpaces) {
+					if (space_shine) {
+						image_index = SpaceType.Blue;
+					}
+				}
+			} else {
+				with (instance_place(x, y, objSpaces)) {
+					if (space_shine) {
+						image_index = SpaceType.Blue;
+					}
+				}
 			}
 		}
 	}
-			
-	with (objSpaces) {
-		if (x == space_x && y == space_y) {
-			image_index = SpaceType.Shine;
-			break;
+	
+	if (room != rBoardPallet) {
+		with (objSpaces) {
+			if (x == space_x && y == space_y) {
+				image_index = SpaceType.Shine;
+				break;
+			}
 		}
 	}
 	
@@ -1281,6 +1292,13 @@ function board_dreams_teleports(reference) {
 	}
 	
 	switch_camera_target(player.x, player.y).final_action = board_advance;
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardDreamsTeleports);
+		buffer_write_data(buffer_u8, reference);
+		network_send_tcp_packet();
+	}
 }
 #endregion
 

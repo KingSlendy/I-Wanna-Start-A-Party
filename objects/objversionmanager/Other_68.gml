@@ -51,7 +51,8 @@ switch (type) {
 				}
 			}
 		} catch (_) {
-			alarm[2] = 1;
+			text = "An error ocurred..."
+			alarm[0] = get_frames(3);
 			exit;
 		}
 		

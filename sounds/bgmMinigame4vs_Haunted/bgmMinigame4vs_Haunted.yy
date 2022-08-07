@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmMinigame4vs_Haunted.mp3",
-  "duration": 56.256,
+  "soundFile": "bgmminigame4vs_haunted.ogg",
+  "duration": 27.583918,
   "parent": {
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",

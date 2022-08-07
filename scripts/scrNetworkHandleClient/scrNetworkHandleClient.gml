@@ -72,6 +72,7 @@ enum ClientTCP {
 	BoardHotlandAnnoyingDog,
 	BoardPalletObtain,
 	BoardPalletBattle,
+	BoardDreamsTeleports,
 	
 	//Animations
 	ItemApplied,
@@ -103,6 +104,8 @@ enum ClientTCP {
 	Minigame1vs3_Race_Team,
 	Minigame1vs3_Warping_Push,
 	Minigame1vs3_Warping_Warp,
+	Minigame1vs3_Hunt_ReticleShoot,
+	Minigame1vs3_Hunt_ReticleMove,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	Minigame2vs2_Buttons_Button,
@@ -126,6 +129,7 @@ enum ClientUDP {
 	Heartbeat,
 	LobbyStart,
 	PlayerData,
+	PlayerJump,
 	PlayerShoot,
 	
 	//Interfaces
@@ -681,6 +685,11 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var pokemon = buffer_read(buffer, buffer_u16);
 			board_pallet_battle(pokemon);
 			break;
+			
+		case ClientTCP.BoardDreamsTeleports:
+			var reference = buffer_read(buffer, buffer_u8);
+			board_dreams_teleports(reference);
+			break;
 		#endregion
 			
 		#region Animations
@@ -981,6 +990,29 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			}
 			break;
 			
+		case ClientTCP.Minigame1vs3_Hunt_ReticleShoot:
+			var reticle_x = buffer_read(buffer, buffer_s32);
+			var reticle_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigameController) {
+				create_shoot(reticle_x, reticle_y);
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Hunt_ReticleMove:
+			var index = buffer_read(buffer, buffer_u8);
+			var reticle_x = buffer_read(buffer, buffer_s32);
+			var reticle_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigame1vs3_Hunt_Reticle) {
+				if (self.index == index) {
+					x = reticle_x;
+					y = reticle_y;
+					break;
+				}
+			}
+			break;
+			
 		case ClientTCP.Minigame2vs2_Maze_Item:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var item_x = buffer_read(buffer, buffer_s16);
@@ -1072,19 +1104,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		
 		#region Results
 		case ClientTCP.ResultsBonus:
-			var player_id = buffer_read(buffer, buffer_u8);
+			var player_turn = buffer_read(buffer, buffer_u8);
 			var player_shines = buffer_read(buffer, buffer_u16);
 			var player_coins = buffer_read(buffer, buffer_u16);
-			var player_info = player_info_by_id(player_id);
+			var player_info = player_info_by_turn(player_turn);
 			player_info.shines = player_shines;
 			player_info.coins = player_coins;
 			var scores_scores = buffer_read_array(buffer, buffer_u16);
 			
 			for (var i = 0; i < array_length(global.bonus_shines); i++) {
-				global.bonus_shines[i].scores[player_id - 1] = scores_scores[i];
+				global.bonus_shines[i].scores[player_turn - 1] = scores_scores[i];
 			}
 			
-			global.bonus_shines_ready[player_id - 1] = true;
+			global.bonus_shines_ready[player_turn - 1] = true;
 		
 			with (objResults) {
 				results_bonus();
@@ -1149,6 +1181,11 @@ function network_read_client_udp(buffer, data_id) {
 		
 		case ClientUDP.PlayerData:
 			player_read_data(buffer);
+			break;
+			
+		case ClientUDP.PlayerJump:
+			var sound = buffer_read(buffer, buffer_u32);
+			audio_play_sound(sound, 0, false);
 			break;
 			
 		case ClientUDP.PlayerShoot:

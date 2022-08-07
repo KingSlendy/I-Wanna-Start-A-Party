@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigame2vs2_duos.mp3",
-  "duration": 76.512,
+  "soundFile": "bgmminigame2vs2_duos.ogg",
+  "duration": 36.81729,
   "parent": {
     "name": "2vs2",
     "path": "folders/Sounds/BGM/Minigames/2vs2.yy",

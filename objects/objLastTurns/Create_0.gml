@@ -65,14 +65,6 @@ function say_player_place() {
 	}
 	
 	if (current_player == 4) {
-		if (is_local_turn()) {
-			start_dialogue([
-				new Message("Looks like {COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is having some trouble... let's give them a little bit of help!",, help_last_place)
-			]);
-			
-			//objDialogue.endable = true;
-		}
-		
 		return;
 	}
 			
@@ -81,17 +73,10 @@ function say_player_place() {
 		target_draw_y = 79 + (draw_h + 30) * (order - 1);
 	}
 	
-	if (is_local_turn()) {
-		start_dialogue([
-			new Message("{COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is in {SPRITE,sprPlayerInfoPlaces," + string(p_info.player_info.place - 1) + ",0,0,0.6,0.6} place.",, say_player_place)
-		]);
-	}
-	
 	current_player++;
 }
 
 previous_turn = global.player_turn;
-//global.player_turn = 3;
 
 function help_last_place() {
 	switch_camera_target(focus_player.x, focus_player.y).final_action = give_last_place;
