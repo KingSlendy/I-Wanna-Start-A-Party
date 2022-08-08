@@ -109,8 +109,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						exit;
 					
 					case 1:
-						//url_open("https://discord.gg/XFfJDbxfVU");
-						execute_shell_simple("https://discord.gg/XFfJDbxfVU",,, 0);
+						execute_shell_simple("https://discord.gg/dQsUg2g3P2",,, 0);
 						break;
 				}
 			}

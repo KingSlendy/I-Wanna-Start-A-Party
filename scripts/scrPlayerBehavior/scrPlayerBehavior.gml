@@ -49,6 +49,22 @@ function player_fall() {
 }
 
 function player_shoot(speed = null, direction = null) {
+	var can_shoot = true;
+		
+	if (room == rMinigame4vs_Targets) {
+		with (objMinigameController) {
+			player_bullets[player_turn - 1] = max(--player_bullets[player_turn - 1], 0);
+			
+			if (player_bullets[player_turn - 1] < 0) {
+				can_shoot = false;
+			}
+		}
+	}
+		
+	if (!can_shoot) {
+		return;
+	}
+	
 	var b = instance_create_layer(x, y, "Actors", objBullet);
 	b.network_id = network_id;
 	

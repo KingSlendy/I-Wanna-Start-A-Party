@@ -94,6 +94,7 @@ enum ClientTCP {
 	Minigame4vs_Slime_BlockEntrance,
 	Minigame4vs_Slime_SlimeShot,
 	Minigame4vs_Dizzy_GrabCoin,
+	Minigame4vs_Targets_DestroyTarget,
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
@@ -876,6 +877,19 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objMinigame4vs_Dizzy_Coin) {
 				if (x == coin_x && y == coin_y) {
 					grab_coin(player_id, false);
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Targets_DestroyTarget:
+			var target_xstart = buffer_read(buffer, buffer_s32);
+			var target_ystart = buffer_read(buffer, buffer_s32);
+			var target_num = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Targets_Target) {
+				if (xstart == target_xstart && ystart == target_ystart && num == target_num) {
+					destroy_target(false);
+					break;
 				}
 			}
 			break;

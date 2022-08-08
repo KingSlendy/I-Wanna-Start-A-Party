@@ -11,8 +11,8 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigame1vs3_hunt.mp3",
-  "duration": 52.8,
+  "soundFile": "bgmminigame1vs3_hunt.ogg",
+  "duration": 24.275875,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

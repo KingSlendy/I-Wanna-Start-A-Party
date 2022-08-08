@@ -69,6 +69,7 @@ mlp[$ bgmMinigame4vs_Chests] = new LoopPoint(0.980, 31.700);
 mlp[$ bgmMinigame4vs_Slime] = new LoopPoint(2.543, 25.949);
 mlp[$ bgmMinigame4vs_Rocket] = new LoopPoint(2.265, 26.268);
 mlp[$ bgmMinigame4vs_Dizzy] = new LoopPoint(1.809, 32.023);
+mlp[$ bgmMinigame4vs_Targets] = new LoopPoint(2.459, 34.037);
 	
 //1vs3
 mlp[$ bgmMinigame1vs3_Avoid] = new LoopPoint(0.851, 27.852);
@@ -77,6 +78,7 @@ mlp[$ bgmMinigame1vs3_Showdown] = new LoopPoint(2.307, 41.207);
 mlp[$ bgmMinigame1vs3_Coins] = new LoopPoint(3.609, 34.342);
 mlp[$ bgmMinigame1vs3_Race] = new LoopPoint(4.401, 36.943);
 mlp[$ bgmMinigame1vs3_Warping] = new LoopPoint(2.658, 36.962);
+mlp[$ bgmMinigame1vs3_Hunt] = new LoopPoint(1.923, 23.618);
 	
 //2vs2
 mlp[$ bgmMinigame2vs2_Maze] = new LoopPoint(3.330, 43.047);

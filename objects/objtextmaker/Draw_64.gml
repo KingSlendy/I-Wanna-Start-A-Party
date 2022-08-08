@@ -1,0 +1,1 @@
+draw_sprite_ext(text_sprite, 0, title_x, title_y, 1, 1, 0, c_white, 1);

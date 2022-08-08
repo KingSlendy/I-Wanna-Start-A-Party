@@ -8,8 +8,8 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup_BGM",
+    "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmpartystar.ogg",
   "duration": 36.665127,

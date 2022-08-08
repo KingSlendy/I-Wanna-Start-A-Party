@@ -81,6 +81,7 @@ array_delete(minigames_order, 5, array_length(minigames_order) - 5);
 if (force_minigames) {
 	switch (info.type) {
 		case "4vs":
+			minigames_order[4] = 12;
 			break;
 			
 		case "1vs3":
