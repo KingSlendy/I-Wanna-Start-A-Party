@@ -206,7 +206,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							var signs = [
 								"Enter your name.",
 								"Enter the IP.",
-								"Enter the port."
+								"Enter the port. (0~9)"
 							];
 						
 							online_texts[select] = "";
@@ -258,14 +258,19 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						if (select < 2) {
 							var signs = [
 								"Enter the lobby's name.",
-								"Enter the password."
+								"Enter the password. (A~Z) (0~9)"
 							];
 						
 							lobby_texts[select] = "";
-							var text = get_string(signs[select] + " (A~Z 0~9)", lobby_texts[select]);
+							var text = get_string(signs[select], lobby_texts[select]);
 							
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
+								
+								if (select == 0 && (char == "!" || char == " ")) {
+									lobby_texts[select] += char;
+								}
+								
 								lobby_texts[select] += string_letters(char) + string_digits(char);
 							}
 						

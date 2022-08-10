@@ -115,6 +115,10 @@ function get_frames(seconds) {
 	return game_fps * (game_fps / real_fps) * seconds;
 }
 
+function get_frames_static(seconds) {
+	return game_get_speed(gamespeed_fps) * seconds;
+}
+
 function instance_activate_important() {
 	instance_activate_object(objGameManager);
 	instance_activate_object(objNetworkClient);

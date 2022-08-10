@@ -30,8 +30,9 @@ function choosed_minigame() {
 		array_push(global.seen_minigames, minigame.title);
 	}
 	
-	alarm[3] = get_frames(1);
+	array_push(global.minigame_history, minigame.title);
 	audio_play_sound(sndRoulettePick, 0, false);
+	alarm[3] = get_frames(1);
 }
 
 function send_to_minigame() {

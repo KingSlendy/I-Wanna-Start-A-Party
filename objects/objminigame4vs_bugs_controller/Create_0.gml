@@ -39,3 +39,4 @@ player_check = objPlayerStatic;
 bugs = [];
 total_bugs = 0;
 draw_top = false;
+bug_counter = 0;

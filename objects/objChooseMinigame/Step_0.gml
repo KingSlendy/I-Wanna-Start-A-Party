@@ -55,38 +55,27 @@ switch (state) {
 			
 			if (color_count[$ c_white] > 0) {
 				var types = minigame_types();
-				var quantity_types = {};
-				var percentage_types = {};
-				var total_types = 0;
+				var type_count = {};
 			
 				for (var i = 0; i < array_length(types); i++) {
-					quantity_types[$ types[i]] = 0;
-					percentage_types[$ types[i]] = 0;
-				}
-			
-				for (var i = 0; i < array_length(global.minigame_type_history); i++) {
-					quantity_types[$ global.minigame_type_history[i]]++;
-					total_types++;
-				}
-			
-				for (var i = 0; i < array_length(types); i++) {
-					percentage_types[$ types[i]] = (total_types > 0) ? quantity_types[$ types[i]] / total_types : 0;
-				}
-				
-				if (variable_struct_exists(percentage_types, "4vs")) {
-					percentage_types[$ "4vs"] *= 0.5;
+					var type = types[i];
+					type_count[$ type] = (array_length(global.minigame_type_history) > 0) ? array_count(global.minigame_type_history, type) / array_length(global.minigame_type_history) : 0;
+					
+					if (type == "4vs") {
+						type_count[$ type] *= 0.5;
+					}
 				}
 			
 				var min_type = infinity;
 			
 				for (var i = 0; i < array_length(types); i++) {
-					min_type = min(min_type, percentage_types[$ types[i]]);
+					min_type = min(min_type, type_count[$ types[i]]);
 				}
 				
 				var min_types = [];
 			
 				for (var i = 0; i < array_length(types); i++) {
-					if (percentage_types[$ types[i]] == min_type) {
+					if (type_count[$ types[i]] == min_type) {
 						array_push(min_types, types[i]);
 					}
 				}

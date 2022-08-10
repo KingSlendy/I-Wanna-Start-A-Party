@@ -51,31 +51,26 @@ if (global.board_started) {
 					continue;
 				}
 				
-				if (global.board_turn == global.max_board_turns) {
-					use_percentage[i] = 100;
-				} else {
-					use_percentage[i] = irandom_range(1, 100);
+				use_percentage[i] = irandom_range(0, 100);
+			}
+			
+			if (array_count(use_percentage, 0) < 3) {
+				var max_percentage = -infinity;
+			
+				for (var i = 0; i < 3; i++) {
+					max_percentage = max(max_percentage, use_percentage[i]);
 				}
-			}
-			
-			var max_percentage = -infinity;
-			
-			for (var i = 0; i < 3; i++) {
-				max_percentage = max(max_percentage, use_percentage[i]);
-			}
 				
-			var most_percentage = [];
+				var most_percentage = [];
 				
-			for (var i = 0; i < 3; i++) {
-				if (use_percentage[i] == max_percentage) {
-					array_push(most_percentage, i);
+				for (var i = 0; i < 3; i++) {
+					if (use_percentage[i] == max_percentage) {
+						array_push(most_percentage, i);
+					}
 				}
-			}
 				
-			array_shuffle(most_percentage);
-			var chosen_percentage = most_percentage[0];
-			
-			if (chosen_percentage != 0) {
+				array_shuffle(most_percentage);
+				var chosen_percentage = most_percentage[0];
 				cpu_item = chosen_percentage;
 			}
 		}

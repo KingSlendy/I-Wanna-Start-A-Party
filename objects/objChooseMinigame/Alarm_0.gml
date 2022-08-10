@@ -70,35 +70,70 @@ if (blue_count == 4 || red_count == 4) { //4vs
 array_push(global.minigame_type_history, info.type);
 
 minigame_list = [];
-
-next_seed_inline();
 var minigames_now = global.minigames[$ info.type];
-var minigames_order = array_sequence(0, array_length(minigames_now));
-array_shuffle(minigames_order);
-array_delete(minigames_order, 5, array_length(minigames_order) - 5);
+var minigame_count = {};
+var minigame_names = [];
 
-//Temp
-if (force_minigames) {
-	switch (info.type) {
-		case "4vs":
-			minigames_order[4] = 12;
-			break;
+for (var i = 0; i < array_length(minigames_now); i++) {
+	var minigame = minigames_now[i];
+	minigame_count[$ minigame.title] = (array_length(global.minigame_history) > 0) ? array_count(global.minigame_history, minigame.title) / array_length(global.minigame_history) : 0;
+	array_push(minigame_names, minigame.title);
+}
+
+var minigame_add = true;
+
+while (minigame_add) {
+	next_seed_inline();
+	array_shuffle(minigame_names);
+	var min_minigame = infinity;
+	
+	for (var i = 0; i < array_length(minigame_names); i++) {
+		min_minigame = min(min_minigame, minigame_count[$ minigame_names[i]]);
+	}
+	
+	for (var i = array_length(minigame_names) - 1; i >= 0; i--) {
+		minigame_name = minigame_names[i];
+		
+		if (minigame_count[$ minigame_name] == min_minigame) {
+			array_push(minigame_list, array_first(minigames_now, function(x) { return (x.title == minigame_name); }));
 			
-		case "1vs3":
-			minigames_order[4] = 6;
-			break;
+			if (array_length(minigame_list) == 5) {
+				minigame_add = false;
+				break;
+			}
 			
-		case "2vs2":
-			break;
+			array_delete(minigame_names, i, 1);
+		}
 	}
 }
-//Temp
 
-array_sort(minigames_order, true);
+//next_seed_inline();
+//var minigames_order = array_sequence(0, array_length(minigames_now));
+//array_shuffle(minigames_order);
+//array_delete(minigames_order, 5, array_length(minigames_order) - 5);
 
-for (var i = 0; i < 5; i++) {
-	array_push(minigame_list, minigames_now[minigames_order[min(i, array_length(minigames_now) - 1)]]);
-}
+////Temp
+//if (force_minigames) {
+//	switch (info.type) {
+//		case "4vs":
+//			//minigames_order[4] = 12;
+//			break;
+			
+//		case "1vs3":
+//			//minigames_order[4] = 6;
+//			break;
+			
+//		case "2vs2":
+//			break;
+//	}
+//}
+////Temp
+
+//array_sort(minigames_order, true);
+
+//for (var i = 0; i < 5; i++) {
+//	array_push(minigame_list, minigames_now[minigames_order[min(i, array_length(minigames_now) - 1)]]);
+//}
 
 //Temp
 if (force_type != null && force_num != -1) {

@@ -1,6 +1,6 @@
 function button_event() {
-	image_xscale += 0.09;
-	image_yscale += 0.09;
+	image_xscale += 0.12;
+	image_yscale += 0.12;
 	
 	if (image_xscale >= 3) {
 		image_xscale = 3;

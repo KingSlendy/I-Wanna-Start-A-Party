@@ -1,9 +1,9 @@
 var winner_title = "";
-var loser_count = 0;
+var loser_count = global.player_max;
 
 if (array_length(info.players_won) > 0) {
 	for (var i = 0; i < global.player_max; i++) {
-		loser_count += (info.player_scores[i].points <= 0);
+		loser_count -= (info.player_scores[i].points <= 0);
 	}
 }
 	
@@ -26,7 +26,7 @@ if (loser_count < global.player_max) {
 
 if (!info.is_practice) {
 	for (var i = 0; i < array_length(info.players_won); i++) {
-		bonus_shine_by_id(BonusShines.MostMinigames).increase_score(info.players_won[i]);
+		bonus_shine_by_id(BonusShines.MostMinigames).increase_score(player_info_by_id(info.players_won[i]).turn);
 	}
 }
 

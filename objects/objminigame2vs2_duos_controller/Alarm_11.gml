@@ -32,7 +32,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				
 			case 2: case 5: case 9: case 11: //Start shooting switch.
 				if (!state_presses[2][0]) {
-					actions.right.hold(get_frames(0.1));
+					actions.right.hold(get_frames_static(0.1));
 					state_presses[2][0] = true;
 				}
 				
@@ -42,13 +42,13 @@ for (var i = 2; i <= global.player_max; i++) {
 			
 				if (--state_presses[2][1] <= 0) {
 					actions.shoot.press();
-					state_presses[2][1] = get_frames(random_range(0.1, 0.15));
+					state_presses[2][1] = get_frames_static(random_range(0.1, 0.15));
 				}
 				break;
 				
 			case 3: case 6: //Get out of switch, continue.
 				if (!state_presses[state]) {
-					actions.left.hold(get_frames(0.3));
+					actions.left.hold(get_frames_static(0.3));
 					state_presses[state] = true;
 				}
 				
@@ -59,7 +59,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				
 			case 4:
 				if (!state_presses[state][0]) {
-					actions.right.hold(get_frames(1))
+					actions.right.hold(get_frames_static(1))
 					state_presses[state][0] = true;
 				}
 				
@@ -73,11 +73,11 @@ for (var i = 2; i <= global.player_max; i++) {
 			case 7: case 8: case 12: case 14: //Jump out of switch hole.
 				if (!state_presses[state]) {
 					if (state == 7) {
-						actions.right.hold(get_frames(0.75));
+						actions.right.hold(get_frames_static(0.75));
 					} else if (state == 8) {
-						actions.right.hold(get_frames(0.35));
+						actions.right.hold(get_frames_static(0.35));
 					} else {
-						actions.right.hold(get_frames(1.3));
+						actions.right.hold(get_frames_static(1.3));
 					}
 					
 					actions.jump.hold(20);
@@ -87,11 +87,11 @@ for (var i = 2; i <= global.player_max; i++) {
 				
 			case 10: case 13: //Jump to platform.
 				if (--state_presses[state][0] <= 0) {
-					actions.right.hold(get_frames(0.5));
+					actions.right.hold(get_frames_static(0.5));
 					
 					if (state_presses[state][1] < 5) {
 						actions.jump.hold(10);
-						state_presses[state][0] = get_frames((state_presses[state][1] != 2) ? 0.35 : 0.12);
+						state_presses[state][0] = get_frames_static((state_presses[state][1] != 2) ? 0.35 : 0.12);
 					}
 					
 					state_presses[state][1]++;
@@ -134,7 +134,7 @@ for (var i = 2; i <= global.player_max; i++) {
 				break;
 				
 			case 17:
-				actions.right.hold(get_frames(2));
+				actions.right.hold(get_frames_static(2));
 				
 				if (!state_presses[state][1] && --state_presses[state][0] <= 0) {
 					actions.jump.hold(20);
@@ -150,7 +150,7 @@ for (var i = 2; i <= global.player_max; i++) {
 			
 				if (--state_presses[state][1] <= 0) {
 					actions.jump.hold(8);
-					state_presses[state][1] = get_frames(random_range(0.75, 0.9));
+					state_presses[state][1] = get_frames_static(random_range(0.75, 0.9));
 				}
 				break;
 		}

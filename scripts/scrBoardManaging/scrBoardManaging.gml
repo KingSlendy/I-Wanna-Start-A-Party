@@ -548,7 +548,7 @@ function roll_dice() {
 	
 	if (global.board_started) {
 		var player_info = player_info_by_turn();
-		bonus_shine_by_id(BonusShines.MostRoll).increase_score(focused_player().network_id, roll);
+		bonus_shine_by_id(BonusShines.MostRoll).increase_score(global.player_turn, roll);
 	} else {
 		var player_info = {item_effect: -1};
 	}
@@ -687,7 +687,7 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 			global.collected_coins += amount;
 		}
 		
-		bonus_shine_by_id(BonusShines.MostCoins).increase_score(c.network_id, amount);
+		bonus_shine_by_id(BonusShines.MostCoins).increase_score(player_turn, amount);
 	}
 	
 	if (is_local_turn()) {

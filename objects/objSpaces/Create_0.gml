@@ -91,7 +91,7 @@ function space_passing_event() {
 						change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
 							switch (room) {
 								case rBoardIsland:
-									if (!global.board_day) {
+									if (focused_player().network_id == global.player_id && !global.board_day) {
 										if (global.shine_price == 0) {
 											gain_trophy(34);
 										}

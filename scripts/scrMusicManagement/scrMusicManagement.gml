@@ -48,7 +48,7 @@ mlp[$ bgmBoardIslandNight] = new LoopPoint(5.338, 68.513);
 mlp[$ bgmBoardHotland] = new LoopPoint(37.010, 110.858);
 mlp[$ bgmBoardHotlandAnnoyingDog] = new LoopPoint(0.005, 36.102);
 mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
-mlp[$ bgmBoardPallet] = new LoopPoint(0.368, 34.640);
+mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
 mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
 	
@@ -133,6 +133,7 @@ function music_resume() {
 	if (global.music_previous != null) {
 		global.music_current = global.music_previous;
 		audio_resume_sound(global.music_current);
+		music_set_loop_points(global.music_current);
 	}
 }
 
