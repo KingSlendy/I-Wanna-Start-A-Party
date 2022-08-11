@@ -7,6 +7,11 @@ event_inherited();
 minigame_camera = CameraMode.Split4;
 minigame_time_valign = fa_top;
 minigame_time_end = function() {
+	with (objMinigame4vs_Magic_Curtain) {
+		alpha_target = 0;
+		can_switch = false;
+	}
+	
 	instance_create_layer(0, 0, "Managers", objMinigame4vs_Magic_Checker);
 }
 

@@ -5,7 +5,11 @@ if (keyboard_check_pressed(ord("D"))) {
 }
 
 if (keyboard_check_pressed(vk_f4)) {
-	global.fullscreen_display ^= true;
+	if (global.fullscreen_delay == 0) {
+		global.fullscreen_display ^= true;
+		global.fullscreen_delay = get_frames_static(0.5);
+	}
+	
 	apply_display();
 	save_config();
 }
@@ -31,3 +35,6 @@ if (global.music_current != null && global.music_loop_start != -1) {
     }
 }
 #endregion
+
+global.fullscreen_delay--;
+global.fullscreen_delay = max(global.fullscreen_delay, 0);

@@ -18,6 +18,6 @@ if (finished) {
 	}
 }
 
-if (!IS_ONLINE && announcer_started && !info.is_finished && global.actions.back.pressed()) {
+if (!IS_ONLINE && info.is_modes && announcer_started && !info.is_finished && global.actions.back.pressed()) {
 	room_goto(rMinigameOverview);
 }

@@ -1,0 +1,1 @@
+global.fullscreen_delay = 0;

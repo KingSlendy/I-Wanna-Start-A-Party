@@ -23,7 +23,7 @@ function minigame_init() {
 		new Minigame("Slime Annoyer", ["Instructions TBD."], 23, rMinigame4vs_Slime, "SlimePark"),
 		new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
 		new Minigame("Dizzy Conundrum", ["Instructions TBD."], 25, rMinigame4vs_Dizzy, "VoVoVo"),
-		new Minigame("Targetting Targets", ["Instructions TBD."], 27, rMinigame4vs_Targets, "I Wanna MicroMedley")
+		new Minigame("Targeting Targets", ["Instructions TBD."], 27, rMinigame4vs_Targets, "I Wanna MicroMedley")
 	];
 
 	m[$ "1vs3"] = [
@@ -43,7 +43,8 @@ function minigame_init() {
 		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
 		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
 		new Minigame("Springing Piranha", ["Instructions TBD."], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa")
+		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
+		//new Minigame("Western Duel", ["Instructions TBD."], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy")
 	];
 }
 

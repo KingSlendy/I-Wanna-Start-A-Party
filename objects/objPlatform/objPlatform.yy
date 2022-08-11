@@ -4,7 +4,7 @@
     "path": "sprites/sprPlatformMask/sprPlatformMask.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

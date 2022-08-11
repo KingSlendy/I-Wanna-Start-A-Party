@@ -27,6 +27,17 @@ for (var i = 2; i <= global.player_max; i++) {
 				array_push(choices, id);
 			}
 	
+			if (array_length(choices) == 0) {
+				if (y < 288) {
+					with (objMinigame4vs_Mansion_Door) {
+						if (y < 288) {
+							array_push(choices, id);
+							break;
+						}
+					}
+				}
+			}
+	
 			array_shuffle(choices);
 			target = choices[0];
 		} else {

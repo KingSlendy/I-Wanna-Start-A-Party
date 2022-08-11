@@ -87,6 +87,7 @@ enum ClientTCP {
 	Minigame4vs_Haunted_Boo,
 	Minigame4vs_Magic_Hold,
 	Minigame4vs_Magic_Release,
+	Minigame4vs_Magic_CurtainSwitch,
 	Minigame4vs_Mansion_Door,
 	Minigame4vs_Painting_Platform,
 	Minigame4vs_Bugs_Counting,
@@ -798,6 +799,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					x = item_x;
 					y = item_y;
 					release_item(false, false);
+					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame4vs_Magic_CurtainSwitch:
+			var player_id = buffer_read(buffer, buffer_u8);
+			
+			with (objMinigame4vs_Magic_Curtain) {
+				if (player.network_id == player_id) {
+					curtain_switch(false);
 					break;
 				}
 			}

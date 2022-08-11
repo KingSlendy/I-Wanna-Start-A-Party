@@ -34,3 +34,10 @@ for (var i = 0; i < array_length(sections); i++) {
 text = new Text(fntControls);
 text.set(draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
 text.draw(420, 580);
+
+var section = sections[section_selected];
+
+if (section.in_option == -1) {
+	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, 48, 304, 1, 1, 0, c_white, 1);
+	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, display_get_gui_width() - 48, 304, 1, 1, 0, c_white, 1);
+}

@@ -84,34 +84,18 @@ function load_file() {
 	global.collected_coins = save.main_game.saved_collected_coins;
 	global.seen_minigames = save.main_game.saved_seen_minigames;
 	global.collected_skins = save.main_game.saved_collected_skins;
+	global.collected_trophies = save.main_game.saved_collected_trophies;
+	global.ellapsed_time = save.main_game.saved_ellapsed_time;
+	global.player_name = save.main_game.saved_player_name;
+	global.ip = save.main_game.saved_ip;
+	global.port = save.main_game.saved_port;
+	global.board_games = save.board_games;
 	
-	var index = array_index(global.seen_minigames, "Gigantic Chase");
+	var index = array_index(global.seen_minigames, "Targetting Targets");
 	
 	if (index != -1) {
-		global.seen_minigames[index] = "Gigantic Race";
+		global.seen_minigames[index] = "Targeting Targets";
 	}
-	
-	try {
-		global.collected_trophies = save.main_game.saved_collected_trophies;
-	} catch (_) {}
-	
-	try {
-		global.ellapsed_time = save.main_game.saved_ellapsed_time;
-	} catch (_) {}
-	
-	try {
-		global.player_name = save.main_game.saved_player_name;
-	} catch (_) {}
-	
-	try {
-		global.ip = save.main_game.saved_ip;
-	} catch (_) {}
-	
-	try {
-		global.port = save.main_game.saved_port;
-	} catch (_) {}
-	
-	global.board_games = save.board_games;
 	
 	return true;
 }
@@ -249,9 +233,9 @@ function apply_config() {
 }
 
 function apply_volume() {
-	audio_master_gain(global.master_volume);
-	audio_group_set_gain(audiogroup_BGM, global.bgm_volume, 0);
-	audio_group_set_gain(audiogroup_SFX, global.sfx_volume, 0);
+	audio_master_gain(sqr(global.master_volume));
+	audio_group_set_gain(audiogroup_BGM, sqr(global.bgm_volume), 0);
+	audio_group_set_gain(audiogroup_SFX, sqr(global.sfx_volume), 0);
 }
 
 function apply_display() {

@@ -8,10 +8,10 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_SFX",
-    "path": "audiogroups/audiogroup_SFX",
+    "name": "audiogroup_BGM",
+    "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "sndTheGuyIntro.wav",
+  "soundFile": "sndtheguyintro.wav",
   "duration": 2.391655,
   "parent": {
     "name": "Boards",

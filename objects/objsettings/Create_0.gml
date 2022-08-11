@@ -71,7 +71,13 @@ var display_check = function() {
 	
 	if (scroll != 0) {
 		switch (self.label) {
-			case "FULLSCREEN": global.fullscreen_display ^= true; break;
+			case "FULLSCREEN":
+				if (global.fullscreen_delay == 0) {
+					global.fullscreen_display ^= true;
+					global.fullscreen_delay = get_frames_static(0.5);
+				}
+				break;
+				
 			case "VSYNC": global.vsync_display ^= true; break;
 			case "SMOOTH": global.smooth_display ^= true; break;
 		}
@@ -112,7 +118,15 @@ sections = [
 	new Section("CONTROLS", [])
 ];
 
-var keys = variable_struct_get_names(global.actions);
+var keys = [
+	"left",
+	"right",
+	"up",
+	"down",
+	"jump",
+	"shoot",
+	"back"
+];
 
 for (var i = 0; i < array_length(keys); i++) {
 	var name = keys[i];
