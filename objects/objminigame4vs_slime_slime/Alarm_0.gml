@@ -1,5 +1,11 @@
 next_seed_inline();
-image_index = (0.25 > random(1)) ? 1 : 3;
+var lost_count = 0;
+
+with (objPlayerBase) {
+	lost_count += lost;	
+}
+
+image_index = (1 / (5 - lost_count) > random(1)) ? 1 : 3;
 
 if (image_index == 3) {
 	audio_play_sound(sndMinigame4vs_Slime_Mercy, 0, false);

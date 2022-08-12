@@ -115,6 +115,7 @@ enum ClientTCP {
 	Minigame2vs2_Colorful_PatternMoveHorizontal,
 	Minigame2vs2_Colorful_PatternSelect,
 	Minigame2vs2_Duos_Button,
+	Minigame2vs2_Duel_Shot,
 	
 	//Results
 	ResultsBonus,
@@ -1125,6 +1126,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					press_button(false);
 				}
 			}
+			break;
+			
+		case ClientTCP.Minigame2vs2_Duel_Shot:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var shot_time = buffer_read(buffer, buffer_u16);
+			objMinigameController.player_shot_time[player_id - 1] = shot_time;
 			break;
 		#endregion
 		

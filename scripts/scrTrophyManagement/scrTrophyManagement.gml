@@ -62,7 +62,8 @@ global.trophies = [
 	new Trophy(45, TrophyRank.Silver, "Born Astronaut", "You didn't receive a single hit in Rocket Ignition!\nAll those years of astronaut training in the morning finally paid off!", "Morning training routine."),
 	new Trophy(46, TrophyRank.Bronze, "Wrong Number", "You used the Cellphone and said no.\nCalling the wrong number, happens from time to time.", "Woops, that's not the right number, my bad."),
 	new Trophy(47, TrophyRank.Bronze, "Wrong Galaxy", "You used the Blackhole and said no.\nYeah there's a bunch of galaxies to call, it's only natural you'd get confused.", "Woops, that's not the right galaxy, my bad."),
-	new Trophy(48, TrophyRank.Bronze, "Target Master", "You hit a yellow target first in Targetting Targets.\nWith that level of aiming you should be able to win everytime.", "Professional level aimer.")
+	new Trophy(48, TrophyRank.Bronze, "Target Master", "You hit a yellow target first in Targetting Targets.\nWith that level of aiming you should be able to win everytime.", "Professional level aimer."),
+	new Trophy(49, TrophyRank.Bronze, "Duel Marker", "You shot before the mark showed up everytime in Western Duel.\nI get that shooting faster is what you're supposed to do, but here you gotta wait for the mark!", "Waiting for the mark!?\nPfff, I'm faster.")
 ];
 
 global.collected_trophies_stack = [];

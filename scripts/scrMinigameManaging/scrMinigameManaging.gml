@@ -11,40 +11,40 @@ global.minigames = {};
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame("Follow The Lead", ["Instructions TBD."], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
-		new Minigame("Tower Ascension", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
-		new Minigame("Haunted Forest", [draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
-		new Minigame("Magic Memory", ["A set of items are above the pedestals.\nYou have to remember the order before the\nearthquake makes them fall!", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
-		new Minigame("Mansion Escape", ["You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nBut pay attention because not every door\nleads downstairs.\nYou need to find that door and quick!", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame("Painting Platforms", ["Instructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
-		new Minigame("Bugs Around", ["Instructions TBD."], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
-		new Minigame("Unstable Blocks", ["Instructions TBD."], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
-		new Minigame("Crazy Chests", ["Instructions TBD."], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
-		new Minigame("Slime Annoyer", ["Instructions TBD."], 23, rMinigame4vs_Slime, "SlimePark"),
-		new Minigame("Rocket Ignition", ["Instructions TBD."], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
-		new Minigame("Dizzy Conundrum", ["Instructions TBD."], 25, rMinigame4vs_Dizzy, "VoVoVo"),
-		new Minigame("Targeting Targets", ["Instructions TBD."], 27, rMinigame4vs_Targets, "I Wanna MicroMedley")
+		new Minigame("Follow The Lead", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		new Minigame("Tower Ascension", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
+		new Minigame("Haunted Forest", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
+		new Minigame("Magic Memory", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nA set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
+		new Minigame("Mansion Escape", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nYou've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
+		new Minigame("Painting Platforms", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nInstructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
+		new Minigame("Bugs Around", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
+		new Minigame("Unstable Blocks", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
+		new Minigame("Crazy Chests", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
+		new Minigame("Slime Annoyer", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 23, rMinigame4vs_Slime, "SlimePark"),
+		new Minigame("Rocket Ignition", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
+		new Minigame("Dizzy Conundrum", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 25, rMinigame4vs_Dizzy, "VoVoVo"),
+		new Minigame("Targeting Targets", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 27, rMinigame4vs_Targets, "I Wanna MicroMedley")
 	];
 
 	m[$ "1vs3"] = [
-		new Minigame("Avoid The Anguish", ["Instructions TBD."], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
-		new Minigame("Conveyor Havoc", ["Instructions TBD."], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
-		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", draw_action(global.actions.jump) + ": Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + ": Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
-		new Minigame("Getting Coins", ["Instructions TBD."], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
-		new Minigame("Gigantic Race", ["Instructions TBD."], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
-		new Minigame("Warping Up", ["Instructions TBD."], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
-		new Minigame("Hunt Trouble", ["Instructions TBD."], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum")
+		new Minigame("Avoid The Anguish", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
+		new Minigame("Conveyor Havoc", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
+		new Minigame("Number Showdown", ["{COLOR,0000FF}Solo Player{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.", "{COLOR,0000FF}Team Players{COLOR,FFFFFF}:\nPick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.jump) + " Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number"], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
+		new Minigame("Getting Coins", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
+		new Minigame("Gigantic Race", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
+		new Minigame("Warping Up", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
+		new Minigame("Hunt Trouble", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum")
 	];
 
 	m[$ "2vs2"] = [
-		new Minigame("A-Maze-Ing", ["Instructions TBD."], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
-		new Minigame("Catch The Fruits", ["Instructions TBD."], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
-		new Minigame("Buttons Everywhere", ["Instructions TBD."], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
-		new Minigame("Fitting Squares", ["Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
-		new Minigame("Colorful Insanity", ["Instructions TBD."], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
-		new Minigame("Springing Piranha", ["Instructions TBD."], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		new Minigame("Dinnyamic Duos", ["Instructions TBD."], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
-		//new Minigame("Western Duel", ["Instructions TBD."], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy")
+		new Minigame("A-Maze-Ing", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
+		new Minigame("Catch The Fruits", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
+		new Minigame("Buttons Everywhere", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
+		new Minigame("Fitting Squares", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nEach team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle"], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
+		new Minigame("Colorful Insanity", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
+		new Minigame("Springing Piranha", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
+		new Minigame("Dinnyamic Duos", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
+		new Minigame("Western Duel", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy")
 	];
 }
 
@@ -260,7 +260,11 @@ function minigame4vs_get_points(player_id) {
 }
 
 function minigame2vs2_get_points(player_id1, player_id2) {
-	return minigame4vs_get_points(player_id1) - minigame4vs_get_points(player_id2);
+	return minigame4vs_get_points(player_id1) + minigame4vs_get_points(player_id2);
+}
+
+function minigame2vs2_get_points_team(id) {
+	return minigame2vs2_get_points(points_teams[id][0].network_id, points_teams[id][1].network_id);	
 }
 
 function minigame_finish(signal = false) {

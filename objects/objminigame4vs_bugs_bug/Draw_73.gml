@@ -1,5 +1,3 @@
-draw_self();
-
 if (state != -1) {
 	draw_set_font(fntDialogue);
 	draw_set_halign(fa_center);

@@ -3,13 +3,11 @@ if (global.player_id == 1) {
 	var names = "";
 
 	for (var i = 1; i <= global.player_max; i++) {
-		var player = focus_player_by_turn(i);
-		
-		if (!array_contains(players, player.network_id)) {
+		if (!array_contains(players, i)) {
 			continue;
 		}
 		
-		names += "{COLOR,0000FF}" + player.network_name + "{COLOR,FFFFFF}, "
+		names += "{COLOR,0000FF}" + focus_player_by_turn(i).network_name + "{COLOR,FFFFFF}, "
 	}
 
 	names = string_copy(names, 1, string_length(names) - 2);

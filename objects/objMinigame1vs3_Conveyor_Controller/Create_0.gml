@@ -11,7 +11,7 @@ with (objPlayerBase) {
 event_inherited();
 
 minigame_start = minigame1vs3_start;
-minigame_time = 25;
+minigame_time = 20;
 minigame_time_end = function() {
 	if (!minigame1vs3_lost()) {
 		minigame1vs3_points();

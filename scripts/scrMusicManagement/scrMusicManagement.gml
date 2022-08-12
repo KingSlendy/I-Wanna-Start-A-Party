@@ -53,7 +53,7 @@ mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
 	
 //Minigames
-mlp[$ bgmMinigameOverview] = new LoopPoint(2.109, 35.502);
+mlp[$ bgmMinigameOverview] = new LoopPoint(2.463, 35.856);
 mlp[$ bgmMinigameNA] = new LoopPoint(2.070, 45.698);
 	
 //4vs

@@ -60,6 +60,7 @@ if (save_present && room == rParty) {
 		board_target_selected = board_selected;
 		save_turn = board.saved_board.saved_turn;
 		save_max_turns = board.saved_board.saved_max_turns;
+		save_give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 	
 		var surf_board = surface_create(board_w, board_h);
 		surface_set_target(surf_board);

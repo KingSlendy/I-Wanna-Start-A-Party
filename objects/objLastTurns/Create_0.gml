@@ -30,25 +30,16 @@ for (var i = 0; i < global.player_max; i++) {
 	
 	with (p_info) {
 		target_draw_x = 800 + draw_w;
-		target_draw_y = 79 + (draw_h + 30) * (order - 1);
+		target_draw_y = 32 + (draw_h + 8) * (order - 1);
 		draw_x = target_draw_x;
 		draw_y = target_draw_y;
 		self.order = order;
 	}
 }
 
-//for (var i = 0; i < global.player_max; i++) {
-//	var p_info = places_minigame_info[i];
-//	var order = places_minigame_order[i];
-			
-//	with (p_info) {
-//		target_draw_x = 400 - draw_w / 2;
-//		target_draw_y = 79 + (draw_h + 30) * (order - 1);
-//	}
-//}
-
 current_player = 0;
 event = -1;
+previous_turn = global.player_turn;
 
 function say_player_place() {
 	if (is_local_turn()) {
@@ -70,13 +61,11 @@ function say_player_place() {
 			
 	with (p_info) {
 		target_draw_x = 800 - draw_w;
-		target_draw_y = 79 + (draw_h + 30) * (order - 1);
+		target_draw_y = 32 + (draw_h + 8) * (order - 1);
 	}
 	
 	current_player++;
 }
-
-previous_turn = global.player_turn;
 
 function help_last_place() {
 	switch_camera_target(focus_player.x, focus_player.y).final_action = give_last_place;

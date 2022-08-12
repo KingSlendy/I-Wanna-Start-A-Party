@@ -215,7 +215,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
 								
-								if (select == 0 && (char == "!" || char == " " || char == ".")) {
+								if (select == 0 && (char == " " || char == "." || char == "!" || char == "?")) {
 									online_texts[select] += char;
 								}
 								
@@ -267,7 +267,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
 								
-								if (select == 0 && (char == "!" || char == " ")) {
+								if (select == 0 && (char == " " || char == "!" || char == "?")) {
 									lobby_texts[select] += char;
 								}
 								

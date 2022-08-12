@@ -51,12 +51,36 @@ function player_fall() {
 function player_shoot(speed = null, direction = null) {
 	var can_shoot = true;
 		
-	if (room == rMinigame4vs_Targets) {
-		with (objMinigameController) {
-			if (player_bullets[player_turn - 1] <= 0) {
-				can_shoot = false;
+	switch (room) {
+		case rMinigame4vs_Targets:
+			with (objMinigameController) {
+				if (player_bullets[player_turn - 1] <= 0) {
+					can_shoot = false;
+				}
 			}
-		}
+			break;
+			
+		case rMinigame2vs2_Duel:
+			with (objMinigameController) {
+				can_shoot = player_can_shoot[other.network_id - 1];
+			
+				if (can_shoot && !take_time) {
+					if (other.network_id == global.player_id) {
+						trophy_shoot = true;
+					}
+					
+					
+					with (other) {
+						player_kill();
+					}
+					
+					return;
+				} else if (other.network_id == global.player_id) {
+					trophy_obtain = false;
+					trophy_shoot = false;
+				}
+			}
+			break;
 	}
 		
 	if (!can_shoot) {
@@ -84,6 +108,15 @@ function player_shoot(speed = null, direction = null) {
 	buffer_write_data(buffer_s8, b.speed);
 	buffer_write_data(buffer_u16, b.direction);
 	network_send_udp_packet();
+	
+	if (room == rMinigame2vs2_Duel) {
+		objMinigameController.player_can_shoot[network_id - 1] = false;
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame2vs2_Duel_Shot);
+		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u16, objMinigameController.player_shot_time[network_id - 1]);
+		network_send_tcp_packet();
+	}
 }
 
 function reset_jumps() {
