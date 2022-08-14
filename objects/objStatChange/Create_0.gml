@@ -5,4 +5,11 @@ animation_alpha = 0;
 animation_state = 0;
 final_action = null;
 amount = 0;
-alarm[0] = 1;
+
+alarms_init(1);
+
+alarm_create(function() {
+	alarm_frames(animation_type, 1);
+});
+
+alarm_call(0, 1);

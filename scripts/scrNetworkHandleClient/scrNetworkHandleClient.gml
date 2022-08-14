@@ -191,7 +191,10 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 		#region Network
 		case ClientTCP.ReceiveMasterID:
 			global.master_id = buffer_read(buffer, buffer_u64);
-			objNetworkClient.alarm[1] = 1;
+			
+			with (objNetworkClient) {
+				alarm_frames(1, 1);
+			}
 			break;
 		
 		case ClientTCP.ReceiveID:
@@ -761,8 +764,8 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					input_input_id: input_id
 				});
 				
-				if (alarm[9] == -1) {
-					alarm[9] = 1;
+				if (alarm_is_stopped(9)) {
+					alarm_frames(9, 1);
 				}
 			}
 			break;
@@ -946,7 +949,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 				}
 			}
 			
-			objMinigameController.alarm[4] = get_frames(1);
+			with (objMinigameController) {
+				alarm_call(4, 1);
+			}
 			break;
 			
 		case ClientTCP.Minigame1vs3_Coins_Coin:
@@ -969,7 +974,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 						}
 					}
 		
-					objMinigameController.alarm[5] = get_frames(0.25);
+					with (objMinigameController) {
+						alarm_call(5, 0.25);
+					}
 				}
 			}
 			break;
@@ -1194,7 +1201,10 @@ function network_read_client_udp(buffer, data_id) {
 		#region Network
 		case ClientUDP.Initialize:
 			global.udp_ready = true;
-			objNetworkClient.alarm[1] = 0;
+			
+			with (objNetworkClient) {
+				alarm_stop(1);
+			}
 			
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.LobbyList);
@@ -1203,7 +1213,9 @@ function network_read_client_udp(buffer, data_id) {
 		
 		case ClientUDP.Heartbeat:
 			if (IS_ONLINE) {
-				objNetworkClient.alarm[0] = get_frames(9);
+				with (objNetworkClient) {
+					alarm_call(0, 9);
+				}
 			}
 			break;
 			
@@ -1284,7 +1296,9 @@ function network_read_client_udp(buffer, data_id) {
 			
 		#region Events
 		case ClientUDP.CrushTheGuy:
-			objTheGuy.alarm[5] = 1;
+			with (objTheGuy) {
+				alarm_frames(5, 1);
+			}
 			break;
 			
 		case ClientUDP.NoNoTheGuy:

@@ -12,5 +12,5 @@ if (--hp <= 0) {
 }
 
 image_alpha = 0.5;
-alarm[0] = get_frames(2);
+alarm_call(0, 2);
 audio_play_sound(sndHit, 0, false);

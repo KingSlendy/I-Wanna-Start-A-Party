@@ -207,7 +207,10 @@ switch (state) {
 				var dir = point_direction(draw_x + draw_w / 2, draw_y + draw_h / 2, 400, 304);
 				target_draw_x = draw_x + lengthdir_x(len, dir);
 				target_draw_y = draw_y + lengthdir_y(len, dir) + ((draw_y > 304) ? -50 : 50);
-				other.alarm[0] = get_frames(1);
+				
+				with (other) {
+					alarm_call(0, 1);
+				}
 			}
 			
 			var all_reds = true;
@@ -234,7 +237,7 @@ switch (state) {
 		if (minigames_alpha >= 1) {
 			minigames_alpha = 1;
 			state = -1;
-			alarm[2] = 1;
+			alarm_frames(2, 1);
 		}
 		break;
 		

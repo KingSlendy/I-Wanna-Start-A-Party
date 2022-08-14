@@ -4,6 +4,6 @@ if (view_start) {
 	if (view_alpha >= 1) {
 		view_alpha = 1;
 		view_start = false;
-		alarm[1] = get_frames(1);
+		alarm_call(1, 1);
 	}
 }

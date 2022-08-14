@@ -1,0 +1,1 @@
+alarms_destroy();

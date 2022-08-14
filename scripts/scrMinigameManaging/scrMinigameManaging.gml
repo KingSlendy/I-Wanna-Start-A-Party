@@ -270,7 +270,7 @@ function minigame2vs2_get_points_team(id) {
 function minigame_finish(signal = false) {
 	with (objMinigameController) {
 		action_end();
-		alarm[10] = 0;
+		alarm_stop(10);
 		
 		if (info.calculated) {
 			return;
@@ -315,7 +315,7 @@ function minigame_finish(signal = false) {
 		}
 			
 		info.calculated = true;
-		alarm[2] = get_frames(2);
+		alarm_call(2, 2);
 	}
 }
 

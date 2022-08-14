@@ -41,3 +41,7 @@ function reposition_player() {
 		restore_target();
 	}
 }
+
+alarm_override(1, function() {
+	unfreeze_player();
+});

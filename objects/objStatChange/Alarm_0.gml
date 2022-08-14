@@ -1,1 +1,0 @@
-alarm[animation_type] = 1;

@@ -20,8 +20,8 @@ minigame_time_end = function() {
 }
 
 action_end = function() {
-	alarm[4] = 0;
-	alarm[5] = 0;
+	alarm_stop(4);
+	alarm_stop(5);
 }
 
 points_draw = true;
@@ -31,3 +31,28 @@ coin_count = 0;
 spike_count = 0;
 
 trophy_hit = true;
+
+alarm_override(1, function() {
+	alarm_inherited(1);
+	alarm_frames(4, 1);
+	alarm_frames(5, 1);
+});
+
+alarm_create(4, function() {
+	next_seed_inline();
+
+	if (coin_count++ % 2 == 0) {
+		var c = instance_create_layer(496, 256, "Collectables", objMinigame1vs3_Coins_Coin);
+	} else {
+		var c = instance_create_layer(720, 256, "Collectables", objMinigame1vs3_Coins_Coin);
+	}
+
+	c.hspeed = choose(-1, 1);
+
+	alarm_call(4, 0.8);
+});
+
+alarm_create(5, function() {
+	var s = instance_create_layer(48, 256, "Collectables", objMinigame1vs3_Coins_Spike);
+	s.count = spike_count++;
+});

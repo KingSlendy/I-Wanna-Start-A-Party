@@ -12,3 +12,8 @@ with (objPlayerBase) {
 event_inherited();
 
 player_check = objPlayerPlatformer;
+
+alarm_override(1, function() {
+	alarm_inherited(1);
+	objPlayerBase.grav_amount = 0.8;
+});

@@ -6,5 +6,7 @@ if (instance_number(object_index) <= 1) {
 		selected = -1;
 	}
 	
-	objMinigameController.alarm[1] = get_frames(1);
+	with (objMinigameController) {
+		alarm_call(1, 1);
+	}
 }

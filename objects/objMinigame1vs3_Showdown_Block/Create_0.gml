@@ -2,4 +2,14 @@ number = -1;
 show = 0;
 selecting = false;
 
-alarm[0] = 1;
+alarms_init(1);
+
+alarm_create(function() {
+	var player = instance_place(x, y - 1, objPlayerBase);
+
+	if (player != noone) {
+		player_id = player.network_id;
+	}
+});
+
+alarm_frames(0, 1);

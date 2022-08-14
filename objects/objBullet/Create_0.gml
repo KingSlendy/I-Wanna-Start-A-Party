@@ -5,4 +5,11 @@ if (room == rMinigame4vs_Targets) {
 }
 
 audio_play_sound(sndShoot, 0, false);
-alarm[0] = (room != rMinigame4vs_Rocket) ? 60 : 100;
+
+alarms_init(1);
+
+alarm_create(function() {
+	instance_destroy();
+});
+
+alarm_frames(0, (room != rMinigame4vs_Rocket) ? 60 : 100);

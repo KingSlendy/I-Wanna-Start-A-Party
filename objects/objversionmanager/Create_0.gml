@@ -20,3 +20,19 @@ if (socket < 0) {
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_raw_async(socket, "startaparty.sytes.net", 33320);
+
+alarms_init(3);
+
+alarm_create(function() {
+	instance_destroy();
+});
+
+alarm_create(function() {
+	game_end();
+});
+
+alarm_create(function() {
+	text = "Connection timeout!";
+	downloading = false;
+	alarm_call(0, 3);
+});

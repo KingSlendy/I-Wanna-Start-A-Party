@@ -27,3 +27,9 @@ reset_jumps();
 left_action = "left";
 right_action = "right";
 jump_action = "jump";
+
+alarm_create(0, function() {
+	if (room == rMinigame1vs3_Coins) {
+		image_alpha = 1;
+	}
+});

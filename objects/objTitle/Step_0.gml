@@ -6,7 +6,7 @@ if (fade_start) {
 			fade_alpha = 0;
 			title_start = true;
 			fade_start = false;
-			alarm[0] = 1;
+			alarm_frames(0, 1);
 			music_play(bgmTitle);
 		}
 	} else {

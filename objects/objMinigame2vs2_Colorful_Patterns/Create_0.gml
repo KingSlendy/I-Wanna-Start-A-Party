@@ -154,8 +154,8 @@ function pattern_move_horizontal(index, h, network = true) {
 }
 
 function pattern_select(index, network = true) {
-	if (alarm[0] != -1) {
-		exit;
+	if (!alarm_is_stopped(0)) {
+		return;
 	}
 	
 	var player_id = pattern_player_ids[index];
@@ -182,7 +182,7 @@ function pattern_select(index, network = true) {
 		var other_col = pattern_col_selected[!index];
 				
 		if ((me_row != other_row || me_col != other_col) && pattern_grid[me_row][me_col].equals(pattern_chosen) && pattern_grid[other_row][other_col].equals(pattern_chosen)) {
-			alarm[0] = get_frames(1);
+			alarm_call(0, 1);
 			audio_play_sound(sndMinigame2vs2_Colorful_PatternCorrect, 0, false);
 		}
 	}
@@ -196,3 +196,9 @@ function pattern_select(index, network = true) {
 		network_send_tcp_packet();
 	}
 }
+
+alarms_init(1);
+
+alarm_create(function() {
+	event_perform(ev_other, ev_room_start);
+});

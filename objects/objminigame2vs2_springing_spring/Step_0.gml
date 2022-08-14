@@ -13,6 +13,6 @@ if (enabled) {
 		
 		image_index = 1;
 		audio_play_sound(sndMinigame2vs2_Springing_Spring, 0, false);
-		alarm[0] = get_frames(0.25);
+		alarm_call(0, 0.25);
 	}
 }

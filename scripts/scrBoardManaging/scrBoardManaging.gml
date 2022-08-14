@@ -355,7 +355,9 @@ function turn_start() {
 	var freezed = (player_info_by_turn().item_effect == ItemType.Ice);
 	
 	if (freezed) {
-		objBoard.alarm[4] = get_frames(1);
+		with (objBoard) {
+			alarm_call(4, 1);
+		}
 	}
 	
 	if (is_local_turn()) {

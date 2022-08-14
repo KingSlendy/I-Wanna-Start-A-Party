@@ -1,9 +1,8 @@
-if (!cleaned) {
-	mp_grid_destroy(grid);
+event_inherited();
+mp_grid_destroy(grid);
 
-	with (objPlayerBase) {
+with (objPlayerBase) {
+	if (path_exists(path)) {
 		path_delete(path);
 	}
-	
-	cleaned = true;
 }

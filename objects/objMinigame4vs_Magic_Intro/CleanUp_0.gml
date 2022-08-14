@@ -1,3 +1,4 @@
+alarms_destroy();
 view_visible[6] = false;
 view_surface_id[6] = -1
 view_visible[7] = false;

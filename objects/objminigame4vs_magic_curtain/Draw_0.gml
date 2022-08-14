@@ -1,0 +1,1 @@
+draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, c_white, (point_distance(image_alpha, 0, alpha_target, 0) > 0.01) ? image_alpha : alpha_target);

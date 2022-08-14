@@ -1,3 +1,5 @@
+alarms_destroy();
+
 for (var i = 0; i < array_length(file_sprites); i++) {
 	sprite_delete(file_sprites[i]);
 }

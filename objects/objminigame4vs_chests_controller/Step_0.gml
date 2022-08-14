@@ -8,11 +8,11 @@ with (objMinigame4vs_Chests_Chest) {
 }
 
 if (all_selected) {
-	if (alarm[6] == -1) {
-		alarm[6] = get_frames(1);
+	if (alarm_is_stopped(6)) {
+		alarm_call(6, 1);
 	}
 } else {
-	alarm[6] = 0;
+	alarm_stop(6);
 }
 
 if (chest_started && !info.is_finished) {

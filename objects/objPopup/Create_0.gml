@@ -10,3 +10,11 @@ curve_type = crvPopup;
 curve_channel = animcurve_get_channel(curve_type, "Scale");
 curve_pos = 0;
 curve_spd = 0.025;
+
+alarms_init(1);
+
+alarm_create(function() {
+	if (shrink) {
+		disappear = true;
+	}
+});

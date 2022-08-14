@@ -88,7 +88,7 @@ function network_send_udp_packet() {
 
 function player_join_all() {
 	for (var i = 1; i <= global.player_max; i++) {
-	if (global.player_client_list[i - 1] == null) {
+		if (global.player_client_list[i - 1] == null) {
 			player_join(i);
 		}
 	}
@@ -234,7 +234,10 @@ function player_read_data(buffer) {
 	var instance = global.player_client_list[network_id - 1];
 		
 	if (instance != null) {
-		instance.alarm[11] = get_frames(10);
+		with (instance) {
+			alarm_call(11, 11);
+		}
+		
 		instance.network_name = buffer_read(buffer, buffer_string);
 		instance.ai = buffer_read(buffer, buffer_bool);
 		instance.network_index = buffer_read(buffer, buffer_u16);

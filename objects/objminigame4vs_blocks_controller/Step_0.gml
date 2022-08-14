@@ -7,7 +7,7 @@ if (minigame_lost_all()) {
 		enabled = false;
 		active = false;
 		image_blend = c_white;
-		alarm[0] = 0;
+		alarm_stop(0);
 	}
 	
 	minigame_lost_points();

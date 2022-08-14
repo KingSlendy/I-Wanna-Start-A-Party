@@ -26,7 +26,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Basement",
-    "path": "folders/Objects/Boards/Basement.yy",
+    "path": "folders/Objects/Boards/Events/Basement.yy",
   },
   "resourceVersion": "1.0",
   "name": "objBoardBasement_Doors",

@@ -298,7 +298,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 5:
-						if (global.player_id != 1 || alarm[0] > 0 || global.lobby_started) {
+						if (global.player_id != 1 || !alarm_is_stopped(0) || global.lobby_started) {
 							exit;
 						}
 						
@@ -313,7 +313,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						}
 						
 						ai_join_all();
-						alarm[0] = get_frames(1);
+						alarm_call(0, 1);
 						music_fade();
 						audio_play_sound(global.sound_cursor_big_select, 0, false);
 						

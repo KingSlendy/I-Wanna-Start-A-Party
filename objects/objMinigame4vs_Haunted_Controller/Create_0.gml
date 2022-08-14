@@ -16,11 +16,50 @@ action_end = function() {
 	with (objMinigame4vs_Haunted_Boo) {
 		image_index = 0;
 		image_xscale = -5;
-		alarm[0] = 0;
-		alarm[1] = 0;
-		alarm[2] = 0;
+		alarm_stop(0);
+		alarm_stop(1);
+		alarm_stop(2);
 	}
 }
 
 player_check = objPlayerPlatformer;
 state = 0;
+
+alarm_override(0, function() {
+	if (state++ == 1) {
+		alarm_inherited(0);
+		next_seed_inline();
+	
+		with (objMinigame4vs_Haunted_Boo) {
+			alarm_call(0, random_range(2, 4));
+		}
+	} else {
+		with (objMinigame4vs_Haunted_Boo) {
+			alarm_call(0, 0.5);
+		}
+	}
+});
+
+alarm_override(11, function() {
+	if (global.player_id != 1) {
+		return;
+	}
+
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+		
+		if (sign(objMinigame4vs_Haunted_Boo.image_xscale) == 1) {
+			actions.right.press();
+		} else {
+			if (irandom(10) == 0) {
+				actions.right.hold(get_frames(0.5));
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
+});

@@ -25,7 +25,9 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				solo_wrong = true;
 			}
 			
-			other.alarm[4] = get_frames(1);
+			with (other) {
+				alarm_call(4, 1);
+			}
 			
 			if (array_length(network_solo_actions) == 0) {
 				buffer_seek_begin();
@@ -59,7 +61,9 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				team_wrong = true;
 			}
 			
-			other.alarm[5] = get_frames(1);
+			with (other) {
+				alarm_call(5, 1);
+			}
 			
 			if (array_length(network_team_actions) == 0) {
 				buffer_seek_begin();

@@ -5,7 +5,7 @@ if (instance_number(object_index) <= 1) {
 	}
 	
 	with (objMinigameController) {
-		alarm[4] = 1;
-		alarm[5] = get_frames(5);
+		alarm_frames(4, 1);
+		alarm_call(5, 5);
 	}
 }

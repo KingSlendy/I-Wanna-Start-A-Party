@@ -9,7 +9,6 @@ broken_hspd = 0;
 broken_vspd = 0;
 broken_grav = 0;
 music_fade();
-alarm[0] = get_frames(1);
 
 prev_player_positions = store_player_positions();
 rotate_turn = true;
@@ -34,11 +33,16 @@ function TheGuyOption(only_me, amount, text = "", action = null) constructor {
 					"What!? You don't even have coins!?",
 					new Message("Let's see if this makes you feel like you're good at playing.",, function() {
 						change_coins(30, CoinChangeType.Gain);
-						objTheGuy.alarm[5] = get_frames(1);
+						
+						with (objTheGuy) {
+							alarm_call(5, 1);
+						}
 					})
 				]);
 			
-				objTheGuy.alarm[5] = 0;
+				with (objTheGuy) {
+					alarm_stop(5);
+				}
 				return;
 			}
 			
@@ -82,7 +86,10 @@ options = [
 					"I see you don't have a shine on you.",
 					new Message("To compensate I'm gonna take a couple coins instead.",, function() {
 						change_coins(-30, CoinChangeType.Lose);
-						objTheGuy.alarm[5] = get_frames(1);
+						
+						with (objTheGuy) {
+							alarm_call(5, 1);
+						}
 					})
 				]);
 			} else {
@@ -90,12 +97,18 @@ options = [
 					"You don't have shines, and I was gonna take coins away but apparently you're this bad at playing.",
 					new Message("Here have a spare coin, play better.",, function() {
 						change_coins(1, CoinChangeType.Gain);
-						objTheGuy.alarm[5] = get_frames(1);
+						
+						with (objTheGuy) {
+							alarm_call(5, 1);
+						}
 					})
 				]);
 			}
 			
-			objTheGuy.alarm[5] = 0;
+			with (objTheGuy) {
+				alarm_stop(5);
+			}
+			
 			return;
 		}
 		
@@ -115,8 +128,13 @@ options = [
 			change_coins(-999, CoinChangeType.Lose, i);
 		}
 		
-		objTheGuy.alarm[5] = 0;
-		objTheGuy.alarm[9] = get_frames(1);
+		with (objTheGuy) {
+			alarm_stop(5);
+		}
+		
+		with (objTheGuy) {
+			alarm_call(9, 1);
+		}
 	}),
 	
 	new TheGuyOption(true, 0, "You {COLOR,00FFFF}get{COLOR,FFFFFF} {SPRITE,sprShine,0,0,-2,0.5,0.5}100", function() {
@@ -126,7 +144,11 @@ options = [
 		}
 		
 		objTheGuyEye.image_speed = 1;
-		objTheGuy.alarm[8] = get_frames(1.5);
+		
+		with (objTheGuy) {
+			alarm_call(8, 1.5);
+		}
+		
 		buffer_seek_begin();
 		buffer_write_action(ClientUDP.NoNoTheGuy);
 		network_send_udp_packet();
@@ -140,7 +162,7 @@ options = [
 array_shuffle(options);
 
 function show_the_guy_options() {
-	alarm[2] = 1;
+	alarm_frames(2, 1);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
@@ -165,7 +187,10 @@ function end_the_guy() {
 	
 	switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
 		music_fade();
-		objTheGuy.alarm[7] = get_frames(1);
+
+		with (objTheGuy) {
+			alarm_call(7, 1);
+		}
 	}
 	
 	follow_player = true;
@@ -177,3 +202,149 @@ function end_the_guy() {
 		network_send_tcp_packet();
 	}
 }
+
+alarms_init(10);
+
+alarm_create(function() {
+	audio_play_sound(sndTheGuyIntro, 0, false);
+	alarm_call(1, 2.6);
+});
+
+alarm_create(function() {
+	music_pause();
+	music_change(bgmTheGuy);
+	var view_x = camera_get_view_x(view_camera[0]);
+	var view_y = camera_get_view_y(view_camera[0]);
+	instance_create_layer(view_x + 380, view_y + 284, "Actors", objTheGuyHead);
+	follow_player = false;
+	draw_surf = true;
+
+	var broken_surf = surface_create(800, 608);
+	surface_set_target(broken_surf);
+	draw_sprite(sprTheGuyBroken, 0, 400, 304);
+	gpu_set_colorwriteenable(true, true, true, false);
+	draw_surface(application_surface, 0, 0);
+	//draw_set_alpha(fade_alpha);
+	//draw_set_color(c_black);
+	//draw_rectangle(0, 0, 800, 608, false);
+	//draw_set_alpha(1);
+	gpu_set_colorwriteenable(true, true, true, true);
+	surface_reset_target();
+	broken_sprite = sprite_create_from_surface(broken_surf, 0, 0, 800, 608, false, false, 400, 304);
+	surface_free(broken_surf);
+
+	broken_hspd = irandom_range(-4, 4);
+	broken_vspd = irandom_range(-6, -4);
+	broken_grav = 0.5;
+});
+
+alarm_create(function() {
+	options_fade = 0;
+});
+
+alarm_create(function() {
+	global.choice_selected = (global.choice_selected + options_dir + options_total) % options_total;
+	audio_play_sound(sndRouletteRoll, 0, false);
+
+	if (options_dir == 1) {
+		options_timer += 0.10;
+	
+		if (options_timer > 6 && irandom(10) == 0) {
+			options_timer = 5;
+			options_dir = -1;
+		
+			with (objTheGuyHead) {
+				snd = audio_play_sound(sndTheGuyEscape, 0, false);
+			}
+		
+			alarm_call(3, random_range(0.75, 1.5));
+			return;
+		}
+	} else {
+		if (irandom(1) == 0 && global.choice_selected == options_chosen) {
+			alarm_call(6, 1);
+			return;
+		}
+	}
+
+	alarm_frames(3, options_timer);
+});
+
+alarm_create(function() {
+	if (is_local_turn()) {
+		with (objTheGuy) {
+			alarm_call(5, 1);
+		}
+			
+		options[global.choice_selected].action();
+	}
+});
+
+alarm_create(function() {
+	if (!alarm_is_stopped(8)) {
+		exit;
+	}
+
+	if (instance_exists(objStatChange)) {
+		alarm_frames(5, 1);
+		return;
+	}
+
+	objTheGuyHead.snd = audio_play_sound(sndTheGuyCrushBones, 0, false);
+
+	if (is_local_turn()) {
+		start_dialogue([
+			new Message("Hope you think twice before landing on my space again.",, end_the_guy)
+		]);
+	
+		buffer_seek_begin();
+		buffer_write_action(ClientUDP.CrushTheGuy);
+		network_send_udp_packet();
+	}
+});
+
+alarm_create(function() {
+	options_fade = 1;
+});
+
+alarm_create(function() {
+	if (instance_exists(objStatChange)) {
+		alarm_frames(7, 1);
+		return;
+	}
+
+	music_stop();
+	music_resume();
+	audio_sound_gain(global.music_current, 1, 0);
+
+	if (rotate_turn) {
+		turn_next();
+	}
+
+	instance_destroy(objTheGuyHead);
+	instance_destroy(objTheGuyEye);
+	instance_destroy();
+});
+
+alarm_create(function() {
+	end_the_guy();
+});
+
+alarm_create(function() {
+	if (!alarm_is_stopped(8)) {
+		return;
+	}
+
+	if (instance_exists(objStatChange)) {
+		alarm_frames(9, 1);
+		return;
+	}
+
+	for (var i = 1; i <= global.player_max; i++) {
+		change_coins(total_coins, CoinChangeType.Gain, i);
+	}
+		
+	alarm_frames(5, 1);
+});
+
+alarm_call(0, 1);

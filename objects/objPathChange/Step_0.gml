@@ -1,4 +1,3 @@
-//Temp
 if (!is_local_turn() || instance_exists(objMapLook)) {
 	exit;
 }

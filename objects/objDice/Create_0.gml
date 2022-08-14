@@ -44,5 +44,18 @@ function random_roll() {
 
 roll = 0;
 random_roll();
-roll_spd = (player_info.item_effect != ItemType.Clock) ? 4 : get_frames(0.75);
-alarm[0] = roll_spd;
+roll_spd = (player_info.item_effect != ItemType.Clock) ? 0.08 : 0.75;
+
+alarms_init(1);
+
+alarm_create(function() {
+	random_roll();
+
+	if (layer_sequence_is_finished(sequence)) {
+		audio_play_sound(sndDiceRoll, 0, false);
+	}
+
+	alarm_call(0, roll_spd);
+});
+
+alarm_call(0, roll_spd);

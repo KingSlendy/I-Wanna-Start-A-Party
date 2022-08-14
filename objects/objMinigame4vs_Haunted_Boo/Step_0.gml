@@ -18,7 +18,7 @@ if (x == target_x && y == target_y) {
 			}
 		}
 		
-		event_perform(ev_alarm, 2);
+		alarm_instant(2);
 		player_targets = [];
 		targeting = false;
 		returning = false;

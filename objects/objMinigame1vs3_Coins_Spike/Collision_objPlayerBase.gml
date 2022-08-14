@@ -11,8 +11,10 @@ if (x < 192) {
 	
 	if (!threw && follow == null && global.actions.shoot.pressed(other.network_id)) {
 		follow = other;
-		objMinigameController.alarm[5] = get_frames(0.25);
-		
+		with (objMinigameController) {
+			alarm_call(5, 0.25);
+		}
+
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame1vs3_Coins_HoldSpike);
 		buffer_write_data(buffer_u32, count);
@@ -30,7 +32,7 @@ if (x < 192) {
 			
 			if (is_player_local(network_id)) {
 				image_alpha = 0.5;
-				alarm[0] = get_frames(1);
+				alarm_call(0, 1);
 			}
 			
 			audio_play_sound(sndDeath, 0, false);

@@ -25,3 +25,14 @@ shoot_delay = array_create(3, 0);
 function create_shoot(x, y) {
 	instance_create_layer(x, y, "Actors", objMinigame1vs3_Hunt_Shot);
 }
+
+alarm_override(1, function() {
+	with (objPlayerBase) {
+		if (y < 640) {
+			frozen = false;
+			break;
+		}
+	}
+
+	shoot_start = true;
+});

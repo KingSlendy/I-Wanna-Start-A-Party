@@ -63,3 +63,10 @@ array_shuffle(skins);
 for (var i = 0; i < 360; i += 360 / 7) {
 	array_push(kids, new GiftKids(i, id));
 }
+
+alarms_init(1);
+
+alarm_create(function() {
+	start_visible = !start_visible;
+	alarm_call(0, 0.5);
+});

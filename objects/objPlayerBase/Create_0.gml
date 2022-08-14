@@ -17,3 +17,9 @@ function change_to_object(obj) {
 		instance_destroy();
 	}
 }
+
+alarms_init(12);
+
+alarm_create(11, function() {
+	player_disconnection(network_id);
+});

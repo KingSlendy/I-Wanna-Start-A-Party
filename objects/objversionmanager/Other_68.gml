@@ -5,7 +5,7 @@ switch (type) {
 		var succeeded = async_load[? "succeeded"];
 		
 		if (succeeded == 0) {
-			alarm[2] = 1;
+			alarm_frames(2, 1);
 		}
 		break;
 		
@@ -31,7 +31,8 @@ switch (type) {
 					text = "Downloading version...";
 					downloading = true;
 				} else {
-					instance_destroy();
+					alarm_instant(0);
+					exit;
 				}
 			} else {
 				var check = buffer_get_size(buffer);
@@ -45,17 +46,17 @@ switch (type) {
 					file_delete("Version.zip");
 					buffer_delete(bytes);
 					execute_shell_simple(game_save_id + "update.bat",,, 0);
-					alarm[1] = get_frames(3);
-					alarm[2] = 0;
+					alarm_call(1, 3);
+					alarm_stop(2);
 					exit;
 				}
 			}
 		} catch (_) {
-			text = "An error ocurred..."
-			alarm[0] = get_frames(3);
+			text = "An error ocurred...";
+			alarm_call(0, 3);
 			exit;
 		}
 		
-		alarm[2] = get_frames(30);
+		alarm_call(2, 30);
 		break;
 }

@@ -14,7 +14,7 @@ minigame_time_end = function() {
 		stop_input();
 		correct = false;
 		objMinigame4vs_Lead_Bubble.image_blend = c_red;
-		event_perform(ev_alarm, 4);
+		alarm_instant(4);
 	}
 }
 
@@ -57,9 +57,9 @@ function check_input(input_id, network = true) {
 		stop_input();
 		correct = true;
 		array_push(sequence, input_id);
-		alarm[4] = get_frames(1);
-		alarm[10] = 0;
-		alarm[11] = get_frames(random_range(2, 3));
+		alarm_call(4, 1);
+		alarm_stop(10);
+		alarm_call(11, random_range(2, 3));
 		return;
 	}
 			
@@ -73,8 +73,8 @@ function check_input(input_id, network = true) {
 		stop_input();
 		correct = false;
 		objMinigame4vs_Lead_Bubble.image_blend = c_red;
-		alarm[4] = get_frames(1);
-		alarm[10] = 0;
+		alarm_call(4, 1);
+		alarm_stop(10);
 	}
 }
 
@@ -95,5 +95,94 @@ function next_player() {
 	}
 	
 	minigame_time = 10;
-	alarm[10] = get_frames(1);
+	alarm_call(10, 1);
 }
+
+alarm_override(0, function() {
+	if (state++ == 1) {
+		alarm_inherited(0);
+	} else {
+		with (objMinigame4vs_Lead_DeDeDe) {
+			alarm_frames(0, 1);
+		}
+	}
+});
+
+alarm_override(1, function() {
+	allowed = true;
+	objMinigame4vs_Lead_Bubble.visible = true;
+	next_player();
+});
+
+alarm_create(4, function() {
+	var player = focus_player_by_turn(minigame_turn);
+
+	if (!correct) {
+		with (focus_player_by_turn(minigame_turn)) {
+			player_kill();
+			lost = true;
+		}
+	}
+
+	do {
+		if (++minigame_turn > global.player_max) {
+			minigame_turn = 1;
+		}
+	
+		player = focus_player_by_turn(minigame_turn);
+	} until (!player.lost);
+
+	objMinigame4vs_Lead_Bubble.action_shown = -1;
+	var lost_count = 0;
+
+	with (objPlayerBase) {
+		lost_count += lost;
+	}
+
+	if (lost_count == global.player_max - 1) {
+		objMinigame4vs_Lead_Bubble.visible = false;
+		minigame4vs_points(player.network_id);
+		minigame_finish();
+		return;
+	}
+
+	next_player();
+});
+
+alarm_create(9, function() {
+	var input = network_inputs[0];
+
+	if (input.input_player_id != focus_player_by_turn(minigame_turn).network_id) {
+		alarm_frames(9, 1);
+		return;
+	}
+
+	check_input(input.input_input_id, false);
+	array_delete(network_inputs, 0, 1);
+
+	if (array_length(network_inputs) > 0) {
+		alarm_call(9, 0.25);
+	}
+});
+
+alarm_override(11, function() {
+	if (global.player_id != 1) {
+		return;
+	}
+
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		if (current < array_length(sequence) && irandom(max(24 - array_length(sequence), 1)) != 0) {
+			actions[$ sequence_actions[sequence[current]]].press();
+		} else {
+			actions[$ sequence_actions[irandom(array_length(sequence_actions) - 1)]].press();
+		}
+	}
+
+	alarm_call(11, 0.3);
+});

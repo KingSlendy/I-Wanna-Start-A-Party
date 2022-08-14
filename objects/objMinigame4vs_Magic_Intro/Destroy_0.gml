@@ -5,4 +5,6 @@ with (objMinigame4vs_Magic_Items) {
 	}
 }
 
-objMinigameController.alarm[0] = 1;
+with (objMinigameController) {
+	alarm_frames(0, 1);
+}

@@ -62,3 +62,41 @@ for (var i = 0; i < array_length(info.shine_positions); i++) {
 		floating = true;
 	}
 }
+
+alarms_init(3);
+
+alarm_create(function() {
+	if (is_local_turn()) {
+		for (var i = 0; i < array_length(info.players_won); i++) {
+			var player_won = info.players_won[i];
+			change_coins(10, CoinChangeType.Results, player_info_by_id(player_won).turn);
+		}
+	}
+
+	alarm_call(1, 1);
+});
+
+alarm_create(function() {
+	if (instance_exists(objStatChange)) {
+		alarm_frames(1, 1);
+		return;
+	}
+
+	minigame_info_placement();
+
+	for (var i = 0; i < global.player_max; i++) {
+		var player_info = places_minigame_info[i];
+		var order = places_minigame_order[i];
+			
+		with (player_info) {
+			target_draw_x = 400 - draw_w / 2;
+			target_draw_y = 79 + (draw_h + 30) * (order - 1);
+		}
+	}
+
+	alarm_call(2, 1.5);
+});
+
+alarm_create(function() {
+	state = 1;
+});

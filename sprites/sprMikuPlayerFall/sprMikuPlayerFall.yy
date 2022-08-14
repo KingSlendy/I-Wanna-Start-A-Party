@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Miku",
-    "path": "folders/Sprites/Objects/Player/Skins/Miku.yy",
+    "name": "Miki",
+    "path": "folders/Sprites/Objects/Player/Skins/Miki.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprMikuPlayerFall",

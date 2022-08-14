@@ -16,3 +16,12 @@ target_state = 0;
 
 music_pause();
 audio_play_sound(bgmBoardHotlandAnnoyingDog, 0, true);
+
+alarms_init(1);
+
+alarm_create(function() {
+	image_xscale *= -1;
+	target_x = xstart;
+	target_y = ystart;
+	target_state = 1;
+});

@@ -5,7 +5,6 @@ fade_start = false;
 
 show_popup("",,,,,, 4.5);
 audio_play_sound(sndResultsSuperstar, 0, false);
-alarm[0] = get_frames(5.5);
 displaying = 1;
 
 function minigame_info_placement() {
@@ -63,3 +62,66 @@ stats_target_x = 800;
 stats_page = 0;
 stats_total_page = array_length(stats_bonuses) div 6;
 show_inputs = false;
+
+alarms_init(3);
+
+alarm_create(function() {
+	fade_start = true;
+	sprite = sprite_create_from_surface(application_surface, 0, 0, 800, 608, false, false, 0, 0);
+	alarm_call(1, 1);
+});
+
+alarm_create(function() {
+	with (objPlayerInfo) {
+		if (player_info.place == other.displaying) {
+			target_draw_x = 400 - draw_w / 2;
+		}
+	}
+
+	displaying++;
+
+	if (displaying == 5) {
+		alarm_call(2, 2);
+		return;
+	}
+
+	alarm_call(1, 0.5);
+});
+
+alarm_create(function() {
+	with (objPlayerInfo) {
+		target_draw_x = 50;
+	}
+
+	stats_target_x = 320;
+	show_inputs = true;
+
+	var player_info = player_info_by_id(global.player_id);
+
+	global.games_played++;
+	increase_collected_coins(global.max_board_turns * 100 + player_info.shines * 100);
+	variable_struct_remove(global.board_games, global.game_id);
+	save_file();
+
+	if (player_info.place == 1) {
+		gain_trophy(31);
+	}
+
+	if (player_info.place == 4) {
+		gain_trophy(32);
+	}
+
+	if (player_info.shines == 0) {
+		gain_trophy(33);
+	}
+
+	if (global.max_board_turns == 50) {
+		gain_trophy(39);
+	}
+
+	if (array_count(player_info.items, null) == 0) {
+		gain_trophy(40);
+	}
+});
+
+alarm_call(0, 5.5);

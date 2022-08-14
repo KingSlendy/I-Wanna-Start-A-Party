@@ -8,11 +8,11 @@ targeting = false;
 returning = false;
 
 function start_target_player() {
-	if (alarm[3] == -1) {
-		alarm[0] = 0;
-		alarm[1] = 0;
-		alarm[2] = 0;
-		alarm[3] = get_frames(1);
+	if (alarm_is_stopped(3)) {
+		alarm_stop(0);
+		alarm_stop(1);
+		alarm_stop(2);
+		alarm_call(3, 1);
 		targeting = true;
 	}
 }
@@ -49,3 +49,46 @@ function next_target_player() {
 		}
 	}
 }
+
+alarms_init(4);
+
+alarm_create(function() {
+	lookout = true;
+	music_pause();
+	audio_play_sound(sndMinigame4vs_Haunted_Boo, 0, false);
+	next_seed_inline();
+	alarm_call(1, random_range(0.5, 1));
+});
+
+alarm_create(function() {
+	image_index = 0;
+	image_xscale *= -1;
+	alarm_call(2, 2);
+});
+
+alarm_create(function() {
+	image_index = 1;
+	image_xscale *= -1;
+	lookout = false;
+
+	if (objMinigameController.info.is_finished) {
+		return;
+	}
+
+	music_resume();
+
+	if (objMinigameController.state > 1) {
+		next_seed_inline();
+		alarm_call(0, random_range(2, 4));
+	} else {
+		with (objMinigameController) {
+			alarm_call(0, 1);
+		}
+	}
+});
+
+alarm_create(function() {
+	lookout = false;
+	objPlayerBase.frozen = true;
+	next_target_player();
+});

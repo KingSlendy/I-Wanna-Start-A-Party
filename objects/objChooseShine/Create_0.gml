@@ -17,6 +17,21 @@ function spawn_shine() {
 		instance_create_layer(space_x + 16, space_y + 16, "Actors", objShine);
 		audio_play_sound(sndShineSpawn, 0, false);
 		spawned = true;
-		alarm[0] = get_frames(2);
+		alarm_call(0, 2);
 	}
 }
+
+alarms_init(1);
+
+alarm_create(function() {
+	if (instance_number(objShine) < global.shine_spawn_count) {
+		if (is_local_turn()) {
+			choose_shine();
+		}
+	
+		instance_destroy(id, false);
+		return;
+	}
+
+	fade_state = 1;
+});

@@ -11,7 +11,7 @@ if (!touched && other.last_touched != id) {
 	}
 	
 	touched = true;
-	alarm[0] = get_frames(5);
+	alarm_call(0, 3);
 	audio_play_sound(sndMinigame4vs_Dizzy_Warp, 0, false);
 	
 	if (other.network_id == global.player_id) {

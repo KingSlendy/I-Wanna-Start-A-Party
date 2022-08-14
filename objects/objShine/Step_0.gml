@@ -24,9 +24,13 @@ if (spawning) {
 		if (image_xscale <= 0) {
 			if (!faker) {
 				if (!instance_exists(objBoardHotlandAnnoyingDog)) {
-					objShineChange.alarm[11] = 1;
+					with (objShineChange) {
+						alarm_frames(11, 1);
+					}
 				} else {
-					objBoardHotlandAnnoyingDog.alarm[0] = get_frames(0.5);
+					with (objBoardHotlandAnnoyingDog) {
+						alarm_call(0, 0.5);
+					}
 				}
 			}
 			
@@ -40,7 +44,10 @@ if (getting) {
 	image_yscale -= 0.03;
 	
 	if (image_xscale <= 0) {
-		objShineChange.alarm[11] = 1;
+		with (objShineChange) {
+			alarm_frames(11, 1);
+		}
+		
 		instance_destroy();
 	}
 	

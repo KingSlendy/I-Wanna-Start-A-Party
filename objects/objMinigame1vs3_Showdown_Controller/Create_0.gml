@@ -39,13 +39,15 @@ minigame_time_end = function() {
 			return;
 		}
 	}
-			
-	objMinigameController.alarm[4] = get_frames(1);
+	
+	with (objMinigameController) {
+		alarm_call(4, 1);
+	}
 }
 
 action_end = function() {
-	alarm[1] = 0;
-	alarm[4] = 0;
+	alarm_stop(1);
+	alarm_stop(4);
 	
 	with (objMinigame1vs3_Showdown_Block) {
 		number = -1;
@@ -56,3 +58,103 @@ action_end = function() {
 player_check = objPlayerPlatformer;
 
 rounds = -1;
+
+alarm_override(1, function() {
+	if (minigame1vs3_lost()) {
+		with (points_teams[1][0]) {
+			if (network_id == global.player_id && other.rounds == 0) {
+				gain_trophy(13);
+			}
+		
+			minigame4vs_points(network_id);	
+		}
+	
+		minigame_finish();
+		return;
+	}
+
+	if (++rounds == instance_number(objMinigame1vs3_Showdown_Rounds)) {
+		var survived = true;
+		var below = false;
+	
+		for (var i = 0; i < array_length(points_teams[0]); i++) {
+			with (points_teams[0][i]) {
+				if (lost) {
+					survived = false;
+				}
+			
+				if (network_id == global.player_id) {
+					below = true;
+				}
+			
+				minigame4vs_points(network_id);
+			}
+		}
+	
+		if (survived && below) {
+			gain_trophy(12);
+		}
+	
+		minigame_finish();
+		return;
+	}
+
+	with (objMinigame1vs3_Showdown_Block) {
+		number = -1;
+	
+		if (is_player_local(player_id)) {
+			selecting = true;
+		}
+	}
+
+	minigame_time = 5;
+	alarm_call(10, 1);
+});
+
+alarm_create(4, function() {
+	var up_number = -1;
+
+	with (objMinigame1vs3_Showdown_Block) {
+		if (y < 304) {
+			up_number = number;
+			break;
+		}
+	}
+
+	with (objMinigame1vs3_Showdown_Block) {
+		if (y > 304 && number == up_number) {
+			instance_destroy();
+		}
+	}
+
+	with (objMinigame1vs3_Showdown_Rounds) {
+		if (number == other.rounds) {
+			image_index = 1;
+			break;
+		}
+	}
+	
+	alarm_call(1, 2);
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		if (irandom(3) == 0) {
+			continue;
+		}
+		
+		switch (irandom(2)) {
+			case 0: actions.left.press(); break;
+			case 1: actions.right.press(); break;
+			case 2: actions.jump.press(); break;
+		}
+	}
+
+	alarm_call(11, 0.5);
+});

@@ -41,7 +41,7 @@ switch (state) {
 				}
 			}
 		
-			alarm[0] = get_frames(1);
+			alarm_call(0, 1);
 		}
 		break;
 		

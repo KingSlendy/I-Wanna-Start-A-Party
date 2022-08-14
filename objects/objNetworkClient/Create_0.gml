@@ -22,3 +22,18 @@ if (global.udp_socket < 0) {
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_async(global.tcp_socket, global.ip, global.port);
+
+alarms_init(2);
+
+alarm_create(function() {
+	popup("A network error occurred.");
+	instance_destroy();
+});
+
+alarm_create(function() {
+	buffer_seek_begin();
+	buffer_write_action(ClientUDP.Initialize);
+	buffer_write_data(buffer_u64, global.master_id);
+	network_send_udp_packet();
+	alarm_call(1, 1);
+});

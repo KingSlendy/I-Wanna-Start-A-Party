@@ -4,7 +4,7 @@ function press_button(network = true) {
 	image_index = 1;
 	
 	if (trg < 8) {
-		alarm[0] = get_frames(0.1);
+		alarm_call(0, 0.1);
 	} else {
 		var other_trg;
 			
@@ -17,7 +17,7 @@ function press_button(network = true) {
 		
 		with (object_index) {
 			if (trg == other_trg) {
-				alarm[0] = get_frames(0.1);
+				alarm_call(0, 0.1);
 			}
 		}
 	}
@@ -47,3 +47,9 @@ function press_button(network = true) {
 		network_send_tcp_packet();
 	}
 }
+
+alarms_init(1);
+
+alarm_create(function() {
+	image_index = 0;
+});

@@ -8,15 +8,15 @@ if (state == 0) {
 		state = -1;
 		
 		if (!stealed) {
-			alarm[1] = 1;
+			alarm_frames(1, 1);
 		
 			if (is_local_turn()) {
-				alarm[2] = get_frames((additional == 0) ? 5 : 0.5);
+				alarm_call(2, (additional == 0) ? 5 : 0.5);
 			}
 		} else {
 			if (is_local_turn()) {
 				steal_count *= -1;
-				alarm[2] = 1;
+				alarm_frames(2, 1);
 			}
 		}
 	}
@@ -28,7 +28,7 @@ if (state == 0) {
 		state = -2;
 		
 		if (!stealed) {
-			alarm[3] = 1;
+			alarm_frames(3, 1);
 			stealed = true;
 		} else {
 			instance_destroy();

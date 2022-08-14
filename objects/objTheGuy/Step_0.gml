@@ -19,7 +19,7 @@ if (options_fade == 0) {
 	
 	if (options_alpha >= 1) {
 		options_alpha = 1;
-		alarm[3] = 1;
+		alarm_frames(3, 1);
 		options_fade = -1;
 	}
 } else if (options_fade == 1) {
@@ -60,6 +60,6 @@ if (options_fade == 0) {
 			}
 		}
 		
-		alarm[4] = get_frames(1);
+		alarm_call(4, 1);
 	}
 }

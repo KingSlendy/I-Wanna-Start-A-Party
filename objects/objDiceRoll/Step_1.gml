@@ -8,7 +8,7 @@ if (vspeed != 0 && y > ystart) {
 	vspeed = 0;
 	gravity = 0;
 	y = ystart;
-	alarm[0] = get_frames(0.3);
+	alarm_call(0, 0.3);
 }
 
 if (follow_target_x && vspeed == 0 && target_x != null) {
@@ -23,7 +23,7 @@ if (follow_target_x && vspeed == 0 && target_x != null) {
 		
 		if (!by_item) {
 			global.dice_roll = full_roll;
-			alarm[0] = 1;
+			alarm_frames(0, 1);
 		}
 		
 		target_x = null;

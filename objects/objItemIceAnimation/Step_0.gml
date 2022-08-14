@@ -14,6 +14,6 @@ if (state == 0) {
 	
 	if (alpha <= 0) {
 		state = -1;
-		alarm[1] = 1;
+		alarm_frames(1, 1);
 	}
 }

@@ -300,7 +300,10 @@ function end_chance_time() {
 	
 	switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
 		music_fade();
-		objChanceTime.alarm[1] = get_frames(1);
+		
+		with (objChanceTime) {
+			alarm_call(1, 1);
+		}
 	}
 	
 	if (is_local_turn()) {
@@ -311,4 +314,52 @@ function end_chance_time() {
 }
 
 music_fade();
-alarm[0] = get_frames(1);
+
+alarms_init(4);
+
+alarm_create(function() {
+	music_pause();
+	music_change(bgmChanceTime);
+
+	with (focus_player) {
+		with (objPlayerReference) {
+			if (reference == 1) {
+				other.x = x + 17;
+				other.y = y + 23;
+			}
+		}
+	}
+
+	current_follow = {x: focus_player.x, y: focus_player.y};
+
+	switch_camera_target(focus_player.x, focus_player.y).final_action = function() {
+		with (objChanceTime) {
+			alarm_call(2, 0.5);
+		}
+	}
+
+	started = true;
+});
+
+alarm_create(function() {
+	music_stop();
+	music_resume();
+	audio_sound_gain(global.music_current, 1, 0);
+
+	if (rotate_turn) {
+		turn_next();
+	}
+
+	instance_destroy();
+});
+
+alarm_create(function() {
+	show_popup("CHANCE TIME");
+	alarm_call(3, 2);
+});
+
+alarm_create(function() {
+	begin_chance_time();
+});
+
+alarm_call(0, 1);
