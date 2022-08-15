@@ -1,6 +1,6 @@
 if (fade_start) {
 	if (!pressed) {
-		fade_alpha -= 0.03;
+		fade_alpha -= 0.03 * DELTA;
 	
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;
@@ -10,10 +10,12 @@ if (fade_start) {
 			music_play(bgmTitle);
 		}
 	} else {
-		fade_alpha += 0.02;
+		fade_alpha += 0.02 * DELTA;
 	
 		if (fade_alpha >= 1) {
+			fade_alpha = 1;
 			room_goto(rFiles);
+			exit;
 		}
 	}
 }

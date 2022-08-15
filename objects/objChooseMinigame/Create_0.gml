@@ -1,6 +1,6 @@
 depth = -10010;
 state = 0;
-alpha = 0;
+fade_alpha = 0;
 zoom = false;
 player_colors = [];
 info = global.minigame_info;
@@ -209,7 +209,7 @@ alarm_create(function() {
 		exit;
 	}
 
-	alarm_frames(2, minigames_timer);
+	alarm_frames(2, floor(minigames_timer));
 });
 
 alarm_create(function() {

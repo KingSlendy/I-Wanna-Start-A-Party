@@ -4,7 +4,7 @@ player2 = focus_player_by_turn(global.choice_selected + 1);
 current_player = player2;
 
 state = -1;
-alpha = 0;
+fade_alpha = 0;
 ypos = 0;
 scale = 1;
 

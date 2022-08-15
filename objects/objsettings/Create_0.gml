@@ -30,7 +30,7 @@ var volume_check = function() {
 	var scroll_held = (global.actions.right.held() - global.actions.left.held());
 	var scroll_pressed = (global.actions.right.pressed() - global.actions.left.pressed());
 			
-	if ((scroll_held != 0 && objSettings.volume_check == 25) || scroll_pressed != 0) {
+	if ((scroll_held != 0 && objSettings.volume_delay == 25) || scroll_pressed != 0) {
 		switch (self.label) {
 			case "MASTER": global.master_volume = clamp(global.master_volume + 0.01 * scroll_held, 0, 1); break;
 			case "BGM": global.bgm_volume = clamp(global.bgm_volume + 0.01 * scroll_held, 0, 1); break;
@@ -41,11 +41,11 @@ var volume_check = function() {
 	}
 	
 	if (scroll_held != 0) {
-		objSettings.volume_check = min(++objSettings.volume_check, 25);
+		objSettings.volume_delay = min(++objSettings.volume_delay, 25);
 	}
 	
 	if (scroll_held == 0 && scroll_pressed == 0) {
-		objSettings.volume_check = 0;
+		objSettings.volume_delay = 0;
 	}
 }
 
@@ -138,4 +138,5 @@ for (var i = 0; i < array_length(keys); i++) {
 section_selected = 0;
 section_x = 0;
 
-volume_check = 0;
+controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+volume_delay = 0;

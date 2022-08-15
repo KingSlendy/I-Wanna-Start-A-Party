@@ -1,8 +1,8 @@
 switch (state) {
 	case 0:
-		alpha += 0.03;
+		fade_alpha += 0.03;
 	
-		if (alpha >= 1) {
+		if (fade_alpha >= 1) {
 			zoom = true;
 		
 			//Camera points to the middle of the room
@@ -17,7 +17,7 @@ switch (state) {
 		
 			//Doubles the view size
 			camera_set_view_size(view_camera[0], 800 * 3, 608 * 3);
-			alpha = 1;
+			fade_alpha = 1;
 			state = 1;
 			
 			instance_destroy(objTurnChoices);
@@ -26,9 +26,9 @@ switch (state) {
 		break;
 		
 	case 1:
-		alpha -= 0.05;
+		fade_alpha -= 0.05;
 	
-		if (alpha <= 0) {
+		if (fade_alpha <= 0) {
 			//Temp
 			if (force_type != null) {
 				with (objPlayerInfo) {
@@ -226,7 +226,7 @@ switch (state) {
 				gain_trophy(24);
 			}
 		
-			alpha = 0;
+			fade_alpha = 0;
 			state = -1;
 		}
 		break;
@@ -242,9 +242,9 @@ switch (state) {
 		break;
 		
 	case 3:
-		alpha += 0.01;
+		fade_alpha += 0.01;
 		
-		if (alpha >= 1) {
+		if (fade_alpha >= 1) {
 			send_to_minigame();
 		}
 		break;

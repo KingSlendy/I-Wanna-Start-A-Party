@@ -81,7 +81,11 @@ if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 			case "2vs2": var player = points_teams[i div 2][i % 2]; break;
 		}
 		
-		draw_sprite(get_skin_pose_object(player, "Idle"), 0, draw_x + 2, draw_y + 2);
+		if (players_sprites[player.network_id - 1] == null) {
+			players_sprites[player.network_id - 1] = get_skin_pose_object(player, "Idle");
+		}
+		
+		draw_sprite(players_sprites[player.network_id - 1], 0, draw_x + 2, draw_y + 2);
 		draw_player_name(text_x, text_y, player.network_id);
 		draw_set_halign(fa_left);
 	}

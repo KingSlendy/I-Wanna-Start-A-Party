@@ -1,7 +1,7 @@
 if (fade_start) {
 	if (state == -1) {
 		if (get_player_count(objPlayerBase) == global.player_max) {
-			fade_alpha -= 0.03;
+			fade_alpha -= 0.03 * DELTA;
 			music_play(bgmModes);
 		
 			if (fade_alpha <= 0) {
@@ -10,7 +10,7 @@ if (fade_start) {
 			}
 		}
 	} else {
-		fade_alpha += 0.03;
+		fade_alpha += 0.03 * DELTA;
 		
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
@@ -20,7 +20,7 @@ if (fade_start) {
 				case 0:
 					save_file();
 					network_disable();
-					room_goto(rFiles);
+					//room_goto(rFiles);
 					break;
 					
 				case 1: room_goto(rParty); break;

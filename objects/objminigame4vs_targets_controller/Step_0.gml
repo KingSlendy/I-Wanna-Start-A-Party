@@ -1,17 +1,17 @@
 if (next_turn == 0) {
-	alpha += 0.02;
+	fade_alpha += 0.02 * DELTA;
 	
-	if (alpha >= 1) {
-		alpha = 1;
+	if (fade_alpha >= 1) {
+		fade_alpha = 1;
 		next_turn = 1;
 		player_turn++;
 		reposition_player();
 	}
 } else if (next_turn == 1) {
-	alpha -= 0.02;
+	fade_alpha -= 0.02 * DELTA;
 	
-	if (alpha <= 0) {
-		alpha = 0;
+	if (fade_alpha <= 0) {
+		fade_alpha = 0;
 		next_turn = -1;
 		unfreeze_player();
 	}

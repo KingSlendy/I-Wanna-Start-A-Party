@@ -105,6 +105,11 @@ alarm_create(5, function() {
 });
 
 alarm_create(6, function() {
+	if (minigame2vs2_get_points_team(0) >= point_condition || minigame2vs2_get_points_team(1) >= point_condition) {
+		minigame_finish();
+		return;
+	}
+	
 	revive = 0;
 });
 
@@ -113,10 +118,6 @@ alarm_create(7, function() {
 });
 
 alarm_override(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

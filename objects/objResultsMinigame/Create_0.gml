@@ -1,6 +1,6 @@
 info = global.minigame_info;
 state = 0;
-alpha = 1;
+fade_alpha = 1;
 
 with (objPlayerBase) {
 	change_to_object(objPlayerBoardData);

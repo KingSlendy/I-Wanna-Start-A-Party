@@ -17,7 +17,6 @@ if (keyboard_check_pressed(vk_f4)) {
 if (keyboard_check_pressed(vk_escape)) {
 	if (room != rTitle) {
 		network_disable();
-		audio_stop_all();
 		room_goto(rTitle);
 	} else {
 		game_end();

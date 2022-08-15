@@ -107,10 +107,6 @@ alarm_create(5, function() {
 });
 
 alarm_override(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	instance_deactivate_object(objMinigame4vs_Tower_Crack);
 	instance_deactivate_object(objMinigame4vs_Tower_Trophy);
 

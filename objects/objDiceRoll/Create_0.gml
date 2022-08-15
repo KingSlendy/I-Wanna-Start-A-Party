@@ -38,14 +38,14 @@ alarm_create(function() {
 	
 		with (objDiceRoll) {
 			if (by_item) {
-				instance_destroy();
+				alarm[0] = 1;
 			}
 		}
 	
 		roll = 0;
 	
 		if (!is_local_turn()) {
-			exit;
+			return;
 		}
 	
 		if (player_info_by_id(network_id).item_effect == ItemType.TripleDice) {

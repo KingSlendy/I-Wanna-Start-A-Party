@@ -22,7 +22,7 @@ choice_texts = [
 ];
 
 state = 0;
-alpha = 1;
+fade_alpha = 1;
 minigame_info_score_reset();
 
 function start_minigame(set) {

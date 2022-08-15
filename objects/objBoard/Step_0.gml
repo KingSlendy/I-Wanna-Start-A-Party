@@ -1,5 +1,5 @@
 if (fade_start && get_player_count(objPlayerBoard) == global.player_max) {
-	fade_alpha -= 0.03;
+	fade_alpha -= 0.03 * DELTA;
 	var room_name = room_get_name(room);
 	var bgm_name = "bgm" + string_copy(room_name, 2, string_length(room_name) - 1);
 	

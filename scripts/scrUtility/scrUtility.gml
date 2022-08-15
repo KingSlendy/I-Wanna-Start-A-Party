@@ -140,6 +140,10 @@ function alarm_frames(num, frames) {
 	time_source_start(alarms[num]);
 }
 
+function alarm_next(num) {
+	alarm_call(num, 1 / 50);
+}
+
 function alarm_instant(num) {
 	alarms_funcs[num]();
 }
@@ -157,7 +161,7 @@ function alarm_destroy(num) {
 function alarms_destroy() {
 	try {
 		for (var i = 0; i < array_length(alarms); i++) {
-			if (alarms[i] == 0 || alarms[i] == null) {
+			if (alarms[i] == null) {
 				continue;
 			}
 			

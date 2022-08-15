@@ -1,3 +1,4 @@
+fade_alpha = 1;
 info = global.minigame_info;
 shuffle_seed_inline();
 reset_seed_inline();
@@ -18,9 +19,9 @@ var name = room_get_name(room);
 music = asset_get_index("bgm" + string_copy(name, 2, string_length(name) - 1));
 started = false;
 announcer_started = false;
-alpha = 1;
 finished = false;
 announcer_finished = false;
+players_sprites = array_create(global.player_max, null);
 points_draw = false;
 points_number = true;
 points_teams = [];
@@ -74,7 +75,9 @@ alarm_create(function() {
 		alarm_call(10, 1);
 	}
 
-	alarm_frames(11, 1);
+	if (global.player_id == 1) {
+		alarm_frames(11, 1);
+	}
 });
 
 alarm_create(function() {
@@ -139,10 +142,6 @@ alarm_create(10, function() {
 });
 
 alarm_create(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

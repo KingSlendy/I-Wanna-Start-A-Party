@@ -1,7 +1,7 @@
 if (fade_start) {
 	if (state == -1) {
 		if (get_player_count(objPlayerParty) == global.player_max) {
-			fade_alpha -= 0.03;
+			fade_alpha -= 0.03 * DELTA;
 			music_play((room == rParty) ? bgmParty : bgmMinigames);
 	
 			if (fade_alpha <= 0) {
@@ -10,7 +10,7 @@ if (fade_start) {
 			}
 		}
 	} else {
-		fade_alpha += (state == 0) ? 0.0075 : 0.03;
+		fade_alpha += ((state == 0) ? 0.0075 : 0.03) * DELTA;
 	
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;

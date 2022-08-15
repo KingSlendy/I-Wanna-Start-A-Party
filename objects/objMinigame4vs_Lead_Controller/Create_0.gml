@@ -62,7 +62,7 @@ function check_input(input_id, network = true) {
 		alarm_call(11, random_range(2, 3));
 		return;
 	}
-			
+	
 	if (sequence[current] == input_id) {
 		current++;
 				
@@ -166,10 +166,6 @@ alarm_create(9, function() {
 });
 
 alarm_override(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

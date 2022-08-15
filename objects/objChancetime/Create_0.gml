@@ -349,8 +349,8 @@ alarm_create(function() {
 	if (rotate_turn) {
 		turn_next();
 	}
-
-	instance_destroy();
+	
+	alarm[0] = 1;
 });
 
 alarm_create(function() {

@@ -267,7 +267,7 @@ alarm_create(function() {
 		}
 	}
 
-	alarm_frames(3, options_timer);
+	alarm_frames(3, floor(options_timer));
 });
 
 alarm_create(function() {
@@ -308,11 +308,6 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	if (instance_exists(objStatChange)) {
-		alarm_frames(7, 1);
-		return;
-	}
-
 	music_stop();
 	music_resume();
 	audio_sound_gain(global.music_current, 1, 0);
@@ -323,7 +318,7 @@ alarm_create(function() {
 
 	instance_destroy(objTheGuyHead);
 	instance_destroy(objTheGuyEye);
-	instance_destroy();
+	alarm[0] = 1;
 });
 
 alarm_create(function() {

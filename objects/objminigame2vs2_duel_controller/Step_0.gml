@@ -1,27 +1,22 @@
 if (revive == 0) {
-	alpha += 0.02;
+	fade_alpha += 0.02 * DELTA;
 	
-	if (alpha >= 1) {
-		alpha = 1;
+	if (fade_alpha >= 1) {
+		fade_alpha = 1;
 		revive = 1;
 		objPlayerBase.lost = false;
 	}
 } else if (revive == 1) {
-	alpha -= 0.02;
+	fade_alpha -= 0.02 * DELTA;
 	
-	if (alpha <= 0) {
-		alpha = 0;
+	if (fade_alpha <= 0) {
+		fade_alpha = 0;
 		revive = -1;
 		alarm_call(1, 1.5);
 	}
 }
 
 if (info.is_finished) {
-	exit;
-}
-
-if (minigame2vs2_get_points_team(0) >= point_condition || minigame2vs2_get_points_team(1) >= point_condition) {
-	minigame_finish();
 	exit;
 }
 

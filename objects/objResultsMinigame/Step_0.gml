@@ -17,7 +17,7 @@ switch (state) {
 			exit;
 		}
 	
-		alpha -= 0.03;
+		fade_alpha -= 0.03;
 		var room_name = room_get_name(room);
 		var bgm_name = "bgm" + string_copy(room_name, 2, string_length(room_name) - 1);
 	
@@ -27,8 +27,8 @@ switch (state) {
 		
 		music_play(asset_get_index(bgm_name));
 	
-		if (alpha <= 0) {
-			alpha = 0;
+		if (fade_alpha <= 0) {
+			fade_alpha = 0;
 			state = -1;
 		
 			for (var i = 0; i < global.player_max; i++) {
@@ -46,10 +46,10 @@ switch (state) {
 		break;
 		
 	case 1:
-		alpha += 0.03;
+		fade_alpha += 0.03;
 	
-		if (alpha >= 1) {
-			alpha = 1;
+		if (fade_alpha >= 1) {
+			fade_alpha = 1;
 			
 			with (objPlayerBase) {
 				change_to_object(objPlayerBoard);
@@ -87,9 +87,9 @@ switch (state) {
 			exit;
 		}
 	
-		alpha -= 0.04;
+		fade_alpha -= 0.04;
 		
-		if (alpha <= 0) {
+		if (fade_alpha <= 0) {
 			instance_destroy();
 		}
 		break;

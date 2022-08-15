@@ -93,10 +93,6 @@ alarm_create(4, function() {
 });
 
 alarm_override(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	for (var i = 2; i <= global.player_max; i++) {
 		if (!instance_exists(objMinigame2vs2_Fruits_Fruit)) {
 			break;
@@ -118,7 +114,9 @@ alarm_override(11, function() {
 		
 			var me_x = x - 1;
 			var me_y = y - 7;
+			instance_deactivate_object(objMinigame2vs2_Fruits_Gordo);
 			var near = instance_nearest(me_x, me_y, objMinigame2vs2_Fruits_Fruit);
+			instance_activate_object(objMinigame2vs2_Fruits_Gordo);
 			var check_x = near.x;
 		
 			if (point_distance(me_x, me_y, check_x, me_y) > 1) {

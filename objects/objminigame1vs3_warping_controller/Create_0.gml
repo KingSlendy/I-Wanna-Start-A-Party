@@ -38,10 +38,6 @@ alarm_override(1, function() {
 });
 
 alarm_override(11, function() {
-	if (global.player_id != 1) {
-		return;
-	}
-
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

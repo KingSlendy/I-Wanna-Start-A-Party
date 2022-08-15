@@ -1,1 +1,1 @@
-alarms_destroy();
+//alarms_destroy();

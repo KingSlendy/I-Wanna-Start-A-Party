@@ -57,7 +57,12 @@ if (points_draw) {
 		for (var j = 0; j < array_length(team); j++) {
 			var player = team[j];
 			points += info.player_scores[player.network_id - 1].points;
-			draw_sprite(get_skin_pose_object(player, "Idle"), 0, xx + ((is_4vs) ? 75 : 105) - 20 * j, yy + 19);
+			
+			if (players_sprites[player.network_id - 1] == null) {
+				players_sprites[player.network_id - 1] = get_skin_pose_object(player, "Idle");
+			}
+			
+			draw_sprite(players_sprites[player.network_id - 1], 0, xx + ((is_4vs) ? 75 : 105) - 20 * j, yy + 19);
 		}
 	
 		draw_set_color(c_white);

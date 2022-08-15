@@ -1,7 +1,7 @@
 if (fade_start) {
 	if (!back) {
 		if (get_player_count(objPlayerBase) == global.player_max) {
-			fade_alpha -= 0.03;
+			fade_alpha -= 0.03 * DELTA;
 			music_play(bgmTrophies);
 		
 			if (fade_alpha <= 0) {
@@ -10,7 +10,7 @@ if (fade_start) {
 			}
 		}
 	} else {
-		fade_alpha += 0.03;
+		fade_alpha += 0.03 * DELTA;
 		
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
@@ -41,6 +41,10 @@ if (!fade_start && trophy_selected == trophy_target_selected) {
 	}
 	
 	var scroll_h = (global.actions.right.pressed() - global.actions.left.pressed());
+	
+	if (held_h == 0) {
+		held_h = scroll_h;	
+	}
 	
 	if ((held_h != 0 && held_time == 25) || scroll_h != 0) {
 		trophy_target_x -= 200 * held_h;

@@ -320,6 +320,10 @@ function check_player_game_ids(player_id, player_ids) {
 }
 
 function network_disable() {
+	with (all) {
+		event_perform(ev_cleanup, 0);
+	}
+	
 	event_perform_object(objNetworkClient, ev_destroy, 0);
 	instance_destroy(objNetworkClient, false);
 	instance_destroy(objPlayerInfo);
@@ -327,5 +331,5 @@ function network_disable() {
 	instance_activate_object(objGameManager);
 	application_surface_draw_enable(true);
 	audio_stop_all();
-	room_goto(rFiles);
+	global.game_started = false;
 }

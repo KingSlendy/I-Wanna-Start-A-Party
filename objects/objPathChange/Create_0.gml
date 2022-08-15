@@ -49,4 +49,4 @@ alarm_create(function() {
 	}
 });
 
-alarm_instant(0);
+alarm_frames(0, 1);

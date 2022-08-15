@@ -35,9 +35,9 @@ draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, #F2C394
 draw_surface(surf, draw_x + 4, draw_y + 4);
 draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_white, 1);
 var text = new Text(fntDialogue);
-text.set(draw_action(global.actions.jump) + ": Buy");
+text.set(draw_action(global.actions.jump) + " Buy");
 text.draw(draw_x, draw_y + draw_h + 5);
-text.set(draw_action(global.actions.shoot) + ": Cancel");
+text.set(draw_action(global.actions.shoot) + " Cancel");
 text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
 draw_sprite(sprCoin, 0, draw_x + 146, draw_y + draw_h + 80);
 draw_set_font(fntPlayerInfo);

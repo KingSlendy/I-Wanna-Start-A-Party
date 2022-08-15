@@ -1,38 +1,38 @@
 switch (state) {
 	case 0:
 		if (get_player_count(objPlayerBase) == global.player_max) {
-			alpha -= 0.03;
+			fade_alpha -= 0.03;
 			music_play(bgmMinigameOverview);
 		
-			if (alpha <= 0) {
-				alpha = 0;
+			if (fade_alpha <= 0) {
+				fade_alpha = 0;
 				state = -1;
 			}
 		}
 		break;
 		
 	case 1:
-		alpha += 0.02;
+		fade_alpha += 0.02;
 		
-		if (alpha >= 1) {
+		if (fade_alpha >= 1) {
 			info.is_practice = false;
 			room_goto(info.reference.scene);
 		}
 		break;
 		
 	case 2:
-		alpha += 0.02;
+		fade_alpha += 0.02;
 		
-		if (alpha >= 1) {
+		if (fade_alpha >= 1) {
 			info.is_practice = true;
 			room_goto(info.reference.scene);
 		}
 		break;
 		
 	case 3:
-		alpha += 0.02;
+		fade_alpha += 0.02;
 		
-		if (alpha >= 1) {
+		if (fade_alpha >= 1) {
 			disable_board();
 			room_goto(rMinigames);
 		}
