@@ -101,13 +101,13 @@ function player_shoot(speed = null, direction = null) {
 	b.direction = (b.direction + 360) % 360;
 	
 	buffer_seek_begin();
-	buffer_write_action(ClientUDP.PlayerShoot);
+	buffer_write_action(ClientTCP.PlayerShoot);
 	buffer_write_data(buffer_u8, network_id);
 	buffer_write_data(buffer_s16, x);
 	buffer_write_data(buffer_s16, y);
 	buffer_write_data(buffer_s8, b.speed);
 	buffer_write_data(buffer_u16, b.direction);
-	network_send_udp_packet();
+	network_send_tcp_packet();
 	
 	if (room == rMinigame2vs2_Duel) {
 		objMinigameController.player_can_shoot[network_id - 1] = false;

@@ -1,14 +1,14 @@
 {
-  "spriteId": {
-    "name": "sprTheGuyEye",
-    "path": "sprites/sprTheGuyEye/sprTheGuyEye.yy",
-  },
+  "spriteId": null,
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objMinigameController",
+    "path": "objects/objMinigameController/objMinigameController.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -22,16 +22,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Events",
-    "path": "folders/Objects/Boards/Events.yy",
+    "name": "Soccer",
+    "path": "folders/Objects/Minigames/2vs2/Soccer.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objTheGuyEye",
+  "name": "objMinigame2vs2_Soccer_Controller",
   "tags": [],
   "resourceType": "GMObject",
 }

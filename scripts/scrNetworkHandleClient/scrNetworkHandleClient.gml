@@ -18,6 +18,7 @@ enum ClientTCP {
 	BoardPlayerIDs,
 	PartyAction,
 	MinigameMode,
+	PlayerShoot,
 	PlayerKill,
 	
 	//Interactables
@@ -133,7 +134,6 @@ enum ClientUDP {
 	LobbyStart,
 	PlayerData,
 	PlayerJump,
-	PlayerShoot,
 	
 	//Interfaces
 	MapLook,
@@ -372,6 +372,18 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 		case ClientTCP.MinigameMode:
 			global.seed_bag = buffer_read_array(buffer, buffer_u64);
+			break;
+			
+		case ClientTCP.PlayerShoot:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var xx = buffer_read(buffer, buffer_s16);
+			var yy = buffer_read(buffer, buffer_s16);
+			var spd = buffer_read(buffer, buffer_s8);
+			var dir = buffer_read(buffer, buffer_u16);
+			var b = instance_create_layer(xx, yy, "Actors", objBullet);
+			b.network_id = player_id;
+			b.speed = spd;
+			b.direction = dir;
 			break;
 			
 		case ClientTCP.PlayerKill:
@@ -1231,18 +1243,6 @@ function network_read_client_udp(buffer, data_id) {
 		case ClientUDP.PlayerJump:
 			var sound = buffer_read(buffer, buffer_u32);
 			audio_play_sound(sound, 0, false);
-			break;
-			
-		case ClientUDP.PlayerShoot:
-			var player_id = buffer_read(buffer, buffer_u8);
-			var xx = buffer_read(buffer, buffer_s16);
-			var yy = buffer_read(buffer, buffer_s16);
-			var spd = buffer_read(buffer, buffer_s8);
-			var dir = buffer_read(buffer, buffer_u16);
-			var b = instance_create_layer(xx, yy, "Actors", objBullet);
-			b.network_id = player_id;
-			b.speed = spd;
-			b.direction = dir;
 			break;
 		#endregion
 			

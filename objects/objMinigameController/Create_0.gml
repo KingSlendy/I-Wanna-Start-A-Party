@@ -21,7 +21,6 @@ started = false;
 announcer_started = false;
 finished = false;
 announcer_finished = false;
-players_sprites = array_create(global.player_max, null);
 points_draw = false;
 points_number = true;
 points_teams = [];

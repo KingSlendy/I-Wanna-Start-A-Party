@@ -1,10 +1,10 @@
 {
   "spriteId": {
-    "name": "sprTheGuyEye",
-    "path": "sprites/sprTheGuyEye/sprTheGuyEye.yy",
+    "name": "sprMinigame2vs2_Soccer_Goal",
+    "path": "sprites/sprMinigame2vs2_Soccer_Goal/sprMinigame2vs2_Soccer_Goal.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
@@ -21,17 +21,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Events",
-    "path": "folders/Objects/Boards/Events.yy",
+    "name": "Soccer",
+    "path": "folders/Objects/Minigames/2vs2/Soccer.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objTheGuyEye",
+  "name": "objMinigame2vs2_Soccer_Goal",
   "tags": [],
   "resourceType": "GMObject",
 }

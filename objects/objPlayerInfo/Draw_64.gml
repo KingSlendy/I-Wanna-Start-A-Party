@@ -1,4 +1,4 @@
-if (player_info == null || (!IS_BOARD && room != rParty)) {
+if (player_info == null || (!IS_BOARD && room != rParty && room != rResults)) {
 	exit;
 }
 

@@ -282,7 +282,7 @@ alarm_create(function() {
 
 alarm_create(function() {
 	if (!alarm_is_stopped(8)) {
-		exit;
+		return;
 	}
 
 	if (instance_exists(objStatChange)) {
@@ -316,8 +316,8 @@ alarm_create(function() {
 		turn_next();
 	}
 
-	instance_destroy(objTheGuyHead);
-	instance_destroy(objTheGuyEye);
+	objTheGuyHead.alarm[0] = 1;
+	objTheGuyEye.alarm[0] = 1;
 	alarm[0] = 1;
 });
 
