@@ -138,20 +138,11 @@ options = [
 	}),
 	
 	new TheGuyOption(true, 0, "You {COLOR,00FFFF}get{COLOR,FFFFFF} {SPRITE,sprShine,0,0,-2,0.5,0.5}100", function() {
-		with (objTheGuyHead) {
-			snd = audio_play_sound(sndTheGuyNoNo, 0, false);
-			image_speed = 1;
-		}
-		
-		objTheGuyEye.image_speed = 1;
+		nono_the_guy();
 		
 		with (objTheGuy) {
 			alarm_call(8, 1.5);
 		}
-		
-		buffer_seek_begin();
-		buffer_write_action(ClientUDP.NoNoTheGuy);
-		network_send_udp_packet();
 		
 		if (focused_player().network_id == global.player_id) {
 			gain_trophy(30);
@@ -168,6 +159,21 @@ function show_the_guy_options() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowTheGuyOptions);
 		network_send_tcp_packet();
+	}
+}
+
+function nono_the_guy() {
+	with (objTheGuyHead) {
+		snd = audio_play_sound(sndTheGuyNoNo, 0, false);
+		image_speed = 1;
+	}
+		
+	objTheGuyEye.image_speed = 1;
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientUDP.NoNoTheGuy);
+		network_send_udp_packet();
 	}
 }
 

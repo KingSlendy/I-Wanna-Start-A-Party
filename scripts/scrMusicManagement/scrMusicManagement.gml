@@ -51,7 +51,10 @@ mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
 mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
 mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
-	
+mlp[$ bgmChanceTime] = new LoopPoint(5.779, 38.693);
+mlp[$ bgmTheGuy] = new LoopPoint(0.0, 36.735);
+mlp[$ bgmLastTurns] = new LoopPoint(8.321, 33.191);
+
 //Minigames
 mlp[$ bgmMinigameOverview] = new LoopPoint(2.463, 35.856);
 mlp[$ bgmMinigameNA] = new LoopPoint(2.070, 45.698);
@@ -89,6 +92,7 @@ mlp[$ bgmMinigame2vs2_Colorful] = new LoopPoint(1.703, 31.706);
 mlp[$ bgmMinigame2vs2_Springing] = new LoopPoint(1.640, 27.586);
 mlp[$ bgmMinigame2vs2_Duos] = new LoopPoint(1.600, 35.859);
 mlp[$ bgmMinigame2vs2_Duel] = new LoopPoint(1.699, 19.974);
+mlp[$ bgmMinigame2vs2_Soccer] = new LoopPoint(2.020, 36.930);
 	
 //Results
 mlp[$ bgmResults] = new LoopPoint(5.552, 13.415);

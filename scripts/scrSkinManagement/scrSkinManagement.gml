@@ -36,7 +36,7 @@ function skin_init() {
 		new Skin("Miku", "Hatsune Miku", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 		new Skin("Miki", "The Girl", "I Want To Meet Miki", 22, "riktoi", 400),
 		new Skin("Producer", "Producer Kid", "I Wanna Be THE iDOLM@STER", 23, "eden", 300),
-		new Skin("Kami2", "Reimu", "I Wanna Kami2Kami2Kami2", 24, "Reimu2020", 500),
+		new Skin("Reimu", "Reimu Hakurei", "I Wanna Kami2Kami2Kami2", 24, "Reimu2020", 500),
 		new Skin("Baba", "Baba Is Kid", "I Wanna Stop The Simulation", 25, "RandomErik", 700),
 		new Skin("Megaman", "Megaman", "I Wanna Be The Rockman", 26, "DakaArts", 700),
 		new Skin("Sora", "Sora (NGNL)", "I Don't Wanna Be A Weeb", 27, "Kaurosu", 300),
@@ -113,8 +113,12 @@ function skin_init() {
 		new Skin("Fire", "Fire Kid", "I Wanna Warp The Worlds", 57, "???", 900),
 		new Skin("Kakkun", "Kakkun", "I Wanna Be The Cocktail", 58, "Sankakkun", 400),
 		new Skin("Neko", "Neko Kid", "Avoidance Collab 4", 59, "???", 500),
-		new Skin("Boshy", "Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 600),
-		new Skin("Bashy", "Dark Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 600)
+		new Skin("Boshy", "Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 500),
+		new Skin("DarkBoshy", "Dark Boshy", "I Wanna Be The Boshy", 60, "Solgryn", 500),
+		new Skin("Cirno", "Cirno", "I Wanna Plant Seeds", 61, "Lss40", 600),
+		new Skin("Rotoll", "Rotoll", "I Wanna Revive The Guy", 62, "Rotoll", 100),
+		new Skin("Yayoi", "Yayoi Takatsuki", "I Wanna Be The Lovely", 63, "SaunaTour", 400),
+		new Skin("Marisa", "Marisa Kirisame", "Original", 0, "Harttlip0218", 500)
 	];
 }
 
@@ -176,15 +180,11 @@ function get_skin_pose_object(object, pose) {
 
 function get_skin_pose(sprite, pose) {
 	var name = sprite_get_name(sprite);
-	var check = "";
+	var check = string_copy(name, 4, string_length(name) - 3 - (string_length(pose) + 6));
 	
-	for (var i = 4; i <= string_length(name); i++) {
-		check += string_char_at(name, i);
-		
-		for (var j = 0; j < array_length(global.skins); j++) {
-			if (global.skins[j].id == check) {
-				return asset_get_index("spr" + check + "Player" + pose);
-			}
+	for (var j = 0; j < array_length(global.skins); j++) {
+		if (global.skins[j].id == check) {
+			return asset_get_index("spr" + check + "Player" + pose);
 		}
 	}
 	

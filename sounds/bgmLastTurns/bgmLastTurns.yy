@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmlastturns.ogg",
-  "duration": 59.054688,
+  "duration": 33.780666,
   "parent": {
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",

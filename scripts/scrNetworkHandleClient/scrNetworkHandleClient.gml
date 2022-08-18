@@ -117,6 +117,7 @@ enum ClientTCP {
 	Minigame2vs2_Colorful_PatternSelect,
 	Minigame2vs2_Duos_Button,
 	Minigame2vs2_Duel_Shot,
+	Minigame2vs2_Soccer_Goal,
 	
 	//Results
 	ResultsBonus,
@@ -147,7 +148,8 @@ enum ClientUDP {
 	NoNoTheGuy,
 	
 	//Minigames
-	Minigame2vs2_Squares_Halfs
+	Minigame2vs2_Squares_Halfs,
+	Minigame2vs2_Soccer_Ball
 }
 
 function network_read_client(ip, port, buffer) {
@@ -1152,6 +1154,17 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			var shot_time = buffer_read(buffer, buffer_u16);
 			objMinigameController.player_shot_time[player_id - 1] = shot_time;
 			break;
+			
+		case ClientTCP.Minigame2vs2_Soccer_Goal:
+			var ball_x = buffer_read(buffer, buffer_s32);
+			var ball_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigame2vs2_Soccer_Ball) {
+				x = ball_x;
+				y = ball_y;
+				soccer_goal(false);
+			}
+			break;
 		#endregion
 		
 		#region Results
@@ -1302,12 +1315,9 @@ function network_read_client_udp(buffer, data_id) {
 			break;
 			
 		case ClientUDP.NoNoTheGuy:
-			with (objTheGuyHead) {
-				snd = audio_play_sound(sndTheGuyNoNo, 0, false);
-				image_speed = 1;
+			with (objTheGuy) {
+				nono_the_guy();
 			}
-		
-			objTheGuyEye.image_speed = 1;
 			break;
 		#endregion
 		
@@ -1321,6 +1331,22 @@ function network_read_client_udp(buffer, data_id) {
 					image_angle = angle;
 					break;
 				}
+			}
+			break;
+			
+		case ClientUDP.Minigame2vs2_Soccer_Ball:
+			var ball_x = buffer_read(buffer, buffer_s32);
+			var ball_y = buffer_read(buffer, buffer_s32);
+			var ball_hspeed = buffer_read(buffer, buffer_f16);
+			var ball_vspeed = buffer_read(buffer, buffer_f16);
+			var ball_gravity = buffer_read(buffer, buffer_f16);
+			
+			with (objMinigame2vs2_Soccer_Ball) {
+				x = ball_x;
+				y = ball_y;
+				hspeed = ball_hspeed;
+				vspeed = ball_vspeed;
+				gravity = ball_gravity;
 			}
 			break;
 		#endregion
