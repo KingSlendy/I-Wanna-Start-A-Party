@@ -34,16 +34,6 @@ if (dir != 0) {
 	sprite_index = skin[$ "Idle"];
 }
 
-var c = instance_place(x, y + 1, objMinigame1vs3_Conveyor_Conveyor);
-
-if (c != noone && c.spd != 0) {
-	if (hspd == 0 || (sign(hspd) == sign(c.spd))) {
-		hspd += c.spd;
-	} else {
-		hspd = 0;
-	}
-}
-
 if (!on_platform) {
 	if (vspd * orientation < -0.05) {
 	    sprite_index = skin[$ "Jump"];
@@ -56,7 +46,7 @@ if (!on_platform) {
 	}
 }
 
-if (room != rMinigame2vs2_Springing) {
+if (room != rMinigame4vs_Drawn && room != rMinigame2vs2_Springing) {
 	if (abs(vspd) > max_vspd) {
 		vspd = max_vspd * sign(vspd);
 	}
@@ -84,24 +74,25 @@ if (!frozen) {
 	
 	shoot_delay = max(--shoot_delay, 0);
 	
-	//if (on_vineR || on_vineL) {
-	//	xscale = (on_vineR) ? 1 : -1;
-	//    vspd = 2 * global.grav;
-	//	image_speed = 0.5;
-	//    sprite_index = PLAYER_ACTIONS.SLIDE;
-    
-	//    if ((on_vineR && is_pressed(global.controls.right)) || (on_vineL && is_pressed(global.controls.left))) {
-	//        if (is_held(global.controls.jump)) {
-	//            hspd = (on_vineR) ? 15 : -15;
-	//            vspd = -9 * global.grav;
-	//            sprite_index = PLAYER_ACTIONS.JUMP;
-	//			audio_play_sound(sndVine, 0, false);
-	//        } else {
-	//            hspd = (on_vineR) ? 3 : -3;
-	//            sprite_index = PLAYER_ACTIONS.FALL;
-	//        }
-	//    }
-	//}
+	if (room == rMinigame4vs_Drawn) {
+		var b = instance_place(x, y + 1, objMinigame4vs_Drawn_Block);
+	
+		if (b != noone && b.image_blend == c_lime && global.actions[$ jump_action].pressed(network_id)) {
+			vspd = -16;
+		}
+	}
+
+	if (room == rMinigame1vs3_Conveyor) {
+		var c = instance_place(x, y + 1, objMinigame1vs3_Conveyor_Conveyor);
+
+		if (c != noone && c.spd != 0) {
+			if (hspd == 0 || (sign(hspd) == sign(c.spd))) {
+				hspd += c.spd;
+			} else {
+				hspd = 0;
+			}
+		}
+	}
 }
 #endregion
 
@@ -164,13 +155,6 @@ if (block != noone) {
 
 	x += hspd;
 	y += vspd;
-	
-	////Makes player move based on the block speed
-	//if (!place_meeting(x + block.hspd, y, objBlock)) {
-	//	x += block.hspd;
-	//}
-	
-	//y += block.vspd;
 }
 
 ////Collision with platform

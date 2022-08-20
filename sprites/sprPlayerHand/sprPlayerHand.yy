@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Objects/Player.yy",
+    "name": "Skins",
+    "path": "folders/Sprites/Objects/Player/Skins.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprPlayerHand",

@@ -4,6 +4,14 @@ with (objPlayerBase) {
 
 event_inherited();
 
+minigame_time_end = function() {
+	with (focus_player_by_turn(player_turn)) {
+		player_kill();
+	}
+	
+	unfreeze_player();
+}
+
 player_check = objPlayerPlatformer;
 player_turn = 0;
 
@@ -37,6 +45,9 @@ function unfreeze_player(network = true) {
 	instance_create_layer(384, 384, "Collisions", objMinigame4vs_Slime_Blocking, {
 		image_xscale: 5
 	});
+	
+	minigame_time = 10;
+	alarm_call(10, 1);
 }
 
 function block_entrance(network = true) {

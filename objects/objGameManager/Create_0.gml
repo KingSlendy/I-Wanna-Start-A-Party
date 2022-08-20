@@ -6,3 +6,5 @@ timer = time_source_create(time_source_game, 1, time_source_units_seconds, funct
 }, [], -1);
 
 time_source_start(timer);
+
+alarms_collected = [];

@@ -55,7 +55,7 @@ if (save_present) {
 }
 
 //Skin selection
-var length = array_length(skins)
+var length = array_length(skins);
 
 for (var r = -2; r <= 2; r++) {
 	var now_r = (skin_row + length + r) % length;
@@ -80,7 +80,7 @@ for (var r = -2; r <= 2; r++) {
 		if (have_skin(skin)) {
 			var skin_sprite = get_skin(skin)[$ "Idle"];
 		} else {
-			var skin_sprite = sprPlayerIdle;
+			var skin_sprite = (skin != noone) ? sprPlayerIdle : sprPlayerRandom;
 		}
 		
 		draw_sprite_ext(skin_sprite, 0, box_x + skin_w / 2 + 3, box_y + skin_h / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());

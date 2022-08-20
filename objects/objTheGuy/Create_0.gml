@@ -141,6 +141,10 @@ options = [
 		nono_the_guy();
 		
 		with (objTheGuy) {
+			alarm_stop(5);
+		}
+		
+		with (objTheGuy) {
 			alarm_call(8, 1.5);
 		}
 		
@@ -322,9 +326,9 @@ alarm_create(function() {
 		turn_next();
 	}
 
-	objTheGuyHead.alarm[0] = 1;
-	objTheGuyEye.alarm[0] = 1;
-	alarm[0] = 1;
+	instance_destroy(objTheGuyHead);
+	instance_destroy(objTheGuyEye);
+	instance_destroy();
 });
 
 alarm_create(function() {

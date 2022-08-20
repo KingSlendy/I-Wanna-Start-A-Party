@@ -23,7 +23,9 @@ function minigame_init() {
 		new Minigame("Slime Annoyer", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 23, rMinigame4vs_Slime, "SlimePark"),
 		new Minigame("Rocket Ignition", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
 		new Minigame("Dizzy Conundrum", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 25, rMinigame4vs_Dizzy, "VoVoVo"),
-		new Minigame("Targeting Targets", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley")
+		new Minigame("Targeting Targets", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
+		new Minigame("Uncertain Bullets", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 30, rMinigame4vs_Bullets, "I Wanna Be The LoveTrap"),
+		new Minigame("Drawn Keys", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn")
 	];
 
 	m[$ "1vs3"] = [

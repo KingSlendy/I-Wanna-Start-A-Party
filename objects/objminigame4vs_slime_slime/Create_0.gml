@@ -1,6 +1,11 @@
 function slime_shot(network = true) {
 	sprite_index = sprMinigame4vs_Slime_SlimeShot;
 	image_index = 4;
+	
+	with (objMinigameController) {
+		alarm_pause(10);
+	}
+	
 	var player = focus_player_by_turn(objMinigameController.player_turn);
 	
 	if (is_player_local(player.network_id)) {
@@ -43,6 +48,10 @@ alarm_create(function() {
 
 alarm_create(function() {
 	sprite_index = sprMinigame4vs_Slime_Slime;
+
+	with (objMinigameController) {
+		alarm_resume(10);
+	}
 
 	if (instance_exists(objMinigame4vs_Slime_Block)) {
 		objMinigame4vs_Slime_Block.scale_target = 0;

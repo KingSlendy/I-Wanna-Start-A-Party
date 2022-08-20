@@ -148,6 +148,14 @@ function alarm_instant(num) {
 	alarms_funcs[num]();
 }
 
+function alarm_pause(num) {
+	time_source_pause(alarms[num]);
+}
+
+function alarm_resume(num) {
+	time_source_resume(alarms[num]);
+}
+
 function alarm_stop(num) {
 	time_source_stop(alarms[num]);
 }
@@ -165,7 +173,12 @@ function alarms_destroy() {
 				continue;
 			}
 			
-			alarm_destroy(i);
+			alarm_stop(i);
+		}
+		
+		with (objGameManager) {
+			array_push(alarms_collected, other.alarms);
+			alarm[0] = 1;
 		}
 	} catch (_) {}
 }

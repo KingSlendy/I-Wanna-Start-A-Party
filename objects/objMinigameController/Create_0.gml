@@ -27,31 +27,23 @@ points_teams = [];
 player_check = objPlayerBase;
 
 function back_to_board() {
-	event_perform(ev_cleanup, 0);
-	
-	if (!info.is_practice) {
-		if (info.is_modes) {
-			if (array_contains(info.players_won, global.player_id)) {
-				increase_collected_coins(20);
-			}
-			
-			save_file();
-			disable_board();
-			room_goto(rMinigames);
-			return;
-		}
-		
-		if (++global.board_turn > global.max_board_turns) {
-			board_finish();
-			return;	
-		}
-		
-		global.player_turn = 1;
-		room_goto(info.previous_board);
-	} else {
+	if (info.is_practice) {
 		room_goto(rMinigameOverview);
 		return;
 	}
+	
+	if (info.is_modes) {
+		if (array_contains(info.players_won, global.player_id)) {
+			increase_collected_coins(20);
+		}
+			
+		save_file();
+		disable_board();
+		room_goto(rMinigames);
+		return;
+	}
+	
+	global.player_turn = 1;
 	
 	with (objPlayerInfo) {
 		target_draw_x = main_draw_x;
@@ -59,6 +51,8 @@ function back_to_board() {
 		draw_x = target_draw_x;
 		draw_y = target_draw_y;
 	}
+	
+	room_goto(info.previous_board);
 }
 
 alarms_init(12);

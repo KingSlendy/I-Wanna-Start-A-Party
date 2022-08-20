@@ -36,3 +36,5 @@ alarm_create(function() {
 	downloading = false;
 	alarm_call(0, 3);
 });
+
+alarm_call(2, 15);

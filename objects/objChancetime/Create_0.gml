@@ -350,7 +350,7 @@ alarm_create(function() {
 		turn_next();
 	}
 	
-	alarm[0] = 1;
+	instance_destroy();
 });
 
 alarm_create(function() {

@@ -142,7 +142,13 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 			
 				var now_skin = skins[skin_row][skin_col];
 			
-				if ((have_skin(now_skin) || (skin_player + 1 != global.player_id && (!focus_player_by_id(skin_player + 1).ai || !is_player_local(skin_player + 1)))) && !array_contains(skin_selected, now_skin) && sync_actions("jump", skin_player + 1)) {
+				if (((have_skin(now_skin) || now_skin == noone) || (skin_player + 1 != global.player_id && (!focus_player_by_id(skin_player + 1).ai || !is_player_local(skin_player + 1)))) && !array_contains(skin_selected, now_skin) && sync_actions("jump", skin_player + 1)) {
+					if (now_skin == noone) {
+						do {
+							now_skin = irandom(array_length(global.skins) - 1);
+						} until (have_skin(now_skin) && !array_contains(skin_selected, now_skin));
+					}
+					
 					skin_selected[skin_player] = now_skin;
 				
 					with (objPlayerBase) {

@@ -10,19 +10,6 @@ function grab_coin(player_id, network = true) {
 	if (count == 0) {
 		minigame4vs_points(player_id);
 		minigame_finish();
-		
-		var all_warps = true;
-		
-		with (objMinigame4vs_Dizzy_Warp) {
-			if (!trophy) {
-				all_warps = false;
-				break;
-			}
-		}
-		
-		if (all_warps) {
-			gain_trophy(43);
-		}
 	}
 	
 	audio_play_sound(sndMinigame4vs_Dizzy_Coin, 0, false);

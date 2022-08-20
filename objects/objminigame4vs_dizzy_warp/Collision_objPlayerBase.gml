@@ -7,6 +7,7 @@ if (!touched && other.last_touched != id) {
 			right_action = other.actions[1];
 			jump_action = other.actions[2];
 		}
+		
 		other.last_touched = id;
 	}
 	

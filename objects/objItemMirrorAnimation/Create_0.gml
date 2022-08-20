@@ -11,25 +11,29 @@ if (is_local_turn()) {
 		}
 	} else {
 		with (objBoardPalletPokemon) {
-			if (has_shine()) {
-				var space_record = -infinity;
-				var near = null;
-		
-				with (objSpaces) {
-					if (image_index == SpaceType.PathEvent) {
-						var dist = point_distance(x, y, other.x, other.y);
-						
-						if (dist > space_record) {
-							space_record = dist;
-							near = id;
-						}
-					}
-				}
-
-				other.focus_player.x = near.x + 16;
-				other.focus_player.y = near.y + 16;
-				break;
+			if (!has_shine()) {
+				continue;
 			}
+			
+			var space_record = -infinity;
+			var near = null;
+		
+			with (objSpaces) {
+				if (image_index != SpaceType.PathEvent) {
+					continue;
+				}
+				
+				var dist = point_distance(x, y, other.x, other.y);
+						
+				if (dist > space_record) {
+					space_record = dist;
+					near = id;
+				}
+			}
+
+			other.focus_player.x = near.x + 16;
+			other.focus_player.y = near.y + 16;
+			break;
 		}
 	}
 

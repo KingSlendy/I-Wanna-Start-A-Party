@@ -38,7 +38,7 @@ alarm_create(function() {
 	
 		with (objDiceRoll) {
 			if (by_item) {
-				alarm[0] = 1;
+				instance_destroy();
 			}
 		}
 	

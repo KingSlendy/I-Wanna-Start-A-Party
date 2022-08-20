@@ -31,9 +31,19 @@ var win_types = {
 	"Fire": "Grass"
 };
 
-if ((self_pokemon.power_type == other_pokemon.power_type && irandom(1) == 0) || win_types[$ self_pokemon.power_type] == other_pokemon.power_type) {
+var win_chance = 0;
+
+if (win_types[$ self_pokemon.power_type] == other_pokemon.power_type) {
+	win_chance = 0.9;
+} else if (self_pokemon.power_type == other_pokemon.power_type) {
+	win_chance = 0.5;
+} else {
+	win_chance = 0.25;
+}
+
+if (win_chance > random(1)) {
 	with (other_pokemon) {
-		if (place_meeting(x, y - 32, objShine)) {
+		if (has_shine()) {
 			change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 		} else {
 			change_coins(10, CoinChangeType.Gain).final_action = board_advance;

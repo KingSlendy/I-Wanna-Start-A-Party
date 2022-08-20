@@ -33,7 +33,7 @@ function skin_init() {
 		new Skin("Scare", "Fairy Kid", "I Wanna Be The Scare", 19, "???", 300),
 		new Skin("Dark", "Dark Kid", "I Wanna Travel The Worlds", 15, "KingSlendy"),
 		new Skin("Easy", "Punky", "I Wanna Be Easy!", 20, "superstarjonesbros", 300),
-		new Skin("Miku", "Hatsune Miku", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
+		new Skin("Miku", "Miku Hatsune", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 		new Skin("Miki", "The Girl", "I Want To Meet Miki", 22, "riktoi", 400),
 		new Skin("Producer", "Producer Kid", "I Wanna Be THE iDOLM@STER", 23, "eden", 300),
 		new Skin("Reimu", "Reimu Hakurei", "I Wanna Kami2Kami2Kami2", 24, "Reimu2020", 500),
@@ -118,7 +118,15 @@ function skin_init() {
 		new Skin("Cirno", "Cirno", "I Wanna Plant Seeds", 61, "Lss40", 600),
 		new Skin("Rotoll", "Rotoll", "I Wanna Revive The Guy", 62, "Rotoll", 100),
 		new Skin("Yayoi", "Yayoi Takatsuki", "I Wanna Be The Lovely", 63, "SaunaTour", 400),
-		new Skin("Marisa", "Marisa Kirisame", "Original", 0, "Harttlip0218", 500)
+		new Skin("Marisa", "Marisa Kirisame", "Original", 0, "Harttlip0218", 500),
+		new Skin("CatAngel", "Cat Angel", "Cat Planet", 0, "???", 300),
+		new Skin("Best", "Best Guy Kid", "I Wanna Be The Best Guy 3", 64, "Gustav", 200),
+		new Skin("Muni", "Muni", "I Wanna Defeat The Munimson", 65, "Muni", 200),
+		new Skin("Heady", "Heady", "I Wanna Be The Heady", 66, "PDplayer", 300),
+		new Skin("Luka", "Luka Megurine", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
+		new Skin("Gumi", "Gumi Megpoid", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
+		new Skin("Rin", "Rin Kagamine", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
+		new Skin("IA", "IA", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 	];
 }
 

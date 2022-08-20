@@ -27,6 +27,8 @@ for (var i = 0; i < array_length(global.skins); i++) {
 	array_push(skins[c], i);
 }
 
+array_push(skins, [noone]);
+
 skin_player = 0;
 skin_selected = array_create(global.player_max, null);
 

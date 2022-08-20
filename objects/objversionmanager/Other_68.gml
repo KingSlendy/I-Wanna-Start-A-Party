@@ -57,6 +57,6 @@ switch (type) {
 			exit;
 		}
 		
-		alarm_call(2, 30);
+		alarm_call(2, 15);
 		break;
 }
