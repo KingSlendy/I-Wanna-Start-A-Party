@@ -6,10 +6,6 @@ event_inherited();
 
 minigame_time = 10;
 minigame_time_end = function() {
-	if (!is_player_local(focus_player_by_turn(minigame_turn).network_id)) {
-		return;
-	}
-	
 	with (objMinigameController) {
 		stop_input();
 		correct = false;

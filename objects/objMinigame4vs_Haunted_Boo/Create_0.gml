@@ -67,7 +67,6 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	print(object_get_name(object_index));
 	image_index = 1;
 	image_xscale *= -1;
 	lookout = false;

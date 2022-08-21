@@ -14,6 +14,6 @@ alarm_create(function() {
 	if (objMinigameController.points_teams[0][1].lost && objMinigameController.points_teams[1][1].lost) {
 		alarm_call(0, 0.15);
 	} else {
-		alarm_call(0, 0.25);
+		alarm_call(0, 0.3);
 	}
 });

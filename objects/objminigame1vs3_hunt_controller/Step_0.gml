@@ -22,7 +22,7 @@ for (var i = 0; i < array_length(points_teams[0]); i++) {
 	
 	if (shoot_delay[i] == 0 && global.actions.shoot.pressed(player.network_id)) {
 		create_shoot(reticle.x, reticle.y);
-		shoot_delay[i] = get_frames(0.75);
+		shoot_delay[i] = get_frames(0.9);
 		
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame1vs3_Hunt_ReticleShoot);

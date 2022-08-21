@@ -927,7 +927,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.Minigame4vs_Bullets_Stop:
+			var stop_index = buffer_read(buffer, buffer_u8);
+			var stop_scale = buffer_read(buffer, buffer_u8);
+		
 			with (objMinigame4vs_Bullets_Block) {
+				image_index = stop_index;
+				scale = stop_scale;
 				stop(false);
 			}
 			break;
@@ -939,7 +944,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			
 			with (objMinigame4vs_Drawn_Key) {
 				if (x == key_x && y == key_y) {
-					collect_key(player_id);
+					collect_key(player_id, false);
 					break;
 				}
 			}

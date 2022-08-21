@@ -45,8 +45,8 @@ if (room == rMinigame4vs_Bullets && hspd != 0) {
 			advance = false;
 		}
 	} else {
-		if (x <= 190) {
-			x = 190;
+		if (x <= 174) {
+			x = 174;
 			hspd = 0;
 		}
 	}

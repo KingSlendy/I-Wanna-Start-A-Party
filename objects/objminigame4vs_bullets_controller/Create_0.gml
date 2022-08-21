@@ -29,7 +29,12 @@ repeat (500) {
 	
 	if (chosen_count <= 0) {
 		chosen_index = !chosen_index;
-		chosen_count = irandom_range(1, (chosen_index == 0) ? 2 : 3);
+		
+		if (chosen_index == 0) {
+			chosen_count = max(1, irandom_range(0, 2));
+		} else {
+			chosen_count = min(3, irandom_range(2, 4));
+		}
 	}
 }
 

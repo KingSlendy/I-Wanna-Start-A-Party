@@ -274,6 +274,7 @@ function minigame_finish(signal = false) {
 	with (objMinigameController) {
 		action_end();
 		alarm_stop(10);
+		alarm_stop(11);
 		
 		if (info.calculated) {
 			return;

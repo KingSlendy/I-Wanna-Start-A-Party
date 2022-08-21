@@ -107,26 +107,22 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (move_delay_timer > 0) {
-				move_delay_timer--;
-				break;
-			}
-		
 			var me_x = x - 1;
 			var me_y = y - 7;
 			instance_deactivate_object(objMinigame2vs2_Fruits_Gordo);
 			var near = instance_nearest(me_x, me_y, objMinigame2vs2_Fruits_Fruit);
 			instance_activate_object(objMinigame2vs2_Fruits_Gordo);
+			
+			if (near == noone) {
+				break;
+			}
 			var check_x = near.x;
+			var dist = point_distance(me_x, me_y, check_x, me_y);
 		
-			if (point_distance(me_x, me_y, check_x, me_y) > 1) {
+			if (dist > 4 && dist < 96) {
 				var dir = point_direction(me_x, me_y, check_x, me_y);
 				var action = (dir == 0) ? actions.right : actions.left;
-				action.hold(6);
-			}
-		
-			if (0.05 > random(1)) {
-				move_delay_timer = irandom_range(get_frames(0.25), get_frames(0.5));
+				action.press();
 			}
 		}
 	}

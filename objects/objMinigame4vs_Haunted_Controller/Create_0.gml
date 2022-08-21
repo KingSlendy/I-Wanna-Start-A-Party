@@ -8,6 +8,8 @@ with (objPlayerBase) {
 	enable_shoot = false;
 	won = false;
 	move_delay_timer = 0;
+	add_delay = false;
+	make_move = false;
 }
 
 event_inherited();
@@ -48,11 +50,30 @@ alarm_override(11, function() {
 			continue;
 		}
 		
-		if (sign(objMinigame4vs_Haunted_Boo.image_xscale) == 1) {
-			actions.right.press();
-		} else {
-			if (irandom(10) == 0) {
-				actions.right.hold(get_frames(0.5));
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (frozen || --move_delay_timer > 0) {
+				break;
+			}
+			
+			if (!objMinigame4vs_Haunted_Boo.lookout) {
+				make_move = true;
+				
+				if (add_delay && move_delay_timer <= 0) {
+					move_delay_timer = get_frames(random_range(0.1, 0.2));
+					add_delay = false;
+					break;
+				}
+			
+				actions.right.press();
+			} else {
+				add_delay = true;
+				
+				if (make_move) {
+					actions.right.hold(get_frames(random_range(0.4, 0.7)));
+					make_move = false;
+				}
 			}
 		}
 	}

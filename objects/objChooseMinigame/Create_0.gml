@@ -21,7 +21,7 @@ force_minigames = true;
 //Temp
 
 with (objBoard) {
-	alarm_stop(11)
+	alarm_stop(11);
 }
 
 function choosed_minigame() {

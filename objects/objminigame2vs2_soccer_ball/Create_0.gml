@@ -1,6 +1,7 @@
 depth = layer_get_depth("Tiles") + 1;
 image_speed = 0;
 movable = true;
+hittable = true;
 
 function soccer_goal(network = true) {
 	objPlayerBase.frozen = true;
@@ -27,7 +28,7 @@ function soccer_goal(network = true) {
 	}
 }
 
-alarms_init(1);
+alarms_init(2);
 
 alarm_create(function() {
 	with (objMinigameController) {
@@ -39,3 +40,7 @@ alarm_create(function() {
 		reset = 0;
 	}
 });
+
+alarm_create(function() {
+	hittable = true;
+})

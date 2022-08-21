@@ -27,3 +27,11 @@ if (place_meeting(x + hspeed, y, objBlock)) {
 if (place_meeting(x, y + vspeed, objBlock)) {
 	vspeed *= -0.8;
 }
+
+if (place_meeting(x, y, objBlock)) {
+	if (alarm_is_stopped(1)) {
+		alarm_call(1, 5);
+	}
+} else {
+	alarm_stop(1);
+}

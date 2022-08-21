@@ -49,10 +49,6 @@ alarm_create(function() {
 alarm_create(function() {
 	sprite_index = sprMinigame4vs_Slime_Slime;
 
-	with (objMinigameController) {
-		alarm_resume(10);
-	}
-
 	if (instance_exists(objMinigame4vs_Slime_Block)) {
 		objMinigame4vs_Slime_Block.scale_target = 0;
 	}

@@ -71,7 +71,7 @@ function skin_init() {
 		new Skin("Syobon", "Syobon Cat", "Original", 29, "SergioGameMaker", 500),
 		new Skin("Cute", "Cute Girl", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
 		new Skin("Stand", "Kid And Stand", "I Wanna Nonamed Spike 2", 47, "Nyinmir", 400),
-		new Skin("PD", "PDPlayer Kid", "I Wanna Nonamed Spike 2", 47, "PDPlayer", 500),
+		new Skin("PD", "PDplayer Kid", "I Wanna Nonamed Spike 2", 47, "PDplayer", 500),
 		new Skin("Round", "Round Kid", "I Wanna Nonamed Spike 2", 47, "Dengol", 300),
 		new Skin("Science", "Science Kid", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
 		new Skin("Soap", "Soap", "I Wanna Nonamed Spike 2", 47, "Soap", 300),

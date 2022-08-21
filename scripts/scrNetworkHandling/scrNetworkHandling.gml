@@ -202,7 +202,7 @@ function player_write_data() {
 	buffer_write_data(buffer_u16, sprite_index);
 	buffer_write_data(buffer_f16, image_alpha);
 	
-	if (object_index == objPlayerPlatformer) {
+	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic) {
 		buffer_write_data(buffer_s8, image_xscale * xscale);
 		buffer_write_data(buffer_s8, image_yscale * orientation);
 	} else {
