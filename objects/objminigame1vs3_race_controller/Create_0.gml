@@ -35,6 +35,8 @@ solo_actions = [];
 team_actions = [];
 solo_current = -1;
 team_current = -1;
+solo_advance = 0;
+team_advance = 0;
 next_seed_inline();
 
 repeat (100) {
@@ -59,6 +61,7 @@ alarm_create(4, function() {
 	solo_current++;
 	solo_current %= array_length(solo_actions);
 	solo_action = solo_actions[solo_current];
+	solo_advance %= 4;
 	solo_correct = false;
 	solo_wrong = false;
 });
@@ -85,6 +88,7 @@ alarm_create(5, function() {
 	team_current++;
 	team_current %= array_length(team_actions);
 	team_action = team_actions[team_current];
+	team_advance %= 3;
 	team_correct = false;
 	team_wrong = false;
 });

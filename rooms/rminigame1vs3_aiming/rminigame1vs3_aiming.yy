@@ -50,7 +50,7 @@
     "path": "folders/Rooms/Minigames/1vs3.yy",
   },
   "resourceVersion": "1.0",
-  "name": "rMinigame1vs3_Shooting",
+  "name": "rMinigame1vs3_Aiming",
   "tags": [],
   "resourceType": "GMRoom",
 }

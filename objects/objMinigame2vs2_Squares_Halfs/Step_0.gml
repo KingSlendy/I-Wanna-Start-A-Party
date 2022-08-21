@@ -15,7 +15,7 @@ if (objMinigameController.info.is_finished || point_distance(x, y, x, target_y) 
 }
 
 if (done && !disappear) {
-	if (sprite_index == sprMinigame2vs2_Squares_Half1) {
+	if (top) {
 		minigame4vs_points(network_id, 1);
 	}
 	
