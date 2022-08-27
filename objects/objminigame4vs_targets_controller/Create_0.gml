@@ -2,6 +2,8 @@ with (objPlayerBase) {
 	change_to_object(objPlayerPlatformer);
 }
 
+objPlayerBase.action_delay = 0;
+
 event_inherited();
 
 points_draw = true;
@@ -44,4 +46,43 @@ function reposition_player() {
 
 alarm_override(1, function() {
 	unfreeze_player();
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (frozen || --action_delay > 0) {
+				break;
+			}
+			
+			if (!place_meeting(x + 1, y, objBlock)) {
+				actions.right.press();
+				break;
+			}
+			
+			if (on_block && vspd == 0) {
+				actions.jump.hold(23);
+				break;
+			}
+			
+			if (vspd >= 0) {
+				if (jump_left > 0) {
+					actions.jump.hold(irandom_range(3, 7));
+				} else {
+					actions.shoot.press();
+					action_delay = get_frames(random_range(0.5, 1.5));
+				}
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
 });

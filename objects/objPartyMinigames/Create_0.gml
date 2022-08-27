@@ -43,7 +43,7 @@ board_img_w = 264;
 board_img_h = 193;
 board_x = 0;
 board_target_x = 0;
-board_rooms = [rBoardIsland, rBoardHotland, rBoardBaba, rBoardPallet, rBoardDreams];
+board_rooms = [rBoardIsland, rBoardHotland, rBoardBaba, rBoardPallet, rBoardDreams, rBoardHyrule];
 board_options_selected = 0;
 board_options_y = 0;
 board_options_w = 440;
@@ -51,7 +51,7 @@ board_options_h = board_h + 32;
 state = -1;
 save_present = (room == rParty && array_length(global.player_game_ids) > 0);
 save_sprite = noone;
-save_turn = 0;
+save_board_turn = 0;
 save_max_turns = 0;
 save_selected = 0;
 
@@ -60,7 +60,7 @@ if (save_present && room == rParty) {
 		board = global.board_games[$ global.game_id];
 		board_selected = board.saved_board.saved_board;
 		board_target_selected = board_selected;
-		save_turn = board.saved_board.saved_turn;
+		save_board_turn = board.saved_board.saved_board_turn;
 		save_max_turns = board.saved_board.saved_max_turns;
 		save_give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 	
@@ -106,6 +106,8 @@ if (save_present && room == rParty) {
 	} catch (_) {
 		save_present = false;
 		menu_page = 0;
+		board_selected = 0;
+		board_target_selected = 0;
 	}
 }
 

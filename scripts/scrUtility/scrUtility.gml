@@ -234,3 +234,37 @@ function approach(val1, val2, amount) {
 		return max(val1 - amount, val2);
 	}
 }
+
+function wave_transition(sprites, fraction) {
+	var width = 800;
+	var height = 608;
+	var strip_height = 8;
+	var amplitude = 0.08;
+	var cycles = 9;
+	var phase_speed = 0.8;
+	var strip_count = ceil(height / strip_height);
+	
+	for (var sn = 0; sn < 2; sn++) {
+	    var tex = sprite_get_texture(sprites[sn], 0);
+	    var tw = texture_get_width(tex);
+	    var th = texture_get_height(tex);
+
+	    draw_primitive_begin_texture(pr_trianglestrip, tex);
+		
+	    for (var i = 0; i <= strip_count; i += 1) {
+	        var left = amplitude * width * cos((i / strip_count - fraction * phase_speed) * pi * cycles) * sin(fraction * pi);
+	        var top = i * strip_height;
+	        var tt = top / height * th;
+			var alpha = clamp((1 + i / strip_count - fraction * 2), 0, 1);
+	        
+			if (sn == 1) {
+				alpha = 1 - alpha;
+			}
+        
+	        draw_vertex_texture_color(left, top, 0, tt, c_white, alpha);
+	        draw_vertex_texture_color(left + width, top, tw, tt, c_white, alpha);
+	    }
+		
+		draw_primitive_end();
+	}
+}

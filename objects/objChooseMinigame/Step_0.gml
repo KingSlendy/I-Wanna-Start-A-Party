@@ -16,7 +16,7 @@ switch (state) {
 			}
 		
 			//Doubles the view size
-			camera_set_view_size(view_camera[0], 800 * 3, 608 * 3);
+			camera_set_view_size(view_camera[0], 800 * 2, 608 * 2);
 			fade_alpha = 1;
 			state = 1;
 			

@@ -5,8 +5,9 @@ if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 			break;
 			
 		case "1vs3":
+			draw_1vs3_squares();
 			break;
-			
+
 		case "2vs2":
 			draw_2vs2_squares();
 			break;

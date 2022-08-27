@@ -61,7 +61,7 @@ alarm_override(11, function() {
 				make_move = true;
 				
 				if (add_delay && move_delay_timer <= 0) {
-					move_delay_timer = get_frames(random_range(0.1, 0.2));
+					move_delay_timer = get_frames(random_range(0.2, 0.3));
 					add_delay = false;
 					break;
 				}
@@ -71,7 +71,12 @@ alarm_override(11, function() {
 				add_delay = true;
 				
 				if (make_move) {
-					actions.right.hold(get_frames(random_range(0.4, 0.7)));
+					if (0.75 > random(1)) {
+						actions.right.hold(get_frames(random_range(0.4, 0.5)));
+					} else {
+						actions.right.hold(get_frames(random_range(0.6, 0.8)));
+					}
+					
 					make_move = false;
 				}
 			}

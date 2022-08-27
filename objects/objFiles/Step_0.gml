@@ -54,7 +54,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 if (!fade_start && files_fade == -1 && !global.lobby_started) {
 	if (file_opened == -1) {
 		if (global.file_selected == -1 && option_selected == -1) {
-			global.file_selected = 0;
+			global.file_selected = files_prev;
 		}
 
 		var scroll = (global.actions.right.pressed() - global.actions.left.pressed());

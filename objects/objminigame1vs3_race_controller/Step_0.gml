@@ -31,7 +31,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 			}
 			
 			with (other) {
-				alarm_call(4, (!advance) ? 0.25 : 0.75);
+				alarm_call(4, (!advance) ? 0.15 : 0.75);
 			}
 			
 			if (array_length(network_solo_actions) == 0) {
@@ -72,7 +72,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 			}
 			
 			with (other) {
-				alarm_call(5, (!advance) ? 0.25 : 0.75);
+				alarm_call(5, (!advance) ? 0.15 : 0.75);
 			}
 			
 			if (array_length(network_team_actions) == 0) {

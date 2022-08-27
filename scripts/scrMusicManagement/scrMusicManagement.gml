@@ -50,6 +50,8 @@ mlp[$ bgmBoardHotlandAnnoyingDog] = new LoopPoint(0.005, 36.102);
 mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
 mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
 mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
+mlp[$ bgmBoardHyrule] = new LoopPoint(14.129, 72.326);
+mlp[$ bgmBoardHyruleDark] = new LoopPoint(1.627, 60.759);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
 mlp[$ bgmChanceTime] = new LoopPoint(5.779, 38.693);
 mlp[$ bgmTheGuy] = new LoopPoint(0.0, 36.735);
@@ -84,6 +86,8 @@ mlp[$ bgmMinigame1vs3_Coins] = new LoopPoint(3.609, 34.342);
 mlp[$ bgmMinigame1vs3_Race] = new LoopPoint(4.401, 36.943);
 mlp[$ bgmMinigame1vs3_Warping] = new LoopPoint(2.658, 36.962);
 mlp[$ bgmMinigame1vs3_Hunt] = new LoopPoint(1.923, 23.618);
+mlp[$ bgmMinigame1vs3_Aiming] = new LoopPoint(4.396, 40.852);
+mlp[$ bgmMinigame1vs3_Host]= new LoopPoint(2.600, 32.601);
 	
 //2vs2
 mlp[$ bgmMinigame2vs2_Maze] = new LoopPoint(3.330, 43.047);

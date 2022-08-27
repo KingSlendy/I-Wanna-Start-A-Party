@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmminigame1vs3_hunt.ogg",
-  "duration": 24.275875,
+  "duration": 0.0,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

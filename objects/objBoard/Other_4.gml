@@ -7,7 +7,8 @@ if (!global.board_started) {
 		global.board_started = true;
 		var board = global.board_games[$ global.game_id];
 		global.max_board_turns = board.saved_board.saved_max_turns;
-		global.board_turn = board.saved_board.saved_turn;
+		global.board_turn = board.saved_board.saved_board_turn;
+		global.board_light = board.saved_board.saved_board_light;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
@@ -66,6 +67,7 @@ if (!global.board_started) {
 	
 		calculate_player_place();
 		global.player_game_ids = [];
+		prev_board_light = !global.board_light;
 	} else { //Initialize board
 		variable_struct_remove(global.board_games, global.game_id);
 		save_file();
@@ -117,12 +119,21 @@ if (room == rBoardIsland) {
 	if (!global.board_day) {
 		layer_set_visible("Night", true);
 	}
-	
-	if (instance_exists(objShine)) {
-		objShine.sprite_index = (global.board_day) ? sprShine : sprShineNight;
-	}
 }
 
-if (room == rBoardHotland || room == rBoardPallet) {
-	global.shine_spawn_count = 2;
+switch (room) {
+	case rBoardIsland:
+		global.board_day = ((global.board_turn - 1) % 6 < 3);
+	
+		if (!global.board_day) {
+			layer_set_visible("Night", true);
+		}
+		break;
+	
+	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
+	
+	case rBoardHyrule:
+		global.shine_spawn_count = 3;
+		global.shine_price = 15;
+		break;
 }

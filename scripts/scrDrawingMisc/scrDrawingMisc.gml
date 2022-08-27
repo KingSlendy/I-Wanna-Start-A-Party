@@ -135,6 +135,39 @@ function draw_4vs_squares() {
 	}
 }
 
+function draw_1vs3_squares() {
+	var draw_w = camera_get_view_width(view_camera[0]);
+	var draw_h = camera_get_view_height(view_camera[0]);
+
+	for (var i = 0; i < global.player_max; i++) {
+		switch (objCameraSplit4.mode) {
+			case 0: //Full
+				var draw_x = draw_w * (i % 2);
+				var draw_y = draw_h * (i div 2);
+				break;
+			
+			case 1: //Vertical
+				var draw_x = draw_w * i;
+				var draw_y = 0;
+				break;
+			
+			case 2: //Horizontal
+				var draw_x = 0;
+				var draw_y = draw_h * i;
+				break;
+		}
+		
+		var player = focus_player_by_id(i + 1);
+		
+		if (room == rMinigame1vs3_Host && !player.draw) {
+			draw_set_color(c_black);
+			draw_rectangle(draw_x, draw_y, draw_x + (draw_w - 1), draw_y + (draw_h - 1), false);
+		}
+		
+		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, info.player_colors[(player.network_id != objMinigameController.points_teams[1][0].network_id)], 0);
+	}
+}
+
 function draw_2vs2_squares() {
 	var info = global.minigame_info;
 	var draw_w = camera_get_view_width(view_camera[0]);
@@ -167,4 +200,13 @@ function draw_action_big(action) {
 
 function draw_action_small(action) {
 	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.35,0.35}";
+}
+
+function draw_spotlight(x, y, size) {
+	shader_set(shdSpotlight);
+	shader_set_uniform_f(shader_get_uniform(shdSpotlight, "u_uPosition"), x, y);
+	shader_set_uniform_f(shader_get_uniform(shdSpotlight, "u_uSize"), size);
+	var half = size / 2;
+	draw_rectangle(x - half, y - half, x + half, y + half, false);
+	shader_reset();
 }

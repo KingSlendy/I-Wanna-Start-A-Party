@@ -9,11 +9,3 @@ dir_angle_float = 90;
 getting = false;
 losing = false;
 faker = false;
-
-switch (room) {
-	case rBoardIsland:
-		if (!global.board_day) {
-			sprite_index = sprShineNight;
-		}
-		break;
-}

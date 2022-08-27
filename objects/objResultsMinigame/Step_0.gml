@@ -18,14 +18,7 @@ switch (state) {
 		}
 	
 		fade_alpha -= 0.03;
-		var room_name = room_get_name(room);
-		var bgm_name = "bgm" + string_copy(room_name, 2, string_length(room_name) - 1);
-	
-		if (room == rBoardIsland && !global.board_day) {
-			bgm_name += "Night";
-		}
-		
-		music_play(asset_get_index(bgm_name));
+		board_music();
 	
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;

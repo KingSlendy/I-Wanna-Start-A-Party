@@ -1,7 +1,7 @@
 event_inherited();
 network_mode = PlayerDataMode.Basic;
 skin = get_skin();
-max_speed = 5;
+max_speed = 6;
 follow_path = null;
 can_jump = false;
 dice_hit_y = y;

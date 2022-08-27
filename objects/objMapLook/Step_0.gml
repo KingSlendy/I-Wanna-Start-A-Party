@@ -11,8 +11,14 @@ var scroll_h = (global.actions.right.held(network_id) - global.actions.left.held
 var scroll_v = (global.actions.down.held(network_id) - global.actions.up.held(network_id));
 look_x += scroll_h * 8;
 look_y += scroll_v * 8;
-look_x = clamp(look_x, 0, room_width - cam_w * 0.25);
-look_y = clamp(look_y, 0, room_height - cam_h * 0.25);
+
+if (room != rBoardHyrule) {
+	look_x = clamp(look_x, 0, room_width - cam_w * 0.25);
+	look_y = clamp(look_y, 0, room_height - cam_h * 0.25);
+} else {
+	look_x = clamp(look_x, cam_w / 2, room_width - cam_w / 2);
+	look_y = clamp(look_y, cam_h / 2, room_height - cam_h / 2);
+}
 
 if (global.actions.shoot.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_back, 0, false);

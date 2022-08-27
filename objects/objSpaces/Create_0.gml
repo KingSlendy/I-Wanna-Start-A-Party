@@ -1,58 +1,62 @@
-space_next = null;
-space_previous = null;
-space_directions_normal = array_create(4, null);
-space_directions_reverse = array_create(4, null);
+function space_directions() {
+	space_next = null;
+	space_previous = null;
+	space_directions_normal = array_create(4, null);
+	space_directions_reverse = array_create(4, null);
 
-var paths = ds_list_create();
-var count = instance_place_list(x, y, objPath, paths, false);
-instance_deactivate_object(id);
+	var paths = ds_list_create();
+	var count = instance_place_list(x, y, objPath, paths, false);
+	instance_deactivate_object(id);
 
-for (var i = 0; i < count; i++) {
-	var path = paths[| i];
-	var space_collide;
+	for (var i = 0; i < count; i++) {
+		var path = paths[| i];
+		var space_collide;
 		
-	with (path) {
-		space_collide = instance_place(x, y, objSpaces);
-	}
-
-	if (path.x == x + 16 && path.y == y + 16) {
-		var space_array = space_directions_normal;
-		var invert = 0;
-	} else {
-		if (path.image_index == 1) {
-			continue;
+		with (path) {
+			space_collide = instance_place(x, y, objSpaces);
 		}
+
+		if (path.x == x + 16 && path.y == y + 16) {
+			var space_array = space_directions_normal;
+			var invert = 0;
+		} else {
+			if (path.image_index == 1) {
+				continue;
+			}
 		
-		var space_array = space_directions_reverse;
-		var invert = 3;
+			var space_array = space_directions_reverse;
+			var invert = 3;
+		}
+	
+		switch ((path.image_angle + 360) % 360) {
+			case 90: space_array[@ abs(invert - 0)] = space_collide; break;
+			case 0: space_array[@ abs(invert - 1)] = space_collide; break;
+			case 180: space_array[@ abs(invert - 2)] = space_collide; break;
+			case 270: space_array[@ abs(invert - 3)] = space_collide; break;
+		}
+	}
+
+	if (array_count(space_directions_normal, null) == 3) {
+		space_next = array_first(space_directions_normal, function(x) {
+			return (x != null);
+		});
 	}
 	
-	switch ((path.image_angle + 360) % 360) {
-		case 90: space_array[@ abs(invert - 0)] = space_collide; break;
-		case 0: space_array[@ abs(invert - 1)] = space_collide; break;
-		case 180: space_array[@ abs(invert - 2)] = space_collide; break;
-		case 270: space_array[@ abs(invert - 3)] = space_collide; break;
+	if (array_count(space_directions_reverse, null) == 3) {
+		space_previous = array_first(space_directions_reverse, function(x) {
+			return (x != null);
+		});
 	}
+
+	if (array_count(space_directions_normal, null) < 3 || array_count(space_directions_reverse, null) < 3) {
+		image_index = SpaceType.PathChange;
+	}
+
+	instance_activate_object(id);
+	ds_list_destroy(paths);
 }
 
-if (array_count(space_directions_normal, null) == 3) {
-	space_next = array_first(space_directions_normal, function(x) {
-		return (x != null);
-	});
-}
-	
-if (array_count(space_directions_reverse, null) == 3) {
-	space_previous = array_first(space_directions_reverse, function(x) {
-		return (x != null);
-	});
-}
-
-if (array_count(space_directions_normal, null) < 3 || array_count(space_directions_reverse, null) < 3) {
-	image_index = SpaceType.PathChange;
-}
-
-instance_activate_object(id);
-ds_list_destroy(paths);
+space_directions();
 
 space_shine = false;
 
@@ -85,7 +89,7 @@ function space_passing_event() {
 			return 1;
 		
 		case SpaceType.Shine:
-			if (room != rBoardPallet) {
+			if (room != rBoardHyrule || global.board_light) {
 				if (player_info.coins >= global.shine_price) {
 					var buy_shine = function() {
 						change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
@@ -159,29 +163,12 @@ function space_passing_event() {
 					}
 				}
 			} else {
+				var buy_shine = function() {
+					change_shines(-1, ShineChangeType.Get).final_action = choose_shine;
+				}
+				
 				start_dialogue([
-					new Message("The shine wants a duel, are you ready to battle?", [
-						["Bring it on!", [
-						]],
-						
-						["Pass", [
-							new Message("Are you sure you don't want to battle?", [
-								["Bring it on!", [
-								]],
-								
-								["Pass", [
-									new Message("Are you really really sure?", [
-										["Bring it on!", [
-										]],
-										
-										["Pass", [
-											new Message("Well okay then, your loss!",, board_advance)
-										]]
-									])
-								]],
-							])
-						]],
-					])
+					new Message("Oh no! The evil shine is looking at you menacingly!\nIt won't accept a no for an answer!",, buy_shine)
 				]);
 			}
 			

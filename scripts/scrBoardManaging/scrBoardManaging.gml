@@ -226,6 +226,21 @@ function switch_camera_target(x, y) {
 	return s;
 }
 
+function board_music() {
+	var room_name = room_get_name(room);
+	var bgm_name = "bgm" + string_copy(room_name, 2, string_length(room_name) - 1);
+	
+	if (room == rBoardIsland && !global.board_day) {
+		bgm_name += "Night";
+	}
+	
+	if (room == rBoardHyrule && !global.board_light) {
+		bgm_name += "Dark";
+	}
+	
+	music_play(asset_get_index(bgm_name));
+}
+
 function board_start() {
 	if (global.board_started) {
 		save_board();

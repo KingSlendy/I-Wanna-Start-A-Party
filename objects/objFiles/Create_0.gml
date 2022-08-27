@@ -2,6 +2,13 @@ global.game_started = false;
 fade_start = true;
 fade_alpha = 1;
 
+files_prev = global.file_selected;
+
+if (files_prev == -1) {
+	files_prev = 0;
+}
+
+global.file_selected = -1;
 files_alpha = 0;
 files_fade = -1;
 file_sprites = array_create(3, null);

@@ -16,7 +16,7 @@ function minigame_init() {
 		new Minigame("Haunted Forest", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Move"], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
 		new Minigame("Magic Memory", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nA set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items"], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
 		new Minigame("Mansion Escape", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nYou've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door"], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame("Painting Platforms", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nInstructions TBD."], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
+		new Minigame("Painting Platforms", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
 		new Minigame("Bugs Around", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
 		new Minigame("Unstable Blocks", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
 		new Minigame("Crazy Chests", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
@@ -35,7 +35,9 @@ function minigame_init() {
 		new Minigame("Getting Coins", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
 		new Minigame("Gigantic Race", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
 		new Minigame("Warping Up", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
-		new Minigame("Hunt Trouble", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum")
+		new Minigame("Hunt Trouble", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
+		new Minigame("Aiming Tiles", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
+		new Minigame("Hidden Host", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host")
 	];
 
 	m[$ "2vs2"] = [

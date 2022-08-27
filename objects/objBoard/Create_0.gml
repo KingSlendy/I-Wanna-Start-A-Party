@@ -18,6 +18,7 @@ global.dice_roll = 0;
 global.choice_selected = -1;
 global.item_choice = false;
 global.board_day = true;
+global.board_light = true;
 
 //Board values
 global.shine_spawn_count = 1;
@@ -51,6 +52,10 @@ tile_image_index = 0;
 
 //Pallet's Board
 global.pokemon_price = 15;
+
+//Hyrule's Board
+prev_board_light = !global.board_light;
+instance_deactivate_layer("Path_Dark");
 
 alarms_init(12);
 

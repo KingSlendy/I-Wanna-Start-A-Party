@@ -111,6 +111,8 @@ enum ClientTCP {
 	Minigame1vs3_Warping_Warp,
 	Minigame1vs3_Hunt_ReticleShoot,
 	Minigame1vs3_Hunt_ReticleMove,
+	Minigame1vs3_Aiming_LaserShoot,
+	Minigame1vs3_Aiming_DestroyBlock,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	Minigame2vs2_Buttons_Button,
@@ -150,6 +152,7 @@ enum ClientUDP {
 	NoNoTheGuy,
 	
 	//Minigames
+	Minigame1vs3_Aiming_Block,
 	Minigame2vs2_Squares_Halfs,
 	Minigame2vs2_Soccer_Ball
 }
@@ -887,6 +890,13 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					}
 				}
 			}
+			
+			with (objMinigame4vs_Chests_Chest) {
+				if (self.n != n && self.selected == selected) {
+					self.selected = -1;
+					target_y = ystart;
+				}
+			}
 			break;
 			
 		case ClientTCP.Minigame4vs_Slime_BlockEntrance:
@@ -1083,6 +1093,31 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 					x = reticle_x;
 					y = reticle_y;
 					break;
+				}
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Aiming_LaserShoot:
+			var laser_x = buffer_read(buffer, buffer_s32);
+			var laser_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigameController) {
+				create_laser(laser_x, laser_y);
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Aiming_DestroyBlock:
+			var block_is_player = buffer_read(buffer, buffer_bool);
+			var block_player_num = buffer_read(buffer, buffer_u8);
+		
+			with (objMinigame1vs3_Aiming_Block) {
+				if (is_player == block_is_player && player_num == block_player_num) {
+					if (is_player) {
+						var player = objMinigameController.points_teams[0][player_num];
+						player.lost = true;
+					}
+
+					instance_destroy();
 				}
 			}
 			break;
@@ -1348,6 +1383,21 @@ function network_read_client_udp(buffer, data_id) {
 		#endregion
 		
 		#region Minigames
+		case ClientUDP.Minigame1vs3_Aiming_Block:
+			var block_is_player = buffer_read(buffer, buffer_bool);
+			var block_player_num = buffer_read(buffer, buffer_u8);
+			var block_x = buffer_read(buffer, buffer_s32);
+			var block_y = buffer_read(buffer, buffer_s32);
+			
+			with (objMinigame1vs3_Aiming_Block) {
+				if (is_player == block_is_player && player_num == block_player_num) {
+					x = block_x;
+					y = block_y;
+					break;
+				}
+			}
+			break;
+		
 		case ClientUDP.Minigame2vs2_Squares_Halfs:
 			var player_id = buffer_read(buffer, buffer_u8);
 			var angle = buffer_read(buffer, buffer_u16);
