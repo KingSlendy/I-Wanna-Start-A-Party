@@ -22,6 +22,7 @@ for (var i = -2; i <= 2; i++) {
 	draw_set_halign(fa_center);
 	draw_text_color_outline(box_x + draw_w / 2, 10, skin.name, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 	draw_set_font(fntFilesData);
+	draw_set_color(c_white);
 	draw_text_outline(box_x + draw_w / 2, 220, skin.fangame_name, c_black);
 	draw_set_halign(fa_left);
 	draw_text_outline(box_x + 20, 260, "Maker: " + skin.maker, c_black);

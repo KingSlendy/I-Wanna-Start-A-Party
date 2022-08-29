@@ -163,8 +163,14 @@ function space_passing_event() {
 					}
 				}
 			} else {
-				var buy_shine = function() {
-					change_shines(-1, ShineChangeType.Get).final_action = choose_shine;
+				if (player_info.shines > 0) {
+					var buy_shine = function() {
+						change_shines(-1, ShineChangeType.Get).final_action = choose_shine;
+					}
+				} else {
+					var buy_shine = function() {
+						change_coins(-global.shine_price, CoinChangeType.Lose).final_action = board_advance;
+					}
 				}
 				
 				start_dialogue([

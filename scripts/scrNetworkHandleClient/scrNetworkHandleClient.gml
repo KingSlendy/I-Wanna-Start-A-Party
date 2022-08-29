@@ -1113,8 +1113,7 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			with (objMinigame1vs3_Aiming_Block) {
 				if (is_player == block_is_player && player_num == block_player_num) {
 					if (is_player) {
-						var player = objMinigameController.points_teams[0][player_num];
-						player.lost = true;
+						objMinigameController.points_teams[0][player_num].lost = true;
 					}
 
 					instance_destroy();

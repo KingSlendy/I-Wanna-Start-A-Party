@@ -47,6 +47,7 @@ for (var i = 0; i < array_length(info.space_indexes); i++) {
 	with (objSpaces) {
 		if (x == space.x && y == space.y) {
 			image_index = space.index;
+			space_shine = space.shine;
 			break;
 		}
 	}

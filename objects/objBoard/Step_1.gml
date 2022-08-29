@@ -16,12 +16,19 @@ if (room == rBoardBaba) {
 }
 
 if (room == rBoardHyrule && global.board_light != prev_board_light) {
-	layer_set_visible("World_Light", global.board_light);
-	layer_set_visible("World_Dark", !global.board_light);
-	layer_set_visible("Road_Light", global.board_light);
-	layer_set_visible("Road_Dark", !global.board_light);
-	layer_set_visible("Direction_Light", global.board_light);
-	layer_set_visible("Direction_Dark", !global.board_light);
+	var layers = [
+		"Background",
+		"Structure",
+		"House",
+		"Road",
+		"Direction",
+		"Misc"
+	];
+	
+	for (var i = 0; i < array_length(layers); i++) {
+		layer_set_visible(layers[i] + "_Light", global.board_light);
+		layer_set_visible(layers[i] + "_Dark", !global.board_light);
+	}
 	
 	if (!global.board_light) {
 		instance_deactivate_layer("Path_Light");

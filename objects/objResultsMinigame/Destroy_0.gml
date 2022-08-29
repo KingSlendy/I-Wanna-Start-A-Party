@@ -3,7 +3,10 @@ with (objBoard) {
 }
 
 if (room == rBoardHyrule) {
-	if ((global.board_turn - 1) % 6 == 0) {
+	var max_turns = 5;
+	var curr_turn = (global.board_turn - 1) % max_turns;
+	
+	if (curr_turn == 0 || 1 / max_turns * curr_turn > random(1)) {
 		instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);
 		exit;
 	}

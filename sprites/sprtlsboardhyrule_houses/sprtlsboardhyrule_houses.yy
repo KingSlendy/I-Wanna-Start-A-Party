@@ -8,28 +8,28 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 847,
+  "bbox_right": 607,
   "bbox_top": 0,
   "bbox_bottom": 703,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 928,
-  "height": 720,
+  "width": 608,
+  "height": 704,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 8,
-  "gridY": 8,
+  "gridX": 0,
+  "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ebde8137-e64e-4356-8b45-8e3df340a205","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ebde8137-e64e-4356-8b45-8e3df340a205","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},"LayerId":{"name":"981f7672-712f-43b8-a2ed-2d38c5eb35d9","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTlsBoardHyrule","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},"resourceVersion":"1.0","name":"ebde8137-e64e-4356-8b45-8e3df340a205","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f9e90e59-edbd-4ea2-83bb-12dc78e48503","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f9e90e59-edbd-4ea2-83bb-12dc78e48503","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},"LayerId":{"name":"c3ecf129-2bcd-4d49-93db-65c6a85c1f0c","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprTlsBoardHyrule_Houses","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},"resourceVersion":"1.0","name":"f9e90e59-edbd-4ea2-83bb-12dc78e48503","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTlsBoardHyrule","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},
+    "spriteId": {"name":"sprTlsBoardHyrule_Houses","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c02ba8b1-81a4-49f4-b558-9df3ecb71de1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ebde8137-e64e-4356-8b45-8e3df340a205","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"625458bf-6a5d-4e37-8416-63e374ca4019","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9e90e59-edbd-4ea2-83bb-12dc78e48503","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTlsBoardHyrule","path":"sprites/sprTlsBoardHyrule/sprTlsBoardHyrule.yy",},
+    "parent": {"name":"sprTlsBoardHyrule_Houses","path":"sprites/sprTlsBoardHyrule_Houses/sprTlsBoardHyrule_Houses.yy",},
     "resourceVersion": "1.4",
-    "name": "sprTlsBoardHyrule",
+    "name": "sprTlsBoardHyrule_Houses",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"981f7672-712f-43b8-a2ed-2d38c5eb35d9","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c3ecf129-2bcd-4d49-93db-65c6a85c1f0c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Tilesets/Boards/Hyrule.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sprTlsBoardHyrule",
+  "name": "sprTlsBoardHyrule_Houses",
   "tags": [],
   "resourceType": "GMSprite",
 }

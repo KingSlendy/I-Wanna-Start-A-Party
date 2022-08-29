@@ -44,6 +44,14 @@ alarm_create(function() {
 	} else {
 		spawned_shine.vspeed = -6;
 		spawned_shine.losing = true;
+		
+		if (room == rBoardHyrule && !global.board_light) {
+			audio_sound_pitch(sndShineGet, 0.75);
+		} else {
+			audio_sound_pitch(sndShineGet, 1);
+		}
+		
+		audio_play_sound(sndShineGet, 0, false);
 	}
 });
 
@@ -53,6 +61,12 @@ alarm_create(function() {
 	spawned_shine.focus_player = focus_player;
 
 	if (instance_exists(objChooseShine)) {
+		if (room == rBoardHyrule && !global.board_light) {
+			audio_sound_pitch(sndShineSpawn, 0.75);
+		} else {
+			audio_sound_pitch(sndShineSpawn, 1);
+		}
+		
 		audio_play_sound(sndShineSpawn, 0, false);
 	}
 

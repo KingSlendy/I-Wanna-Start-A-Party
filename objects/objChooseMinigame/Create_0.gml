@@ -46,7 +46,7 @@ function send_to_minigame() {
 	}
 	
 	with (objSpaces) {
-		array_push(other.info.space_indexes, {x: self.x, y: self.y, index: image_index});
+		array_push(other.info.space_indexes, {x: self.x, y: self.y, index: image_index, shine: space_shine});
 	}
 	
 	with (objShine) {

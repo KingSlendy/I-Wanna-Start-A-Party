@@ -51,9 +51,5 @@ if (getting) {
 		instance_destroy();
 	}
 	
-	if (vspeed == 0) {
-		audio_play_sound(sndShineGet, 0, false);
-	}
-	
 	vspeed = 1;
 }
