@@ -56,7 +56,7 @@ global.trophies = [
 	new Trophy(39, TrophyRank.Bronze, "Slime Hugger", "You touched the slime in Slime Annoyer.\nIt's cute, I know, but it's deadly!", "I know it's tempting, but it's not huggable."),
 	new Trophy(40, TrophyRank.Gold, "After Hours", "Finish a 50 turns Party.\nLook! It's morning outside!", "Never ending Party."),
 	new Trophy(41, TrophyRank.Bronze, "Item Hoarder", "You finished a Party with 3 Items.\nOh my, that's such a waste!", "Hoarding isn't the best, you know?"),
-	new Trophy(42, TrophyRank.Bronze, "Broken Mirror", "You used the Mirror when you didn't have enough coins.\nNow both you and the Mirror are broke, congratulations!", "Now two things are broken by such waste."),
+	new Trophy(42, TrophyRank.Bronze, "Broken Mirror", "You used the Mirror when you didn't have enough coins.\nNow both you and the Mirror are broken, congratulations!", "Now two things are broken by such waste."),
 	new Trophy(43, TrophyRank.Bronze, "Night Shift", "You used the Cellphone when it was night.\nSorry but the shop doesn't have night shifts.\nIt'd be best if you actually went during the day, thank you.", "Pay attention to the customer support schedule."),
 	new Trophy(44, TrophyRank.Silver, "Dizzy Crazy", "You touched every warp in Dizzy Conundrum.\nStop! You're making me dizzy!", "My head is spinning..."),
 	new Trophy(45, TrophyRank.Silver, "Born Astronaut", "You didn't receive a single hit in Rocket Ignition!\nAll those years of astronaut training in the morning finally paid off!", "Morning training routine."),
@@ -64,7 +64,11 @@ global.trophies = [
 	new Trophy(47, TrophyRank.Bronze, "Wrong Galaxy", "You used the Blackhole and said no.\nYeah there's a bunch of galaxies to call, it's only natural you'd get confused.", "Woops, that's not the right galaxy, my bad."),
 	new Trophy(48, TrophyRank.Bronze, "Target Master", "You hit a yellow target first in Targetting Targets.\nWith that level of aiming you should be able to win everytime.", "Professional level aimer."),
 	new Trophy(49, TrophyRank.Bronze, "Duel Marker", "You shot before the mark showed up everytime in Western Duel.\nI get that shooting faster is what you're supposed to do, but here you gotta wait for the mark!", "Waiting for the mark!?\nPfff, I'm faster."),
-	new Trophy(50, TrophyRank.Bronze, "High Ball", "You made the soccer ball land above the net in Soccer Match.\nI'm certainly impressed because getting the ball up there is harder than scoring a goal.", "Great job, now get it back down so we can continue.")
+	new Trophy(50, TrophyRank.Bronze, "High Ball", "You made the soccer ball land above the net in Soccer Match.\nI'm certainly impressed because getting the ball up there is harder than scoring a goal.", "Great job, now get it back down so we can continue."),
+	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDo you know you can't see your reflection in the dark?\nThen I wonder why did you use this for.", "I wonder what my reflection looks like when it's dark."),
+	new Trophy(52, TrophyRank.Silver, "Motion Sickness", "You never touched a warp in Dizzy Conundrum.\nMy you must really hate being dizzy.", "Being dizzy for too long makes me sick."),
+	new Trophy(53, TrophyRank.Silver, "Block Saver", "You didn't destroy a single normal block in Aiming Tiles!\nYou're a block saver now!", "Let the blocks live!"),
+	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair.")
 ];
 
 global.collected_trophies_stack = [];
@@ -82,26 +86,22 @@ function gain_trophy(trophy) {
 	
 	array_push(global.collected_trophies, trophy);
 	array_sort(global.collected_trophies, true);
-	
-	if (!global.minigame_info.is_modes) {
-		var amount = 0;
-		var now_trophy = global.trophies[trophy];
+	var amount = 0;
+	var now_trophy = global.trophies[trophy];
 		
-		switch (now_trophy.rank) {
-			case 3: amount = 50; break;
-			case 2: amount = 200; break;
-			case 1: amount = 500; break;
-			case 0: amount = 2000; break;
-		}
-		
-		increase_collected_coins(amount);
+	switch (now_trophy.rank) {
+		case 3: amount = 50; break;
+		case 2: amount = 200; break;
+		case 1: amount = 500; break;
+		case 0: amount = 2000; break;
 	}
-	
+		
+	increase_collected_coins(amount);
 	save_file();
 }
 
 function have_trophy(trophy) {
-	return (array_contains(global.collected_trophies, trophy));
+	return (array_search(global.collected_trophies, trophy));
 }
 
 function collect_trophy(trophy) {

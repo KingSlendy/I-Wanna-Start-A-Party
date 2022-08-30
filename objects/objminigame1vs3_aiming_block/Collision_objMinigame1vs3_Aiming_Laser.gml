@@ -9,6 +9,8 @@ if (is_player) {
 
 	player.lost = true;
 } else {
+	objMinigameController.trophy_saver = false;
+	
 	if (global.player_id != 1) {
 		exit;
 	}

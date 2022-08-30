@@ -38,7 +38,7 @@ function random_roll() {
 	//if (global.board_started) {
 	//	//roll = max_roll;
 	//	//roll = 1;
-	//	roll = 1;
+	//	roll = 110;
 	//}
 }
 

@@ -12,6 +12,7 @@ with (objPlayerBase) {
 event_inherited();
 
 player_check = objPlayerPlatformer;
+trophy_none = true;
 
 alarm_override(1, function() {
 	alarm_inherited(1);

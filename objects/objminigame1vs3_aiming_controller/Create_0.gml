@@ -21,10 +21,17 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
+action_end = function() {
+	if (global.player_id == points_teams[1][0].network_id && trophy_saver) {
+		gain_trophy(52);
+	}
+}
+
 player_check = objPlayerPlatformer;
 
 input_start = false;
 shoot_delay = 0;
+trophy_saver = true;
 
 function create_laser(x, y) {
 	instance_create_layer(x + 16, y + 16, "Actors", objMinigame1vs3_Aiming_Laser);

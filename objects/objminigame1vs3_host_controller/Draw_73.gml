@@ -14,13 +14,11 @@ if (lights) {
 			continue;
 		}
 	
-		draw_spotlight(x, y, 200);
+		draw_sprite(other.spotlight, 0, x, y);
 	}
 
-	draw_set_color(c_orange);
-
 	with (objMinigame1vs3_Host_Candle) {
-		draw_spotlight(x + 16, y + 12, spotlight_size);
+		draw_sprite_ext(other.spotlight, 0, x + 16, y + 12, spotlight_size, spotlight_size, 0, c_orange, 1);
 	}
 
 	gpu_set_blendmode(bm_normal);

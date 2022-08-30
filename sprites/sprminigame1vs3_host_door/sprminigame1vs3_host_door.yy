@@ -25,11 +25,11 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"f07bc207-57ec-419d-8a36-55129863959a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f07bc207-57ec-419d-8a36-55129863959a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":{"name":"a0b9befe-0bda-437f-84f6-c10d7dd51316","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"f07bc207-57ec-419d-8a36-55129863959a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":{"name":"1e1a062e-0267-4657-bd6d-c46f39875a6a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprMinigame1vs3_Host_Door","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"f07bc207-57ec-419d-8a36-55129863959a","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"e4d10134-e98b-44b8-8548-d19217692f33","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e4d10134-e98b-44b8-8548-d19217692f33","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":{"name":"a0b9befe-0bda-437f-84f6-c10d7dd51316","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Host_Door","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"e4d10134-e98b-44b8-8548-d19217692f33","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ca4dbc41-3bc9-4335-b3fe-9f33753da8eb","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ca4dbc41-3bc9-4335-b3fe-9f33753da8eb","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"LayerId":{"name":"1e1a062e-0267-4657-bd6d-c46f39875a6a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigame1vs3_Host_Door","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","name":"ca4dbc41-3bc9-4335-b3fe-9f33753da8eb","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprMinigame1vs3_Host_Door","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},
@@ -45,7 +45,7 @@
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"45c5d714-db98-43ff-9b41-3920475d43cb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f07bc207-57ec-419d-8a36-55129863959a","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"110ce2e0-acc1-4997-830b-7876072bb589","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e4d10134-e98b-44b8-8548-d19217692f33","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"e6e72bd6-1547-4d36-87dc-884b82fbfc18","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ca4dbc41-3bc9-4335-b3fe-9f33753da8eb","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -69,7 +69,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a0b9befe-0bda-437f-84f6-c10d7dd51316","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Door","resourceVersion":"1.0","name":"1e1a062e-0267-4657-bd6d-c46f39875a6a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

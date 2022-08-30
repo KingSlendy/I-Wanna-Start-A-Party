@@ -10,6 +10,10 @@ function grab_coin(player_id, network = true) {
 	if (count == 0) {
 		minigame4vs_points(player_id);
 		minigame_finish();
+		
+		if (player_id == global.player_id && objMinigameController.trophy_none) {
+			gain_trophy(51);
+		}
 	}
 	
 	audio_play_sound(sndMinigame4vs_Dizzy_Coin, 0, false);

@@ -53,6 +53,27 @@ function array_first(array, func) {
 	
 	return noone;
 }
+
+function array_search(array, value, left = 0, right = array_length(array) - 1) {
+	if (right < left) {
+		return false;
+	}
+	
+	var middle = floor((left + right) / 2);
+	var check = array[middle];
+	
+	if (check == value) {
+		return true;
+	}
+	
+	if (check < value) {
+		return array_search(array, value, middle + 1, right);
+	}
+	
+	if (check > value) {
+		return array_search(array, value, left, middle - 1);
+	}
+}
 #endregion
 
 #region Strings

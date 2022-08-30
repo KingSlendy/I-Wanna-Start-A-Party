@@ -17,5 +17,6 @@ if (!touched && other.last_touched != id) {
 	
 	if (other.network_id == global.player_id) {
 		trophy = true;
+		objMinigameController.trophy_none = false;
 	}
 }

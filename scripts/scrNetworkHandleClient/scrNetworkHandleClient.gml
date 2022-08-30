@@ -3,6 +3,7 @@ enum ClientVER {
 	Executable
 }
 
+#region TCP
 enum ClientTCP {
 	//Network
 	ReceiveMasterID,
@@ -113,6 +114,7 @@ enum ClientTCP {
 	Minigame1vs3_Hunt_ReticleMove,
 	Minigame1vs3_Aiming_LaserShoot,
 	Minigame1vs3_Aiming_DestroyBlock,
+	Minigame1vs3_Host_SetPickDoor,
 	Minigame2vs2_Maze_Item,
 	Minigame2vs2_Fruits_Fruit,
 	Minigame2vs2_Buttons_Button,
@@ -132,6 +134,33 @@ enum ClientTCP {
 	ResultsProceed
 }
 
+global.tcp_functions = {};
+var f = global.tcp_functions;
+
+#region Networking
+f[$ ClientTCP.ReceiveMasterID] = function() {
+	global.master_id = buffer_read(buffer, buffer_u64);
+			
+	with (objNetworkClient) {
+		alarm_frames(1, 1);
+	}
+}
+
+f[$ ClientTCP.ReceiveID] = function() {
+	global.player_id = buffer_read(buffer, buffer_u8);
+	player_join_all();
+			
+	with (objFiles) {
+		online_reading = false;
+		menu_type = 5;
+		upper_type = menu_type;
+		upper_text = lobby_texts[0];
+	}
+}
+#endregion
+#endregion
+
+#region UDP
 enum ClientUDP {
 	//Networking
 	Initialize,
@@ -156,6 +185,62 @@ enum ClientUDP {
 	Minigame2vs2_Squares_Halfs,
 	Minigame2vs2_Soccer_Ball
 }
+
+global.udp_functions = {};
+var f = global.udp_functions;
+
+#region Networking
+f[$ ClientUDP.Initialize] = function() {
+	global.udp_ready = true;
+			
+	with (objNetworkClient) {
+		alarm_stop(1);
+	}
+			
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.LobbyList);
+	network_send_tcp_packet();
+}
+
+f[$ ClientUDP.Heartbeat] = function() {
+	if (IS_ONLINE) {
+		with (objNetworkClient) {
+			alarm_call(0, 9);
+		}
+	}
+}
+
+f[$ ClientUDP.LobbyStart] = function() {
+	music_fade();
+	audio_play_sound(global.sound_cursor_big_select, 0, false);
+}
+
+f[$ ClientUDP.PlayerData] = function() {
+	player_read_data(buffer);
+}
+
+f[$ ClientUDP.PlayerJump] = function() {
+	var sound = buffer_read(buffer, buffer_u32);
+	audio_play_sound(sound, 0, false);
+}
+#endregion
+
+#region Interfaces
+f[$ ClientUDP.MapLook] = function() {
+	var look_x = buffer_read(buffer, buffer_f32);
+	var look_y = buffer_read(buffer, buffer_f32);
+			
+	with (objMapLook) {
+		self.look_x = look_x;
+		self.look_y = look_y;
+	}
+}
+
+f[$ ClientUDP.ChangeChoiceSelected] = function() {
+	
+}
+#endregion
+#endregion
 
 function network_read_client(ip, port, buffer) {
 	if (buffer_get_size(buffer) == 0) {
@@ -1118,6 +1203,12 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 
 					instance_destroy();
 				}
+			}
+			break;
+			
+		case ClientTCP.Minigame1vs3_Host_SetPickDoor:
+			with (objMinigameController) {
+				set_pick_door(focus_player_by_id(player_id), pick_id, false);
 			}
 			break;
 			

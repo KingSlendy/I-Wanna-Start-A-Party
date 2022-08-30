@@ -5,4 +5,4 @@
 //change_shines(-1, ShineChangeType.Lose).final_action = function() {
 //	show_message("Lost shine.");
 //}
-instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);
+//instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);

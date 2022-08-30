@@ -10,6 +10,10 @@ function player_jump() {
 			buffer_write_action(ClientUDP.PlayerJump);
 			buffer_write_data(buffer_u32, sndJump);
 			network_send_udp_packet();
+			
+			if (room == rMinigame1vs3_Hunt && network_id == objMinigameController.points_teams[1][0].network_id) {
+				objMinigameController.trophy_jump = false;
+			}
 		} else if (jump_left > 0 || jump_total == -1) {
 			vspd = -(jump_height[1] * orientation);
 			sprite_index = skin[$ "Jump"];

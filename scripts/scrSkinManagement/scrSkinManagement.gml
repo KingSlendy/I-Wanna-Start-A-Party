@@ -148,7 +148,7 @@ function gain_skin(skin) {
 }
 
 function have_skin(skin) {
-	return (array_contains(global.collected_skins, skin));
+	return (array_search(global.collected_skins, skin));
 }
 
 function get_skin_by_sprite(sprite) {

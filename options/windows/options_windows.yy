@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "I Wanna Start A Party",
   "option_windows_executable_name": "${project_name}.exe",
-  "option_windows_version": "0.8.2.1",
+  "option_windows_version": "0.8.3.8",
   "option_windows_company_info": "KingSlendy",
   "option_windows_product_info": "IWBTG Fangame",
   "option_windows_copyright_info": "",

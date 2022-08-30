@@ -176,6 +176,10 @@ function space_passing_event() {
 				start_dialogue([
 					new Message("Oh no! The evil shine is looking at you menacingly!\nIt won't accept a no for an answer!",, buy_shine)
 				]);
+				
+				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
+					gain_trophy(50);
+				}
 			}
 			
 			return 1;

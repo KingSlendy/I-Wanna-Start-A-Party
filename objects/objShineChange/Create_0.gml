@@ -32,6 +32,14 @@ alarm_create(function() {
 	spawned_shine.floating = false;
 	spawned_shine.getting = true;
 	spawned_shine = noone;
+	
+	var snd = audio_play_sound(sndShineGet, 0, false);
+		
+	if (room != rBoardHyrule) {
+		audio_sound_pitch(snd, 1);
+	} else if (!global.board_light) {
+		audio_sound_pitch(snd, 0.75);
+	}
 });
 
 alarm_create(function() {
@@ -44,14 +52,6 @@ alarm_create(function() {
 	} else {
 		spawned_shine.vspeed = -6;
 		spawned_shine.losing = true;
-		
-		if (room == rBoardHyrule && !global.board_light) {
-			audio_sound_pitch(sndShineGet, 0.75);
-		} else {
-			audio_sound_pitch(sndShineGet, 1);
-		}
-		
-		audio_play_sound(sndShineGet, 0, false);
 	}
 });
 
@@ -59,17 +59,6 @@ alarm_create(function() {
 	focus_player = focus_player_by_id(network_id);
 	spawned_shine = instance_create_layer(focus_player.x, focus_player.y, "Actors", objShine);
 	spawned_shine.focus_player = focus_player;
-
-	if (instance_exists(objChooseShine)) {
-		if (room == rBoardHyrule && !global.board_light) {
-			audio_sound_pitch(sndShineSpawn, 0.75);
-		} else {
-			audio_sound_pitch(sndShineSpawn, 1);
-		}
-		
-		audio_play_sound(sndShineSpawn, 0, false);
-	}
-
 	alarm_call(ShineChangeType.Get, 1);
 });
 
