@@ -61,11 +61,13 @@ surface_free(spot);
 function set_pick_door(player, pick, network = true) {
 	player.pick_id = pick;
 	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.Minigame1vs3_Host_SetPickDoor);
-	buffer_write_data(buffer_u8, player.network_id);
-	buffer_write_data(buffer_u64, player.pick_id);
-	network_send_tcp_packet();
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame1vs3_Host_SetPickDoor);
+		buffer_write_data(buffer_u8, player.network_id);
+		buffer_write_data(buffer_u64, player.pick_id);
+		network_send_tcp_packet();
+	}
 }
 
 alarm_override(0, function() {

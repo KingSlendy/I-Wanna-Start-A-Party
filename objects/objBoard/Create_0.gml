@@ -17,8 +17,6 @@ global.player_turn = 1;
 global.dice_roll = 0;
 global.choice_selected = -1;
 global.item_choice = false;
-global.board_day = true;
-global.board_light = true;
 
 //Board values
 global.shine_spawn_count = 1;
@@ -46,6 +44,9 @@ cpu_staled = true;
 cpu_performed = true;
 cpu_item = -1;
 
+//Island's Board
+global.board_day = true;
+
 //Baba's Board
 tile_image_speed = 0.12;
 tile_image_index = 0;
@@ -54,6 +55,8 @@ tile_image_index = 0;
 global.pokemon_price = 15;
 
 //Hyrule's Board
+global.board_light = true;
+global.board_dark_chance = 0.2;
 prev_board_light = !global.board_light;
 instance_deactivate_layer("Path_Dark");
 

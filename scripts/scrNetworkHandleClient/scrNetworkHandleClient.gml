@@ -1207,6 +1207,9 @@ function network_read_client_tcp(ip, port, buffer, data_id) {
 			break;
 			
 		case ClientTCP.Minigame1vs3_Host_SetPickDoor:
+			var player_id = buffer_read(buffer, buffer_u8);
+			var pick_id = buffer_read(buffer, buffer_u64);
+		
 			with (objMinigameController) {
 				set_pick_door(focus_player_by_id(player_id), pick_id, false);
 			}

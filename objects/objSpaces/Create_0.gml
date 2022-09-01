@@ -169,7 +169,9 @@ function space_passing_event() {
 					}
 				} else {
 					var buy_shine = function() {
-						change_coins(-global.shine_price, CoinChangeType.Lose).final_action = board_advance;
+						change_coins(-global.shine_price, CoinChangeType.Lose).final_action = function() {
+							change_shines(-1, ShineChangeType.Get).final_action = choose_shine;
+						};
 					}
 				}
 				
@@ -222,6 +224,10 @@ function space_finish_event() {
 			}
 			
 			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
+			
+			if (focused_player().network_id == global.player_id && space_number(SpaceType.Blue) < space_number(SpaceType.Red)) {
+				gain_trophy(56);
+			}
 			break;
 			
 		case SpaceType.Red:
@@ -275,4 +281,14 @@ function space_finish_event() {
 function space_choose_path() {
 	var p = instance_create_layer(0, 0, "Managers", objPathChange);
 	p.space = id;
+}
+
+function space_number(type) {
+	var count = 0;
+	
+	with (objSpaces) {
+		count += (image_index == type);
+	}
+	
+	return count;
 }

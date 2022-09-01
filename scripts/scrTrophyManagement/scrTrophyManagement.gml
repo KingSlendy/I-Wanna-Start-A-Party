@@ -15,7 +15,7 @@ enum TrophyRank {
 }
 
 global.trophies = [
-	new Trophy(1, TrophyRank.Bronze, "Shiny!", "You obtained 10 Shines!\nBut just ten isn't enough, ain't it?", "You're gonna obtain the shiny sooner or later."),
+	new Trophy(1, TrophyRank.Bronze, "Shiny!", "You obtained 10 Shines!\nI can do more!", "You're gonna obtain the shiny sooner or later."),
 	new Trophy(2, TrophyRank.Silver, "Shinier!", "You obtained 50 Shines!\nBut is it really enough?", "I love me something shiny."),
 	new Trophy(3, TrophyRank.Gold, "Shiny yet Shinier!", "You obtained 100 Shines!\nNow that's a decent amount.", "I WANT MORE SHINY!!!"),
 	new Trophy(4, TrophyRank.Silver, "Kidiana Jones", "You found a Hidden Chest!\nEvery good explorer finds treasure! Or wait... maybe you're just lucky.", "Something's hidden in this space... I swear..."),
@@ -66,9 +66,15 @@ global.trophies = [
 	new Trophy(49, TrophyRank.Bronze, "Duel Marker", "You shot before the mark showed up everytime in Western Duel.\nI get that shooting faster is what you're supposed to do, but here you gotta wait for the mark!", "Waiting for the mark!?\nPfff, I'm faster."),
 	new Trophy(50, TrophyRank.Bronze, "High Ball", "You made the soccer ball land above the net in Soccer Match.\nI'm certainly impressed because getting the ball up there is harder than scoring a goal.", "Great job, now get it back down so we can continue."),
 	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDo you know you can't see your reflection in the dark?\nThen I wonder why did you use this for.", "I wonder what my reflection looks like when it's dark."),
-	new Trophy(52, TrophyRank.Silver, "Motion Sickness", "You never touched a warp in Dizzy Conundrum.\nMy you must really hate being dizzy.", "Being dizzy for too long makes me sick."),
-	new Trophy(53, TrophyRank.Silver, "Block Saver", "You didn't destroy a single normal block in Aiming Tiles!\nYou're a block saver now!", "Let the blocks live!"),
-	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair.")
+	new Trophy(52, TrophyRank.Gold, "Motion Sickness", "You never touched a warp in Dizzy Conundrum.\nMy you must really hate being dizzy.", "Being dizzy for too long makes me sick."),
+	new Trophy(53, TrophyRank.Silver, "Block Saver", "You didn't destroy a single normal block in Aiming Tiles and won!\nYou're a block saver now!", "Let the blocks live!"),
+	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair."),
+	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
+	new Trophy(56, TrophyRank.Silver, "Numberphile", "You got the same number for your place, your shines and your coins!You love seeing the same number!", "Hey I have the same number for everything!"),
+	new Trophy(57, TrophyRank.Bronze, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
+	new Trophy(58, TrophyRank.Gold, "Minigame Expert", "You won every single minigame in Party!\nI wish I could win all the minigames as well to gain a bunch of coins!", "You're that much of an expert you won all of them."),
+	new Trophy(59, TrophyRank.Silver, "Reyo Keys", "You didn't grab a single green key in Drawn Keys and won!\nGoing for the big prize keys here!", "Green is too low."),
+	new Trophy(60, TrophyRank.Bronze, "Wall Master", "You wasted all your bullets in Targeting Targets.\nThe point was to shoot targets and not walls in case you didn't know.", "Wasting ammo to not hit any, great.")
 ];
 
 global.collected_trophies_stack = [];

@@ -225,6 +225,15 @@
     {"compositeImage":{"FrameId":{"name":"33edaa99-f349-4773-b3f0-c47114e884b3","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"33edaa99-f349-4773-b3f0-c47114e884b3","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"33edaa99-f349-4773-b3f0-c47114e884b3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a9ffb15a-364c-44c8-af53-8b8d2e470113","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a9ffb15a-364c-44c8-af53-8b8d2e470113","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"a9ffb15a-364c-44c8-af53-8b8d2e470113","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6d13b78d-7897-49a1-a72b-26fa0ed3be39","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6d13b78d-7897-49a1-a72b-26fa0ed3be39","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"6d13b78d-7897-49a1-a72b-26fa0ed3be39","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},
@@ -234,7 +243,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 67.0,
+    "length": 70.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
@@ -306,6 +315,9 @@
             {"id":"0486b801-ec12-4df2-b8b0-22d90549a94a","Key":64.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e5c779b4-b0ad-4f68-8f94-8a96038bf782","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"5c841e02-b334-496a-b5e2-b9d84c774a81","Key":65.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bf146185-4977-44b2-88f6-a42311f66222","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"042dae47-43e4-4458-b8d3-0b5a2542a4c2","Key":66.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"33edaa99-f349-4773-b3f0-c47114e884b3","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"a625ab92-7395-4889-b656-49e6c5566a51","Key":67.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a9ffb15a-364c-44c8-af53-8b8d2e470113","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"79f0900f-f764-4878-b6e2-80f1564f8349","Key":68.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6d13b78d-7897-49a1-a72b-26fa0ed3be39","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"4cd81ed6-f7f6-4255-a29a-c0d4f294a70e","Key":69.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

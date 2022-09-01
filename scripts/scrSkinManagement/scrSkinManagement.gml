@@ -127,6 +127,10 @@ function skin_init() {
 		new Skin("Gumi", "Gumi Megpoid", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 		new Skin("Rin", "Rin Kagamine", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
 		new Skin("IA", "IA", "I Wanna Be The Ocean Pr.", 21, "Kurath", 600),
+		new Skin("Solgryn", "Solgryn", "I Wanna Be The Boshy", 60, "Solgryn", 300),
+		new Skin("Chair", "The Chair", "I Wanna Be The Chair 2", 67, "Stonk", 300),
+		new Skin("Icy", "Icy Kid", "Icy Needle", 68, "Kogami Takara", 400),
+		new Skin("Maaya", "Maaya", "I Wanna Fine-House", 69, "anxKha", 700)
 	];
 }
 

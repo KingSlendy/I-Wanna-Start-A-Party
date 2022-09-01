@@ -157,7 +157,7 @@ function draw_1vs3_squares() {
 				break;
 		}
 		
-		var player = focus_player_by_id(i + 1);
+		var player = focus_player_by_turn(i + 1);
 		
 		if (room == rMinigame1vs3_Host && !player.draw) {
 			draw_set_color(c_black);

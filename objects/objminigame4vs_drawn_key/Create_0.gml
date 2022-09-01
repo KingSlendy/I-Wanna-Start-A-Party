@@ -18,8 +18,12 @@ function collect_key(player_id, network = true) {
 	
 	minigame4vs_points(player_id, points);
 	
+	if (player_id == global.player_id && image_blend == c_lime) {
+		objMinigameController.trophy_green = false;
+	}
+	
 	visible = false;
-	alarm_call(0, random_range(0.5, 1.5));
+	alarm_call(0, random_range(1, 2));
 	
 	if (network) {
 		buffer_seek_begin();

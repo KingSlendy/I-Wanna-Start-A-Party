@@ -76,3 +76,19 @@ alarm_override(1, function() {
 alarm_create(4, function() {
 	bullets_move();
 });
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+
+		if (0.3 > random(1)) {
+			actions.jump.press();
+		}
+	}
+
+	alarm_frames(11, 1);
+});

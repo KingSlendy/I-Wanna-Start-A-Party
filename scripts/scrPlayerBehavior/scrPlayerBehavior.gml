@@ -11,7 +11,7 @@ function player_jump() {
 			buffer_write_data(buffer_u32, sndJump);
 			network_send_udp_packet();
 			
-			if (room == rMinigame1vs3_Hunt && network_id == objMinigameController.points_teams[1][0].network_id) {
+			if (room == rMinigame1vs3_Hunt && network_id == global.player_id) {
 				objMinigameController.trophy_jump = false;
 			}
 		} else if (jump_left > 0 || jump_total == -1) {
@@ -28,6 +28,10 @@ function player_jump() {
 			buffer_write_action(ClientUDP.PlayerJump);
 			buffer_write_data(buffer_u32, sndDoubleJump);
 			network_send_udp_packet();
+			
+			if (room == rMinigame4vs_Drawn && network_id == global.player_id) {
+				objMinigameController.trophy_double = false;
+			}
 		}
 	} else {
 		if (on_block) {

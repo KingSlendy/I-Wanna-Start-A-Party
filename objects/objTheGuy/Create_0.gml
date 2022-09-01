@@ -101,6 +101,10 @@ options = [
 						with (objTheGuy) {
 							alarm_call(5, 1);
 						}
+						
+						if (focused_player().network_id == global.player_id) {
+							gain_trophy(54);
+						}
 					})
 				]);
 			}

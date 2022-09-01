@@ -21,3 +21,13 @@ with (player) {
 			break;
 	}
 }
+
+if (player.network_id == global.player_id) {
+	var str_place = string(player_info.place);
+	var str_shines = string(player_info.shines);
+	var str_coins = string(player_info.coins);
+	
+	if (string_count(str_place, str_shines) == string_length(str_shines) && string_count(str_place, str_coins)) {
+		gain_trophy(55);
+	}
+}

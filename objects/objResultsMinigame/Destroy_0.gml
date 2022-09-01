@@ -13,13 +13,14 @@ if (instance_exists(objLastTurns)) {
 if (room == rBoardHyrule) {
 	reset_seed_inline();
 	next_seed_inline();
-	var max_turns = 5;
-	var curr_turn = (global.board_turn - 1) % max_turns;
 	
-	if (curr_turn == 0 || 1 / max_turns * curr_turn * 0.5 > random(1)) {
+	if (global.board_dark_chance > random(1)) {
 		instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);
+		global.board_dark_chance = 0.1;
 		exit;
 	}
+	
+	global.board_dark_chance += 0.2;
 }
 
 board_start();

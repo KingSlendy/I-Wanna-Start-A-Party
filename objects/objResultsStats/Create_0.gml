@@ -122,6 +122,10 @@ alarm_create(function() {
 	if (array_count(player_info.items, null) == 0) {
 		gain_trophy(40);
 	}
+	
+	if (global.bonus_shines[BonusShines.MostMinigames].scores[player_info.turn - 1] == global.max_board_turns) {
+		gain_trophy(57);
+	}
 });
 
 alarm_call(0, 5.5);

@@ -136,10 +136,6 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						skin_col = array_length(skins[skin_target_row]) - 1;
 					}
 					
-					//while (skin_col >= array_length(skins[skin_target_row])) {
-					//	skin_col = (skin_col + skin_target_row + 1) % skin_show;
-					//}
-					
 					audio_play_sound(global.sound_cursor_move, 0, false);
 					exit;
 				}
