@@ -130,5 +130,6 @@ switch (room) {
 		}
 		break;
 	
-	case rBoardHotland: case rBoardPallet: case rBoardHyrule: global.shine_spawn_count = 2; break;
+	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
+	case rBoardHyrule: global.spine_spawn_count = 3; break;
 }

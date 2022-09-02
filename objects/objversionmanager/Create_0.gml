@@ -5,9 +5,9 @@ if (instance_number(object_index) > 1) {
 
 text = "Checking version...";
 version = "";
-size = 0;
+file = null;
 downloading = false;
-bytes = null;
+size = 0;
 sent = 0;
 socket = network_create_socket(network_socket_tcp);
 
@@ -20,6 +20,11 @@ if (socket < 0) {
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_raw_async(socket, "startaparty.sytes.net", 33320);
+
+function error_occurred() {
+	text = "An error ocurred...";
+	alarm_call(0, 3);
+}
 
 alarms_init(3);
 

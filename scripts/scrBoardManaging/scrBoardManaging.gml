@@ -1200,7 +1200,7 @@ function place_shine(space_x, space_y) {
 }
 
 function start_chance_time() {
-	instance_create_layer(x, y, "Managers", objChanceTime);
+	instance_create_layer(0, 0, "Managers", objChanceTime);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
@@ -1210,7 +1210,7 @@ function start_chance_time() {
 }
 
 function start_the_guy() {
-	instance_create_layer(x, y, "Managers", objTheGuy);
+	instance_create_layer(0, 0, "Managers", objTheGuy);
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();
