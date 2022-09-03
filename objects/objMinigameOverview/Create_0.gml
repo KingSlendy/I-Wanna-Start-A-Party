@@ -1,3 +1,6 @@
+info = global.minigame_info;
+layer_background_index(layer_background_get_id("Background"), array_index(minigame_types(), info.type));
+
 with (objPlayerBase) {
 	change_to_object(objPlayerBase);
 }
@@ -7,7 +10,6 @@ with (objPlayerBase) {
 	lost = false;
 }
 
-info = global.minigame_info;
 instructions = [];
 
 for (var i = 0; i < array_length(info.reference.instructions); i++) {

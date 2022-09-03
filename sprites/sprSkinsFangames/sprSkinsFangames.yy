@@ -234,6 +234,9 @@
     {"compositeImage":{"FrameId":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"8687c4bc-b5fc-48be-8018-feda935cdac0","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"8687c4bc-b5fc-48be-8018-feda935cdac0","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"LayerId":{"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","name":"8687c4bc-b5fc-48be-8018-feda935cdac0","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprSkinsFangames","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},
@@ -243,7 +246,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 70.0,
+    "length": 71.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
@@ -318,6 +321,7 @@
             {"id":"a625ab92-7395-4889-b656-49e6c5566a51","Key":67.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a9ffb15a-364c-44c8-af53-8b8d2e470113","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"79f0900f-f764-4878-b6e2-80f1564f8349","Key":68.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6d13b78d-7897-49a1-a72b-26fa0ed3be39","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"4cd81ed6-f7f6-4255-a29a-c0d4f294a70e","Key":69.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad7c9fb5-43a9-4d22-9116-2e1b78ec0199","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"8224911f-88fd-4854-92a7-9925f25c15ec","Key":70.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8687c4bc-b5fc-48be-8018-feda935cdac0","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

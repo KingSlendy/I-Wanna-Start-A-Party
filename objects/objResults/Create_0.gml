@@ -1,4 +1,4 @@
-shuffle_seed_inline();
+shuffle_seed_bag();
 reset_seed_inline();
 fade_start = true;
 fade_alpha = 1;

@@ -5,7 +5,7 @@ enum ClientVER {
 
 #region TCP
 enum ClientTCP {
-	#region Network
+	#region Networking
 	ReceiveMasterID,
 	ReceiveID,
 	PlayerConnect,
@@ -18,7 +18,6 @@ enum ClientTCP {
 	BoardGameID,
 	BoardPlayerIDs,
 	PartyAction,
-	MinigameMode,
 	PlayerShoot,
 	PlayerKill,
 	#endregion
@@ -126,6 +125,8 @@ enum ClientTCP {
 	Minigame1vs3_Aiming_LaserShoot,
 	Minigame1vs3_Aiming_DestroyBlock,
 	Minigame1vs3_Host_SetPickDoor,
+	Minigame1vs3_House_CherryMove,
+	Minigame1vs3_House_CherryJump,
 	#endregion
 	
 	#region 2vs2
@@ -187,6 +188,9 @@ f[$ ClientTCP.PlayerDisconnect] = function(buffer) {
 
 f[$ ClientTCP.CreateLobby] = function(buffer) {
 	var same_name = buffer_read(buffer, buffer_bool);
+	var seed = buffer_read(buffer, buffer_u64);
+	random_set_seed(seed);
+	generate_seed_bag();
 	objFiles.online_reading = false;
 			
 	if (same_name) {
@@ -202,6 +206,9 @@ f[$ ClientTCP.CreateLobby] = function(buffer) {
 
 f[$ ClientTCP.JoinLobby] = function(buffer) {
 	var state = buffer_read(buffer, buffer_u8);
+	var seed = buffer_read(buffer, buffer_u64);
+	random_set_seed(seed);
+	generate_seed_bag();
 	objFiles.online_reading = false;
 			
 	switch (state) {
@@ -334,10 +341,6 @@ f[$ ClientTCP.PartyAction] = function(buffer) {
 	with (menu) {
 		array_push(network_actions, [action, player_id]);
 	}
-}
-
-f[$ ClientTCP.MinigameMode] = function(buffer) {
-	global.seed_bag = buffer_read_array(buffer, buffer_u64);
 }
 
 f[$ ClientTCP.PlayerShoot] = function(buffer) {
@@ -582,8 +585,6 @@ f[$ ClientTCP.ChangeSpace] = function(buffer) {
 #region Events
 f[$ ClientTCP.BoardStart] = function(buffer) {
 	global.game_id = buffer_read(buffer, buffer_string);
-	global.seed_bag = buffer_read_array(buffer, buffer_u64);
-	global.initial_rolls = buffer_read_array(buffer, buffer_u8);
 }
 
 f[$ ClientTCP.TurnStart] = function(buffer) {
@@ -1089,6 +1090,20 @@ f[$ ClientTCP.Minigame1vs3_Host_SetPickDoor] = function(buffer) {
 		
 	with (objMinigameController) {
 		set_pick_door(focus_player_by_id(player_id), pick_id, false);
+	}
+}
+
+f[$ ClientTCP.Minigame1vs3_House_CherryMove] = function(buffer) {
+	var move = buffer_read(buffer, buffer_s8);
+	
+	with (objMinigameController) {
+		cherry_move(move, false);
+	}
+}
+
+f[$ ClientTCP.Minigame1vs3_House_CherryJump] = function(buffer) {
+	with (objMinigameController) {
+		cherry_jump(false);
 	}
 }
 #endregion

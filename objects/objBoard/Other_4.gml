@@ -78,6 +78,7 @@ if (!global.board_started) {
 			global.game_id = "Offline";
 		}
 		
+		next_seed_inline();
 		global.initial_rolls = array_sequence(1, 10);
 		array_shuffle(global.initial_rolls);
 		array_delete(global.initial_rolls, global.player_max, array_length(global.initial_rolls) - global.player_max);
@@ -94,8 +95,6 @@ if (!global.board_started) {
 			}
 		}
 	}
-		
-	generate_seed_bag();
 }
 	
 var target_follow = null;

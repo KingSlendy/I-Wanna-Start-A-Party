@@ -9,7 +9,7 @@ minigames_alpha = 0;
 minigames_width = 300;
 minigames_height = 40;
 minigames_timer = 3;
-shuffle_seed_inline();
+shuffle_seed_bag();
 reset_seed_inline();
 minigames_chosen = irandom(minigame_total - 1);
 global.choice_selected = irandom(minigame_total - 1);

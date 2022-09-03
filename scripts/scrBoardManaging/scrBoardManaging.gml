@@ -266,8 +266,6 @@ function board_start() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardStart);
 		buffer_write_data(buffer_string, global.game_id);
-		buffer_write_array(buffer_u64, global.seed_bag);
-		buffer_write_array(buffer_u8, global.initial_rolls);
 		network_send_tcp_packet();
 		
 		start_dialogue([

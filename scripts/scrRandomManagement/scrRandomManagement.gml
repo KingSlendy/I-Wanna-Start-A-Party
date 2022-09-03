@@ -71,7 +71,7 @@ function simulate_seed_inline(n) {
 	random_set_seed(global.seed_bag[n]);
 }
 
-function shuffle_seed_inline() {
+function shuffle_seed_bag() {
 	for (var i = 0; i < array_length(global.seed_bag); i++) {
 		global.seed_bag[i] += 3141592;
 		global.seed_bag[i] %= 9999999999;

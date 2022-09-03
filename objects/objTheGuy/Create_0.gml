@@ -64,7 +64,7 @@ options_width = 300;
 options_height = 40;
 options_timer = 3;
 options_dir = 1;
-shuffle_seed_inline();
+shuffle_seed_bag();
 reset_seed_inline();
 options_chosen = irandom(options_total - 1);
 global.choice_selected = irandom(options_total - 1);

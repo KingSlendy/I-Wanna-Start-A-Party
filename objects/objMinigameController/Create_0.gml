@@ -1,6 +1,6 @@
 fade_alpha = 1;
 info = global.minigame_info;
-shuffle_seed_inline();
+shuffle_seed_bag();
 reset_seed_inline();
 
 with (objPlayerBase) {

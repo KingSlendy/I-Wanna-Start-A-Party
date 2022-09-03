@@ -171,9 +171,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							
 							if (variable_struct_exists(global.board_games, "Offline")) {
 								global.game_id = "Offline";
-								global.player_game_ids = [1, 2, 3, 4];
+								global.player_game_ids = array_sequence(1, 4);
 							}
 							
+							generate_seed_bag();
 							music_fade();
 							audio_play_sound(global.sound_cursor_big_select, 0, false);
 							exit;

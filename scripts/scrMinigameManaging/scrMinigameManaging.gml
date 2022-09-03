@@ -37,7 +37,8 @@ function minigame_init() {
 		new Minigame("Warping Up", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
 		new Minigame("Hunt Trouble", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
 		new Minigame("Aiming Tiles", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
-		new Minigame("Hidden Host", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host")
+		new Minigame("Hidden Host", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host"),
+		new Minigame("Bad House", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 34, rMinigame1vs3_House, "Crimson Needle 3")
 	];
 
 	m[$ "2vs2"] = [

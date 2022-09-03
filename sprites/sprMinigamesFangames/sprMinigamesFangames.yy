@@ -123,6 +123,9 @@
     {"compositeImage":{"FrameId":{"name":"0d16fc94-6ec9-40ba-9771-16eb01afc853","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"0d16fc94-6ec9-40ba-9771-16eb01afc853","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"0d16fc94-6ec9-40ba-9771-16eb01afc853","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b9c2d6fb-a486-41b1-9f9b-d9eab18ba2b3","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b9c2d6fb-a486-41b1-9f9b-d9eab18ba2b3","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"LayerId":{"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","name":"b9c2d6fb-a486-41b1-9f9b-d9eab18ba2b3","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sprMinigamesFangames","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},
@@ -132,7 +135,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 33.0,
+    "length": 34.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
@@ -170,6 +173,7 @@
             {"id":"4acdbe3e-6233-48d8-b570-97d5cea83e7a","Key":30.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b1a92a6f-557e-4530-9945-c78c805a4d9f","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"e2f2649f-b79a-428b-93eb-7ebd2d1a0928","Key":31.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0bcccbe7-b85f-47d4-b606-0ff5740925dd","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
             {"id":"aa369a19-116b-4e2e-9e73-b8e9147f70e9","Key":32.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0d16fc94-6ec9-40ba-9771-16eb01afc853","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"4fb6ccaa-b27c-4cba-8b56-f8a5dfcc3384","Key":33.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9c2d6fb-a486-41b1-9f9b-d9eab18ba2b3","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
