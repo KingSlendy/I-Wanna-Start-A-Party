@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame1vs3_Conveyor_ConveyorRight",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,33 +27,19 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"35ae4219-5177-4a35-8d42-ac63f1328a09","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"35ae4219-5177-4a35-8d42-ac63f1328a09","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"35ae4219-5177-4a35-8d42-ac63f1328a09","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"b35fb062-c92b-4214-9089-bba906e1593d","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b35fb062-c92b-4214-9089-bba906e1593d","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"b35fb062-c92b-4214-9089-bba906e1593d","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"a65bd3c5-33b0-4602-ab08-9359ff68f602","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a65bd3c5-33b0-4602-ab08-9359ff68f602","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"a65bd3c5-33b0-4602-ab08-9359ff68f602","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"2e2d15a2-c5e6-4548-98fe-ede439557c88","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2e2d15a2-c5e6-4548-98fe-ede439557c88","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"2e2d15a2-c5e6-4548-98fe-ede439557c88","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"df56c211-6888-461f-9e6f-a7dd4d522611","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"df56c211-6888-461f-9e6f-a7dd4d522611","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"LayerId":{"name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","name":"df56c211-6888-461f-9e6f-a7dd4d522611","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"35ae4219-5177-4a35-8d42-ac63f1328a09",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b35fb062-c92b-4214-9089-bba906e1593d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a65bd3c5-33b0-4602-ab08-9359ff68f602",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2e2d15a2-c5e6-4548-98fe-ede439557c88",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"df56c211-6888-461f-9e6f-a7dd4d522611",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame1vs3_Conveyor_ConveyorRight",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 60.0,
@@ -58,19 +47,19 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 8.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ee50b6ad-0aed-45e9-8d5a-557c717a3f7a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"1e8349bd-fc58-4622-b83a-f08936a0436d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"251c3653-9bd2-4c73-88c0-2cc12950fb31","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"c691540d-e53c-4d3d-9862-d989ce1010fa","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"35ae4219-5177-4a35-8d42-ac63f1328a09","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"fb273cfe-3533-42ea-996f-b57c86722601","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b35fb062-c92b-4214-9089-bba906e1593d","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"818a74a5-70e3-4134-9851-64a8e233285a","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a65bd3c5-33b0-4602-ab08-9359ff68f602","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"463e68b8-ce2c-4366-89e4-56a800a8d05d","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2e2d15a2-c5e6-4548-98fe-ede439557c88","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"70d47a3a-b2a1-415b-b8e2-5b065893115b","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"df56c211-6888-461f-9e6f-a7dd4d522611","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ee50b6ad-0aed-45e9-8d5a-557c717a3f7a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6134cecf-3037-42f3-a49b-f9da77c6d9f7","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1e8349bd-fc58-4622-b83a-f08936a0436d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9597ba88-9e78-4bec-94c0-9d7ace2b63a4","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"251c3653-9bd2-4c73-88c0-2cc12950fb31","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"256b2df7-f514-44c5-91a8-04f1e8edd3a8","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c691540d-e53c-4d3d-9862-d989ce1010fa","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"35ae4219-5177-4a35-8d42-ac63f1328a09","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fb273cfe-3533-42ea-996f-b57c86722601","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b35fb062-c92b-4214-9089-bba906e1593d","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"818a74a5-70e3-4134-9851-64a8e233285a","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a65bd3c5-33b0-4602-ab08-9359ff68f602","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"463e68b8-ce2c-4366-89e4-56a800a8d05d","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2e2d15a2-c5e6-4548-98fe-ede439557c88","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"70d47a3a-b2a1-415b-b8e2-5b065893115b","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"df56c211-6888-461f-9e6f-a7dd4d522611","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -86,22 +75,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame1vs3_Conveyor_ConveyorRight","path":"sprites/sprMinigame1vs3_Conveyor_ConveyorRight/sprMinigame1vs3_Conveyor_ConveyorRight.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame1vs3_Conveyor_ConveyorRight",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7acdabd2-fb15-49f4-b5c7-9f439d8ec224","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Conveyor",
     "path": "folders/Sprites/Objects/Minigames/1vs3/Conveyor.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame1vs3_Conveyor_ConveyorRight",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

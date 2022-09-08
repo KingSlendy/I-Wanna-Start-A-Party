@@ -71,7 +71,7 @@ global.trophies = [
 	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair."),
 	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
 	new Trophy(56, TrophyRank.Silver, "Numberphile", "You got the same number for your place, your shines and your coins!You love seeing the same number!", "Hey I have the same number for everything!"),
-	new Trophy(57, TrophyRank.Bronze, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
+	new Trophy(57, TrophyRank.Silver, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
 	new Trophy(58, TrophyRank.Gold, "Minigame Expert", "You won every single minigame in Party!\nI wish I could win all the minigames as well to gain a bunch of coins!", "You're that much of an expert you won all of them."),
 	new Trophy(59, TrophyRank.Silver, "Reyo Keys", "You didn't grab a single green key in Drawn Keys and won!\nGoing for the big prize keys here!", "Green is too low."),
 	new Trophy(60, TrophyRank.Bronze, "Wall Master", "You wasted all your bullets in Targeting Targets.\nThe point was to shoot targets and not walls in case you didn't know.", "Wasting ammo to not hit any, great.")

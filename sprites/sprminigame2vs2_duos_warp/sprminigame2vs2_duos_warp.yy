@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Duos_Warp",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a053eb83-07a0-4564-bd7a-6990ee247aca","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a053eb83-07a0-4564-bd7a-6990ee247aca","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"LayerId":{"name":"a4913afe-310d-493d-9c4a-9dd4dd81932b","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Duos_Warp","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"resourceVersion":"1.0","name":"a053eb83-07a0-4564-bd7a-6990ee247aca","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a053eb83-07a0-4564-bd7a-6990ee247aca",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Duos_Warp","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Duos_Warp",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a7aa9949-caf4-4d49-9abc-e417e6d8a2e5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a053eb83-07a0-4564-bd7a-6990ee247aca","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"a7aa9949-caf4-4d49-9abc-e417e6d8a2e5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a053eb83-07a0-4564-bd7a-6990ee247aca","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Duos_Warp","path":"sprites/sprMinigame2vs2_Duos_Warp/sprMinigame2vs2_Duos_Warp.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Duos_Warp",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a4913afe-310d-493d-9c4a-9dd4dd81932b","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a4913afe-310d-493d-9c4a-9dd4dd81932b","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Duos",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Duos.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Duos_Warp",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

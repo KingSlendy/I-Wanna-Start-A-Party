@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Blocks_Block",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"64dda6cc-0658-431d-a066-334efb7ebc19","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"64dda6cc-0658-431d-a066-334efb7ebc19","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"LayerId":{"name":"a06035d2-651d-4def-bf78-c02606b174ca","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Blocks_Block","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"resourceVersion":"1.0","name":"64dda6cc-0658-431d-a066-334efb7ebc19","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"64dda6cc-0658-431d-a066-334efb7ebc19",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Blocks_Block","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Blocks_Block",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"6b8d7327-82f1-4e72-999f-ef053079a497","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"64dda6cc-0658-431d-a066-334efb7ebc19","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"6b8d7327-82f1-4e72-999f-ef053079a497","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"64dda6cc-0658-431d-a066-334efb7ebc19","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Blocks_Block","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Blocks_Block",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a06035d2-651d-4def-bf78-c02606b174ca","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a06035d2-651d-4def-bf78-c02606b174ca","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Blocks",
     "path": "folders/Sprites/Objects/Minigames/4vs/Blocks.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Blocks_Block",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprTlsMinigame1vs3_Aiming",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"189977da-3af3-462e-ad6e-7bb017f15c5c","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"189977da-3af3-462e-ad6e-7bb017f15c5c","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"LayerId":{"name":"efbc67af-14a3-4090-920c-0d1afc013b30","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTlsMinigame1vs3_Aiming","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"resourceVersion":"1.0","name":"189977da-3af3-462e-ad6e-7bb017f15c5c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"189977da-3af3-462e-ad6e-7bb017f15c5c",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTlsMinigame1vs3_Aiming","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprTlsMinigame1vs3_Aiming",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e1521953-853a-405f-8d32-ddb9badbeda5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"189977da-3af3-462e-ad6e-7bb017f15c5c","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"e1521953-853a-405f-8d32-ddb9badbeda5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"189977da-3af3-462e-ad6e-7bb017f15c5c","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTlsMinigame1vs3_Aiming","path":"sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprTlsMinigame1vs3_Aiming",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"efbc67af-14a3-4090-920c-0d1afc013b30","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"efbc67af-14a3-4090-920c-0d1afc013b30","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Aiming",
     "path": "folders/Sprites/Tilesets/Minigames/1vs3/Aiming.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprTlsMinigame1vs3_Aiming",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

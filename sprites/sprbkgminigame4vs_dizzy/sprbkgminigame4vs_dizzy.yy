@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame4vs_Dizzy",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"LayerId":{"name":"d4b472da-20cc-4ebd-9d74-d3b2712344a8","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame4vs_Dizzy","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"resourceVersion":"1.0","name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame4vs_Dizzy","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame4vs_Dizzy",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"9425ac70-c6ae-4d2c-8927-0854d0556f15","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"9425ac70-c6ae-4d2c-8927-0854d0556f15","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c0ea28f7-34f9-4e32-bede-4bfbcee87678","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame4vs_Dizzy","path":"sprites/sprBkgMinigame4vs_Dizzy/sprBkgMinigame4vs_Dizzy.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame4vs_Dizzy",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d4b472da-20cc-4ebd-9d74-d3b2712344a8","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d4b472da-20cc-4ebd-9d74-d3b2712344a8","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Dizzy",
     "path": "folders/Sprites/Backgrounds/Minigames/4vs/Dizzy.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame4vs_Dizzy",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprSciencePlayerJump",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ec6240bf-7f2a-497a-98e5-43916a8328d9","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ec6240bf-7f2a-497a-98e5-43916a8328d9","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"LayerId":{"name":"4429febf-62b8-45d4-be40-6a7c9039cbb3","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprSciencePlayerJump","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","name":"ec6240bf-7f2a-497a-98e5-43916a8328d9","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"21500ef0-07a2-409a-965b-57cd152cf5a1","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"21500ef0-07a2-409a-965b-57cd152cf5a1","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"LayerId":{"name":"4429febf-62b8-45d4-be40-6a7c9039cbb3","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprSciencePlayerJump","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","name":"21500ef0-07a2-409a-965b-57cd152cf5a1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ec6240bf-7f2a-497a-98e5-43916a8328d9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"21500ef0-07a2-409a-965b-57cd152cf5a1",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprSciencePlayerJump","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprSciencePlayerJump",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"52477a9d-2edc-4201-8720-8c10db41f284","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ec6240bf-7f2a-497a-98e5-43916a8328d9","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"42a3bffd-6d71-4641-b32b-fd19ae07820e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"21500ef0-07a2-409a-965b-57cd152cf5a1","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"52477a9d-2edc-4201-8720-8c10db41f284","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ec6240bf-7f2a-497a-98e5-43916a8328d9","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"42a3bffd-6d71-4641-b32b-fd19ae07820e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"21500ef0-07a2-409a-965b-57cd152cf5a1","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprSciencePlayerJump","path":"sprites/sprSciencePlayerJump/sprSciencePlayerJump.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprSciencePlayerJump",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4429febf-62b8-45d4-be40-6a7c9039cbb3","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4429febf-62b8-45d4-be40-6a7c9039cbb3","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Science",
     "path": "folders/Sprites/Objects/Player/Skins/Science.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprSciencePlayerJump",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

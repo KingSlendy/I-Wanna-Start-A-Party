@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Duos_Button",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"405bcf3f-8510-46aa-ab38-4b3f163f9345","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"405bcf3f-8510-46aa-ab38-4b3f163f9345","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"LayerId":{"name":"3691d1b4-0c19-4423-90eb-57bdd9eab9c4","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Duos_Button","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","name":"405bcf3f-8510-46aa-ab38-4b3f163f9345","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"74e84c44-0c86-490e-9a12-00f65555ad5c","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"74e84c44-0c86-490e-9a12-00f65555ad5c","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"LayerId":{"name":"3691d1b4-0c19-4423-90eb-57bdd9eab9c4","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Duos_Button","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","name":"74e84c44-0c86-490e-9a12-00f65555ad5c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"405bcf3f-8510-46aa-ab38-4b3f163f9345",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"74e84c44-0c86-490e-9a12-00f65555ad5c",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Duos_Button","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Duos_Button",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"27beb218-cb97-4e6c-8ac1-0ffcd560e0c8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"405bcf3f-8510-46aa-ab38-4b3f163f9345","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"e12d469b-d66c-4b33-bfc9-6f6c8521b196","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"74e84c44-0c86-490e-9a12-00f65555ad5c","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"27beb218-cb97-4e6c-8ac1-0ffcd560e0c8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"405bcf3f-8510-46aa-ab38-4b3f163f9345","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e12d469b-d66c-4b33-bfc9-6f6c8521b196","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"74e84c44-0c86-490e-9a12-00f65555ad5c","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Duos_Button","path":"sprites/sprMinigame2vs2_Duos_Button/sprMinigame2vs2_Duos_Button.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Duos_Button",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3691d1b4-0c19-4423-90eb-57bdd9eab9c4","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3691d1b4-0c19-4423-90eb-57bdd9eab9c4","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Duos",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Duos.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Duos_Button",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

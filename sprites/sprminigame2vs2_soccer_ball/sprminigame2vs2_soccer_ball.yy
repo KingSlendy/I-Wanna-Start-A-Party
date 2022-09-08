@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Soccer_Ball",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":{"name":"79a44edd-4564-457b-a692-a8b88060ae4d","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Soccer_Ball","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"611987e5-29c0-4616-a37c-8276fe08782a","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"611987e5-29c0-4616-a37c-8276fe08782a","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":{"name":"79a44edd-4564-457b-a692-a8b88060ae4d","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Soccer_Ball","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"611987e5-29c0-4616-a37c-8276fe08782a","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"c32fe777-8942-4bec-929c-365864da8ebf","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c32fe777-8942-4bec-929c-365864da8ebf","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"LayerId":{"name":"79a44edd-4564-457b-a692-a8b88060ae4d","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Soccer_Ball","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"c32fe777-8942-4bec-929c-365864da8ebf","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"611987e5-29c0-4616-a37c-8276fe08782a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c32fe777-8942-4bec-929c-365864da8ebf",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Soccer_Ball","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Soccer_Ball",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -43,14 +42,14 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 3.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"926eaafb-02d6-4e88-ae8f-6d8eda079f3d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"f8d45c74-ce49-4952-87c3-a8920648946b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"611987e5-29c0-4616-a37c-8276fe08782a","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"3172c524-4e06-4a4d-950c-814cc23adbd6","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c32fe777-8942-4bec-929c-365864da8ebf","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"926eaafb-02d6-4e88-ae8f-6d8eda079f3d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e6cc3b7b-33d8-4b59-9894-3165f72e1909","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f8d45c74-ce49-4952-87c3-a8920648946b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"611987e5-29c0-4616-a37c-8276fe08782a","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3172c524-4e06-4a4d-950c-814cc23adbd6","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c32fe777-8942-4bec-929c-365864da8ebf","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Soccer_Ball","path":"sprites/sprMinigame2vs2_Soccer_Ball/sprMinigame2vs2_Soccer_Ball.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Soccer_Ball",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"79a44edd-4564-457b-a692-a8b88060ae4d","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"79a44edd-4564-457b-a692-a8b88060ae4d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Soccer",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Soccer.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Soccer_Ball",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

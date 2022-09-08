@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Haunted_Light",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"57c84629-5d42-4951-8812-1b50d7b9304d","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"57c84629-5d42-4951-8812-1b50d7b9304d","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"LayerId":{"name":"9a313502-4ec1-403e-afe1-60c8fb9a2089","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Haunted_Light","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"resourceVersion":"1.0","name":"57c84629-5d42-4951-8812-1b50d7b9304d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"57c84629-5d42-4951-8812-1b50d7b9304d",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Haunted_Light","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Haunted_Light",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1b738f8d-b902-44eb-ba8d-ad4573d7ab0c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57c84629-5d42-4951-8812-1b50d7b9304d","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"1b738f8d-b902-44eb-ba8d-ad4573d7ab0c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57c84629-5d42-4951-8812-1b50d7b9304d","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Haunted_Light","path":"sprites/sprMinigame4vs_Haunted_Light/sprMinigame4vs_Haunted_Light.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Haunted_Light",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9a313502-4ec1-403e-afe1-60c8fb9a2089","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9a313502-4ec1-403e-afe1-60c8fb9a2089","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Haunted",
     "path": "folders/Sprites/Objects/Minigames/4vs/Haunted.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Haunted_Light",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

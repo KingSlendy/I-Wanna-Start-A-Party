@@ -30,6 +30,7 @@ for (var i = 0; i < array_length(global.skins); i++) {
 array_push(skins, [noone]);
 
 skin_player = 0;
+prev_skin_player = skin_player;
 skin_selected = array_create(global.player_max, null);
 
 global.max_board_turns = 20;
@@ -108,6 +109,7 @@ if (save_present && room == rParty) {
 		menu_page = 0;
 		board_selected = 0;
 		board_target_selected = 0;
+		instance_destroy(objPlayerInfo);
 	}
 }
 

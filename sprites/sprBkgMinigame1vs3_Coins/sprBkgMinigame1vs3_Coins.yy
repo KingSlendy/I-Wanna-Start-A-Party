@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame1vs3_Coins",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c3d718fc-1368-44bd-8573-3503eef85279","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c3d718fc-1368-44bd-8573-3503eef85279","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"LayerId":{"name":"60eaa810-893a-4546-9d36-dc952f30f52c","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame1vs3_Coins","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"resourceVersion":"1.0","name":"c3d718fc-1368-44bd-8573-3503eef85279","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c3d718fc-1368-44bd-8573-3503eef85279",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame1vs3_Coins","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame1vs3_Coins",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e1ba84b6-36be-4f33-a97a-66aa29fbff60","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c3d718fc-1368-44bd-8573-3503eef85279","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"e1ba84b6-36be-4f33-a97a-66aa29fbff60","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c3d718fc-1368-44bd-8573-3503eef85279","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame1vs3_Coins","path":"sprites/sprBkgMinigame1vs3_Coins/sprBkgMinigame1vs3_Coins.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame1vs3_Coins",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"60eaa810-893a-4546-9d36-dc952f30f52c","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"60eaa810-893a-4546-9d36-dc952f30f52c","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Coins",
     "path": "folders/Sprites/Backgrounds/Minigames/1vs3/Coins.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame1vs3_Coins",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

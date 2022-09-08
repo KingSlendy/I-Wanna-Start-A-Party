@@ -19,7 +19,7 @@ if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 	for (var i = 0; i < global.player_max; i++) {
 		var draw_x, draw_y, text_x, text_y;
 		
-		if (info.type == "2vs2") {
+		if (info.type == "2vs2" && room != rMinigame2vs2_Jingle) {
 			var set_i = [0, 2, 1, 3];
 			var check_i = set_i[i];
 		} else {

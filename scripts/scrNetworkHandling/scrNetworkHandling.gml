@@ -321,11 +321,12 @@ function check_player_game_ids(player_id, player_ids) {
 
 function network_disable() {
 	with (all) {
-		event_perform(ev_cleanup, 0);
+		try {
+			event_perform(ev_cleanup, 0);
+		} catch (_) {}
 	}
 	
-	event_perform_object(objNetworkClient, ev_destroy, 0);
-	instance_destroy(objNetworkClient, false);
+	instance_destroy(objNetworkClient);
 	instance_destroy(objPlayerInfo);
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);

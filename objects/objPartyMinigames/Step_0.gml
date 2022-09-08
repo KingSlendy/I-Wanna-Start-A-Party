@@ -143,26 +143,24 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				var now_skin = skins[skin_row][skin_col];
 			
 				if (((have_skin(now_skin) || now_skin == noone) || (skin_player + 1 != global.player_id && (!focus_player_by_id(skin_player + 1).ai || !is_player_local(skin_player + 1)))) && !array_contains(skin_selected, now_skin) && sync_actions("jump", skin_player + 1)) {
-					next_seed_inline();
-					
-					if (now_skin == noone) {
-						do {
-							now_skin = irandom(array_length(global.skins) - 1);
-						} until (have_skin(now_skin) && !array_contains(skin_selected, now_skin));
-					}
-					
-					skin_selected[skin_player] = now_skin;
-				
-					with (objPlayerBase) {
-						if (network_id == other.skin_player + 1) {
-							skin = get_skin(now_skin);
-							break;
+					if (is_player_local(skin_player + 1)) {
+						if (now_skin == noone) {
+							do {
+								now_skin = irandom(array_length(global.skins) - 1);
+							} until ((have_skin(now_skin) || skin_player + 1 != global.player_id) && !array_contains(skin_selected, now_skin));
+						}
+						
+						//skin_selected[skin_player] = now_skin;
+						
+						with (objPlayerBase) {
+							if (network_id == other.skin_player + 1) {
+								skin = get_skin(now_skin);
+								break;
+							}
 						}
 					}
 				
-					if (skin_player < 3) {
-						skin_player++;
-					} else {
+					if (++skin_player == global.player_max) {
 						menu_page = 1;
 					}
 				
@@ -173,6 +171,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				if (sync_actions("shoot", skin_player + 1)) {
 					if (skin_player > 0) {
 						skin_player--;
+						prev_skin_player = skin_player;
 						skin_selected[skin_player] = null;
 				
 						with (objPlayerBase) {
@@ -246,6 +245,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							menu_page = 0;
 							board_options_selected = 0;
 							skin_player = 0;
+							prev_skin_player = skin_player;
 							skin_selected = array_create(global.player_max, null);
 							objPlayerBase.skin = null;
 						}

@@ -9,7 +9,7 @@ var files = [
 	"audiogroup1.dat",
 	"audiogroup2.dat",
 	"options.ini",
-	"execute_shell_simple_ext.dll",
+	"execute_shell_simple_ext_x64.dll",
 	"data.win",
 	"I Wanna Start A Party.exe"
 ];
@@ -19,7 +19,7 @@ file_text_write_string(file, "ping 127.0.0.1 -n 6 > nul");
 file_text_writeln(file);
 
 for (var i = 0; i < array_length(files); i++) {
-	file_text_write_string(file, string_interp("xcopy \"{0}{2}\" \"{1}{3}\" /Y", game_save_id, program_directory, files[i], files[i]));
+	file_text_write_string(file, string_interp("xcopy \"{0}{2}\" \"{1}{3}\" /Y /F", game_save_id, program_directory, files[i], files[i]));
 	file_text_writeln(file);
 	file_text_write_string(file, string_interp("del \"{0}{1}\"", game_save_id, files[i]));
 	file_text_writeln(file);

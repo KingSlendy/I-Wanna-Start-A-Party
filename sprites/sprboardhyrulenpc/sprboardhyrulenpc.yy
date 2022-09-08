@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBoardHyruleNPC",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ef598f97-996c-4ca6-940b-c80804109f6f","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ef598f97-996c-4ca6-940b-c80804109f6f","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"LayerId":{"name":"377735ea-4e19-45b5-ab98-cd90a88bde1c","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBoardHyruleNPC","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","name":"ef598f97-996c-4ca6-940b-c80804109f6f","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"b41db6a5-9887-4d68-b2f9-743714dfa584","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b41db6a5-9887-4d68-b2f9-743714dfa584","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"LayerId":{"name":"377735ea-4e19-45b5-ab98-cd90a88bde1c","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBoardHyruleNPC","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","name":"b41db6a5-9887-4d68-b2f9-743714dfa584","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ef598f97-996c-4ca6-940b-c80804109f6f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b41db6a5-9887-4d68-b2f9-743714dfa584",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBoardHyruleNPC","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBoardHyruleNPC",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ca27bcb0-032d-4096-b461-a71d222b8e24","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ef598f97-996c-4ca6-940b-c80804109f6f","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"d5440ca4-985e-4c7a-bd76-c51004e96644","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b41db6a5-9887-4d68-b2f9-743714dfa584","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ca27bcb0-032d-4096-b461-a71d222b8e24","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ef598f97-996c-4ca6-940b-c80804109f6f","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d5440ca4-985e-4c7a-bd76-c51004e96644","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b41db6a5-9887-4d68-b2f9-743714dfa584","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBoardHyruleNPC","path":"sprites/sprBoardHyruleNPC/sprBoardHyruleNPC.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBoardHyruleNPC",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"377735ea-4e19-45b5-ab98-cd90a88bde1c","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"377735ea-4e19-45b5-ab98-cd90a88bde1c","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hyrule",
     "path": "folders/Sprites/Objects/Boards/Hyrule.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBoardHyruleNPC",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

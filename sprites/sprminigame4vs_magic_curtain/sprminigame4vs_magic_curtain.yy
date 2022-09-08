@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Magic_Curtain",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 32,
   "gridY": 32,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7650e301-a951-4540-974a-42cbb7e68277","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7650e301-a951-4540-974a-42cbb7e68277","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":{"name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"7650e301-a951-4540-974a-42cbb7e68277","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9234ab45-ee53-407e-a394-b6f21f5fcb06","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9234ab45-ee53-407e-a394-b6f21f5fcb06","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":{"name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"9234ab45-ee53-407e-a394-b6f21f5fcb06","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"ff08b981-386d-4fed-b1b8-238fbc1c9373","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ff08b981-386d-4fed-b1b8-238fbc1c9373","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":{"name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"ff08b981-386d-4fed-b1b8-238fbc1c9373","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"LayerId":{"name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7650e301-a951-4540-974a-42cbb7e68277",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9234ab45-ee53-407e-a394-b6f21f5fcb06",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ff08b981-386d-4fed-b1b8-238fbc1c9373",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Magic_Curtain",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -46,15 +43,15 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5e1871d2-8d7d-4033-aff8-d16e1892a55f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7650e301-a951-4540-974a-42cbb7e68277","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"3021785f-f4ee-4b28-ac23-826500e4722d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9234ab45-ee53-407e-a394-b6f21f5fcb06","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"5d868201-cacd-43a9-93c6-ad23bcd9562a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ff08b981-386d-4fed-b1b8-238fbc1c9373","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"282fd4eb-4f75-432d-90bb-db6702e22884","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"5e1871d2-8d7d-4033-aff8-d16e1892a55f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7650e301-a951-4540-974a-42cbb7e68277","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3021785f-f4ee-4b28-ac23-826500e4722d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9234ab45-ee53-407e-a394-b6f21f5fcb06","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5d868201-cacd-43a9-93c6-ad23bcd9562a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ff08b981-386d-4fed-b1b8-238fbc1c9373","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"282fd4eb-4f75-432d-90bb-db6702e22884","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2c8f1a66-0068-41ab-a6ef-2b3c0f57210b","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Magic_Curtain","path":"sprites/sprMinigame4vs_Magic_Curtain/sprMinigame4vs_Magic_Curtain.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Magic_Curtain",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5a86b184-7247-4a65-b2a7-fb778760b2b9","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Magic",
     "path": "folders/Sprites/Objects/Minigames/4vs/Magic.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Magic_Curtain",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

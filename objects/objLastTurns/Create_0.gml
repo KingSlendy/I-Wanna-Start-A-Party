@@ -37,7 +37,7 @@ for (var i = 0; i < global.player_max; i++) {
 	}
 }
 
-current_player = 0;
+current_player = 1;
 event = -1;
 previous_turn = global.player_turn;
 
@@ -49,14 +49,10 @@ function say_player_place() {
 	}
 	
 	with (objPlayerInfo) {
-		if (order == min(other.current_player, 3) + 1) {
+		if (order == other.current_player) {
 			var p_info = id;
 			break;
 		}
-	}
-	
-	if (current_player == 4) {
-		return;
 	}
 			
 	with (p_info) {
@@ -70,24 +66,30 @@ function say_player_place() {
 function help_last_place() {
 	switch_camera_target(focus_player.x, focus_player.y).final_action = give_last_place;
 	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.LastTurnsHelpLastPlace);
-		network_send_tcp_packet();
-	}
-	
 	with (objPlayerInfo) {
 		if (order == 4) {
 			var player = focus_player_by_id(player_info.network_id);
 			player.x = other.focus_player.x + 17;
 			player.y = other.focus_player.y + 23;
-			global.player_turn = player_info.turn;
 			break;
 		}
+	}
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.LastTurnsHelpLastPlace);
+		network_send_tcp_packet();
 	}
 }
 
 function give_last_place() {
+	with (objPlayerInfo) {
+		if (order == 4) {
+			global.player_turn = player_info.turn;
+			break;
+		}
+	}
+	
 	if (is_local_turn()) {
 		var final_action = function() {
 			with (objLastTurns) {

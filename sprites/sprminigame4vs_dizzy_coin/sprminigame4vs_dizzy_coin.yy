@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Dizzy_Coin",
   "bboxMode": 0,
   "collisionKind": 2,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0db148c5-195c-46f5-8006-7772577013b0","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0db148c5-195c-46f5-8006-7772577013b0","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":{"name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"0db148c5-195c-46f5-8006-7772577013b0","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"51c25455-9db5-4852-9de4-212168c3d7f6","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"51c25455-9db5-4852-9de4-212168c3d7f6","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":{"name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"51c25455-9db5-4852-9de4-212168c3d7f6","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"514f61c7-83c2-4d58-bec8-c272925d1153","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"514f61c7-83c2-4d58-bec8-c272925d1153","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":{"name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"514f61c7-83c2-4d58-bec8-c272925d1153","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"3e956352-f355-4063-a3bc-381b12eaa766","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3e956352-f355-4063-a3bc-381b12eaa766","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"LayerId":{"name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","name":"3e956352-f355-4063-a3bc-381b12eaa766","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0db148c5-195c-46f5-8006-7772577013b0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"51c25455-9db5-4852-9de4-212168c3d7f6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"514f61c7-83c2-4d58-bec8-c272925d1153",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3e956352-f355-4063-a3bc-381b12eaa766",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Dizzy_Coin",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 8.0,
@@ -46,15 +43,15 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"75ace31b-abf9-4572-9cc4-83f56e90a425","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0db148c5-195c-46f5-8006-7772577013b0","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"1343c9ab-e4a9-414a-8526-c326f990dc94","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"51c25455-9db5-4852-9de4-212168c3d7f6","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"54f7aeda-f50f-4e11-9ced-b1fbc85c0b47","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"514f61c7-83c2-4d58-bec8-c272925d1153","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"839cceb5-f383-4356-9196-cddc8bb4094e","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3e956352-f355-4063-a3bc-381b12eaa766","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"75ace31b-abf9-4572-9cc4-83f56e90a425","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0db148c5-195c-46f5-8006-7772577013b0","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1343c9ab-e4a9-414a-8526-c326f990dc94","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"51c25455-9db5-4852-9de4-212168c3d7f6","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"54f7aeda-f50f-4e11-9ced-b1fbc85c0b47","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"514f61c7-83c2-4d58-bec8-c272925d1153","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"839cceb5-f383-4356-9196-cddc8bb4094e","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3e956352-f355-4063-a3bc-381b12eaa766","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Dizzy_Coin","path":"sprites/sprMinigame4vs_Dizzy_Coin/sprMinigame4vs_Dizzy_Coin.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Dizzy_Coin",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1b371b46-d7d9-4bf2-a7ea-806382d62103","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Dizzy",
     "path": "folders/Sprites/Objects/Minigames/4vs/Dizzy.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Dizzy_Coin",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

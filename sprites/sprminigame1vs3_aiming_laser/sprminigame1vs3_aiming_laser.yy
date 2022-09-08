@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame1vs3_Aiming_Laser",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f404e192-fa1a-45c7-bde6-9091b6086974","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f404e192-fa1a-45c7-bde6-9091b6086974","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"LayerId":{"name":"c5876ded-80da-4d04-8270-c182c25f30d0","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Aiming_Laser","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"resourceVersion":"1.0","name":"f404e192-fa1a-45c7-bde6-9091b6086974","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f404e192-fa1a-45c7-bde6-9091b6086974",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame1vs3_Aiming_Laser","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame1vs3_Aiming_Laser",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7fbd6e80-fbab-4bee-bd8c-ac6cb8aa70b0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f404e192-fa1a-45c7-bde6-9091b6086974","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"7fbd6e80-fbab-4bee-bd8c-ac6cb8aa70b0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f404e192-fa1a-45c7-bde6-9091b6086974","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame1vs3_Aiming_Laser","path":"sprites/sprMinigame1vs3_Aiming_Laser/sprMinigame1vs3_Aiming_Laser.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame1vs3_Aiming_Laser",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c5876ded-80da-4d04-8270-c182c25f30d0","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c5876ded-80da-4d04-8270-c182c25f30d0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Aiming",
     "path": "folders/Sprites/Objects/Minigames/1vs3/Aiming.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame1vs3_Aiming_Laser",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

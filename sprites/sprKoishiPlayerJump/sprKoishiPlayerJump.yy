@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprKoishiPlayerJump",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0d4de775-049c-4eb4-814f-ee72c30c3bff","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0d4de775-049c-4eb4-814f-ee72c30c3bff","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"LayerId":{"name":"136014c5-b5d3-4afd-b335-aae926821976","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprKoishiPlayerJump","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","name":"0d4de775-049c-4eb4-814f-ee72c30c3bff","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"7444e2e1-adda-450d-9758-59a7e0cf9bae","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7444e2e1-adda-450d-9758-59a7e0cf9bae","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"LayerId":{"name":"136014c5-b5d3-4afd-b335-aae926821976","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprKoishiPlayerJump","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","name":"7444e2e1-adda-450d-9758-59a7e0cf9bae","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0d4de775-049c-4eb4-814f-ee72c30c3bff",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7444e2e1-adda-450d-9758-59a7e0cf9bae",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprKoishiPlayerJump","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprKoishiPlayerJump",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"9d2a2beb-a6ff-4d5b-bde5-a65468fe7d00","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0d4de775-049c-4eb4-814f-ee72c30c3bff","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"9eb222af-182f-4693-b025-f4367ac48009","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7444e2e1-adda-450d-9758-59a7e0cf9bae","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"9d2a2beb-a6ff-4d5b-bde5-a65468fe7d00","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0d4de775-049c-4eb4-814f-ee72c30c3bff","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9eb222af-182f-4693-b025-f4367ac48009","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7444e2e1-adda-450d-9758-59a7e0cf9bae","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprKoishiPlayerJump","path":"sprites/sprKoishiPlayerJump/sprKoishiPlayerJump.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprKoishiPlayerJump",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"136014c5-b5d3-4afd-b335-aae926821976","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"136014c5-b5d3-4afd-b335-aae926821976","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Koishi",
     "path": "folders/Sprites/Objects/Player/Skins/Koishi.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprKoishiPlayerJump",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

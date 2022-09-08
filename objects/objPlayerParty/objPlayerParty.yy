@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPlayerIdle",
-    "path": "sprites/sprPlayerIdle/sprPlayerIdle.yy",
+    "name": "sprPlayerBlank",
+    "path": "sprites/sprPlayerBlank/sprPlayerBlank.yy",
   },
   "solid": false,
   "visible": false,

@@ -64,7 +64,7 @@ for (var r = -2; r <= 2; r++) {
 	for (var c = 0; c < array_length(skin_c); c++) {
 		var is_selected = (now_r == skin_target_row && c == skin_col);
 		var skin = skin_c[c];
-		var color = (is_selected) ? player_color_by_turn(skin_player + 1) : c_white;
+		var color = (is_selected && skin_player + 1 <= global.player_max) ? player_color_by_turn(skin_player + 1) : c_white;
 		var already_selected = (array_contains(skin_selected, skin));
 		var box_x = menu_x + skin_w * c;
 		var box_y = skin_y + skin_h * r;
@@ -80,7 +80,7 @@ for (var r = -2; r <= 2; r++) {
 		if (have_skin(skin)) {
 			var skin_sprite = get_skin(skin)[$ "Idle"];
 		} else {
-			var skin_sprite = (skin != noone) ? sprPlayerIdle : sprPlayerRandom;
+			var skin_sprite = (skin != noone) ? sprPlayerBlank : sprPlayerRandom;
 		}
 		
 		draw_sprite_ext(skin_sprite, 0, box_x + skin_w / 2 + 3, box_y + skin_h / 2 + 6, 3, 3, 0, (!already_selected) ? c_white : c_gray, draw_get_alpha());

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprNightmarePlayerFall",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"LayerId":{"name":"ff28dd80-0e17-414d-b3c6-34a3aa1df950","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprNightmarePlayerFall","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"17388372-57a0-4660-915b-e3468d69907d","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"17388372-57a0-4660-915b-e3468d69907d","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"LayerId":{"name":"ff28dd80-0e17-414d-b3c6-34a3aa1df950","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprNightmarePlayerFall","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","name":"17388372-57a0-4660-915b-e3468d69907d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"17388372-57a0-4660-915b-e3468d69907d",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprNightmarePlayerFall","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprNightmarePlayerFall",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4a6f36c8-b9c9-40b4-98e7-7db372f04323","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"80072676-3481-410b-a726-c30f9493d292","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17388372-57a0-4660-915b-e3468d69907d","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"4a6f36c8-b9c9-40b4-98e7-7db372f04323","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5d6c92e7-f8a2-40b4-b83f-2dfed5834ef2","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"80072676-3481-410b-a726-c30f9493d292","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17388372-57a0-4660-915b-e3468d69907d","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprNightmarePlayerFall","path":"sprites/sprNightmarePlayerFall/sprNightmarePlayerFall.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprNightmarePlayerFall",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ff28dd80-0e17-414d-b3c6-34a3aa1df950","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ff28dd80-0e17-414d-b3c6-34a3aa1df950","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Nightmare",
     "path": "folders/Sprites/Objects/Player/Skins/Nightmare.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprNightmarePlayerFall",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

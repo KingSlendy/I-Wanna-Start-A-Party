@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Mansion_Door",
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":{"name":"ae761f3e-0104-4384-90b6-a28401e2314c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":{"name":"ae761f3e-0104-4384-90b6-a28401e2314c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":{"name":"ae761f3e-0104-4384-90b6-a28401e2314c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"e6807817-3df5-4303-a934-a4fb74318a6c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e6807817-3df5-4303-a934-a4fb74318a6c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"LayerId":{"name":"ae761f3e-0104-4384-90b6-a28401e2314c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","name":"e6807817-3df5-4303-a934-a4fb74318a6c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e6807817-3df5-4303-a934-a4fb74318a6c",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Mansion_Door",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 8.0,
@@ -46,15 +43,15 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"49605e29-a78c-4e3a-b46f-8e4748d10729","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"6544b260-ac9f-44f4-8715-b7c7838c7045","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"bd638f97-28c3-4824-8bca-df16d1be429e","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"95452aa8-9898-4186-97df-135c1443f976","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e6807817-3df5-4303-a934-a4fb74318a6c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"49605e29-a78c-4e3a-b46f-8e4748d10729","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9bbe06e-2c42-4e1b-88cc-8d45adb84929","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6544b260-ac9f-44f4-8715-b7c7838c7045","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"030878f1-5de3-4bd2-8ee1-10a63ba3b2a5","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bd638f97-28c3-4824-8bca-df16d1be429e","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9db8e0d-4ed3-497b-92f0-263deb47dbc0","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"95452aa8-9898-4186-97df-135c1443f976","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e6807817-3df5-4303-a934-a4fb74318a6c","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Mansion_Door","path":"sprites/sprMinigame4vs_Mansion_Door/sprMinigame4vs_Mansion_Door.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Mansion_Door",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ae761f3e-0104-4384-90b6-a28401e2314c","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ae761f3e-0104-4384-90b6-a28401e2314c","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Mansion",
     "path": "folders/Sprites/Objects/Minigames/4vs/Mansion.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Mansion_Door",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

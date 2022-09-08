@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame1vs3_Hunt_Shot",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"LayerId":{"name":"ae39cd06-1112-485f-b603-2d22efdf89cc","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame1vs3_Hunt_Shot","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"resourceVersion":"1.0","name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame1vs3_Hunt_Shot","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame1vs3_Hunt_Shot",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"26b2ef7e-578c-42d0-ab5d-d7d1211a3010","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"26b2ef7e-578c-42d0-ab5d-d7d1211a3010","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6a63fa50-9df5-4df7-bd3a-7a33936760a4","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 18,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame1vs3_Hunt_Shot","path":"sprites/sprMinigame1vs3_Hunt_Shot/sprMinigame1vs3_Hunt_Shot.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame1vs3_Hunt_Shot",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ae39cd06-1112-485f-b603-2d22efdf89cc","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ae39cd06-1112-485f-b603-2d22efdf89cc","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hunt",
     "path": "folders/Sprites/Objects/Minigames/1vs3/Hunt.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame1vs3_Hunt_Shot",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

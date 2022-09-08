@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprHollowPlayerFall",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"LayerId":{"name":"d8a73d50-8951-4ef7-bf11-381ba0918348","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprHollowPlayerFall","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"c522eb04-6fa0-401d-b60c-175163c94cbb","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c522eb04-6fa0-401d-b60c-175163c94cbb","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"LayerId":{"name":"d8a73d50-8951-4ef7-bf11-381ba0918348","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprHollowPlayerFall","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","name":"c522eb04-6fa0-401d-b60c-175163c94cbb","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c522eb04-6fa0-401d-b60c-175163c94cbb",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprHollowPlayerFall","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprHollowPlayerFall",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"32f7f46b-fa73-4bbd-9d7b-3c8004f2a437","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"1f381530-fc55-4065-bb0b-80afb6cf1479","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c522eb04-6fa0-401d-b60c-175163c94cbb","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"32f7f46b-fa73-4bbd-9d7b-3c8004f2a437","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4ba49b9b-5319-4c92-a372-d81e9d3e8e76","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1f381530-fc55-4065-bb0b-80afb6cf1479","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c522eb04-6fa0-401d-b60c-175163c94cbb","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprHollowPlayerFall","path":"sprites/sprHollowPlayerFall/sprHollowPlayerFall.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprHollowPlayerFall",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d8a73d50-8951-4ef7-bf11-381ba0918348","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d8a73d50-8951-4ef7-bf11-381ba0918348","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hollow",
     "path": "folders/Sprites/Objects/Player/Skins/Hollow.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprHollowPlayerFall",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

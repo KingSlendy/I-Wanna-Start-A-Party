@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprTlsMinigame1vs3_Warping",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0a4eee15-dd71-45c5-8469-e948715686f1","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0a4eee15-dd71-45c5-8469-e948715686f1","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"LayerId":{"name":"3afefcd6-e914-4fc2-9230-455f97468768","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTlsMinigame1vs3_Warping","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"resourceVersion":"1.0","name":"0a4eee15-dd71-45c5-8469-e948715686f1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0a4eee15-dd71-45c5-8469-e948715686f1",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTlsMinigame1vs3_Warping","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprTlsMinigame1vs3_Warping",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"431b9eec-3770-47f7-ae73-f6782f151f2d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0a4eee15-dd71-45c5-8469-e948715686f1","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"431b9eec-3770-47f7-ae73-f6782f151f2d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0a4eee15-dd71-45c5-8469-e948715686f1","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTlsMinigame1vs3_Warping","path":"sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprTlsMinigame1vs3_Warping",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3afefcd6-e914-4fc2-9230-455f97468768","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3afefcd6-e914-4fc2-9230-455f97468768","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Warping",
     "path": "folders/Sprites/Tilesets/Minigames/1vs3/Warping.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprTlsMinigame1vs3_Warping",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

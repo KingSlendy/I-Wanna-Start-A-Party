@@ -35,23 +35,58 @@ function cherry_move(move, network = true) {
 }
 
 function cherry_jump(network = true) {
-	with (objMinigame1vs3_House_Cherry) {
-		if (vspeed != 0) {
-			continue;
-		}
-		
-		vspeed = -6;
-		gravity = 0.3;
-	}
-	
 	if (network) {
+		with (objMinigame1vs3_House_Cherry) {
+			if (y != ystart) {
+				return;
+			}
+		
+			vspeed = -7;
+			gravity = 0.3;
+		}
+	
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame1vs3_House_CherryJump);
 		network_send_tcp_packet();
+	} else {
+		with (objMinigame1vs3_House_Cherry) {
+			y = ystart;
+			vspeed = -7;
+			gravity = 0.3;
+		}
 	}
 }
 
 alarm_override(1, function() {
 	points_teams[1][0].frozen = false;
 	house_start = true;
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var keys = ["left", "right", "jump"];
+		var action = actions[$ keys[irandom(array_length(keys) - 1)]];
+		
+		switch (irandom(2)) {
+			case 0:
+				action.hold(irandom(21));
+				break;
+				
+			case 1:
+				action.press();
+				break;
+				
+			case 2:
+				action.release(true);
+				break;
+		}
+	}
+
+	alarm_frames(11, 1);
 });

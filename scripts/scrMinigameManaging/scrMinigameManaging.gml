@@ -50,7 +50,8 @@ function minigame_init() {
 		new Minigame("Springing Piranha", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
 		new Minigame("Dinnyamic Duos", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
 		new Minigame("Western Duel", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy"),
-		new Minigame("Soccer Match", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN")
+		new Minigame("Soccer Match", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN"),
+		new Minigame("Jingle Sledge", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 35, rMinigame2vs2_Jingle, "Jingle Jam")
 	];
 }
 

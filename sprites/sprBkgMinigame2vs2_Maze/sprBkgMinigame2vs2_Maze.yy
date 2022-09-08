@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame2vs2_Maze",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"LayerId":{"name":"b932c8fc-1c68-4e70-b3b4-cfb88d58abd5","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame2vs2_Maze","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"resourceVersion":"1.0","name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame2vs2_Maze","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame2vs2_Maze",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0a2ba2ae-72c2-4e9e-b907-28e09f576222","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"0a2ba2ae-72c2-4e9e-b907-28e09f576222","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e5a4b58-9e7d-4795-b4b7-a5a29bde6662","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame2vs2_Maze","path":"sprites/sprBkgMinigame2vs2_Maze/sprBkgMinigame2vs2_Maze.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame2vs2_Maze",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b932c8fc-1c68-4e70-b3b4-cfb88d58abd5","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b932c8fc-1c68-4e70-b3b4-cfb88d58abd5","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Maze",
     "path": "folders/Sprites/Backgrounds/Minigames/2vs2/Maze.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame2vs2_Maze",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

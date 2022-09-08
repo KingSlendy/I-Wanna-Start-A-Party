@@ -1,5 +1,5 @@
 for (var i = 0; i < global.player_max; i++) {
-	if (focus_player_by_id(i + 1).sprite_index == sprPlayerIdle) {
+	if (focus_player_by_id(i + 1).sprite_index == sprPlayerBlank) {
 		continue;
 	}
 	

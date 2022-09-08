@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Colorful_Round",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"991befbb-4eea-4a73-8d61-276620e98ab4","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"991befbb-4eea-4a73-8d61-276620e98ab4","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"LayerId":{"name":"d71f350a-0fcd-4251-9730-d036d7a4a678","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Colorful_Round","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","name":"991befbb-4eea-4a73-8d61-276620e98ab4","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"236f1b04-7822-4d9c-93e3-40f2a029661f","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"236f1b04-7822-4d9c-93e3-40f2a029661f","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"LayerId":{"name":"d71f350a-0fcd-4251-9730-d036d7a4a678","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Colorful_Round","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","name":"236f1b04-7822-4d9c-93e3-40f2a029661f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"991befbb-4eea-4a73-8d61-276620e98ab4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"236f1b04-7822-4d9c-93e3-40f2a029661f",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Colorful_Round","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Colorful_Round",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"3628af91-626a-41a8-af7c-8559157279d0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"991befbb-4eea-4a73-8d61-276620e98ab4","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"e6746205-bef1-49ee-b19c-2f536210cec8","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"236f1b04-7822-4d9c-93e3-40f2a029661f","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"3628af91-626a-41a8-af7c-8559157279d0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"991befbb-4eea-4a73-8d61-276620e98ab4","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e6746205-bef1-49ee-b19c-2f536210cec8","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"236f1b04-7822-4d9c-93e3-40f2a029661f","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Colorful_Round","path":"sprites/sprMinigame2vs2_Colorful_Round/sprMinigame2vs2_Colorful_Round.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Colorful_Round",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d71f350a-0fcd-4251-9730-d036d7a4a678","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d71f350a-0fcd-4251-9730-d036d7a4a678","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Colorful",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Colorful.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Colorful_Round",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

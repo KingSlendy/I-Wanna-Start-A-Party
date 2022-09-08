@@ -134,19 +134,12 @@ function skin_init() {
 		new Skin("Apple", "Apple", "I Wanna Reach The Ark", 70, "IWD", 500),
 		new Skin("Yaoguo", "Yaoguo", "I Wanna Reach The Ark", 70, "IWD", 500),
 		new Skin("Ermeng", "Ermeng", "I Wanna Reach The Ark", 70, "IWD", 500),
-		new Skin("Toro", "Toro", "I Wanna Reach The Ark", 70, "IWD", 500)
+		new Skin("Toro", "Toro", "I Wanna Reach The Ark", 70, "IWD", 500),
+		new Skin("Q", "Q", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
+		new Skin("Binggan", "Binggan", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
+		new Skin("Zhufeng", "Zhufeng", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
+		new Skin("Astronaut", "Astronaut Kid", "I Wanna VANILLA", 72, "Hanamogeta", 700)
 	];
-}
-
-function get_skin(type = global.skin_current) {
-	var skin = {};
-	var poses = ["Idle", "Run", "Jump", "Fall"];
-	
-	for (var i = 0; i < array_length(poses); i++) {
-		skin[$ poses[i]] = asset_get_index("spr" + global.skins[type].id + "Player" + poses[i]);
-	}
-	
-	return skin;
 }
 
 function gain_skin(skin) {
@@ -159,27 +152,52 @@ function have_skin(skin) {
 	return (array_search(global.collected_skins, skin));
 }
 
-function get_skin_by_sprite(sprite) {
-	var name = sprite_get_name(sprite);
-	var check = "";
+function get_skin_poses() {
+	return ["Idle", "Run", "Jump", "Fall"];
+}
+
+function get_skin(type = global.skin_current) {
+	var skin = {};
+	var poses = get_skin_poses();
 	
-	for (var i = 4; i <= string_length(name); i++) {
-		check += string_char_at(name, i);
-		var index = -1;
+	for (var i = 0; i < array_length(poses); i++) {
+		skin[$ poses[i]] = asset_get_index("spr" + global.skins[type].id + "Player" + poses[i]);
+	}
+	
+	return skin;
+}
+
+function get_skin_index_by_sprite(sprite, pose = null) {
+	if (sprite == sprPlayerBlank) {
+		return null;
+	}
+	
+	var name = sprite_get_name(sprite);
+	
+	if (pose == null) {
+		var poses = get_skin_poses();
 		
-		for (var j = 0; j < array_length(global.skins); j++) {
-			if (global.skins[j].id == check) {
-				index = j;
+		for (var i = 0; i < array_length(poses); i++) {
+			if (string_count(poses[i], name) > 0) {
+				pose = poses[i];
 				break;
 			}
 		}
-		
-		if (index != -1) {
-			return get_skin(index);
+	}
+	
+	var check = string_copy(name, 4, string_length(name) - 9 - string_length(pose));
+	
+	for (var i = 0; i < array_length(global.skins); i++) {
+		if (global.skins[i].id == check) {
+			return i;
 		}
 	}
 	
-	return sprNothing;
+	return null;
+}
+
+function get_skin_by_sprite(sprite) {
+	return get_skin(get_skin_index_by_sprite(sprite)) ?? sprNothing;
 }
 
 function get_skin_pose_object(object, pose) {
@@ -195,14 +213,11 @@ function get_skin_pose_object(object, pose) {
 }
 
 function get_skin_pose(sprite, pose) {
-	var name = sprite_get_name(sprite);
-	var check = string_copy(name, 4, string_length(name) - 3 - (string_length(pose) + 6));
+	var index = get_skin_index_by_sprite(sprite, pose);
 	
-	for (var j = 0; j < array_length(global.skins); j++) {
-		if (global.skins[j].id == check) {
-			return asset_get_index("spr" + check + "Player" + pose);
-		}
+	if (index == null) {
+		return sprNothing;
 	}
-	
-	return sprNothing;
+
+	return get_skin(index)[$ pose];
 }

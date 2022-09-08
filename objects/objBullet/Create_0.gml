@@ -4,5 +4,11 @@ if (room == rMinigame4vs_Targets) {
 	}
 }
 
+var frames = 60;
+
+if (room == rMinigame4vs_Rocket) {
+	frames = 100;
+}
+
 audio_play_sound(sndShoot, 0, false);
-alarm[0] = (room != rMinigame4vs_Rocket) ? 60 : 100;
+alarm[0] = frames;

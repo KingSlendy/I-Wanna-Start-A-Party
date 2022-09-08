@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgBoardHyruleLightTrees",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 8,
   "gridY": 8,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"LayerId":{"name":"56781d43-6bbf-4ad8-95f3-9a207eac06d9","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgBoardHyruleLightTrees","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"resourceVersion":"1.0","name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgBoardHyruleLightTrees","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgBoardHyruleLightTrees",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5d9a8016-7b1d-4946-9929-40b43f6ee5b0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"5d9a8016-7b1d-4946-9929-40b43f6ee5b0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"261a3da0-1cc2-4f06-b6d9-17f975f8c149","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgBoardHyruleLightTrees","path":"sprites/sprBkgBoardHyruleLightTrees/sprBkgBoardHyruleLightTrees.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgBoardHyruleLightTrees",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"56781d43-6bbf-4ad8-95f3-9a207eac06d9","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"56781d43-6bbf-4ad8-95f3-9a207eac06d9","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hyrule",
     "path": "folders/Sprites/Backgrounds/Boards/Hyrule.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgBoardHyruleLightTrees",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

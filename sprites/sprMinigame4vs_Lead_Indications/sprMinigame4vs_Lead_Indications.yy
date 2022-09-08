@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Lead_Indications",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,24 +27,16 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c250cbcf-290f-48f2-8715-d50a0c9730dd","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c250cbcf-290f-48f2-8715-d50a0c9730dd","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":{"name":"e7274341-6440-42d2-bba5-81daa876e496","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"c250cbcf-290f-48f2-8715-d50a0c9730dd","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"ee0a59cf-da82-4c6b-b444-b399835f40e0","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ee0a59cf-da82-4c6b-b444-b399835f40e0","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":{"name":"e7274341-6440-42d2-bba5-81daa876e496","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"ee0a59cf-da82-4c6b-b444-b399835f40e0","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":{"name":"e7274341-6440-42d2-bba5-81daa876e496","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"871c97fe-f9a7-4a15-93eb-39c39c577d22","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"871c97fe-f9a7-4a15-93eb-39c39c577d22","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":{"name":"e7274341-6440-42d2-bba5-81daa876e496","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"871c97fe-f9a7-4a15-93eb-39c39c577d22","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"844c7de2-d0a0-492b-8e2d-6772db94af38","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"844c7de2-d0a0-492b-8e2d-6772db94af38","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"LayerId":{"name":"e7274341-6440-42d2-bba5-81daa876e496","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","name":"844c7de2-d0a0-492b-8e2d-6772db94af38","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c250cbcf-290f-48f2-8715-d50a0c9730dd",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ee0a59cf-da82-4c6b-b444-b399835f40e0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"871c97fe-f9a7-4a15-93eb-39c39c577d22",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"844c7de2-d0a0-492b-8e2d-6772db94af38",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Lead_Indications",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -49,16 +44,16 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 5.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4a784405-f95c-4cb4-b733-16aac14ea7bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c250cbcf-290f-48f2-8715-d50a0c9730dd","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"0de99798-2b84-4663-a560-1f53733409dd","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ee0a59cf-da82-4c6b-b444-b399835f40e0","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"179b6e44-4976-4aa0-a3ca-815198e135da","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"3a5f70b2-df7d-44f6-8347-8337dc9eef76","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"871c97fe-f9a7-4a15-93eb-39c39c577d22","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"7234f0b9-670d-4865-b2a9-b2edf53202a1","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"844c7de2-d0a0-492b-8e2d-6772db94af38","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"4a784405-f95c-4cb4-b733-16aac14ea7bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c250cbcf-290f-48f2-8715-d50a0c9730dd","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"0de99798-2b84-4663-a560-1f53733409dd","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ee0a59cf-da82-4c6b-b444-b399835f40e0","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"179b6e44-4976-4aa0-a3ca-815198e135da","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"82e28cd5-82ac-4284-8fee-8b159b1fa4f4","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3a5f70b2-df7d-44f6-8347-8337dc9eef76","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"871c97fe-f9a7-4a15-93eb-39c39c577d22","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7234f0b9-670d-4865-b2a9-b2edf53202a1","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"844c7de2-d0a0-492b-8e2d-6772db94af38","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -74,22 +69,13 @@
     "yorigin": 24,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Lead_Indications","path":"sprites/sprMinigame4vs_Lead_Indications/sprMinigame4vs_Lead_Indications.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Lead_Indications",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e7274341-6440-42d2-bba5-81daa876e496","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e7274341-6440-42d2-bba5-81daa876e496","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Lead",
     "path": "folders/Sprites/Objects/Minigames/4vs/Lead.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Lead_Indications",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

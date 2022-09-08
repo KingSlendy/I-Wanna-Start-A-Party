@@ -15,16 +15,10 @@ fade_state = 0;
 function spawn_shine() {
 	if (!spawned) {
 		instance_create_layer(space_x + 16, space_y + 16, "Actors", objShine);
-		var snd = audio_play_sound(sndShineSpawn, 0, false);
-		
-		if (room != rBoardHyrule) {
-			audio_sound_pitch(snd, 1);
-		} else if (!global.board_light) {
-			audio_sound_pitch(snd, 0.75);
-		}
-		
 		spawned = true;
 		alarm_call(0, 2);
+		var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;
+		audio_play_sound(sndShineSpawn, 0, false,,, pitch);
 	}
 }
 

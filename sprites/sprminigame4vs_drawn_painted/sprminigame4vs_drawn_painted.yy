@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Drawn_Painted",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,24 +27,16 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"fb801bfd-6590-4712-b4db-42666ab85770","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"fb801bfd-6590-4712-b4db-42666ab85770","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":{"name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"fb801bfd-6590-4712-b4db-42666ab85770","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":{"name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":{"name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"f782ef32-9f0f-43f8-8bd8-9d919af92990","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f782ef32-9f0f-43f8-8bd8-9d919af92990","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":{"name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"f782ef32-9f0f-43f8-8bd8-9d919af92990","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"LayerId":{"name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fb801bfd-6590-4712-b4db-42666ab85770",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f782ef32-9f0f-43f8-8bd8-9d919af92990",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Drawn_Painted",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -49,16 +44,16 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 5.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"6d4c27eb-58f0-4009-881f-66a23addcebb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb801bfd-6590-4712-b4db-42666ab85770","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"0d7b5603-9638-4be1-9708-645da9d7c643","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"94ad4934-c76f-4691-ab43-57db4cb77889","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b409d324-b3b4-45d9-876a-06a48a8c8e62","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f782ef32-9f0f-43f8-8bd8-9d919af92990","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"615a13e5-5c61-4b6b-8345-a18d4bbfe5cd","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"6d4c27eb-58f0-4009-881f-66a23addcebb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb801bfd-6590-4712-b4db-42666ab85770","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"0d7b5603-9638-4be1-9708-645da9d7c643","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"30ef6638-67d1-40f6-ad0a-5a00e5452fff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"94ad4934-c76f-4691-ab43-57db4cb77889","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"64d1f257-2f72-48d0-8f04-a8fbb2e395ff","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b409d324-b3b4-45d9-876a-06a48a8c8e62","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f782ef32-9f0f-43f8-8bd8-9d919af92990","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"615a13e5-5c61-4b6b-8345-a18d4bbfe5cd","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"39ef9b69-b958-4ddb-99fe-8c438e4a9755","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -74,22 +69,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Drawn_Painted","path":"sprites/sprMinigame4vs_Drawn_Painted/sprMinigame4vs_Drawn_Painted.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Drawn_Painted",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e177ca61-cd01-49f9-9115-7d67d635e2d2","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Drawn",
     "path": "folders/Sprites/Objects/Minigames/4vs/Drawn.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Drawn_Painted",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

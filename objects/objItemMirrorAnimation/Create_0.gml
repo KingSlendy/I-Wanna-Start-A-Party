@@ -15,7 +15,7 @@ if (is_local_turn()) {
 				continue;
 			}
 			
-			var space_record = -infinity;
+			var space_record = infinity;
 			var near = null;
 		
 			with (objSpaces) {
@@ -23,9 +23,9 @@ if (is_local_turn()) {
 					continue;
 				}
 				
-				var dist = point_distance(x, y, other.x, other.y);
+				var dist = point_distance(x + 16, y + 16, other.x, other.y);
 						
-				if (dist > space_record) {
+				if (dist < space_record) {
 					space_record = dist;
 					near = id;
 				}

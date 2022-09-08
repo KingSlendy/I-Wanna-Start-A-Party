@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprGenoPlayerFall",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"LayerId":{"name":"797e186e-a73c-4cf4-a830-8fce8bbd5fd7","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprGenoPlayerFall","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"LayerId":{"name":"797e186e-a73c-4cf4-a830-8fce8bbd5fd7","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprGenoPlayerFall","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprGenoPlayerFall","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprGenoPlayerFall",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"3cc051cb-fa8d-4c7a-86b5-7db51054a29e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"0dc5277e-ce51-487d-b8e0-8b9823499e8e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"3cc051cb-fa8d-4c7a-86b5-7db51054a29e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"18e9b86c-9350-4c8a-9dda-f8586efa2f07","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"0dc5277e-ce51-487d-b8e0-8b9823499e8e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"61e1e4bc-59ab-4ebe-8698-43f664df32b5","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprGenoPlayerFall","path":"sprites/sprGenoPlayerFall/sprGenoPlayerFall.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprGenoPlayerFall",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"797e186e-a73c-4cf4-a830-8fce8bbd5fd7","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"797e186e-a73c-4cf4-a830-8fce8bbd5fd7","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Geno",
     "path": "folders/Sprites/Objects/Player/Skins/Geno.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprGenoPlayerFall",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

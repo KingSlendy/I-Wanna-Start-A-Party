@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprHotlandAnnoyingDog",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"LayerId":{"name":"4e551d1d-37c8-4503-8470-640ca43333f6","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprHotlandAnnoyingDog","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"91b9a917-4793-4636-a1b2-817bb4dcc366","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"91b9a917-4793-4636-a1b2-817bb4dcc366","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"LayerId":{"name":"4e551d1d-37c8-4503-8470-640ca43333f6","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprHotlandAnnoyingDog","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","name":"91b9a917-4793-4636-a1b2-817bb4dcc366","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"91b9a917-4793-4636-a1b2-817bb4dcc366",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprHotlandAnnoyingDog","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprHotlandAnnoyingDog",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"13b63cfe-ed54-471b-af96-95daec02b3dc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"f7bda1a4-5936-458f-8f01-ec8efc59f6b9","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91b9a917-4793-4636-a1b2-817bb4dcc366","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"13b63cfe-ed54-471b-af96-95daec02b3dc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ab9fe3d8-d005-4afe-867c-d70b41a1dda7","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f7bda1a4-5936-458f-8f01-ec8efc59f6b9","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91b9a917-4793-4636-a1b2-817bb4dcc366","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 19,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprHotlandAnnoyingDog","path":"sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprHotlandAnnoyingDog",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4e551d1d-37c8-4503-8470-640ca43333f6","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4e551d1d-37c8-4503-8470-640ca43333f6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hotland",
     "path": "folders/Sprites/Objects/Boards/Events/Hotland.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprHotlandAnnoyingDog",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Fruits_Tree",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d249bb2e-9937-4746-b525-e820018aa4fd","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d249bb2e-9937-4746-b525-e820018aa4fd","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"LayerId":{"name":"918f7aaf-64bd-4387-882e-f8d8cb4a9ac6","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Fruits_Tree","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"resourceVersion":"1.0","name":"d249bb2e-9937-4746-b525-e820018aa4fd","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d249bb2e-9937-4746-b525-e820018aa4fd",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Fruits_Tree","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Fruits_Tree",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0d5f0633-b87d-4898-b72d-8733864be217","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d249bb2e-9937-4746-b525-e820018aa4fd","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"0d5f0633-b87d-4898-b72d-8733864be217","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d249bb2e-9937-4746-b525-e820018aa4fd","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Fruits_Tree","path":"sprites/sprMinigame2vs2_Fruits_Tree/sprMinigame2vs2_Fruits_Tree.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Fruits_Tree",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"918f7aaf-64bd-4387-882e-f8d8cb4a9ac6","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"918f7aaf-64bd-4387-882e-f8d8cb4a9ac6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Fruits",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Fruits.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Fruits_Tree",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

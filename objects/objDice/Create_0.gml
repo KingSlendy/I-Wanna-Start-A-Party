@@ -44,7 +44,7 @@ function random_roll() {
 
 roll = 0;
 random_roll();
-roll_spd = (player_info.item_effect != ItemType.Clock) ? 0.08 : 0.75;
+roll_spd = (player_info.item_effect != ItemType.Clock) ? 0.08 : 0.5;
 
 alarms_init(1);
 

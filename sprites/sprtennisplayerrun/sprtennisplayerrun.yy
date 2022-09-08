@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprTennisPlayerRun",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":{"name":"ed3e303f-5e23-4cce-841b-2525096e93e7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":{"name":"ed3e303f-5e23-4cce-841b-2525096e93e7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"db49046a-b50c-429d-84e0-6ba00f5edc90","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"db49046a-b50c-429d-84e0-6ba00f5edc90","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":{"name":"ed3e303f-5e23-4cce-841b-2525096e93e7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"db49046a-b50c-429d-84e0-6ba00f5edc90","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"29951fc5-23e0-45d8-83aa-36d3990018f7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"29951fc5-23e0-45d8-83aa-36d3990018f7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"LayerId":{"name":"ed3e303f-5e23-4cce-841b-2525096e93e7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","name":"29951fc5-23e0-45d8-83aa-36d3990018f7","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"db49046a-b50c-429d-84e0-6ba00f5edc90",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"29951fc5-23e0-45d8-83aa-36d3990018f7",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprTennisPlayerRun",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 12.0,
@@ -46,15 +43,15 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ace8c8ac-ca52-426c-937a-c3d4acbca63d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"58afbad5-4eb9-4cfb-b46d-b1acc2101794","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"684ec3a3-fb9d-49e6-a982-f2432bc9af99","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"db49046a-b50c-429d-84e0-6ba00f5edc90","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b29dd4b2-0bcc-41b2-967f-af9f016fa172","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"29951fc5-23e0-45d8-83aa-36d3990018f7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ace8c8ac-ca52-426c-937a-c3d4acbca63d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f8bfe6e0-6314-43b6-92dc-3a5f8dde8598","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"58afbad5-4eb9-4cfb-b46d-b1acc2101794","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"693ceb00-6a9a-4110-a9d1-3ea75e05caab","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"684ec3a3-fb9d-49e6-a982-f2432bc9af99","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"db49046a-b50c-429d-84e0-6ba00f5edc90","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b29dd4b2-0bcc-41b2-967f-af9f016fa172","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"29951fc5-23e0-45d8-83aa-36d3990018f7","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTennisPlayerRun","path":"sprites/sprTennisPlayerRun/sprTennisPlayerRun.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprTennisPlayerRun",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ed3e303f-5e23-4cce-841b-2525096e93e7","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ed3e303f-5e23-4cce-841b-2525096e93e7","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Tennis",
     "path": "folders/Sprites/Objects/Player/Skins/Tennis.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprTennisPlayerRun",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

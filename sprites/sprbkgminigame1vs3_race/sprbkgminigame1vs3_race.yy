@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame1vs3_Race",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"563040ac-0551-4307-b85f-7441a2e11fcd","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"563040ac-0551-4307-b85f-7441a2e11fcd","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"LayerId":{"name":"7509bd70-bb03-4d4b-9f8d-1119ca5aeac0","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame1vs3_Race","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"resourceVersion":"1.0","name":"563040ac-0551-4307-b85f-7441a2e11fcd","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"563040ac-0551-4307-b85f-7441a2e11fcd",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame1vs3_Race","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame1vs3_Race",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"793d19de-b388-4c9b-9ee1-4dbd6cc38dea","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"563040ac-0551-4307-b85f-7441a2e11fcd","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"793d19de-b388-4c9b-9ee1-4dbd6cc38dea","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"563040ac-0551-4307-b85f-7441a2e11fcd","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame1vs3_Race","path":"sprites/sprBkgMinigame1vs3_Race/sprBkgMinigame1vs3_Race.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame1vs3_Race",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7509bd70-bb03-4d4b-9f8d-1119ca5aeac0","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7509bd70-bb03-4d4b-9f8d-1119ca5aeac0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Race",
     "path": "folders/Sprites/Backgrounds/Minigames/1vs3/Race.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame1vs3_Race",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

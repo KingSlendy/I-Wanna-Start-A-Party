@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Chests_Chest",
   "bboxMode": 0,
   "collisionKind": 0,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"42042817-6c4a-4a0b-8da7-e0265b1bba08","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"42042817-6c4a-4a0b-8da7-e0265b1bba08","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"LayerId":{"name":"23fdddc0-ed87-47e5-be20-7c2e5bc8c988","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Chests_Chest","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","name":"42042817-6c4a-4a0b-8da7-e0265b1bba08","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"25162b44-59bf-41b0-8d25-2edb0218fff6","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"25162b44-59bf-41b0-8d25-2edb0218fff6","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"LayerId":{"name":"23fdddc0-ed87-47e5-be20-7c2e5bc8c988","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Chests_Chest","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","name":"25162b44-59bf-41b0-8d25-2edb0218fff6","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"42042817-6c4a-4a0b-8da7-e0265b1bba08",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"25162b44-59bf-41b0-8d25-2edb0218fff6",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Chests_Chest","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Chests_Chest",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d51d613a-1154-4376-85fa-c7840eec4a9c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"42042817-6c4a-4a0b-8da7-e0265b1bba08","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"503f1025-59c1-46d5-ac8f-7d682c1bad9d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"25162b44-59bf-41b0-8d25-2edb0218fff6","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"d51d613a-1154-4376-85fa-c7840eec4a9c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"42042817-6c4a-4a0b-8da7-e0265b1bba08","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"503f1025-59c1-46d5-ac8f-7d682c1bad9d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"25162b44-59bf-41b0-8d25-2edb0218fff6","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Chests_Chest","path":"sprites/sprMinigame4vs_Chests_Chest/sprMinigame4vs_Chests_Chest.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Chests_Chest",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"23fdddc0-ed87-47e5-be20-7c2e5bc8c988","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"23fdddc0-ed87-47e5-be20-7c2e5bc8c988","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Chests",
     "path": "folders/Sprites/Objects/Minigames/4vs/Chests.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Chests_Chest",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

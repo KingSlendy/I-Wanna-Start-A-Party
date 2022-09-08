@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Buttons_Button",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"26e150ad-c9dd-420b-98c8-51c9e0092720","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"26e150ad-c9dd-420b-98c8-51c9e0092720","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"LayerId":{"name":"aa38b01b-710c-4f15-9759-baf3cdad6913","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Buttons_Button","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","name":"26e150ad-c9dd-420b-98c8-51c9e0092720","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"LayerId":{"name":"aa38b01b-710c-4f15-9759-baf3cdad6913","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Buttons_Button","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"26e150ad-c9dd-420b-98c8-51c9e0092720",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Buttons_Button","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Buttons_Button",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"2dd888c2-e5e1-40e7-82ac-10fee0063f77","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"26e150ad-c9dd-420b-98c8-51c9e0092720","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"ea1f6e8e-4e27-4d06-8038-1afc676e2a9e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"2dd888c2-e5e1-40e7-82ac-10fee0063f77","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"26e150ad-c9dd-420b-98c8-51c9e0092720","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ea1f6e8e-4e27-4d06-8038-1afc676e2a9e","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cb88564d-e3a8-483d-b928-a9dd11b5d3a1","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Buttons_Button","path":"sprites/sprMinigame2vs2_Buttons_Button/sprMinigame2vs2_Buttons_Button.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Buttons_Button",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"aa38b01b-710c-4f15-9759-baf3cdad6913","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"aa38b01b-710c-4f15-9759-baf3cdad6913","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Buttons",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Buttons.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Buttons_Button",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

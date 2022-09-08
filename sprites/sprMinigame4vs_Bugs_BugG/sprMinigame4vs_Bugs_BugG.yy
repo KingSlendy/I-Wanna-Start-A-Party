@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame4vs_Bugs_BugG",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f728ebf1-5b27-4721-8922-c5c2f5225985","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f728ebf1-5b27-4721-8922-c5c2f5225985","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"LayerId":{"name":"eaaab45f-43af-4550-a2dd-7ff3274bcdbb","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Bugs_BugG","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","name":"f728ebf1-5b27-4721-8922-c5c2f5225985","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"d877df99-0621-436c-8a24-9c81ccc7bc32","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d877df99-0621-436c-8a24-9c81ccc7bc32","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"LayerId":{"name":"eaaab45f-43af-4550-a2dd-7ff3274bcdbb","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame4vs_Bugs_BugG","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","name":"d877df99-0621-436c-8a24-9c81ccc7bc32","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f728ebf1-5b27-4721-8922-c5c2f5225985",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d877df99-0621-436c-8a24-9c81ccc7bc32",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame4vs_Bugs_BugG","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame4vs_Bugs_BugG",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 6.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0a8815b0-1636-409c-95c4-8762936566f3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f728ebf1-5b27-4721-8922-c5c2f5225985","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"44692ac4-5d29-4c48-8ccd-53d5ad74ac57","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d877df99-0621-436c-8a24-9c81ccc7bc32","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"0a8815b0-1636-409c-95c4-8762936566f3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f728ebf1-5b27-4721-8922-c5c2f5225985","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"44692ac4-5d29-4c48-8ccd-53d5ad74ac57","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d877df99-0621-436c-8a24-9c81ccc7bc32","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame4vs_Bugs_BugG","path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame4vs_Bugs_BugG",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"eaaab45f-43af-4550-a2dd-7ff3274bcdbb","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"eaaab45f-43af-4550-a2dd-7ff3274bcdbb","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Bugs",
     "path": "folders/Sprites/Objects/Minigames/4vs/Bugs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame4vs_Bugs_BugG",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

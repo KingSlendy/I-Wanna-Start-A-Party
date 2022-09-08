@@ -33,13 +33,8 @@ alarm_create(function() {
 	spawned_shine.getting = true;
 	spawned_shine = noone;
 	
-	var snd = audio_play_sound(sndShineGet, 0, false);
-		
-	if (room != rBoardHyrule) {
-		audio_sound_pitch(snd, 1);
-	} else if (!global.board_light) {
-		audio_sound_pitch(snd, 0.75);
-	}
+	var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;
+	audio_play_sound(sndShineGet, 0, false,,, pitch);
 });
 
 alarm_create(function() {

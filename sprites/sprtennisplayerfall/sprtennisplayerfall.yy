@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprTennisPlayerFall",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"21b43c01-68ed-45d4-a487-7614ec192314","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"21b43c01-68ed-45d4-a487-7614ec192314","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"LayerId":{"name":"e548341a-05eb-4317-ad67-5faaa403eaab","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerFall","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","name":"21b43c01-68ed-45d4-a487-7614ec192314","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"0b4ef783-9c47-4db3-9b2e-d29c86287160","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0b4ef783-9c47-4db3-9b2e-d29c86287160","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"LayerId":{"name":"e548341a-05eb-4317-ad67-5faaa403eaab","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTennisPlayerFall","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","name":"0b4ef783-9c47-4db3-9b2e-d29c86287160","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"21b43c01-68ed-45d4-a487-7614ec192314",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0b4ef783-9c47-4db3-9b2e-d29c86287160",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTennisPlayerFall","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprTennisPlayerFall",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"9e280fe4-56ce-4904-a1e8-bb8168d7a9ef","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"21b43c01-68ed-45d4-a487-7614ec192314","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b18cd16a-df62-455f-a0c5-90d2227d0c71","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b4ef783-9c47-4db3-9b2e-d29c86287160","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"9e280fe4-56ce-4904-a1e8-bb8168d7a9ef","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"21b43c01-68ed-45d4-a487-7614ec192314","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b18cd16a-df62-455f-a0c5-90d2227d0c71","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b4ef783-9c47-4db3-9b2e-d29c86287160","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTennisPlayerFall","path":"sprites/sprTennisPlayerFall/sprTennisPlayerFall.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprTennisPlayerFall",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e548341a-05eb-4317-ad67-5faaa403eaab","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e548341a-05eb-4317-ad67-5faaa403eaab","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Tennis",
     "path": "folders/Sprites/Objects/Player/Skins/Tennis.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprTennisPlayerFall",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

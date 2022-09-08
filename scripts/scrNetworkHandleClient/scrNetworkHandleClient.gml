@@ -139,6 +139,9 @@ enum ClientTCP {
 	Minigame2vs2_Duos_Button,
 	Minigame2vs2_Duel_Shot,
 	Minigame2vs2_Soccer_Goal,
+	Minigame2vs2_Jingle_SledgeShoot,
+	Minigame2vs2_Jingle_SledgeJump,
+	Minigame2vs2_Jingle_SledgeHit,
 	#endregion
 	#endregion
 	
@@ -1211,6 +1214,39 @@ f[$ ClientTCP.Minigame2vs2_Soccer_Goal] = function(buffer) {
 		x = ball_x;
 		y = ball_y;
 		soccer_goal(false);
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Jingle_SledgeShoot] = function(buffer) {
+	var sledge_down = buffer_read(buffer, buffer_bool);
+	
+	with (objMinigame2vs2_Jingle_Sledge) {
+		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+			sledge_shoot(false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Jingle_SledgeJump] = function(buffer) {
+	var sledge_down = buffer_read(buffer, buffer_bool);
+	
+	with (objMinigame2vs2_Jingle_Sledge) {
+		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+			sledge_jump(false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Jingle_SledgeHit] = function(buffer) {
+	var sledge_down = buffer_read(buffer, buffer_bool);
+	
+	with (objMinigame2vs2_Jingle_Sledge) {
+		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+			sledge_hit(false);
+			break;
+		}
 	}
 }
 #endregion

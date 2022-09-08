@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame2vs2_Duel",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"43addf61-80fa-4f0d-9dce-9bccd1845a18","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"43addf61-80fa-4f0d-9dce-9bccd1845a18","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"LayerId":{"name":"1fdf7588-38ea-47c6-8fdc-ddbadc42a186","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame2vs2_Duel","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"resourceVersion":"1.0","name":"43addf61-80fa-4f0d-9dce-9bccd1845a18","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"43addf61-80fa-4f0d-9dce-9bccd1845a18",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame2vs2_Duel","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame2vs2_Duel",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7baea215-e008-45b6-a7ae-2578d50bafe5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"43addf61-80fa-4f0d-9dce-9bccd1845a18","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"7baea215-e008-45b6-a7ae-2578d50bafe5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"43addf61-80fa-4f0d-9dce-9bccd1845a18","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame2vs2_Duel","path":"sprites/sprBkgMinigame2vs2_Duel/sprBkgMinigame2vs2_Duel.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame2vs2_Duel",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1fdf7588-38ea-47c6-8fdc-ddbadc42a186","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1fdf7588-38ea-47c6-8fdc-ddbadc42a186","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Duel",
     "path": "folders/Sprites/Backgrounds/Minigames/2vs2/Duel.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame2vs2_Duel",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

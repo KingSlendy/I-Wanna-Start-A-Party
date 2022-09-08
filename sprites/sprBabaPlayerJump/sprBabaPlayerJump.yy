@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBabaPlayerJump",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a0d5176e-a175-4d83-892d-5b905b60dd28","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a0d5176e-a175-4d83-892d-5b905b60dd28","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"LayerId":{"name":"223397ec-e290-42a1-8a50-f4c28f199731","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBabaPlayerJump","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","name":"a0d5176e-a175-4d83-892d-5b905b60dd28","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"dad66013-07c3-4e9a-9524-4f2632601835","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"dad66013-07c3-4e9a-9524-4f2632601835","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"LayerId":{"name":"223397ec-e290-42a1-8a50-f4c28f199731","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBabaPlayerJump","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","name":"dad66013-07c3-4e9a-9524-4f2632601835","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a0d5176e-a175-4d83-892d-5b905b60dd28",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"dad66013-07c3-4e9a-9524-4f2632601835",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBabaPlayerJump","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBabaPlayerJump",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 15.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bde4e8fc-a32b-47bf-ac25-2a580de1bc24","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a0d5176e-a175-4d83-892d-5b905b60dd28","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"4145e6c3-dba5-435e-98fc-721d2886c40c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dad66013-07c3-4e9a-9524-4f2632601835","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"bde4e8fc-a32b-47bf-ac25-2a580de1bc24","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a0d5176e-a175-4d83-892d-5b905b60dd28","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4145e6c3-dba5-435e-98fc-721d2886c40c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dad66013-07c3-4e9a-9524-4f2632601835","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBabaPlayerJump","path":"sprites/sprBabaPlayerJump/sprBabaPlayerJump.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBabaPlayerJump",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"223397ec-e290-42a1-8a50-f4c28f199731","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"223397ec-e290-42a1-8a50-f4c28f199731","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Baba",
     "path": "folders/Sprites/Objects/Player/Skins/Baba.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBabaPlayerJump",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

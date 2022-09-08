@@ -105,6 +105,7 @@ mlp[$ bgmMinigame2vs2_Springing] = new LoopPoint(1.640, 27.586);
 mlp[$ bgmMinigame2vs2_Duos] = new LoopPoint(1.600, 35.859);
 mlp[$ bgmMinigame2vs2_Duel] = new LoopPoint(1.699, 19.974);
 mlp[$ bgmMinigame2vs2_Soccer] = new LoopPoint(2.020, 36.930);
+mlp[$ bgmMinigame2vs2_Jingle] = new LoopPoint(3.757, 28.691);
 #endregion
 #endregion
 	

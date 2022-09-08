@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprFangameMark",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d004962c-5526-4104-be8e-8e865c233155","path":"sprites/sprFangameMark/sprFangameMark.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d004962c-5526-4104-be8e-8e865c233155","path":"sprites/sprFangameMark/sprFangameMark.yy",},"LayerId":{"name":"3c129149-22ae-45c1-828b-a1795b31b0ce","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprFangameMark","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","name":"d004962c-5526-4104-be8e-8e865c233155","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"630688e7-d82a-4ac1-bdb2-b5397855f21d","path":"sprites/sprFangameMark/sprFangameMark.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"630688e7-d82a-4ac1-bdb2-b5397855f21d","path":"sprites/sprFangameMark/sprFangameMark.yy",},"LayerId":{"name":"3c129149-22ae-45c1-828b-a1795b31b0ce","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprFangameMark","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","name":"630688e7-d82a-4ac1-bdb2-b5397855f21d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d004962c-5526-4104-be8e-8e865c233155",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"630688e7-d82a-4ac1-bdb2-b5397855f21d",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprFangameMark","path":"sprites/sprFangameMark/sprFangameMark.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprFangameMark",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a7e8ddde-f8ba-41ef-9232-415df95480cf","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d004962c-5526-4104-be8e-8e865c233155","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"6c71a61b-fa58-4c1e-b28f-1660d22b6576","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"630688e7-d82a-4ac1-bdb2-b5397855f21d","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"a7e8ddde-f8ba-41ef-9232-415df95480cf","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d004962c-5526-4104-be8e-8e865c233155","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6c71a61b-fa58-4c1e-b28f-1660d22b6576","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"630688e7-d82a-4ac1-bdb2-b5397855f21d","path":"sprites/sprFangameMark/sprFangameMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,14 +63,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprFangameMark","path":"sprites/sprFangameMark/sprFangameMark.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprFangameMark",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3c129149-22ae-45c1-828b-a1795b31b0ce","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3c129149-22ae-45c1-828b-a1795b31b0ce","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": {
     "left": 14,
@@ -100,8 +96,4 @@
     "name": "UI",
     "path": "folders/Sprites/Objects/UI.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprFangameMark",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

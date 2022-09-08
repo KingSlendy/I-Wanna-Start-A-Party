@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprMinigame2vs2_Springing_Piranha",
   "bboxMode": 0,
   "collisionKind": 4,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"LayerId":{"name":"019ca338-2aeb-4f6c-be5b-cfef01b029b4","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Springing_Piranha","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"107bbb21-a827-43e4-a99f-eda27444e515","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"107bbb21-a827-43e4-a99f-eda27444e515","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"LayerId":{"name":"019ca338-2aeb-4f6c-be5b-cfef01b029b4","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprMinigame2vs2_Springing_Piranha","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","name":"107bbb21-a827-43e4-a99f-eda27444e515","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"107bbb21-a827-43e4-a99f-eda27444e515",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprMinigame2vs2_Springing_Piranha","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprMinigame2vs2_Springing_Piranha",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"87e105e1-ccc0-4891-80dd-ce7c70029b29","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"ff4b863b-1e2e-45aa-86a7-b73ec78a01c7","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"107bbb21-a827-43e4-a99f-eda27444e515","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"87e105e1-ccc0-4891-80dd-ce7c70029b29","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9eb6df0-630e-4ed3-907d-b88c46fe1ae2","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ff4b863b-1e2e-45aa-86a7-b73ec78a01c7","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"107bbb21-a827-43e4-a99f-eda27444e515","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 101,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprMinigame2vs2_Springing_Piranha","path":"sprites/sprMinigame2vs2_Springing_Piranha/sprMinigame2vs2_Springing_Piranha.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprMinigame2vs2_Springing_Piranha",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"019ca338-2aeb-4f6c-be5b-cfef01b029b4","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"019ca338-2aeb-4f6c-be5b-cfef01b029b4","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Springing",
     "path": "folders/Sprites/Objects/Minigames/2vs2/Springing.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprMinigame2vs2_Springing_Piranha",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprBkgMinigame1vs3_Hunt",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"LayerId":{"name":"5222eadf-434f-49af-b4cd-0888c12995b7","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprBkgMinigame1vs3_Hunt","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"resourceVersion":"1.0","name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprBkgMinigame1vs3_Hunt","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprBkgMinigame1vs3_Hunt",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"798d1ce1-a6eb-40db-a71f-6f6aee4567e7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"798d1ce1-a6eb-40db-a71f-6f6aee4567e7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"946a5ad2-1d97-42a4-a50f-4fe4dba11eee","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprBkgMinigame1vs3_Hunt","path":"sprites/sprBkgMinigame1vs3_Hunt/sprBkgMinigame1vs3_Hunt.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprBkgMinigame1vs3_Hunt",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5222eadf-434f-49af-b4cd-0888c12995b7","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5222eadf-434f-49af-b4cd-0888c12995b7","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hunt",
     "path": "folders/Sprites/Backgrounds/Minigames/1vs3/Hunt.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprBkgMinigame1vs3_Hunt",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

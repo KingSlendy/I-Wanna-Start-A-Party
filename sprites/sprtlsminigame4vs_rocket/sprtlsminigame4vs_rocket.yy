@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprTlsMinigame4vs_Rocket",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"LayerId":{"name":"7de7f50d-447c-4472-8653-103df9624faa","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprTlsMinigame4vs_Rocket","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"resourceVersion":"1.0","name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprTlsMinigame4vs_Rocket","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprTlsMinigame4vs_Rocket",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"fd1c8dee-84d0-43c1-a53e-6cb16dca2b4d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"fd1c8dee-84d0-43c1-a53e-6cb16dca2b4d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a6193bc0-0dd3-4fb8-9bfe-90bc03c5704c","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprTlsMinigame4vs_Rocket","path":"sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprTlsMinigame4vs_Rocket",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7de7f50d-447c-4472-8653-103df9624faa","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7de7f50d-447c-4472-8653-103df9624faa","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Rocket",
     "path": "folders/Sprites/Tilesets/Minigames/4vs/Rocket.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprTlsMinigame4vs_Rocket",
-  "tags": [],
-  "resourceType": "GMSprite",
 }
