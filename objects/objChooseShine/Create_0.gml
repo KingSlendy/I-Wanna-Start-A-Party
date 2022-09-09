@@ -18,7 +18,7 @@ function spawn_shine() {
 		spawned = true;
 		alarm_call(0, 2);
 		var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;
-		audio_play_sound(sndShineSpawn, 0, false,,, pitch);
+		audio_play_sound(sndShineSpawn, 0, false, 1, 0, pitch);
 	}
 }
 

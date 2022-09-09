@@ -34,7 +34,7 @@ alarm_create(function() {
 	spawned_shine = noone;
 	
 	var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;
-	audio_play_sound(sndShineGet, 0, false,,, pitch);
+	audio_play_sound(sndShineGet, 0, false, 1, 0, pitch);
 });
 
 alarm_create(function() {
