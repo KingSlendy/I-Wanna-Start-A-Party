@@ -84,7 +84,7 @@ alarm_create(4, function() {
 		
 		if (count < 40) {
 			obj = objs[space_objs[0][count]];
-		} else if (count == 30) {
+		} else if (count == 40) {
 			obj = objMinigame2vs2_Jingle_Goal;
 		}
 			
@@ -123,7 +123,7 @@ alarm_create(5, function() {
 		
 		if (count < 40) {
 			obj = objs[space_objs[1][count]];
-		} else if (count == 30) {
+		} else if (count == 40) {
 			obj = objMinigame2vs2_Jingle_Goal;
 		}
 			

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objPlayerKiller",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -25,8 +28,4 @@
     "name": "Collisions",
     "path": "folders/Objects/Collisions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objPlayerKiller",
-  "tags": [],
-  "resourceType": "GMObject",
 }

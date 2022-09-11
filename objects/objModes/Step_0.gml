@@ -25,8 +25,9 @@ if (fade_start) {
 					
 				case 1: room_goto(rParty); break;
 				case 2: room_goto(rMinigames); break;
-				case 3: room_goto(rSkins); break;
-				case 4: room_goto(rTrophies); break;
+				case 3: break;
+				case 4: room_goto(rSkins); break;
+				case 5: room_goto(rTrophies); break;
 			}
 			
 			exit;
@@ -36,40 +37,41 @@ if (fade_start) {
 
 if (!fade_start) {
 	if (mode_selected == -1) {
-		mode_selected = 0;
+		mode_selected = mode_prev;
+		mode_target_selected = mode_selected;
 	}
 	
-	var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
-	var scroll_v = (sync_actions("down", 1) - sync_actions("up", 1));
+	if (mode_selected != mode_target_selected) {
+		mode_x = lerp(mode_x, mode_target_x, 0.5);
 	
-	if (scroll_h != 0) {
-		scroll_v = 0;
-		mode_selected = (mode_selected + array_length(mode_buttons) + scroll_h * 2) % array_length(mode_buttons);
-		audio_play_sound(global.sound_cursor_move, 0, false);
-	}
-	
-	if (scroll_v != 0) {
-		var selected = (mode_selected + 2 + scroll_v) % 2;
-		
-		if (mode_selected > 1) {
-			selected += 2;
+		if (point_distance(mode_x, 0, mode_target_x, 0) < 1.5) {
+			mode_x = 0;
+			mode_target_x = mode_x;
+			mode_selected = mode_target_selected;
 		}
-		
-		mode_selected = selected;
-		audio_play_sound(global.sound_cursor_move, 0, false);
 	}
 	
-	if (sync_actions("jump", 1)) {
-		if (!IS_ONLINE || mode_selected < 2) {
+	if (mode_selected == mode_target_selected) {
+		var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
+	
+		if (scroll_h != 0) {
+			mode_target_selected = (mode_selected + array_length(mode_buttons) + scroll_h) % array_length(mode_buttons);
+			mode_target_x = 250 * -scroll_h;
+			audio_play_sound(global.sound_cursor_move, 0, false);
+			exit;
+		}
+	
+		if (mode_buttons[mode_selected].selectable && sync_actions("jump", 1)) {
 			global.mode_selected = mode_selected;
 			state = mode_selected + 1;
 			fade_start = true;
 			music_fade();
 			audio_play_sound(global.sound_cursor_big_select, 0, false);
+			exit;
 		}
-	}
 	
-	if (sync_actions("shoot", 1)) {
-		back_to_files();
+		if (sync_actions("shoot", 1)) {
+			back_to_files();
+		}
 	}
 }

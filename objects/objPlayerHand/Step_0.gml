@@ -13,6 +13,7 @@ if (global.actions.jump.held(network_id)) {
 	image_index = 0;
 }
 
+#region Collision
 xprevious = x;
 yprevious = y;
 
@@ -51,3 +52,4 @@ if (block != noone) {
 	x += hspd;
 	y += vspd;
 }
+#endregion

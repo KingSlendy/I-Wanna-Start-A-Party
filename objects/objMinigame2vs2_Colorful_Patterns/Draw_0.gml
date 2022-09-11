@@ -11,5 +11,5 @@ if (pattern_player_ids != null) {
 }
 
 for (var i = 0; i < 4; i++) {
-	draw_sprite(sprMinigame2vs2_Colorful_Round, (i < pattern_round), x + 75 * i, 320);
+	draw_sprite(sprMinigame2vs2_Colorful_Round, (i < pattern_round), x + 75 * i, 416);
 }

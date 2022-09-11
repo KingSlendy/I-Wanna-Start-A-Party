@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objBlock",
   "spriteId": {
     "name": "sprBlockMask",
     "path": "sprites/sprBlockMask/sprBlockMask.yy",
@@ -28,8 +31,4 @@
     "name": "Collisions",
     "path": "folders/Objects/Collisions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objBlock",
-  "tags": [],
-  "resourceType": "GMObject",
 }

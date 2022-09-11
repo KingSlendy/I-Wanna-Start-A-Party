@@ -68,7 +68,7 @@ global.trophies = [
 	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDo you know you can't see your reflection in the dark?\nThen I wonder why did you use this for.", "I wonder what my reflection looks like when it's dark."),
 	new Trophy(52, TrophyRank.Gold, "Motion Sickness", "You never touched a warp in Dizzy Conundrum and won!\nMy you must really hate being dizzy.", "Being dizzy for too long makes me sick."),
 	new Trophy(53, TrophyRank.Silver, "Block Saver", "You didn't destroy a single normal block in Aiming Tiles and won!\nYou're a block saver now!", "Let the blocks live!"),
-	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair."),
+	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all in Hunt Trouble and won!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair."),
 	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
 	new Trophy(56, TrophyRank.Silver, "Numberphile", "You got the same number for your place, your shines and your coins!You love seeing the same number!", "Hey I have the same number for everything!"),
 	new Trophy(57, TrophyRank.Silver, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),

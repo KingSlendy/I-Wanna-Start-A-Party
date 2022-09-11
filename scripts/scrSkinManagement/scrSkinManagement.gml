@@ -138,7 +138,11 @@ function skin_init() {
 		new Skin("Q", "Q", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
 		new Skin("Binggan", "Binggan", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
 		new Skin("Zhufeng", "Zhufeng", "I Wanna Be The Crimson Kids", 71, "IWD", 500),
-		new Skin("Astronaut", "Astronaut Kid", "I Wanna VANILLA", 72, "Hanamogeta", 700)
+		new Skin("Astronaut", "Astronaut Kid", "I Wanna VANILLA", 72, "Hanamogeta", 600),
+		new Skin("Turkey", "Turkey", "I Wanna VANILLA", 72, "Hanamogeta", 500),
+		new Skin("Coat", "Coat Kid", "IWBT Volatile Presence: SE", 73, "egg", 400),
+		new Skin("Gummy", "Gummy Kid", "Oh, I'm A Gummy Bear", 74, "Duncan", 300),
+		new Skin("Joel", "Vargkelethor Joel", "I Wanna Be The Vargskelethor", 75, "Moo Moo Armagedoon", 1000)
 	];
 }
 

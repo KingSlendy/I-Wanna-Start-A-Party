@@ -3,12 +3,13 @@ fade_alpha = 1;
 fade_start = true;
 state = -1;
 
-function ModeButton(x, y, w, h, label, sprite, scale, offset, color = c_white, selectable = true) constructor {
-	self.w = w;
-	self.h = h;
+function ModeButton(label, sprite, scale, offset, selectable = true) constructor {
+	self.w = 230;
+	self.h = 170;
+	self.selectable = selectable;
 	var surf = surface_create(w, h);
 	surface_set_target(surf);
-	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, w, h, color, 1);
+	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, w, h, (self.selectable) ? c_white : c_gray, 1);
 	draw_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_bottom);
@@ -24,29 +25,44 @@ function ModeButton(x, y, w, h, label, sprite, scale, offset, color = c_white, s
 	self.sprite = sprite_create_from_surface(surf, 0, 0, w, h, false, false, w / 2, h / 2);
 	surface_free(surf);
 	
-	self.pos = [x, y];
-	self.selectable = selectable;
-	self.highlight = 0.8;
+	self.pos = [400, 254];
+	self.highlight = 0.7;
 	
 	self.draw = function(alpha) {
 		draw_sprite_ext(self.sprite, 0, self.pos[0], self.pos[1], self.highlight, self.highlight, 0, c_white, self.highlight - alpha);
 	}
 	
 	self.check = function(condition_highlight) {
-		if (self.selectable) {
-			self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.8 : 1, 0.3);
-		}
+		self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.7 : 1, 0.3);
 	}
 }
 
 mode_buttons = [
-	new ModeButton(200, 140, 200, 170, "PARTY", sprModesParty, 0.5, 60, c_white),
-	new ModeButton(200, 468, 220, 170, "MINIGAMES", sprModesMinigames, 0.5, 60, c_white),
-	new ModeButton(600, 140, 200, 170, "SKINS", sprNormalPlayerIdle, 4, 80, (!IS_ONLINE) ? c_white : c_gray),
-	new ModeButton(600, 468, 220, 170, "TROPHIES", sprModesTrophies, 0.7, 125, (!IS_ONLINE) ? c_white : c_gray)
+	new ModeButton("PARTY", sprModesParty, 0.5, 60),
+	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60),
+	new ModeButton("???", sprNothing, 0.5, 60, false),
+	new ModeButton("SKINS", sprNormalPlayerIdle, 4, 80, !IS_ONLINE),
+	new ModeButton("TROPHIES", sprModesTrophies, 0.7, 125, !IS_ONLINE)
 ];
 
-mode_selected = global.mode_selected;
+mode_texts = [
+	"Classic board mode where you need to gather as much shines as possible to become the party star!",
+	"Here you can play all the minigames you've seen as you like!",
+	"???",
+	"Unlock all sorts of different skins to bring variety to the game!",
+	"All the trophies you've earned are stored here!"
+];
+
+mode_prev = global.mode_selected;
+
+if (mode_prev == -1) {
+	mode_prev = 0;
+}
+
+mode_selected = -1;
+mode_target_selected = mode_selected;
+mode_x = 0;
+mode_target_x = mode_x;
 
 with (objPlayerBase) {
 	draw = false;
@@ -63,7 +79,7 @@ if (check != -1) {
 
 minigame_info_reset();
 
-controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
 action_delay = 0;
 network_actions = [];
 

@@ -156,39 +156,4 @@ if (block != noone) {
 	x += hspd;
 	y += vspd;
 }
-
-////Collision with platform
-//var platform = instance_place(x, y + vspd, objPlatform);
-
-//if (platform != noone && vspd * global.grav > 0) {
-//	if (global.grav == 1) {
-//		var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top);
-//	} else {
-//		var bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom);
-//	}
-
-//	if (bbox_check) {
-//		y = yprevious;
-		
-//		//Detect vertical collision
-//		if (place_meeting(x, y + vspd, objPlatform)) {
-//			while (!place_meeting(x, y + global.grav, objPlatform)) {
-//				y += global.grav;
-//			}
-
-//		    vspd = 0;
-//			grav = 0;
-//			reset_jumps();
-//		}
-	
-//		y += vspd;
-		
-//		//Makes player move based on the platform speed
-//		if (!place_meeting(x + platform.hspd, y, objBlock)) {
-//			x += platform.hspd;
-//		}
-	
-//		y += platform.vspd;
-//	}
-//}
 #endregion

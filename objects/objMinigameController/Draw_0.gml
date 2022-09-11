@@ -8,7 +8,14 @@ var draw_player = function(player) {
 					draw_sprite_ext(sprite_index, 0, x, y, 1, 1, image_angle, c_white, image_alpha);
 					break;
 					
-				default: event_perform(ev_draw, 0); break;
+				case rMinigame4vs_Bubble:
+					draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+					draw_sprite(sprPlayerBubble, 0, x, y);
+					break;
+					
+				default:
+					event_perform(ev_draw, 0);
+					break;
 			}
 		}
 	}

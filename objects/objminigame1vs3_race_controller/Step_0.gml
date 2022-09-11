@@ -1,4 +1,8 @@
 with (points_teams[1][0]) {
+	if (!is_player_local(network_id)) {
+		break;
+	}
+	
 	sprite_index = (hspeed == 0) ? skin[$ "Idle"] : skin[$ "Run"];
 }
 
@@ -11,7 +15,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 	
 	if (solo_action != null && !solo_correct && !solo_wrong) {
 		if (global.actions[$ action].pressed(points_teams[1][0].network_id) || (array_length(network_solo_actions) > 0 && network_solo_actions[0] == action)) {
-			var advance = (solo_advance == 3);
+			var advance = (solo_advance == 4);
 			
 			if (action == solo_action) {
 				if (advance) {

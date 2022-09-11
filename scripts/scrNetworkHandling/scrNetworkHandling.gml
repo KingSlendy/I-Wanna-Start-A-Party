@@ -14,7 +14,8 @@ enum PlayerDataMode {
 	Heartbeat,
 	Basic,
 	Hand,
-	Rocket
+	Rocket,
+	Hammer
 }
 
 function buffer_seek_begin(buffer = global.buffer) {
@@ -215,7 +216,7 @@ function player_write_data() {
 	buffer_write_data(buffer_s32, y);
 	
 	switch (network_mode) {
-		case PlayerDataMode.Hand:
+		case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
 			buffer_write_data(buffer_u8, image_index);
 			break;
 			
@@ -251,7 +252,7 @@ function player_read_data(buffer) {
 		instance.y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
-			case PlayerDataMode.Hand:
+			case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
 				instance.image_index = buffer_read(buffer, buffer_u8);
 				break;
 				

@@ -107,6 +107,8 @@ enum ClientTCP {
 	Minigame4vs_Targets_DestroyTarget,
 	Minigame4vs_Bullets_Stop,
 	Minigame4vs_Drawn_CollectKey,
+	Minigame4vs_Bubble_Goal,
+	Minigame4vs_Idol_WhacIdol,
 	#endregion
 	
 	#region 1vs3
@@ -923,6 +925,24 @@ f[$ ClientTCP.Minigame4vs_Drawn_CollectKey] = function(buffer) {
 		}
 	}
 }
+
+f[$ ClientTCP.Minigame4vs_Bubble_Goal] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	minigame4vs_points(player_id, 1);
+}
+
+f[$ ClientTCP.Minigame4vs_Idol_WhacIdol] = function(buffer) {
+	var hole_x = buffer_read(buffer, buffer_s32);
+	var hole_y = buffer_read(buffer, buffer_s32);
+	var player_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Idol_Hole) {
+		if (x == hole_x && y == hole_y) {
+			whac_idol(player_id, false);
+			break;
+		}
+	}
+}
 #endregion
 
 #region 1vs3
@@ -1221,7 +1241,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeShoot] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
 			sledge_shoot(false);
 			break;
 		}
@@ -1232,7 +1252,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeJump] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
 			sledge_jump(false);
 			break;
 		}
@@ -1243,7 +1263,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeHit] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y < 304) || (!sledge_down && y > 304)) {
+		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
 			sledge_hit(false);
 			break;
 		}
