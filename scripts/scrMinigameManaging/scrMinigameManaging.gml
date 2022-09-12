@@ -27,7 +27,8 @@ function minigame_init() {
 		new Minigame("Uncertain Bullets", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 30, rMinigame4vs_Bullets, "I Wanna Be The LoveTrap"),
 		new Minigame("Drawn Keys", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
 		new Minigame("Bubble Derby", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
-		new Minigame("Whac-an-idol", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER")
+		new Minigame("Whac-an-idol", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER"),
+		new Minigame("Sky Diving", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia")
 	];
 
 	m[$ "1vs3"] = [

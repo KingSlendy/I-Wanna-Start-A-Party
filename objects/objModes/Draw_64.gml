@@ -12,4 +12,4 @@ draw_box(70, 400, 660, 150, c_ltgray, c_aqua, 0.5);
 draw_set_font(fntDialogue);
 draw_set_color(c_white);
 draw_text_ext_outline(80, 410, mode_texts[mode_initial], -1, 640, c_black);
-controls_text.draw(470, 580);
+controls_text.draw(466, 580);

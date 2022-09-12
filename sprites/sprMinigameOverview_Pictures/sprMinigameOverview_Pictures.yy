@@ -65,6 +65,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"50d70cba-92e5-447a-b9d5-cce223625bec",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"df1a231d-5c2e-4fad-88d4-2cec84ce7fff",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1af1d85c-c0a4-43fb-b95c-e379e7f58274",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bbbc1624-6463-4120-8193-331a164f3eef",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -76,7 +77,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 38.0,
+    "length": 39.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -119,6 +120,7 @@
             {"id":"be13b0b7-84c7-48d5-aeeb-36d07ff5911e","Key":35.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"50d70cba-92e5-447a-b9d5-cce223625bec","path":"sprites/sprMinigameOverview_Pictures/sprMinigameOverview_Pictures.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"8294d1ba-7209-42dc-8691-03e33cd76d60","Key":36.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"df1a231d-5c2e-4fad-88d4-2cec84ce7fff","path":"sprites/sprMinigameOverview_Pictures/sprMinigameOverview_Pictures.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"138cd899-227d-42e3-b486-863c92328d31","Key":37.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1af1d85c-c0a4-43fb-b95c-e379e7f58274","path":"sprites/sprMinigameOverview_Pictures/sprMinigameOverview_Pictures.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"77fbd8c9-b132-4db3-a4f2-f231a6ad8539","Key":38.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bbbc1624-6463-4120-8193-331a164f3eef","path":"sprites/sprMinigameOverview_Pictures/sprMinigameOverview_Pictures.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

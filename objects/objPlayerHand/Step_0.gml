@@ -2,10 +2,11 @@ if (frozen) {
 	exit;
 }
 
-var h = (global.actions.right.held(network_id) - global.actions.left.held(network_id));
-var v = (global.actions.down.held(network_id) - global.actions.up.held(network_id));
-hspd = h * max_spd;
-vspd = v * max_spd;
+var move_h = (global.actions.right.held(network_id) - global.actions.left.held(network_id));
+var move_v = (global.actions.down.held(network_id) - global.actions.up.held(network_id));
+
+hspd = move_h * max_spd;
+vspd = move_v * max_spd;
 
 if (global.actions.jump.held(network_id)) {
 	image_index = 1;
@@ -14,12 +15,15 @@ if (global.actions.jump.held(network_id)) {
 }
 
 #region Collision
+//Storing the previous x and y
 xprevious = x;
 yprevious = y;
 
+//Moving the player manually
 x += hspd;
 y += vspd;
 
+//Collision with block
 var block = instance_place(x, y, objBlock);
 
 if (block != noone) {
