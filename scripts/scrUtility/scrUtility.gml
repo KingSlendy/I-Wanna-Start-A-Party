@@ -124,6 +124,46 @@ function string_split(str, substr = "") {
 
 	return splitted;
 }
+
+function string_trim(str, char = " ", side = "both") {
+	var new_string = str;
+	
+	if (string_count(char, str) == string_length(new_string)) {
+		return "";
+	}
+	
+	if (side == "left" || side == "both") {
+		var start = 0;
+		
+		for (var i = 1; i <= string_length(new_string); i++) {
+			if (string_char_at(new_string, i) != char) {
+				start = i - 1;
+				break;
+			}
+		}
+		
+		if (start != 0) {
+			new_string = string_delete(new_string, 1, start);
+		}
+	}
+	
+	if (side == "right" || side == "both") {
+		var finish = 0;
+		
+		for(var i = string_length(new_string); i > 0; i--) {
+			if (string_char_at(new_string, i) != char) {
+				finish = i + 1;
+				break;
+			}
+		}
+		
+		if (finish != 0) {
+			new_string = string_delete(new_string, finish, string_length(new_string));
+		}
+	}
+	
+	return new_string;
+}
 #endregion
 
 #region Alarms

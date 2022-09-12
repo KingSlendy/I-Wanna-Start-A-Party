@@ -30,12 +30,12 @@ function whac_idol(player_id, network = true) {
 	minigame4vs_points(player_id, 1);
 	
 	if (network) {
-		//buffer_seek_begin();
-		//buffer_write_action(ClientTCP.Minigame4vs_Idol_WhacIdol);
-		//buffer_write_data(buffer_s32, x);
-		//buffer_write_data(buffer_s32, y);
-		//buffer_write_data(buffer_u8, player_id);
-		//network_send_tcp_packet();
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame4vs_Idol_WhacIdol);
+		buffer_write_data(buffer_s32, x);
+		buffer_write_data(buffer_s32, y);
+		buffer_write_data(buffer_u8, player_id);
+		network_send_tcp_packet();
 	}
 }
 

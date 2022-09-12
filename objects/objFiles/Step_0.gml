@@ -171,7 +171,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							
 							if (variable_struct_exists(global.board_games, "Offline")) {
 								global.game_id = "Offline";
-								global.player_game_ids = array_sequence(1, 4);
+								global.player_game_ids = array_sequence(1, 5);
 							}
 							
 							generate_seed_bag();
@@ -230,6 +230,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 									online_texts[select] += string_letters(char) + string_digits(char);
 								}
 							}
+							
+							online_texts[select] = string_trim(online_texts[select]);
 						
 							if (string_length(online_texts[select]) == 0) {
 								switch (select) {
@@ -273,6 +275,12 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								}
 								
 								lobby_texts[select] += string_letters(char) + string_digits(char);
+							}
+							
+							lobby_texts[select] = string_trim(lobby_texts[select]);
+							
+							if (select == 0 && string_length(lobby_texts[select]) == 0) {
+								lobby_texts[select] = "Room";
 							}
 						
 							if (lobby_limits[select] != -1) {

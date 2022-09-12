@@ -56,7 +56,7 @@ global.pokemon_price = 15;
 
 //Hyrule's Board
 global.board_light = true;
-global.board_dark_chance = 0.2;
+global.board_dark_chance = 0;
 prev_board_light = !global.board_light;
 instance_deactivate_layer("Path_Dark");
 
