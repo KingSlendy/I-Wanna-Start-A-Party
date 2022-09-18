@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigameNA",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Minigames",
     "path": "folders/Sounds/BGM/Minigames.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigameNA",
-  "tags": [],
-  "resourceType": "GMSound",
 }

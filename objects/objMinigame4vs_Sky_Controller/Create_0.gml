@@ -11,6 +11,10 @@ with (objPlayerBase) {
 event_inherited();
 
 minigame_time = 30;
+action_end = function() {
+	alarm_stop(4);
+}
+
 points_draw = true;
 player_check = objPlayerDir8;
 

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Slime",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Slime",
     "path": "sprites/sprTlsMinigame4vs_Slime/sprTlsMinigame4vs_Slime.yy",
@@ -41,8 +44,4 @@
     "name": "Slime",
     "path": "folders/Tilesets/Minigames/4vs/Slime.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Slime",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

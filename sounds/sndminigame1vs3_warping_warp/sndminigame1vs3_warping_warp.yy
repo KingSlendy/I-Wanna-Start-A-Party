@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame1vs3_Warping_Warp",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Warping",
     "path": "folders/Sounds/SFX/Minigames/1vs3/Warping.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame1vs3_Warping_Warp",
-  "tags": [],
-  "resourceType": "GMSound",
 }

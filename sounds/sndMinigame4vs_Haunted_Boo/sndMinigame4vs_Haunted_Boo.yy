@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Haunted_Boo",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Haunted",
     "path": "folders/Sounds/SFX/Minigames/4vs/Haunted.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Haunted_Boo",
-  "tags": [],
-  "resourceType": "GMSound",
 }

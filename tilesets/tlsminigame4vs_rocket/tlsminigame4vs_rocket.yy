@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Rocket",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Rocket",
     "path": "sprites/sprTlsMinigame4vs_Rocket/sprTlsMinigame4vs_Rocket.yy",
@@ -19,7 +22,7 @@
   "out_columns": 14,
   "tile_count": 187,
   "autoTileSets": [
-    {"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Structures","tiles":[
         29,
         80,
         79,
@@ -67,7 +70,7 @@
         96,
         114,
         29,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Structures","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 15.0,
@@ -272,8 +275,4 @@
     "name": "Rocket",
     "path": "folders/Tilesets/Minigames/4vs/Rocket.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Rocket",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

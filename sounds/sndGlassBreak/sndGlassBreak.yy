@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndGlassBreak",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Misc",
     "path": "folders/Sounds/SFX/Misc.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndGlassBreak",
-  "tags": [],
-  "resourceType": "GMSound",
 }

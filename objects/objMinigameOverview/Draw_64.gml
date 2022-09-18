@@ -4,7 +4,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_color_outline(400, 50, info.reference.title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 draw_set_valign(fa_top);
-draw_sprite(sprite_preview, 0, 400, 192);
+draw_sprite(info.reference.portrait, 0, 400, 192);
 draw_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 

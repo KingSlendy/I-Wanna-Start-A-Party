@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Avoid",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Avoid",
     "path": "sprites/sprTlsMinigame1vs3_Avoid/sprTlsMinigame1vs3_Avoid.yy",
@@ -19,7 +22,7 @@
   "out_columns": 2,
   "tile_count": 6,
   "autoTileSets": [
-    {"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","tiles":[
         1,
         5,
         5,
@@ -67,7 +70,7 @@
         5,
         5,
         5,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Megaman","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 15.0,
@@ -91,8 +94,4 @@
     "name": "Avoid",
     "path": "folders/Tilesets/Minigames/1vs3/Avoid.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Avoid",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

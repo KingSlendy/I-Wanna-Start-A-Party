@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame4vs_Targets_Blocker",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -31,8 +34,4 @@
     "name": "Targets",
     "path": "folders/Objects/Minigames/4vs/Targets.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Targets_Blocker",
-  "tags": [],
-  "resourceType": "GMObject",
 }

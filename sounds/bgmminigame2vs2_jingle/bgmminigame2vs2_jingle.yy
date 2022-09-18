@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigame2vs2_Jingle",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "2vs2",
     "path": "folders/Sounds/BGM/Minigames/2vs2.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigame2vs2_Jingle",
-  "tags": [],
-  "resourceType": "GMSound",
 }

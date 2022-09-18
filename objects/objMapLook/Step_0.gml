@@ -14,7 +14,7 @@ look_y = clamp(look_y + scroll_v * 8, 0, room_height);
 
 if (global.actions.shoot.pressed(network_id)) {
 	audio_play_sound(global.sound_cursor_back, 0, false);
-	io_clear();
+	global.actions.shoot.consume();
 	end_map();
 	exit;
 }

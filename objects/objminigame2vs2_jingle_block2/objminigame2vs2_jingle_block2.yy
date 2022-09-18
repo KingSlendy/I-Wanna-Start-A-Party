@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame2vs2_Jingle_Block2",
   "spriteId": {
     "name": "sprMinigame2vs2_Jingle_Block2",
     "path": "sprites/sprMinigame2vs2_Jingle_Block2/sprMinigame2vs2_Jingle_Block2.yy",
@@ -31,8 +34,4 @@
     "name": "Jingle",
     "path": "folders/Objects/Minigames/2vs2/Jingle.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Jingle_Block2",
-  "tags": [],
-  "resourceType": "GMObject",
 }

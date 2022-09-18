@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Haunted",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Haunted",
     "path": "sprites/sprTlsMinigame4vs_Haunted/sprTlsMinigame4vs_Haunted.yy",
@@ -38,8 +41,4 @@
     "name": "Haunted",
     "path": "folders/Tilesets/Minigames/4vs/Haunted.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Haunted",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame2vs2_Duel_Mark",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Duel",
     "path": "folders/Sounds/SFX/Minigames/2vs2/Duel.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame2vs2_Duel_Mark",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndBoardEnter",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Menu",
     "path": "folders/Sounds/SFX/Menu.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndBoardEnter",
-  "tags": [],
-  "resourceType": "GMSound",
 }

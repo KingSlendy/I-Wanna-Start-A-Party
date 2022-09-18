@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Lead_DeDeDe_Attack",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Lead",
     "path": "folders/Sounds/SFX/Minigames/4vs/Lead.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Lead_DeDeDe_Attack",
-  "tags": [],
-  "resourceType": "GMSound",
 }

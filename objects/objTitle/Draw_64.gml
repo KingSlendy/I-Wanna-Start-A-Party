@@ -11,7 +11,7 @@ draw_sprite_ext(title_sprite, 0, title_x, title_y, title_scale, title_scale, 0, 
 if (start_visible) {
 	draw_set_font(fntTitleStart);
 	draw_text_color_outline(400, 520, "PRESS           ", c_lime, c_lime, c_fuchsia, c_fuchsia, 1, c_black);
-	draw_sprite_ext(bind_to_key(global.actions.jump.button), 0, 470, 520, 0.75, 0.75, 0, c_white, 1);
+	draw_sprite_ext(global.actions.jump.bind(), 0, 470, 520, 0.75, 0.75, 0, c_white, 1);
 }
 
 draw_set_font(fntTitleCreator);

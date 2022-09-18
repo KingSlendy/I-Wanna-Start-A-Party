@@ -10,7 +10,7 @@ if (solo_action != null) {
 		color = c_red;
 	}
 	
-	draw_sprite_ext(bind_to_key(global.actions[$ solo_action].button), 0, player.x, player.y + 64, 1, 1, 0, color, 1);
+	draw_sprite_ext(global.actions[$ solo_action].bind(), 0, player.x, player.y + 64, 1, 1, 0, color, 1);
 }
 
 if (team_action != null) {
@@ -23,5 +23,5 @@ if (team_action != null) {
 		color = c_red;
 	}
 	
-	draw_sprite_ext(bind_to_key(global.actions[$ team_action].button), 0, player.x, player.y - 64, 1, 1, 0, color, 1);
+	draw_sprite_ext(global.actions[$ team_action].bind(), 0, player.x, player.y - 64, 1, 1, 0, color, 1);
 }

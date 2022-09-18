@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndCursorBack",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Managers",
     "path": "folders/Sounds/SFX/Managers.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndCursorBack",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Showdown_Spike",
   "spriteId": {
     "name": "sprMinigame1vs3_Showdown_Spike",
     "path": "sprites/sprMinigame1vs3_Showdown_Spike/sprMinigame1vs3_Showdown_Spike.yy",
@@ -31,8 +34,4 @@
     "name": "Showdown",
     "path": "folders/Objects/Minigames/1vs3/Showdown.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Showdown_Spike",
-  "tags": [],
-  "resourceType": "GMObject",
 }

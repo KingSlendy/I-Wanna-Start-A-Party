@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Heavenly",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Host",
     "path": "sprites/sprTlsMinigame1vs3_Host/sprTlsMinigame1vs3_Host.yy",
@@ -92,8 +95,4 @@
     "name": "Heavenly",
     "path": "folders/Tilesets/Minigames/1vs3/Heavenly.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Heavenly",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

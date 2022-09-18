@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame4vs_Magic_GiverID",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -23,15 +26,11 @@
   "physicsShapePoints": [],
   "eventList": [],
   "properties": [
-    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"player_turn","tags":[],"resourceType":"GMObjectProperty",},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"player_turn","varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [],
   "parent": {
     "name": "Magic",
     "path": "folders/Objects/Minigames/4vs/Magic.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Magic_GiverID",
-  "tags": [],
-  "resourceType": "GMObject",
 }

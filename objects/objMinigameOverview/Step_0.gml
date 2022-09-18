@@ -85,6 +85,7 @@ if (global.actions.jump.pressed(global.player_id)) {
 if (info.is_modes && global.actions.shoot.pressed(global.player_id)) {
 	state = 3;
 	audio_play_sound(global.sound_cursor_back, 0, false);
+	music_fade();
 	
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.MinigameOverviewStart);

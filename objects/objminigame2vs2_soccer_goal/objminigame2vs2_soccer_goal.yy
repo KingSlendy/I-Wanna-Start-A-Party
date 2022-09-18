@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame2vs2_Soccer_Goal",
   "spriteId": {
     "name": "sprMinigame2vs2_Soccer_Goal",
     "path": "sprites/sprMinigame2vs2_Soccer_Goal/sprMinigame2vs2_Soccer_Goal.yy",
@@ -31,8 +34,4 @@
     "name": "Soccer",
     "path": "folders/Objects/Minigames/2vs2/Soccer.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Soccer_Goal",
-  "tags": [],
-  "resourceType": "GMObject",
 }

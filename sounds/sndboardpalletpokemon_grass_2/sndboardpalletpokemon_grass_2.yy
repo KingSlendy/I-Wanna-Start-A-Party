@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndBoardPalletPokemon_Grass_2",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Pallet",
     "path": "folders/Sounds/SFX/Boards/Pallet.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndBoardPalletPokemon_Grass_2",
-  "tags": [],
-  "resourceType": "GMSound",
 }

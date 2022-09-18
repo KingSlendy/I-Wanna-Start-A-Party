@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Coins",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Coins",
     "path": "sprites/sprTlsMinigame1vs3_Coins/sprTlsMinigame1vs3_Coins.yy",
@@ -227,8 +230,4 @@
     "name": "Coins",
     "path": "folders/Tilesets/Minigames/1vs3/Coins.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Coins",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Magic_Fall",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Magic",
     "path": "folders/Sounds/SFX/Minigames/4vs/Magic.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Magic_Fall",
-  "tags": [],
-  "resourceType": "GMSound",
 }

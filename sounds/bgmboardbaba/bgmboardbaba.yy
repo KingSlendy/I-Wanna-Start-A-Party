@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmBoardBaba",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Boards",
     "path": "folders/Sounds/BGM/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmBoardBaba",
-  "tags": [],
-  "resourceType": "GMSound",
 }

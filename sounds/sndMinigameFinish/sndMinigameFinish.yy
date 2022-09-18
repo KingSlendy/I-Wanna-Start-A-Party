@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigameFinish",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Minigames",
     "path": "folders/Sounds/SFX/Minigames.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigameFinish",
-  "tags": [],
-  "resourceType": "GMSound",
 }

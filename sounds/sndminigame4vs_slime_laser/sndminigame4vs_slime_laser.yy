@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Slime_Laser",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Slime",
     "path": "folders/Sounds/SFX/Minigames/4vs/Slime.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Slime_Laser",
-  "tags": [],
-  "resourceType": "GMSound",
 }

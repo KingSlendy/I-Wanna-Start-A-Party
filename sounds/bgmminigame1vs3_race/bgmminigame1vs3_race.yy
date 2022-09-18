@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigame1vs3_Race",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigame1vs3_Race",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Race",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Race",
     "path": "sprites/sprTlsMinigame1vs3_Race/sprTlsMinigame1vs3_Race.yy",
@@ -45,8 +48,4 @@
     "name": "Race",
     "path": "folders/Tilesets/Minigames/1vs3/Race.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Race",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

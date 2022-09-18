@@ -4,6 +4,31 @@ function Minigame(title, instructions, preview, scene, fangame_name) constructor
 	self.preview = preview;
 	self.scene = scene;
 	self.fangame_name = fangame_name;
+	
+	var w = sprite_get_width(sprMinigameOverview_Preview);
+	var h = sprite_get_height(sprMinigameOverview_Preview);
+	var w_half = floor(w / 2);
+	var h_half = floor(h / 2);
+	var p_surf = surface_create(w, h);
+	surface_set_target(p_surf);
+	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
+	gpu_set_colorwriteenable(true, true, true, false);
+	draw_sprite_stretched(sprMinigameOverview_Pictures, self.preview, 44, 15, w - 88, h - 31);
+	gpu_set_colorwriteenable(true, true, true, true);
+	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
+	surface_reset_target();
+	self.portrait = sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w_half, h_half);
+
+	surface_set_target(p_surf);
+	draw_clear_alpha(c_black, 0);
+	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
+	gpu_set_colorwriteenable(true, true, true, false);
+	draw_sprite_stretched(sprMinigameOverview_Pictures, 0, 44, 15, w - 88, h - 31);
+	gpu_set_colorwriteenable(true, true, true, true);
+	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
+	surface_reset_target();
+	self.hidden = sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w_half, h_half);
+	surface_free(p_surf);
 }
 
 global.minigames = {};

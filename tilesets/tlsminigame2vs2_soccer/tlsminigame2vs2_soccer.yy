@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame2vs2_Soccer",
   "spriteId": {
     "name": "sprTlsMinigame2vs2_Soccer",
     "path": "sprites/sprTlsMinigame2vs2_Soccer/sprTlsMinigame2vs2_Soccer.yy",
@@ -39,8 +42,4 @@
     "name": "Soccer",
     "path": "folders/Tilesets/Minigames/2vs2/Soccer.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame2vs2_Soccer",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

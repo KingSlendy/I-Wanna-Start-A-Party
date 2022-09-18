@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Warping_Stop",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objMinigame1vs3_Warping_Push","path":"objects/objMinigame1vs3_Warping_Push/objMinigame1vs3_Warping_Push.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objMinigame1vs3_Warping_Push","path":"objects/objMinigame1vs3_Warping_Push/objMinigame1vs3_Warping_Push.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Warping",
     "path": "folders/Objects/Minigames/1vs3/Warping.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Warping_Stop",
-  "tags": [],
-  "resourceType": "GMObject",
 }

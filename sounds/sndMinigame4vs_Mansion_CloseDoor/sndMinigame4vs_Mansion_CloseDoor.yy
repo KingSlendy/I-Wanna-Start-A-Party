@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Mansion_CloseDoor",
   "conversionMode": 0,
   "compression": 0,
   "volume": 0.5,
@@ -17,8 +20,4 @@
     "name": "Mansion",
     "path": "folders/Sounds/SFX/Minigames/4vs/Mansion.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Mansion_CloseDoor",
-  "tags": [],
-  "resourceType": "GMSound",
 }

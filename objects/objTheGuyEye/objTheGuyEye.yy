@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objTheGuyEye",
   "spriteId": {
     "name": "sprTheGuyEye",
     "path": "sprites/sprTheGuyEye/sprTheGuyEye.yy",
@@ -28,8 +31,4 @@
     "name": "Events",
     "path": "folders/Objects/Boards/Events.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objTheGuyEye",
-  "tags": [],
-  "resourceType": "GMObject",
 }

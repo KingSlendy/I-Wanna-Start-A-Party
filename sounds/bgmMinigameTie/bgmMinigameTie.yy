@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigameTie",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Minigames",
     "path": "folders/Sounds/BGM/Minigames.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigameTie",
-  "tags": [],
-  "resourceType": "GMSound",
 }

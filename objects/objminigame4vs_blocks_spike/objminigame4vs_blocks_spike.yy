@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame4vs_Blocks_Spike",
   "spriteId": {
     "name": "sprMinigame4vs_Blocks_Spike",
     "path": "sprites/sprMinigame4vs_Blocks_Spike/sprMinigame4vs_Blocks_Spike.yy",
@@ -25,7 +28,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlayerBase","path":"objects/objPlayerBase/objPlayerBase.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlayerBase","path":"objects/objPlayerBase/objPlayerBase.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,8 +36,4 @@
     "name": "Blocks",
     "path": "folders/Objects/Minigames/4vs/Blocks.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Blocks_Spike",
-  "tags": [],
-  "resourceType": "GMObject",
 }

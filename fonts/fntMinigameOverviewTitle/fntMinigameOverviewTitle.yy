@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntMinigameOverviewTitle",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Minigames",
     "path": "folders/Fonts/Minigames.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntMinigameOverviewTitle",
-  "tags": [],
-  "resourceType": "GMFont",
 }

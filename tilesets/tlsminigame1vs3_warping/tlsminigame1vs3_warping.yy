@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Warping",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Warping",
     "path": "sprites/sprTlsMinigame1vs3_Warping/sprTlsMinigame1vs3_Warping.yy",
@@ -38,8 +41,4 @@
     "name": "Warping",
     "path": "folders/Tilesets/Minigames/1vs3/Warping.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Warping",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

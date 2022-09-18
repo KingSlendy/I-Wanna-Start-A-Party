@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Coins_Reflector",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -28,8 +31,4 @@
     "name": "Coins",
     "path": "folders/Objects/Minigames/1vs3/Coins.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Coins_Reflector",
-  "tags": [],
-  "resourceType": "GMObject",
 }

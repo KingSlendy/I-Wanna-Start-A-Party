@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Showdown_Rounds",
   "spriteId": {
     "name": "sprMinigame1vs3_Showdown_Rounds",
     "path": "sprites/sprMinigame1vs3_Showdown_Rounds/sprMinigame1vs3_Showdown_Rounds.yy",
@@ -23,15 +26,11 @@
   "physicsShapePoints": [],
   "eventList": [],
   "properties": [
-    {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":2.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"number","tags":[],"resourceType":"GMObjectProperty",},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"number","varType":1,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":2.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [],
   "parent": {
     "name": "Showdown",
     "path": "folders/Objects/Minigames/1vs3/Showdown.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Showdown_Rounds",
-  "tags": [],
-  "resourceType": "GMObject",
 }

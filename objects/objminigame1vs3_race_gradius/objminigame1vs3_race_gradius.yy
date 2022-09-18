@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Race_Gradius",
   "spriteId": {
     "name": "sprMinigame1vs3_Race_Gradius",
     "path": "sprites/sprMinigame1vs3_Race_Gradius/sprMinigame1vs3_Race_Gradius.yy",
@@ -28,8 +31,4 @@
     "name": "Race",
     "path": "folders/Objects/Minigames/1vs3/Race.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Race_Gradius",
-  "tags": [],
-  "resourceType": "GMObject",
 }

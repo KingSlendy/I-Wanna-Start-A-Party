@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntMinigame1vs3_Showdown_Select",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -264,8 +267,4 @@
     "name": "1vs3",
     "path": "folders/Fonts/Minigames/1vs3.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntMinigame1vs3_Showdown_Select",
-  "tags": [],
-  "resourceType": "GMFont",
 }

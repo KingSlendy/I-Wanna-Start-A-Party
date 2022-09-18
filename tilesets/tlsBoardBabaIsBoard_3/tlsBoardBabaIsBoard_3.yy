@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsBoardBabaIsBoard_3",
   "spriteId": {
     "name": "sprTlsBoardBaba",
     "path": "sprites/sprTlsBoardBaba/sprTlsBoardBaba.yy",
@@ -19,7 +22,7 @@
   "out_columns": 24,
   "tile_count": 561,
   "autoTileSets": [
-    {"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Walls","tiles":[
         453,
         457,
         454,
@@ -67,8 +70,8 @@
         445,
         447,
         443,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Walls","tags":[],"resourceType":"GMAutoTileSet",},
-    {"tiles":[
+      ],"closed_edge":false,},
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Hedge","tiles":[
         249,
         253,
         250,
@@ -116,7 +119,7 @@
         241,
         243,
         239,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Hedge","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 6.0,
@@ -695,8 +698,4 @@
     "name": "Baba Is Board",
     "path": "folders/Tilesets/Boards/Baba Is Board.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsBoardBabaIsBoard_3",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

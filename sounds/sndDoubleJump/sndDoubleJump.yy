@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndDoubleJump",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Player",
     "path": "folders/Sounds/SFX/Player.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndDoubleJump",
-  "tags": [],
-  "resourceType": "GMSound",
 }

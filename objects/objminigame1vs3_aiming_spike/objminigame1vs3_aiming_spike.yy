@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Aiming_Spike",
   "spriteId": {
     "name": "sprMinigame1vs3_Aiming_Spike",
     "path": "sprites/sprMinigame1vs3_Aiming_Spike/sprMinigame1vs3_Aiming_Spike.yy",
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Aiming",
     "path": "folders/Objects/Minigames/1vs3/Aiming.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Aiming_Spike",
-  "tags": [],
-  "resourceType": "GMObject",
 }

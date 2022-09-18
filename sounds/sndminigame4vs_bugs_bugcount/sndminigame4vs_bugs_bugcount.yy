@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Bugs_BugCount",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Bugs",
     "path": "folders/Sounds/SFX/Minigames/4vs/Bugs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Bugs_BugCount",
-  "tags": [],
-  "resourceType": "GMSound",
 }

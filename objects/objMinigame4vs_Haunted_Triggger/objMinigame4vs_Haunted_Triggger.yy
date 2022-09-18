@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame4vs_Haunted_Triggger",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlayerPlatformer","path":"objects/objPlayerPlatformer/objPlayerPlatformer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlayerPlatformer","path":"objects/objPlayerPlatformer/objPlayerPlatformer.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Haunted",
     "path": "folders/Objects/Minigames/4vs/Haunted.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Haunted_Triggger",
-  "tags": [],
-  "resourceType": "GMObject",
 }

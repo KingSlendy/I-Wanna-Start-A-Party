@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objChooseTurns",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -25,8 +28,4 @@
     "name": "Events",
     "path": "folders/Objects/Boards/Events.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objChooseTurns",
-  "tags": [],
-  "resourceType": "GMObject",
 }

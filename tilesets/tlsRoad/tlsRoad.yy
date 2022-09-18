@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsRoad",
   "spriteId": {
     "name": "sprTlsRoad",
     "path": "sprites/sprTlsRoad/sprTlsRoad.yy",
@@ -359,8 +362,4 @@
     "name": "Boards",
     "path": "folders/Tilesets/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsRoad",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

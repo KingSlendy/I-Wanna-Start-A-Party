@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntPlayerInfo",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Boards",
     "path": "folders/Fonts/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntPlayerInfo",
-  "tags": [],
-  "resourceType": "GMFont",
 }

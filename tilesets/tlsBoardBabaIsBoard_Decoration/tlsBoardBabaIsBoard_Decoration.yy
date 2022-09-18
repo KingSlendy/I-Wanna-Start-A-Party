@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsBoardBabaIsBoard_Decoration",
   "spriteId": {
     "name": "sprTlsBoardBaba_Decoration",
     "path": "sprites/sprTlsBoardBaba_Decoration/sprTlsBoardBaba_Decoration.yy",
@@ -899,8 +902,4 @@
     "name": "Baba Is Board",
     "path": "folders/Tilesets/Boards/Baba Is Board.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsBoardBabaIsBoard_Decoration",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

@@ -68,6 +68,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Keys",
-    "path": "folders/Sprites/Objects/Managers/Keys.yy",
+    "path": "folders/Sprites/Objects/Managers/Bindings/Keys.yy",
   },
 }

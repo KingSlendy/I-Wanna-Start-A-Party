@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Painting",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Painting",
     "path": "sprites/sprTlsMinigame4vs_Painting/sprTlsMinigame4vs_Painting.yy",
@@ -37,8 +40,4 @@
     "name": "Painting",
     "path": "folders/Tilesets/Minigames/4vs/Painting.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Painting",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

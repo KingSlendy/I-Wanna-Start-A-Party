@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsBoardDreams",
   "spriteId": {
     "name": "sprTlsBoardDreams",
     "path": "sprites/sprTlsBoardDreams/sprTlsBoardDreams.yy",
@@ -175,8 +178,4 @@
     "name": "Dreams",
     "path": "folders/Tilesets/Boards/Dreams.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsBoardDreams",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

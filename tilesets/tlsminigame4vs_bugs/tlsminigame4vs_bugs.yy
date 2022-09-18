@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Bugs",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Bugs",
     "path": "sprites/sprTlsMinigame4vs_Bugs/sprTlsMinigame4vs_Bugs.yy",
@@ -215,8 +218,4 @@
     "name": "Bugs",
     "path": "folders/Tilesets/Minigames/4vs/Bugs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Bugs",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

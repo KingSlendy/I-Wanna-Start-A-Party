@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Hunt",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Hunt",
     "path": "sprites/sprTlsMinigame1vs3_Hunt/sprTlsMinigame1vs3_Hunt.yy",
@@ -37,8 +40,4 @@
     "name": "Hunt",
     "path": "folders/Tilesets/Minigames/1vs3/Hunt.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Hunt",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

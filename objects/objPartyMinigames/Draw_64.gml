@@ -28,7 +28,7 @@ menu_x = lerp(menu_x, -menu_sep * menu_page, 0.3);
 var save_x = menu_x - menu_sep;
 var save_y = 0;
 
-if (save_present) {
+if (save_present && room == rParty) {
 	for (var i = 1; i <= global.player_max; i++) {
 		var player_info = focus_info_by_turn(i);
 	
@@ -55,15 +55,15 @@ if (save_present) {
 }
 
 //Skin selection
-var length = array_length(skins);
+var length = ds_list_size(skins);
 
 for (var r = -2; r <= 2; r++) {
 	var now_r = (skin_row + length + r) % length;
-	var skin_c = skins[now_r];
+	var skin_c = skins[| now_r];
 	
-	for (var c = 0; c < array_length(skin_c); c++) {
+	for (var c = 0; c < ds_list_size(skin_c); c++) {
 		var is_selected = (now_r == skin_target_row && c == skin_col);
-		var skin = skin_c[c];
+		var skin = skin_c[| c];
 		var color = (is_selected && skin_player + 1 <= global.player_max) ? player_color_by_turn(skin_player + 1) : c_white;
 		var already_selected = (array_contains(skin_selected, skin));
 		var box_x = menu_x + skin_w * c;
@@ -90,10 +90,10 @@ for (var r = -2; r <= 2; r++) {
 
 var key_x = menu_x + skin_w * skin_col;
 var key_y = skin_y + skin_h * sign(skin_y - skin_target_y);
-draw_sprite_ext(bind_to_key(global.actions.right.button), 0, key_x + 120, key_y + 60, 0.3, 0.3, 0, c_white, 1);
-draw_sprite_ext(bind_to_key(global.actions.up.button), 0, key_x + skin_w / 2, key_y, 0.3, 0.3, 0, c_white, 1);
-draw_sprite_ext(bind_to_key(global.actions.left.button), 0, key_x, key_y + 60, 0.3, 0.3, 0, c_white, 1);
-draw_sprite_ext(bind_to_key(global.actions.down.button), 0, key_x + skin_w / 2, key_y + skin_h, 0.3, 0.3, 0, c_white, 1);
+draw_sprite_ext(global.actions.right.bind(), 0, key_x + 120, key_y + 60, 0.3, 0.3, 0, c_white, 1);
+draw_sprite_ext(global.actions.up.bind(), 0, key_x + skin_w / 2, key_y, 0.3, 0.3, 0, c_white, 1);
+draw_sprite_ext(global.actions.left.bind(), 0, key_x, key_y + 60, 0.3, 0.3, 0, c_white, 1);
+draw_sprite_ext(global.actions.down.bind(), 0, key_x + skin_w / 2, key_y + skin_h, 0.3, 0.3, 0, c_white, 1);
 
 if (room == rParty) {
 	//Board selection
@@ -136,8 +136,8 @@ if (room == rParty) {
 	
 	board_options_y = lerp(board_options_y, target_y, 0.3);
 	board_options_h = lerp(board_options_h, target_h, 0.3);
-	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, box_x + 16 + 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
-	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, box_x + 16 + board_options_w - 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(global.actions.left.bind(), 0, box_x + 16 + 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(global.actions.right.bind(), 0, box_x + 16 + board_options_w - 24, board_options_y + board_options_h / 2, 0.5, 0.5, 0, c_white, 1);
 } else {
 	var minigames_x = menu_x + menu_sep;
 	var minigames_y = minigames_show_y + 350 * -minigames_row_selected;
@@ -149,32 +149,35 @@ if (room == rParty) {
 		draw_set_font(fntFilesFile);
 		draw_set_halign(fa_left);
 		draw_text_color_outline(minigames_x + 10, row_y, types[i], c_red, c_red, c_yellow, c_yellow, 1, c_black);
-		var portraits = minigames_portraits[$ names[i]];
+		var minigames = global.minigames[$ names[i]];
 		
 		for (var j = -2; j <= 2; j++) {
 			var row_x = minigames_show_x + 240 * j;
-			var location = (minigames_col_selected + array_length(portraits) + j) % array_length(portraits);
-			var portrait = portraits[location];
+			var location = (minigames_col_selected + array_length(minigames) + j) % array_length(minigames);
+			var minigame = minigames[location];
 			var dist = remap(point_distance(row_x, minigames_show_y, 0, minigames_target_show_y), 0, 480, 1, 0.5);
-			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
+			var seen_minigame = array_contains(global.seen_minigames, minigame.title);
+			var title = (seen_minigame) ? minigame.title : "?????????";
+			var portrait = (seen_minigame) ? minigame.portrait : minigame.hidden;
+			
 			draw_set_font(fntPlayerInfo);
 			draw_set_halign(fa_center);
-			var title = global.minigames[$ names[i]][location].title;
-			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, (array_contains(global.seen_minigames, title)) ? title : "?????????", dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
+			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
+			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, title, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 			draw_set_halign(fa_left);
 		}
 	}
 	
 	if (minigames_row_selected > 0) {
-		draw_sprite_ext(bind_to_key(global.actions.up.button), 0, minigames_x + draw_w / 2, 30, 0.5, 0.5, 0, c_white, 1);
+		draw_sprite_ext(global.actions.up.bind(), 0, minigames_x + draw_w / 2, 30, 0.5, 0.5, 0, c_white, 1);
 	}
 	
 	if (minigames_row_selected < 2) {
-		draw_sprite_ext(bind_to_key(global.actions.down.button), 0, minigames_x + draw_w / 2, draw_h - 30, 0.5, 0.5, 0, c_white, 1);
+		draw_sprite_ext(global.actions.down.bind(), 0, minigames_x + draw_w / 2, draw_h - 30, 0.5, 0.5, 0, c_white, 1);
 	}
 	
-	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, minigames_x + 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
-	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, minigames_x + draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(global.actions.left.bind(), 0, minigames_x + 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+	draw_sprite_ext(global.actions.right.bind(), 0, minigames_x + draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
 
 	var info_x = menu_x + menu_sep * 2;
 	

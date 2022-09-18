@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame1vs3_Aiming_Laser",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Aiming",
     "path": "folders/Sounds/SFX/Minigames/1vs3/Aiming.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame1vs3_Aiming_Laser",
-  "tags": [],
-  "resourceType": "GMSound",
 }

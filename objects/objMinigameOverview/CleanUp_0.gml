@@ -1,1 +1,0 @@
-sprite_delete(sprite_preview);

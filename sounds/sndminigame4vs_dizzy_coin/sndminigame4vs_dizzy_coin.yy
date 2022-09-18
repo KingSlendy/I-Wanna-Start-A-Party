@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Dizzy_Coin",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Dizzy",
     "path": "folders/Sounds/SFX/Minigames/4vs/Dizzy.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Dizzy_Coin",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntDice",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Boards",
     "path": "folders/Fonts/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntDice",
-  "tags": [],
-  "resourceType": "GMFont",
 }

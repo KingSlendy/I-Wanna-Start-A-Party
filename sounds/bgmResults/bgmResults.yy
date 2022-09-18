@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmResults",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Results",
     "path": "folders/Sounds/BGM/Results.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmResults",
-  "tags": [],
-  "resourceType": "GMSound",
 }

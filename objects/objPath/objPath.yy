@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objPath",
   "spriteId": {
     "name": "sprPath",
     "path": "sprites/sprPath/sprPath.yy",
@@ -28,8 +31,4 @@
     "name": "Interactables",
     "path": "folders/Objects/Boards/Interactables.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objPath",
-  "tags": [],
-  "resourceType": "GMObject",
 }

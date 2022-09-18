@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Mansion",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Mansion",
     "path": "sprites/sprTlsMinigame4vs_Mansion/sprTlsMinigame4vs_Mansion.yy",
@@ -161,8 +164,4 @@
     "name": "Mansion",
     "path": "folders/Tilesets/Minigames/4vs/Mansion.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Mansion",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

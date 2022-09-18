@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame2vs2_Springing_Spring",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Springing",
     "path": "folders/Sounds/SFX/Minigames/2vs2/Springing.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame2vs2_Springing_Spring",
-  "tags": [],
-  "resourceType": "GMSound",
 }

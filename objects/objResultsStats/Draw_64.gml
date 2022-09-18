@@ -54,11 +54,11 @@ if (show_inputs) {
 	draw_text_outline(50, 85, "Turns: " + string(global.max_board_turns), c_black);
 	
 	if (stats_page > 0){
-		draw_sprite_ext(bind_to_key(global.actions.left.button), 0, 340, 570, 0.5, 0.5, 0, c_white, 1);
+		draw_sprite_ext(global.actions.left.bind(), 0, 340, 570, 0.5, 0.5, 0, c_white, 1);
 	}
 	
 	if (stats_page < stats_total_page) {
-		draw_sprite_ext(bind_to_key(global.actions.right.button), 0, 760, 570, 0.5, 0.5, 0, c_white, 1);
+		draw_sprite_ext(global.actions.right.bind(), 0, 760, 570, 0.5, 0.5, 0, c_white, 1);
 	}
 	
 	var text = new Text(fntDialogue, draw_action(global.actions.jump) + ": {COLOR,00FFFFF}Proceed");

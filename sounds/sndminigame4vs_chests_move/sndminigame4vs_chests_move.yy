@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame4vs_Chests_Move",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Chests",
     "path": "folders/Sounds/SFX/Minigames/4vs/Chests.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame4vs_Chests_Move",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -28,8 +28,8 @@ for (var i = -2; i <= 2; i++) {
 	draw_text_outline(box_x + 20, 260, "Maker: " + skin.maker, c_black);
 }
 
-draw_sprite_ext(bind_to_key(global.actions.left.button), 0, 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
-draw_sprite_ext(bind_to_key(global.actions.right.button), 0, draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+draw_sprite_ext(global.actions.left.bind(), 0, 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+draw_sprite_ext(global.actions.right.bind(), 0, draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
 surface_reset_target();
 
 draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, #F2C394, 0.75);

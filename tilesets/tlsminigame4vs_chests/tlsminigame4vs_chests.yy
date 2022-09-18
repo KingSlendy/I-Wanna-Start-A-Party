@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Chests",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Chests",
     "path": "sprites/sprTlsMinigame4vs_Chests/sprTlsMinigame4vs_Chests.yy",
@@ -131,8 +134,4 @@
     "name": "Chests",
     "path": "folders/Tilesets/Minigames/4vs/Chests.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Chests",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

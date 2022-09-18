@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigame4vs_Tower",
   "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "4vs",
     "path": "folders/Sounds/BGM/Minigames/4vs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigame4vs_Tower",
-  "tags": [],
-  "resourceType": "GMSound",
 }

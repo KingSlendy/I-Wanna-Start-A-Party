@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame2vs2_Colorful_Controller",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Colorful",
     "path": "folders/Objects/Minigames/2vs2/Colorful.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Colorful_Controller",
-  "tags": [],
-  "resourceType": "GMObject",
 }

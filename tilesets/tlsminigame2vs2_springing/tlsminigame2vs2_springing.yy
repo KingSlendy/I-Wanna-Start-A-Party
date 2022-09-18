@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame2vs2_Springing",
   "spriteId": {
     "name": "sprTlsMinigame2vs2_Springing",
     "path": "sprites/sprTlsMinigame2vs2_Springing/sprTlsMinigame2vs2_Springing.yy",
@@ -51,8 +54,4 @@
     "name": "Springing",
     "path": "folders/Tilesets/Minigames/2vs2/Springing.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame2vs2_Springing",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

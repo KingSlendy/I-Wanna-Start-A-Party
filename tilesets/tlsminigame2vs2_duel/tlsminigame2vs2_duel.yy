@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame2vs2_Duel",
   "spriteId": {
     "name": "sprTlsMinigame2vs2_Duel",
     "path": "sprites/sprTlsMinigame2vs2_Duel/sprTlsMinigame2vs2_Duel.yy",
@@ -147,8 +150,4 @@
     "name": "Duel",
     "path": "folders/Tilesets/Minigames/2vs2/Duel.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame2vs2_Duel",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

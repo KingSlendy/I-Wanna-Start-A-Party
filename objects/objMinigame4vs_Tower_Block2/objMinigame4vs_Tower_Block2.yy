@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame4vs_Tower_Block2",
   "spriteId": {
     "name": "sprMinigame4vs_Tower_Block2",
     "path": "sprites/sprMinigame4vs_Tower_Block2/sprMinigame4vs_Tower_Block2.yy",
@@ -31,8 +34,4 @@
     "name": "Tower",
     "path": "folders/Objects/Minigames/4vs/Tower.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Tower_Block2",
-  "tags": [],
-  "resourceType": "GMObject",
 }

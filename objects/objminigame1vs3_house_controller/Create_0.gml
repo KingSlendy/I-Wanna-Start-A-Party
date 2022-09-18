@@ -35,25 +35,23 @@ function cherry_move(move, network = true) {
 }
 
 function cherry_jump(network = true) {
-	if (network) {
-		with (objMinigame1vs3_House_Cherry) {
+	with (objMinigame1vs3_House_Cherry) {
+		if (network) {
 			if (y != ystart) {
 				return;
 			}
-		
-			vspeed = -7;
-			gravity = 0.3;
+		} else {
+			y = ystart;
 		}
+		
+		vspeed = -9;
+		gravity = 0.3;
+	}
 	
+	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame1vs3_House_CherryJump);
 		network_send_tcp_packet();
-	} else {
-		with (objMinigame1vs3_House_Cherry) {
-			y = ystart;
-			vspeed = -7;
-			gravity = 0.3;
-		}
 	}
 }
 

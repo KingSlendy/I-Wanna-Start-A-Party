@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Conveyor",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Conveyor",
     "path": "sprites/sprTlsMinigame1vs3_Conveyor/sprTlsMinigame1vs3_Conveyor.yy",
@@ -59,8 +62,4 @@
     "name": "Conveyor",
     "path": "folders/Tilesets/Minigames/1vs3/Conveyor.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Conveyor",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

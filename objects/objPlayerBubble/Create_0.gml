@@ -5,7 +5,7 @@ fric = 0;
 orientation = 1;
 
 alarm_create(0, function() {
-	if (objMinigameController.is_finished) {
+	if (objMinigameController.info.is_finished) {
 		return;
 	}
 	

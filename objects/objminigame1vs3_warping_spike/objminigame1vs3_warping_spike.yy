@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Warping_Spike",
   "spriteId": {
     "name": "sprMinigame1vs3_Warping_Spike",
     "path": "sprites/sprMinigame1vs3_Warping_Spike/sprMinigame1vs3_Warping_Spike.yy",
@@ -31,8 +34,4 @@
     "name": "Warping",
     "path": "folders/Objects/Minigames/1vs3/Warping.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Warping_Spike",
-  "tags": [],
-  "resourceType": "GMObject",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Conveyor_Conveyor",
   "spriteId": {
     "name": "sprMinigame1vs3_Conveyor_ConveyorStill",
     "path": "sprites/sprMinigame1vs3_Conveyor_ConveyorStill/sprMinigame1vs3_Conveyor_ConveyorStill.yy",
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Conveyor",
     "path": "folders/Objects/Minigames/1vs3/Conveyor.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Conveyor_Conveyor",
-  "tags": [],
-  "resourceType": "GMObject",
 }

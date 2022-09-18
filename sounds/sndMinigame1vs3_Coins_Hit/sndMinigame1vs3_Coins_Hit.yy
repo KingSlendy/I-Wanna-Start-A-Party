@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndMinigame1vs3_Coins_Hit",
   "conversionMode": 0,
   "compression": 0,
   "volume": 0.4,
@@ -17,8 +20,4 @@
     "name": "Coins",
     "path": "folders/Sounds/SFX/Minigames/1vs3/Coins.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndMinigame1vs3_Coins_Hit",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndResultsDrumRoll",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Results",
     "path": "folders/Sounds/SFX/Results.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndResultsDrumRoll",
-  "tags": [],
-  "resourceType": "GMSound",
 }

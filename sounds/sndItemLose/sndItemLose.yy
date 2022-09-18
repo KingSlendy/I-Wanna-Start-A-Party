@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndItemLose",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Boards",
     "path": "folders/Sounds/SFX/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndItemLose",
-  "tags": [],
-  "resourceType": "GMSound",
 }

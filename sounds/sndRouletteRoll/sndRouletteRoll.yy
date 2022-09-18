@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndRouletteRoll",
   "conversionMode": 0,
   "compression": 0,
   "volume": 0.5,
@@ -17,8 +20,4 @@
     "name": "Boards",
     "path": "folders/Sounds/SFX/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndRouletteRoll",
-  "tags": [],
-  "resourceType": "GMSound",
 }

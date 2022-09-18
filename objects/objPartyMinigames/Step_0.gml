@@ -128,19 +128,19 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 				var scroll_v = (sync_actions("down", skin_player + 1) - sync_actions("up", skin_player + 1));
 	
 				if (scroll_v != 0) {
-					var length = array_length(skins);
+					var length = ds_list_size(skins);
 					skin_target_y -= skin_h * scroll_v;
 					skin_target_row = (skin_row + length + scroll_v) % length;
 					
-					if (skin_col >= array_length(skins[skin_target_row])) {
-						skin_col = array_length(skins[skin_target_row]) - 1;
+					if (skin_col >= ds_list_size(skins[| skin_target_row])) {
+						skin_col = ds_list_size(skins[| skin_target_row]) - 1;
 					}
 					
 					audio_play_sound(global.sound_cursor_move, 0, false);
 					exit;
 				}
 			
-				var now_skin = skins[skin_row][skin_col];
+				var now_skin = skins[| skin_row][| skin_col];
 			
 				if (((have_skin(now_skin) || now_skin == noone) || (skin_player + 1 != global.player_id && (!focus_player_by_id(skin_player + 1).ai || !is_player_local(skin_player + 1)))) && !array_contains(skin_selected, now_skin) && sync_actions("jump", skin_player + 1)) {
 					if (is_player_local(skin_player + 1)) {
@@ -197,7 +197,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 			var scroll_h = (sync_actions("right", skin_player + 1) - sync_actions("left", skin_player + 1));
 		
 			if (scroll_h != 0) {
-				var length = array_length(skins[skin_target_row]);
+				var length = ds_list_size(skins[| skin_target_row]);
 				var prev_col = skin_col;
 				skin_col = (skin_col + length + scroll_h) % length;
 				
@@ -259,7 +259,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 	
 					if (scroll_h != 0) {
 						var types = minigame_types();
-						var length = array_length(minigames_portraits[$ types[minigames_row_selected]]);
+						var length = array_length(global.minigames[$ types[minigames_row_selected]]);
 						minigames_target_show_x -= 240 * scroll_h;
 						minigames_target_col_selected = (minigames_target_col_selected + length + scroll_h) % length;
 						audio_play_sound(global.sound_cursor_move, 0, false);
@@ -273,7 +273,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							minigames_target_show_y -= 350 * scroll_v;
 							minigames_target_row_selected += scroll_v;
 							var types = minigame_types();
-							var length = array_length(minigames_portraits[$ types[minigames_target_row_selected]]);
+							var length = array_length(global.minigames[$ types[minigames_target_row_selected]]);
 							minigames_col_selected %= length;
 							minigames_target_col_selected = minigames_col_selected;
 							audio_play_sound(global.sound_cursor_move, 0, false);
@@ -286,7 +286,8 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					
 					if ((array_contains(global.seen_minigames, title) || global.player_id != 1) && sync_actions("jump", 1)) {
 						menu_page = 2;
-						minigame_selected = {portrait: minigames_portraits[$ names[minigames_row_selected]][minigames_col_selected], reference: global.minigames[$ names[minigames_row_selected]][minigames_col_selected]};
+						var minigame = global.minigames[$ names[minigames_row_selected]][minigames_col_selected];
+						minigame_selected = {portrait: minigame.portrait, reference: minigame};
 						audio_play_sound(global.sound_cursor_select, 0, false);
 						exit;
 					}
@@ -294,6 +295,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					if (sync_actions("shoot", 1)) {
 						menu_page = 0;
 						skin_player = 0;
+						prev_skin_player = skin_player;
 						skin_selected = array_create(global.player_max, null);
 						objPlayerBase.skin = null;
 						audio_play_sound(global.sound_cursor_back, 0, false);

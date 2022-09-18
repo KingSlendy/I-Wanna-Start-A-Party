@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objNothing",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -25,8 +28,4 @@
     "name": "Managers",
     "path": "folders/Objects/Managers.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objNothing",
-  "tags": [],
-  "resourceType": "GMObject",
 }

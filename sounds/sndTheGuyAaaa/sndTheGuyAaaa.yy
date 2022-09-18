@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndTheGuyAaaa",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Boards",
     "path": "folders/Sounds/SFX/Boards.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndTheGuyAaaa",
-  "tags": [],
-  "resourceType": "GMSound",
 }

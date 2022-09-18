@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame2vs2_Soccer_Trophy",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -22,7 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objMinigame2vs2_Soccer_Ball","path":"objects/objMinigame2vs2_Soccer_Ball/objMinigame2vs2_Soccer_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objMinigame2vs2_Soccer_Ball","path":"objects/objMinigame2vs2_Soccer_Ball/objMinigame2vs2_Soccer_Ball.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,8 +33,4 @@
     "name": "Soccer",
     "path": "folders/Objects/Minigames/2vs2/Soccer.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Soccer_Trophy",
-  "tags": [],
-  "resourceType": "GMObject",
 }

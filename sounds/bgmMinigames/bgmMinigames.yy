@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "bgmMinigames",
   "conversionMode": 1,
   "compression": 1,
   "volume": 0.04,
@@ -17,8 +20,4 @@
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "bgmMinigames",
-  "tags": [],
-  "resourceType": "GMSound",
 }

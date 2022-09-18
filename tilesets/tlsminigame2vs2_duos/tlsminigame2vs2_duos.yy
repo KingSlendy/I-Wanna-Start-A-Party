@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame2vs2_Duos",
   "spriteId": {
     "name": "sprTlsMinigame2vs2_Duos",
     "path": "sprites/sprTlsMinigame2vs2_Duos/sprTlsMinigame2vs2_Duos.yy",
@@ -37,8 +40,4 @@
     "name": "Duos",
     "path": "folders/Tilesets/Minigames/2vs2/Duos.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame2vs2_Duos",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

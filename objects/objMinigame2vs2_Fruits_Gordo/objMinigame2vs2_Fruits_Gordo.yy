@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame2vs2_Fruits_Gordo",
   "spriteId": {
     "name": "sprMinigame2vs2_Fruits_Gordo",
     "path": "sprites/sprMinigame2vs2_Fruits_Gordo/sprMinigame2vs2_Fruits_Gordo.yy",
@@ -25,7 +28,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,8 +36,4 @@
     "name": "Fruits",
     "path": "folders/Objects/Minigames/2vs2/Fruits.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame2vs2_Fruits_Gordo",
-  "tags": [],
-  "resourceType": "GMObject",
 }

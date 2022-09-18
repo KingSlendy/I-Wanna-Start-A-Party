@@ -99,7 +99,7 @@ var display_draw = function(x, y) {
 }
 
 var controls_draw = function(x, y) {
-	draw_sprite_ext(bind_to_key(global.actions[$ string_lower(self.label)].button), 0, x + 40, y, 0.75, 0.75, 0, c_white, 1);
+	draw_sprite_ext(global.actions[$ string_lower(self.label)].bind(), 0, x + 40, y, 0.75, 0.75, 0, c_white, 1);
 }
 
 sections = [

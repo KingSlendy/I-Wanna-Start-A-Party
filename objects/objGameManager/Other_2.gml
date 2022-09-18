@@ -1,15 +1,22 @@
-sprite_prefetch(sprBkgTitle);
-sprite_prefetch(sprMinigamesFangames);
-sprite_prefetch(sprSkinsFangames);
-sprite_prefetch(sprMinigameOverview_Pictures);
+sprite_prefetch_multi([
+	sprBkgTitle,
+	sprMinigamesFangames,
+	sprSkinsFangames,
+	sprTrophyImages,
+	sprMinigameOverview_Pictures
+]);
+
 audio_group_load(audiogroup_BGM);
 audio_group_load(audiogroup_SFX);
 
 var files = [
+	"options.ini",
+	"controllerblacklist.csv",
+	"controllertypes.csv",
+	"sdl2.txt",
+	"execute_shell_simple_ext_x64.dll",
 	"audiogroup1.dat",
 	"audiogroup2.dat",
-	"options.ini",
-	"execute_shell_simple_ext_x64.dll",
 	"data.win",
 	"I Wanna Start A Party.exe"
 ];

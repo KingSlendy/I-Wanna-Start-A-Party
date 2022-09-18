@@ -191,15 +191,15 @@ function draw_2vs2_squares() {
 }
 
 function draw_action(action) {
-	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.5,0.5}";
+	return "{SPRITE," + sprite_get_name(action.bind()) + ",0,0,0,0.5,0.5}";
 }
 
 function draw_action_big(action) {
-	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.75,0.75}";
+	return "{SPRITE," + sprite_get_name(action.bind()) + ",0,0,0,0.75,0.75}";
 }
 
 function draw_action_small(action) {
-	return "{SPRITE," + bind_to_string(action.button) + ",0,0,0,0.35,0.35}";
+	return "{SPRITE," + sprite_get_name(action.bind()) + ",0,0,0,0.35,0.35}";
 }
 
 function draw_spotlight(x, y, size) {

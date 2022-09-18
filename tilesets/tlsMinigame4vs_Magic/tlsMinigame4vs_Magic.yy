@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame4vs_Magic",
   "spriteId": {
     "name": "sprTlsMinigame4vs_Magic",
     "path": "sprites/sprTlsMinigame4vs_Magic/sprTlsMinigame4vs_Magic.yy",
@@ -215,8 +218,4 @@
     "name": "Magic",
     "path": "folders/Tilesets/Minigames/4vs/Magic.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame4vs_Magic",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

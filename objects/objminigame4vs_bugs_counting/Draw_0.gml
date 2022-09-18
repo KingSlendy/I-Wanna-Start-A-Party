@@ -10,9 +10,9 @@ if (!is_player_local(network_id)) {
 }
 
 if (selecting && count > 0) {
-	draw_sprite_ext(bind_to_key(global.actions.left.button), 0, player.x - 35, player.y - 30, 0.35, 0.35, 0, c_white, 1);
+	draw_sprite_ext(global.actions.left.bind(), 0, player.x - 35, player.y - 30, 0.35, 0.35, 0, c_white, 1);
 }
 
 if (selecting && count < 99) {
-	draw_sprite_ext(bind_to_key(global.actions.right.button), 0, player.x + 35, player.y - 30, 0.35, 0.35, 0, c_white, 1);
+	draw_sprite_ext(global.actions.right.bind(), 0, player.x + 35, player.y - 30, 0.35, 0.35, 0, c_white, 1);
 }

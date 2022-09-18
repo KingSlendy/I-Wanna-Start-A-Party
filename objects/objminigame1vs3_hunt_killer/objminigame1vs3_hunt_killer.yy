@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMinigame1vs3_Hunt_Killer",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -31,8 +34,4 @@
     "name": "Hunt",
     "path": "folders/Objects/Minigames/1vs3/Hunt.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMinigame1vs3_Hunt_Killer",
-  "tags": [],
-  "resourceType": "GMObject",
 }

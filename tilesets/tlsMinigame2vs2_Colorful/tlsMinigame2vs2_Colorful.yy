@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame2vs2_Colorful",
   "spriteId": {
     "name": "sprTlsMinigame2vs2_Colorful",
     "path": "sprites/sprTlsMinigame2vs2_Colorful/sprTlsMinigame2vs2_Colorful.yy",
@@ -19,7 +22,7 @@
   "out_columns": 2,
   "tile_count": 6,
   "autoTileSets": [
-    {"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","tiles":[
         1,
         5,
         5,
@@ -67,7 +70,7 @@
         5,
         5,
         5,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"Megaman","tags":[],"resourceType":"GMAutoTileSet",},
+      ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],
   "tileAnimationSpeed": 15.0,
@@ -91,8 +94,4 @@
     "name": "Colorful",
     "path": "folders/Tilesets/Minigames/2vs2/Colorful.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame2vs2_Colorful",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

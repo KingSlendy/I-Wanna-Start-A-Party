@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objBoardBasement_Doors",
   "spriteId": {
     "name": "sprTrigger",
     "path": "sprites/sprTrigger/sprTrigger.yy",
@@ -28,8 +31,4 @@
     "name": "Basement",
     "path": "folders/Objects/Boards/Events/Basement.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objBoardBasement_Doors",
-  "tags": [],
-  "resourceType": "GMObject",
 }

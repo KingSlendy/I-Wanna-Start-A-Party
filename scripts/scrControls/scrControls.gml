@@ -1,47 +1,52 @@
-function Action(button) constructor {
-	self.button = button;
-	self.label = "";
-	
+function Action() constructor {
 	static held = function(id = 0) {
 		if (id > 0 && id != global.player_id) {
-			return ai_actions(id)[$ self.label].held(id);
+			return ai_actions(id)[$ self.verb].held(id);
 		}
 		
-		return keyboard_check(self.button);
+		return input_check(self.verb);
 	}
 	
 	static pressed = function(id = 0) {
 		if (id > 0 && id != global.player_id) {
-			return ai_actions(id)[$ self.label].pressed(id);
+			return ai_actions(id)[$ self.verb].pressed(id);
 		}
 		
-		return keyboard_check_pressed(self.button);
+		return input_check_pressed(self.verb);
 	}
 	
 	static released = function(id = 0) {
 		if (id > 0 && id != global.player_id) {
-			return ai_actions(id)[$ self.label].released(id);
+			return ai_actions(id)[$ self.verb].released(id);
 		}
 		
-		return keyboard_check_released(self.button);
+		return input_check_released(self.verb);
+	}
+	
+	static consume = function() {
+		input_consume(self.verb);
+	}
+	
+	static bind = function() {
+		return bind_to_icon(input_binding_get(self.verb,,, input_profile_get() ?? "keyboard_and_mouse").value);
 	}
 }
 
 global.actions = {
-	left: new Action(vk_left),
-	right: new Action(vk_right),
-	up: new Action(vk_up),
-	down: new Action(vk_down),
-	jump: new Action(vk_shift),
-	shoot: new Action(ord("Z")),
-	back: new Action(vk_backspace)
+	left: new Action(),
+	right: new Action(),
+	up: new Action(),
+	down: new Action(),
+	jump: new Action(),
+	shoot: new Action(),
+	back: new Action()
 };
 
 var keys = variable_struct_get_names(global.actions);
 
 for (var i = 0; i < array_length(keys); i++) {
 	var key = keys[i];
-	global.actions[$ key].label = key;
+	global.actions[$ key].verb = key;
 }
 
 function AIAction() constructor {
@@ -135,24 +140,56 @@ function check_player_actions_by_id(player_id) {
 	return actions;
 }
 
-function bind_to_key(bind) {
+function bind_to_icon(bind) {
 	//Alphanumeric keys
 	if (bind >= 48 && bind <= 57 || bind >= 66 && bind <= 90 || bind >= 96 && bind <= 105) {
 		return asset_get_index("sprKey_" + chr(bind));
 	}
 	
+	var binds = {};
+	
+	//Keyboard
+	binds[$ vk_left] = sprKey_ArrowLeft;
+	binds[$ vk_right] = sprKey_ArrowRight;
+	binds[$ vk_up] = sprKey_ArrowUp;
+	binds[$ vk_down] = sprKey_ArrowDown;
+	binds[$ vk_shift] = sprKey_Shift;
+	binds[$ vk_lshift] = sprKey_Shift;
+	binds[$ vk_rshift] = sprKey_Shift;
+	binds[$ vk_backspace] = sprKey_Backspace;
+	
+	//Gamepad
+	binds[$ gp_axislh] = sprButton_StickLeft;
+	binds[$ gp_axislv] = sprButton_StickLeft;
+	binds[$ gp_axisrh] = sprButton_StickRight;
+	binds[$ gp_axisrv] = sprButton_StickRight;
+	binds[$ gp_face1] = sprButton_A;
+	binds[$ gp_face2] = sprButton_B;
+	binds[$ gp_face3] = sprButton_Y;
+	binds[$ gp_face4] = sprButton_X;
+	binds[$ gp_padl] = sprButton_PadLeft;
+	binds[$ gp_padr] = sprButton_PadRight;
+	binds[$ gp_padu] = sprButton_PadUp;
+	binds[$ gp_padd] = sprButton_PadDown;
+	binds[$ gp_shoulderlb] = sprButton_TriggerLeft;
+	binds[$ gp_shoulderrb] = sprButton_TriggerRight;
+	binds[$ gp_shoulderl] = sprButton_BumperLeft;
+	binds[$ gp_shoulderr] = sprButton_BumperRight;
+	binds[$ gp_select] = sprButton_Back;
+	binds[$ gp_start] = sprButton_Start;
+	
+	if (!variable_struct_exists(binds, bind)) {
+		return chr(bind);
+	}
+	
+	return binds[$ bind];
+	
 	switch (bind) {
 	    //Special keys
 	    case vk_space: return 77;
-	    case vk_shift: case vk_lshift: case vk_rshift: return sprKey_Shift;
 	    case vk_control: case vk_lcontrol: case vk_rcontrol: return 27;
 	    case vk_alt: case vk_lalt: case vk_ralt: return 11;
 	    case vk_enter: return 34;
-	    case vk_up: return sprKey_ArrowUp;
-	    case vk_down: return sprKey_ArrowDown;
-	    case vk_left: return sprKey_ArrowLeft;
-	    case vk_right: return sprKey_ArrowRight;
-	    case vk_backspace: return sprKey_Backspace;
 	    case vk_tab: return 79;
 	    case vk_insert: return "Insert";
 	    case vk_delete: return "Delete";
@@ -208,8 +245,4 @@ function bind_to_key(bind) {
 	    //Other characters
 	    default: return chr(bind);
 	}
-}
-
-function bind_to_string(bind) {
-	return sprite_get_name(bind_to_key(bind));
 }

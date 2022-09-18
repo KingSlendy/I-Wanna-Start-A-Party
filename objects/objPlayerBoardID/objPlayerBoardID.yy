@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objPlayerBoardID",
   "spriteId": {
     "name": "sprPlayer",
     "path": "sprites/sprPlayer/sprPlayer.yy",
@@ -31,8 +34,4 @@
     "name": "Player",
     "path": "folders/Objects/Player.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objPlayerBoardID",
-  "tags": [],
-  "resourceType": "GMObject",
 }

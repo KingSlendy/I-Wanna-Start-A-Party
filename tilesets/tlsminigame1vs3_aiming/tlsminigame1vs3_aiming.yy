@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tlsMinigame1vs3_Aiming",
   "spriteId": {
     "name": "sprTlsMinigame1vs3_Aiming",
     "path": "sprites/sprTlsMinigame1vs3_Aiming/sprTlsMinigame1vs3_Aiming.yy",
@@ -41,8 +44,4 @@
     "name": "Aiming",
     "path": "folders/Tilesets/Minigames/1vs3/Aiming.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tlsMinigame1vs3_Aiming",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndFlipU",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Player",
     "path": "folders/Sounds/SFX/Player.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndFlipU",
-  "tags": [],
-  "resourceType": "GMSound",
 }
