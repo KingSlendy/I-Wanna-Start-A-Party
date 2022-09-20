@@ -68,6 +68,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Basement",
-    "path": "folders/Sprites/Tilesets/Boards/Basement.yy",
+    "path": "folders/Sprites/Tilesets/Party/Basement.yy",
   },
 }

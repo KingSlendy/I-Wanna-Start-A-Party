@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Hyrule",
-    "path": "folders/Objects/Boards/Events/Hyrule.yy",
+    "path": "folders/Objects/Party/Events/Hyrule.yy",
   },
 }

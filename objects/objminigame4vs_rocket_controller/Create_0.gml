@@ -1,29 +1,27 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerRocket);
-}
-
-with (objPlayerBase) {
-	hp = 3;
-	spd = 0;
-	var players = [];
-	
-	with (objPlayerBase) {
-		if (id == other.id) {
-			continue;
-		}
-		
-		array_push(players, id);
-	}
-	
-	array_shuffle(players);
-	chosed_player = players[0];
-	chosed_offset = 0;
-	delay_player = get_frames(10);
-	delay_offset = get_frames(1);
-	delay_shoot = 0;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		hp = 3;
+		spd = 0;
+		var players = [];
+	
+		with (objPlayerBase) {
+			if (id == other.id) {
+				continue;
+			}
+		
+			array_push(players, id);
+		}
+	
+		array_shuffle(players);
+		chosed_player = players[0];
+		chosed_offset = 0;
+		delay_player = get_frames(10);
+		delay_offset = get_frames(1);
+		delay_shoot = 0;
+	}
+}
 
 minigame_camera = CameraMode.Split4;
 player_check = objPlayerRocket;

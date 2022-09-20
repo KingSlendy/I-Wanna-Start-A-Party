@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Interfaces",
-    "path": "folders/Objects/Boards/Interfaces.yy",
+    "path": "folders/Objects/Party/Interfaces.yy",
   },
 }

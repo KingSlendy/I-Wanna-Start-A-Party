@@ -17,7 +17,7 @@
   "soundFile": "bgmboardhotlandannoyingdog.ogg",
   "duration": 37.257896,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

@@ -1,7 +1,3 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerHand);
-}
-
 event_inherited();
 
 minigame_camera = CameraMode.Split4;

@@ -1,13 +1,11 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_jump = false;
-	enable_shoot = false;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_jump = false;
+		enable_shoot = false;
+	}
+}
 
 minigame_camera = CameraMode.Split4;
 minigame_time_end = function() {

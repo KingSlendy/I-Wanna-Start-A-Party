@@ -16,7 +16,6 @@ shoot_delay = 0;
 
 on_block = false;
 on_platform = false;
-frozen = false;
 enable_move = true;
 enable_jump = true;
 enable_shoot = true;

@@ -1,15 +1,13 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_move = false;
-	enable_jump = false;
-}
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_move = false;
+		enable_jump = false;
+	}
+}
+
 action_end = function() {
 	if (trophy_obtain && trophy_shoot) {
 		gain_trophy(48);

@@ -39,6 +39,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Hotland",
-    "path": "folders/Objects/Boards/Events/Hotland.yy",
+    "path": "folders/Objects/Party/Events/Hotland.yy",
   },
 }

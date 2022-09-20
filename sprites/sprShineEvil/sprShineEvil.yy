@@ -98,6 +98,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Stats",
-    "path": "folders/Sprites/Objects/Boards/Stats.yy",
+    "path": "folders/Sprites/Objects/Party/Stats.yy",
   },
 }

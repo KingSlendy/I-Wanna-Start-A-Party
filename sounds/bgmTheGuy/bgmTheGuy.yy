@@ -17,7 +17,7 @@
   "soundFile": "bgmtheguy.ogg",
   "duration": 36.781975,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

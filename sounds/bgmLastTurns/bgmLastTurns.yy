@@ -17,7 +17,7 @@
   "soundFile": "bgmlastturns.ogg",
   "duration": 33.780666,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

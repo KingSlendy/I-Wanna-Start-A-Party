@@ -558,6 +558,6 @@
   },
   "parent": {
     "name": "Basement",
-    "path": "folders/Tilesets/Boards/Basement.yy",
+    "path": "folders/Tilesets/Party/Basement.yy",
   },
 }

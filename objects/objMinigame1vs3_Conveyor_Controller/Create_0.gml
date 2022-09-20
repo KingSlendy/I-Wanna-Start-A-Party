@@ -1,16 +1,14 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_shoot = false;
-	move_delay_timer = 0;
-	chosed_conveyor = -1;
-}
-
 event_inherited();
 
 minigame_start = minigame1vs3_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_shoot = false;
+		move_delay_timer = 0;
+		chosed_conveyor = -1;
+	}
+}
+
 minigame_time = 20;
 minigame_time_end = function() {
 	if (!minigame1vs3_lost()) {

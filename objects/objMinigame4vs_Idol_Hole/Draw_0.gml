@@ -6,8 +6,8 @@ if (idol == -1) {
 
 var color = c_white;
 
-if (hit) {
-	color = c_red;
+if (hit != 0) {
+	color = player_color_by_turn(player_info_by_id(hit).turn);
 } else if (portion != height) {
 	color = c_gray;
 }

@@ -1,14 +1,12 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_jump = false;
-	enable_shoot = false;
-	chest_picked = -1;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_jump = false;
+		enable_shoot = false;
+		chest_picked = -1;
+	}
+}
 
 points_draw = true;
 player_check = objPlayerPlatformer;

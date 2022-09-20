@@ -17,7 +17,7 @@
   "soundFile": "bgmboardbasement.ogg",
   "duration": 203.10988,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

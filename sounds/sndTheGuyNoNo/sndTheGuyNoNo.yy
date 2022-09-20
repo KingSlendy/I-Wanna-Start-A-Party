@@ -17,7 +17,7 @@
   "soundFile": "sndTheGuyNoNo.wav",
   "duration": 3.15102,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/SFX/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/SFX/Party.yy",
   },
 }

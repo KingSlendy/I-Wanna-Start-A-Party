@@ -1,10 +1,8 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-objPlayerBase.action_delay = 0;
-
 event_inherited();
+
+minigame_players = function() {
+	objPlayerBase.action_delay = 0;
+}
 
 points_draw = true;
 player_check = objPlayerPlatformer;

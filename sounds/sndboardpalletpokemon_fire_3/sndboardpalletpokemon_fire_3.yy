@@ -18,6 +18,6 @@
   "duration": 0.594463,
   "parent": {
     "name": "Pallet",
-    "path": "folders/Sounds/SFX/Boards/Pallet.yy",
+    "path": "folders/Sounds/SFX/Party/Pallet.yy",
   },
 }

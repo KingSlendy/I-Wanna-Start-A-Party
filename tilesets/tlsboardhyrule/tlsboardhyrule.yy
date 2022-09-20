@@ -2866,6 +2866,6 @@
   },
   "parent": {
     "name": "Hyrule",
-    "path": "folders/Tilesets/Boards/Hyrule.yy",
+    "path": "folders/Tilesets/Party/Hyrule.yy",
   },
 }

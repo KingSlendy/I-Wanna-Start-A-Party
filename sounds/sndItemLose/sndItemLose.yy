@@ -17,7 +17,7 @@
   "soundFile": "sndItemLose.wav",
   "duration": 0.633542,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/SFX/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/SFX/Party.yy",
   },
 }

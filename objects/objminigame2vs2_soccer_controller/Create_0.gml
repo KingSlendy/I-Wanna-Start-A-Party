@@ -1,12 +1,10 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-objPlayerPlatformer.enable_shoot = false;
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	objPlayerPlatformer.enable_shoot = false;
+}
+
 points_draw = true;
 player_check = objPlayerPlatformer;
 

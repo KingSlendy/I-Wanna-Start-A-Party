@@ -105,6 +105,10 @@ function give_last_place() {
 			change_items(global.board_items[choose(ItemType.Blackhole, ItemType.Mirror)], ItemChangeType.Gain).final_action = final_action;
 		} else {
 			change_shines(1, ShineChangeType.Spawn).final_action = final_action;
+			
+			if (focused_player().network_id == global.player_id) {
+				gain_trophy(61);
+			}
 		}
 	}
 }

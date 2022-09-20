@@ -70,6 +70,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Hyrule",
-    "path": "folders/Sprites/Objects/Boards/Hyrule.yy",
+    "path": "folders/Sprites/Objects/Party/Hyrule.yy",
   },
 }

@@ -4004,6 +4004,6 @@
   },
   "parent": {
     "name": "Island",
-    "path": "folders/Tilesets/Boards/Island.yy",
+    "path": "folders/Tilesets/Party/Island.yy",
   },
 }

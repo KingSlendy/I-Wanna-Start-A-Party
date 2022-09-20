@@ -28,6 +28,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Pallet",
-    "path": "folders/Objects/Boards/Events/Pallet.yy",
+    "path": "folders/Objects/Party/Events/Pallet.yy",
   },
 }

@@ -15,7 +15,8 @@ enum PlayerDataMode {
 	Basic,
 	Hand,
 	Rocket,
-	Hammer
+	Hammer,
+	Golf
 }
 
 function buffer_seek_begin(buffer = global.buffer) {
@@ -224,6 +225,10 @@ function player_write_data() {
 			buffer_write_data(buffer_u8, hp);
 			buffer_write_data(buffer_s8, speed);
 			break;
+			
+		case PlayerDataMode.Golf:
+			buffer_write_data(buffer_u16, angle);
+			break;
 	}
 	
 	network_send_udp_packet();
@@ -259,6 +264,10 @@ function player_read_data(buffer) {
 			case PlayerDataMode.Rocket:
 				instance.hp = buffer_read(buffer, buffer_u8);
 				instance.spd = buffer_read(buffer, buffer_s8);
+				break;
+				
+			case PlayerDataMode.Golf:
+				instance.angle = buffer_read(buffer, buffer_u16);
 				break;
 		}
 	}

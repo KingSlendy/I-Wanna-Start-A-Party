@@ -150,19 +150,19 @@ function skin_init() {
 		new Skin("Dinosaur", "Google Dinosaur", "Original", 29, "Kogami Takara", 200),
 		new Skin("ElAnpepion", "ElAnpepion", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Feer", "Feer", "Original", 29, "Kogami Takara", 1000),
-		new Skin("FukoSan", "FukoSan", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Urotsuki", "Urotsuki", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Yui", "Yui", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Herz", "Herz", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Marvin", "Marvin The Martian", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Kunikida", "Kunikida Hanamaru", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Kagami", "Kagami Hiiragi", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Miyuki", "Miyuki Takara", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Luffy", "Luffy D. Monkey", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Luffy", "Monkey D. Luffy", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Mecha", "Mecha Kid", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Sherlock", "Sherlock Shellingford", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Luna", "Luna Rurine", "Original", 29, "PlayerDash2017", 1000),
 		new Skin("Crane", "Crane Kid", "Un Ange Et Un Crane", 76, "Yukii", 400),
-		new Skin("SnowCoat", "Snow Coat Kid", "Jingle Jam", 13, "AlejoFangamer", 500)
+		new Skin("SnowCoat", "Snow Coat Kid", "Jingle Jam", 14, "AlejoFangamer", 500)
 	];
 }
 

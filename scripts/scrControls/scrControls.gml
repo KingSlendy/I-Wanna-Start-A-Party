@@ -1,3 +1,6 @@
+input_axis_threshold_set(gp_axislh, 0.5, 1);
+input_axis_threshold_set(gp_axislv, 0.5, 1);
+
 function Action() constructor {
 	static held = function(id = 0) {
 		if (id > 0 && id != global.player_id) {

@@ -1,18 +1,16 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	max_hspd = 0.5;
-	enable_jump = false;
-	enable_shoot = false;
-	won = false;
-	move_delay_timer = 0;
-	add_delay = false;
-	make_move = false;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		max_hspd = 0.5;
+		enable_jump = false;
+		enable_shoot = false;
+		won = false;
+		move_delay_timer = 0;
+		add_delay = false;
+		make_move = false;
+	}
+}
 
 action_end = function() {
 	with (objMinigame4vs_Haunted_Boo) {

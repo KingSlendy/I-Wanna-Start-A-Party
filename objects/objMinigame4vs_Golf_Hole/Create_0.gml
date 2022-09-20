@@ -1,0 +1,1 @@
+depth = layer_get_depth("Actors") - 1;

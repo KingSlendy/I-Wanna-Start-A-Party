@@ -68,6 +68,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Interactables",
-    "path": "folders/Sprites/Objects/Boards/Interactables.yy",
+    "path": "folders/Sprites/Objects/Party/Interactables.yy",
   },
 }

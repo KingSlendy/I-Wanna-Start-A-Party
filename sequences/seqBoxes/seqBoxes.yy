@@ -57,6 +57,6 @@
   "eventStubScript": null,
   "parent": {
     "name": "Interactables",
-    "path": "folders/Sequences/Boards/Interactables.yy",
+    "path": "folders/Sequences/Party/Interactables.yy",
   },
 }

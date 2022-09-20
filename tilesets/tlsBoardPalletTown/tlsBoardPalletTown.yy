@@ -944,6 +944,6 @@
   },
   "parent": {
     "name": "Pallet Town",
-    "path": "folders/Tilesets/Boards/Pallet Town.yy",
+    "path": "folders/Tilesets/Party/Pallet Town.yy",
   },
 }

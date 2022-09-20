@@ -1,15 +1,13 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	grav_amount = 0;
-	enable_shoot = false;
-	has_item = false;
-	last_touched = null;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		grav_amount = 0;
+		enable_shoot = false;
+		has_item = false;
+		last_touched = null;
+	}
+}
 
 player_check = objPlayerPlatformer;
 trophy_none = true;

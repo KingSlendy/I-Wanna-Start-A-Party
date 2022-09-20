@@ -1,5 +1,6 @@
 depth = (!instance_exists(objTheGuy)) ? -9002 : -9005;
 image_alpha = 0;
+event_perform(ev_step, ev_step_begin);
 spawning = true;
 floating = false;
 y_float = 0;

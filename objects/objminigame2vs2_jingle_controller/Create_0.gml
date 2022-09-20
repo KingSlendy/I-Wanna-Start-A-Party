@@ -1,12 +1,10 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerStatic);
-}
-
-objPlayerBase.sledge = null;
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	objPlayerBase.sledge = null;
+}
+
 action_end = function() {
 	alarm_stop(4);
 	alarm_stop(5);

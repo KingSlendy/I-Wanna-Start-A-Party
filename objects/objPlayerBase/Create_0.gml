@@ -6,10 +6,11 @@ ai = false;
 send_timer = 0;
 lost = false;
 draw = true;
+frozen = false;
 
 function change_to_object(obj) {
 	if (object_index == objNetworkPlayer) {
-		return;
+		return null;
 	}
 	
 	var a = instance_create_layer(x, y, "Actors", obj);
@@ -18,6 +19,8 @@ function change_to_object(obj) {
 	a.network_name = network_name;
 	a.skin = skin;
 	instance_destroy();
+	
+	return a;
 }
 
 alarms_init(12);

@@ -68,6 +68,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Hotland",
-    "path": "folders/Sprites/Objects/Boards/Hotland.yy",
+    "path": "folders/Sprites/Objects/Party/Hotland.yy",
   },
 }

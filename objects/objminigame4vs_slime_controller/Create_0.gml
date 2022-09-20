@@ -1,7 +1,3 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
 event_inherited();
 
 minigame_time_end = function() {

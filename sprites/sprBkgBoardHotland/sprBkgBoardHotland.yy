@@ -222,6 +222,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Hotland",
-    "path": "folders/Sprites/Backgrounds/Boards/Hotland.yy",
+    "path": "folders/Sprites/Backgrounds/Party/Hotland.yy",
   },
 }

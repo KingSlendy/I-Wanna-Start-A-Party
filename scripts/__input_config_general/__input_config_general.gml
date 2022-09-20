@@ -3,7 +3,7 @@
 #macro INPUT_MAX_PLAYERS  4
 
 //Maximum number of alternate bindings per verb per profile
-#macro INPUT_MAX_ALTERNATE_BINDINGS  1
+#macro INPUT_MAX_ALTERNATE_BINDINGS  2
 
 //Set to true to use milliseconds instead of frames throughout the library
 #macro INPUT_TIMER_MILLISECONDS  false

@@ -33,6 +33,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Stats",
-    "path": "folders/Objects/Boards/Stats.yy",
+    "path": "folders/Objects/Party/Stats.yy",
   },
 }

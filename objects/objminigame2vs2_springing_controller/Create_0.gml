@@ -1,15 +1,13 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_shoot = false;
-	grav_amount = 0;
-}
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_shoot = false;
+		grav_amount = 0;
+	}
+}
+
 action_end = function() {
 	objMinigame2vs2_Springing_Spring.enabled = false;
 	

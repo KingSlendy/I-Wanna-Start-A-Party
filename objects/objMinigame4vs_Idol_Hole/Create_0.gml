@@ -3,7 +3,7 @@ idol = -1;
 portion = 0;
 show = -1;
 spd = 0;
-hit = false;
+hit = 0;
 width = sprite_get_width(sprMinigame4vs_Idol_Idol);
 height = sprite_get_height(sprMinigame4vs_Idol_Idol);
 
@@ -13,7 +13,7 @@ function change_idol() {
 	image_index = idol;
 	show = 0;
 	spd = irandom_range(1, 3);
-	hit = false;
+	hit = 0;
 	alarm_call(0, random_range(2, 4));
 }
 
@@ -25,7 +25,7 @@ function hide_idol() {
 }
 
 function whac_idol(player_id, network = true) {
-	hit = true;
+	hit = player_id;
 	hide_idol();
 	minigame4vs_points(player_id, 1);
 	

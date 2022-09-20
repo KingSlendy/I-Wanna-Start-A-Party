@@ -17,7 +17,7 @@
   "soundFile": "bgmBoardHotland.mp3",
   "duration": 142.248,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

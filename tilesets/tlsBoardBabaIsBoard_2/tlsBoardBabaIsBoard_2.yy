@@ -696,6 +696,6 @@
   },
   "parent": {
     "name": "Baba Is Board",
-    "path": "folders/Tilesets/Boards/Baba Is Board.yy",
+    "path": "folders/Tilesets/Party/Baba Is Board.yy",
   },
 }

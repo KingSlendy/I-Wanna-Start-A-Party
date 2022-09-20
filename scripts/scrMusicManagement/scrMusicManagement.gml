@@ -82,6 +82,7 @@ mlp[$ bgmMinigame4vs_Bullets] = new LoopPoint(2.275, 36.760);
 mlp[$ bgmMinigame4vs_Drawn] = new LoopPoint(7.367, 57.022);
 mlp[$ bgmMinigame4vs_Bubble] = new LoopPoint(4.814, 51.957);
 mlp[$ bgmMinigame4vs_Idol] = new LoopPoint(4.831, 40.170);
+mlp[$ bgmMinigame4vs_Golf] = new LoopPoint(1.380, 28.843);
 #endregion
 	
 #region 1vs3

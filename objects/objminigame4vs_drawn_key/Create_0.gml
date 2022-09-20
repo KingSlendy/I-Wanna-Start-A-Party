@@ -23,7 +23,7 @@ function collect_key(player_id, network = true) {
 	}
 	
 	visible = false;
-	alarm_call(0, random_range(1, 2));
+	alarm_call(0, random_range(2, 4));
 	
 	if (network) {
 		buffer_seek_begin();

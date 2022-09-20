@@ -359,7 +359,7 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Boards",
-    "path": "folders/Tilesets/Boards.yy",
+    "name": "Party",
+    "path": "folders/Tilesets/Party.yy",
   },
 }

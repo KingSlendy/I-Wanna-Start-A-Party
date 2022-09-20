@@ -176,6 +176,6 @@
   },
   "parent": {
     "name": "Dreams",
-    "path": "folders/Tilesets/Boards/Dreams.yy",
+    "path": "folders/Tilesets/Party/Dreams.yy",
   },
 }

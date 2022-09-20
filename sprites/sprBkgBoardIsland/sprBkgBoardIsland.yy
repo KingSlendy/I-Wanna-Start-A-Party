@@ -82,6 +82,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Island",
-    "path": "folders/Sprites/Backgrounds/Boards/Island.yy",
+    "path": "folders/Sprites/Backgrounds/Party/Island.yy",
   },
 }

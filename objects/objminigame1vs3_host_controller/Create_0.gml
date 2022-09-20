@@ -1,16 +1,14 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_shoot = false;
-	jump_total = -1;
-	pick_id = null;
-}
-
 event_inherited();
 
 minigame_start = minigame1vs3_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_shoot = false;
+		jump_total = -1;
+		pick_id = null;
+	}
+}
+
 minigame_camera = CameraMode.Split4;
 minigame_time_valign = fa_top;
 minigame_time_end = function() {

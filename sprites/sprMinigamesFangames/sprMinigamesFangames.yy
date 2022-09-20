@@ -66,6 +66,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"41de259f-774e-4c0e-bf5c-dc9e285be674",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6a47033d-f907-42de-bdee-028fe516b90f",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"18bed5ff-77e2-4346-8f17-ba739c04e410",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"baffc7f5-1b37-461a-984e-050a81f93bc2",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -77,7 +78,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 39.0,
+    "length": 40.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -121,6 +122,7 @@
             {"id":"5b3358e1-9cc4-4e53-8d7b-fe78133af808","Key":36.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"41de259f-774e-4c0e-bf5c-dc9e285be674","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"31e0c922-c325-490a-89e9-7b09b7d88bf9","Key":37.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6a47033d-f907-42de-bdee-028fe516b90f","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"3a5b5292-0c66-4385-aeab-460f4d9c6e9f","Key":38.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"18bed5ff-77e2-4346-8f17-ba739c04e410","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ed81fb20-d2a1-445f-a01f-29df07494597","Key":39.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"baffc7f5-1b37-461a-984e-050a81f93bc2","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

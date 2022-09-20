@@ -17,7 +17,7 @@
   "soundFile": "bgmboardislandnight.ogg",
   "duration": 69.35108,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

@@ -88,6 +88,6 @@
   "eventStubScript": null,
   "parent": {
     "name": "Interfaces",
-    "path": "folders/Sequences/Boards/Interfaces.yy",
+    "path": "folders/Sequences/Party/Interfaces.yy",
   },
 }

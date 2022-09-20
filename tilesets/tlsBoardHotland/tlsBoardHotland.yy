@@ -490,6 +490,6 @@
   },
   "parent": {
     "name": "Hotland",
-    "path": "folders/Tilesets/Boards/Hotland.yy",
+    "path": "folders/Tilesets/Party/Hotland.yy",
   },
 }

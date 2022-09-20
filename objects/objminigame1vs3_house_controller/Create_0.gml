@@ -1,12 +1,10 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-objPlayerBase.enable_shoot = false;
-
 event_inherited();
 
 minigame_start = minigame1vs3_start;
+minigame_players = function() {
+	objPlayerBase.enable_shoot = false;
+}
+
 minigame_time = 30;
 minigame_time_end = function() {
 	if (!points_teams[1][0].lost) {

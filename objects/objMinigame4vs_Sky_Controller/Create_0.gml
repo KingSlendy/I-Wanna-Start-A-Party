@@ -1,14 +1,12 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerDir8);
-}
-
-with (objPlayerBase) {
-	image_xscale = 2;
-	image_yscale = 2;
-	touched = false;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		image_xscale = 2;
+		image_yscale = 2;
+		touched = false;
+	}
+}
 
 minigame_time = 30;
 action_end = function() {

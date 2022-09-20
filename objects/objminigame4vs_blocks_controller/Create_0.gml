@@ -1,10 +1,8 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-objPlayerBase.enable_shoot = false;
-
 event_inherited();
+
+minigame_players = function() {
+	objPlayerBase.enable_shoot = false;
+}
 
 player_check = objPlayerPlatformer;
 

@@ -84,6 +84,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Events",
-    "path": "folders/Sprites/Objects/Boards/Events.yy",
+    "path": "folders/Sprites/Objects/Party/Events.yy",
   },
 }

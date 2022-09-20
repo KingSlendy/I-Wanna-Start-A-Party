@@ -1,13 +1,11 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerBasic);
-}
-
-with (objPlayerBase) {
-	jump_total = 1;
-	advance = true;
-}
-
 event_inherited();
+
+minigame_players = function() {
+	with (objPlayerBase) {
+		jump_total = 1;
+		advance = true;
+	}
+}
 
 player_check = objPlayerBasic;
 player_turn = 0;

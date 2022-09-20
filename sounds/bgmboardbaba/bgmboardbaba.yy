@@ -17,7 +17,7 @@
   "soundFile": "bgmboardbaba.ogg",
   "duration": 119.23683,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

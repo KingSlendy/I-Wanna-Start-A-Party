@@ -29,6 +29,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Basement",
-    "path": "folders/Objects/Boards/Events/Basement.yy",
+    "path": "folders/Objects/Party/Events/Basement.yy",
   },
 }

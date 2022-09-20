@@ -109,6 +109,7 @@ enum ClientTCP {
 	Minigame4vs_Drawn_CollectKey,
 	Minigame4vs_Bubble_Goal,
 	Minigame4vs_Idol_WhacIdol,
+	Minigame4vs_Golf_GivePoints,
 	#endregion
 	
 	#region 1vs3
@@ -941,6 +942,15 @@ f[$ ClientTCP.Minigame4vs_Idol_WhacIdol] = function(buffer) {
 			whac_idol(player_id, false);
 			break;
 		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Golf_GivePoints] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	var points = buffer_read(buffer, buffer_u16);
+	
+	with (objMinigameController) {
+		give_points(player_id, points, false);
 	}
 }
 #endregion

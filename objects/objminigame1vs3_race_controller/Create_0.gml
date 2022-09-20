@@ -1,7 +1,3 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerStatic);
-}
-
 event_inherited();
 
 minigame_start = minigame1vs3_start;
@@ -54,6 +50,10 @@ alarm_override(1, function() {
 
 alarm_create(4, function() {
 	with (points_teams[1][0]) {
+		if (!is_player_local(network_id)) {
+			break;
+		}
+		
 		sprite_index = skin[$ "Idle"];
 		hspeed = 0;
 	}

@@ -264,6 +264,10 @@ function space_finish_event() {
 		
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
 			bonus_shine_by_id(BonusShines.MostItemSpaces).increase_score();
+			
+			if (focused_player().network_id == global.player_id && item == ItemType.Mirror) {
+				gain_trophy(60);
+			}
 			break;
 			
 		case SpaceType.ChanceTime:

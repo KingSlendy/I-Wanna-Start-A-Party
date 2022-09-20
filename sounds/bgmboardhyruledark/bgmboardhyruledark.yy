@@ -17,7 +17,7 @@
   "soundFile": "bgmboardhyruledark.ogg",
   "duration": 62.18775,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

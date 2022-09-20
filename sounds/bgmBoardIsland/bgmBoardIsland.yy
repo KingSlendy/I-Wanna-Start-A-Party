@@ -17,7 +17,7 @@
   "soundFile": "bgmboardisland.ogg",
   "duration": 69.5664,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

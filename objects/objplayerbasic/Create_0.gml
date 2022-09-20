@@ -13,7 +13,6 @@ jump_height = [8.5, 7];
 jump_total = 2;
 
 on_block = false;
-frozen = false;
 enable_jump = true;
 
 alarm_create(0, function() {

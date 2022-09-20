@@ -17,7 +17,7 @@
   "soundFile": "bgmchancetime.ogg",
   "duration": 38.980145,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

@@ -1,4 +1,4 @@
-if (image_alpha != 1) {
+if (image_alpha != 1 || objMinigameController.info.is_finished) {
 	exit;
 }
 

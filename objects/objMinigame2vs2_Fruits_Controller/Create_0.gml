@@ -1,16 +1,14 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	enable_jump = false;
-	enable_shoot = false;
-	move_delay_timer = 0;
-}
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_jump = false;
+		enable_shoot = false;
+		move_delay_timer = 0;
+	}	
+}
+
 minigame_time = 30;
 minigame_time_end = function() {
 	alarm_stop(4);

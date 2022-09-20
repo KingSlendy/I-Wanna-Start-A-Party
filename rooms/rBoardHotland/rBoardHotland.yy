@@ -577,7 +577,7 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Boards",
-    "path": "folders/Rooms/Boards.yy",
+    "name": "Party",
+    "path": "folders/Rooms/Party.yy",
   },
 }

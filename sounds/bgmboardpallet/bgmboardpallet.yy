@@ -17,7 +17,7 @@
   "soundFile": "bgmboardpallet.ogg",
   "duration": 35.608776,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/BGM/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/BGM/Party.yy",
   },
 }

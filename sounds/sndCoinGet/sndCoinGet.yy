@@ -17,7 +17,7 @@
   "soundFile": "sndCoinGet.wav",
   "duration": 0.812698,
   "parent": {
-    "name": "Boards",
-    "path": "folders/Sounds/SFX/Boards.yy",
+    "name": "Party",
+    "path": "folders/Sounds/SFX/Party.yy",
   },
 }

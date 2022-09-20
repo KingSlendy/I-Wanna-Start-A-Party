@@ -70,6 +70,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Island",
-    "path": "folders/Sprites/Objects/Boards/Island.yy",
+    "path": "folders/Sprites/Objects/Party/Island.yy",
   },
 }

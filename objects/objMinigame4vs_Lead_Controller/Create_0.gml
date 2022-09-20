@@ -1,7 +1,3 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerStatic);
-}
-
 event_inherited();
 
 minigame_time = 10;

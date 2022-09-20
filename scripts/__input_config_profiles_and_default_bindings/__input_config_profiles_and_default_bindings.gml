@@ -21,10 +21,10 @@ INPUT_DEFAULT_PROFILES = {
 	},
 	
 	gamepad: {
-		left: input_binding_gamepad_button(gp_padl),
-		right: input_binding_gamepad_button(gp_padr),
-		up: input_binding_gamepad_button(gp_padu),
-		down: input_binding_gamepad_button(gp_padd),
+		left: [input_binding_gamepad_button(gp_padl), input_binding_gamepad_axis(gp_axislh, true)],
+		right: [input_binding_gamepad_button(gp_padr), input_binding_gamepad_axis(gp_axislh, false)],
+		up: [input_binding_gamepad_button(gp_padu), input_binding_gamepad_axis(gp_axislv, true)],
+		down: [input_binding_gamepad_button(gp_padd), input_binding_gamepad_axis(gp_axislv, false)],
 		jump: input_binding_gamepad_button(gp_face1),
 		shoot: input_binding_gamepad_button(gp_face2),
 		back: input_binding_gamepad_button(gp_select)

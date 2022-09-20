@@ -36,6 +36,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Animations",
-    "path": "folders/Objects/Boards/Animations.yy",
+    "path": "folders/Objects/Party/Animations.yy",
   },
 }

@@ -18,6 +18,6 @@
   "duration": 3.94449,
   "parent": {
     "name": "Hyrule",
-    "path": "folders/Sounds/SFX/Boards/Hyrule.yy",
+    "path": "folders/Sounds/SFX/Party/Hyrule.yy",
   },
 }

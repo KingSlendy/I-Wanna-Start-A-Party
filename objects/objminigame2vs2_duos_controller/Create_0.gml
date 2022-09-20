@@ -1,37 +1,35 @@
-with (objPlayerBase) {
-	change_to_object(objPlayerPlatformer);
-}
-
-with (objPlayerBase) {
-	state = -1;
-	state_presses = [
-		false,
-		null,
-		[false, 0],
-		false,
-		[false, false, get_frames_static(0.5)],
-		null,
-		false,
-		false,
-		false,
-		null,
-		[get_frames_static(7), 0],
-		null,
-		false,
-		[get_frames_static(7), 0],
-		false,
-		[[], null],
-		[[], null],
-		[get_frames_static(0.25), false],
-		[false, get_frames_static(1)]
-	];
-	
-	finished = false;
-}
-
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		state = -1;
+		state_presses = [
+			false,
+			null,
+			[false, 0],
+			false,
+			[false, false, get_frames_static(0.5)],
+			null,
+			false,
+			false,
+			false,
+			null,
+			[get_frames_static(7), 0],
+			null,
+			false,
+			[get_frames_static(7), 0],
+			false,
+			[[], null],
+			[[], null],
+			[get_frames_static(0.25), false],
+			[false, get_frames_static(1)]
+		];
+	
+		finished = false;
+	}
+}
+
 minigame_camera = CameraMode.Split4;
 player_check = objPlayerPlatformer;
 
