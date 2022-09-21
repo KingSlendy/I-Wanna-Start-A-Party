@@ -1,4 +1,5 @@
 event_inherited();
+network_mode = PlayerDataMode.Golf;
 aiming = true;
 powering = false;
 aim_angle = 45;

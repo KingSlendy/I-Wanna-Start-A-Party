@@ -212,9 +212,15 @@ function player_write_data() {
 		buffer_write_data(buffer_s8, image_yscale);
 	}
 	
-	buffer_write_data(buffer_u16, image_angle);
-	buffer_write_data(buffer_s32, x);
-	buffer_write_data(buffer_s32, y);
+	if (network_mode != PlayerDataMode.Golf) {
+		buffer_write_data(buffer_u16, image_angle);
+		buffer_write_data(buffer_s32, x);
+		buffer_write_data(buffer_s32, y);
+	} else {
+		buffer_write_data(buffer_u16, phy_rotation);
+		buffer_write_data(buffer_s32, phy_position_x);
+		buffer_write_data(buffer_s32, phy_position_y);
+	}
 	
 	switch (network_mode) {
 		case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
@@ -227,7 +233,10 @@ function player_write_data() {
 			break;
 			
 		case PlayerDataMode.Golf:
-			buffer_write_data(buffer_u16, angle);
+			buffer_write_data(buffer_bool, aiming);
+			buffer_write_data(buffer_bool, powering);
+			buffer_write_data(buffer_u16, aim_angle);
+			buffer_write_data(buffer_f16, aim_power);
 			break;
 	}
 	
@@ -267,7 +276,10 @@ function player_read_data(buffer) {
 				break;
 				
 			case PlayerDataMode.Golf:
-				instance.angle = buffer_read(buffer, buffer_u16);
+				instance.aiming = buffer_read(buffer, buffer_bool);
+				instance.powering = buffer_read(buffer, buffer_bool);
+				instance.aim_angle = buffer_read(buffer, buffer_u16);
+				instance.aim_power = buffer_read(buffer, buffer_f16);
 				break;
 		}
 	}

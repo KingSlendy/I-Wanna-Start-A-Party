@@ -1,8 +1,7 @@
 var draw_player = function(player) {
 	with (player) {
 		if (draw && !lost) {
-			var is_local = is_player_local(network_id);
-			event_perform_object((is_local) ? object_index : network_index, ev_draw, 0);
+			event_perform_object((is_player_local(network_id)) ? object_index : network_index, ev_draw, 0);
 		}
 	}
 }

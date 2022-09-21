@@ -141,7 +141,7 @@ function players_start() {
 	
 	for (var i = 0; i < array_length(points_teams); i++) {
 		for (var j = 0; j < array_length(points_teams[i]); j++) {
-			objMinigameController.points_teams[i][j] = focus_player_by_id(objMinigameController.points_teams[i][j]);
+			objMinigameController.points_teams[i][j] = focus_player_by_turn(objMinigameController.points_teams[i][j]);
 		}
 	}
 }
@@ -160,12 +160,6 @@ function minigame1vs3_start(info, mode = CameraMode.Static) {
 	player_1vs3_positioning(info);
 	players_start();
 	
-	with (objPlayerBase) {
-		with (change_to_object(other.player_check)) {
-			event_perform(ev_other, ev_room_start);
-		}
-	}
-	
 	switch (mode) {
 		case CameraMode.Follow: camera_start(objCamera); break;
 		case CameraMode.Split4: camera4vs_split4(camera_start(objCameraSplit4)); break;
@@ -175,12 +169,6 @@ function minigame1vs3_start(info, mode = CameraMode.Static) {
 function minigame2vs2_start(info, mode = CameraMode.Static) {
 	player_2vs2_positioning(info);
 	players_start();
-	
-	with (objPlayerBase) {
-		with (change_to_object(other.player_check)) {
-			event_perform(ev_other, ev_room_start);
-		}
-	}
 	
 	switch (mode) {
 		case CameraMode.Follow: camera_start(objCamera); break;
