@@ -8,7 +8,7 @@ minigame_time_end = function() {
 	unfreeze_player();
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 player_turn = 0;
 
 function unfreeze_player(network = true) {

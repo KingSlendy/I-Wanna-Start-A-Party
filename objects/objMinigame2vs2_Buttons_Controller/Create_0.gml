@@ -2,12 +2,17 @@ event_inherited();
 
 minigame_start = minigame2vs2_start;
 minigame_players = function() {
-	objPlayerBase.jump_total = -1;
+	with (objPlayerBase) {
+		jump_total = -1;
+		path = path_add();
+		move_delay_timer = 0;
+		jump_delay_timer = 0;
+	}
 }
 
 minigame_time = 40;
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 buttons_outside_list = [];
 buttons_inside_list = [];
 
@@ -21,12 +26,6 @@ buttons_inside_current = 0;
 
 grid = mp_grid_create(0, 0, room_width / 32, room_height / 32, 32, 32);
 mp_grid_add_instances(grid, objBlock, false);
-
-with (objPlayerBase) {
-	path = path_add();
-	move_delay_timer = 0;
-	jump_delay_timer = 0;
-}
 
 alarm_override(1, function() {
 	alarm_inherited(1);

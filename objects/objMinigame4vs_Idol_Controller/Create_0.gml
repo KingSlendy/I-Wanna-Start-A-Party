@@ -2,4 +2,4 @@ event_inherited();
 
 minigame_time = 30;
 points_draw = true;
-player_check = objPlayerHammer;
+player_type = objPlayerHammer;

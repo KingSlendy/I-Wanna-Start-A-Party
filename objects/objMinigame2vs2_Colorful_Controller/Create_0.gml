@@ -1,7 +1,7 @@
 event_inherited();
 
 minigame_start = minigame2vs2_start;
-player_check = objPlayerStatic;
+player_type = objPlayerStatic;
 
 next_seed_inline();
 round_seed = [];

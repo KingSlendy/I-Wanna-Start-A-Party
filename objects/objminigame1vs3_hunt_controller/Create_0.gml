@@ -11,7 +11,7 @@ minigame_time_end = function() {
 		minigame4vs_points(points_teams[1][0].network_id);
 		
 		if (points_teams[1][0].network_id == global.player_id && trophy_jump) {
-			gain_trophy(53);
+			achieve_trophy(53);
 		}
 	} else {
 		minigame1vs3_points();
@@ -20,7 +20,7 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 shoot_start = false;
 shoot_delay = array_create(3, 0);
 trophy_jump = true;

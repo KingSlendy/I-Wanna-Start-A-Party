@@ -1,9 +1,60 @@
-function Trophy(image, rank, name, description, hint) constructor {
+function Trophy(image, rank, name, description, short) constructor {
 	self.image = image;
 	self.rank = rank;
 	self.name = name;
 	self.description = description;
-	self.hint = hint;
+	self.short = short;
+	
+	static achieve = function() {
+		if (!instance_exists(objCollectedTrophy)) {
+			var t = instance_create_layer(0, 0, "Managers", objCollectedTrophy);
+			t.rank = self.rank;
+			t.image = self.image;
+			t.trophy = self.image - 1;
+		} else {
+			array_push(global.collected_trophies_stack, self.image - 1);
+		}
+	
+		array_push(global.collected_trophies, self.image - 1);
+		array_sort(global.collected_trophies, true);
+		self.hint();
+		self.spoiler();
+		var amount = 0;
+		
+		switch (self.rank) {
+			case TrophyRank.Bronze: amount = 50; break;
+			case TrophyRank.Silver: amount = 200; break;
+			case TrophyRank.Gold: amount = 500; break;
+			case TrophyRank.Platinum: amount = 2000; break;
+		}
+		
+		change_collected_coins(amount);
+		save_file();
+	}
+	
+	static hint = function() {
+		array_push(global.collected_hint_trophies, self.image - 1);
+		array_sort(global.collected_hint_trophies, true);
+		save_file();
+	}
+	
+	static spoiler = function() {
+		array_push(global.collected_spoiler_trophies, self.image - 1);
+		array_sort(global.collected_spoiler_trophies, true);
+		save_file();
+	}
+	
+	static state = function() {
+		if (achieved_trophy(self.image - 1) || spoilered_trophy(self.image - 1)) {
+			return TrophyState.Known;
+		}
+		
+		if (hinted_trophy(self.image - 1)) {
+			return TrophyState.Hint;
+		}
+		
+		return TrophyState.Unknown;
+	}
 }
 
 enum TrophyRank {
@@ -11,6 +62,12 @@ enum TrophyRank {
 	Gold,
 	Silver,
 	Bronze,
+	Unknown
+}
+
+enum TrophyState {
+	Known,
+	Hint,
 	Unknown
 }
 
@@ -72,55 +129,68 @@ global.trophies = [
 	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
 	new Trophy(56, TrophyRank.Silver, "Numberphile", "You got the same number for the place, Shines and Coins!You love seeing the same number!", "Hey I have the same number for everything!"),
 	new Trophy(57, TrophyRank.Silver, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
-	new Trophy(58, TrophyRank.Platinum, "Minigame Expert", "You won every single minigame in Party!\nI wish I could win all the minigames as well to gain a bunch of Coins!", "You're that much of an expert you won all of them."),
+	new Trophy(58, TrophyRank.Gold, "Minigame Expert", "You won every single minigame in Party!\nI wish I could win all the minigames as well to gain a bunch of Coins!", "You're that much of an expert you won all of them."),
 	new Trophy(59, TrophyRank.Silver, "Reyo Keys", "You didn't grab a single green key in Drawn Keys and won!\nGoing for the big prize keys here!", "Green is too low."),
 	new Trophy(60, TrophyRank.Bronze, "Wall Master", "You wasted all your bullets in Targeting Targets.\nThe point was to shoot targets and not walls in case you didn't know.", "Wasting ammo to not hit any, great."),
-	new Trophy(61, TrophyRank.Gold, "Spare Mirror", "You received a Mirror from an item space!\nNow that's a handy item after so many Poisons!", "Heck yeah! I was getting tired of so many Poisons and Cellphones!"),
-	new Trophy(62, TrophyRank.Platinum, "Turning Tables", "You recieved a Shine in the last 5 turns event!\nThat was unexpected, the other players are hating you right now!", "I bet you went up at least 2 places with that event!")
+	new Trophy(61, TrophyRank.Gold, "Spare Mirror", "You received a Mirror from an item space!\nNow that's a handy item after so many Poisons!", "Heck yeah! I was getting tired of so many lame items in this space!\nThis is definitely better!"),
+	new Trophy(62, TrophyRank.Platinum, "Turning Tables", "You recieved a Shine in the last 5 turns event!\nThat was unexpected, the other players are hating you right now!", "I bet you weren't expecting to get that on the last 5 turns!"),
+	new Trophy(63, TrophyRank.Bronze, "Flag Toucher", "You scored 99 points in Golf Course.\nHere hoping for the wind to barely move the ball, right?", "Come on, man! The flag is right there!"),
+	new Trophy(64, TrophyRank.Gold, "Empty Chests", "You scored 0 points in Crazy Chests.\nThose chests were kind of a scam, huh?", "Hey wait a minute... this chests are empty!")
 ];
 
 global.collected_trophies_stack = [];
 
-function gain_trophy(trophy) {
-	if (have_trophy(trophy)) {
+function achieve_trophy(image) {
+	var trophy = global.trophies[image];
+	
+	if (achieved_trophy(image)) {
 		return;
 	}
 	
-	if (!instance_exists(objCollectedTrophy)) {
-		collect_trophy(trophy);
-	} else {
-		array_push(global.collected_trophies_stack, trophy);
+	trophy.achieve();
+}
+
+function achieved_trophy(image) {
+	return (array_search(global.collected_trophies, image));
+}
+
+function hint_trophy(image) {
+	var trophy = global.trophies[image];
+	
+	if (hinted_trophy(image)) {
+		return;
 	}
 	
-	array_push(global.collected_trophies, trophy);
-	array_sort(global.collected_trophies, true);
-	var amount = 0;
-	var now_trophy = global.trophies[trophy];
-		
-	switch (now_trophy.rank) {
-		case 3: amount = 50; break;
-		case 2: amount = 200; break;
-		case 1: amount = 500; break;
-		case 0: amount = 2000; break;
+	trophy.hint();
+}
+
+function hinted_trophy(image) {
+	return (array_search(global.collected_hint_trophies, image));
+}
+
+function spoiler_trophy(image) {
+	var trophy = global.trophies[image];
+	
+	if (spoilered_trophy(image)) {
+		return;
 	}
-		
-	increase_collected_coins(amount);
-	save_file();
+	
+	trophy.spoiler();
 }
 
-function have_trophy(trophy) {
-	return (array_search(global.collected_trophies, trophy));
+function spoilered_trophy(image) {
+	return (array_search(global.collected_spoiler_trophies, image));
 }
 
-function collect_trophy(trophy) {
-	var now_trophy = global.trophies[trophy];
+function collect_trophy(image) {
+	var trophy = global.trophies[image];
 	var t = instance_create_layer(0, 0, "Managers", objCollectedTrophy);
-	t.rank = now_trophy.rank;
-	t.image = now_trophy.image;
-	t.trophy = trophy;
+	t.rank = trophy.rank;
+	t.image = trophy.image;
+	t.trophy = image;
 }
 
-function increase_collected_coins(amount) {
+function change_collected_coins(amount) {
 	if (amount == 0) {
 		return;
 	}

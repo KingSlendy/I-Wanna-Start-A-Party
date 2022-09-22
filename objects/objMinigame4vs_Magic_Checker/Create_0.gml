@@ -23,7 +23,7 @@ alarm_create(function() {
 alarm_create(function() {
 	if (current_order == 10) {
 		if (objMinigameController.info.player_scores[global.player_id - 1].points == 10) {
-			gain_trophy(7);
+			achieve_trophy(7);
 		}
 	
 		var empty = true;
@@ -36,7 +36,7 @@ alarm_create(function() {
 		}
 	
 		if (empty) {
-			gain_trophy(8);
+			achieve_trophy(8);
 		}
 	
 		minigame_finish();

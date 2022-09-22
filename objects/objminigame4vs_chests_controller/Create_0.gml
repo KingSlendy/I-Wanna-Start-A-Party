@@ -8,8 +8,14 @@ minigame_players = function() {
 	}
 }
 
+action_end = function() {
+	if (info.player_scores[global.player_id - 1].points == 0) {
+		achieve_trophy(63);
+	}
+}
+
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 chest_started = false;
 
 next_seed_inline();

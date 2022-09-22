@@ -13,6 +13,8 @@ function save_variables() {
 	global.seen_minigames = [];
 	global.collected_skins = array_sequence(0, 8);
 	global.collected_trophies = [];
+	global.collected_hint_trophies = [];
+	global.collected_spoiler_trophies = [];
 	global.ellapsed_time = 0;
 	global.player_name = "Player";
 	global.ip = "startaparty.sytes.net";
@@ -42,6 +44,8 @@ function save_file() {
 			saved_seen_minigames: global.seen_minigames,
 			saved_collected_skins: global.collected_skins,
 			saved_collected_trophies: global.collected_trophies,
+			saved_collected_hint_trophies: global.collected_hint_trophies,
+			saved_collected_spoiler_trophies: global.collected_spoiler_trophies,
 			saved_ellapsed_time: global.ellapsed_time,
 			saved_player_name: global.player_name,
 			saved_ip: global.ip,
@@ -85,6 +89,19 @@ function load_file() {
 	global.seen_minigames = save.main_game.saved_seen_minigames;
 	global.collected_skins = save.main_game.saved_collected_skins;
 	global.collected_trophies = save.main_game.saved_collected_trophies;
+	
+	try {
+		global.collected_hint_trophies = save.main_game.saved_collected_hint_trophies;
+	} catch (_) {
+		global.collected_hint_trophies = [];
+	}
+	
+	try {
+		global.collected_spoiler_trophies = save.main_game.saved_collected_spoiler_trophies;
+	} catch (_) {
+		global.collected_spoiler_trophies = [];
+	}
+	
 	global.ellapsed_time = save.main_game.saved_ellapsed_time;
 	global.player_name = save.main_game.saved_player_name;
 	global.ip = save.main_game.saved_ip;

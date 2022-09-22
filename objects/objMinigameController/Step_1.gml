@@ -1,4 +1,4 @@
-if (!started && get_player_count(player_check) == global.player_max) {
+if (!started && get_player_count(player_type) == global.player_max) {
 	fade_alpha -= 0.03 * DELTA;
 	
 	if (fade_alpha <= 0) {

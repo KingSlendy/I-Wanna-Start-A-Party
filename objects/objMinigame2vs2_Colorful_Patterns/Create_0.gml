@@ -84,7 +84,7 @@ function pattern_grid_generate() {
 		minigame_finish();
 		
 		if (array_contains(pattern_player_ids, global.player_id) && objMinigameController.trophy_found) {
-			gain_trophy(22);
+			achieve_trophy(22);
 		}
 		
 		return;

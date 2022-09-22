@@ -9,7 +9,7 @@ action_end = function() {
 	alarm_stop(5);
 }
 
-player_check = objPlayerStatic;
+player_type = objPlayerStatic;
 
 press_actions = [
 	"right",

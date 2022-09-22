@@ -8,6 +8,15 @@ if (y < other.bbox_bottom) {
 		if (minigame2vs2_get_points(player_id, other_id) < 0) {
 			minigame2vs2_points(player_id, other_id, 0);
 		}
+		
+		var snd;
+		
+		switch (type) {
+			case 0: snd = sndMinigamePointsA; break;
+			case 1: snd = sndMinigamePointsB; break;
+			case 2: snd = sndMinigamePointsC; break;
+			case -2: snd = sndMinigamePointsF; break;
+		}
 	
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Fruits_Fruit);

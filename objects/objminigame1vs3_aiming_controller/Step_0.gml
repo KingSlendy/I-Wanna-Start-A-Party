@@ -4,7 +4,7 @@ if (!input_start || info.is_finished) {
 
 if (minigame1vs3_lost()) {
 	if (global.player_id == points_teams[1][0].network_id && trophy_saver) {
-		gain_trophy(52);
+		achieve_trophy(52);
 	}
 	
 	minigame_time_end();

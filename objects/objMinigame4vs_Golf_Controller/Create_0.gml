@@ -1,7 +1,7 @@
 event_inherited();
 
 points_draw = true;
-player_check = objPlayerGolf;
+player_type = objPlayerGolf;
 
 player_turn = 1;
 next_turn = -1;
@@ -13,6 +13,10 @@ function unfreeze_player() {
 
 function give_points(player_id, points, network = true) {
 	minigame4vs_points(player_id, points);
+	
+	if (focus_player_by_turn(player_turn).network_id == global.player_id && points == 99) {
+		achieve_trophy(62);
+	}
 	
 	if (player_turn == global.player_max) {
 		minigame_finish();

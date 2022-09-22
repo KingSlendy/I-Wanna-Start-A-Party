@@ -52,7 +52,7 @@ action_end = function() {
 	}
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 rounds = -1;
 
@@ -60,7 +60,7 @@ alarm_override(1, function() {
 	if (minigame1vs3_lost()) {
 		with (points_teams[1][0]) {
 			if (network_id == global.player_id && other.rounds == 0) {
-				gain_trophy(13);
+				achieve_trophy(13);
 			}
 		
 			minigame4vs_points(network_id);	
@@ -89,7 +89,7 @@ alarm_override(1, function() {
 		}
 	
 		if (survived && below) {
-			gain_trophy(12);
+			achieve_trophy(12);
 		}
 	
 		minigame_finish();

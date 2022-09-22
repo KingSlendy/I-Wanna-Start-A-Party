@@ -97,11 +97,11 @@ function space_passing_event() {
 								case rBoardIsland:
 									if (focused_player().network_id == global.player_id && !global.board_day) {
 										if (global.shine_price == 0) {
-											gain_trophy(34);
+											achieve_trophy(34);
 										}
 							
 										if (global.shine_price == 40) {
-											gain_trophy(35);
+											achieve_trophy(35);
 										}
 									}
 									break;
@@ -143,7 +143,7 @@ function space_passing_event() {
 													board_advance();
 												
 													if (focused_player().network_id == global.player_id) {
-														gain_trophy(11);
+														achieve_trophy(11);
 													}
 												})
 											]]
@@ -159,7 +159,7 @@ function space_passing_event() {
 					]);
 				
 					if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
-						gain_trophy(41);
+						achieve_trophy(41);
 					}
 				}
 			} else {
@@ -180,7 +180,7 @@ function space_passing_event() {
 				]);
 				
 				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
-					gain_trophy(50);
+					achieve_trophy(50);
 				}
 			}
 			
@@ -226,7 +226,7 @@ function space_finish_event() {
 			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
 			
 			if (focused_player().network_id == global.player_id && space_number(SpaceType.Blue) < space_number(SpaceType.Red)) {
-				gain_trophy(56);
+				achieve_trophy(56);
 			}
 			break;
 			
@@ -235,7 +235,7 @@ function space_finish_event() {
 			bonus_shine_by_id(BonusShines.MostRedSpaces).increase_score();
 			
 			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
-				gain_trophy(23);
+				achieve_trophy(23);
 			}
 			break;
 			
@@ -260,14 +260,14 @@ function space_finish_event() {
 				var item = choose(ItemType.DoubleDice, ItemType.TripleDice);
 			} else {
 				var item = choose(ItemType.Blackhole, ItemType.Mirror);
+				
+				if (focused_player().network_id == global.player_id) {
+					achieve_trophy(60);
+				}
 			}
 		
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
 			bonus_shine_by_id(BonusShines.MostItemSpaces).increase_score();
-			
-			if (focused_player().network_id == global.player_id && item == ItemType.Mirror) {
-				gain_trophy(60);
-			}
 			break;
 			
 		case SpaceType.ChanceTime:

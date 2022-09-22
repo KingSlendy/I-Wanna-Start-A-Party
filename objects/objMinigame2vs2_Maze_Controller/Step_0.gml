@@ -14,6 +14,6 @@ with (objPlayerBase) {
 	}
 	
 	if (network_id == global.player_id && point_distance(x, y, xstart, ystart) >= 1490) {
-		gain_trophy(27);
+		achieve_trophy(27);
 	}
 }

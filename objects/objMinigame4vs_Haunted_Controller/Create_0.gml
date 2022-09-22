@@ -22,7 +22,7 @@ action_end = function() {
 	}
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 state = 0;
 
 alarm_override(0, function() {

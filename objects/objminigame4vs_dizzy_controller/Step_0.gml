@@ -12,5 +12,5 @@ with (objMinigame4vs_Dizzy_Warp) {
 }
 		
 if (all_warps) {
-	gain_trophy(43);
+	achieve_trophy(43);
 }

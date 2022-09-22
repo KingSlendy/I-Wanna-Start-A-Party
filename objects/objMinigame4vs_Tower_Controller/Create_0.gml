@@ -19,7 +19,7 @@ action_end = function() {
 	alarm_stop(5);
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 scene_spd = 0;
 prev_openings = array_create(global.player_max, 2);

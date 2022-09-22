@@ -10,12 +10,12 @@ minigame_players = function() {
 
 action_end = function() {
 	if (trophy_obtain && trophy_shoot) {
-		gain_trophy(48);
+		achieve_trophy(48);
 	}
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 player_can_shoot = array_create(global.player_max, false);
 player_shot_time = array_create(global.player_max, 0);

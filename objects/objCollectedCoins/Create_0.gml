@@ -13,27 +13,44 @@ coins = global.collected_coins;
 amount = 0;
 current = 0;
 scale = 1;
+hide = false;
 
 alarms_init(3);
 
 alarm_create(function() {
-	var increase = 1;
-
-	if (amount - current > 100) {
-		increase = 100;
+	var change = 10000;
+	
+	while (true) {
+		if (change == 1) {
+			break;
+		}
+		
+		var left = abs(amount - current);
+		
+		if (left == change) {
+			change /= 10;
+			break;
+		}
+		
+		if (left >= change) {
+			break;
+		}
+		
+		change /= 10;
 	}
 
-	coins += increase;
+	change *= sign(amount);
+	coins += change;
 	scale = (scale == 1) ? 1.25 : 1;
-	audio_play_sound(sndCoinGet, 0, false);
-	current += increase;
+	audio_play_sound((sign(amount) == 1) ? sndCoinGet : sndCoinLose, 0, false);
+	current += change;
 
 	if (current == amount) {
 		alarm_call(1, 1);
 		exit;
 	}
 
-	alarm_frames(0, 3);
+	alarm_call(0, 0.06);
 });
 
 alarm_create(function() {
@@ -45,4 +62,4 @@ alarm_create(function() {
 	instance_destroy();
 });
 
-alarm_call(0, 1);
+alarm_call(0, 0.3);

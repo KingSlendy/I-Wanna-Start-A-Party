@@ -19,7 +19,7 @@ action_end = function() {
 	instance_destroy(objMinigame2vs2_Springing_Fireball);
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 alarm_override(1, function() {
 	alarm_inherited(1);

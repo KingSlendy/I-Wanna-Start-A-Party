@@ -6,7 +6,7 @@ minigame_players = function() {
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 reset = -1;
 

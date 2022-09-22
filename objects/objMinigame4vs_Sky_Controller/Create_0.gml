@@ -14,7 +14,7 @@ action_end = function() {
 }
 
 points_draw = true;
-player_check = objPlayerDir8;
+player_type = objPlayerDir8;
 
 alarm_override(1, function() {
 	alarm_inherited(1);

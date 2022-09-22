@@ -99,32 +99,32 @@ alarm_create(function() {
 	var player_info = player_info_by_id(global.player_id);
 
 	global.games_played++;
-	increase_collected_coins(global.max_board_turns * 50 + player_info.shines * 100);
+	change_collected_coins(global.max_board_turns * 50 + player_info.shines * 100);
 	variable_struct_remove(global.board_games, global.game_id);
 	save_file();
 
 	if (player_info.place == 1) {
-		gain_trophy(31);
+		achieve_trophy(31);
 	}
 
 	if (player_info.place == 4) {
-		gain_trophy(32);
+		achieve_trophy(32);
 	}
 
 	if (player_info.shines == 0) {
-		gain_trophy(33);
+		achieve_trophy(33);
 	}
 
 	if (global.max_board_turns == 50) {
-		gain_trophy(39);
+		achieve_trophy(39);
 	}
 
 	if (array_count(player_info.items, null) == 0) {
-		gain_trophy(40);
+		achieve_trophy(40);
 	}
 	
 	if (global.bonus_shines[BonusShines.MostMinigames].scores[player_info.turn - 1] == global.max_board_turns) {
-		gain_trophy(57);
+		achieve_trophy(57);
 	}
 });
 

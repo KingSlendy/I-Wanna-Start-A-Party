@@ -19,7 +19,7 @@ action_end = function() {
 	}
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 warp_start = false;
 warp_delay = array_create(3, 0);

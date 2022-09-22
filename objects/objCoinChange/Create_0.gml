@@ -80,11 +80,11 @@ alarm_create(11, function() {
 
 	if (player_info.network_id == global.player_id) {
 		if (player_info.coins >= 100) {
-			gain_trophy(5);
+			achieve_trophy(5);
 		}
 
 		if (player_info.coins <= 0) {
-			gain_trophy(6);
+			achieve_trophy(6);
 		}
 	}
 

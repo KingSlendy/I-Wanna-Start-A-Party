@@ -12,7 +12,7 @@ function grab_coin(player_id, network = true) {
 		minigame_finish();
 		
 		if (player_id == global.player_id && objMinigameController.trophy_none) {
-			gain_trophy(51);
+			achieve_trophy(51);
 		}
 	}
 	

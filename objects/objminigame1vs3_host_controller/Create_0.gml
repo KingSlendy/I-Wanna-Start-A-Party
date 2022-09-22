@@ -40,7 +40,7 @@ action_end = function() {
 	lights = true;
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 current_round = 1;
 lights = true;

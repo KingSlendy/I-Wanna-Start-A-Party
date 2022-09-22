@@ -10,7 +10,7 @@ alarm_create(function() {
 			change_shines(1, ShineChangeType.Spawn).final_action = turn_next;
 		
 			if (focused_player().network_id == global.player_id) {
-				gain_trophy(4);
+				achieve_trophy(4);
 			}
 		} else {
 			change_coins(irandom_range(10, 20), CoinChangeType.Gain).final_action = turn_next;

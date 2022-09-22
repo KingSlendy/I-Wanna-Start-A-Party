@@ -87,6 +87,24 @@ function draw_player_name(x, y, player_id) {
 	draw_set_font(font);
 }
 
+function draw_collected_coins(x, y) {
+	var showed_gui = (instance_exists(objCollectedCoins));
+	var coins = string((!showed_gui) ? global.collected_coins : objCollectedCoins.coins);
+	
+	if (showed_gui) {
+		objCollectedCoins.hide = true;
+	}
+	
+	draw_set_font(fntPlayerInfo);
+	draw_sprite(sprCoin, 0, x - string_width(coins) / 2 - sprite_get_width(sprCoin) / 2 - 4, y);
+	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_outline(x, y, coins, c_black);
+	draw_set_valign(fa_top);
+	draw_set_halign(fa_left);
+}
+
 function draw_coins_price(price) {
 	return "{SPRITE,sprCoin,0,0,2,0.6,0.6}" + string(price);
 }

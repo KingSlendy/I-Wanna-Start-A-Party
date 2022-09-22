@@ -10,7 +10,7 @@ minigame_time_end = function() {
 	}
 }
 
-player_check = objPlayerStatic;
+player_type = objPlayerStatic;
 state = 0;
 sequence_actions = [
 	"right",

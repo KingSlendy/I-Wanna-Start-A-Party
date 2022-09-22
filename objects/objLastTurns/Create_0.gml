@@ -107,7 +107,7 @@ function give_last_place() {
 			change_shines(1, ShineChangeType.Spawn).final_action = final_action;
 			
 			if (focused_player().network_id == global.player_id) {
-				gain_trophy(61);
+				achieve_trophy(61);
 			}
 		}
 	}

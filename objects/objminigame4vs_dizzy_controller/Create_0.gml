@@ -9,7 +9,7 @@ minigame_players = function() {
 	}
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 trophy_none = true;
 
 alarm_override(1, function() {

@@ -34,7 +34,7 @@ if (skin_selected != skin_target_selected) {
 	}
 }
 
-if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
+if (!fade_start && skin_selected == skin_target_selected) {
 	var held_h = (global.actions.right.held() - global.actions.left.held());
 	
 	if (held_h != 0) {
@@ -59,13 +59,8 @@ if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
 	
 	if (global.actions.jump.pressed()) {
 		if (!array_contains(global.collected_skins, skin_selected) && global.skins[skin_selected].price <= global.collected_coins) {
-			if (global.skins[other.skin_selected].shop_price > 0) {
-				buying = global.skins[skin_selected].price;
-				alarm_frames(0, 1);
-			} else {
-				gain_skin(other.skin_selected);
-			}
-			
+			change_collected_coins(-global.skins[skin_selected].price);
+			gain_skin(other.skin_selected);
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;
 		}
@@ -76,21 +71,5 @@ if (!fade_start && skin_selected == skin_target_selected && buying == -1) {
 		fade_start = true;
 		music_fade();
 		audio_play_sound(global.sound_cursor_back, 0, false);
-	}
-}
-
-with (objNothing) {
-	if (y >= 540) {
-		if (global.player_id == 1) {
-			global.skins[other.skin_selected].shop_price -= 10;
-		
-			if (global.skins[other.skin_selected].shop_price == 0) {
-				gain_skin(other.skin_selected);
-				other.buying = -1;
-			}
-		}
-		
-		audio_play_sound(sndCoinGet, 0, false);
-		instance_destroy();
 	}
 }

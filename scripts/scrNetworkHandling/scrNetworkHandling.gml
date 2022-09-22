@@ -203,13 +203,12 @@ function player_write_data() {
 	buffer_write_data(buffer_u16, room);
 	buffer_write_data(buffer_u16, sprite_index);
 	buffer_write_data(buffer_f16, image_alpha);
+	buffer_write_data(buffer_s8, image_xscale);
+	buffer_write_data(buffer_s8, image_yscale);
 	
 	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic) {
-		buffer_write_data(buffer_s8, image_xscale * xscale);
-		buffer_write_data(buffer_s8, image_yscale * orientation);
-	} else {
-		buffer_write_data(buffer_s8, image_xscale);
-		buffer_write_data(buffer_s8, image_yscale);
+		buffer_write_data(buffer_s8, xscale);
+		buffer_write_data(buffer_s8, orientation);
 	}
 	
 	if (network_mode != PlayerDataMode.Golf) {
@@ -261,6 +260,12 @@ function player_read_data(buffer) {
 		instance.image_alpha = buffer_read(buffer, buffer_f16);
 		instance.image_xscale = buffer_read(buffer, buffer_s8);
 		instance.image_yscale = buffer_read(buffer, buffer_s8);
+		
+		if (instance.network_index == objPlayerPlatformer || instance.network_index == objPlayerBasic) {
+			instance.xscale = buffer_read(buffer, buffer_s8);
+			instance.orientation = buffer_read(buffer, buffer_s8);
+		}
+		
 		instance.image_angle = buffer_read(buffer, buffer_u16);
 		instance.x = buffer_read(buffer, buffer_s32);
 		instance.y = buffer_read(buffer, buffer_s32);

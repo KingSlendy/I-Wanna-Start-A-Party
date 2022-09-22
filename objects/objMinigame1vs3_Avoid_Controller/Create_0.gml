@@ -27,7 +27,7 @@ action_end = function() {
 	instance_destroy(objMinigame1vs3_Avoid_Cherry);
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {

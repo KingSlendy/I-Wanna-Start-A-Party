@@ -132,7 +132,7 @@ function players_start() {
 	var apply = minigame_players;
 	
 	with (objPlayerBase) {
-		with (change_to_object(other.player_check)) {
+		with (change_to_object(other.player_type)) {
 			apply();
 			event_perform(ev_other, ev_room_start);
 			frozen = true;

@@ -11,5 +11,5 @@ audio_play_sound(sndMinigame1vs3_Coins_Coin, 0, false);
 instance_destroy();
 
 if (other.network_id == global.player_id && sprite_index == sprMinigame1vs3_Coins_RedCoin) {
-	gain_trophy(16);
+	achieve_trophy(16);
 }

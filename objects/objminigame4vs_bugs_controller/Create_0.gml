@@ -31,7 +31,7 @@ minigame_time_end = function() {
 	}
 }
 
-player_check = objPlayerStatic;
+player_type = objPlayerStatic;
 bugs = [];
 total_bugs = 0;
 draw_top = false;

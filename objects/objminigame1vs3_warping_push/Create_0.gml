@@ -10,7 +10,7 @@ function push_block(player, network = true) {
 	x = min(x, xstart + 32 * 3);
 	
 	if (x >= xstart + 32 * 3) {
-		gain_trophy(37);
+		achieve_trophy(37);
 	}
 	
 	if (network) {

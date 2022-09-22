@@ -4,7 +4,7 @@ minigame_players = function() {
 	objPlayerBase.enable_shoot = false;
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 alarm_override(1, function() {
 	alarm_inherited(1);

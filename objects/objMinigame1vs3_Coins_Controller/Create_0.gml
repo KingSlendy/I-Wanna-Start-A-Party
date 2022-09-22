@@ -11,7 +11,7 @@ minigame_players = function() {
 minigame_time = 30;
 minigame_time_end = function() {
 	if (trophy_hit && focus_player_by_id(global.player_id).x > 192) {
-		gain_trophy(15);
+		achieve_trophy(15);
 	}
 	
 	minigame_finish();
@@ -23,7 +23,7 @@ action_end = function() {
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 coin_count = 0;
 spike_count = 0;

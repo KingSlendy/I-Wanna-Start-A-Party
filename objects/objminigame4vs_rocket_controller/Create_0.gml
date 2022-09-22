@@ -24,7 +24,7 @@ minigame_players = function() {
 }
 
 minigame_camera = CameraMode.Split4;
-player_check = objPlayerRocket;
+player_type = objPlayerRocket;
 
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {

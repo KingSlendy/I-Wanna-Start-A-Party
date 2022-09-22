@@ -1,2 +1,2 @@
-gain_trophy(49);
+achieve_trophy(49);
 instance_destroy(object_index);

@@ -53,6 +53,29 @@ if (!fade_start && trophy_selected == trophy_target_selected) {
 		exit;
 	}
 	
+	if (!achieved_trophy(trophy_selected) && !spoilered_trophy(trophy_selected) && global.actions.jump.pressed()) {
+		var trophy = global.trophies[trophy_selected];
+		var price = 0;
+		
+		if (trophy.state() == TrophyState.Unknown) {
+			price = 250;
+		} else {
+			price = 2500;
+		}
+		
+		if (global.collected_coins >= price) {
+			if (price == 250) {
+				hint_trophy(trophy_selected);
+			} else {
+				spoiler_trophy(trophy_selected);
+			}
+			
+			change_collected_coins(-price);
+			audio_play_sound(global.sound_cursor_select2, 0, false);
+			exit;
+		}
+	}
+	
 	if (global.actions.shoot.pressed()) {
 		back = true;
 		fade_start = true;

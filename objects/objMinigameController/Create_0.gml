@@ -25,7 +25,7 @@ announcer_finished = false;
 points_draw = false;
 points_number = true;
 points_teams = [];
-player_check = objPlayerBase;
+player_type = objPlayerBase;
 
 function back_to_board() {
 	if (info.is_practice) {
@@ -35,7 +35,7 @@ function back_to_board() {
 	
 	if (info.is_modes) {
 		if (array_contains(info.players_won, global.player_id)) {
-			increase_collected_coins(20);
+			change_collected_coins(20);
 		}
 			
 		save_file();
@@ -105,7 +105,7 @@ alarm_create(function() {
 		winner_title = "TIE";
 		music_play(bgmMinigameTie, false);
 		audio_play_sound(sndMinigameTie, 0, false);
-		gain_trophy(9);
+		achieve_trophy(9);
 	}
 
 	if (!info.is_practice) {

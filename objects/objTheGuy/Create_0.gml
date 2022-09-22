@@ -103,7 +103,7 @@ options = [
 						}
 						
 						if (focused_player().network_id == global.player_id) {
-							gain_trophy(54);
+							achieve_trophy(54);
 						}
 					})
 				]);
@@ -153,7 +153,7 @@ options = [
 		}
 		
 		if (focused_player().network_id == global.player_id) {
-			gain_trophy(30);
+			achieve_trophy(30);
 		}
 	})
 ];

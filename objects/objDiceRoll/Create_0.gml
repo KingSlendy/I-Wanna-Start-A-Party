@@ -59,9 +59,9 @@ alarm_create(function() {
 	if (player_info_by_id(network_id).item_effect == ItemType.TripleDice) {
 		if (network_id == global.player_id) {
 			if (global.dice_roll >= 25) {
-				gain_trophy(20);
+				achieve_trophy(20);
 			} else if (global.dice_roll <= 10) {
-				gain_trophy(21);
+				achieve_trophy(21);
 			}
 		}
 		
@@ -73,7 +73,7 @@ alarm_create(function() {
 			]);
 				
 			if (network_id == global.player_id) {
-				gain_trophy(36);
+				achieve_trophy(36);
 			}
 				
 			return;
@@ -89,7 +89,7 @@ alarm_create(function() {
 			]);
 				
 			if (network_id == global.player_id) {
-				gain_trophy(19);
+				achieve_trophy(19);
 			}
 				
 			return;

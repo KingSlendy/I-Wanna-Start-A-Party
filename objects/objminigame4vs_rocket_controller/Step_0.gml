@@ -7,6 +7,6 @@ if (minigame_lost_all()) {
 	minigame_finish();
 	
 	if (focus_player_by_id(global.player_id).hp == 3) {
-		gain_trophy(44);
+		achieve_trophy(44);
 	}
 }

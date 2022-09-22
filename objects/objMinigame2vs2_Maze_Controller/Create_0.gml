@@ -11,7 +11,7 @@ minigame_players = function() {
 }
 
 minigame_camera = CameraMode.Split4;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 distance_to_win = 16;
 
 alarm_override(1, function() {

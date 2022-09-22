@@ -5,7 +5,7 @@ minigame_players = function() {
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 player_turn = 1;
 player_bullets = array_create(global.player_max, 6);

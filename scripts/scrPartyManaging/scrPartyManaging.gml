@@ -623,7 +623,7 @@ function show_chest() {
 	audio_play_sound(sndHiddenChestSpawn, 0, false);
 	
 	if (focus_player.network_id == global.player_id) {
-		gain_trophy(3);
+		achieve_trophy(3);
 	}
 	
 	if (is_local_turn()) {
@@ -658,15 +658,15 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 			global.collected_shines += amount;
 			
 			if (global.collected_shines >= 10) {
-				gain_trophy(0);
+				achieve_trophy(0);
 			}
 			
 			if (global.collected_shines >= 50) {
-				gain_trophy(1);
+				achieve_trophy(1);
 			}
 			
 			if (global.collected_shines >= 100) {
-				gain_trophy(2);
+				achieve_trophy(2);
 			}
 		}
 	}
@@ -916,7 +916,7 @@ function call_shop() {
 		]);
 		
 		if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Cellphone) {
-			gain_trophy(42);
+			achieve_trophy(42);
 		}
 		
 		exit;
@@ -945,7 +945,7 @@ function call_shop() {
 						board_advance();
 						
 						if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Cellphone) {
-							gain_trophy(45);
+							achieve_trophy(45);
 						}
 					})
 				]]
@@ -984,7 +984,7 @@ function call_blackhole() {
 						board_advance();
 						
 						if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Blackhole) {
-							gain_trophy(46);
+							achieve_trophy(46);
 						}
 					})
 				]]

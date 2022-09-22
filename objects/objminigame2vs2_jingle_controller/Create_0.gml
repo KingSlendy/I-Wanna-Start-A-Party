@@ -12,7 +12,7 @@ action_end = function() {
 	set_spd(0, true);
 }
 
-player_check = objPlayerStatic;
+player_type = objPlayerStatic;
 
 space_count = [0, 0];
 space_objs = [[], []];

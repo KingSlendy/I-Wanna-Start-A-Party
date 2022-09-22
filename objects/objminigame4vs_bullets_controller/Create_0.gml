@@ -7,7 +7,7 @@ minigame_players = function() {
 	}
 }
 
-player_check = objPlayerBasic;
+player_type = objPlayerBasic;
 player_turn = 0;
 twice = false;
 

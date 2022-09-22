@@ -19,7 +19,7 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 
 input_start = false;
 shoot_delay = 0;

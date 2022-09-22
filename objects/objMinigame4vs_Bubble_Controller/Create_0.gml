@@ -5,4 +5,4 @@ minigame_players = function() {
 }
 
 points_draw = true;
-player_check = objPlayerBubble;
+player_type = objPlayerBubble;

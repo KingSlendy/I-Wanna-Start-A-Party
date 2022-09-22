@@ -15,22 +15,16 @@ minigame_time_end = function() {
 	minigame_finish();
 	
 	if (trophy_small > 0) {
-		gain_trophy(25);
+		achieve_trophy(25);
 	}
 	
 	if (trophy_gordos > 0) {
-		gain_trophy(26);
+		achieve_trophy(26);
 	}
 }
 
 points_draw = true;
-player_check = objPlayerPlatformer;
-
-for (var i = 1; i <= global.player_max; i++) {
-	var player = focus_player_by_id(i);
-	var b = instance_create_layer(player.x, player.y - 10, "Actors", objMinigame2vs2_Fruits_Basket);
-	b.follow = player;
-}
+player_type = objPlayerPlatformer;
 
 fruit_positions = [[], []];
 fruit_types = [[], []];

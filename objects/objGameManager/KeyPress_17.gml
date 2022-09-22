@@ -1,6 +1,6 @@
-//increase_collected_coins(1500);
-//gain_trophy(0);
-//gain_trophy(1);
-//gain_trophy(2);
-//gain_trophy(3);
-//gain_trophy(4);
+//change_collected_coins(99999);
+//achieve_trophy(0);
+//achieve_trophy(1);
+//achieve_trophy(2);
+//achieve_trophy(3);
+//achieve_trophy(4);

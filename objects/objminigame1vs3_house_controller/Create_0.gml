@@ -5,7 +5,7 @@ minigame_players = function() {
 	objPlayerBase.enable_shoot = false;
 }
 
-minigame_time = 30;
+minigame_time = 20;
 minigame_time_end = function() {
 	if (!points_teams[1][0].lost) {
 		minigame4vs_points(points_teams[1][0].network_id);
@@ -16,7 +16,7 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 house_start = false;
 
 function cherry_move(move, network = true) {

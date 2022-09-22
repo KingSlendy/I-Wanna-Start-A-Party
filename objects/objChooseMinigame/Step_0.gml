@@ -223,7 +223,7 @@ switch (state) {
 			}
 			
 			if (all_reds) {
-				gain_trophy(24);
+				achieve_trophy(24);
 			}
 		
 			fade_alpha = 0;

@@ -6,4 +6,4 @@ minigame_players = function() {
 
 minigame_time = 30;
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;

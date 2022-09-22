@@ -28,6 +28,6 @@ if (player.network_id == global.player_id) {
 	var str_coins = string(player_info.coins);
 	
 	if (string_count(str_place, str_shines) == string_length(str_shines) && string_count(str_place, str_coins) == string_length(str_coins)) {
-		gain_trophy(55);
+		achieve_trophy(55);
 	}
 }

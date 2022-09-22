@@ -4,6 +4,14 @@ alpha_target = 0;
 can_switch = true;
 player = null;
 
+function curtain_init() {
+	var giver = instance_place(x, y, objMinigame4vs_Magic_GiverID);
+
+	if (giver != noone && giver.player_turn != 0) {
+		player = focus_player_by_turn(giver.player_turn);
+	}
+}
+
 function curtain_switch(network = true) {
 	if (!can_switch || point_distance(image_alpha, 0, alpha_target, 0) > 0.00001) {
 		return;

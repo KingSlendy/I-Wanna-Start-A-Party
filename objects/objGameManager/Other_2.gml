@@ -70,4 +70,3 @@ skin_init();
 minigame_init();
 minigame_info_reset();
 global.part_system = part_system_create();
-room_goto_next();

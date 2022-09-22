@@ -33,6 +33,6 @@ if (!instance_exists(objBullet) && player_bullets[player_turn - 1] == 0) {
 	var player = focus_player_by_turn(player_turn);
 
 	if (player.network_id == global.player_id && minigame4vs_get_points(player.network_id) == 0) {
-		gain_trophy(59);
+		achieve_trophy(59);
 	}
 }

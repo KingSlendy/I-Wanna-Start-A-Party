@@ -6,7 +6,7 @@ minigame_players = function() {
 
 minigame_time = 30;
 points_draw = true;
-player_check = objPlayerPlatformer;
+player_type = objPlayerPlatformer;
 trophy_green = true;
 trophy_double = true;
 
@@ -15,7 +15,7 @@ alarm_override(2, function() {
 	
 	if (array_contains(info.players_won, global.player_id)) {
 		if (trophy_green) {
-			gain_trophy(58);
+			achieve_trophy(58);
 		}
 	}
 });
