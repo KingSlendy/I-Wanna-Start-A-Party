@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Mirror], global.board_items[ItemType.Clock], global.board_items[ItemType.Mirror]];
+	//self.items = [null, global.board_items[ItemType.TripleDice], global.board_items[ItemType.DoubleDice]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;

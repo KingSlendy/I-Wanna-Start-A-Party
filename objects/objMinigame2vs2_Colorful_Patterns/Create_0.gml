@@ -6,6 +6,26 @@ pattern_player_ids = null;
 pattern_row_selected = [0, 0];
 pattern_col_selected = [0, 0];
 
+//Animation
+wave_move = [0, 0];
+wave_timer = [0, 0];
+wave_length = 4;
+option_selected = [false, false];
+
+function wave_animation(index) {
+    if (option_selected[index]) {
+        wave_move[index] = lengthdir_x(wave_length, wave_timer[index]) - wave_length;
+        wave_timer[index] = (wave_timer[index] + 360 + 5) % 360;
+    } else {
+        wave_reset_animation(index);
+    }
+}
+
+function wave_reset_animation(index) {
+    wave_move[index] = lerp(wave_move[index], 0, 0.20);
+    wave_timer[index] = 0;
+}
+
 function Pattern(pattern) constructor {
 	self.image = pattern.image;
 	self.colorA = pattern.colorA;
@@ -173,6 +193,7 @@ function pattern_select(index, network = true) {
 		}
 	}
 			
+	option_selected[index] = pattern_selected[index]; 
 	audio_play_sound(sndMinigame2vs2_Colorful_PatternSelect, 0, false);
 			
 	if (pattern_selected[index] && pattern_selected[!index]) {
@@ -182,6 +203,8 @@ function pattern_select(index, network = true) {
 		var other_col = pattern_col_selected[!index];
 				
 		if ((me_row != other_row || me_col != other_col) && pattern_grid[me_row][me_col].equals(pattern_chosen) && pattern_grid[other_row][other_col].equals(pattern_chosen)) {
+			wave_timer = [0, 0];
+			option_selected = [false, false];
 			alarm_call(0, 1);
 			audio_play_sound(sndMinigame2vs2_Colorful_PatternCorrect, 0, false);
 		}

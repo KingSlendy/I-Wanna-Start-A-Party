@@ -11,7 +11,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_camera = CameraMode.Follow;
+minigame_camera = CameraMode.Center;
 player_type = objPlayerPlatformer;
 
 trophy_doors = true;

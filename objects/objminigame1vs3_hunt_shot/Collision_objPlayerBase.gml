@@ -1,4 +1,4 @@
-if (!is_player_local(other.network_id) || image_xscale < 0.5) {
+if (!is_player_local(other.network_id) || image_xscale < 0.75) {
 	exit;
 }
 

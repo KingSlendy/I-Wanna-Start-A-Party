@@ -16,7 +16,7 @@ for (var i = 0; i < 2; i++) {
 	if (pattern_selected[i]) {
 		continue;
 	}
-		
+	
 	var v = (global.actions.down.pressed(player_id) - global.actions.up.pressed(player_id));
 	var h = (global.actions.right.pressed(player_id) - global.actions.left.pressed(player_id));
 		
@@ -27,4 +27,14 @@ for (var i = 0; i < 2; i++) {
 	if (h != 0) {
 		pattern_move_horizontal(i, h);
 	}
+}
+
+//Animation
+for (var i = 0; i < 2; i++) {
+	if (pattern_selected[i]) {
+		wave_animation(i);
+		continue;
+	}
+	
+	wave_reset_animation(i);
 }

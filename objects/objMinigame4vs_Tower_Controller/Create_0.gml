@@ -8,11 +8,6 @@ minigame_players = function() {
 }
 
 minigame_camera = CameraMode.Split4;
-minigame_time_end = function() {
-	minigame_lost_points();
-	minigame_finish();
-}
-
 action_end = function() {
 	set_spd(0);
 	alarm_stop(4);

@@ -9,7 +9,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_camera = CameraMode.Split4;
+minigame_camera = CameraMode.Center;
 minigame_time_valign = fa_top;
 minigame_time_end = function() {
 	objPlayerBase.frozen = true;

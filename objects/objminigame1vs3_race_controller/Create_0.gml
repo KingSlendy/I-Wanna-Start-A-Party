@@ -61,7 +61,7 @@ alarm_create(4, function() {
 	solo_current++;
 	solo_current %= array_length(solo_actions);
 	solo_action = solo_actions[solo_current];
-	solo_advance %= 5;
+	solo_advance %= 4;
 	solo_correct = false;
 	solo_wrong = false;
 });

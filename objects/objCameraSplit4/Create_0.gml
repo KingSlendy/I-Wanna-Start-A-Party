@@ -1,5 +1,13 @@
 event_inherited();
-function init_view() {}
+
+function init_view() {
+	view_w = camera_get_view_width(view_camera[camera]);
+	view_h = camera_get_view_height(view_camera[camera]);
+	view_x -= floor(view_w / 2);
+	view_y -= floor(view_h / 2);
+	target_x = view_x;
+	target_y = view_y;
+}
 
 boundaries = false;
 draw_names = true;

@@ -9,14 +9,14 @@ if (y < other.bbox_bottom) {
 			minigame2vs2_points(player_id, other_id, 0);
 		}
 		
-		var snd;
-		
 		switch (type) {
-			case 0: snd = sndMinigamePointsA; break;
-			case 1: snd = sndMinigamePointsB; break;
-			case 2: snd = sndMinigamePointsC; break;
-			case -2: snd = sndMinigamePointsF; break;
+			case 0: var snd = sndMinigamePointsA; break;
+			case 1: var snd = sndMinigamePointsB; break;
+			case 2: var snd = sndMinigamePointsC; break;
+			case -2: var snd = sndMinigamePointsF; break;
 		}
+		
+		audio_play_sound(snd, 0, false);
 	
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Fruits_Fruit);

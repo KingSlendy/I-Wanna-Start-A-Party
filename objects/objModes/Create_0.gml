@@ -79,7 +79,7 @@ if (check != -1) {
 
 minigame_info_reset();
 
-controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+controls_text = new Text(fntControls);
 action_delay = 0;
 network_actions = [];
 

@@ -1,7 +1,14 @@
+var view_w = camera_get_view_width(view_camera[0]) + 1;
+var view_h = camera_get_view_height(view_camera[0]) + 1;
+
 if (!surface_exists(surf)) {
-	surf = surface_create(room_width, room_height);
+	surf = surface_create(view_w, view_h);
+} else if (surface_get_width(view_w) < view_w || surface_get_height(view_h) < view_h) {
+	surface_resize(surf, view_w, view_h);
 }
 
+var view_x = camera_get_view_x(view_camera[0]);
+var view_y = camera_get_view_y(view_camera[0]);
 surface_set_target(surf);
 draw_clear(c_black);
 
@@ -14,11 +21,11 @@ if (lights) {
 			continue;
 		}
 	
-		draw_sprite(other.spotlight, 0, x, y);
+		draw_sprite(other.spotlight, 0, x - view_x, y - view_y);
 	}
 
 	with (objMinigame1vs3_Host_Candle) {
-		draw_sprite_ext(other.spotlight, 0, x + 16, y + 12, spotlight_size, spotlight_size, 0, c_orange, 1);
+		draw_sprite_ext(other.spotlight, 0, x + 16 - view_x, y + 12 - view_y, spotlight_size, spotlight_size, 0, c_orange, 1);
 	}
 
 	gpu_set_blendmode(bm_normal);
@@ -26,4 +33,4 @@ if (lights) {
 
 surface_reset_target();
 
-draw_surface(surf, 0, 0);
+draw_surface(surf, view_x, view_y);

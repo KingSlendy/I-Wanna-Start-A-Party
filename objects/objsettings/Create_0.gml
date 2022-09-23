@@ -140,5 +140,5 @@ section_x = 0;
 draw_y = 200;
 draw_target_y = draw_y;
 
-controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+controls_text = new Text(fntControls);
 volume_delay = 0;

@@ -7,7 +7,13 @@ if (frozen) {
 if (shot && !hole) {
 	if (phy_speed < 0.005) {
 		with (objMinigameController) {
-			give_points(other.network_id, clamp(100 - ceil(point_distance(other.phy_position_x, other.phy_position_y, objMinigame4vs_Golf_Flag.x + 12, other.phy_position_y) * 0.2), 0, 100));
+			if (other.x < objMinigame4vs_Golf_Flag.x + 28) {
+				var dist = point_distance(other.phy_position_x + 10, other.phy_position_y, objMinigame4vs_Golf_Flag.x + 26, other.phy_position_y);
+			} else {
+				var dist = point_distance(other.phy_position_x - 10, other.phy_position_y, objMinigame4vs_Golf_Flag.x + 30, other.phy_position_y);
+			}
+			
+			give_points(other.network_id, clamp(100 - ceil(dist * 0.2), 0, 100));
 		}
 		
 		hole = true;

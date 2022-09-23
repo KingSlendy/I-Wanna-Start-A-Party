@@ -32,6 +32,10 @@ function choosed_minigame() {
 		array_push(global.seen_minigames, minigame.title);
 	}
 	
+	if (array_length(global.seen_minigames) == array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])) {
+		achieve_trophy(64);
+	}
+	
 	array_push(global.minigame_history, minigame.title);
 	audio_play_sound(sndRoulettePick, 0, false);
 	alarm_call(3, 1);

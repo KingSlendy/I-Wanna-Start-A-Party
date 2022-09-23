@@ -1,3 +1,7 @@
+if (info.is_finished) {
+	exit;
+}
+
 if (revive == 0) {
 	fade_alpha += 0.02 * DELTA;
 	
@@ -14,10 +18,6 @@ if (revive == 0) {
 		revive = -1;
 		alarm_call(1, 1.5);
 	}
-}
-
-if (info.is_finished) {
-	exit;
 }
 
 if (take_time) {

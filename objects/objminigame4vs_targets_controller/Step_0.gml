@@ -1,3 +1,7 @@
+if (info.is_finished) {
+	exit;
+}
+
 if (next_turn == 0) {
 	fade_alpha += 0.02 * DELTA;
 	
@@ -17,7 +21,7 @@ if (next_turn == 0) {
 	}
 }
 
-if (next_turn != -1 || info.is_finished) {
+if (next_turn != -1) {
 	exit;
 }
 

@@ -3,5 +3,6 @@ if (info.is_finished) {
 }
 
 if (minigame_lost_all()) {
-	minigame_time_end();
+	minigame_lost_points();
+	minigame_finish();
 }

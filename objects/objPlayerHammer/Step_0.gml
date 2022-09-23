@@ -7,7 +7,7 @@ var v = (global.actions.down.held(network_id) - global.actions.up.held(network_i
 hspd = h * max_spd;
 vspd = v * max_spd;
 
-if (image_index == 0 && global.actions.jump.pressed(network_id)) {
+if (image_index == 0 && global.actions.shoot.pressed(network_id)) {
 	image_index = 1;
 	alarm_call(0, 0.1);
 }

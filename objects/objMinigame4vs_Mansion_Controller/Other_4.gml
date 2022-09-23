@@ -39,6 +39,6 @@ for (var r = 0; r < 5; r++) {
 event_inherited();
 
 with (objCamera) {
-	target_follow = focus_player_by_id();
+	//target_follow = focus_player_by_id();
 	boundaries = true;
 }

@@ -1,10 +1,9 @@
 for (var i = 0; i < global.player_max; i++) {
 	var follow = target_follow[i];
+	var view_w_half = floor(view_w / 2);
+	var view_h_half = floor(view_h / 2);
 		
 	//Position the view to the target coordinates
-	var width = camera_get_view_width(view_camera[i]);
-	var height = camera_get_view_height(view_camera[i]);
-	
 	if (!lock_x && !dead[i]) {
 		target_x[i] = follow.x;
 	}
@@ -18,17 +17,17 @@ for (var i = 0; i < global.player_max; i++) {
 	}
 
 	if ((room == rMinigame1vs3_Race || room == rMinigame2vs2_Duos) && lock_y) {
-		target_y[i] = height * i + height / 2;
+		target_y[i] = view_h * i + view_h_half;
 	}
 	
-	view_x[i] = lerp(view_x[i], target_x[i], view_spd);
-	view_y[i] = lerp(view_y[i], target_y[i], view_spd);
+	view_x[i] = lerp(view_x[i], target_x[i] - view_w_half, view_spd);
+	view_y[i] = lerp(view_y[i], target_y[i] - view_h_half, view_spd);
 	
 	//Clamp the view to the room boundaries if the variable is set to true
 	if (boundaries) {
-		view_x[i] = clamp(view_x[i], width / 2, room_width - width / 2);
-		view_y[i] = clamp(view_y[i], height / 2, room_height - height / 2);
+		view_x[i] = clamp(view_x[i], 0, room_width - view_w);
+		view_y[i] = clamp(view_y[i], 0, room_height - view_h);
 	}
 	
-	camera_set_view_pos(view_camera[i], view_x[i] - width / 2, view_y[i] - height / 2);
+	camera_set_view_pos(view_camera[i], view_x[i], view_y[i]);
 }

@@ -190,7 +190,7 @@ lobby_selected = 0;
 lobby_return = false;
 
 player_texts = array_create(4, "");
-controls_text = new Text(fntControls, draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+controls_text = new Text(fntControls);
 
 back = false;
 back_option = false;

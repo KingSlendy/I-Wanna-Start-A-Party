@@ -54,7 +54,8 @@ function minigame_init() {
 		new Minigame("Bubble Derby", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
 		new Minigame("Whac-an-idol", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER"),
 		new Minigame("Sky Diving", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
-		new Minigame("Golf Course", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon")
+		new Minigame("Golf Course", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon"),
+		new Minigame("Waka Evasion", ["{COLOR,0000FF}Rules{COLOR,FFFFFF}:\nTBD", "{COLOR,0000FF}Controls{COLOR,FFFFFF}:\nTBD"], 40, rMinigame4vs_Waka, "I Wanna Be The Onelife")
 	];
 
 	m[$ "1vs3"] = [
@@ -125,7 +126,8 @@ function minigame_info_score_reset() {
 enum CameraMode {
 	Static,
 	Follow,
-	Split4
+	Split4,
+	Center
 }
 
 function players_start() {
@@ -153,6 +155,7 @@ function minigame4vs_start(info, mode = CameraMode.Static) {
 	switch (mode) {
 		case CameraMode.Follow: camera_start(objCamera); break;
 		case CameraMode.Split4: camera4vs_split4(camera_start(objCameraSplit4)); break;
+		case CameraMode.Center: camera_start(objCameraCenter); break;
 	}
 }
 
@@ -163,6 +166,7 @@ function minigame1vs3_start(info, mode = CameraMode.Static) {
 	switch (mode) {
 		case CameraMode.Follow: camera_start(objCamera); break;
 		case CameraMode.Split4: camera4vs_split4(camera_start(objCameraSplit4)); break;
+		case CameraMode.Center: camera_start(objCameraCenter); break;
 	}
 }
 

@@ -17,6 +17,7 @@ if (objMinigameController.info.is_finished || point_distance(x, y, x, target_y) 
 if (done && !disappear) {
 	if (top) {
 		minigame4vs_points(network_id, 1);
+		audio_play_sound(sndMinigamePointsA, 0, false);
 	}
 	
 	disappear = true;

@@ -118,4 +118,5 @@ for (var i = 0; i < length; i++) {
 
 draw_set_alpha(1);
 
+controls_text.set(draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
 controls_text.draw(420, 580);
