@@ -50,8 +50,7 @@ switch (trophy.state()) {
 	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler " + ((global.collected_coins >= 2500) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(2500); break;
 }
 
-var text = new Text(fntDialogue);
-text.set(buy);
-text.draw(draw_x, draw_y + draw_h + 5);
-text.set(draw_action(global.actions.shoot) + " Cancel");
-text.draw(draw_x + draw_w - 115, draw_y + draw_h + 5);
+controls_text.set(buy);
+controls_text.draw(draw_x, draw_y + draw_h + 5);
+controls_text.set(draw_action(global.actions.shoot) + " Cancel");
+controls_text.draw(draw_x + draw_w - 115, draw_y + draw_h + 5);

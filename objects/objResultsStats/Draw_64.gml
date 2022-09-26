@@ -39,8 +39,11 @@ for (var i = 0; i < array_length(global.bonus_shines); i++) {
 		}
 	
 		var text = bonus.scores[player_info.player_info.turn - 1];
+		var is_max = array_contains(bonus.max_players(), player_info.player_info.turn);
+		var color1 = (is_max) ? #005D00 : #FFD700;
+		var color2 = (is_max) ? c_lime : c_yellow;
 		var scale = (string_length(text) < 3) ? 1 : 0.9;
-		draw_text_transformed_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, text, scale, scale, 0, #FFD700, #FFD700, c_yellow, c_yellow, draw_alpha, c_black);
+		draw_text_transformed_color_outline(draw_x + 48 / 2 + 8, player_info.draw_y + player_info.draw_h / 2, text, scale, scale, 0, color1, color1, color2, color2, draw_alpha, c_black);
 	}
 	
 	draw_set_alpha(1);

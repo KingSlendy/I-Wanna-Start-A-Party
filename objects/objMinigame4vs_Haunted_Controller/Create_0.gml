@@ -51,7 +51,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (frozen || --move_delay_timer > 0) {
+			if (--move_delay_timer > 0) {
 				break;
 			}
 			

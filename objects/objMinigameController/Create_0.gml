@@ -33,7 +33,7 @@ function back_to_board() {
 		return;
 	}
 	
-	if (info.is_modes) {
+	if (info.is_minigames) {
 		if (array_contains(info.players_won, global.player_id)) {
 			change_collected_coins(20);
 		}

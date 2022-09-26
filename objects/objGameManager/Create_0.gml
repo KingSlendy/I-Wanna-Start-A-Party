@@ -3,8 +3,8 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 
+depth = -15000;
 delta = 1;
-a = false;
 
 timer = time_source_create(time_source_game, 1, time_source_units_seconds, function() {
 	global.ellapsed_time += global.game_started;
@@ -13,3 +13,12 @@ timer = time_source_create(time_source_game, 1, time_source_units_seconds, funct
 time_source_start(timer);
 
 alarms_collected = [];
+paused = false;
+pause_player_id = 0;
+pause_state = 0;
+pause_selected = 0;
+pause_highlight = [];
+pause_x = 400;
+pause_target_x = pause_x;
+
+controls_text = new Text(fntControls);

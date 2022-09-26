@@ -1,5 +1,19 @@
 event_inherited();
 
+minigame_players = function() {
+	with (objPlayerBase) {
+		guess_bugs_start = get_frames(random_range(5, 15)) * 0.1;
+		
+		if (0.25 > random(1)) {
+			guess_total_bugs = other.total_bugs;
+		} else {
+			do {
+				guess_total_bugs = irandom_range(other.total_bugs - 3, other.total_bugs + 3);
+			} until (guess_total_bugs != other.total_bugs);
+		}
+	}
+}
+
 minigame_time = 30;
 minigame_time_end = function() {
 	with (objMinigame4vs_Bugs_Bug) {
@@ -9,22 +23,16 @@ minigame_time_end = function() {
 	}
 	
 	objMinigame4vs_Bugs_Counting.selecting = false;
-	
-	with (objMinigame4vs_Bugs_Bug) {
-		if (sprite_index == other.count_bug) {
-			array_push(other.bugs, id);
-		}
-	}
-	
-	total_bugs = array_length(bugs);
 	minigame_times_up();
 	alarm_call(4, 2);
 	
 	with (objMinigame4vs_Bugs_Counting) {
-		if (is_player_local(network_id)) {
+		var player = focus_player_by_turn(player_turn);
+		
+		if (is_player_local(player.network_id)) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.Minigame4vs_Bugs_Counting);
-			buffer_write_data(buffer_u8, network_id);
+			buffer_write_data(buffer_u8, player.network_id);
 			buffer_write_data(buffer_u8, count);
 			network_send_tcp_packet();
 		}
@@ -67,7 +75,7 @@ alarm_create(5, function() {
 
 	for (var i = 1; i <= global.player_max; i++) {
 		with (objMinigame4vs_Bugs_Counting) {
-			if (i == network_id) {
+			if (i == player_turn) {
 				min_diff = min(min_diff, abs(count - other.total_bugs));
 				break;
 			}
@@ -76,7 +84,7 @@ alarm_create(5, function() {
 
 	with (objMinigame4vs_Bugs_Counting) {
 		if (abs(count - other.total_bugs) == min_diff) {
-			minigame4vs_points(network_id);
+			minigame4vs_points(focus_player_by_turn(player_turn).network_id);
 		}
 	}
 
@@ -90,10 +98,32 @@ alarm_override(11, function() {
 		if (actions == null) {
 			continue;
 		}
+		
+		var player = focus_player_by_id(i);
+
+		if (player.guess_bugs_start > 0) {
+			player.guess_bugs_start--;
+			continue;
+		}
+		
+		if (0.1 > random(1)) {
+			continue;
+		}
 	
-		var action = choose(actions.left, actions.right);
-		action.press();
+		with (objMinigame4vs_Bugs_Counting) {
+			var player = focus_player_by_turn(player_turn);
+			
+			if (player.network_id != i) {
+				continue;
+			}
+			
+			if (count < player.guess_total_bugs) {
+				actions.right.press();
+			} else if (count > player.guess_total_bugs) {
+				actions.left.press();
+			}
+		}
 	}
 	
-	alarm_call(11, 0.5);
+	alarm_call(11, 0.2);
 });

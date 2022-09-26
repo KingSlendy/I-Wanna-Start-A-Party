@@ -36,7 +36,7 @@ function sledge_jump(network = true) {
 }
 
 function sledge_hit(network = true) {
-	if (image_alpha != 1) {
+	if (objMinigameController.info.is_finished || image_alpha != 1) {
 		return;
 	}
 

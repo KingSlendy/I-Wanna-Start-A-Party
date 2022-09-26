@@ -89,11 +89,11 @@ switch (info.type) {
 
 draw_set_halign(fa_left);
 draw_box(75, 400, 500, 200, c_blue, c_white, 1, 1);
+instructions[instructions_page].set(info.reference.instructions[instructions_page]);
 instructions[instructions_page].draw(85, 410);
-var text = new Text(fntControls);
-text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}Page (" + string(instructions_page + 1) + "/" + string(array_length(instructions)) + ")");
-text.draw(410, 570);
-text = new Text(fntDialogue);
+pages_text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}Page (" + string(instructions_page + 1) + "/" + string(array_length(instructions)) + ")");
+pages_text.draw(410, 570);
+var text = new Text(fntDialogue);
 
 for (var i = 0; i < array_length(choice_texts); i++) {
 	var option_x = 615;
@@ -106,9 +106,9 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 draw_set_color(c_white);
 var label = draw_action_small(global.actions.jump) + " {COLOR,00FFFF}Select\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Mode";
 
-if (info.is_modes) {
-	label += "\n" + draw_action_small(global.actions.back) + " Return here\n" + draw_action_small(global.actions.shoot) + " Back";
+if (info.is_minigames) {
+	label += "\n" + draw_action_small(global.actions.shoot) + " Back";
 }
 
-var text = new Text(fntControls, label);
-text.draw(620, 500);
+controls_text.set(label);
+controls_text.draw(620, 500);

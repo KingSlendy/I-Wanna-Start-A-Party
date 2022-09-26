@@ -1,8 +1,14 @@
+global.ignore_input = false;
+
 input_axis_threshold_set(gp_axislh, 0.5, 1);
 input_axis_threshold_set(gp_axislv, 0.5, 1);
 
 function Action() constructor {
 	static held = function(id = 0) {
+		if (global.ignore_input) {
+			return false;
+		}
+		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].held(id);
 		}
@@ -11,6 +17,10 @@ function Action() constructor {
 	}
 	
 	static pressed = function(id = 0) {
+		if (global.ignore_input) {
+			return false;
+		}
+		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].pressed(id);
 		}
@@ -19,6 +29,10 @@ function Action() constructor {
 	}
 	
 	static released = function(id = 0) {
+		if (global.ignore_input) {
+			return false;
+		}
+		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].released(id);
 		}
@@ -42,7 +56,7 @@ global.actions = {
 	down: new Action(),
 	jump: new Action(),
 	shoot: new Action(),
-	back: new Action()
+	pause: new Action()
 };
 
 var keys = variable_struct_get_names(global.actions);
@@ -102,7 +116,6 @@ global.all_ai_actions = [];
 
 repeat (3) {
 	var actions = {};
-	var keys = variable_struct_get_names(global.actions);
 	
 	for (var i = 0; i < array_length(keys); i++) {
 		actions[$ keys[i]] = new AIAction();
@@ -130,13 +143,10 @@ function ai_release_all() {
 }
 
 function check_player_actions_by_id(player_id) {
-	if (!is_player_local(player_id)) {
-		return null;
-	}
-	
+	var player = focus_player_by_id(player_id);
 	var actions = ai_actions(player_id);
 
-	if (actions == null || !is_player_local(player_id) || !focus_player_by_id(player_id).ai) {
+	if (actions == null || !is_player_local(player.network_id) || !player.ai) {
 		return null;
 	}
 	
@@ -160,6 +170,7 @@ function bind_to_icon(bind) {
 	binds[$ vk_lshift] = sprKey_Shift;
 	binds[$ vk_rshift] = sprKey_Shift;
 	binds[$ vk_backspace] = sprKey_Backspace;
+	binds[$ vk_escape] = sprKey_Escape;
 	
 	//Gamepad
 	binds[$ gp_axislh] = sprButton_StickLeft;

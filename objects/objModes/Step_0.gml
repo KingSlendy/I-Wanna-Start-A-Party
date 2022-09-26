@@ -16,18 +16,11 @@ if (fade_start) {
 			fade_alpha = 1;
 			fade_start = false;
 			
-			switch (state) {
-				case 0:
-					save_file();
-					network_disable();
-					//room_goto(rFiles);
-					break;
-					
-				case 1: room_goto(rParty); break;
-				case 2: room_goto(rMinigames); break;
-				case 3: break;
-				case 4: room_goto(rSkins); break;
-				case 5: room_goto(rTrophies); break;
+			if (state == 0) {
+				save_file();
+				network_disable();
+			} else {
+				room_goto(mode_buttons[state - 1].room_to);
 			}
 			
 			exit;

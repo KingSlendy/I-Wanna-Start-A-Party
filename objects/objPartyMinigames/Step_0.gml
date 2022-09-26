@@ -147,10 +147,8 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						if (now_skin == noone) {
 							do {
 								now_skin = irandom(array_length(global.skins) - 1);
-							} until ((have_skin(now_skin) || skin_player + 1 != global.player_id) && !array_contains(skin_selected, now_skin));
+							} until (have_skin(now_skin) && !array_contains(skin_selected, now_skin));
 						}
-						
-						//skin_selected[skin_player] = now_skin;
 						
 						with (objPlayerBase) {
 							if (network_id == other.skin_player + 1) {
@@ -283,8 +281,16 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					
 					var names = minigame_types();
 					var title = global.minigames[$ names[minigames_row_selected]][minigames_col_selected].title;
+					var seen_minigame = array_contains(global.seen_minigames, title);
 					
-					if ((array_contains(global.seen_minigames, title) || global.player_id != 1) && sync_actions("jump", 1)) {
+					if (!seen_minigame && global.player_id == 1 && global.collected_coins >= global.minigame_price && global.actions.jump.pressed(1)) {
+						change_collected_coins(-global.minigame_price);
+						minigame_unlock(title);
+						audio_play_sound(global.sound_cursor_select2, 0, false);
+						exit;
+					}
+					
+					if ((seen_minigame || global.player_id != 1) && sync_actions("jump", 1)) {
 						menu_page = 2;
 						var minigame = global.minigames[$ names[minigames_row_selected]][minigames_col_selected];
 						minigame_selected = {portrait: minigame.portrait, reference: minigame};
@@ -335,7 +341,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					info.player_colors = [c_red, c_blue];
 				}
 				
-				info.is_modes = true;
+				info.is_minigames = true;
 				
 				if (IS_ONLINE || array_length(global.player_game_ids) == 0) {
 					global.player_game_ids = [null];

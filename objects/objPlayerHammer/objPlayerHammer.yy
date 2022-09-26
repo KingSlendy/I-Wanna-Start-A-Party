@@ -9,7 +9,10 @@
   "solid": false,
   "visible": false,
   "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sprPlayerHammer",
+    "path": "sprites/sprPlayerHammer/sprPlayerHammer.yy",
+  },
   "persistent": true,
   "parentObjectId": {
     "name": "objPlayerBase",

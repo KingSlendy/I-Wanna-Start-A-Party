@@ -35,8 +35,8 @@ for (var i = 0; i < global.player_max; i++) {
 
 //Minigame values
 minigame_info_reset();
-global.minigame_type_history = [];
 global.minigame_history = [];
+global.minigame_type_history = [];
 
 tell_choices = false;
 cpu_wait = true;

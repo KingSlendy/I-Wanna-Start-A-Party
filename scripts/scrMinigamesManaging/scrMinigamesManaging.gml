@@ -1,3 +1,5 @@
+global.minigame_price = 5000;
+
 function Minigame(title, instructions, preview, scene, fangame_name) constructor {
 	self.title = title;
 	self.instructions = instructions;
@@ -89,6 +91,16 @@ function minigame_types() {
 	return ["4vs", "1vs3", "2vs2"];
 }
 
+function minigame_unlock(title) {
+	if (!array_contains(global.seen_minigames, title)) {
+		array_push(global.seen_minigames, title);
+	}
+	
+	if (array_length(global.seen_minigames) == array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])) {
+		achieve_trophy(64);
+	}
+}
+
 function minigame_info_reset() {
 	global.minigame_info = {
 		reference: null,
@@ -96,7 +108,7 @@ function minigame_info_reset() {
 		player_colors: [],
 		is_practice: false,
 		is_finished: false,
-		is_modes: false,
+		is_minigames: false,
 		
 		previous_board: null,
 		player_positions: [],

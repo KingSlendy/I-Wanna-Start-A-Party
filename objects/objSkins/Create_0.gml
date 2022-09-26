@@ -11,3 +11,4 @@ skin_x = 400;
 skin_target_x = 400;
 
 held_time = 0;
+controls_text = new Text(fntDialogue);

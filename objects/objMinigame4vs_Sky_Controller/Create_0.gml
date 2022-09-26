@@ -8,7 +8,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_time = 30;
+minigame_time = 40;
 action_end = function() {
 	alarm_stop(4);
 }

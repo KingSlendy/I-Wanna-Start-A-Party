@@ -1,7 +1,7 @@
-temp = true;
 fade_start = true;
 fade_alpha = 1;
 surf = noone;
+controls_text = new Text(fntDialogue);
 
 menu_page = 0;
 menu_sep = 1000;
@@ -136,7 +136,7 @@ minigame_colors = [
 if (room == rMinigames) {
 	var info = global.minigame_info;
 
-	if (info.is_modes) {
+	if (info.is_minigames) {
 		menu_page = 1;
 		var types = minigame_types();
 		minigames_row_selected = array_index(types, info.type);

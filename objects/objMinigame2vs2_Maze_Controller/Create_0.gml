@@ -70,7 +70,7 @@ alarm_override(11, function() {
 			dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
-				var dist_to_up = point_distance(0, dir, 0, 90);
+				var dist_to_up = abs(angle_difference(dir, 90));
 				
 				if (dist_to_up > 4) {
 					var action = (dir >= 90 && dir <= 270) ? actions.left : actions.right;

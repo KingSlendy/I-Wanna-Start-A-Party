@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sndRouletteRoll",
+  "name": "sndPauseEnter",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,10 +14,10 @@
     "name": "audiogroup_SFX",
     "path": "audiogroups/audiogroup_SFX",
   },
-  "soundFile": "sndRouletteRoll.wav",
-  "duration": 0.028312,
+  "soundFile": "sndPauseEnter.wav",
+  "duration": 1.82775,
   "parent": {
-    "name": "Party",
-    "path": "folders/Sounds/SFX/Party.yy",
+    "name": "Managers",
+    "path": "folders/Sounds/SFX/Managers.yy",
   },
 }

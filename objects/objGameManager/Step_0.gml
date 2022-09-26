@@ -1,9 +1,4 @@
 #region Input Checking
-if (keyboard_check_pressed(ord("D"))) {
-	game_set_speed((!a) ? 200 : 50, gamespeed_fps);
-	a = !a;
-}
-
 if (keyboard_check_pressed(vk_f4)) {
 	if (global.fullscreen_delay == 0) {
 		global.fullscreen_display ^= true;
@@ -14,12 +9,21 @@ if (keyboard_check_pressed(vk_f4)) {
 	save_config();
 }
 
-if (keyboard_check_pressed(vk_escape)) {
-	if (room != rTitle) {
+if (global.actions.pause.pressed()) {
+	if (room == rTitle) {
+		game_end();
+	} else if (room == rFiles || room == rSettings) {
 		network_disable();
 		room_goto(rTitle);
 	} else {
-		game_end();
+		paused ^= true;
+		
+		if (paused) {
+			pause_selected = 0;
+			pause_highlight = array_create(array_length(pause_options), 0.5);
+		}
+		
+		audio_play_sound((paused) ? sndPauseEnter : sndPauseLeave, 0, false);
 	}
 }
 #endregion

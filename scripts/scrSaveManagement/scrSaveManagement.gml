@@ -125,6 +125,8 @@ function save_board() {
 			saved_board: global.board_selected,
 			saved_max_turns: global.max_board_turns,
 			saved_board_turn: global.board_turn,
+			saved_minigame_history: global.minigame_history,
+			saved_minigame_type_history: global.minigame_type_history,
 			saved_board_light: global.board_light,
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_positions: [],

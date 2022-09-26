@@ -44,10 +44,6 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (frozen) {
-				break;
-			}
-		
 			switch (state) {
 				case 0: //Jump to first switch.
 					if (!state_presses[state]) {

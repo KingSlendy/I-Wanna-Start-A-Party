@@ -1,5 +1,6 @@
 if (selecting) {
-	var scroll = (global.actions.right.pressed(network_id) - global.actions.left.pressed(network_id));
+	var player = focus_player_by_turn(player_turn);
+	var scroll = (global.actions.right.pressed(player.network_id) - global.actions.left.pressed(player.network_id));
 	
 	if (scroll != 0) {
 		count = clamp(count + scroll, 0, 70);

@@ -11,7 +11,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_camera = CameraMode.Center;
+minigame_camera = CameraMode.Split4;
 player_type = objPlayerPlatformer;
 
 trophy_doors = true;
@@ -27,10 +27,6 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (frozen) {
-				continue;
-			}
-		
 			if (target == null) {
 				var choices = [];
 	

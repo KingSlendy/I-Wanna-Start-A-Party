@@ -1,3 +1,6 @@
+global.trophy_hint_price = 250;
+global.trophy_spoiler_price = 2500;
+
 function Trophy(image, rank, name, description, short) constructor {
 	self.image = image;
 	self.rank = rank;

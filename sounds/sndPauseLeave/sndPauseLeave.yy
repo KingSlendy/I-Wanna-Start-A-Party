@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sndRouletteRoll",
+  "name": "sndPauseLeave",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -11,13 +11,13 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_SFX",
-    "path": "audiogroups/audiogroup_SFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sndRouletteRoll.wav",
-  "duration": 0.028312,
+  "soundFile": "sndPauseLeave.wav",
+  "duration": 1.916937,
   "parent": {
-    "name": "Party",
-    "path": "folders/Sounds/SFX/Party.yy",
+    "name": "Managers",
+    "path": "folders/Sounds/SFX/Managers.yy",
   },
 }

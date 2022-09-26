@@ -26,24 +26,24 @@ function draw_text_ext_outline(x, y, text, sep, w, border_color) {
 	draw_text_ext(x, y, text, sep, w);
 }
 
-function draw_text_color_outline(x, y, text, c1, c2, c3, c4, fade_alpha, border_color) {
+function draw_text_color_outline(x, y, text, c1, c2, c3, c4, alpha, border_color) {
 	for (var i = -1; i < 2; i++) {
 	    for (var j = -1; j < 2; j++) {
-	        draw_text_color(x + j, y + i, text, border_color, border_color, border_color, border_color, fade_alpha);
+	        draw_text_color(x + j, y + i, text, border_color, border_color, border_color, border_color, alpha);
 	    }
 	}
 
-	draw_text_color(x, y, text, c1, c2, c3, c4, fade_alpha);
+	draw_text_color(x, y, text, c1, c2, c3, c4, alpha);
 }
 
-function draw_text_transformed_color_outline(x, y, text, xscale, yscale, angle, c1, c2, c3, c4, fade_alpha, border_color) {
+function draw_text_transformed_color_outline(x, y, text, xscale, yscale, angle, c1, c2, c3, c4, alpha, border_color) {
 	for (var i = -1; i < 2; i++) {
 	    for (var j = -1; j < 2; j++) {
-	        draw_text_transformed_color(x + j, y + i, text, xscale, yscale, angle, border_color, border_color, border_color, border_color, fade_alpha);
+	        draw_text_transformed_color(x + j, y + i, text, xscale, yscale, angle, border_color, border_color, border_color, border_color, alpha);
 	    }
 	}
 
-	draw_text_transformed_color(x, y, text, xscale, yscale, angle, c1, c2, c3, c4, fade_alpha);
+	draw_text_transformed_color(x, y, text, xscale, yscale, angle, c1, c2, c3, c4, alpha);
 }
 
 function draw_text_transformed_outline(x, y, text, xscale, yscale, angle, border_color) {

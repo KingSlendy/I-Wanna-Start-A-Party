@@ -3,9 +3,10 @@ fade_alpha = 1;
 fade_start = true;
 state = -1;
 
-function ModeButton(label, sprite, scale, offset, selectable = true) constructor {
+function ModeButton(label, sprite, scale, offset, room_to, selectable = true) constructor {
 	self.w = 230;
 	self.h = 170;
+	self.room_to = room_to;
 	self.selectable = selectable;
 	var surf = surface_create(w, h);
 	surface_set_target(surf);
@@ -38,16 +39,19 @@ function ModeButton(label, sprite, scale, offset, selectable = true) constructor
 }
 
 mode_buttons = [
-	new ModeButton("PARTY", sprModesParty, 0.5, 60),
-	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60),
-	new ModeButton("???", sprNothing, 0.5, 60, false),
-	new ModeButton("SKINS", sprNormalPlayerIdle, 4, 80, !IS_ONLINE),
-	new ModeButton("TROPHIES", sprModesTrophies, 0.7, 125, !IS_ONLINE)
+	new ModeButton("PARTY", sprModesParty, 0.5, 60, rParty),
+	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60, rMinigames),
+	new ModeButton("???", sprNothing, 0.5, 60,, false),
+	new ModeButton("???", sprNothing, 0.5, 60,, false),
+	new ModeButton("SKINS", sprNormalPlayerIdle, 4, 80, rSkins, !IS_ONLINE),
+	new ModeButton("TROPHIES", sprModesTrophies, 0.7, 125, rTrophies, !IS_ONLINE)
 ];
 
 mode_texts = [
 	"Classic board mode where you need to gather as much shines as possible to become the party star!",
 	"Here you can play all the minigames you've seen as you like!",
+	"???",
+	"???",
 	"???",
 	"Unlock all sorts of different skins to bring variety to the game!",
 	"All the trophies you've earned are stored here!"

@@ -56,7 +56,6 @@ alarm_override(11, function() {
 			var other_y = chosed_player.y + lengthdir_y(chosed_player.sprite_height / 2, angle);
 			
 			var dir = (point_direction(me_x, me_y, other_x, other_y) + 360 + chosed_offset) % 360;
-			var dist = point_distance(me_x, me_y, other_x, other_y);
 			var diff = angle_difference(angle, dir);
 			
 			if (abs(diff) > 6) {

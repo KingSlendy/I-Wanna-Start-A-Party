@@ -28,7 +28,7 @@ alarm_override(1, function() {
 alarm_create(4, function() {
 	state_path = (state_path + 2 + 1) % 2;
 	
-	if (state_path == 0 && current_round == 3) {
+	if (state_path == 0 && (current_round == 3 || minigame_lost_all())) {
 		minigame_lost_points();
 		minigame_finish();
 		return;

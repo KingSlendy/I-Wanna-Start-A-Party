@@ -14,15 +14,16 @@ function Option(label, check_option, draw_option) constructor {
 	self.check_option = method(self, check_option);
 	self.draw_option = method(self, draw_option);
 	self.highlight = 0.5;
+	
 	draw_set_font(fntFilesButtons);
 	self.label_width = string_width(self.label);
 	self.label_height = string_height(self.label);
 	self.draw_label = function(x, y, condition, in_option) {
 		draw_set_font(fntFilesButtons);
 		self.highlight = lerp(self.highlight, (!condition) ? 0.5 : 1, 0.3);
-		var color1 = (!in_option) ? c_orange : c_green;
-		var color2 = (!in_option) ? c_yellow : c_lime;
-		draw_text_transformed_color_outline(x, y, self.label, self.highlight, self.highlight, 0, color1, color1, color2, color2, self.highlight, c_black);
+		var color1 = (!in_option) ? c_gray : c_green;
+		var color2 = (!in_option) ? c_white : c_lime;
+		draw_text_transformed_color_outline(x, y, self.label, self.highlight, self.highlight, 0, color1, color1, color2, color2, self.highlight * draw_get_alpha(), c_black);
 	}
 }
 
@@ -118,14 +119,14 @@ sections = [
 	new Section("CONTROLS", [])
 ];
 
-var keys = [
+keys = [
 	"left",
 	"right",
 	"up",
 	"down",
 	"jump",
 	"shoot",
-	"back"
+	"pause"
 ];
 
 for (var i = 0; i < array_length(keys); i++) {
@@ -137,8 +138,12 @@ for (var i = 0; i < array_length(keys); i++) {
 
 section_selected = 0;
 section_x = 0;
+draw = true;
+draw_x = 400;
+draw_target_x = draw_x;
 draw_y = 200;
 draw_target_y = draw_y;
 
 controls_text = new Text(fntControls);
 volume_delay = 0;
+network_id = 1;

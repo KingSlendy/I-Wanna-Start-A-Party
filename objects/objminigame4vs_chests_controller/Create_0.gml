@@ -130,10 +130,6 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (frozen) {
-				break;
-			}
-		
 			if (chest_picked == -1) {
 				chest_picked = irandom(3);
 			}

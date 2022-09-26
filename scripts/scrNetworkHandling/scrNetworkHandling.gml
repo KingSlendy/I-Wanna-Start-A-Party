@@ -6,8 +6,8 @@ global.udp_ready = false;
 global.buffer = buffer_create(1024, buffer_fixed, 1);
 global.player_max = 4;
 global.player_client_list = array_create(global.player_max, null);
-global.player_id = 0;
 global.master_id = 0;
+global.player_id = 1;
 global.lobby_started = false;
 
 enum PlayerDataMode {
@@ -361,7 +361,7 @@ function network_reset() {
 	global.udp_ready = false;
 	global.player_client_list = array_create(global.player_max, null);
 	global.master_id = 0;
-	global.player_id = 0;
+	global.player_id = 1;
 	global.lobby_started = false;
 	global.game_id = "";
 	global.player_game_ids = [];

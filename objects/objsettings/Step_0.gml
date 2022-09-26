@@ -19,6 +19,10 @@ if (fade_start) {
 	}
 }
 
+if (draw_target_x == 400) {
+	global.ignore_input = false;
+}
+
 if (!fade_start) {
 	draw_target_y = 200;
 	
@@ -31,8 +35,8 @@ if (!fade_start) {
 	draw_target_y -= 60 * section.selected;
 	
 	if (section.in_option == -1) {
-		var scroll_v = (global.actions.down.pressed() - global.actions.up.pressed());
-	
+		var scroll_v = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
+
 		if (scroll_v != 0) {
 			section.selected += scroll_v;
 			
@@ -43,26 +47,32 @@ if (!fade_start) {
 				section.selected = 0;
 			}
 			
+			global.ignore_input = true;
 			audio_play_sound(global.sound_cursor_move, 0, false);
-			exit;
 		}
 	} else {
 		section.options[section.in_option].check_option();
 	}
 	
-	if (global.actions.jump.pressed()) {
+	if (global.actions.jump.pressed(network_id)) {
 		if (section.in_option == -1) {
 			section.in_option = section.selected;
+			global.ignore_input = true;
 			audio_play_sound(global.sound_cursor_select, 0, false);
-			exit;
 		}
 	}
 	
-	if (global.actions.shoot.pressed()) {
+	if (global.actions.shoot.pressed(network_id)) {
 		if (section.in_option == -1) {
-			fade_start = true;
-			back = true;
-			music_fade();
+			if (room == rSettings) {
+				fade_start = true;
+				back = true;
+				music_fade();
+			} else {
+				draw_target_x += 800;
+				global.actions.shoot.consume();
+			}
+			
 			save_config();
 		} else {
 			section.in_option = -1;
@@ -71,3 +81,5 @@ if (!fade_start) {
 		audio_play_sound(global.sound_cursor_back, 0, false);
 	}
 }
+
+global.ignore_input = objGameManager.paused;

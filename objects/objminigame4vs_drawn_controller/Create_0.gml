@@ -31,10 +31,6 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (frozen) {
-				break;
-			}
-			
 			var me_x = x - 1;
 			var me_y = y - 7;
 			

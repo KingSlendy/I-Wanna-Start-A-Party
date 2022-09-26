@@ -165,6 +165,14 @@ if (room == rParty) {
 			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
 			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, title, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 			draw_set_halign(fa_left);
+			
+			if (j == 0 && !seen_minigame) {
+				draw_sprite(sprCoin, 0, minigames_x + draw_w / 2 - 50, row_y + 290);
+				draw_set_color((global.collected_coins >= global.minigame_price) ? c_white : c_red);
+				draw_set_valign(fa_middle);
+				draw_text_outline(minigames_x + draw_w / 2 - 30, row_y + 290, string(global.minigame_price), c_black);
+				draw_set_valign(fa_top);
+			}
 		}
 	}
 	
@@ -266,8 +274,11 @@ surface_reset_target();
 draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, (room == rParty) ? #3B8A66 : #3B8A66, 0.75);
 draw_surface(surf, draw_x + 4, draw_y + 4);
 draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_yellow, 1);
-var text = new Text(fntDialogue);
-text.set(draw_action(global.actions.jump) + " Confirm");
-text.draw(draw_x, draw_y + draw_h + 5);
-text.set(draw_action(global.actions.shoot) + " Cancel");
-text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
+controls_text.set(draw_action(global.actions.jump) + " Confirm");
+controls_text.draw(draw_x, draw_y + draw_h + 5);
+controls_text.set(draw_action(global.actions.shoot) + " Cancel");
+controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
+
+if (room == rMinigames) {
+	draw_collected_coins(400, 420);
+}

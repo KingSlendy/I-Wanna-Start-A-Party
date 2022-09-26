@@ -1,4 +1,3 @@
-event_inherited();
 next_seed_inline();
 count_bug = asset_get_index("sprMinigame4vs_Bugs_Bug" + choose("R", "G", "B", "Y"));
 
@@ -8,3 +7,12 @@ repeat (70) {
 		image_index = irandom(image_number - 1);
 	}
 }
+
+with (objMinigame4vs_Bugs_Bug) {
+	if (sprite_index == other.count_bug) {
+		array_push(other.bugs, id);
+	}
+}
+	
+total_bugs = array_length(bugs);
+event_inherited();

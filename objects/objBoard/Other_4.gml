@@ -8,6 +8,8 @@ if (!global.board_started) {
 		var board = global.board_games[$ global.game_id];
 		global.max_board_turns = board.saved_board.saved_max_turns;
 		global.board_turn = board.saved_board.saved_board_turn;
+		global.minigame_history = board.saved_board.saved_minigame_history;
+		global.minigame_type_history = board.saved_board.saved_minigame_type_history;
 		global.board_light = board.saved_board.saved_board_light;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 	
