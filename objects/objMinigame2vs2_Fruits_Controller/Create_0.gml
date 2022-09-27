@@ -101,6 +101,17 @@ alarm_override(11, function() {
 		with (player) {
 			var me_x = x - 1;
 			var me_y = y - 7;
+			
+			if (collision_circle(x, y - 30, 16, objMinigame2vs2_Fruits_Gordo, false, true) != noone) {
+				if (!place_meeting(x - max_hspd * 4, y, objBlock)) {
+					actions.left.press();
+				} else {
+					actions.right.press();
+				}
+				
+				break;
+			}
+			
 			instance_deactivate_object(objMinigame2vs2_Fruits_Gordo);
 			var near = instance_nearest(me_x, me_y, objMinigame2vs2_Fruits_Fruit);
 			instance_activate_object(objMinigame2vs2_Fruits_Gordo);
@@ -108,6 +119,7 @@ alarm_override(11, function() {
 			if (near == noone) {
 				break;
 			}
+			
 			var check_x = near.x;
 			var dist = point_distance(me_x, me_y, check_x, me_y);
 		

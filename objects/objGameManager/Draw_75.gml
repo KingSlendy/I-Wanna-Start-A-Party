@@ -12,7 +12,11 @@ if (point_distance(pause_state, 0, paused, 0) < 0.01) {
 	}
 }
 
-draw_set_alpha(pause_state * 0.5);
+if (sprite_exists(pause_sprite)) {
+	draw_sprite(pause_sprite, 0, 0, 0);
+}
+
+draw_set_alpha(pause_state * 0.75);
 draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 
 draw_set_alpha(pause_state);

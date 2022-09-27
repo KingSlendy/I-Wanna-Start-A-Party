@@ -51,8 +51,8 @@ if (room == rMinigame4vs_Bullets && hspd != 0) {
 		}
 	}
 	
-	if (x >= xpos) {
-		x = xpos;
+	if (x >= xstart) {
+		x = xstart;
 		hspd = 0;
 		xscale = -1;
 	}

@@ -147,6 +147,8 @@ function players_start() {
 	
 	with (objPlayerBase) {
 		with (change_to_object(other.player_type)) {
+			xstart = x;
+			ystart = y;
 			apply();
 			event_perform(ev_other, ev_room_start);
 			frozen = true;

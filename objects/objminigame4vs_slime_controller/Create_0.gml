@@ -6,6 +6,7 @@ minigame_time_end = function() {
 	}
 	
 	unfreeze_player();
+	instance_destroy(objBullet);
 }
 
 player_type = objPlayerPlatformer;

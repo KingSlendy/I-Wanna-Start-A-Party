@@ -14,7 +14,7 @@ if (room == rModes) {
 		"Settings",
 		"Back To Files"
 	];
-} else if (instance_exists(objMinigameController)) {
+} else if (IS_MINIGAME) {
 	if (global.minigame_info.is_minigames) {
 		pause_options = [
 			"Resume",

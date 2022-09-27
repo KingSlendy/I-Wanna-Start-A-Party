@@ -19,8 +19,8 @@ if (fade_start) {
 	}
 }
 
-if (draw_target_x == 400) {
-	global.ignore_input = false;
+if (room != rSettings) {
+	global.ignore_input = (!objGameManager.paused || draw_target_x != 400);
 }
 
 if (!fade_start) {

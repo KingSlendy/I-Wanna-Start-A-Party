@@ -6,8 +6,8 @@ if (reset == 0) {
 		reset = 1;
 		
 		with (objPlayerBase) {
-			x = xpos;
-			y = ypos;
+			x = xstart;
+			y = ystart;
 			xscale = (x < 400) ? 1 : -1;
 		}
 		

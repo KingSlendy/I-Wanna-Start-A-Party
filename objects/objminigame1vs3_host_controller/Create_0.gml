@@ -138,8 +138,8 @@ alarm_create(6, function() {
 					x = pick_id.bbox_right - 16;
 					y = pick_id.bbox_bottom - 9;
 				} else {
-					x = xpos;
-					y = ypos;
+					x = xstart;
+					y = ystart;
 				}
 			}
 		}
@@ -177,8 +177,8 @@ alarm_create(7, function() {
 	}
 	
 	with (objPlayerBase) {
-		x = xpos;
-		y = ypos;
+		x = xstart;
+		y = ystart;
 		frozen = true;
 		pick_id = null;
 	}

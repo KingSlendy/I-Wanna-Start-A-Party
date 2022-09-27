@@ -79,7 +79,7 @@ function __input_class_verb_state() constructor
             //Catch the leading edge to toggle the verb
             if ((__toggle_prev_value < 0.1) && (__toggle_value > 0.1)) __toggle_state = !__toggle_state;
             
-            //Overwrite the values we expose to the player with the toggle state
+            //Overwrite the values we exstarte to the player with the toggle state
             value = __toggle_state;
             raw   = __toggle_state;
         }

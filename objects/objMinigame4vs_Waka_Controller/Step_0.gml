@@ -12,8 +12,8 @@ if (next_path == 0) {
 		switch (state_path) {
 			case 0:
 				with (objPlayerBase) {
-					x = xpos;
-					y = ypos;
+					x = xstart;
+					y = ystart;
 				}
 			
 				player_pos = array_create(global.player_max, 0);
@@ -80,7 +80,12 @@ switch (camera_state) {
 	
 		if (camera_get_view_y(view_camera[0]) >= 1216) {
 			camera_set_view_pos(view_camera[0], 0, 1216);
-			objPlayerBase.frozen = false;
+			
+			with (objPlayerBase) {
+				guess_path = irandom(global.player_max - 1);
+				frozen = false;
+			}
+			
 			minigame_time = 4;
 			alarm_call(10, 1);
 			camera_state = -1;

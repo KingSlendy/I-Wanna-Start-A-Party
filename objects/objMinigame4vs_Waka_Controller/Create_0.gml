@@ -2,8 +2,9 @@ event_inherited();
 
 minigame_players = function() {
 	with (objPlayerBase) {
-		xpos = x;
-		ypos = y;
+		xstart = x;
+		ystart = y;
+		guess_path = -1;
 	}
 }
 
@@ -40,3 +41,27 @@ alarm_create(4, function() {
 alarm_create(5, function() {
 	camera_state = 0;
 })
+
+alarm_create(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player =  focus_player_by_id(i);
+	
+		if (player_pos[i - 1] == player.guess_path) {
+			continue;
+		}
+	
+		if (player_pos[i - 1] < player.guess_path) {
+			actions.right.press();
+		} else {
+			actions.left.press();
+		}
+	}
+
+	alarm_frames(11, 1);
+});

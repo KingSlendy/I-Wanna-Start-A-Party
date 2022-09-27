@@ -18,8 +18,6 @@ yprevious = y;
 //Moving the player manually
 x += hspd;
 y += vspd;
-hspd = approach(hspd, 0, fric);
-vspd = approach(vspd, 0, fric);
 
 //Collision with block
 var block = instance_place(x, y, objBlock);

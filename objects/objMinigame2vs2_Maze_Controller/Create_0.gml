@@ -44,8 +44,6 @@ alarm_override(11, function() {
 			near = player.teammate;
 		}
 		
-		var dir = null;
-		
 		with (player) {
 			if (move_delay_timer > 0) {
 				move_delay_timer--;
@@ -67,7 +65,7 @@ alarm_override(11, function() {
 			}
 			
 			mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, true);
-			dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
+			var dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
 				var dist_to_up = abs(angle_difference(dir, 90));

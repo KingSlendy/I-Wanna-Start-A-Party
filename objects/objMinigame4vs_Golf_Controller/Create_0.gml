@@ -6,6 +6,8 @@ player_type = objPlayerGolf;
 player_turn = 1;
 next_turn = -1;
 
+trophy_main = true;
+
 function unfreeze_player() {
 	var player = focus_player_by_turn(player_turn);
 	player.frozen = false;
@@ -35,4 +37,14 @@ function give_points(player_id, points, network = true) {
 
 alarm_override(1, function() {
 	unfreeze_player();
+});
+
+alarm_override(2, function() {
+	alarm_inherited(2);
+	
+	if (array_contains(info.players_won, global.player_id)) {
+		if (trophy_main) {
+			achieve_trophy(66);
+		}
+	}
 });

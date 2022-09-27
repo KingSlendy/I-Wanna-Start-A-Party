@@ -99,6 +99,10 @@ alarm_create(5, function() {
 		}
 	}
 
+	if (minigame_lost_all(true)) {
+		achieve_trophy(65);
+	}
+
 	alarm_call(6, 1);
 });
 

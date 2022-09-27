@@ -6,6 +6,10 @@ if (other.num == goal_num + 1 || (other.num == 0 && goal_num == 3)) {
 		
 		if (minigame4vs_get_points(network_id) == 4) {
 			minigame_finish(true);
+			
+			if (network_id == global.player_id && objMinigameController.trophy_hitless) {
+				achieve_trophy(67);
+			}
 		}
 		
 		buffer_seek_begin();

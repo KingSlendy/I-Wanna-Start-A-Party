@@ -1,8 +1,119 @@
 event_inherited();
 
 minigame_players = function() {
-	objPlayerBase.goal_num = 0;
+	with (objPlayerBase) {
+		goal_num = 0;
+		fast_collide = false;
+	}
 }
 
 points_draw = true;
 player_type = objPlayerBubble;
+
+trophy_hitless = true;
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			var goal = null;
+			
+			with (objMinigame4vs_Bubble_Goal) {
+				if (num == (other.goal_num + 1) % 4) {
+					goal = id;
+					break;
+				}
+			}
+			
+			//var me_x = floor(x / other.grid_size) * other.grid_size + other.grid_size / 2;
+			//var me_y = floor(y / other.grid_size) * other.grid_size + other.grid_size / 2;
+			var cell_x = floor(x / other.grid_size);
+			var cell_y = floor(y / other.grid_size);
+			var me_x = x;
+			var me_y = y;
+			var other_x = goal.x + goal.sprite_width / 2// + random_range(-16, 16);
+			var other_y = goal.y + goal.sprite_height / 2// + random_range(-16, 16);
+			mp_grid_path((image_alpha == 1) ? other.grid : other.grid_spikeless, path, me_x, me_y, other_x, other_y, true);
+			
+			var dir = point_direction(path_get_point_x(path, 0), path_get_point_y(path, 0), path_get_point_x(path, 1) + random_range(-4, 4), path_get_point_y(path, 1) + random_range(-4, 4));
+			var spd = point_distance(0, 0, hspd, vspd);
+			var angle = round(dir / 45) % 8;
+			
+			if (!fast_collide && spd > 3 && image_alpha == 1 && !place_meeting(x, y, objMinigame4vs_Bubble_Spike)) {
+				var times = 6;
+				var time = 0;
+				var hspd_collide = hspd;
+				var vspd_collide = vspd;
+			
+				while (time++ < times) {
+					if (place_meeting(x + hspd_collide, y + vspd_collide, objMinigame4vs_Bubble_Spike)) {
+						fast_collide = true;
+						break;
+					}
+					
+					hspd_collide += hspd_collide + 0.1 * sign(hspd);
+					vspd_collide += vspd_collide + 0.1 * sign(vspd);
+				}
+			}
+			
+			if (fast_collide) {
+				if (spd >= 0.1) {
+					angle = round(point_direction(hspd, vspd, 0, 0) / 45) % 8;
+				} else {
+					fast_collide = false;
+				}
+			}
+			
+			if (!fast_collide && spd > 5) {
+				break;
+			}
+			
+			switch (angle) {
+				case 0:
+					actions.right.press();
+					break;
+					
+				case 1:
+					actions.up.press();
+					actions.right.press();
+					break;
+					
+				case 2:
+					actions.up.press();
+					break;
+					
+				case 3:
+					actions.up.press();
+					actions.left.press();
+					break;
+					
+				case 4:
+					actions.left.press();
+					break;
+					
+				case 5:
+					actions.down.press();
+					actions.left.press();
+					break;
+					
+				case 6:
+					actions.down.press();
+					break;
+					
+				case 7:
+					actions.down.press();
+					actions.right.press();
+					break;
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
+});

@@ -14,6 +14,7 @@ time_source_start(timer);
 
 alarms_collected = [];
 paused = false;
+pause_sprite = noone;
 pause_player_id = 0;
 pause_state = 0;
 pause_selected = 0;

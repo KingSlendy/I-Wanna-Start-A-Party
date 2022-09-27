@@ -93,7 +93,6 @@ alarm_override(11, function() {
 	
 		var near = instance_nearest(player.x, player.y, objMinigame2vs2_Buttons_Button);
 		instance_activate_object(objMinigame2vs2_Buttons_Button);
-		var dir = null;
 		
 		with (player) {
 			var me_x = x - 1;
@@ -111,7 +110,7 @@ alarm_override(11, function() {
 			}
 		
 			mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, true);
-			dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
+			var dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
 				var dist_to_up = abs(angle_difference(dir, 90));

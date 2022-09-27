@@ -1,7 +1,7 @@
 event_inherited();
 
 with (objPlayerBase) {
-	xpos = x;
-	ypos = y;
+	xstart = x;
+	ystart = y;
 	xscale = -1;
 }

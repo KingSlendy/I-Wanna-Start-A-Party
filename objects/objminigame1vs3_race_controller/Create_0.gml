@@ -1,6 +1,12 @@
 event_inherited();
 
 minigame_start = minigame1vs3_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		press_delay = get_frames(random_range(0.75, 1.25));
+	}
+}
+
 minigame_camera = CameraMode.Split4;
 action_end = function() {
 	solo_action = null;
@@ -104,6 +110,15 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
+			if (other.points_teams[0][other.team_turn].network_id != i) {
+				break;
+			}
+			
+			if (press_delay > 0) {
+				press_delay--;
+				break;
+			}
+			
 			var action = null;
 		
 			if (irandom(19) != 0) {
@@ -120,9 +135,10 @@ alarm_override(11, function() {
 		
 			if (action != null) {
 				action.press();
+				press_delay = get_frames(random_range(0.75, 1.1));
 			}
 		}
 	}
 
-	alarm_call(11, 1.7);
+	alarm_frames(11, 1);
 });

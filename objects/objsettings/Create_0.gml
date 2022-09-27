@@ -38,7 +38,9 @@ var volume_check = function() {
 			case "SFX": global.sfx_volume = clamp(global.sfx_volume + 0.01 * scroll_held, 0, 1); break;
 		}
 		
-		apply_volume();
+		if (room == rSettings) {
+			apply_volume();
+		}
 	}
 	
 	if (scroll_held != 0) {

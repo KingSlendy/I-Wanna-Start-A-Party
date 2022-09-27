@@ -49,8 +49,7 @@ mode_buttons = [
 
 mode_texts = [
 	"Classic board mode where you need to gather as much shines as possible to become the party star!",
-	"Here you can play all the minigames you've seen as you like!",
-	"???",
+	"Play and enjoy all the minigames you've unlocked!",
 	"???",
 	"???",
 	"Unlock all sorts of different skins to bring variety to the game!",
