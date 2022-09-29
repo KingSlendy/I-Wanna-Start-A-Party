@@ -1,5 +1,12 @@
 event_inherited();
 
+minigame_players = function() {
+	with (objPlayerBase) {
+		guess_angle = irandom_range(30, 75);
+		guess_power = remap(guess_angle, 30, 75, 0.4, 0.8) + random_range(-0.1, 0.1);
+	}
+}
+
 points_draw = true;
 player_type = objPlayerGolf;
 
@@ -47,4 +54,37 @@ alarm_override(2, function() {
 			achieve_trophy(66);
 		}
 	}
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (!powering) {
+				var diff = angle_difference(aim_angle, guess_angle);
+				
+				if (abs(diff) <= 2) {
+					if (0.75 > random(1)) {
+						actions.jump.press();
+					}
+				} else {
+					var action = (sign(diff) == -1) ? actions.left : actions.right;
+					action.press();
+				}
+			} else {
+				if (point_distance(aim_power, 0, guess_power, 0) <= 0.02 && 0.75 > random(1)) {
+					actions.jump.press();
+				}
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
 });

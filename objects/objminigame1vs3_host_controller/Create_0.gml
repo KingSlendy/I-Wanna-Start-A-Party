@@ -116,7 +116,7 @@ alarm_create(6, function() {
 			}
 		}
 	
-		minigame_time = 15;
+		minigame_time = 10;
 		alarm_call(10, 1);
 	} else {
 		with (objPlayerBase) {

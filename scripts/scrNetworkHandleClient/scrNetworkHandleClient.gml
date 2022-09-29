@@ -831,11 +831,11 @@ f[$ ClientTCP.Minigame4vs_Painting_Platform] = function(buffer) {
 }
 
 f[$ ClientTCP.Minigame4vs_Bugs_Counting] = function(buffer) {
-	var player_id = buffer_read(buffer, buffer_u8);
+	var player_turn = buffer_read(buffer, buffer_u8);
 	var count = buffer_read(buffer, buffer_u8);
 			
 	with (objMinigame4vs_Bugs_Counting) {
-		if (network_id == player_id) {
+		if (self.player_turn == player_turn) {
 			self.count = count;
 			break;
 		}

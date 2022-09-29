@@ -318,6 +318,21 @@ function minigame4vs_points(player_id, points = minigame_max_points()) {
 	}
 }
 
+function minigame4vs_get_points(player_id) {
+	var info = global.minigame_info;
+	return info.player_scores[player_id - 1].points;
+}
+
+function minigame4vs_get_max_points() {
+	var max_points = -infinity;
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		max_points = max(max_points, minigame4vs_get_points(i));
+	}
+	
+	return max_points;
+}
+
 function minigame1vs3_points(points = minigame_max_points()) {
 	for (var i = 0; i < array_length(points_teams[0]); i++) {
 		minigame4vs_points(points_teams[0][i].network_id, points);
@@ -327,11 +342,6 @@ function minigame1vs3_points(points = minigame_max_points()) {
 function minigame2vs2_points(player_id1, player_id2, points = minigame_max_points()) {
 	minigame4vs_points(player_id1, points);
 	minigame4vs_points(player_id2, points);
-}
-
-function minigame4vs_get_points(player_id) {
-	var info = global.minigame_info;
-	return info.player_scores[player_id - 1].points;
 }
 
 function minigame2vs2_get_points(player_id1, player_id2) {

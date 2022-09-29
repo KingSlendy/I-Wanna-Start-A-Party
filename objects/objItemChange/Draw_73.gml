@@ -3,6 +3,7 @@ if (used_item) {
 }
 
 draw_set_alpha(animation_alpha);
+draw_set_font(fntDialogue);
 var positive = (sign(amount) == 1);
 draw_set_color((positive) ? c_blue : c_red);
 draw_set_halign(fa_center);

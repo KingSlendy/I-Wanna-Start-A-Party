@@ -7,9 +7,11 @@ var v = (global.actions.down.held(network_id) - global.actions.up.held(network_i
 hspd = h * max_spd;
 vspd = v * max_spd;
 
-if (image_index == 0 && global.actions.shoot.pressed(network_id)) {
+if (image_index == 0 && can_hit  && global.actions.shoot.pressed(network_id)) {
 	image_index = 1;
+	can_hit = false;
 	alarm_call(0, 0.1);
+	alarm_call(1, 0.4);
 }
 
 #region Collision

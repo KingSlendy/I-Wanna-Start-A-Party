@@ -32,7 +32,7 @@ minigame_time_end = function() {
 		if (is_player_local(player.network_id)) {
 			buffer_seek_begin();
 			buffer_write_action(ClientTCP.Minigame4vs_Bugs_Counting);
-			buffer_write_data(buffer_u8, player.network_id);
+			buffer_write_data(buffer_u8, player_turn);
 			buffer_write_data(buffer_u8, count);
 			network_send_tcp_packet();
 		}

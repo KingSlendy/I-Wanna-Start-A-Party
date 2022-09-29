@@ -110,7 +110,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (other.points_teams[0][other.team_turn].network_id != i) {
+			if (other.points_teams[0][other.team_turn].network_id != i && other.points_teams[1][0].network_id != i) {
 				break;
 			}
 			

@@ -20,7 +20,6 @@ with (objPlayerBase) {
 	if (fade == -1) {
 		if (other.image_index >= other.image_number - 1) {
 			fade = 0;
-			target = null;
 		}
 	} else if (fade == 0) {
 		image_alpha -= 0.04;

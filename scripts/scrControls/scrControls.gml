@@ -41,6 +41,16 @@ function Action() constructor {
 	}
 	
 	static consume = function() {
+		for (var i = 2; i <= global.player_max; i++) {
+			var actions = check_player_actions_by_id(i);
+			
+			if (actions == null) {
+				continue;
+			}
+			
+			actions[$ self.verb].release(true);
+		}
+		
 		input_consume(self.verb);
 	}
 	

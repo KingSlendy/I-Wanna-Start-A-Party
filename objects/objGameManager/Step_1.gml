@@ -8,7 +8,18 @@ pause_options = [
 	"Back To Modes"
 ];
 
-if (room == rModes) {
+if (IS_ONLINE) {
+	pause_options = [
+		"Resume",
+		"Settings",
+		"Exit Lobby"
+	];
+} else if (room == rFiles && objFiles.file_opened != -1) {
+	pause_options = [
+		"Resume",
+		"Settings"
+	];
+} else if (room == rModes) {
 	pause_options = [
 		"Resume",
 		"Settings",
@@ -65,6 +76,7 @@ if (paused) {
 					break;
 					
 				case 2:
+					disable_board();
 					network_disable();
 					paused = false;
 					pause_state = 0;
@@ -72,6 +84,7 @@ if (paused) {
 					break;
 					
 				case 3:
+					global.player_game_ids = array_sequence(1, 5);
 					disable_board();
 					paused = false;
 					pause_state = 0;

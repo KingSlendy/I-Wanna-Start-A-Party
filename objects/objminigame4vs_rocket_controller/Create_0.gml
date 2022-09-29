@@ -23,7 +23,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_camera = CameraMode.Split4;
+minigame_camera = CameraMode.Center;
 player_type = objPlayerRocket;
 
 alarm_override(11, function() {
@@ -37,11 +37,22 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (--delay_player <= 0 || chosed_player.lost) {
+			if (--delay_player <= 0) {
 				delay_player = get_frames(5);
-				instance_deactivate_object(id);
-				chosed_player = instance_nearest(x, y, objPlayerBase);
-				instance_activate_object(id);
+				var record = infinity;
+				
+				with (objPlayerBase) {
+					if (id == other.id || lost) {
+						continue;	
+					}
+					
+					var dist = point_distance(other.x, other.y, x, y);
+					
+					if (dist <= record) {
+						other.chosed_player = id;
+						record = dist;
+					}
+				}
 			}
 			
 			if (--delay_offset <= 0) {
@@ -50,12 +61,10 @@ alarm_override(11, function() {
 			}
 			
 			var angle = (image_angle + 360 + 90) % 360;
-			var me_x = x;
-			var me_y = y;
 			var other_x = chosed_player.x;
 			var other_y = chosed_player.y + lengthdir_y(chosed_player.sprite_height / 2, angle);
 			
-			var dir = (point_direction(me_x, me_y, other_x, other_y) + 360 + chosed_offset) % 360;
+			var dir = (point_direction(x, y, other_x, other_y) + 360 + chosed_offset) % 360;
 			var diff = angle_difference(angle, dir);
 			
 			if (abs(diff) > 6) {

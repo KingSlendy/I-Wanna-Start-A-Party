@@ -14,9 +14,9 @@ if (next_path == 0) {
 				with (objPlayerBase) {
 					x = xstart;
 					y = ystart;
+					other.player_pos[network_id - 1] = player_info_by_id(network_id).turn - 1;
 				}
 			
-				player_pos = array_create(global.player_max, 0);
 				instance_destroy(objMinigame4vs_Waka_Intersect);
 				var map_id = layer_tilemap_get_id("Lines");
 			

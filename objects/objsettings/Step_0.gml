@@ -35,7 +35,7 @@ if (!fade_start) {
 	draw_target_y -= 60 * section.selected;
 	
 	if (section.in_option == -1) {
-		var scroll_v = (global.actions.down.pressed(network_id) - global.actions.up.pressed(network_id));
+		var scroll_v = (global.actions.down.pressed() - global.actions.up.pressed());
 
 		if (scroll_v != 0) {
 			section.selected += scroll_v;
@@ -54,7 +54,7 @@ if (!fade_start) {
 		section.options[section.in_option].check_option();
 	}
 	
-	if (global.actions.jump.pressed(network_id)) {
+	if (global.actions.jump.pressed()) {
 		if (section.in_option == -1) {
 			section.in_option = section.selected;
 			global.ignore_input = true;
@@ -62,7 +62,7 @@ if (!fade_start) {
 		}
 	}
 	
-	if (global.actions.shoot.pressed(network_id)) {
+	if (global.actions.shoot.pressed()) {
 		if (section.in_option == -1) {
 			if (room == rSettings) {
 				fade_start = true;

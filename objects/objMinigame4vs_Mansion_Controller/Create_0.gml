@@ -27,6 +27,10 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
+			if (frozen) {
+				break;
+			}
+			
 			if (target == null) {
 				var choices = [];
 	
@@ -50,22 +54,21 @@ alarm_override(11, function() {
 				}
 	
 				array_shuffle(choices);
-				target = choices[0];
-			} else {
-				var door = instance_place(x, y, target);
-			
-				if (door != noone) {
-					actions.up.press();
-					array_push(entered, door.id, door.link.id);
-					continue;
-				}
-			
-				var me_x = x - 1;
-				var me_y = y - 7;
-				var dir = point_direction(me_x, me_y, target.x + 64, me_y);
-				var action = (dir == 0) ? actions.right : actions.left;
-				action.press();
+				target = array_pop(choices);
 			}
+			
+			var door = instance_place(x, y, target);
+			
+			if (door != noone) {
+				target = null;
+				actions.up.press();
+				array_push(entered, door.id, door.link.id);
+				continue;
+			}
+
+			var dir = point_direction(x, y, target.x + 64, y);
+			var action = (dir == 0) ? actions.right : actions.left;
+			action.press();
 		}
 	}
 	

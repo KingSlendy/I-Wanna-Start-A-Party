@@ -64,7 +64,7 @@ alarm_override(11, function() {
 			}
 			
 			if (fast_collide) {
-				if (spd >= 0.1) {
+				if (spd >= 0.75) {
 					angle = round(point_direction(hspd, vspd, 0, 0) / 45) % 8;
 				} else {
 					fast_collide = false;

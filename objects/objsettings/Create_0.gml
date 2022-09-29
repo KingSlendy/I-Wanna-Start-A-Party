@@ -148,4 +148,3 @@ draw_target_y = draw_y;
 
 controls_text = new Text(fntControls);
 volume_delay = 0;
-network_id = 1;

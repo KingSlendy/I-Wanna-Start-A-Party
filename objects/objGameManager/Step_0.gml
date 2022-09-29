@@ -15,13 +15,7 @@ if (keyboard_check_pressed(vk_f4)) {
 var bgm_volume = global.bgm_volume;
 
 if (paused) {
-	if (room == rFiles) {
-		paused = false;
-		pause_selected = 0;
-		pause_highlight = array_create(array_length(pause_options), 0.5);
-	} else {
-		global.bgm_volume = 0;
-	}
+	global.bgm_volume = 0;
 }
 
 if (global.music_current != null) {
@@ -33,7 +27,7 @@ global.bgm_volume = bgm_volume;
 if (global.actions.pause.pressed()) {
 	if (room == rTitle) {
 		game_end();
-	} else if (room == rFiles || room == rSettings) {
+	} else if ((room == rFiles && objFiles.file_opened == -1) || room == rSettings) {
 		network_disable();
 		room_goto(rTitle);
 	} else {
