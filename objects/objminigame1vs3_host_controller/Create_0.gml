@@ -15,7 +15,7 @@ minigame_time_end = function() {
 	objPlayerBase.frozen = true;
 	
 	if (hider) {
-		with (points_teams[1][0]) {
+		with (minigame1vs3_solo()) {
 			if (pick_id == null) {
 				with (other) {
 					set_pick_door(other.id, 0);
@@ -87,21 +87,21 @@ alarm_create(4, function() {
 alarm_create(5, function() {
 	music_play(music);
 	show_popup("HIDE!",,,,,, 0.25);
-	points_teams[1][0].frozen = false;
+	minigame1vs3_solo().frozen = false;
 	minigame_time = 15;
 	alarm_call(10, 1);
 });
 
 alarm_create(6, function() {	
 	if (hider) {
-		if (points_teams[1][0].pick_id == null) {
+		if (minigame1vs3_solo().pick_id == null) {
 			alarm_frames(6, 1);
 			return;
 		}
 		
 		objPlayerBase.frozen = false;
 		
-		with (points_teams[1][0]) {
+		with (minigame1vs3_solo()) {
 			if (pick_id != 0) {
 				x = pick_id.bbox_left + 16;
 				y = pick_id.bbox_bottom - 9;
@@ -128,12 +128,12 @@ alarm_create(6, function() {
 			}
 		}
 		
-		with (points_teams[1][0]) {
+		with (minigame1vs3_solo()) {
 			draw = true;
 		}
 		
 		for (var i = 0; i < array_length(points_teams[0]); i++) {
-			with (points_teams[0][i]) {
+			with (minigame1vs3_team(i)) {
 				if (pick_id != 0) {
 					x = pick_id.bbox_right - 16;
 					y = pick_id.bbox_bottom - 9;
@@ -145,9 +145,9 @@ alarm_create(6, function() {
 		}
 		
 		for (var i = 0; i < array_length(points_teams[0]); i++) {
-			var player = points_teams[0][i];
+			var player = minigame1vs3_team(i);
 			
-			if (player.pick_id == points_teams[1][0].pick_id) {
+			if (player.pick_id == minigame1vs3_solo().pick_id) {
 				minigame1vs3_points();
 				minigame_finish();
 				return;
@@ -157,7 +157,7 @@ alarm_create(6, function() {
 		if (current_round < 3) {
 			alarm_call(7, 5);
 		} else {
-			minigame4vs_points(points_teams[1][0].network_id);
+			minigame4vs_points(minigame1vs3_solo().network_id);
 			minigame_finish();
 			return;
 		}
@@ -169,7 +169,7 @@ alarm_create(6, function() {
 
 alarm_create(7, function() {
 	for (var i = 0; i < array_length(points_teams[0]); i++) {
-		var player = points_teams[0][i];
+		var player = minigame1vs3_team(i);
 		
 		if (player.pick_id != 0) {
 			player.pick_id.image_index = 1;

@@ -1,7 +1,7 @@
 event_inherited();
 
 if (solo_action != null) {
-	var player = points_teams[1][0];
+	var player = minigame1vs3_solo();
 	var color = c_white;
 	
 	if (solo_correct) {
@@ -14,7 +14,7 @@ if (solo_action != null) {
 }
 
 if (team_action != null) {
-	var player = points_teams[0][team_turn];
+	var player = minigame1vs3_team(team_turn);
 	var color = c_white;
 	
 	if (team_correct) {

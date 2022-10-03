@@ -9,21 +9,21 @@ minigame_players = function() {
 			null,
 			[false, 0],
 			false,
-			[false, false, get_frames_static(0.5)],
+			[false, false, get_frames(0.5)],
 			null,
 			false,
 			false,
 			false,
 			null,
-			[get_frames_static(7), 0],
+			[get_frames(7), 0],
 			null,
 			false,
-			[get_frames_static(7), 0],
+			[get_frames(7), 0],
 			false,
 			[[], null],
 			[[], null],
-			[get_frames_static(0.25), false],
-			[false, get_frames_static(1)]
+			[get_frames(0.25), false],
+			[false, get_frames(1)]
 		];
 	
 		finished = false;

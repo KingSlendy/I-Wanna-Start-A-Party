@@ -143,17 +143,18 @@ enum CameraMode {
 }
 
 function players_start() {
-	var apply = minigame_players;
+	with (objPlayerBase) {
+		change_to_object(other.player_type);
+	}
 	
 	with (objPlayerBase) {
-		with (change_to_object(other.player_type)) {
-			xstart = x;
-			ystart = y;
-			apply();
-			event_perform(ev_other, ev_room_start);
-			frozen = true;
-		}
+		xstart = x;
+		ystart = y;
+		event_perform(ev_other, ev_room_start);
+		frozen = true;
 	}
+	
+	minigame_players();
 	
 	for (var i = 0; i < array_length(points_teams); i++) {
 		for (var j = 0; j < array_length(points_teams[i]); j++) {
@@ -506,10 +507,62 @@ function minigame_lost_points() {
 
 function minigame1vs3_lost() {
 	for (var i = 0; i < array_length(points_teams[0]); i++) {
-		if (!points_teams[0][i].lost) {
+		if (!minigame1vs3_team(i).lost) {
 			return false;
 		}
 	}
 	
 	return true;
+}
+
+function minigame1vs3_team(num) {
+	return objMinigameController.points_teams[0][num];
+}
+
+function minigame1vs3_solo() {
+	return objMinigameController.points_teams[1][0];
+}
+
+function minigame1vs3_is_solo(player_id) {
+	return (minigame1vs3_solo().network_id == player_id);
+}
+
+function minigame_angle_dir8(actions, angle) {
+	switch (angle) {
+		case 0:
+			actions.right.press();
+			break;
+					
+		case 1:
+			actions.up.press();
+			actions.right.press();
+			break;
+					
+		case 2:
+			actions.up.press();
+			break;
+					
+		case 3:
+			actions.up.press();
+			actions.left.press();
+			break;
+					
+		case 4:
+			actions.left.press();
+			break;
+					
+		case 5:
+			actions.down.press();
+			actions.left.press();
+			break;
+					
+		case 6:
+			actions.down.press();
+			break;
+					
+		case 7:
+			actions.down.press();
+			actions.right.press();
+			break;
+	}
 }

@@ -13,11 +13,11 @@ minigame_players = function() {
 
 minigame_time = 50;
 action_end = function() {
-	if (points_teams[1][0].lost) {
-		minigame4vs_points(points_teams[1][0].network_id);
+	if (minigame1vs3_solo().lost) {
+		minigame4vs_points(minigame1vs3_solo().network_id);
 	} else {
 		for (var i = 0; i < array_length(points_teams[0]); i++) {
-			minigame4vs_points(points_teams[0][i].network_id);
+			minigame4vs_points(minigame1vs3_team(i).network_id);
 		}
 	}
 }
@@ -46,11 +46,10 @@ alarm_override(11, function() {
 			continue;
 		}
 	
-		var upper_player = points_teams[1][0];
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (upper_player.network_id == i) {
+			if (minigame1vs3_is_solo(i)) {
 				var left_line = (collision_line(bbox_left - 3, bbox_top, bbox_left - 3, bbox_bottom + 96, objMinigame1vs3_Warping_Warp, true, true) != noone);
 				var bbox_side = (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom + 96, objMinigame1vs3_Warping_Warp, true, true) != noone);
 				var right_line = (collision_line(bbox_right + 3, bbox_top, bbox_right + 3, bbox_bottom + 96, objMinigame1vs3_Warping_Warp, true, true) != noone);
@@ -68,6 +67,8 @@ alarm_override(11, function() {
 					actions.right.hold(5);
 				}
 			} else {
+				var solo_player = minigame1vs3_solo();
+				
 				if (--pos_delay <= 0) {
 					pos_delay = get_frames(random_range(0.5, 1.5));
 					pos_offset = choose(irandom_range(-96, -32), irandom_range(4, 8));
@@ -80,7 +81,7 @@ alarm_override(11, function() {
 				
 				var beside_block = false;
 				
-				with (upper_player) {
+				with (solo_player) {
 					beside_block = place_meeting(x - 1, y, objMinigame1vs3_Warping_Push);
 				}
 				
@@ -88,20 +89,19 @@ alarm_override(11, function() {
 					pos_offset = -96 + irandom_range(0, 32);
 				}
 				
-				var dist = point_distance(x, y, upper_player.x + pos_offset, y)
+				var dist = point_distance(x, y, solo_player.x + pos_offset, y)
 				
 				if (dist <= 3) {
 					break;
 				}
 				
-				var dir = point_direction(x, y, upper_player.x + pos_offset, y);
+				var dir = point_direction(x, y, solo_player.x + pos_offset, y);
 				
 				if (dir == 0) {
 					actions.right.hold(5);
 				} else {
 					actions.left.press();
 				}
-				
 			}
 		}
 	}

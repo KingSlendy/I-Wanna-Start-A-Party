@@ -1,2 +1,2 @@
 draw_self();
-draw_sprite(get_skin_pose_object(objMinigameController.points_teams[0][index], "Idle"), 0, x, y);
+draw_sprite(get_skin_pose_object(minigame1vs3_team(index), "Idle"), 0, x, y);

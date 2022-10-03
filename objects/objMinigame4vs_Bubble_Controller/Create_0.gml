@@ -75,43 +75,7 @@ alarm_override(11, function() {
 				break;
 			}
 			
-			switch (angle) {
-				case 0:
-					actions.right.press();
-					break;
-					
-				case 1:
-					actions.up.press();
-					actions.right.press();
-					break;
-					
-				case 2:
-					actions.up.press();
-					break;
-					
-				case 3:
-					actions.up.press();
-					actions.left.press();
-					break;
-					
-				case 4:
-					actions.left.press();
-					break;
-					
-				case 5:
-					actions.down.press();
-					actions.left.press();
-					break;
-					
-				case 6:
-					actions.down.press();
-					break;
-					
-				case 7:
-					actions.down.press();
-					actions.right.press();
-					break;
-			}
+			minigame_angle_dir8(actions, angle);
 		}
 	}
 

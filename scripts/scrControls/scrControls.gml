@@ -41,15 +41,17 @@ function Action() constructor {
 	}
 	
 	static consume = function() {
-		for (var i = 2; i <= global.player_max; i++) {
-			var actions = check_player_actions_by_id(i);
+		try {
+			for (var i = 2; i <= global.player_max; i++) {
+				var actions = check_player_actions_by_id(i);
 			
-			if (actions == null) {
-				continue;
+				if (actions == null) {
+					continue;
+				}
+			
+				actions[$ self.verb].release(true);
 			}
-			
-			actions[$ self.verb].release(true);
-		}
+		} catch (_) {}
 		
 		input_consume(self.verb);
 	}
@@ -165,7 +167,7 @@ function check_player_actions_by_id(player_id) {
 
 function bind_to_icon(bind) {
 	//Alphanumeric keys
-	if (bind >= 48 && bind <= 57 || bind >= 66 && bind <= 90 || bind >= 96 && bind <= 105) {
+	if (bind >= 48 && bind <= 57 || bind >= 65 && bind <= 90 || bind >= 96 && bind <= 105) {
 		return asset_get_index("sprKey_" + chr(bind));
 	}
 	
@@ -179,6 +181,7 @@ function bind_to_icon(bind) {
 	binds[$ vk_shift] = sprKey_Shift;
 	binds[$ vk_lshift] = sprKey_Shift;
 	binds[$ vk_rshift] = sprKey_Shift;
+	binds[$ vk_enter] = sprKey_Enter;
 	binds[$ vk_backspace] = sprKey_Backspace;
 	binds[$ vk_escape] = sprKey_Escape;
 	
@@ -203,7 +206,7 @@ function bind_to_icon(bind) {
 	binds[$ gp_start] = sprButton_Start;
 	
 	if (!variable_struct_exists(binds, bind)) {
-		return chr(bind);
+		return sprKey_Blank;
 	}
 	
 	return binds[$ bind];

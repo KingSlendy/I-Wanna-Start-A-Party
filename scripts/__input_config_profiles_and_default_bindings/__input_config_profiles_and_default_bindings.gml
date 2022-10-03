@@ -17,7 +17,7 @@ INPUT_DEFAULT_PROFILES = {
 		down: input_binding_key(vk_down),
 		jump: input_binding_key(vk_shift),
 		shoot: input_binding_key(ord("Z")),
-		pause: input_binding_key(vk_escape)
+		pause: input_binding_key(vk_enter)
 	},
 	
 	gamepad: {

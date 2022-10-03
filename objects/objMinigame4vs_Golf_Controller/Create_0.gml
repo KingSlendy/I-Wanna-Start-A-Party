@@ -2,8 +2,20 @@ event_inherited();
 
 minigame_players = function() {
 	with (objPlayerBase) {
-		guess_angle = irandom_range(30, 75);
-		guess_power = remap(guess_angle, 30, 75, 0.4, 0.8) + random_range(-0.1, 0.1);
+		if (!is_player_local(network_id)) {
+			continue;
+		}
+		
+		var hole_x = objMinigame4vs_Golf_Hole.x + 16 - x;
+		var hole_y = objMinigame4vs_Golf_Hole.y - (y + 10);
+		
+		do {
+			var velocity_x = random_range(max_velocity * 0.25, max_velocity * 0.5);
+			var velocity_y = velocity_x * hole_y / hole_x - 0.5 * 510 * hole_x / velocity_x;
+		} until (abs(velocity_y) <= max_velocity && velocity_y + 510 * (hole_x / velocity_x) > 10);
+		
+		guess_angle = (point_direction(0, 0, velocity_x, velocity_y) + 360 + random_range(-5, 5)) % 360;
+		guess_power = clamp(point_distance(0, 0, velocity_x, velocity_y) / max_velocity + random_range(-0.1, 0.1), 0, 1);
 	}
 }
 

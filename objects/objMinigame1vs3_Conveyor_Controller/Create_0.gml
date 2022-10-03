@@ -14,7 +14,7 @@ minigame_time_end = function() {
 	if (!minigame1vs3_lost()) {
 		minigame1vs3_points();
 	} else {
-		minigame4vs_points(points_teams[1][0].network_id);
+		minigame4vs_points(minigame1vs3_solo().network_id);
 	}
 	
 	minigame_finish();
@@ -40,10 +40,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			var me_x = x - 1;
-			var me_y = y - 7;
-		
-			if (y < 288) {
+			if (minigame1vs3_is_solo(i)) {
 				if (move_delay_timer > 0) {
 					move_delay_timer--;
 					break;
@@ -53,8 +50,8 @@ alarm_override(11, function() {
 					chosed_conveyor = choose(320, 384, 448) + 16;
 				}
 			
-				if (point_distance(me_x, me_y, chosed_conveyor, me_y) > 3) {
-					var dir = floor(point_direction(me_x, me_y, chosed_conveyor, me_y));
+				if (point_distance(x, y, chosed_conveyor, y) > 3) {
+					var dir = floor(point_direction(x, y, chosed_conveyor, y));
 					var action = (dir == 0) ? actions.right : actions.left;
 					action.hold(6);
 				} else {
@@ -72,10 +69,10 @@ alarm_override(11, function() {
 				if (action != null) {
 					action.hold(irandom_range(get_frames(0.1), get_frames(0.2)));
 				} else {
-					var dist = point_distance(me_x, me_y, 400, me_y);
+					var dist = point_distance(x, y, 400, y);
 				
 					if (dist > 64) {
-						var dir = point_direction(me_x, me_y, 400, me_y);
+						var dir = point_direction(x, y, 400, y);
 						var action = (dir == 0) ? actions.right : actions.left;
 						actions.left.release();
 						actions.right.release();

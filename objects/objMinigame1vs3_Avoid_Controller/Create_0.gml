@@ -13,7 +13,7 @@ minigame_time_end = function() {
 	if (!minigame1vs3_lost()) {
 		minigame1vs3_points();
 	} else {
-		minigame4vs_points(points_teams[1][0].network_id);
+		minigame4vs_points(minigame1vs3_solo().network_id);
 	}
 	
 	minigame_finish();
@@ -40,7 +40,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (y < 128) {
+			if (minigame1vs3_is_solo(i)) {
 				var available = true;
 			
 				with (objMinigame1vs3_Avoid_Block) {
@@ -60,11 +60,8 @@ alarm_override(11, function() {
 					chosed_block = choose(288, 352, 416, 480) + 16;
 				}
 			
-				var me_x = x - 1;
-				var me_y = y - 7;
-			
-				if (point_distance(me_x, me_y, chosed_block, me_y) > 6) {
-					var dir = floor(point_direction(me_x, me_y, chosed_block, me_y));
+				if (point_distance(x, y, chosed_block, y) > 6) {
+					var dir = floor(point_direction(x, y, chosed_block, y));
 					var action = (dir == 0) ? actions.right : actions.left;
 					action.hold(6);
 				} else {

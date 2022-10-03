@@ -70,7 +70,7 @@ alarm_override(11, function() {
 				array_shuffle(choices);
 				var max_points = minigame4vs_get_max_points();
 			
-				if (max_points >= ceil(instance_number(objMinigame4vs_Painting_Platform) / global.player_max) && 0.8 > random(1)) {
+				if (max_points >= ceil(instance_number(objMinigame4vs_Painting_Platform) / global.player_max)) {
 					for (var j = 0; j < 4; j++) {
 						var choice = choices[j];
 					

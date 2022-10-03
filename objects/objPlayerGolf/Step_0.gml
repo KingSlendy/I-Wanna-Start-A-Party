@@ -34,7 +34,7 @@ phy_angular_damping = (on_block) ? 4 : 0;
 
 if (aiming && !powering) {
 	aim_angle += (global.actions.left.held(network_id) - global.actions.right.held(network_id)) * 2;
-	aim_angle = clamp(aim_angle, 0, 180);
+	aim_angle = clamp(aim_angle, 0, 90);
 	
 	if (global.actions.jump.pressed(network_id)) {
 	    powering = true;
@@ -53,7 +53,7 @@ if (powering) {
 	aim_power = clamp(aim_power, 0, 1);
 		
 	if (global.actions.jump.pressed(network_id)) {
-	    var total_power = aim_power * max_power_velocity;
+	    var total_power = aim_power * max_velocity;
 	    phy_linear_velocity_x = lengthdir_x(total_power, aim_angle);
 	    phy_linear_velocity_y = lengthdir_y(total_power, aim_angle);
 	    phy_angular_velocity = -200;

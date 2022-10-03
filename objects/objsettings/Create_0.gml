@@ -14,6 +14,7 @@ function Option(label, check_option, draw_option) constructor {
 	self.check_option = method(self, check_option);
 	self.draw_option = method(self, draw_option);
 	self.highlight = 0.5;
+	self.changing = false;
 	
 	draw_set_font(fntFilesButtons);
 	self.label_width = string_width(self.label);
@@ -101,7 +102,36 @@ var display_draw = function(x, y) {
 	draw_text_outline(x + 40, y, (display) ? "ON" : "OFF", c_black);
 }
 
+var controls_check = function() {
+	if (!input_binding_scan_in_progress()) {
+		input_binding_scan_start(function(bind) {
+			input_binding_set_safe(string_lower(self.label), bind);
+			
+			with (objSettings) {
+				sections[section_selected].in_option = -1;
+			}
+			
+			self.changing = false;
+			audio_play_sound(global.sound_cursor_select, 0, false);
+		}, function() {
+			with (objSettings) {
+				sections[section_selected].in_option = -1;
+			}
+			
+			self.changing = false;
+			audio_play_sound(global.sound_cursor_select, 0, false);
+		});
+		
+		self.changing = true;
+		audio_play_sound(global.sound_cursor_select, 0, false);
+	}
+}
+
 var controls_draw = function(x, y) {
+	if (self.changing) {
+		return;
+	}
+	
 	draw_sprite_ext(global.actions[$ string_lower(self.label)].bind(), 0, x + 40, y, 0.75, 0.75, 0, c_white, 1);
 }
 
@@ -135,7 +165,7 @@ for (var i = 0; i < array_length(keys); i++) {
 	var name = keys[i];
 	var action = global.actions[$ name];
 	
-	array_push(sections[2].options, new Option(string_upper(name), function() {}, controls_draw));
+	array_push(sections[2].options, new Option(string_upper(name), controls_check, controls_draw));
 }
 
 section_selected = 0;

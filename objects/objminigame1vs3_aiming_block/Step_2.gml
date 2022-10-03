@@ -1,4 +1,4 @@
-if (!is_player || !is_player_local(objMinigameController.points_teams[0][player_num].network_id)) {
+if (!is_player || !is_player_local(minigame1vs3_team(player_num).network_id)) {
 	exit;
 }
 

@@ -55,7 +55,7 @@ alarm_override(1, function() {
 });
 
 alarm_create(4, function() {
-	with (points_teams[1][0]) {
+	with (minigame1vs3_solo()) {
 		if (!is_player_local(network_id)) {
 			break;
 		}
@@ -74,7 +74,7 @@ alarm_create(4, function() {
 
 alarm_create(5, function() {
 	for (var i = 0; i < array_length(points_teams[0]); i++) {
-		with (points_teams[0][i]) {
+		with (minigame1vs3_team(i)) {
 			hspeed = 0;
 		}
 	}
@@ -110,7 +110,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (other.points_teams[0][other.team_turn].network_id != i && other.points_teams[1][0].network_id != i) {
+			if (minigame1vs3_team(other.team_turn).network_id != i && minigame1vs3_solo().network_id != i) {
 				break;
 			}
 			

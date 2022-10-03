@@ -1109,7 +1109,7 @@ f[$ ClientTCP.Minigame1vs3_Aiming_DestroyBlock] = function(buffer) {
 	with (objMinigame1vs3_Aiming_Block) {
 		if (is_player == block_is_player && player_num == block_player_num) {
 			if (is_player) {
-				objMinigameController.points_teams[0][player_num].lost = true;
+				minigame1vs3_team(player_num).lost = true;
 			}
 
 			instance_destroy();

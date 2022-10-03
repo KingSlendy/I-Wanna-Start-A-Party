@@ -5,6 +5,7 @@ minigame_players = function() {
 	with (objPlayerBase) {
 		enable_jump = false;
 		enable_shoot = false;
+		basket = null;
 		move_delay_timer = 0;
 	}	
 }
@@ -99,11 +100,10 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			var me_x = x - 1;
-			var me_y = y - 7;
+			var gordo = collision_rectangle(basket.bbox_left, basket.bbox_top - 80, basket.bbox_right, basket.bbox_bottom, objMinigame2vs2_Fruits_Gordo, true, true);
 			
-			if (collision_circle(x, y - 30, 16, objMinigame2vs2_Fruits_Gordo, false, true) != noone) {
-				if (!place_meeting(x - max_hspd * 4, y, objBlock)) {
+			if (gordo != noone) {
+				if ((gordo.x + 16 > x && !place_meeting(x - 16, y, objBlock)) || place_meeting(x + 16, y, objBlock)) {
 					actions.left.press();
 				} else {
 					actions.right.press();
@@ -112,22 +112,42 @@ alarm_override(11, function() {
 				break;
 			}
 			
+			gordo = instance_nearest(x, y, objMinigame2vs2_Fruits_Gordo);
+			
+			if (gordo != noone && gordo.bbox_top <= basket.bbox_bottom + 8) {
+				break;
+			}
+			
+			if (player_info_by_id(i).turn < player_info_by_id(teammate.network_id).turn) {
+				var xx = teammate.xstart;
+			} else {
+				var xx = teammate.xstart - 96;
+			}
+			
+			with (objMinigame2vs2_Fruits_Fruit) {
+				if ((x >= xx && x <= xx + 128 && y >= 0 && y <= 608) || (other.x > 400 && x < 400) || (other.x < 400 && x > 400)) {
+					instance_deactivate_object(id);
+				}
+			}
+			
 			instance_deactivate_object(objMinigame2vs2_Fruits_Gordo);
-			var near = instance_nearest(me_x, me_y, objMinigame2vs2_Fruits_Fruit);
-			instance_activate_object(objMinigame2vs2_Fruits_Gordo);
+			var near = instance_nearest(x, y, objMinigame2vs2_Fruits_Fruit);
+			instance_activate_object(objMinigame2vs2_Fruits_Fruit);
 			
 			if (near == noone) {
 				break;
 			}
 			
 			var check_x = near.x;
-			var dist = point_distance(me_x, me_y, check_x, me_y);
+			var dist = point_distance(x, y, check_x, y);
 		
-			if (dist > 4 && dist < 96) {
-				var dir = point_direction(me_x, me_y, check_x, me_y);
-				var action = (dir == 0) ? actions.right : actions.left;
-				action.press();
+			if (dist <= 4) {
+				break;
 			}
+			
+			var dir = point_direction(x, y, check_x, y);
+			var action = (dir == 0) ? actions.right : actions.left;
+			action.press();
 		}
 	}
 

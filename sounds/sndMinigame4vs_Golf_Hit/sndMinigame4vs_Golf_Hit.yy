@@ -11,8 +11,8 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup_SFX",
+    "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndMinigame4vs_Golf_Hit.wav",
   "duration": 0.583991,

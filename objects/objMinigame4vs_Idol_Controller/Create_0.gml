@@ -69,44 +69,7 @@ alarm_create(11, function() {
 			}
 			
 			var dir = point_direction(x, y, idol_hole.x + 64, idol_hole.y - 15);
-			
-			switch (round(dir / 45) % 8) {
-				case 0:
-					actions.right.press();
-					break;
-					
-				case 1:
-					actions.up.press();
-					actions.right.press();
-					break;
-					
-				case 2:
-					actions.up.press();
-					break;
-					
-				case 3:
-					actions.up.press();
-					actions.left.press();
-					break;
-					
-				case 4:
-					actions.left.press();
-					break;
-					
-				case 5:
-					actions.down.press();
-					actions.left.press();
-					break;
-					
-				case 6:
-					actions.down.press();
-					break;
-					
-				case 7:
-					actions.down.press();
-					actions.right.press();
-					break;
-			}
+			minigame_angle_dir8(actions, round(dir / 45) % 8);
 		}
 	}
 

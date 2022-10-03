@@ -58,7 +58,7 @@ rounds = -1;
 
 alarm_override(1, function() {
 	if (minigame1vs3_lost()) {
-		with (points_teams[1][0]) {
+		with (minigame1vs3_solo()) {
 			if (network_id == global.player_id && other.rounds == 0) {
 				achieve_trophy(13);
 			}
@@ -75,7 +75,7 @@ alarm_override(1, function() {
 		var below = false;
 	
 		for (var i = 0; i < array_length(points_teams[0]); i++) {
-			with (points_teams[0][i]) {
+			with (minigame1vs3_team(i)) {
 				if (lost) {
 					survived = false;
 				}

@@ -1,4 +1,4 @@
-if (points_teams[1][0].lost) {
+if (minigame1vs3_solo().lost) {
 	minigame_finish(true);
 }
 
@@ -7,7 +7,7 @@ if (!warp_start || info.is_finished) {
 }
 
 for (var i = 0; i < array_length(points_teams[0]); i++) {
-	var player = points_teams[0][i];
+	var player = minigame1vs3_team(i);
 	warp_delay[i] = max(--warp_delay[i], 0);
 	
 	if (warp_delay[i] == 0 && global.actions.shoot.pressed(player.network_id)) {

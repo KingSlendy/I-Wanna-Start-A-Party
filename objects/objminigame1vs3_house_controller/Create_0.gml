@@ -7,8 +7,8 @@ minigame_players = function() {
 
 minigame_time = 20;
 minigame_time_end = function() {
-	if (!points_teams[1][0].lost) {
-		minigame4vs_points(points_teams[1][0].network_id);
+	if (!minigame1vs3_solo().lost) {
+		minigame4vs_points(minigame1vs3_solo().network_id);
 	} else {
 		minigame1vs3_points();
 	}
@@ -42,7 +42,7 @@ function cherry_jump(network = true) {
 			y = ystart;
 		}
 		
-		vspeed = -9;
+		vspeed = -8.5;
 		gravity = 0.3;
 	}
 	
@@ -54,7 +54,7 @@ function cherry_jump(network = true) {
 }
 
 alarm_override(1, function() {
-	points_teams[1][0].frozen = false;
+	minigame1vs3_solo().frozen = false;
 	house_start = true;
 });
 
@@ -66,21 +66,34 @@ alarm_override(11, function() {
 			continue;
 		}
 	
-		var keys = ["left", "right", "jump"];
-		var action = actions[$ keys[irandom(array_length(keys) - 1)]];
+		var player = focus_player_by_id(i);
 		
-		switch (irandom(2)) {
-			case 0:
-				action.hold(irandom(21));
-				break;
+		with (player) {
+			if (minigame1vs3_is_solo(i)) {
+				if (place_meeting(x - 32, y, objMinigame1vs3_House_Cherry)) {
+					actions.right.hold(irandom_range(4, 9));
+				}
 				
-			case 1:
-				action.press();
-				break;
+				if (place_meeting(x + 32, y, objMinigame1vs3_House_Cherry)) {
+					actions.left.hold(irandom_range(4, 9));
+				}
 				
-			case 2:
-				action.release(true);
-				break;
+				if (place_meeting(x, y + 16, objMinigame1vs3_House_Cherry) && 0.75 > random(1)) {
+					actions.jump.hold(irandom_range(13, 16));
+				}
+			} else {
+				if (minigame1vs3_team(0).network_id == i) {
+					var action = actions.left;
+				} else if (minigame1vs3_team(1).network_id == i) {
+					var action = actions.right;
+				} else {
+					var action = actions.jump;
+				}
+				
+				if (0.1 > random(1)) {
+					action.hold(irandom_range(5, 10));
+				}
+			}
 		}
 	}
 

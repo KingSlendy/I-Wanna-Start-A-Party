@@ -182,7 +182,7 @@ function draw_1vs3_squares() {
 			draw_rectangle(draw_x, draw_y, draw_x + (draw_w - 1), draw_y + (draw_h - 1), false);
 		}
 		
-		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, info.player_colors[(player.network_id != objMinigameController.points_teams[1][0].network_id)], 0);
+		draw_box(draw_x, draw_y, draw_w, draw_h, c_white, info.player_colors[(player.network_id != objMinigameController.minigame1vs3_solo().network_id)], 0);
 	}
 }
 

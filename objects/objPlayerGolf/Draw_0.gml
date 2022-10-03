@@ -15,8 +15,8 @@ if (aiming) {
 }
 
 if (powering) {
-	var xx = 64;
-	var yy = 500;
+	xx = 64;
+	yy = 500;
     var yyy = (yy + 40);
     var h = 20;
     draw_set_color(c_black);

@@ -216,7 +216,7 @@ function player_write_data() {
 		buffer_write_data(buffer_s32, x);
 		buffer_write_data(buffer_s32, y);
 	} else {
-		buffer_write_data(buffer_u16, phy_rotation);
+		buffer_write_data(buffer_u16, -phy_rotation % 360);
 		buffer_write_data(buffer_s32, phy_position_x);
 		buffer_write_data(buffer_s32, phy_position_y);
 	}

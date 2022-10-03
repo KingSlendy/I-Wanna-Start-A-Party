@@ -1,7 +1,7 @@
 instance_destroy(other);
 
 if (is_player) {
-	var player = objMinigameController.points_teams[0][player_num];
+	var player = minigame1vs3_team(player_num);
 
 	if (!is_player_local(player.network_id)) {
 		exit;

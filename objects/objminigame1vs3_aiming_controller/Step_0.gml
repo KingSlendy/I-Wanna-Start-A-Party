@@ -3,7 +3,7 @@ if (!input_start || info.is_finished) {
 }
 
 if (minigame1vs3_lost()) {
-	if (global.player_id == points_teams[1][0].network_id && trophy_saver) {
+	if (global.player_id == minigame1vs3_solo().network_id && trophy_saver) {
 		achieve_trophy(52);
 	}
 	
@@ -13,7 +13,7 @@ if (minigame1vs3_lost()) {
 
 shoot_delay = max(--shoot_delay, 0);
 
-if (shoot_delay == 0 && global.actions.shoot.pressed(points_teams[1][0].network_id)) {
+if (shoot_delay == 0 && global.actions.shoot.pressed(minigame1vs3_solo().network_id)) {
 	var laser = objMinigame1vs3_Aiming_Spike;
 	create_laser(laser.x, laser.y);
 	shoot_delay = get_frames(1.25);
@@ -26,7 +26,7 @@ if (shoot_delay == 0 && global.actions.shoot.pressed(points_teams[1][0].network_
 }
 
 for (var i = 0; i < array_length(points_teams[0]); i++) {
-	var player = points_teams[0][i];
+	var player = minigame1vs3_team(i);
 	
 	with (objMinigame1vs3_Aiming_Block) {
 		if (is_player && i == player_num) {
