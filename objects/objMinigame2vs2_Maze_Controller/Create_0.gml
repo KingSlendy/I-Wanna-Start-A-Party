@@ -55,17 +55,12 @@ alarm_override(11, function() {
 				break;
 			}
 			
-			var me_x = x - 1;
-			var me_y = y - 7;
-			var other_x = near.x;
-			var other_y = near.y;
-			
-			if (point_distance(me_x, me_y, other_x, other_y) < other.distance_to_win) {
+			if (point_distance(x, y, near.x, near.y) < other.distance_to_win) {
 				break;
 			}
 			
-			mp_grid_path(other.grid, path, me_x, me_y, other_x, other_y, true);
-			var dir = point_direction(me_x, me_y, path_get_point_x(path, 1), path_get_point_y(path, 1));
+			mp_grid_path(other.grid, path, x, y, near.x, near.y, true);
+			var dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
 				var dist_to_up = abs(angle_difference(dir, 90));

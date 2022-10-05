@@ -118,6 +118,10 @@ var block = instance_place(x, y, objBlock);
 if (block != noone) {
 	x = xprevious;
 	y = yprevious;
+	
+	if (room == rMinigame1vs3_Hunt) {
+		block.touched = true;
+	}
 
 	//Detect horizontal collision
 	if (place_meeting(x + hspd, y, objBlock)) {

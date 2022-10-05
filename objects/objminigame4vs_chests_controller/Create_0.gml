@@ -5,6 +5,7 @@ minigame_players = function() {
 		enable_jump = false;
 		enable_shoot = false;
 		chest_picked = -1;
+		chest_delay = irandom_range(5, 10);
 	}
 }
 
@@ -152,19 +153,21 @@ alarm_override(11, function() {
 				break;
 			}
 		
-			var me_x = x - 1;
-			var me_y = y - 7;
-		
 			if (place_meeting(x, y, chest)) {
+				if (--chest_delay > 0) {
+					break;
+				}
+				
 				actions.up.press();
+				chest_delay = irandom_range(5, 10);
 				break;
 			}
 		
-			if (point_distance(me_x, me_y, chest.x, me_y) < 4) {
+			if (point_distance(x, y, chest.x, y) < 4) {
 				break;
 			}
 		
-			var dir = point_direction(me_x, me_y, chest.x, me_y);
+			var dir = point_direction(x, y, chest.x, y);
 			var action = (dir == 0) ? actions.right : actions.left;
 			action.press();
 		}

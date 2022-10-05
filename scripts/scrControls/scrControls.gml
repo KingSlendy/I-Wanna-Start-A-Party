@@ -5,36 +5,36 @@ input_axis_threshold_set(gp_axislv, 0.5, 1);
 
 function Action() constructor {
 	static held = function(id = 0) {
-		if (global.ignore_input) {
-			return false;
-		}
-		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].held(id);
+		}
+		
+		if (global.ignore_input) {
+			return false;
 		}
 		
 		return input_check(self.verb);
 	}
 	
 	static pressed = function(id = 0) {
-		if (global.ignore_input) {
-			return false;
-		}
-		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].pressed(id);
+		}
+		
+		if (global.ignore_input) {
+			return false;
 		}
 		
 		return input_check_pressed(self.verb);
 	}
 	
 	static released = function(id = 0) {
-		if (global.ignore_input) {
-			return false;
-		}
-		
 		if (id > 0 && id != global.player_id) {
 			return ai_actions(id)[$ self.verb].released(id);
+		}
+		
+		if (global.ignore_input) {
+			return false;
 		}
 		
 		return input_check_released(self.verb);

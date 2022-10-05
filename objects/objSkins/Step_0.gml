@@ -61,6 +61,7 @@ if (!fade_start && skin_selected == skin_target_selected) {
 		if (!array_contains(global.collected_skins, skin_selected) && global.skins[skin_selected].price <= global.collected_coins) {
 			change_collected_coins(-global.skins[skin_selected].price);
 			gain_skin(other.skin_selected);
+			save_file();
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;
 		}

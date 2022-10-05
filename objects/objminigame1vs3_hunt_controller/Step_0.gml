@@ -7,6 +7,25 @@ if (minigame1vs3_solo().lost) {
 	exit;
 }
 
+if (minigame1vs3_solo().network_id == global.player_id) {
+	var all_blocks = true;
+			
+	with (objBlock) {
+		if (image_xscale != 1 || image_yscale != 1 || !(x >= 0 && x <= 800 && y >= 0 && y <= 608)) {
+			continue;
+		}
+				
+		if (!touched) {
+			all_blocks = false;
+			break;
+		}
+	}
+			
+	if (all_blocks) {
+		achieve_trophy(53);
+	}
+}
+
 for (var i = 0; i < array_length(points_teams[0]); i++) {
 	var player = points_teams[0][i];
 	

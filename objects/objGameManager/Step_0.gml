@@ -15,7 +15,7 @@ if (keyboard_check_pressed(vk_f4)) {
 if (keyboard_check_pressed(vk_escape)) {
 	if (room == rTitle) {
 		game_end();
-	} else if ((room == rFiles && objFiles.file_opened == -1) || room == rSettings) {
+	} else {
 		network_disable();
 		room_goto(rTitle);
 	}
@@ -33,7 +33,7 @@ if (global.music_current != null) {
 
 global.bgm_volume = bgm_volume;
 
-if (global.actions.pause.pressed()) {
+if (room != rVersion && room != rTitle && (room != rFiles || objFiles.file_opened != -1) && global.actions.pause.pressed()) {
 	paused ^= true;
 		
 	if (paused) {

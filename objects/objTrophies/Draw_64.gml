@@ -46,8 +46,8 @@ var trophy = global.trophies[trophy_selected];
 var buy = "";
 
 switch (trophy.state()) {
-	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " Hint " + ((global.collected_coins >= 250) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(250); break;
-	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler " + ((global.collected_coins >= 2500) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(2500); break;
+	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " Hint " + ((global.collected_coins >= global.trophy_hint_price) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(global.trophy_hint_price); break;
+	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler " + ((global.collected_coins >= global.trophy_spoiler_price) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(global.trophy_spoiler_price); break;
 }
 
 controls_text.set(buy);

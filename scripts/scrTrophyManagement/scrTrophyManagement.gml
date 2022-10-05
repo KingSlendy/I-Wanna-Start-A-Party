@@ -1,5 +1,5 @@
-global.trophy_hint_price = 250;
-global.trophy_spoiler_price = 2500;
+global.trophy_hint_price = 100;
+global.trophy_spoiler_price = 2000;
 
 function Trophy(image, rank, name, description, short) constructor {
 	self.image = image;
@@ -118,7 +118,7 @@ global.trophies = [
 	new Trophy(41, TrophyRank.Bronze, "Item Hoarder", "You finished a Party with 3 Items.\nOh my, that's such a waste!", "Hoarding isn't the best, you know?"),
 	new Trophy(42, TrophyRank.Bronze, "Broken Mirror", "You used the Mirror when you didn't have enough Coins.\nNow both you and the Mirror are broken, congratulations!", "Now two things are broken by such waste."),
 	new Trophy(43, TrophyRank.Bronze, "Night Shift", "You used the Cellphone when it was night.\nSorry but the shop doesn't have night shifts.\nIt'd be best if you actually went during the day, thank you.", "Pay attention to the customer support schedule."),
-	new Trophy(44, TrophyRank.Silver, "Dizzy Crazy", "You touched every warp in Dizzy Conundrum.\nStop! You're making me dizzy!", "My head is spinning..."),
+	new Trophy(44, TrophyRank.Gold, "Dizzy Crazy", "You touched every warp in Dizzy Conundrum.\nStop! You're making me dizzy!", "My head is spinning..."),
 	new Trophy(45, TrophyRank.Silver, "Born Astronaut", "You didn't receive a single hit in Rocket Ignition!\nAll those years of astronaut training in the morning finally paid off!", "Morning training routine."),
 	new Trophy(46, TrophyRank.Bronze, "Wrong Number", "You used the Cellphone and said no.\nCalling the wrong number, happens from time to time.", "Woops, that's not the right number, my bad."),
 	new Trophy(47, TrophyRank.Bronze, "Wrong Galaxy", "You used the Blackhole and said no.\nYeah there's a bunch of galaxies to call, it's only natural you'd get confused.", "Woops, that's not the right galaxy, my bad."),
@@ -128,7 +128,7 @@ global.trophies = [
 	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDo you know you can't see your reflection in the dark?\nThen I wonder why did you use this for.", "I wonder what my reflection looks like when it's dark."),
 	new Trophy(52, TrophyRank.Gold, "Motion Sickness", "You never touched a warp and won in Dizzy Conundrum!\nMy you must really hate being dizzy.", "Being dizzy for too long makes me sick."),
 	new Trophy(53, TrophyRank.Silver, "Block Saver", "You didn't destroy a single normal block and won in Aiming Tiles!\nYou're a block saver now!", "Let the blocks live!"),
-	new Trophy(54, TrophyRank.Bronze, "Midair Hunter", "You didn't use your first jump at all and won in Hunt Trouble!\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you're in midair."),
+	new Trophy(54, TrophyRank.Silver, "Block Hunter", "You touched all the blocks in Hunt Trouble.\nNow that's an stylish way of not getting hunted.", "Being hunted isn't fun unless you touch them all."),
 	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
 	new Trophy(56, TrophyRank.Silver, "Numberphile", "You got the same number for the place, Shines and Coins!You love seeing the same number!", "Hey I have the same number for everything!"),
 	new Trophy(57, TrophyRank.Silver, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
@@ -141,8 +141,8 @@ global.trophies = [
 	new Trophy(64, TrophyRank.Gold, "Empty Chests", "You scored 0 points in Crazy Chests.\nThose chests were kind of a scam, huh?", "Hey wait a minute... these chests are empty!"),
 	new Trophy(65, TrophyRank.Platinum, "All Minigames", "You unlocked all Minigames!\nThe full package is now on your hands!", "I want all the Minigames!"),
 	new Trophy(66, TrophyRank.Silver, "Cuadruple Kill", "All 4 players died in Western Duel.\nAll of you are either really good or really bad.", "Two duels, four deaths!"),
-	new Trophy(67, TrophyRank.Silver, "Mini Golf", "You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?", "I barely attempted that shot and I still won."),
-	new Trophy(68, TrophyRank.Bronze, "Bubble Racing", "You didn't touch a single spike in Bubble Derby and won!\nAll that Kamilia 3 speedrunning must've paid off, huh?", "Bubble maneuvers.")
+	new Trophy(67, TrophyRank.Silver, "Mini Golf", "You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?", "I barely attempted to get to the flag and I still won."),
+	new Trophy(68, TrophyRank.Bronze, "Bubble Racing", "You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?", "Bubble maneuvers.")
 ];
 
 global.collected_trophies_stack = [];

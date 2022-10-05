@@ -58,19 +58,20 @@ if (!fade_start && trophy_selected == trophy_target_selected) {
 		var price = 0;
 		
 		if (trophy.state() == TrophyState.Unknown) {
-			price = 250;
+			price = global.trophy_hint_price;
 		} else {
-			price = 2500;
+			price = global.trophy_spoiler_price;
 		}
 		
 		if (global.collected_coins >= price) {
-			if (price == 250) {
+			if (trophy.state() == TrophyState.Unknown) {
 				hint_trophy(trophy_selected);
 			} else {
 				spoiler_trophy(trophy_selected);
 			}
 			
 			change_collected_coins(-price);
+			save_file();
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;
 		}

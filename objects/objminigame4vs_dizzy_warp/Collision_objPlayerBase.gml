@@ -6,9 +6,13 @@ if (is_player_local(other.network_id)) {
 	array_shuffle(actions);
 		
 	with (other) {
-		left_action = other.actions[0];
-		right_action = other.actions[1];
-		jump_action = other.actions[2];
+		if (!ai) {
+			left_action = other.actions[0];
+			right_action = other.actions[1];
+			jump_action = other.actions[2];
+		} else {
+			dizzy_delay = get_frames(irandom_range(3, 15));
+		}
 	}
 		
 	other.last_touched = id;
