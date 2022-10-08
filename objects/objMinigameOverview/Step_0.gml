@@ -48,7 +48,7 @@ var prev_page = instructions_page;
 instructions_page = (instructions_page + array_length(instructions) + scroll_h) % array_length(instructions);
 
 if (instructions_page != prev_page) {
-	//audio_play_sound(global.sound_cursor_move, 0, false);
+	audio_play_sound(global.sound_cursor_move, 0, false);
 }
 
 if (global.player_id != 1) {

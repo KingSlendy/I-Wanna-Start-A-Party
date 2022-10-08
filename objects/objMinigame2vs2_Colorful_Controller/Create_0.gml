@@ -23,7 +23,7 @@ alarm_override(1, function() {
 
 	with (objMinigame2vs2_Colorful_Patterns) {
 		if (x > 400) {
-			var player = objMinigameController.minigame1vs3_solo();
+			var player = objMinigameController.points_teams[1][0];
 			pattern_player_ids = [player.network_id, player.teammate.network_id];
 		}
 	}

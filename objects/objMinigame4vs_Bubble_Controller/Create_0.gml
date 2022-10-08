@@ -44,7 +44,7 @@ alarm_override(11, function() {
 			
 			var dir = point_direction(path_get_point_x(path, 0), path_get_point_y(path, 0), path_get_point_x(path, 1) + random_range(-4, 4), path_get_point_y(path, 1) + random_range(-4, 4));
 			var spd = point_distance(0, 0, hspd, vspd);
-			var angle = round(dir / 45) % 8;
+			var angle = dir;
 			
 			if (!fast_collide && spd > 3 && image_alpha == 1 && !place_meeting(x, y, objMinigame4vs_Bubble_Spike)) {
 				var times = 6;
@@ -65,7 +65,7 @@ alarm_override(11, function() {
 			
 			if (fast_collide) {
 				if (spd >= 0.75) {
-					angle = round(point_direction(hspd, vspd, 0, 0) / 45) % 8;
+					angle = point_direction(hspd, vspd, 0, 0);
 				} else {
 					fast_collide = false;
 				}

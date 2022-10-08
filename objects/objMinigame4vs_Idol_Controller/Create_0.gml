@@ -69,7 +69,7 @@ alarm_create(11, function() {
 			}
 			
 			var dir = point_direction(x, y, idol_hole.x + 64, idol_hole.y - 15);
-			minigame_angle_dir8(actions, round(dir / 45) % 8);
+			minigame_angle_dir8(actions, dir);
 		}
 	}
 

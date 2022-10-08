@@ -208,6 +208,10 @@ function draw_2vs2_squares() {
 	}
 }
 
+function draw_page(text, desc) {
+	return "{COLOR,0000FF}" + text + "{COLOR,FFFFFF}:\n" + desc;
+}
+
 function draw_action(action) {
 	return "{SPRITE," + sprite_get_name(action.bind()) + ",0,0,0,0.5,0.5}";
 }

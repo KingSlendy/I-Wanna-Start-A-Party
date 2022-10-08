@@ -97,7 +97,7 @@ alarm_override(11, function() {
 				}
 				
 				var dir = point_direction(reticle.x, reticle.y, solo_x, solo_y);
-				minigame_angle_dir8(actions, round(dir / 45) % 8);
+				minigame_angle_dir8(actions, dir);
 			}
 		}
 	}

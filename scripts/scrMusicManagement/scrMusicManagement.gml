@@ -62,7 +62,6 @@ mlp[$ bgmLastTurns] = new LoopPoint(8.321, 33.191);
 
 #region Minigames
 mlp[$ bgmMinigameOverview] = new LoopPoint(2.463, 35.856);
-mlp[$ bgmMinigameNA] = new LoopPoint(2.070, 45.698);
 	
 #region 4vs
 mlp[$ bgmMinigame4vs_Lead] = new LoopPoint(0.226, 32.226);

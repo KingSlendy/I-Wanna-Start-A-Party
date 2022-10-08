@@ -8,6 +8,7 @@ vspd = 0;
 grav = 0;
 held = false;
 grab = true;
+pedestal = false;
 state = -1;
 
 function init_item() {
@@ -32,6 +33,7 @@ function hold_item(network = true) {
 	
 	if (holder != noone) {
 		holder.item = -1;
+		pedestal = false;
 	}
 	
 	with (object_index) {
@@ -42,6 +44,7 @@ function hold_item(network = true) {
 	
 	vspd = 0;
 	held = true;
+	player.item = id;
 	
 	if (network) {
 		buffer_seek_begin();
@@ -62,18 +65,20 @@ function release_item(place = true, network = true) {
 		}
 		
 		holder.item = order;
+		pedestal = true;
 	} else {
 		grav = 0.1;
 	}
-	
-	vspd = 0;
-	held = false;
 	
 	with (object_index) {
 		if (player_turn == other.player_turn) {
 			grab = true;
 		}
 	}
+	
+	vspd = 0;
+	held = false;
+	player.item = null;
 	
 	if (network) {
 		buffer_seek_begin();

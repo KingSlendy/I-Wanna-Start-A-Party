@@ -90,3 +90,4 @@ global.board_items = [
 function get_item(id) {
 	return global.board_items[id];
 }
+

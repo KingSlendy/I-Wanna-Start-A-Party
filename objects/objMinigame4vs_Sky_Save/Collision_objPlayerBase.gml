@@ -11,4 +11,4 @@ if (image_index == 0 || image_index == 1) {
 }
 
 other.touched = true;
-instance_destroy();
+alarm[0] = 1;

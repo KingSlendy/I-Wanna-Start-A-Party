@@ -1,3 +1,7 @@
+if (player != null && is_player_local(player.network_id) && held && !player.frozen && global.actions.jump.released(player.network_id)) {
+	release_item();
+}
+
 if (state == 0) {
 	image_xscale += 0.03;
 	image_yscale += 0.03;

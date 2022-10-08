@@ -1,8 +1,5 @@
 {
-  "resourceType": "GMSound",
-  "resourceVersion": "1.0",
-  "name": "bgmMinigameNA",
-  "conversionMode": 1,
+  "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
   "preload": false,
@@ -14,10 +11,14 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmminigamena.ogg",
-  "duration": 46.16275,
+  "soundFile": "bgmMinigameNA.mp3",
+  "duration": 65.856,
   "parent": {
     "name": "Minigames",
     "path": "folders/Sounds/BGM/Minigames.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "bgmMinigameNA",
+  "tags": [],
+  "resourceType": "GMSound",
 }

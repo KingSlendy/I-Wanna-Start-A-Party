@@ -5,6 +5,8 @@ minigame_players = function() {
 		image_xscale = 2;
 		image_yscale = 2;
 		touched = false;
+		chosen_save = null;
+		save_delay = 0;
 	}
 }
 
@@ -30,4 +32,54 @@ alarm_create(4, function() {
 	
 	objPlayerBase.touched = false;
 	alarm_call(4, 2);
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (save_delay > 0) {
+				save_delay--;
+				break;
+			}
+			
+			if (chosen_save == null) {
+				var choices = [];
+				var record = infinity;
+				
+				with (objMinigame4vs_Sky_Save) {
+					if (image_index > 1) {
+						continue;
+					}
+					
+					array_push(choices, id);
+				}
+				
+				array_shuffle(choices);
+				chosen_save = array_pop(choices);
+			} else {
+				if (!instance_exists(chosen_save)) {
+					save_delay = get_frames(random_range(0.2, 0.4));
+					chosen_save = null;
+					break;
+				}
+			}
+			
+			if (chosen_save == null || point_distance(x, y, chosen_save.xcenter, chosen_save.ycenter) <= 3) {
+				break;
+			}
+			
+			var dir = point_direction(x, y, chosen_save.xcenter, chosen_save.ycenter);
+			minigame_angle_dir8(actions, dir);
+		}
+	}
+
+	alarm_frames(11, 1);
 });

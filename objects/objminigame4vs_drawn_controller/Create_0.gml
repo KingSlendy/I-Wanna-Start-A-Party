@@ -1,7 +1,10 @@
 event_inherited();
 
 minigame_players = function() {
-	objPlayerBase.enable_shoot = false;
+	with (objPlayerBase) {
+		enable_shoot = false;
+		chosen_block = null;
+	}
 }
 
 minigame_time = 30;
@@ -31,40 +34,35 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			var me_x = x - 1;
-			var me_y = y - 7;
-			
 			if (on_block) {
-				var near = null;
-				var record = infinity;
+				if (chosen_block == null) {
+					var record = infinity;
 			
-				with (objMinigame4vs_Drawn_Block) {
-					if (image_blend == c_white) {
-						continue;
-					}
-					
-					if (0.01 > random(1)) {
-						break;
-					}
+					with (objMinigame4vs_Drawn_Block) {
+						if (image_blend == c_white || 0.1 > random(1)) {
+							continue;
+						}
 				
-					var dist = point_distance(me_x, me_y, x + 16, me_y);
+						var dist = point_distance(other.x, other.y, x + 16, y);
 				
-					if (dist < record) {
-						near = id;
-						record = dist;
+						if (dist < record) {
+							other.chosen_block = id;
+							record = dist;
+						}
 					}
 				}
 			
-				if (near == null) {
+				if (chosen_block == null) {
 					break;
 				}
 				
-				if (place_meeting(x, y + 1, near)) {
+				if (place_meeting(x, y + 1, chosen_block)) {
 					actions.jump.hold(35);
+					chosen_block = null;
 					break;
 				}
 				
-				var action = (point_direction(me_x, me_y, near.x + 16, me_y) == 0) ? actions.right : actions.left;
+				var action = (point_direction(x, y, chosen_block.x + 16, y) == 0) ? actions.right : actions.left;
 				action.press();
 			} else {
 				if (vspd >= 0 && jump_left > 0) {
@@ -79,7 +77,7 @@ alarm_override(11, function() {
 						continue;
 					}
 				
-					var dist = point_distance(me_x, me_y, x + 16, y + 16);
+					var dist = point_distance(other.x, other.y, x + 16, y + 16);
 				
 					if (dist < record) {
 						near = id;
@@ -87,11 +85,11 @@ alarm_override(11, function() {
 					}
 				}
 				
-				if (near == null || point_distance(me_x, me_y, near.x + 16, me_y) < 3) {
+				if (near == null || point_distance(x, y, near.x + 16, y) < 3) {
 					break;	
 				}
 				
-				var dir = point_direction(me_x, me_y, near.x + 16, near.y + 16);
+				var dir = point_direction(x, y, near.x + 16, near.y + 16);
 				var action = ((dir >= 0 && dir <= 90) || (dir >= 270 && dir <= 359)) ? actions.right : actions.left;
 				action.press();
 			}

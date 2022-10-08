@@ -5,3 +5,5 @@ if (other.state < state) {
 if (other.teammate.state < state_team) {
 	other.teammate.state = state_team;
 }
+
+instance_destroy();

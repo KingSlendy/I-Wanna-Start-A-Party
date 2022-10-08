@@ -5,7 +5,7 @@ global.ignore_input = false;
 if (keyboard_check_pressed(vk_f4)) {
 	if (global.fullscreen_delay == 0) {
 		global.fullscreen_display ^= true;
-		global.fullscreen_delay = get_frames_static(0.5);
+		global.fullscreen_delay = get_frames(0.5);
 	}
 	
 	apply_display();
@@ -18,6 +18,7 @@ if (keyboard_check_pressed(vk_escape)) {
 	} else {
 		network_disable();
 		room_goto(rTitle);
+		exit;
 	}
 }
 

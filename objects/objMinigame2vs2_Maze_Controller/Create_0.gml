@@ -63,6 +63,22 @@ alarm_override(11, function() {
 			var dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (point_distance(0, dir, 0, 270) >= 16) {
+				if (!on_block) {
+					for (var j = 0; j < path_get_number(path) - 1; j++) {
+						var now_x = floor(path_get_point_x(path, j) / 32) * 32 + 16;
+						var now_y = floor(path_get_point_y(path, j) / 32) * 32 + 16;
+						var test_x = floor(path_get_point_x(path, j + 1) / 32) * 32 + 16;
+						var test_y = floor(path_get_point_y(path, j + 1) / 32) * 32 + 16;
+						var test_dir = point_direction(now_x, now_y, test_x, test_y);
+					
+						if (test_dir == 0 || test_dir == 180) {
+							var action = (test_dir == 0) ? actions.right : actions.left;
+							action.press();
+							break;
+						}
+					}
+				}
+				
 				var dist_to_up = abs(angle_difference(dir, 90));
 				
 				if (dist_to_up > 4) {
