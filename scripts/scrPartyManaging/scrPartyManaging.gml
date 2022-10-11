@@ -117,6 +117,10 @@ function focus_player_by_turn(turn = global.player_turn) {
 }
 
 function spawn_player_info(order, turn) {
+	if (instance_exists(focus_info_by_id(order))) {
+		return;
+	}
+	
 	with (objDiceRoll) {
 		if (network_id == order) {
 			instance_destroy();

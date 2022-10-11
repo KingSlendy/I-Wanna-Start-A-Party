@@ -115,10 +115,8 @@ alarm_override(11, function() {
 		with (player) {
 			var check_x = x;
 			var check_y = y;
-			var me_x = check_x;
-			var me_y = check_y;
 		
-			if (!collision_line(me_x, me_y, me_x, me_y - 32 * 4, all, false, true)) {
+			if (!collision_line(x, y, x, y - 32 * 4, all, false, true)) {
 				continue;
 			}
 		
@@ -128,12 +126,12 @@ alarm_override(11, function() {
 				var k = 0;
 		
 				while (true) {
-					if (place_meeting(me_x + 32 * k, me_y, objBlock)) {
+					if (place_meeting(x + 32 * k, y, objBlock)) {
 						break;
 					}
 			
-					if (!place_meeting(me_x + 32 * k, me_y - 32 * 3, all)) {
-						check_x = me_x + 32 * k;
+					if (!place_meeting(x + 32 * k, y - 32 * 3, all)) {
+						check_x = x + 32 * k;
 						decided = true;
 						break;
 					}
@@ -142,8 +140,8 @@ alarm_override(11, function() {
 				}
 			}
 		
-			if (decided && point_distance(me_x, me_y, check_x, check_y) > 1) {
-				var dir = point_direction(me_x, me_y, check_x, check_y);
+			if (decided && point_distance(x, y, check_x, check_y) > 1) {
+				var dir = point_direction(x, y, check_x, check_y);
 				var action = (dir == 0) ? actions.right : actions.left;
 				action.hold(6);
 			}

@@ -74,7 +74,7 @@ alarm_override(1, function() {
 		var survived = true;
 		var below = false;
 	
-		for (var i = 0; i < array_length(points_teams[0]); i++) {
+		for (var i = 0; i < minigame1vs3_team_length(); i++) {
 			with (minigame1vs3_team(i)) {
 				if (lost) {
 					survived = false;

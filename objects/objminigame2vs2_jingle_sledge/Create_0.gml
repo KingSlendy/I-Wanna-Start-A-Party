@@ -14,7 +14,7 @@ function sledge_shoot(network = true) {
 	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Jingle_SledgeShoot);
-		buffer_write_data(buffer_bool, y > 304);
+		buffer_write_data(buffer_bool, is_down);
 		network_send_tcp_packet();
 	}
 }
@@ -30,7 +30,7 @@ function sledge_jump(network = true) {
 	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Jingle_SledgeJump);
-		buffer_write_data(buffer_bool, y > 304);
+		buffer_write_data(buffer_bool, is_down);
 		network_send_tcp_packet();
 	}
 }
@@ -44,8 +44,8 @@ function sledge_hit(network = true) {
 	stopped = true;
 
 	with (objMinigameController) {
-		alarm_pause(4 + (other.y > 304));
-		set_spd(0, other.y > 304);
+		alarm_pause(4 + other.is_down);
+		set_spd(0, other.is_down);
 	}
 
 	alarm_call(0, 1);
@@ -55,7 +55,7 @@ function sledge_hit(network = true) {
 	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Jingle_SledgeHit);
-		buffer_write_data(buffer_bool, y > 304);
+		buffer_write_data(buffer_bool, is_down);
 		network_send_tcp_packet();
 	}
 }
@@ -70,8 +70,8 @@ alarm_create(function() {
 	stopped = false;
 	
 	with (objMinigameController) {
-		alarm_resume(4 + (other.y > 304));
-		set_spd(-7, other.y > 304);
+		alarm_resume(4 + other.is_down);
+		set_spd(-7, other.is_down);
 	}
 });
 

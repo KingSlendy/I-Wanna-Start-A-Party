@@ -31,14 +31,7 @@ if (minigame_time != -1) {
 }
 
 if (points_draw) {
-	var colors;
 	var is_4vs = (array_length(points_teams) == 4);
-	
-	if (is_4vs) {
-		colors = [c_blue, c_red, c_green, c_yellow];
-	} else {
-		colors = info.player_colors;
-	}
 	
 	for (var i = 0; i < array_length(points_teams); i++) {
 		if (is_4vs) {
@@ -48,7 +41,7 @@ if (points_draw) {
 		}
 		
 		var yy = 0;
-		draw_box(xx, yy, (is_4vs) ? 100 : 130, 32, colors[i], c_white);
+		draw_box(xx, yy, (is_4vs) ? 100 : 130, 32, (is_4vs) ? player_color_by_turn(i + 1) : info.player_colors[i], c_white);
 		draw_set_font(fntDialogue);
 	
 		var team = points_teams[i];

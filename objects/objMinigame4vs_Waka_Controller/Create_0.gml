@@ -2,8 +2,6 @@ event_inherited();
 
 minigame_players = function() {
 	with (objPlayerBase) {
-		xstart = x;
-		ystart = y;
 		guess_path = -1;
 	}
 }

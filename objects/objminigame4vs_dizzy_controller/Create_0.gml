@@ -60,7 +60,7 @@ alarm_override(11, function() {
 			var up = (orientation == 1) ? 90 : 270;
 			var down = (orientation == 1) ? 270 : 90;
 			
-			if (point_distance(0, dir, 0, down) >= 16) {
+			if (abs(angle_difference(dir, down)) >= 16) {
 				var dist_to_up = abs(angle_difference(dir, up));
 				
 				if (on_block) {

@@ -27,3 +27,7 @@ if (take_time) {
 		}
 	}
 }
+
+if (minigame_lost_all(true)) {
+	achieve_trophy(65);
+}

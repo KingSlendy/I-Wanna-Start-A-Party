@@ -1,0 +1,10 @@
+event_inherited();
+
+grid = mp_grid_create(0, 0, room_width / 32, room_height / 32, 32, 32);
+mp_grid_add_instances(grid, objBlock, false);
+
+with (objPlayerBase) {
+	jump_total = -1;
+	path = path_add();
+	jump_delay_timer = 0;
+}

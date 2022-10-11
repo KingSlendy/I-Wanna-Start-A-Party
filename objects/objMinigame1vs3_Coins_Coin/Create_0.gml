@@ -5,4 +5,4 @@ if (object_index == objMinigame1vs3_Coins_Coin && irandom(998) == 0) {
 }
 
 gravity = 0.3;
-threw = true;
+team = false;

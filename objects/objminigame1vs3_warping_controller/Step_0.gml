@@ -6,7 +6,7 @@ if (!warp_start || info.is_finished) {
 	exit;
 }
 
-for (var i = 0; i < array_length(points_teams[0]); i++) {
+for (var i = 0; i < minigame1vs3_team_length(); i++) {
 	var player = minigame1vs3_team(i);
 	warp_delay[i] = max(--warp_delay[i], 0);
 	

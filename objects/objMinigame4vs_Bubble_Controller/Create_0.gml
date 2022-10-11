@@ -32,15 +32,11 @@ alarm_override(11, function() {
 				}
 			}
 			
-			//var me_x = floor(x / other.grid_size) * other.grid_size + other.grid_size / 2;
-			//var me_y = floor(y / other.grid_size) * other.grid_size + other.grid_size / 2;
 			var cell_x = floor(x / other.grid_size);
 			var cell_y = floor(y / other.grid_size);
-			var me_x = x;
-			var me_y = y;
-			var other_x = goal.x + goal.sprite_width / 2// + random_range(-16, 16);
-			var other_y = goal.y + goal.sprite_height / 2// + random_range(-16, 16);
-			mp_grid_path((image_alpha == 1) ? other.grid : other.grid_spikeless, path, me_x, me_y, other_x, other_y, true);
+			var other_x = goal.x + goal.sprite_width / 2;
+			var other_y = goal.y + goal.sprite_height / 2;
+			mp_grid_path((image_alpha == 1) ? other.grid : other.grid_spikeless, path, x, y, other_x, other_y, true);
 			
 			var dir = point_direction(path_get_point_x(path, 0), path_get_point_y(path, 0), path_get_point_x(path, 1) + random_range(-4, 4), path_get_point_y(path, 1) + random_range(-4, 4));
 			var spd = point_distance(0, 0, hspd, vspd);

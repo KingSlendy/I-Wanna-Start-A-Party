@@ -77,19 +77,16 @@ alarm_override(11, function() {
 			if (!enable_shoot) {
 				break;
 			}
-		
-			var me_x = x - 1;
-			var me_y = y - 7;
 			
 			if (y > 416) {
-				var dist = point_distance(me_x, me_y, 400, me_y);
+				var dist = point_distance(x, y, 400, y);
 			
 				if (dist <= 3) {
 					if (vspd >= 0) {
 						actions.jump.hold(15);
 					}
 				} else {
-					var dir = point_direction(me_x, me_y, 400, me_y);
+					var dir = point_direction(x, y, 400, y);
 					var action = (dir == 0) ? actions.right : actions.left;
 					action.press();
 				}

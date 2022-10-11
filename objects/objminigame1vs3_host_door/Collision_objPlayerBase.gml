@@ -1,6 +1,14 @@
 var network_id = other.network_id;
 
-if (image_index == 1 || !is_player_local(network_id)) {
+if (other.frozen || image_index == 1) {
+	exit;
+}
+
+if (minigame1vs3_is_solo(network_id) && !array_contains(other.touched_doors, id)) {
+	array_push(other.touched_doors, id);
+}
+
+if (!is_player_local(network_id)) {
 	exit;
 }
 

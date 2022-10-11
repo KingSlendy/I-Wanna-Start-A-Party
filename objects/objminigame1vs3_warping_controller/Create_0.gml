@@ -16,7 +16,7 @@ action_end = function() {
 	if (minigame1vs3_solo().lost) {
 		minigame4vs_points(minigame1vs3_solo().network_id);
 	} else {
-		for (var i = 0; i < array_length(points_teams[0]); i++) {
+		for (var i = 0; i < minigame1vs3_team_length(); i++) {
 			minigame4vs_points(minigame1vs3_team(i).network_id);
 		}
 	}

@@ -53,7 +53,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 			
 			if (action == team_action) {
 				if (advance) {
-					for (var j = 0; j < array_length(points_teams[0]); j++) {
+					for (var j = 0; j < minigame1vs3_team_length(); j++) {
 						with (minigame1vs3_team(j)) {
 							if (is_player_local(network_id)) {
 								hspeed = 5;

@@ -1,3 +1,3 @@
-if (x < -32) {
+if (x < -sprite_width) {
 	instance_destroy();
 }

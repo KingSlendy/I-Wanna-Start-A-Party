@@ -8,9 +8,6 @@ with (objPlayerBase) {
 		other.big_player = id;
 		break;
 	}
-	
-	xstart = x;
-	ystart = y;
 }
 
 with (objCameraSplit4) {

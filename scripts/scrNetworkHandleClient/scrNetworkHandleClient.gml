@@ -117,8 +117,6 @@ enum ClientTCP {
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
 	Minigame1vs3_Coins_Coin,
-	Minigame1vs3_Coins_HoldSpike,
-	Minigame1vs3_Coins_ThrowSpike,
 	Minigame1vs3_Race_Solo,
 	Minigame1vs3_Race_Team,
 	Minigame1vs3_Warping_Push,
@@ -1009,40 +1007,6 @@ f[$ ClientTCP.Minigame1vs3_Coins_Coin] = function(buffer) {
 	minigame4vs_points(player_id, 1);
 }
 
-f[$ ClientTCP.Minigame1vs3_Coins_HoldSpike] = function(buffer) {
-	var spike_count = buffer_read(buffer, buffer_u32);
-			
-	with (objMinigame1vs3_Coins_Spike) {
-		if (self.count == spike_count) {
-			with (objPlayerBase) {
-				if (x < 400) {
-					other.follow = id;
-				}
-			}
-		
-			with (objMinigameController) {
-				alarm_call(5, 0.25);
-			}
-		}
-	}
-}
-
-f[$ ClientTCP.Minigame1vs3_Coins_ThrowSpike] = function(buffer) {
-	var spike_count = buffer_read(buffer, buffer_u32);
-	var spike_x = buffer_read(buffer, buffer_s32);
-	var spike_y = buffer_read(buffer, buffer_s32);
-	var vspd = buffer_read(buffer, buffer_f16);
-		
-	with (objMinigame1vs3_Coins_Spike) {
-		if (self.count == spike_count) {
-			x = spike_x;
-			y = spike_y;
-			vspeed = vspd;
-			throw_spike(false);
-		}
-	}
-}
-
 f[$ ClientTCP.Minigame1vs3_Race_Solo] = function(buffer) {
 	var action = buffer_read(buffer, buffer_string);
 	array_push(objMinigame1vs3_Race_Controller.network_solo_actions, action);
@@ -1251,7 +1215,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeShoot] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
+		if (sledge_down == is_down) {
 			sledge_shoot(false);
 			break;
 		}
@@ -1262,7 +1226,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeJump] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
+		if (sledge_down == is_down) {
 			sledge_jump(false);
 			break;
 		}
@@ -1273,7 +1237,7 @@ f[$ ClientTCP.Minigame2vs2_Jingle_SledgeHit] = function(buffer) {
 	var sledge_down = buffer_read(buffer, buffer_bool);
 	
 	with (objMinigame2vs2_Jingle_Sledge) {
-		if ((sledge_down && y > 304) || (!sledge_down && y < 304)) {
+		if (sledge_down == is_down) {
 			sledge_hit(false);
 			break;
 		}

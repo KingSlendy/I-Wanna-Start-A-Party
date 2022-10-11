@@ -73,7 +73,7 @@ alarm_create(4, function() {
 });
 
 alarm_create(5, function() {
-	for (var i = 0; i < array_length(points_teams[0]); i++) {
+	for (var i = 0; i < minigame1vs3_team_length(); i++) {
 		with (minigame1vs3_team(i)) {
 			hspeed = 0;
 		}

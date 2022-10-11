@@ -19,8 +19,9 @@ space_objs = [[], []];
 next_seed_inline();
 
 repeat (100) {
-	array_push(space_objs[0], irandom(3));
-	array_push(space_objs[1], irandom(3));
+	var num = irandom(3);
+	array_push(space_objs[0], num);
+	array_push(space_objs[1], num);
 }
 
 sledge_start = false;
@@ -35,15 +36,7 @@ function set_spd(scene_spd, down) {
 	}
 	
 	with (objMinigame2vs2_Jingle_Block) {
-		if ((down && y < 304) || (!down && y > 304)) {
-			continue;
-		}
-		
-		hspeed = scene_spd;
-	}
-	
-	with (objMinigame2vs2_Jingle_Spike) {
-		if ((down && y < 304) || (!down && y > 304)) {
+		if (down != is_down) {
 			continue;
 		}
 		
@@ -61,7 +54,7 @@ alarm_create(4, function() {
 	var start_x = -infinity;
 
 	with (objMinigame2vs2_Jingle_Block) {
-		if (y > 304) {
+		if (x < 500 || is_down) {
 			continue;
 		}
 		
@@ -72,7 +65,9 @@ alarm_create(4, function() {
 	var start_y = 208;
 		
 	for (var j = 0; j < 3; j++) {
-		instance_create_layer(start_x, start_y + 32 * j, "Collisions", (j == 0) ? objMinigame2vs2_Jingle_Block : objMinigame2vs2_Jingle_Block2);
+		with (instance_create_layer(start_x, start_y + 32 * j, "Collisions", (j == 0) ? objMinigame2vs2_Jingle_Block : objMinigame2vs2_Jingle_Block2)) {
+			is_down = false;
+		}
 	}
 		
 	if (space_count[0] % 10 == 0) {
@@ -80,14 +75,16 @@ alarm_create(4, function() {
 		var count = floor(space_count[0] / 10);
 		var obj = null;
 		
-		if (count < 40) {
+		if (count < 35) {
 			obj = objs[space_objs[0][count]];
-		} else if (count == 40) {
+		} else if (count == 35) {
 			obj = objMinigame2vs2_Jingle_Goal;
 		}
 			
 		if (obj != null) {
-			instance_create_layer(start_x, start_y - sprite_get_height(object_get_sprite(obj)), "Actors", obj);
+			with (instance_create_layer(start_x, start_y - sprite_get_height(object_get_sprite(obj)), "Actors", obj)) {
+				is_down = false;
+			}
 		}
 	}
 	
@@ -100,7 +97,7 @@ alarm_create(5, function() {
 	var start_x = -infinity;
 
 	with (objMinigame2vs2_Jingle_Block) {
-		if (y < 304) {
+		if (x < 500 || !is_down) {
 			continue;
 		}
 		
@@ -111,7 +108,9 @@ alarm_create(5, function() {
 	var start_y = 208 + 304;
 		
 	for (var j = 0; j < 3; j++) {
-		instance_create_layer(start_x, start_y + 32 * j, "Collisions", (j == 0) ? objMinigame2vs2_Jingle_Block : objMinigame2vs2_Jingle_Block2);
+		with (instance_create_layer(start_x, start_y + 32 * j, "Collisions", (j == 0) ? objMinigame2vs2_Jingle_Block : objMinigame2vs2_Jingle_Block2)) {
+			is_down = true;
+		}
 	}
 		
 	if (space_count[1] % 10 == 0) {
@@ -119,18 +118,54 @@ alarm_create(5, function() {
 		var count = floor(space_count[1] / 10);
 		var obj = null;
 		
-		if (count < 40) {
+		if (count < 35) {
 			obj = objs[space_objs[1][count]];
-		} else if (count == 40) {
+		} else if (count == 35) {
 			obj = objMinigame2vs2_Jingle_Goal;
 		}
 			
 		if (obj != null) {
-			instance_create_layer(start_x, start_y - sprite_get_height(object_get_sprite(obj)), "Actors", obj);
+			with (instance_create_layer(start_x, start_y - sprite_get_height(object_get_sprite(obj)), "Actors", obj)) {
+				is_down = true;
+			}
 		}
 	}
 	
 	space_count[1]++;
 	set_spd(-7, true);
 	alarm_call(5, 0.08);
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			var obstacle = instance_place(x + 160, y, objMinigame2vs2_Jingle_Spike);
+			
+			if (obstacle != noone) {
+				if (obstacle.object_index == objMinigame2vs2_Jingle_Tree || obstacle.object_index == objMinigame2vs2_Jingle_Candy) {
+					if (0.05 > random(1)) {
+						break;
+					}
+					
+					actions.shoot.press();
+				} else if (obstacle.object_index == objMinigame2vs2_Jingle_Spike) {
+					if (0.5 > random(1)) {
+						break;
+					}
+					
+					actions.jump.press();
+				}
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
 });

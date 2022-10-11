@@ -9,12 +9,7 @@ if (block != noone && vspeed > 1) {
 			y += sign(vspeed);
 		}
 
-		if (threw) {
-		    vspeed *= -0.75;
-			vspeed = min(vspeed, -2);
-		} else {
-			vspeed = 0;
-			gravity = 0;
-		}
+		vspeed *= -0.75;
+		vspeed = min(vspeed, -2);
 	}
 }

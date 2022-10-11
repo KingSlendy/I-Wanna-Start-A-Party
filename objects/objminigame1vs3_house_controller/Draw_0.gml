@@ -4,7 +4,7 @@ if (!house_start) {
 	exit;
 }
 
-for (var i = 0; i < array_length(points_teams[0]); i++) {
+for (var i = 0; i < minigame1vs3_team_length(); i++) {
 	var actions = [global.actions.left, global.actions.right, global.actions.jump];
 	
 	with (minigame1vs3_team(i)) {

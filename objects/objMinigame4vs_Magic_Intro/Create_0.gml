@@ -83,4 +83,4 @@ alarm_create(11, function() {
 });
 
 alarm_call(11, 1);
-alarm_call(0, 5);
+alarm_call(0, 3);

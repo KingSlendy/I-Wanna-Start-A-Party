@@ -10,6 +10,4 @@ mp_grid_add_instances(grid_spikeless, objBlock, false);
 
 with (objPlayerBase) {
 	path = path_add();
-	xstart = x;
-	ystart = y;
 }

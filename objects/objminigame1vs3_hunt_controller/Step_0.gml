@@ -26,8 +26,8 @@ if (minigame1vs3_solo().network_id == global.player_id) {
 	}
 }
 
-for (var i = 0; i < array_length(points_teams[0]); i++) {
-	var player = points_teams[0][i];
+for (var i = 0; i < minigame1vs3_team_length(); i++) {
+	var player = minigame1vs3_team(i);
 	
 	if (player.reticle == null) {
 		with (objMinigame1vs3_Hunt_Reticle) {

@@ -335,8 +335,8 @@ function minigame4vs_get_max_points() {
 }
 
 function minigame1vs3_points(points = minigame_max_points()) {
-	for (var i = 0; i < array_length(points_teams[0]); i++) {
-		minigame4vs_points(points_teams[0][i].network_id, points);
+	for (var i = 0; i < minigame1vs3_team_length(); i++) {
+		minigame4vs_points(minigame1vs3_team(i).network_id, points);
 	}
 }
 
@@ -506,13 +506,17 @@ function minigame_lost_points() {
 }
 
 function minigame1vs3_lost() {
-	for (var i = 0; i < array_length(points_teams[0]); i++) {
+	for (var i = 0; i < minigame1vs3_team_length(); i++) {
 		if (!minigame1vs3_team(i).lost) {
 			return false;
 		}
 	}
 	
 	return true;
+}
+
+function minigame1vs3_team_length() {
+	return array_length(objMinigameController.points_teams[0]);
 }
 
 function minigame1vs3_team(num) {
@@ -525,6 +529,10 @@ function minigame1vs3_solo() {
 
 function minigame1vs3_is_solo(player_id) {
 	return (minigame1vs3_solo().network_id == player_id);
+}
+
+function minigame2vs2_is_team(player_id, num) {
+	return (player_id == objMinigameController.points_teams[num][0].network_id || player_id == objMinigameController.points_teams[num][1].network_id);
 }
 
 function minigame_angle_dir8(actions, angle, frames = irandom_range(3, 6)) {

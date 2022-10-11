@@ -5,8 +5,9 @@ minigame_players = function() {
 	with (objPlayerBase) {
 		enable_shoot = false;
 		jump_total = -1;
-		pick_id = null;
 	}
+
+	reset_round();
 }
 
 minigame_camera = CameraMode.Center;
@@ -41,6 +42,22 @@ action_end = function() {
 }
 
 player_type = objPlayerPlatformer;
+
+reset_round = function() {
+	with (objPlayerBase) {
+		x = xstart;
+		y = ystart;
+		frozen = true;
+		pick_id = null;
+		choosed_door = null;
+		touched_doors = [];
+	}
+	
+	with (objMinigame1vs3_Host_Door) {
+		pick_chance = random_range(0.25, 0.75);
+		picked = false;
+	}
+}
 
 current_round = 1;
 lights = true;
@@ -132,7 +149,7 @@ alarm_create(6, function() {
 			draw = true;
 		}
 		
-		for (var i = 0; i < array_length(points_teams[0]); i++) {
+		for (var i = 0; i < minigame1vs3_team_length(); i++) {
 			with (minigame1vs3_team(i)) {
 				if (pick_id != 0) {
 					x = pick_id.bbox_right - 16;
@@ -144,7 +161,7 @@ alarm_create(6, function() {
 			}
 		}
 		
-		for (var i = 0; i < array_length(points_teams[0]); i++) {
+		for (var i = 0; i < minigame1vs3_team_length(); i++) {
 			var player = minigame1vs3_team(i);
 			
 			if (player.pick_id == minigame1vs3_solo().pick_id) {
@@ -155,7 +172,7 @@ alarm_create(6, function() {
 		}
 		
 		if (current_round < 3) {
-			alarm_call(7, 5);
+			alarm_call(7, 3);
 		} else {
 			minigame4vs_points(minigame1vs3_solo().network_id);
 			minigame_finish();
@@ -168,7 +185,7 @@ alarm_create(6, function() {
 });
 
 alarm_create(7, function() {
-	for (var i = 0; i < array_length(points_teams[0]); i++) {
+	for (var i = 0; i < minigame1vs3_team_length(); i++) {
 		var player = minigame1vs3_team(i);
 		
 		if (player.pick_id != 0) {
@@ -176,14 +193,98 @@ alarm_create(7, function() {
 		}
 	}
 	
-	with (objPlayerBase) {
-		x = xstart;
-		y = ystart;
-		frozen = true;
-		pick_id = null;
-	}
+	reset_round();
 	
 	lights = false;
 	current_round++;
 	alarm_call(4, 1);
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+	
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (frozen) {
+				break;
+			}
+			
+			if (choosed_door == null) {
+				if (minigame1vs3_is_solo(i)) {
+					while (choosed_door == null) {
+						var door = instance_nearest(x, y, objMinigame1vs3_Host_Door);
+						
+						if (door.image_index == 1 || array_contains(touched_doors, door) || (array_length(touched_doors) == 0 && 0.5 > random(1))) {
+							instance_deactivate_object(door);
+							continue;
+						}
+						
+						choosed_door = door;
+					}
+					
+					instance_activate_object(objMinigame1vs3_Host_Door);
+				} else {
+					touched_doors = minigame1vs3_solo().touched_doors;
+					
+					if (array_length(touched_doors) > 0) {
+						array_shuffle(touched_doors);
+						choosed_door = array_pop(touched_doors);
+					}
+				}
+			}
+			
+			if (minigame1vs3_is_solo(i)) {
+				if (choosed_door.picked) {
+					choosed_door = null;
+					break;
+				}
+			} else {
+				if (choosed_door == pick_id) {
+					break;
+				}
+			}
+			
+			var door_x = choosed_door.x + choosed_door.sprite_width / 2;
+			var door_y = choosed_door.bbox_bottom - 9;
+			var door_dist = point_distance(x, y, door_x, door_y);
+			
+			if (place_meeting(x, y, choosed_door) && door_dist <= 6) {
+				if (minigame1vs3_is_solo(i)) {
+					if (!choosed_door.picked && choosed_door.pick_chance > random(1)) {
+						actions.up.press();
+					}
+					
+					choosed_door.picked = true;
+				} else {
+					actions.up.press();
+					break;
+				}
+			}
+			
+			mp_grid_path(other.grid, path, x, y, door_x, door_y, true);
+			var dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
+			
+			if (abs(angle_difference(dir, 270)) >= 16) {
+				var dist_to_up = abs(angle_difference(dir, 90));
+				
+				if (dist_to_up > 4) {
+					var action = (dir >= 90 && dir <= 270) ? actions.left : actions.right;
+					action.press();
+				}
+		
+				if (--jump_delay_timer <= 0 && dist_to_up < 45) {
+					actions.jump.hold(6);
+					jump_delay_timer = 10;
+				}
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
 });

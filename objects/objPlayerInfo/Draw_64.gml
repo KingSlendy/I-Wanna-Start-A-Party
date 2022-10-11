@@ -1,5 +1,31 @@
+LIVE
+
 if (player_info == null || (!IS_BOARD && room != rParty && room != rResults)) {
 	exit;
+}
+
+if (reactions) {
+	var reactions_x, reactions_y;
+	var reactions_size = 45;
+	
+	switch (player_info.turn) {
+		case 1: case 3:
+			reactions_x = draw_x + draw_w;
+			reactions_y = draw_y;
+			break;
+			
+		case 2: case 4:
+			reactions_x = draw_x - reactions_size * 2;
+			reactions_y = draw_y;
+			break;
+	}
+	
+	for (var i = 0; i < 4; i++) {
+		var image_x = reactions_x + reactions_size * floor(i / 2);
+		var image_y = reactions_y + reactions_size * (i % 2);
+		var image_selected = i + page * 2;
+		draw_sprite_stretched_ext(sprReactions, image_selected, image_x, image_y, reactions_size, reactions_size, (selected != image_selected) ? c_white : make_color_hsv(10, 120, 255), 1);
+	}
 }
 
 with (objChanceTime) {

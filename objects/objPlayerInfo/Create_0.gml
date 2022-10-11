@@ -7,6 +7,9 @@ depth = -9000;
 player_info = null;
 draw_w = 230;
 draw_h = 90;
+reactions = false;
+page = 0;
+selected = 0;
 
 function setup() {
 	player_idle_image = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");

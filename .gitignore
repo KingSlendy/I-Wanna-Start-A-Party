@@ -1,4 +1,3 @@
-GMLive/
-GMLive_*/
-GMLive*
+extensions/GMLive/
+scripts/GMLive*
 obj_gmlive/

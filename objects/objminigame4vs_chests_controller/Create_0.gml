@@ -5,7 +5,7 @@ minigame_players = function() {
 		enable_jump = false;
 		enable_shoot = false;
 		chest_picked = -1;
-		chest_delay = irandom_range(5, 10);
+		chest_delay = irandom_range(8, 14);
 	}
 }
 
@@ -159,7 +159,7 @@ alarm_override(11, function() {
 				}
 				
 				actions.up.press();
-				chest_delay = irandom_range(5, 10);
+				chest_delay = irandom_range(8, 14);
 				break;
 			}
 		

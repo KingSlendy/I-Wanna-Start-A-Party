@@ -62,7 +62,7 @@ alarm_override(11, function() {
 			mp_grid_path(other.grid, path, x, y, near.x, near.y, true);
 			var dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
-			if (point_distance(0, dir, 0, 270) >= 16) {
+			if (abs(angle_difference(dir, 270)) >= 16) {
 				if (!on_block) {
 					for (var j = 0; j < path_get_number(path) - 1; j++) {
 						var now_x = floor(path_get_point_x(path, j) / 32) * 32 + 16;
@@ -86,7 +86,7 @@ alarm_override(11, function() {
 					action.press();
 				}
 		
-				if (--jump_delay_timer <= 0 && dist_to_up < 45 && vspeed >= 0) {
+				if (--jump_delay_timer <= 0 && dist_to_up < 45) {
 					actions.jump.hold(6);
 					jump_delay_timer = 12;
 				}

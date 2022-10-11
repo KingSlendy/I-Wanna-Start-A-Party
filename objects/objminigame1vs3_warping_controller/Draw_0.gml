@@ -1,6 +1,6 @@
 event_inherited();
 
-for (var i = 0; i < array_length(points_teams[0]); i++) {
+for (var i = 0; i < minigame1vs3_team_length(); i++) {
 	var player = minigame1vs3_team(i);
 	
 	if (warp_delay[i] == 0) {
