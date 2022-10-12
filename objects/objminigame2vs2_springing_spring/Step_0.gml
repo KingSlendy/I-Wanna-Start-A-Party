@@ -2,12 +2,10 @@ if (enabled) {
 	var player = instance_place(x, y - 1, objPlayerBase);
 	
 	if (player != noone) {
-		if (is_player_local(player.network_id)) {
-			with (player) {
-				if (is_player_local(network_id)) {
-					vspd = -12;
-					reset_jumps();
-				}
+		with (player) {
+			if (is_player_local(network_id)) {
+				vspd = -12;
+				reset_jumps();
 			}
 		}
 		

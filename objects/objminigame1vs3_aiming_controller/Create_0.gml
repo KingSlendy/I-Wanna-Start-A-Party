@@ -57,7 +57,7 @@ alarm_override(11, function() {
 		with (player) {
 			if (minigame1vs3_is_solo(i)) {
 				if (--general_delay <= 0 || chosen_player == null) {
-					var num = irandom(array_length(other.points_teams[0]) - 1);
+					var num = irandom(minigame1vs3_team_length() - 1);
 					
 					with (objMinigame1vs3_Aiming_Block) {
 						if (is_player && player_num == num) {

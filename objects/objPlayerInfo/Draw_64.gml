@@ -5,18 +5,17 @@ if (player_info == null || (!IS_BOARD && room != rParty && room != rResults)) {
 }
 
 if (reactions) {
-	var reactions_x, reactions_y;
+	var reactions_x;
+	var reactions_y = draw_y;
 	var reactions_size = 45;
 	
 	switch (player_info.turn) {
 		case 1: case 3:
 			reactions_x = draw_x + draw_w;
-			reactions_y = draw_y;
 			break;
 			
 		case 2: case 4:
 			reactions_x = draw_x - reactions_size * 2;
-			reactions_y = draw_y;
 			break;
 	}
 	
@@ -26,6 +25,38 @@ if (reactions) {
 		var image_selected = i + page * 2;
 		draw_sprite_stretched_ext(sprReactions, image_selected, image_x, image_y, reactions_size, reactions_size, (selected != image_selected) ? c_white : make_color_hsv(10, 120, 255), 1);
 	}
+}
+
+if (reacted != -1) {
+	var reactions_x, reactions_y;
+	var reactions_size = sprite_get_width(sprReactions) * 0.5;
+	reactions_y = draw_y + floor(reactions_size / 2);
+	
+	switch (player_info.turn) {
+		case 1:
+			reactions_x = draw_x + draw_w + floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2);
+			break;
+			
+		case 2:
+			reactions_x = draw_x - floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2);
+			break;
+			
+		case 3:
+			reactions_x = draw_x + draw_w + floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2) - abs(draw_h - reactions_size);
+			break;
+			
+		case 4:
+			reactions_x = draw_x - floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2) - (draw_h - reactions_size);
+			break;
+	}
+	
+	draw_sprite_ext(sprReactions, reacted, reactions_x, reactions_y, reaction_scale, reaction_scale, 0, c_white, reaction_alpha);
+	reaction_scale = approach(reaction_scale, 0.5, 0.05);
+	reaction_alpha = approach(reaction_alpha, reaction_target, 0.05);
 }
 
 with (objChanceTime) {

@@ -1,4 +1,4 @@
-if (target_follow == null || !instance_exists(target_follow)) {
+if (target_follow == null) {
 	exit;
 }
 

@@ -10,6 +10,10 @@ draw_h = 90;
 reactions = false;
 page = 0;
 selected = 0;
+reacted = -1;
+reaction_alpha = 0;
+reaction_scale = 0;
+reaction_target = 0;
 
 function setup() {
 	player_idle_image = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");
@@ -47,5 +51,29 @@ function setup() {
 		draw_x -= draw_w;
 	} else {
 		draw_x += draw_w;
+	}
+}
+
+function reaction(index) {
+	reacted = index;
+	reaction_alpha = 0;
+	reaction_target = 1;
+	reaction_scale = 1;
+	reactions = false;
+	var sounds = [null, null, null, null, null, null, null, null];
+	var sound = sounds[index];
+			
+	if (sound != null) {
+		audio_play_sound(sound, 0, false);
+	}
+			
+	alarm[0] = get_frames(2);
+	
+	if (player_info.network_id == global.player_id) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Reaction);
+		buffer_write_data(buffer_u8, player_info.network_id);
+		buffer_write_data(buffer_u8, index);
+		network_send_tcp_packet();
 	}
 }

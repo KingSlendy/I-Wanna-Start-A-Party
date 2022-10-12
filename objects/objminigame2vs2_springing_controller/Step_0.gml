@@ -7,7 +7,7 @@ if (points_teams[0][0].lost && points_teams[0][1].lost) {
 	minigame_finish();
 }
 
-if (minigame1vs3_solo().lost && points_teams[1][1].lost) {
+if (points_teams[1][0].lost && points_teams[1][1].lost) {
 	minigame2vs2_points(points_teams[0][0].network_id, points_teams[0][1].network_id);
 	minigame_finish();
 }

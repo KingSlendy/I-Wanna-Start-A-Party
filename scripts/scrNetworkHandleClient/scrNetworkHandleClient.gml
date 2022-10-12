@@ -34,6 +34,7 @@ enum ClientTCP {
 	
 	#region Interfaces
 	SpawnPlayerInfo,
+	Reaction,
 	ChangeChoiceAlpha,
 	ShowMap,
 	EndMap,
@@ -420,6 +421,15 @@ f[$ ClientTCP.SpawnPlayerInfo] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
 	var turn = buffer_read(buffer, buffer_u8);
 	spawn_player_info(player_id, turn);
+}
+
+f[$ ClientTCP.Reaction] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	var index = buffer_read(buffer, buffer_u8);
+	
+	with (focus_info_by_id(player_id)) {
+		reaction(index);
+	}
 }
 
 f[$	ClientTCP.ChangeChoiceAlpha] = function(buffer) {

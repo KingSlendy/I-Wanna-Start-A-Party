@@ -98,6 +98,10 @@ function AIAction() constructor {
 	}
 	
 	static release = function(force = false) {
+		if (!self.triggered) {
+			return;
+		}
+		
 		var prev_untriggered = self.untriggered;
 		self.untriggered = false;
 		self.just_triggered = false;

@@ -42,7 +42,6 @@ mode_buttons = [
 	new ModeButton("PARTY", sprModesParty, 0.5, 60, rParty),
 	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60, rMinigames),
 	new ModeButton("???", sprNothing, 0.5, 60,, false),
-	new ModeButton("???", sprNothing, 0.5, 60,, false),
 	new ModeButton("SKINS", sprNormalPlayerIdle, 4, 80, rSkins, !IS_ONLINE),
 	new ModeButton("TROPHIES", sprModesTrophies, 0.7, 125, rTrophies, !IS_ONLINE)
 ];
@@ -50,7 +49,6 @@ mode_buttons = [
 mode_texts = [
 	"Classic board mode where you need to gather as much shines as possible to become the party star!",
 	"Play and enjoy all the minigames you've unlocked!",
-	"???",
 	"???",
 	"Unlock all sorts of different skins to bring variety to the game!",
 	"All the trophies you've earned are stored here!"
