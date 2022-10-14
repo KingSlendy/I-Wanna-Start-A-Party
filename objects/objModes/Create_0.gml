@@ -19,7 +19,7 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 	draw_set_valign(fa_top);
 	
 	if (sprite != null) {
-		draw_sprite_ext(sprite, (sprite == sprModesTrophies), w / 2, offset, scale, scale, 0, c_white, 1);
+		draw_sprite_ext(sprite, (sprite == sprTrophyCups), w / 2, offset, scale, scale, 0, c_white, 1);
 	}
 	
 	surface_reset_target();
@@ -42,8 +42,8 @@ mode_buttons = [
 	new ModeButton("PARTY", sprModesParty, 0.5, 60, rParty),
 	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60, rMinigames),
 	new ModeButton("???", sprNothing, 0.5, 60,, false),
-	new ModeButton("SKINS", sprNormalPlayerIdle, 4, 80, rSkins, !IS_ONLINE),
-	new ModeButton("TROPHIES", sprModesTrophies, 0.7, 125, rTrophies, !IS_ONLINE)
+	new ModeButton("STORE", sprNormalPlayerIdle, 4, 80, rStore, !IS_ONLINE),
+	new ModeButton("TROPHIES", sprTrophyCups, 0.7, 125, rTrophies, !IS_ONLINE)
 ];
 
 mode_texts = [

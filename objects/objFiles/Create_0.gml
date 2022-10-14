@@ -150,7 +150,7 @@ function file_sprite(file) {
 	draw_text_outline(70, 190, string(array_length(global.seen_minigames)) + "/" + string(array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])), c_black);
 	draw_sprite_ext(sprNormalPlayerIdle, 0, 40, 225, 1, 1, 0, c_white, 1);
 	draw_text_outline(70, 225, string(array_length(global.collected_skins)) + "/" + string(array_length(global.skins)), c_black);
-	draw_sprite_stretched(sprModesTrophies, TrophyRank.Gold, 40 - 16, 260 - 16, 32, 32);
+	draw_sprite_stretched(sprTrophyCups, TrophyRank.Gold, 40 - 16, 260 - 16, 32, 32);
 	draw_text_outline(70, 260, string(array_length(global.collected_trophies)) + "/" + string(array_length(global.trophies)), c_black);
 	draw_sprite(sprFilesClock, 0, 40 - 16, 295 - 16);
 	draw_text_outline(70, 295, string_interp("{0}:{1}{2}:{3}{4}", (global.ellapsed_time div 60) div 60, ((global.ellapsed_time div 60) div 10) mod 6, (global.ellapsed_time div 60) mod 10, (global.ellapsed_time div 10) mod 6, global.ellapsed_time mod 10), c_black);

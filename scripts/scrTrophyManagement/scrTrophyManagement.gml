@@ -1,5 +1,5 @@
 global.trophy_hint_price = 100;
-global.trophy_spoiler_price = 2000;
+global.trophy_spoiler_price = 1000;
 
 function Trophy(image, rank, name, description, short) constructor {
 	self.image = image;
@@ -25,9 +25,9 @@ function Trophy(image, rank, name, description, short) constructor {
 		var amount = 0;
 		
 		switch (self.rank) {
-			case TrophyRank.Bronze: amount = 50; break;
+			case TrophyRank.Bronze: amount = 100; break;
 			case TrophyRank.Silver: amount = 200; break;
-			case TrophyRank.Gold: amount = 500; break;
+			case TrophyRank.Gold: amount = 1000; break;
 			case TrophyRank.Platinum: amount = 2000; break;
 		}
 		
@@ -90,7 +90,7 @@ global.trophies = [
 	new Trophy(13, TrophyRank.Gold, "Showdown Survivor", "You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?", "That was certainly a showdown teamwork."),
 	new Trophy(14, TrophyRank.Gold, "Showdown Killer", "You killed the whole team in the first round in Number Showdown.\nIn cold blood.", "You better not murder the showdown."),
 	new Trophy(15, TrophyRank.Gold, "Expert Escapist", "You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.", "Escaping? Piece of cake."),
-	new Trophy(16, TrophyRank.Bronze, "Spiky Dodger", "You dodged all of the spikes in Getting Coins.\nSquare shaped spikes are just that easy to dodge.", "I prefer triangular spikes."),
+	new Trophy(16, TrophyRank.Bronze, "Coin Dodger", "You didn't grab a single coin in Getting Coins.\nThe point is to collect them not to dodge them.", "There's a lot of coins, but I prefer being poor."),
 	new Trophy(17, TrophyRank.Gold, "Red Coin", "You collected a red coin in Getting Coins!\nFINALLY! The red coin in this G stage was really hard. Or wait... is this the wrong game?", "The red in G is pretty tough."),
 	new Trophy(18, TrophyRank.Bronze, "Broken Elevator", "You died on the very first row of spikes in Tower Ascension.\nHaving the high ground wasn't appealing.", "I have the lower ground!"),
 	new Trophy(19, TrophyRank.Bronze, "Conveyor Victory", "You jumped directly to the ceiling spikes in Conveyor Havoc.\nDid you think you could escape the conveyor by jumping? Think again.", "Jump straight to victory! And by victory I mean death."),
@@ -195,6 +195,26 @@ function collect_trophy(image) {
 	t.rank = trophy.rank;
 	t.image = trophy.image;
 	t.trophy = image;
+}
+
+function draw_trophy(x, y, trophy, number) {
+	draw_sprite(sprTrophyCups, (achieved_trophy(number)) ? trophy.rank : TrophyRank.Unknown, x, y);
+	
+	var image_y = y;
+	
+	switch (trophy.rank) {
+		case TrophyRank.Platinum: image_y -= 125; break;
+		case TrophyRank.Gold: image_y -= 105; break;
+		case TrophyRank.Silver: image_y -= 100; break;
+		case TrophyRank.Bronze: image_y -= 110; break;
+	}
+	
+	draw_sprite(sprTrophyImages, (achieved_trophy(number)) ? trophy.image : 0, x, image_y);
+	draw_set_font(fntFilesData);
+	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_text_outline(x, y - 40, string(number + 1), c_black);
+	draw_set_halign(fa_left);
 }
 
 function change_collected_coins(amount) {

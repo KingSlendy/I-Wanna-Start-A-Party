@@ -14,6 +14,7 @@ reacted = -1;
 reaction_alpha = 0;
 reaction_scale = 0;
 reaction_target = 0;
+reaction_text = new Text(fntControls);
 
 function setup() {
 	player_idle_image = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");
@@ -54,18 +55,22 @@ function setup() {
 	}
 }
 
+function can_react() {
+	return (global.board_started && global.player_turn != player_info.turn && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame));
+}
+
 function reaction(index) {
 	reacted = index;
 	reaction_alpha = 0;
 	reaction_target = 1;
 	reaction_scale = 1;
 	reactions = false;
-	var sounds = [null, null, null, null, null, null, null, null];
-	var sound = sounds[index];
+	//var sounds = [null, null, null, null, null, null, null, null, null, null];
+	//var sound = sounds[index];
 			
-	if (sound != null) {
-		audio_play_sound(sound, 0, false);
-	}
+	//if (sound != null) {
+	//	audio_play_sound(sound, 0, false);
+	//}
 			
 	alarm[0] = get_frames(2);
 	

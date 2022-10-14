@@ -9,6 +9,14 @@ minigame_players = function() {
 }
 
 minigame_time = 30;
+minigame_time_end = function() {
+	if (trophy_coin) {
+		achieve_trophy(15);
+	}
+	
+	minigame_finish();
+}
+
 action_end = function() {
 	alarm_stop(4);
 	alarm_stop(5);
@@ -18,6 +26,7 @@ points_draw = true;
 player_type = objPlayerPlatformer;
 
 coin_count = 0;
+trophy_coin = true;
 
 alarm_override(1, function() {
 	alarm_inherited(1);

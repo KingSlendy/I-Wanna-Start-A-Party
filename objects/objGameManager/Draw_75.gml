@@ -1,7 +1,3 @@
-draw_set_color(c_black);
-draw_rectangle(-display_get_gui_width(), 0, -1, display_get_gui_height(), false);
-draw_rectangle(display_get_gui_width(), 0, display_get_gui_width() * 2 - 1, display_get_gui_height(), false);
-
 pause_state = lerp(pause_state, paused, 0.2);
 
 if (point_distance(pause_state, 0, paused, 0) < 0.01) {
@@ -17,6 +13,7 @@ if (sprite_exists(pause_sprite)) {
 }
 
 draw_set_alpha(pause_state * 0.75);
+draw_set_color(c_black);
 draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 
 draw_set_alpha(pause_state);
@@ -54,4 +51,8 @@ controls_text.set(draw_action_small(global.actions.jump) + " Accept   " + draw_a
 controls_text.draw(420, 580);
 
 draw_set_valign(fa_top);
+
 draw_set_alpha(1);
+draw_set_color(c_black);
+draw_rectangle(-display_get_gui_width(), 0, -1, display_get_gui_height(), false);
+draw_rectangle(display_get_gui_width(), 0, display_get_gui_width() * 2 - 1, display_get_gui_height(), false);

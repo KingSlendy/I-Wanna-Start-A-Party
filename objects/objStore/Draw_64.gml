@@ -1,0 +1,27 @@
+if (!surface_exists(surf)) {
+	surf = surface_create(344, 408 - 112);
+}
+
+surface_set_target(surf);
+draw_clear_alpha(0, c_black);
+
+for (var i = -2; i <= 2; i++) {
+	var row = store_stock[store_row];
+	var location = (store_selected[store_row] + array_length(row) + i) % array_length(row);
+	var stock = row[location];
+	var box_x = remap(store_x, 400 - 150, 400 + 150, -draw_w, draw_w) + draw_w * i;
+	stock.info(box_x, 0);
+}
+
+draw_sprite_ext(global.actions.left.bind(), 0, 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+draw_sprite_ext(global.actions.right.bind(), 0, draw_w - 30, draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+surface_reset_target();
+
+draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, #F2C394, 0.75);
+draw_surface(surf, draw_x + 4, draw_y + 4);
+draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_white, 1);
+controls_text.set(draw_action(global.actions.jump) + " Buy");
+controls_text.draw(draw_x, draw_y + draw_h + 5);
+controls_text.set(draw_action(global.actions.shoot) + " Cancel");
+controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
+draw_collected_coins(400, draw_y + draw_h + 80);

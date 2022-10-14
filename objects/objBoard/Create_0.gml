@@ -181,8 +181,7 @@ alarm_create(11, function() {
 				stale_action(stale_frames);
 			
 				if (objTurnChoices.option_selected == 0) {
-					//perform_action(actions.jump);
-					perform_action(actions.left);
+					perform_action(actions.jump);
 				} else {
 					perform_action(actions.up);
 				}
@@ -192,8 +191,7 @@ alarm_create(11, function() {
 				if (objTurnChoices.option_selected == 0) {
 					perform_action(actions.down);
 				} else {
-					//perform_action(actions.jump);
-					perform_action(actions.left);
+					perform_action(actions.jump);
 				}
 			}
 		}

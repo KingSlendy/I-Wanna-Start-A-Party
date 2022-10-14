@@ -1,4 +1,6 @@
 #region Initialization Management
+global.board_price = 5000;
+global.minigame_price = 2000;
 #macro BOARD_NORMAL (player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {

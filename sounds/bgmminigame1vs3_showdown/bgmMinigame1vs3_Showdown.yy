@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmMinigame1vs3_Showdown",
-  "conversionMode": 0,
+  "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
   "preload": false,

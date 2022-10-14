@@ -2,9 +2,12 @@ if (target_follow == null) {
 	exit;
 }
 
-//Position the view to the target coordinates
-target_x = target_follow.x;
-target_y = target_follow.y;
+try {
+	//Position the view to the target coordinates
+	target_x = target_follow.x;
+	target_y = target_follow.y;
+} catch (_) {}
+
 view_w = camera_get_view_width(view_camera[camera]);
 view_h = camera_get_view_height(view_camera[camera]);
 var view_w_half = floor(view_w / 2);

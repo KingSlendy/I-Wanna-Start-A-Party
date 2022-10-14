@@ -1,5 +1,3 @@
-global.minigame_price = 5000;
-
 function Minigame(title, instructions, preview, scene, fangame_name) constructor {
 	self.title = title;
 	self.instructions = instructions;

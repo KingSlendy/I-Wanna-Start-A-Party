@@ -134,7 +134,7 @@ function pattern_grid_generate() {
 	}
 	
 	with (objPlayerBase) {
-		find_timer = irandom_range(get_frames(15), get_frames(20));
+		find_timer = get_frames(min(irandom_range(5, 30), 20));
 		found = false;
 	}
 }
