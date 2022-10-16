@@ -1,3 +1,3 @@
 event = function() {
-	board_dreams_teleports(2);
+	return board_dreams_teleports(2);
 }

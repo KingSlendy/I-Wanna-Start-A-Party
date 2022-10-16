@@ -8,10 +8,8 @@ with (objMinigame4vs_Chests_Chest) {
 }
 
 if (all_selected) {
-	if (alarm_is_stopped(6)) {
-		alarm_call(6, 1);
-	}
-} else {
+	minigame_time_end();
+} else if (!chest_show) {
 	alarm_stop(6);
 }
 

@@ -47,10 +47,10 @@ mode_buttons = [
 ];
 
 mode_texts = [
-	"Classic board mode where you need to gather as much shines as possible to become the party star!",
+	"Play in a board, collect a lot of Shines and become the party star!",
 	"Play and enjoy all the minigames you've unlocked!",
 	"???",
-	"Unlock all sorts of different skins to bring variety to the game!",
+	"Buy all sorts of different stuff to spice up the game!",
 	"All the trophies you've earned are stored here!"
 ];
 

@@ -84,7 +84,7 @@ alarm_override(11, function() {
 		
 		with (player) {
 			var other_x = near.x + 20 * near.image_xscale;
-			var other_y = near.y;
+			var other_y = near.y + sprite_yoffset;
 		
 			if (point_distance(x, y, other_x, other_y) > 224 && point_distance(x, y, other_x, other_y) > point_distance(teammate.x - 1, teammate.y - 7, other_x, other_y)) {
 				break;
@@ -108,7 +108,7 @@ alarm_override(11, function() {
 		
 				if (--jump_delay_timer <= 0 && dist_to_up < 45) {
 					actions.jump.hold(6);
-					jump_delay_timer = 12;
+					jump_delay_timer = 8;
 				}
 			}
 		}

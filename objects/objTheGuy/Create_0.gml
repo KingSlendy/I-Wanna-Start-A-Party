@@ -30,7 +30,7 @@ function TheGuyOption(only_me, amount, text = "", action = null) constructor {
 		self.action = function() {
 			if (self.only_me && player_info_by_turn().coins == 0) {
 				start_dialogue([
-					"What!? You don't even have coins!?",
+					"What!? You don't even have Coins!?",
 					new Message("Let's see if this makes you feel like you're good at playing.",, function() {
 						change_coins(30, CoinChangeType.Gain);
 						
@@ -68,6 +68,7 @@ shuffle_seed_bag();
 reset_seed_inline();
 options_chosen = irandom(options_total - 1);
 global.choice_selected = irandom(options_total - 1);
+revolution = false;
 options = [
 	new TheGuyOption(true, 10,,),
 	new TheGuyOption(true, 15,,),
@@ -83,8 +84,8 @@ options = [
 		if (player_info.shines == 0) {
 			if (player_info.coins > 0) {
 				start_dialogue([
-					"I see you don't have a shine on you.",
-					new Message("To compensate I'm gonna take a couple coins instead.",, function() {
+					"I see you don't have a Shine on you.",
+					new Message("To compensate I'm gonna take a couple Coins instead.",, function() {
 						change_coins(-30, CoinChangeType.Lose);
 						
 						with (objTheGuy) {
@@ -94,8 +95,8 @@ options = [
 				]);
 			} else {
 				start_dialogue([
-					"You don't have shines, and I was gonna take coins away but apparently you're this bad at playing.",
-					new Message("Here have a spare coin, play better.",, function() {
+					"You don't have Shines, and I was gonna take Coins away but apparently you're this bad at playing.",
+					new Message("Here have a spare Coin, play better.",, function() {
 						change_coins(1, CoinChangeType.Gain);
 						
 						with (objTheGuy) {
@@ -120,6 +121,7 @@ options = [
 	}),
 	
 	new TheGuyOption(false, 0, "{COLOR,0000FF}The Guy{COLOR,FFFFFF} revolution", function() {
+		revolution = true;
 		total_coins = 0;
 		
 		for (var i = 1; i <= global.player_max; i++) {

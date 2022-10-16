@@ -46,7 +46,7 @@ alarm_create(4, function() {
 	c.hspeed = random_range(-2, 2);
 	c.team = true;
 
-	alarm_call(4, 0.2);
+	alarm_call(4, 0.3);
 });
 
 alarm_create(5, function() {

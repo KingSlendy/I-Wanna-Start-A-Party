@@ -6,6 +6,8 @@ minigame_players = function() {
 		enable_shoot = false;
 		shoot_delay = 0;
 		reticle = null;
+		choose_block = null;
+		landed = false;
 		solo_x = 0;
 		solo_y = 0;
 		offset_len = 0;
@@ -59,7 +61,55 @@ alarm_override(11, function() {
 		
 		with (player) {
 			if (minigame1vs3_is_solo(i)) {
+				var block = place_meeting(x, y + 1, objBlock);
 				
+				if (!landed && block) {
+					choose_block = null;
+					landed = true;
+					break;
+				}
+				
+				landed = block;
+			
+				var dir = -1;
+				var block_jump = false;
+			
+				if (choose_block != null) {
+					dir = point_direction(x, y, choose_block.x + 16, choose_block.bbox_top);
+					block_jump = (dir >= 15 && dir <= 165);
+				}
+			
+				if (choose_block == null || (jump_left == 0 && vspd > 0 && block_jump)) {
+					var choices = [];
+				
+					with (objBlock) {
+						if (place_meeting(x, y - 1, other) || point_distance(other.x, other.y, x + 16, other.y) > 160 || point_distance(other.x, other.y, other.x, bbox_top) > 160) {
+							continue;
+						}
+					
+						array_push(choices, id);
+					}
+				
+					array_shuffle(choices);
+					choose_block = array_pop(choices);
+				}
+			
+				if (choose_block == null) {
+					break;
+				}
+			
+				var dist = point_distance(x, y, choose_block.x + 16, y);
+			
+				if (dist <= 3) {
+					break;
+				}
+			
+				var action = ((dir >= 0 && dir <= 90) || (dir >= 270 && dir <= 359)) ? actions.right : actions.left;
+				action.press();
+			
+				if (vspd >= 0 && block_jump) {
+					actions.jump.hold(20);
+				}
 			} else {
 				if (reticle == null) {
 					break;
@@ -70,6 +120,11 @@ alarm_override(11, function() {
 				if (--aim_delay <= 0) {
 					solo_x = solo_player.x;
 					solo_y = solo_player.y;
+					
+					if (!is_player_local(solo_player.network_id)) {
+						solo_player.hspd = (solo_player.x - solo_player.xprevious);
+						solo_player.vspd = (solo_player.y - solo_player.yprevious);
+					}
 					
 					if (point_distance(0, 0, solo_player.hspd, solo_player.vspd) != 0) {
 						solo_x += solo_player.hspd * 5 + lengthdir_x(offset_len, offset_dir);

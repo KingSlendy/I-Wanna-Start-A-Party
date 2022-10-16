@@ -36,14 +36,14 @@ global.minigames = {};
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame("Follow The Lead", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		new Minigame("Follow The Lead", [DESC_START draw_page("Rules", "King DeDeDe is gonna show a sequence of four actions that you need to replicate. Upon doing so successfully add one more action for the next player!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Direction\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
 		new Minigame("Tower Ascension", [DESC_START draw_page("Rules", "A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
-		new Minigame("Haunted Forest", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
+		new Minigame("Haunted Forest", [DESC_START draw_page("Rules", "Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear in its head.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
 		new Minigame("Magic Memory", [DESC_START draw_page("Rules", "A set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items") DESC_END], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
 		new Minigame("Mansion Escape", [DESC_START draw_page("Rules", "You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door") DESC_END], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame("Painting Platforms", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
-		new Minigame("Bugs Around", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
-		new Minigame("Unstable Blocks", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
+		new Minigame("Painting Platforms", [DESC_START draw_page("Rules", "It's time to paint! Jump while inside the platforms to paint them with your color, the one with more platforms wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
+		new Minigame("Bugs Around", [DESC_START draw_page("Rules", "There's so many bugs! 0/10\nYou need to count the number of bugs of the color that appears at the top. The one closest to the total wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number") DESC_END], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
+		new Minigame("Unstable Blocks", [DESC_START draw_page("Rules", "These blocks break upon anything that touches it. Be careful where you stand to be the last one alive!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
 		new Minigame("Crazy Chests", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
 		new Minigame("Slime Annoyer", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 23, rMinigame4vs_Slime, "SlimePark"),
 		new Minigame("Rocket Ignition", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
@@ -89,14 +89,20 @@ function minigame_types() {
 	return ["4vs", "1vs3", "2vs2"];
 }
 
+function minigame_seen(title) {
+	return (array_contains(global.seen_minigames, title));	
+}
+
 function minigame_unlock(title) {
-	if (!array_contains(global.seen_minigames, title)) {
+	if (!minigame_seen(title)) {
 		array_push(global.seen_minigames, title);
 	}
 	
 	if (array_length(global.seen_minigames) == array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])) {
 		achieve_trophy(64);
 	}
+	
+	save_file();
 }
 
 function minigame_info_reset() {

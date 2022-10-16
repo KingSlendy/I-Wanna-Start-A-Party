@@ -206,7 +206,7 @@ function draw_trophy(x, y, trophy, number) {
 		case TrophyRank.Platinum: image_y -= 125; break;
 		case TrophyRank.Gold: image_y -= 105; break;
 		case TrophyRank.Silver: image_y -= 100; break;
-		case TrophyRank.Bronze: image_y -= 110; break;
+		case TrophyRank.Bronze: image_y -= 115; break;
 	}
 	
 	draw_sprite(sprTrophyImages, (achieved_trophy(number)) ? trophy.image : 0, x, image_y);

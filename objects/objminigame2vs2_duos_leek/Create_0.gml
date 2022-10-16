@@ -10,7 +10,7 @@ function button_event() {
 		switch (trg) {
 			case 9: player = objMinigameController.points_teams[0][0]; break;
 			case 8: player = objMinigameController.points_teams[0][1]; break;
-			case 11: player = objMinigameController.minigame1vs3_solo(); break;
+			case 11: player = objMinigameController.points_teams[1][0]; break;
 			case 10: player = objMinigameController.points_teams[1][1]; break;
 		}
 		

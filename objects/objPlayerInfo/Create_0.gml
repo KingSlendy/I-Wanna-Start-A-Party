@@ -60,17 +60,20 @@ function can_react() {
 }
 
 function reaction(index) {
+	if (!have_reaction(index)) {
+		return;
+	}
+	
 	reacted = index;
 	reaction_alpha = 0;
 	reaction_target = 1;
 	reaction_scale = 1;
 	reactions = false;
-	//var sounds = [null, null, null, null, null, null, null, null, null, null];
-	//var sound = sounds[index];
-			
-	//if (sound != null) {
-	//	audio_play_sound(sound, 0, false);
-	//}
+	var react = global.reactions[index];
+	
+	if (react.sound != null) {
+		audio_play_sound(react.sound, 0, false);
+	}
 			
 	alarm[0] = get_frames(2);
 	

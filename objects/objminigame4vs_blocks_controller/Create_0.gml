@@ -5,7 +5,7 @@ minigame_players = function() {
 		enable_shoot = false;
 		choose_block = null;
 		block_delay = 0;
-		apply_delay = true;
+		touched_blocks = [];
 	}
 }
 
@@ -32,27 +32,29 @@ alarm_override(11, function() {
 				break;
 			}
 			
-			if (apply_delay && choose_block != null && place_meeting(x, y + 1, objMinigame4vs_Blocks_Block)) {
+			var block = instance_place(x, y + 1, objMinigame4vs_Blocks_Block);
+			
+			if (block != noone && !array_contains(touched_blocks, block)) {
 				choose_block = null;
-				block_delay = get_frames(random_range(0.1, 0.5));
-				apply_delay = false;
+				block_delay = get_frames(random_range(0.4, 0.8));
+				array_push(touched_blocks, block);
 				break;
 			}
 			
 			var dir = -1;
 			var block_jump = false;
 			
-			if (choose_block != null) {
+			if (choose_block != null && instance_exists(choose_block)) {
 				dir = point_direction(x, y, choose_block.x + 16, choose_block.bbox_top);
 				block_jump = (dir >= 15 && dir <= 165);
 			}
 			
-			if (choose_block == null || !instance_exists(choose_block) || (vspd > 0 && block_jump)) {
+			if (choose_block == null || !instance_exists(choose_block) || (jump_left == 0 && vspd > 0 && block_jump)) {
 				choose_block = null;
 				var choices = [];
 				
 				with (objMinigame4vs_Blocks_Block) {
-					if (place_meeting(x, y, objBlock) || image_blend == c_red || point_distance(other.x, other.y, x + 16, other.y) > 160 || point_distance(other.x, other.y, other.x, bbox_bottom) > 160) {
+					if (place_meeting(x, y, objBlock) || image_blend == c_red || point_distance(other.x, other.y, x + 16, other.y) > 160 || point_distance(other.x, other.y, other.x, bbox_top) > 160) {
 						continue;
 					}
 					
@@ -79,8 +81,6 @@ alarm_override(11, function() {
 			if (vspd >= 0 && block_jump) {
 				actions.jump.hold(20);
 			}
-			
-			apply_delay = true;
 		}
 	}
 

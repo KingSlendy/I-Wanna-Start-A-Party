@@ -19,7 +19,7 @@ if (fade_start) {
 			switch (state) {
 				case 0:
 					global.board_selected = board_selected;
-					room_goto(board_rooms[board_selected]);
+					room_goto(global.boards[board_selected].scene);
 					break;
 					
 				case 1:
@@ -213,7 +213,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					if (scroll != 0) {
 						switch (board_options_selected) {
 							case 0:
-								var length = sprite_get_number(sprPartyBoardPictures);
+								var length = array_length(global.boards);
 								board_target_x -= 264 * scroll;
 								board_target_selected = (board_selected + length + scroll) % length;
 								break;
@@ -226,7 +226,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						exit;
 					}
 				
-					if (sync_actions("jump", 1)) {
+					if ((board_options_selected != 0 || board_collected(board_selected)) && sync_actions("jump", 1)) {
 						if (++board_options_selected == 3) {
 							board_options_selected = 2;
 							global.player_game_ids = [];
@@ -281,14 +281,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 					
 					var names = minigame_types();
 					var title = global.minigames[$ names[minigames_row_selected]][minigames_col_selected].title;
-					var seen_minigame = array_contains(global.seen_minigames, title);
-					
-					if (!seen_minigame && global.player_id == 1 && global.collected_coins >= global.minigame_price && global.actions.jump.pressed(1)) {
-						change_collected_coins(-global.minigame_price);
-						minigame_unlock(title);
-						audio_play_sound(global.sound_cursor_select2, 0, false);
-						exit;
-					}
+					var seen_minigame = minigame_seen(title);
 					
 					if ((seen_minigame || global.player_id != 1) && sync_actions("jump", 1)) {
 						menu_page = 2;

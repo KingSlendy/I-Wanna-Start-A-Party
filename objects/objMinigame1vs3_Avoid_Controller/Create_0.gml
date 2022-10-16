@@ -68,21 +68,24 @@ alarm_override(11, function() {
 					actions.jump.hold(15);
 				}
 			} else {
-				var keys = variable_struct_get_names(actions);
-				var action = actions[$ keys[irandom(array_length(keys) - 1)]];
-		
-				switch (irandom(2)) {
-					case 0:
-						action.hold(irandom(21));
-						break;
+				var cherry = collision_rectangle(bbox_left - 22, bbox_top - 128 - 64 * (vspd < 0), bbox_right + 22, bbox_bottom, objMinigame1vs3_Avoid_Cherry, true, true);
+			
+				if (cherry != noone) {
+					if ((cherry.x + cherry.hspeed >= x && !place_meeting(x - 3, y, objBlock)) || place_meeting(x + 3, y, objBlock)) {
+						actions.left.press();
+					} else {
+						actions.right.press();
+					}
 				
-					case 1:
-						action.press();
-						break;
+					break;
+				}
+			
+				if (vspd > 0) {
+					cherry = instance_place(x, y + vspd, objMinigame1vs3_Avoid_Cherry);
 				
-					case 2:
-						action.release(true);
-						break;
+					if (cherry != noone) {
+						actions.jump.hold(irandom_range(10, 21));
+					}
 				}
 			}
 		}

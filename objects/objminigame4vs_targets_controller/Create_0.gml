@@ -10,11 +10,30 @@ player_type = objPlayerPlatformer;
 player_turn = 1;
 player_bullets = array_create(global.player_max, 6);
 next_turn = -1;
+end_turn = function() {
+	objPlayerBase.frozen = true;
+	
+	if (player_turn < global.player_max) {
+		next_turn = 0;
+	} else {
+		minigame_finish();
+	}
+
+	var player = focus_player_by_turn(player_turn);
+
+	if (player.network_id == global.player_id && minigame4vs_get_points(player.network_id) == 0) {
+		achieve_trophy(59);
+	}
+}
+
+minigame_time_end = end_turn;
 trophy_yellow = true;
 
 function unfreeze_player() {
 	var player = focus_player_by_turn(player_turn);
 	player.frozen = false;
+	minigame_time = 15;
+	alarm_call(10, 1);
 }
 
 function reposition_player() {

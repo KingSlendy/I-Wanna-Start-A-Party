@@ -101,10 +101,18 @@ if (room == rParty) {
 	var box_y = 0;
 	draw_sprite_stretched(sprPartyBoardMark, 1, box_x + 60, box_y + 32, board_w, board_h);
 	gpu_set_colorwriteenable(true, true, true, false);
-	var length = sprite_get_number(sprPartyBoardPictures);
+	var length = array_length(global.boards);
 
 	for (var i = -1; i <= 1; i++) {
-		draw_sprite_stretched(sprPartyBoardPictures, (board_selected + length + i) % length, box_x + 104 + 264 * i + board_x, box_y + 47, board_img_w, board_img_h);
+		var location = (board_selected + length + i) % length;
+		var picture = (board_collected(location)) ? location + 1 : 0;
+		var pic_x = box_x + 104 + 264 * i + board_x;
+		var pic_y = box_y + 47;
+		draw_sprite_stretched(sprPartyBoardPictures, picture, pic_x, pic_y, board_img_w, board_img_h);
+		
+		if (board_collected(location)) {
+			draw_sprite_ext(sprPartyBoardLogos, picture, pic_x + board_img_w / 2, pic_y + board_img_h / 2, 0.75, 0.75, 0, c_white, 1);
+		}
 	}
 
 	gpu_set_colorwriteenable(true, true, true, true);
@@ -156,23 +164,14 @@ if (room == rParty) {
 			var location = (minigames_col_selected + array_length(minigames) + j) % array_length(minigames);
 			var minigame = minigames[location];
 			var dist = remap(point_distance(row_x, minigames_show_y, 0, minigames_target_show_y), 0, 480, 1, 0.5);
-			var seen_minigame = array_contains(global.seen_minigames, minigame.title);
+			var seen_minigame = minigame_seen(minigame.title);
 			var title = (seen_minigame) ? minigame.title : "?????????";
 			var portrait = (seen_minigame) ? minigame.portrait : minigame.hidden;
-			
 			draw_set_font(fntPlayerInfo);
 			draw_set_halign(fa_center);
 			draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
 			draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, title, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 			draw_set_halign(fa_left);
-			
-			if (j == 0 && !seen_minigame) {
-				draw_sprite(sprCoin, 0, minigames_x + draw_w / 2 - 50, row_y + 290);
-				draw_set_color((global.collected_coins >= global.minigame_price) ? c_white : c_red);
-				draw_set_valign(fa_middle);
-				draw_text_outline(minigames_x + draw_w / 2 - 30, row_y + 290, string(global.minigame_price), c_black);
-				draw_set_valign(fa_top);
-			}
 		}
 	}
 	
@@ -278,7 +277,3 @@ controls_text.set(draw_action(global.actions.jump) + " Confirm");
 controls_text.draw(draw_x, draw_y + draw_h + 5);
 controls_text.set(draw_action(global.actions.shoot) + " Cancel");
 controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
-
-if (room == rMinigames) {
-	draw_collected_coins(400, 420);
-}

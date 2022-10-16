@@ -6,15 +6,24 @@ function save_variables() {
 	global.player_game_ids = [];
 	global.board_selected = -1;
 
-	//Global information
+	//Party
 	global.games_played = 0;
 	global.collected_shines = 0;
 	global.collected_coins = 0;
+	global.collected_boards = array_sequence(0, 3);
+	
+	//Minigames
 	global.seen_minigames = [];
+	
+	//Store
 	global.collected_skins = array_sequence(0, 8);
+	global.collected_reactions = array_sequence(0, 4);
+	
+	//Trophies
 	global.collected_trophies = [];
 	global.collected_hint_trophies = [];
 	global.collected_spoiler_trophies = [];
+	
 	global.ellapsed_time = 0;
 	global.player_name = "Player";
 	global.ip = "startaparty.sytes.net";
@@ -41,8 +50,10 @@ function save_file() {
 			saved_games_played: global.games_played,
 			saved_collected_shines: global.collected_shines,
 			saved_collected_coins: global.collected_coins,
+			saved_collected_boards: global.collected_boards,
 			saved_seen_minigames: global.seen_minigames,
 			saved_collected_skins: global.collected_skins,
+			saved_collected_reactions: global.collected_reactions,
 			saved_collected_trophies: global.collected_trophies,
 			saved_collected_hint_trophies: global.collected_hint_trophies,
 			saved_collected_spoiler_trophies: global.collected_spoiler_trophies,
@@ -86,8 +97,22 @@ function load_file() {
 	global.games_played = save.main_game.saved_games_played;
 	global.collected_shines = save.main_game.saved_collected_shines;
 	global.collected_coins = save.main_game.saved_collected_coins;
+	
+	try {
+		global.collected_boards = save.main_game.saved_collected_boards;
+	} catch (_) {
+		global.collected_boards = array_sequence(0, 3);
+	}
+	
 	global.seen_minigames = save.main_game.saved_seen_minigames;
 	global.collected_skins = save.main_game.saved_collected_skins;
+	
+	try {
+		global.collected_reactions = save.main_game.saved_collected_reactions;
+	} catch (_) {
+		global.collected_reactions = array_sequence(0, 4);
+	}
+	
 	global.collected_trophies = save.main_game.saved_collected_trophies;
 	
 	try {

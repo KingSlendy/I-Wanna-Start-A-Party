@@ -9,8 +9,29 @@ minigame_players = function() {
 	}
 }
 
+minigame_time_end = function() {
+	if (alarm_is_stopped(6)) {
+		alarm_call(6, 1);
+	}
+	
+	chest_show = true;
+	
+	var one_selected = false;
+	
+	with (objMinigame4vs_Chests_Chest) {
+		if (selected == global.player_id) {
+			one_selected = true;
+			break;
+		}
+	}
+	
+	if (!one_selected) {
+		trophy_chests = false;
+	}
+}
+
 action_end = function() {
-	if (info.player_scores[global.player_id - 1].points == 0) {
+	if (trophy_chests && info.player_scores[global.player_id - 1].points == 0) {
 		achieve_trophy(63);
 	}
 }
@@ -18,6 +39,7 @@ action_end = function() {
 points_draw = true;
 player_type = objPlayerPlatformer;
 chest_started = false;
+chest_show = false;
 
 next_seed_inline();
 chest_switches = [];
@@ -31,6 +53,7 @@ repeat (50) {
 
 current_switch = 0;
 chest_round = 0;
+trophy_chests = true;
 
 alarm_override(1, function() {
 	alarm_inherited(1);
@@ -44,7 +67,9 @@ alarm_override(1, function() {
 		alarm_frames(0, 1);
 	}
 
+	minigame_time = -1;
 	chest_started = true;
+	chest_show = false;
 });
 
 alarm_create(4, function() {
@@ -110,6 +135,8 @@ alarm_create(5, function() {
 	}
 
 	current_switch = 0;
+	minigame_time = 8;
+	alarm_call(10, 1);
 });
 
 alarm_create(6, function() {

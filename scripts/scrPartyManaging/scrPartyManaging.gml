@@ -1,6 +1,4 @@
 #region Initialization Management
-global.board_price = 5000;
-global.minigame_price = 2000;
 #macro BOARD_NORMAL (player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {
@@ -468,24 +466,50 @@ function board_path_finding() {
 }
 
 function space_path_finding(space, path_spaces) {
+	var end_finding = function(path_spaces) {
+		global.path_spaces_record = array_length(path_spaces);
+		array_copy(global.path_spaces, 0, path_spaces, 0, array_length(path_spaces));
+	}
+	
 	array_push(path_spaces, space);
 	
 	with (space) {
-		if (image_index == SpaceType.Shine || (room == rBoardPallet && image_index == SpaceType.PathEvent && instance_nearest(x, y, objBoardPalletPokemon).has_shine())) {
-			global.path_spaces_record = array_length(path_spaces);
-			array_copy(global.path_spaces, 0, path_spaces, 0, array_length(path_spaces));
-			break;
-		}
-		
 		if (visited || array_length(path_spaces) > global.path_spaces_record) {
 			break;
 		}
 		
+		var space_all = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
 		visited = true;
-		var space_directions = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
+		
+		if (image_index == SpaceType.PathEvent) {
+			global.board_lock_event = true;
+			
+			switch (room) {
+				case rBoardPallet:
+					if (instance_nearest(x, y, objBoardPalletPokemon).has_shine()) {
+						end_finding(path_spaces);
+					}
+					break;
+					
+				case rBoardDreams:
+					var teleport = event();
+					
+					with (teleport) {
+						space_all = [instance_place(x, y, objSpaces)];
+					}
+					break;
+			}
+			
+			global.board_lock_event = false;
+		}
+		
+		if (image_index == SpaceType.Shine) {
+			end_finding(path_spaces);
+			break;
+		}
 
-		for (var i = 0; i < array_length(space_directions); i++) {
-			var space_check = space_directions[i];
+		for (var i = 0; i < array_length(space_all); i++) {
+			var space_check = space_all[i];
 				
 			if (space_check == null) {
 				continue;
@@ -1233,6 +1257,8 @@ function board_hotland_annoying_dog() {
 	}
 }
 
+global.board_lock_event = false;
+
 function board_pallet_pokemons() {
 	pokemon = collision_circle(x + 16, y + 16, 64, objBoardPalletPokemon, false, true);
 	var player_info = player_info_by_turn();
@@ -1307,8 +1333,14 @@ function board_dreams_teleports(reference) {
 	
 	with (objPlayerReference) {
 		if (self.reference == reference) {
+			if (global.board_lock_event) {
+				return id;
+			}
+			
 			player.x = x + 16;
 			player.y = y + 16;
+			
+			break;
 		}
 	}
 	

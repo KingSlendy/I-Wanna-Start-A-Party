@@ -46,7 +46,18 @@ if (reactions) {
 		var image_x = reactions_x + reactions_size * floor(i / 2);
 		var image_y = reactions_y + reactions_size * (i % 2);
 		var image_selected = i + page * 2;
-		draw_sprite_stretched_ext(sprReactions, image_selected, image_x, image_y, reactions_size, reactions_size, (selected != image_selected) ? c_white : make_color_hsv(10, 120, 255), 1);
+		var image_color = (have_reaction(image_selected)) ? c_white : c_black;
+		
+		if (selected == image_selected) {
+			image_color = make_color_hsv(10, 120, 255);
+		}
+		
+		if (!have_reaction(image_selected)) {
+			gpu_set_fog(true, image_color, 0, 0);
+		}
+		
+		draw_sprite_stretched_ext(sprReactions, image_selected, image_x, image_y, reactions_size, reactions_size, image_color, 1);
+		gpu_set_fog(false, c_white, 0, 0);
 	}
 	
 	if (page != 0) {

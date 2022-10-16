@@ -48,6 +48,10 @@ alarm_create(function() {
 	}
 
 	instance_create_layer(x, y - 20, "Actors", objMinigame4vs_Chests_CoinDisappear);
-	minigame4vs_points(selected, 1);
+	
+	if (selected != -1) {
+		minigame4vs_points(selected, 1);
+	}
+	
 	alarm_call(3, 0.25);
 });

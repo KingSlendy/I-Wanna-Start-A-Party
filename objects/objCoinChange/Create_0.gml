@@ -83,7 +83,7 @@ alarm_create(11, function() {
 			achieve_trophy(5);
 		}
 
-		if (player_info.coins <= 0) {
+		if (player_info.coins <= 0 && (!instance_exists(objTheGuy) || !objTheGuy.revolution)) {
 			achieve_trophy(6);
 		}
 	}

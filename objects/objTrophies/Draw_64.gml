@@ -41,13 +41,15 @@ surface_reset_target();
 draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, #F2C394, 0.75);
 draw_surface(surf, draw_x + 4, draw_y + 4);
 draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_white, 1);
-draw_collected_coins(400, 550);
+draw_sprite_ext(global.actions.left.bind(), 0, draw_x - 22, draw_y + draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+draw_sprite_ext(global.actions.right.bind(), 0, draw_x + draw_w + 22, draw_y + draw_h / 2, 0.5, 0.5, 0, c_white, 1);
+draw_collected_coins(400, draw_y + draw_h + 60);
 var trophy = global.trophies[trophy_selected];
 var buy = "";
 
 switch (trophy.state()) {
-	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " Hint " + ((global.collected_coins >= global.trophy_hint_price) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(global.trophy_hint_price); break;
-	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler " + ((global.collected_coins >= global.trophy_spoiler_price) ? "{COLOR,FFFFFF}" : "{COLOR,0000FF}") + draw_coins_price(global.trophy_spoiler_price); break;
+	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " Hint "; break;
+	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler "; break;
 }
 
 controls_text.set(buy);

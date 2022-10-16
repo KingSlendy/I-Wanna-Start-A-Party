@@ -66,7 +66,9 @@ if (!load_config()) {
 
 apply_config();
 
-skin_init();
+board_init();
 minigame_init();
 minigame_info_reset();
+skin_init();
+reaction_init();
 global.part_system = part_system_create();

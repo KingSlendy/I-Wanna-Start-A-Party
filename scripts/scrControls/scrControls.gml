@@ -182,12 +182,27 @@ function bind_to_icon(bind) {
 	binds[$ vk_right] = sprKey_ArrowRight;
 	binds[$ vk_up] = sprKey_ArrowUp;
 	binds[$ vk_down] = sprKey_ArrowDown;
+	binds[$ vk_control] = sprKey_Control;
+	binds[$ vk_alt] = sprKey_Alt;
+	binds[$ vk_space] = sprKey_Space;
 	binds[$ vk_shift] = sprKey_Shift;
 	binds[$ vk_lshift] = sprKey_Shift;
 	binds[$ vk_rshift] = sprKey_Shift;
 	binds[$ vk_enter] = sprKey_Enter;
 	binds[$ vk_backspace] = sprKey_Backspace;
 	binds[$ vk_escape] = sprKey_Escape;
+	binds[$ vk_f1] = sprKey_F1;
+	binds[$ vk_f2] = sprKey_F2;
+	binds[$ vk_f3] = sprKey_F3;
+	binds[$ vk_f4] = sprKey_F4;
+	binds[$ vk_f5] = sprKey_F5;
+	binds[$ vk_f6] = sprKey_F6;
+	binds[$ vk_f7] = sprKey_F7;
+	binds[$ vk_f8] = sprKey_F8;
+	binds[$ vk_f9] = sprKey_F9;
+	binds[$ vk_f10] = sprKey_F10;
+	binds[$ vk_f11] = sprKey_F11;
+	binds[$ vk_f12] = sprKey_F12;
 	
 	//Gamepad
 	binds[$ gp_axislh] = sprButton_StickLeft;

@@ -24,6 +24,22 @@ if (fade_start) {
 	}
 }
 
+if (store_move_row != 0) {
+	store_alpha = lerp(store_alpha, store_target_alpha, 0.3);
+	
+	if (point_distance(store_alpha, 0, store_target_alpha, 0) < 0.01) {
+		if (store_target_alpha == 0) {
+			store_row = (store_row + array_length(store_stock) + store_move_row) % array_length(store_stock);
+			store_target_alpha = 1;
+		} else {
+			store_alpha = 1;
+			store_move_row = 0;
+		}
+	}
+	
+	exit;
+}
+
 if (store_selected[store_row] != store_target_selected[store_row]) {
 	store_x = lerp(store_x, store_target_x, (held_time == 25) ? 0.6 : 0.4);
 	
@@ -54,6 +70,15 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 		store_target_x -= 150 * held_h;
 		store_target_selected[store_row] = (store_selected[store_row] + array_length(row) + held_h) % array_length(row);
 		dir = held_h * -1;
+		audio_play_sound(global.sound_cursor_move, 0, false);
+		exit;
+	}
+	
+	var scroll_v = (global.actions.down.pressed() - global.actions.up.pressed());
+	
+	if (scroll_v != 0) {
+		store_move_row = scroll_v;
+		store_target_alpha = 0;
 		audio_play_sound(global.sound_cursor_move, 0, false);
 		exit;
 	}

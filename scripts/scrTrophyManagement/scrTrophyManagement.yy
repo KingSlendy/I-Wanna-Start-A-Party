@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Managers",
-    "path": "folders/Scripts/Managers.yy",
+    "name": "Game",
+    "path": "folders/Scripts/Game.yy",
   },
 }

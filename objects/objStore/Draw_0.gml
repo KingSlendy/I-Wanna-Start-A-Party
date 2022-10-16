@@ -2,8 +2,9 @@ draw_sprite_ext(sprPartyLightReflector, 0, 400, 200, 1, 1, 0, c_white, 1);
 gpu_set_blendmode(bm_add);
 draw_sprite_ext(sprPartyLight, 0, 400, 200, 1, 1, 0, c_white, 1);
 gpu_set_blendmode(bm_normal);
+draw_set_alpha(store_alpha);
 
-for (var i = -2; i <= 2; i++) {
+for (var i = -3; i <= 3; i++) {
 	var sx = store_x + 150 * i;
 	var sy = 500;
 	var row = store_stock[store_row];
@@ -20,3 +21,5 @@ for (var i = -2; i <= 2; i++) {
 		draw_set_valign(fa_top);
 	}
 }
+
+draw_set_alpha(1);
