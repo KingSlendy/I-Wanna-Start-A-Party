@@ -42,10 +42,10 @@ alarm_create(function() {
 
 alarm_create(function() {
 	next_seed_inline();
-	var a = instance_create_layer(400, 576, "Actors", objMinigame1vs3_Avoid_Cherry);
+	var a = instance_create_layer(400, 144, "Actors", objMinigame1vs3_Avoid_Cherry);
 	a.image_index = attack;
-	a.hspeed = irandom_range(-3, 3);
-	a.vspeed = irandom_range(-13, -7);
+	a.hspeed = irandom_range(-9, 9);
+	a.vspeed = irandom(5);
 	a.gravity = 0.2;
 
 	alarm_frames(1, 3);

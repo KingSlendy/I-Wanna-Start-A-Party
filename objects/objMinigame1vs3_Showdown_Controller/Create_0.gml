@@ -120,6 +120,7 @@ alarm_create(4, function() {
 
 	with (objMinigame1vs3_Showdown_Block) {
 		if (y > 304 && number == up_number) {
+			audio_play_sound(sndBlockBreak, 0, false);
 			instance_destroy();
 		}
 	}

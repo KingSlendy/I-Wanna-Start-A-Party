@@ -33,60 +33,129 @@ function Minigame(title, instructions, preview, scene, fangame_name) constructor
 
 global.minigames = {};
 
+#region Names
+#region 4vs
+#macro FOLLOW_THE_LEAD "Follow The Lead"
+#macro TOWER_ASCENSION "Tower Ascension"
+#macro HAUNTED_FOREST "Haunted Forest"
+#macro MAGIC_MEMORY "Magic Memory"
+#macro MANSION_ESCAPE "Mansion Escape"
+#macro PAINTING_PLATFORMS "Painting Platforms"
+#macro BUGS_AROUND "Bugs Around"
+#macro UNSTABLE_BLOCKS "Unstable Blocks"
+#macro CRAZY_CHESTS "Crazy Chests"
+#macro SLIME_ANNOYER "Slime Annoyer"
+#macro ROCKET_IGNITION "Rocket Ignition"
+#macro DIZZY_CONUNDRUM "Dizzy Conundrum"
+#macro TARGETING_TARGETS "Targeting Targets"
+#macro UNCERTAIN_BULLETS "Uncertain Bullets"
+#macro DRAWNS_KEYS "Drawn Keys"
+#macro BUBBLE_DERBY "Bubble Derby"
+#macro WHAC_AN_IDOL "Whac-an-idol"
+#macro SKY_DIVING "Sky Diving"
+#macro GOLF_COURSE "Golf Course"
+#macro WAKA_EVASION "Waka Evasion"
+#endregion
+
+#region 1vs3
+#macro AVOID_THE_ANGUISH "Avoid The Anguish"
+#macro CONVEYOR_HAVOC "Conveyor Havoc"
+#macro NUMBER_SHOWDOWN "Number Showdown"
+#macro GETTINGS_COINS "Getting Coins"
+#macro GIGANTIC_RACE "Gigantic Race"
+#macro WARPING_UP "Warping Up"
+#macro HUNT_TROUBLE "Hunt Trouble"
+#macro AIMING_TILES "Aiming Tiles"
+#macro HIDDEN_HOST "Hidden Host"
+#macro BAD_HOUSE "Bad House"
+#endregion
+
+#region 2vs2
+#macro A_MAZE_ING "A-Maze-Ing"
+#macro CATCH_THE_FRUITS "Catch The Fruits"
+#macro BUTTONS_EVERYWHERE "Buttons Everywhere"
+#macro FITTING_SQUARES "Fitting Squares"
+#macro COLORFUL_INSANITY "Colorful Insanity"
+#macro SPRINGING_PIRANHA "Springing Piranha"
+#macro DINNYAMIC_DUOS "Dinnyamic Duos"
+#macro WESTERN_DUEL "Western Duel"
+#macro SOCCER_MATCH "Soccer Match"
+#macro JINGLE_SLEDGE "Jingle Sledge"
+#endregion
+#endregion
+
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame("Follow The Lead", [DESC_START draw_page("Rules", "King DeDeDe is gonna show a sequence of four actions that you need to replicate. Upon doing so successfully add one more action for the next player!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Direction\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
-		new Minigame("Tower Ascension", [DESC_START draw_page("Rules", "A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
-		new Minigame("Haunted Forest", [DESC_START draw_page("Rules", "Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear in its head.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
-		new Minigame("Magic Memory", [DESC_START draw_page("Rules", "A set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items") DESC_END], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
-		new Minigame("Mansion Escape", [DESC_START draw_page("Rules", "You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door") DESC_END], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame("Painting Platforms", [DESC_START draw_page("Rules", "It's time to paint! Jump while inside the platforms to paint them with your color, the one with more platforms wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
-		new Minigame("Bugs Around", [DESC_START draw_page("Rules", "There's so many bugs! 0/10\nYou need to count the number of bugs of the color that appears at the top. The one closest to the total wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number") DESC_END], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
-		new Minigame("Unstable Blocks", [DESC_START draw_page("Rules", "These blocks break upon anything that touches it. Be careful where you stand to be the last one alive!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
-		new Minigame("Crazy Chests", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
-		new Minigame("Slime Annoyer", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 23, rMinigame4vs_Slime, "SlimePark"),
-		new Minigame("Rocket Ignition", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
-		new Minigame("Dizzy Conundrum", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
-		new Minigame("Targeting Targets", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
-		new Minigame("Uncertain Bullets", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
-		new Minigame("Drawn Keys", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
-		new Minigame("Bubble Derby", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
-		new Minigame("Whac-an-idol", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER"),
-		new Minigame("Sky Diving", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
-		new Minigame("Golf Course", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon"),
-		new Minigame("Waka Evasion", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 40, rMinigame4vs_Waka, "I Wanna Be The Onelife")
+		new Minigame(FOLLOW_THE_LEAD, [DESC_START draw_page("Rules", "King DeDeDe is gonna show a sequence of four actions that you need to replicate. Upon doing so successfully add one more action for the next player!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Direction\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		new Minigame(TOWER_ASCENSION, [DESC_START draw_page("Rules", "A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
+		new Minigame(HAUNTED_FOREST, [DESC_START draw_page("Rules", "Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear in its head.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
+		new Minigame(MAGIC_MEMORY, [DESC_START draw_page("Rules", "A set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items") DESC_END], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
+		new Minigame(MANSION_ESCAPE, [DESC_START draw_page("Rules", "You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Open Door") DESC_END], 10, rMinigame4vs_Mansion, "Kid World"),
+		new Minigame(PAINTING_PLATFORMS, [DESC_START draw_page("Rules", "It's time to paint! Jump while inside the platforms to paint them with your color, the one with more platforms wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 16, rMinigame4vs_Painting, "I Wanna Thank You MJIWBT"),
+		new Minigame(BUGS_AROUND, [DESC_START draw_page("Rules", "There's so many bugs! 0/10\nYou need to count the number of bugs of the color that appears at the top. The one closest to the total wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number") DESC_END], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
+		new Minigame(UNSTABLE_BLOCKS, [DESC_START draw_page("Rules", "These blocks break upon anything that touches it. Be careful where you stand to be the last one alive!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 18, rMinigame4vs_Blocks, "I Wanna Thank You TNG"),
+		new Minigame(CRAZY_CHESTS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
+		new Minigame(SLIME_ANNOYER, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 23, rMinigame4vs_Slime, "SlimePark"),
+		new Minigame(ROCKET_IGNITION, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
+		new Minigame(DIZZY_CONUNDRUM, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
+		new Minigame(TARGETING_TARGETS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
+		new Minigame(UNCERTAIN_BULLETS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
+		new Minigame(DRAWNS_KEYS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
+		new Minigame(BUBBLE_DERBY, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
+		new Minigame(WHAC_AN_IDOL, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER"),
+		new Minigame(SKY_DIVING, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
+		new Minigame(GOLF_COURSE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon"),
+		new Minigame(WAKA_EVASION, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 40, rMinigame4vs_Waka, "I Wanna Be The Onelife")
 	];
 
 	m[$ "1vs3"] = [
-		new Minigame("Avoid The Anguish", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
-		new Minigame("Conveyor Havoc", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
-		new Minigame("Number Showdown", [DESC_START draw_page("Solo Player", "Pick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.") DESC_END, DESC_START draw_page("Team Players", "Pick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.jump) + " Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number") DESC_END], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
-		new Minigame("Getting Coins", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
-		new Minigame("Gigantic Race", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
-		new Minigame("Warping Up", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
-		new Minigame("Hunt Trouble", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
-		new Minigame("Aiming Tiles", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
-		new Minigame("Hidden Host", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host"),
-		new Minigame("Bad House", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 34, rMinigame1vs3_House, "Crimson Needle 3")
+		new Minigame(AVOID_THE_ANGUISH, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
+		new Minigame(CONVEYOR_HAVOC, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
+		new Minigame(NUMBER_SHOWDOWN, [DESC_START draw_page("Solo Player", "Pick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.") DESC_END, DESC_START draw_page("Team Players", "Pick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{COLOR,0000FF}Solo Player{COLOR,FFFFFF} picked, then your\nblock breaks.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.jump) + " Select Number\n" + draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Number") DESC_END], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
+		new Minigame(GETTINGS_COINS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
+		new Minigame(GIGANTIC_RACE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
+		new Minigame(WARPING_UP, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
+		new Minigame(HUNT_TROUBLE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
+		new Minigame(AIMING_TILES, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
+		new Minigame(HIDDEN_HOST, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host"),
+		new Minigame(BAD_HOUSE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 34, rMinigame1vs3_House, "Crimson Needle 3")
 	];
 
 	m[$ "2vs2"] = [
-		new Minigame("A-Maze-Ing", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
-		new Minigame("Catch The Fruits", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
-		new Minigame("Buttons Everywhere", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
-		new Minigame("Fitting Squares", [DESC_START draw_page("Rules", "Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle") DESC_END], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
-		new Minigame("Colorful Insanity", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
-		new Minigame("Springing Piranha", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		new Minigame("Dinnyamic Duos", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
-		new Minigame("Western Duel", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy"),
-		new Minigame("Soccer Match", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN"),
-		new Minigame("Jingle Sledge", [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 35, rMinigame2vs2_Jingle, "Jingle Jam")
+		new Minigame(A_MAZE_ING, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
+		new Minigame(CATCH_THE_FRUITS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
+		new Minigame(BUTTONS_EVERYWHERE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
+		new Minigame(FITTING_SQUARES, [DESC_START draw_page("Rules", "Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Change Square Angle") DESC_END], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
+		new Minigame(COLORFUL_INSANITY, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
+		new Minigame(SPRINGING_PIRANHA, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
+		new Minigame(DINNYAMIC_DUOS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
+		new Minigame(WESTERN_DUEL, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy"),
+		new Minigame(SOCCER_MATCH, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN"),
+		new Minigame(JINGLE_SLEDGE, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 35, rMinigame2vs2_Jingle, "Jingle Jam")
 	];
 }
 
 function minigame_types() {
 	return ["4vs", "1vs3", "2vs2"];
+}
+
+function minigame_by_title(title) {
+	var types = minigame_types();
+	
+	for (var i = 0; i < array_length(types); i++) {
+		var minigames = global.minigames[$ types[i]];
+		
+		for (var j = 0; j < array_length(minigames); j++) {
+			var minigame = minigames[j];
+			
+			if (minigame.title == title) {
+				return minigame;
+			}
+		}
+	}
+	
+	return null;
 }
 
 function minigame_seen(title) {

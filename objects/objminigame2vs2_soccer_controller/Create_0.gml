@@ -18,6 +18,10 @@ points_draw = true;
 player_type = objPlayerPlatformer;
 
 reset = -1;
+number_separation = 4;
+font_score = font_add_sprite_ext(sprMinigame2vs2_Soccer_Score_Numbers, "0123456789", false, number_separation);
+color_number_background = make_color_rgb(74, 74, 74);
+color_character_background = make_color_rgb(63, 63, 63);
 
 alarm_override(1, function() {
 	alarm_inherited(1);

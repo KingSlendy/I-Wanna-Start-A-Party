@@ -5,7 +5,7 @@ if (fade_start) {
 	if (!back) {
 		if (get_player_count(objPlayerBase) == global.player_max) {
 			fade_alpha -= 0.03 * DELTA;
-			music_play(bgmSkins);
+			music_play(bgmStore);
 		
 			if (fade_alpha <= 0) {
 				fade_alpha = 0;

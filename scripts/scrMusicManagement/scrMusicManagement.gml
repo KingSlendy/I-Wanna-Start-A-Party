@@ -40,7 +40,8 @@ mlp[$ bgmSettings] = new LoopPoint(0.048, 16.048);
 mlp[$ bgmModes] = new LoopPoint(113.773, 149.373);
 mlp[$ bgmParty] = new LoopPoint(1.866, 22.189);
 mlp[$ bgmMinigames] = new LoopPoint(5.445, 41.943);
-mlp[$ bgmSkins] = new LoopPoint(2.356, 20.473);
+mlp[$ bgmTrials] = new LoopPoint(26.989, 39.789);
+mlp[$ bgmStore] = new LoopPoint(2.356, 20.473);
 mlp[$ bgmTrophies] = new LoopPoint(1.657, 60.433);
 #endregion
 	

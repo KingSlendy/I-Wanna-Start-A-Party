@@ -75,11 +75,11 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	self.lobby = (lobby != null);
 	self.highlight = (abs(dir) != 2) ? 1 : 0.75;
 	
-	self.draw = function(alpha) {
+	static draw = function(alpha) {
 		draw_sprite_ext(self.sprite, 0, self.pos[0], self.pos[1], self.highlight, self.highlight, 0, c_white, self.highlight - alpha);
 	}
 	
-	self.check = function(condition_pos, condition_highlight) {
+	static check = function(condition_pos, condition_highlight) {
 		var set_pos = (!condition_pos) ? self.original_pos : self.target_pos;
 		self.pos[0] = lerp(self.pos[0], set_pos[0], 0.2);
 		self.pos[1] = lerp(self.pos[1], set_pos[1], 0.2);
@@ -103,11 +103,11 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 
 menu_buttons = [
 	[new FileButton(400, 400, file_width, 64, -1, "START", c_lime), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
-	[new FileButton(400, 400, file_width, 64, -1, "OFFLINE", c_white), new FileButton(400, 480, file_width, 64, 1, "ONLINE", c_aqua)],
+	[new FileButton(150, 400, file_width, 64, -1, "OFFLINE", c_lime), new FileButton(150, 460, file_width, 64, -1, "ONLINE", c_aqua), new FileButton(150, 520, file_width, 64, -1, "NAME", c_white), null, new FileButton(520, 520, file_width * 2, 64, 1, "", c_ltgray, false)],
 	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "CONFIRM", c_red)],
-	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "IP", c_white), new FileButton(150, 332, file_width, 64, -1, "PORT", c_white), new FileButton(150, 412, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 332, file_width * 2, 64, 1, "", c_white, false)],
-	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), new FileButton(150, 562, file_width, 64, -1, "REFRESH", c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_white, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_white, false)],
-	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "",, false), new FileButton(400, 230, file_width * 2, 64, 1, "",, false), new FileButton(400, 310, file_width * 2, 64, -1, "",, false), new FileButton(400, 390, file_width * 2, 64, 1, "",, false)]
+	[new FileButton(150, 172, file_width, 64, -1, "IP", c_white), new FileButton(150, 252, file_width, 64, -1, "PORT", c_white), new FileButton(150, 332, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), new FileButton(150, 562, file_width, 64, -1, "REFRESH", c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(400, 230, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(400, 310, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(400, 390, file_width * 2, 64, 1, "", c_ltgray, false)]
 ];
 
 menu_selected = array_create(array_length(menu_buttons), 0);
@@ -165,17 +165,18 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 }
 
 global.file_selected = prev_selected;
+file_name = "Player";
+file_limit = 16;
 upper_type = 0;
 upper_text = "";
 
 finish = false;
 online_texts = [
-	"Player",
 	"startaparty.sytes.net",
 	"33321"
 ]
 
-online_limits = [16, -1, 5];
+online_limits = [-1, 5];
 online_reading = false;
 
 lobby_texts = [

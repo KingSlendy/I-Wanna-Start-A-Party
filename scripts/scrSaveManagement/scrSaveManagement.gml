@@ -15,6 +15,10 @@ function save_variables() {
 	//Minigames
 	global.seen_minigames = [];
 	
+	//Trials
+	global.collected_trials = [];
+	global.beaten_trials = [];
+	
 	//Store
 	global.collected_skins = array_sequence(0, 8);
 	global.collected_reactions = array_sequence(0, 4);
@@ -52,6 +56,8 @@ function save_file() {
 			saved_collected_coins: global.collected_coins,
 			saved_collected_boards: global.collected_boards,
 			saved_seen_minigames: global.seen_minigames,
+			saved_collected_trials: global.collected_trials,
+			saved_beaten_trials: global.beaten_trials,
 			saved_collected_skins: global.collected_skins,
 			saved_collected_reactions: global.collected_reactions,
 			saved_collected_trophies: global.collected_trophies,
@@ -105,6 +111,19 @@ function load_file() {
 	}
 	
 	global.seen_minigames = save.main_game.saved_seen_minigames;
+	
+	try {
+		global.collected_trials = save.main_game.saved_collected_trials;
+	} catch (_) {
+		global.collected_trials = [];
+	}
+	
+	try {
+		global.beaten_trials = save.main_game.saved_beaten_trials;
+	} catch (_) {
+		global.beaten_trials = [];
+	}
+	
 	global.collected_skins = save.main_game.saved_collected_skins;
 	
 	try {

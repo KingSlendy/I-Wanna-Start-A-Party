@@ -105,7 +105,9 @@ var display_draw = function(x, y) {
 var controls_check = function() {
 	if (!input_binding_scan_in_progress()) {
 		input_binding_scan_start(function(bind) {
-			input_binding_set_safe(string_lower(self.label), bind);
+			if (bind.value != vk_f4 && bind.value != vk_escape) {
+				input_binding_set_safe(string_lower(self.label), bind);
+			}
 			
 			with (objSettings) {
 				sections[section_selected].in_option = -1;
@@ -158,6 +160,7 @@ keys = [
 	"down",
 	"jump",
 	"shoot",
+	"misc",
 	"pause"
 ];
 

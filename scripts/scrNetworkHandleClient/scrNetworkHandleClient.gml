@@ -17,7 +17,7 @@ enum ClientTCP {
 	LobbyStart,
 	BoardGameID,
 	BoardPlayerIDs,
-	PartyAction,
+	ModesAction,
 	PlayerShoot,
 	PlayerKill,
 	#endregion
@@ -332,15 +332,13 @@ f[$ ClientTCP.BoardPlayerIDs] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.PartyAction] = function(buffer) {
+f[$ ClientTCP.ModesAction] = function(buffer) {
 	var action = buffer_read(buffer, buffer_string);
 	var player_id = buffer_read(buffer, buffer_u8);
 			
 	switch (room) {
 		case rModes: var menu = objModes; break;
-		case rParty: case rMinigames: var menu = objPartyMinigames; break;
-		case rSkins: var menu = objSkins; break;
-		case rTrophies: var menu = objTrophies; break;
+		case rParty: case rMinigames: case rTrials: var menu = objMains; break;
 	}
 		
 	with (menu) {

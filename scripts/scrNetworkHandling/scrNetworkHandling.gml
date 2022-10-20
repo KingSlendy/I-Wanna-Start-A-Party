@@ -382,6 +382,10 @@ function network_reset() {
 
 function network_disable() {
 	with (all) {
+		if (object_index == objFiles) {
+			continue;
+		}
+		
 		try {
 			event_perform(ev_cleanup, 0);
 		} catch (_) {}
@@ -392,7 +396,13 @@ function network_disable() {
 	instance_destroy(objPlayerInfo);
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);
+	instance_activate_object(objFiles);
+	instance_activate_object(obj_gmlive);
 	application_surface_draw_enable(true);
-	audio_stop_all();
+	
+	if (room != rFiles) {
+		audio_stop_all();
+	}
+	
 	global.game_started = false;
 }

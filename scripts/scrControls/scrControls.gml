@@ -68,6 +68,7 @@ global.actions = {
 	down: new Action(),
 	jump: new Action(),
 	shoot: new Action(),
+	misc: new Action(),
 	pause: new Action()
 };
 

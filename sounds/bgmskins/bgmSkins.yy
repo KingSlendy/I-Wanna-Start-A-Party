@@ -1,8 +1,5 @@
 {
-  "resourceType": "GMSound",
-  "resourceVersion": "1.0",
-  "name": "bgmSkins",
-  "conversionMode": 1,
+  "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
   "preload": false,
@@ -14,10 +11,14 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmskins.ogg",
-  "duration": 20.962791,
+  "soundFile": "bgmSkins.mp3",
+  "duration": 0.0,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/BGM/Menu.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "bgmSkins",
+  "tags": [],
+  "resourceType": "GMSound",
 }

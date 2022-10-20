@@ -28,6 +28,8 @@ minigame_time_end = function() {
 	if (!one_selected) {
 		trophy_chests = false;
 	}
+	
+	alarm_pause(10);
 }
 
 action_end = function() {

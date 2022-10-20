@@ -94,11 +94,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 			if (global.file_selected != -1) {
 				file_opened = global.file_selected;
 				load_file();
+				file_name = global.player_name;
 				online_texts = [
-					global.player_name,
 					global.ip,
 					global.port
-				]
+				];
 			} else {
 				switch (option_selected) {
 					case 0: //case 2:
@@ -162,7 +162,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 					
 					case 1:
-						if (menu_selected[menu_type] == 0) {
+						var select = menu_selected[menu_type];
+						global.player_name = file_name;
+					
+						if (select == 0) {
 							global.player_id = 1;
 							player_join_all();
 							ai_join_all();
@@ -178,11 +181,34 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							music_fade();
 							audio_play_sound(global.sound_cursor_big_select, 0, false);
 							exit;
-						} else {
+						} else if (select == 1) {
 							online_show = true;
 							menu_type = 3;
 							upper_type = menu_type;
 							upper_text = "ONLINE DATA";
+						} else {
+							file_name = "";
+							var text = get_string("Enter your name.", file_name);
+							
+							for (var i = 1; i <= string_length(text); i++) {
+								var char = string_char_at(text, i);
+								
+								if (char == " " || char == "." || char == "!" || char == "?") {
+									file_name += char;
+								}
+								
+								file_name += string_letters(char) + string_digits(char);
+							}
+							
+							file_name = string_trim(file_name);
+						
+							if (string_length(file_name) == 0) {
+								file_name = "Player";
+							}
+						
+							if (file_limit != -1) {
+								file_name = string_copy(file_name, 1, file_limit);
+							}
 						}
 						break;
 					
@@ -203,9 +229,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 					case 3:
 						var select = menu_selected[menu_type];
 	
-						if (select < 3) {
+						if (select < 2) {
 							var signs = [
-								"Enter your name.",
 								"Enter the IP.",
 								"Enter the port. (0~9)"
 							];
@@ -216,15 +241,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
 								
-								if (select == 0 && (char == " " || char == "." || char == "!" || char == "?")) {
+								if (select == 0 && char == ".") {
 									online_texts[select] += char;
 								}
 								
-								if (select == 1 && char == ".") {
-									online_texts[select] += char;
-								}
-								
-								if (select == 2) {
+								if (select == 1) {
 									online_texts[select] += string_digits(char);
 								} else {
 									online_texts[select] += string_letters(char) + string_digits(char);
@@ -235,9 +256,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						
 							if (string_length(online_texts[select]) == 0) {
 								switch (select) {
-									case 0: online_texts[select] = "Player"; break;
-									case 1: online_texts[select] = "startaparty.sytes.net"; break;
-									case 2: online_texts[select] = "33321"; break;
+									case 0: online_texts[select] = "startaparty.sytes.net"; break;
+									case 1: online_texts[select] = "33321"; break;
 								}
 							}
 						
@@ -246,9 +266,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							}
 						} else {
 							if (!IS_ONLINE) {
-								global.player_name = online_texts[0];
-								global.ip = online_texts[1];
-								global.port = online_texts[2];
+								global.ip = online_texts[0];
+								global.port = online_texts[1];
 								online_reading = true;
 								instance_create_layer(0, 0, "Managers", objNetworkClient);
 							}

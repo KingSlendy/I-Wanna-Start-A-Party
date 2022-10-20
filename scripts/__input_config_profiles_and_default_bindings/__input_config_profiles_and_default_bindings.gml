@@ -17,6 +17,7 @@ INPUT_DEFAULT_PROFILES = {
 		down: input_binding_key(vk_down),
 		jump: input_binding_key(vk_shift),
 		shoot: input_binding_key(ord("Z")),
+		misc: input_binding_key(ord("X")),
 		pause: input_binding_key(vk_enter)
 	},
 	
@@ -27,6 +28,7 @@ INPUT_DEFAULT_PROFILES = {
 		down: [input_binding_gamepad_button(gp_padd), input_binding_gamepad_axis(gp_axislv, false)],
 		jump: input_binding_gamepad_button(gp_face1),
 		shoot: input_binding_gamepad_button(gp_face2),
+		misc: input_binding_gamepad_button(gp_face3),
 		pause: input_binding_gamepad_button(gp_start)
 	}
 };

@@ -274,7 +274,9 @@ function reaction_init() {
 		new Reaction("Kid Millionare", null, "Kogami Takara", 200),
 		new Reaction("The Monkey", null, "AlejoFangamer", 300),
 		new Reaction("Cool Cherry", null, "AlejoFangamer", 300),
-		new Reaction("Kid Nerd", null, "AliceNobodi", 300)
+		new Reaction("Kid Nerd", null, "AliceNobodi", 300),
+		new Reaction("Geezer Unamused", null, "AliceNobodi"),
+		new Reaction("Kid Sleeping", null, "PlayerDash2017", 300)
 	];
 	
 	for (var i = 0; i < array_length(global.reactions); i++) {

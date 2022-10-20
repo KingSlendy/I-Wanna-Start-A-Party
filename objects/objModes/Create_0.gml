@@ -29,11 +29,11 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 	self.pos = [400, 254];
 	self.highlight = 0.7;
 	
-	self.draw = function(alpha) {
+	static draw = function(alpha) {
 		draw_sprite_ext(self.sprite, 0, self.pos[0], self.pos[1], self.highlight, self.highlight, 0, c_white, self.highlight - alpha);
 	}
 	
-	self.check = function(condition_highlight) {
+	static check = function(condition_highlight) {
 		self.highlight = lerp(self.highlight, (!condition_highlight) ? 0.7 : 1, 0.3);
 	}
 }
@@ -41,15 +41,15 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 mode_buttons = [
 	new ModeButton("PARTY", sprModesParty, 0.5, 60, rParty),
 	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60, rMinigames),
-	new ModeButton("???", sprNothing, 0.5, 60,, false),
-	new ModeButton("STORE", sprNormalPlayerIdle, 4, 80, rStore, !IS_ONLINE),
+	new ModeButton("TRIALS", sprNothing, 0.5, 60, rTrials, !IS_ONLINE),
+	new ModeButton("STORE", sprModesStore, 1, 65, rStore, !IS_ONLINE),
 	new ModeButton("TROPHIES", sprTrophyCups, 0.7, 125, rTrophies, !IS_ONLINE)
 ];
 
 mode_texts = [
 	"Play in a board, collect a lot of Shines and become the party star!",
-	"Play and enjoy all the minigames you've unlocked!",
-	"???",
+	"Play and enjoy all the minigames!",
+	"Different minigames packed together in all sorts of whacky ways!",
 	"Buy all sorts of different stuff to spice up the game!",
 	"All the trophies you've earned are stored here!"
 ];
@@ -110,7 +110,7 @@ function sync_actions(action, network_id) {
 	if (pressed) {
 		action_delay = get_frames(0.1);
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.PartyAction);
+		buffer_write_action(ClientTCP.ModesAction);
 		buffer_write_data(buffer_string, action);
 		buffer_write_data(buffer_u8, network_id);
 		network_send_tcp_packet();

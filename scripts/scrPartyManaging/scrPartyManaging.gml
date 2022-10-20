@@ -834,7 +834,6 @@ function item_applied(item) {
 		case ItemType.DoubleDice:
 		case ItemType.TripleDice:
 		case ItemType.Clock:
-		case ItemType.Reverse:
 			player_info.item_effect = item.id;
 			break;
 	}
@@ -846,6 +845,14 @@ function item_applied(item) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Poison);
+				}
+				break;
+				
+			case ItemType.Reverse:
+				show_multiple_player_choices(function(i) {
+					return (player_info_by_turn(i).item_effect == null);
+				}, false).final_action = function() {
+					item_animation(ItemType.Reverse);
 				}
 				break;
 			

@@ -50,10 +50,11 @@ var target_map = remap(button.pos[0], button.original_pos[0], button.target_pos[
 draw_text_color_outline(400, -100 + 150 * target_map, upper_text, c_gold, c_gold, c_yellow, c_yellow, 1 - files_alpha, c_black);
 draw_set_halign(fa_left);
 
-if (array_contains([3, 4, 5], menu_type)) {
+if (array_contains([1, 3, 4, 5], menu_type)) {
 	var texts;
 	
 	switch (menu_type) {
+		case 1: texts = [file_name]; break;
 		case 3: texts = online_texts; break;
 		case 4: texts = lobby_texts; break;
 		case 5: texts = player_texts; break;
