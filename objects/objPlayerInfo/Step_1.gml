@@ -64,7 +64,7 @@ if (global.player_turn != player_info.turn) {
 			page++;
 		}
 		
-		if (global.actions.jump.pressed(player_info.network_id)) {
+		if (have_reaction(selected) && global.actions.jump.pressed(player_info.network_id)) {
 			reaction(selected);
 		}
 	}

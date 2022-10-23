@@ -50,7 +50,7 @@ stats_bonuses = [
 	"most_roll",
 	"most_blue_spaces",
 	"most_red_spaces",
-	"most_green_spaces",
+	"most_coin_spaces",
 	"most_item_spaces",
 	"most_chance_time_spaces",
 	"most_the_guy_spaces",
@@ -99,7 +99,16 @@ alarm_create(function() {
 	var player_info = player_info_by_id(global.player_id);
 
 	global.games_played++;
-	change_collected_coins(global.max_board_turns * 100 + player_info.shines * 100);
+	var gained_coins = global.max_board_turns * 100 + player_info.shines * 100;
+	
+	switch (player_info.place) {
+		case 4: gained_coins *= 0.9; break;
+		case 3: gained_coins *= 1; break;
+		case 2: gained_coins *= 1.2; break;
+		case 1: gained_coins *= 1.5; break;
+	}
+	
+	change_collected_coins(gained_coins);
 	variable_struct_remove(global.board_games, global.game_id);
 	save_file();
 

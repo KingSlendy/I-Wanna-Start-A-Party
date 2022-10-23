@@ -257,7 +257,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							exit;
 						}
 				
-						if ((board_options_selected != 0 || board_collected(board_selected)) && sync_actions("jump", 1)) {
+						if ((global.player_id != 1 || board_options_selected != 0 || board_collected(board_selected)) && sync_actions("jump", 1)) {
 							if (++board_options_selected == 3) {
 								board_options_selected = 2;
 								global.player_game_ids = [];

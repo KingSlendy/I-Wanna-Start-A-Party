@@ -56,14 +56,10 @@ function setup() {
 }
 
 function can_react() {
-	return (global.board_started && global.player_turn != player_info.turn && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame));
+	return (global.board_started && global.player_turn != player_info.turn && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame) && !instance_exists(objLastTurns));
 }
 
 function reaction(index) {
-	if (!have_reaction(index)) {
-		return;
-	}
-	
 	reacted = index;
 	reaction_alpha = 0;
 	reaction_target = 1;

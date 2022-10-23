@@ -165,7 +165,15 @@ function skin_init() {
 		new Skin("Sherlock", "Sherlock Shellingford", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Luna", "Luna Rurine", "Original", 29, "PlayerDash2017", 1000),
 		new Skin("Crane", "Crane Kid", "Un Ange Et Un Crane", 76, "Yukii", 400),
-		new Skin("SnowCoat", "Snow Coat Kid", "Jingle Jam", 14, "AlejoFangamer", 500)
+		new Skin("SnowCoat", "Snow Coat Kid", "Jingle Jam", 14, "AlejoFangamer", 500),
+		new Skin("Skuldafn", "Skuldafn", "Original", 29, "Kogami Takara", 1000),
+		new Skin("JGB", "JGB", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Alejo", "AlejoFangamer", "Original", 29, "Kogami Takara", 1000),
+		new Skin("PlayerDash", "PlayerDash2017", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Kogami", "Kogami Takara", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Don", "Don-chan", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Boyfriend", "Boyfriend", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Melodii", "Melodii", "Original", 29, "Kogami Takara", 1000),
 	];
 }
 

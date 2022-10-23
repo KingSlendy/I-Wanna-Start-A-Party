@@ -248,7 +248,7 @@ function space_finish_event() {
 				change_coins(-6, CoinChangeType.Lose).final_action = turn_next;
 			}
 			
-			bonus_shine_by_id(BonusShines.MostGreenSpaces).increase_score();
+			bonus_shine_by_id(BonusShines.MostCoinSpaces).increase_score();
 			break;
 			
 		case SpaceType.Item:

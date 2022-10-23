@@ -12,6 +12,7 @@ player_bullets = array_create(global.player_max, 6);
 next_turn = -1;
 end_turn = function() {
 	objPlayerBase.frozen = true;
+	alarm_pause(10);
 	
 	if (player_turn < global.player_max) {
 		next_turn = 0;

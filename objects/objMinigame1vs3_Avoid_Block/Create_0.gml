@@ -26,19 +26,19 @@ function activate(image, network = false) {
 
 alarms_init(12);
 
-alarm_create(function() {
-	next_seed_inline();
-	var rnd = irandom(359);
+//alarm_create(function() {
+//	next_seed_inline();
+//	var rnd = irandom(359);
 
-	for (var i = 0; i < 360; i += 360 / 28) {
-		var a = instance_create_layer(400, 336, "Actors", objMinigame1vs3_Avoid_Cherry);
-		a.image_index = attack;
-		a.direction = i + rnd;
-		a.speed = 6;
-	}
+//	for (var i = 0; i < 360; i += 360 / 28) {
+//		var a = instance_create_layer(400, 336, "Actors", objMinigame1vs3_Avoid_Cherry);
+//		a.image_index = attack;
+//		a.direction = i + rnd;
+//		a.speed = 6;
+//	}
 
-	alarm_call(0, 0.55);
-});
+//	alarm_call(0, 0.55);
+//});
 
 alarm_create(function() {
 	next_seed_inline();
@@ -48,7 +48,7 @@ alarm_create(function() {
 	a.vspeed = irandom(5);
 	a.gravity = 0.2;
 
-	alarm_frames(1, 3);
+	alarm_frames(0, 3);
 });
 
 alarm_create(function() {
@@ -65,7 +65,7 @@ alarm_create(function() {
 	b.vspeed = irandom_range(-10, -7);
 	b.gravity = 0.2;
 
-	alarm_frames(2, 8);
+	alarm_frames(1, 8);
 });
 
 alarm_create(function() {
@@ -78,7 +78,7 @@ alarm_create(function() {
 	b.image_index = attack;
 	b.hspeed = irandom_range(4, 6) * -1;
 
-	alarm_frames(3, 8);
+	alarm_frames(2, 8);
 });
 
 alarm_create(10, function() {
@@ -86,7 +86,7 @@ alarm_create(10, function() {
 });
 
 alarm_create(11, function() {
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 3; i++) {
 		alarm_stop(i);
 	}
 });
