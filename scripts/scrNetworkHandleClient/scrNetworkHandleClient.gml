@@ -859,6 +859,7 @@ f[$ ClientTCP.Minigame4vs_Chests_ChestSelected] = function(buffer) {
 				self.selected = selected;
 				target_y = ystart - 32;
 			} else if (self.selected != selected) {
+				focus_player_by_id(self.selected).frozen = false;
 				self.selected = -1;
 				target_y = ystart;
 			}
@@ -867,6 +868,7 @@ f[$ ClientTCP.Minigame4vs_Chests_ChestSelected] = function(buffer) {
 			
 	with (objMinigame4vs_Chests_Chest) {
 		if (self.n != n && self.selected == selected) {
+			focus_player_by_id(self.selected).frozen = false;
 			self.selected = -1;
 			target_y = ystart;
 		}

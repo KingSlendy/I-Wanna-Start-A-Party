@@ -14,13 +14,12 @@ function Stock(index, price, has, buy, item, info) constructor {
 	self.info = method(self, info);
 }
 
-store_stock = [[], [], [], []];
+store_stock = [[], [], [], [], []];
 
 for (var i = 0; i < array_length(global.boards); i++) {
 	array_push(store_stock[0], new Stock(i, global.board_price, function() {
 		return board_collected(self.index);
 	}, function() {
-		change_collected_coins(-self.price);
 		board_collect(self.index);
 	}, function(x, y, _) {
 		var logo = (self.has()) ? self.index + 1 : 0;
@@ -55,7 +54,6 @@ for (var i = 0; i < array_length(types); i++) {
 		var stock = new Stock(, global.minigame_price, function() {
 			return minigame_seen(self.minigame.title);
 		}, function() {
-			change_collected_coins(-self.price);
 			minigame_unlock(self.minigame.title);
 		}, function(x, y, _) {
 			var seen_minigame = self.has();
@@ -88,12 +86,36 @@ for (var i = 0; i < array_length(types); i++) {
 	}
 }
 
+for (var i = 0; i < array_length(global.trials); i++) {
+	var trial = global.trials[i];
+	array_push(store_stock[2], new Stock(i, global.trial_price, function() {
+		return trial_collected(self.index);
+	}, function() {
+		trial_collect(self.index);
+	}, function(x, y, _) {
+		draw_sprite_ext(sprModesTrials, 0, x, y, 0.2, 0.2, 0, c_white, objStore.store_alpha);
+		draw_set_font(fntFilesData);
+		draw_text_color_outline(x + 8, y + 8, "#" + string(self.index + 1), c_red, c_red, c_yellow, c_yellow, objStore.store_alpha, c_black);
+	}, function(x, y) {
+		var trial = global.trials[self.index];
+		draw_set_font(fntFilesButtons);
+		draw_set_halign(fa_center);
+		draw_text_color_outline(x + objStore.draw_w / 2, 10, trial.title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
+		draw_set_font(fntFilesData);
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_text_outline(x + 10, 220, "Minigames: " + string(array_length(trial.minigames)), c_black);
+		draw_sprite(sprCoin, 0, x + 120, 262);
+		draw_text_outline(x + 10, 250, "Reward:       " + string(trial.reward), c_black);
+	}));
+}
+
 for (var i = 0; i < array_length(global.skins); i++) {
 	var skin = global.skins[i];
-	array_push(store_stock[2], new Stock(i, skin.price, function() {
+	array_push(store_stock[3], new Stock(i, skin.price, function() {
 		return have_skin(self.index);	
 	}, function() {
-		change_collected_coins(-self.price);
 		gain_skin(self.index);
 	}, function(x, y, moving) {
 		var skin = get_skin(self.index);
@@ -119,10 +141,9 @@ for (var i = 0; i < array_length(global.skins); i++) {
 
 for (var i = 0; i < array_length(global.reactions); i++) {
 	var react = global.reactions[i];
-	array_push(store_stock[3], new Stock(i, react.price, function() {
+	array_push(store_stock[4], new Stock(i, react.price, function() {
 		return have_reaction(self.index);	
 	}, function() {
-		change_collected_coins(-self.price);
 		gain_reaction(self.index);
 	}, function(x, y, _) {
 		draw_sprite_ext(sprReactions, self.index, x, y - 10, 0.25, 0.25, 0, c_white, objStore.store_alpha);

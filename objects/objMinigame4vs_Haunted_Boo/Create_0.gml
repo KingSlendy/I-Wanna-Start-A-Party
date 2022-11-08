@@ -56,6 +56,12 @@ alarm_create(function() {
 	lookout = true;
 	music_pause();
 	audio_play_sound(sndMinigame4vs_Haunted_Boo, 0, false);
+	
+	if (trial_is_title(HAUNTED_REFLEXES)) {
+		alarm_call(1, 0.35);
+		return;
+	}
+	
 	next_seed_inline();
 	alarm_call(1, random_range(0.5, 1));
 });

@@ -29,10 +29,15 @@ minigame_time_end = function() {
 		trophy_chests = false;
 	}
 	
+	objPlayerBase.frozen = true;
 	alarm_pause(10);
 }
 
 action_end = function() {
+	if (trial_is_title(STINGY_CHESTS)) {
+		return;
+	}
+	
 	if (trophy_chests && info.player_scores[global.player_id - 1].points == 0) {
 		achieve_trophy(63);
 	}

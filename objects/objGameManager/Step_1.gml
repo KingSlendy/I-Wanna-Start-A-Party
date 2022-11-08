@@ -25,16 +25,22 @@ if (IS_ONLINE) {
 		"Settings",
 		"Back To Files"
 	];
-} else if (IS_MINIGAME) {
-	if (global.minigame_info.is_minigames) {
-		pause_options = [
-			"Resume",
-			"Settings",
-			"Back To Files",
-			"Back To Modes",
-			"Back To Overview"
-		];
-	}
+} else if (IS_MINIGAME && room != rMinigameOverview && global.minigame_info.is_minigames) {
+	pause_options = [
+		"Resume",
+		"Settings",
+		"Back To Files",
+		"Back To Modes",
+		"Back To Overview"
+	];
+} else if (global.minigame_info.is_trials) {
+	pause_options = [
+		"Resume",
+		"Settings",
+		"Back To Files",
+		"Back To Modes",
+		"Back To Trials"
+	];
 }
 
 if (array_length(pause_options) != array_length(pause_highlight)) {
@@ -95,7 +101,13 @@ if (paused) {
 				case 4:
 					paused = false;
 					pause_state = 0;
-					room_goto(rMinigameOverview);
+					
+					if (global.minigame_info.is_minigames) {
+						room_goto(rMinigameOverview);
+					} else if (global.minigame_info.is_trials) {
+						room_goto(rTrials);
+					}
+					
 					audio_play_sound(global.sound_cursor_back, 0, false);
 					break;
 			}

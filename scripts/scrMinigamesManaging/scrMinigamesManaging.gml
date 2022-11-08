@@ -49,7 +49,7 @@ global.minigames = {};
 #macro DIZZY_CONUNDRUM "Dizzy Conundrum"
 #macro TARGETING_TARGETS "Targeting Targets"
 #macro UNCERTAIN_BULLETS "Uncertain Bullets"
-#macro DRAWNS_KEYS "Drawn Keys"
+#macro DRAWN_KEYS "Drawn Keys"
 #macro BUBBLE_DERBY "Bubble Derby"
 #macro WHAC_AN_IDOL "Whac-an-idol"
 #macro SKY_DIVING "Sky Diving"
@@ -101,7 +101,7 @@ function minigame_init() {
 		new Minigame(DIZZY_CONUNDRUM, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
 		new Minigame(TARGETING_TARGETS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
 		new Minigame(UNCERTAIN_BULLETS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
-		new Minigame(DRAWNS_KEYS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
+		new Minigame(DRAWN_KEYS, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
 		new Minigame(BUBBLE_DERBY, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
 		new Minigame(WHAC_AN_IDOL, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 37, rMinigame4vs_Idol, "I Wanna Be The iDOLM@STER"),
 		new Minigame(SKY_DIVING, [DESC_START draw_page("Rules", "TBD") DESC_END, DESC_START draw_page("Controls", "TBD") DESC_END], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
@@ -144,13 +144,14 @@ function minigame_by_title(title) {
 	var types = minigame_types();
 	
 	for (var i = 0; i < array_length(types); i++) {
-		var minigames = global.minigames[$ types[i]];
+		var type = types[i];
+		var minigames = global.minigames[$ type];
 		
 		for (var j = 0; j < array_length(minigames); j++) {
 			var minigame = minigames[j];
 			
 			if (minigame.title == title) {
-				return minigame;
+				return [minigame, type];
 			}
 		}
 	}
@@ -182,6 +183,7 @@ function minigame_info_reset() {
 		is_practice: false,
 		is_finished: false,
 		is_minigames: false,
+		is_trials: false,
 		
 		previous_board: null,
 		player_positions: [],
@@ -205,6 +207,38 @@ function minigame_info_score_reset() {
 			timer: 0,
 			points: 0
 		});
+	}
+}
+
+function minigame_info_set(reference, type, team) {
+	minigame_info_reset();
+	var types = minigame_types();
+	var info = global.minigame_info;
+	info.reference = reference;
+	info.type = type;
+				
+	if (info.type != "1vs3") {
+		info.player_colors = [c_blue, c_red];
+	} else {
+		info.player_colors = [c_red, c_blue];
+	}
+	
+	if (IS_ONLINE || array_length(global.player_game_ids) == 0) {
+		global.player_game_ids = [null];
+	}
+				
+	for (var i = 1; i <= global.player_max; i++) {
+		spawn_player_info(i, i);
+	}
+				
+	if (IS_ONLINE || global.player_game_ids[0] == null) {
+		global.player_game_ids = [];
+	}			
+		
+	with (objPlayerInfo) {
+		player_info.space = (array_contains(team, player_info.network_id)) ? c_blue : c_red;
+		target_draw_x = draw_x;
+		target_draw_y = draw_y;
 	}
 }
 
@@ -392,6 +426,18 @@ function minigame4vs_points(player_id, points = minigame_max_points()) {
 	}
 }
 
+function minigame4vs_set_points(player_id, points = minigame_max_points()) {
+	var info = global.minigame_info;
+	
+	if (!info.is_finished) {
+		var scoring = info.player_scores[player_id - 1];
+		
+		if (!scoring.ready) {
+			scoring.points = points;
+		}
+	}
+}
+
 function minigame4vs_get_points(player_id) {
 	var info = global.minigame_info;
 	return info.player_scores[player_id - 1].points;
@@ -558,6 +604,10 @@ function minigame_times_up() {
 }
 
 function minigame_lost_all(count_last = false) {
+	if (!count_last && trial_is_title(RAPID_ASCENSION)) {
+		return false;
+	}
+	
 	var lost_count = 0;
 
 	with (objPlayerBase) {

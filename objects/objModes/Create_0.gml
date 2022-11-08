@@ -41,7 +41,7 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 mode_buttons = [
 	new ModeButton("PARTY", sprModesParty, 0.5, 60, rParty),
 	new ModeButton("MINIGAMES", sprModesMinigames, 0.5, 60, rMinigames),
-	new ModeButton("TRIALS", sprNothing, 0.5, 60, rTrials, !IS_ONLINE),
+	new ModeButton("TRIALS", sprModesTrials, 0.4, 65, rTrials, !IS_ONLINE),
 	new ModeButton("STORE", sprModesStore, 1, 65, rStore, !IS_ONLINE),
 	new ModeButton("TROPHIES", sprTrophyCups, 0.7, 125, rTrophies, !IS_ONLINE)
 ];

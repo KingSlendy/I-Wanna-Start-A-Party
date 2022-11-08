@@ -19,6 +19,16 @@ player_type = objPlayerPlatformer;
 scene_spd = 0;
 prev_openings = array_create(global.player_max, 2);
 
+if (trial_is_title(RAPID_ASCENSION)) {
+	scene_spd = 10;
+	minigame_time = 20;
+	minigame_time_valign = fa_top;
+	minigame_time_end = function() {
+		minigame4vs_points(global.player_id);
+		minigame_finish();
+	}
+}
+
 function set_spd(spd) {
 	scene_spd = spd;
 	layer_vspeed("Background", scene_spd);

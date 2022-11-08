@@ -47,6 +47,10 @@ if (fade_start) {
 				
 					room_goto(rMinigameOverview);
 					break;
+					
+				case 3:
+					trial_start();
+					break;
 			}
 			
 			exit;
@@ -358,6 +362,32 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							}
 						}
 						
+						var trial_playable = true;
+						
+						if (!trial_collected(trials_selected)) {
+							trial_playable = false;
+						} else {
+							var minigames = global.trials[trials_selected].minigames;
+							
+							for (var i = 0; i < array_length(minigames); i++) {
+								if (!minigame_seen(minigames[i].reference.title)) {
+									trial_playable = false;
+									break;
+								}
+							}
+						}
+						
+						if (trial_playable && sync_actions("jump", 1)) {
+							trial_info_reset();
+							var info = global.trial_info;
+							info.reference = global.trials[trials_selected];
+							state = 3;
+							fade_start = true;
+							music_fade();
+							audio_play_sound(global.sound_cursor_select, 0, false);
+							exit;
+						}
+						
 						if (sync_actions("shoot", 1)) {
 							menu_page = 0;
 							skin_player = 0;
@@ -390,39 +420,9 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 			}
 		
 			if (sync_actions("jump", 1)) {
-				minigame_info_reset();
 				var types = minigame_types();
-				var info = global.minigame_info;
-				info.reference = minigame_selected.reference;
-				info.type = types[minigames_row_selected];
-				
-				if (info.type != "1vs3") {
-					info.player_colors = [c_blue, c_red];
-				} else {
-					info.player_colors = [c_red, c_blue];
-				}
-				
-				info.is_minigames = true;
-				
-				if (IS_ONLINE || array_length(global.player_game_ids) == 0) {
-					global.player_game_ids = [null];
-				}
-				
-				for (var i = 1; i <= global.player_max; i++) {
-					spawn_player_info(i, i);
-				}
-				
-				if (IS_ONLINE || global.player_game_ids[0] == null) {
-					global.player_game_ids = [];
-				}
-				
-				var colors = minigame_colors[minigames_row_selected];
-				
-				with (objPlayerInfo) {
-					player_info.space = (array_contains(colors, player_info.network_id)) ? c_blue : c_red;
-					target_draw_x = draw_x;
-					target_draw_y = draw_y;
-				}
+				minigame_info_set(minigame_selected.reference, types[minigames_row_selected], minigame_colors[minigames_row_selected]);
+				global.minigame_info.is_minigames = true;
 				
 				state = 2;
 				fade_start = true;

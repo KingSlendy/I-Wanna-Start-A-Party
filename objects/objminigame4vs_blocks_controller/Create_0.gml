@@ -2,6 +2,7 @@ event_inherited();
 
 minigame_players = function() {
 	with (objPlayerBase) {
+		grav_amount = 0;
 		enable_shoot = false;
 		choose_block = null;
 		block_delay = 0;
@@ -11,8 +12,26 @@ minigame_players = function() {
 
 player_type = objPlayerPlatformer;
 
+if (trial_is_title(RANDRANDRAND_TIME)) {
+	with (objMinigame4vs_Blocks_Block) {
+		if (!place_meeting(x, y, objBlock)) {
+			instance_destroy();
+		}
+	}
+	
+	repeat (irandom_range(20, 50)) {
+		do {
+			var rand_x = irandom_range(32, 800 - 64);
+			var rand_y = irandom_range(0, 608 - 64);
+		} until (!position_meeting(rand_x, rand_y, objPlayerReference) && !position_meeting(rand_x, rand_y, objMinigame4vs_Blocks_Block));
+		
+		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame4vs_Blocks_Block);
+	}
+}
+
 alarm_override(1, function() {
 	alarm_inherited(1);
+	objPlayerBase.grav_amount = 0.4;
 	objMinigame4vs_Blocks_Block.enabled = true;
 });
 

@@ -25,6 +25,10 @@ action_end = function() {
 player_type = objPlayerPlatformer;
 state = 0;
 
+if (trial_is_title(HAUNTED_REFLEXES)) {
+	minigame_time = 50;
+}
+
 alarm_override(0, function() {
 	if (state++ == 1) {
 		alarm_inherited(0);

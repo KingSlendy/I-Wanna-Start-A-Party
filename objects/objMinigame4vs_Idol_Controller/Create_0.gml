@@ -3,6 +3,7 @@ event_inherited();
 minigame_players = function() {
 	with (objPlayerBase) {
 		idol_hole = null;
+		idol_delay = 0;
 	}
 }
 
@@ -21,6 +22,11 @@ alarm_create(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
+			if (idol_delay > 0) {
+				idol_delay--;
+				break;
+			}
+			
 			if (idol_hole != null && idol_hole.hit != 0) {
 				idol_hole = null;
 			}
@@ -62,6 +68,7 @@ alarm_create(11, function() {
 			if (point_distance(x, y, idol_hole.x + 64, idol_hole.y - 15) <= max_spd) {
 				if (idol_hole.portion == idol_hole.height) {
 					actions.shoot.press();
+					idol_delay = irandom_range(5, 8);
 				}
 				
 				idol_hole = null;

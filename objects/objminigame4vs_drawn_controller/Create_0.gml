@@ -13,6 +13,21 @@ player_type = objPlayerPlatformer;
 trophy_green = true;
 trophy_double = true;
 
+if (trial_is_title(RANDRANDRAND_TIME)) {
+	instance_destroy(objMinigame4vs_Drawn_Key);
+	
+	repeat (irandom_range(20, 50)) {
+		do {
+			var rand_x = irandom_range(0, 800 - 32);
+			var rand_y = irandom_range(160, 608 - 96);
+		} until (!position_meeting(rand_x, rand_y, objPlayerReference));
+		
+		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame4vs_Drawn_Key, {
+			image_blend: choose(c_lime, c_yellow, c_red)
+		});
+	}
+}
+
 alarm_override(2, function() {
 	alarm_inherited(2);
 	

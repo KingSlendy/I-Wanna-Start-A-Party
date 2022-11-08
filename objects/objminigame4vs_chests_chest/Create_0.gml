@@ -25,6 +25,11 @@ alarms_init(4);
 alarm_create(function() {
 	next_seed_inline();
 	coins = irandom(10);
+	
+	if (trial_is_title(STINGY_CHESTS)) {
+		coins = (n == 0);
+	}
+	
 	image_index = 1;
 	alarm_call(1, 0.5);
 });

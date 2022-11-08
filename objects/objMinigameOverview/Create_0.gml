@@ -25,7 +25,6 @@ choice_texts = [
 
 state = 0;
 fade_alpha = 1;
-minigame_info_score_reset();
 
 pages_text = new Text(fntControls);
 controls_text = new Text(fntControls);

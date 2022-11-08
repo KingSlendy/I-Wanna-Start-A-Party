@@ -7,5 +7,5 @@ if (minigame_lost_all(true)) {
 		minigame4vs_points(network_id, -1);
 	}
 	
-	minigame_finish(true);
+	minigame_finish();
 }

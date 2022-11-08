@@ -1,7 +1,12 @@
+var player = focus_player_by_turn(player_turn);
+
+if (trial_is_title(BUGS_EVERYWHERE) && selecting && player.network_id != global.player_id) {
+	exit;
+}
+
 draw_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-var player = focus_player_by_turn(player_turn);
 draw_text_outline(player.x, player.y - 40, string(count), c_black);
 draw_set_halign(fa_left);
 

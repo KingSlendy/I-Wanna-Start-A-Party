@@ -17,3 +17,12 @@ if (finished) {
 		back_to_board();
 	}
 }
+
+if (info.is_finished || global.trial_info.reference == null) {
+	exit;
+}
+
+if (focus_player_by_id(global.player_id).lost) {
+	minigame4vs_points(global.player_id, -1);
+	minigame_finish();
+}

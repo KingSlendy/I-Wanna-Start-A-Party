@@ -28,6 +28,7 @@ alarm_create(function() {
 
 alarm_create(function() {
 	player_info_by_turn().item_effect = type;
+	audio_play_sound(sndItemIceAnimation, 0, false);
 	alarm_call(2, 1);
 });
 

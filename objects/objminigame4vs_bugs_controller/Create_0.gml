@@ -45,6 +45,14 @@ total_bugs = 0;
 draw_top = false;
 bug_counter = 0;
 
+if (trial_is_title(BUGS_EVERYWHERE)) {
+	with (objBlock) {
+		if (image_blend == c_red) {
+			instance_destroy();
+		}
+	}
+}
+
 alarm_override(1, function() {
 	alarm_inherited(1);
 	objMinigame4vs_Bugs_Counting.selecting = true;

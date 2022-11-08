@@ -276,16 +276,21 @@ switch (room) {
 			var trials_y = trials_show_y + draw_h * i;
 			var location = (trials_selected + array_length(global.trials) + i) % array_length(global.trials);
 			var trial = global.trials[location];
-			var title = trial.title;//(trial_collected(trial.title)) ? trial.title : "?????????";
+			var collected = trial_collected(location);
+			var title = (collected) ? trial.title : "?????????";
+			var clear = (trial_beaten(location)) ? "CLEAR" : "";
+			var reward = (collected) ? string(trial.reward) : "???";
 			draw_set_font(fntPlayerInfo);
 			draw_set_halign(fa_center);
-			draw_text_color_outline(trials_x + draw_w / 2, trials_y + 60, title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+			draw_text_color_outline(trials_x + draw_w / 2, trials_y + 35, title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 			draw_set_font(fntFilesButtons);
 			draw_set_halign(fa_left);
 			draw_text_color_outline(trials_x + 20, trials_y + 20, "#" + string(location + 1), c_red, c_red, c_yellow, c_yellow, 1, c_black);
+			draw_text_color_outline(trials_x + 20, trials_y + 55, clear, c_green, c_green, c_lime, c_lime, 1, c_black);
 			draw_set_font(fntPlayerInfo);
 			draw_sprite(sprCoin, 0, trials_x + 260, trials_y + 300);
-			draw_text_outline(trials_x + 150, trials_y + 288, "Reward        " + string(trial.reward), c_black);
+			draw_text_outline(trials_x + 150, trials_y + 288, "Reward:       " + reward, c_black);
+			draw_set_halign(fa_center);
 			
 			for (var j = -2; j <= 2; j++) {
 				var trials_x = menu_x + menu_sep + trials_show_x + 240 * j;
@@ -296,11 +301,25 @@ switch (room) {
 				}
 				
 				var dist = remap(point_distance(trials_x, trials_show_x, 0, trials_target_show_x), 0, 480, 1, 0.5);
-				var minigame = trial.minigames[location][0];
+				var prove = trial.minigames[location];
+				var minigame = prove.reference;
 				var seen_minigame = minigame_seen(minigame.title);
-				var portrait = (seen_minigame) ? minigame.portrait : minigame.hidden;
+				var portrait = (collected && seen_minigame) ? minigame.portrait : minigame.hidden;
+				var team = "";
+				
+				if (collected) {
+					switch (prove.team) {
+						case EITHER: team = "Either"; break;
+						case SOLO: team = "Solo"; break;
+						case TEAM: team = "Team"; break;
+					}
+				}
+				
+				draw_text_transformed_color_outline(trials_x + draw_w / 2, trials_y + 65, team, dist, dist, 0, c_white, c_white, c_white, c_white, dist, c_black);
 				draw_sprite_ext(portrait, 0, trials_x + draw_w / 2, trials_y + draw_h / 2, dist, dist, 0, c_white, dist);
 			}
+			
+			draw_set_halign(fa_left);
 		}
 		
 		var trials_x = menu_x + menu_sep;

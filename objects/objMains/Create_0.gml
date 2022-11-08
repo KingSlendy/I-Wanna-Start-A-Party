@@ -162,6 +162,18 @@ trials_target_selected = 0;
 trials_minigame_selected = 0;
 trials_minigame_target_selected = 0;
 
+if (room == rTrials) {
+	var info = global.minigame_info;
+	
+	if (info.is_trials) {
+		menu_page = 1;
+		trials_selected = global.trial_info.reference.index;
+		trials_target_selected = trials_selected;
+		minigame_info_reset();
+		trial_info_reset();
+	}
+}
+
 with (objPlayerBase) {
 	change_to_object(objPlayerParty);
 }

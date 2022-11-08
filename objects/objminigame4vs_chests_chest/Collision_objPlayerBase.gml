@@ -4,6 +4,7 @@ if (!selectable || selected != -1 || y != target_y || !is_player_local(other.net
 
 if (global.actions.up.pressed(other.network_id)) {
 	selected = other.network_id;
+	other.frozen = true;
 	target_y = ystart - 32;
 	
 	buffer_seek_begin();

@@ -88,6 +88,7 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 		var stock = row[store_selected[store_row]];
 		
 		if (!stock.has() && stock.price <= global.collected_coins) {
+			change_collected_coins(-stock.price);
 			stock.buy()
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;

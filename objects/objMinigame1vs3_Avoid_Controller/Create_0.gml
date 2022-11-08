@@ -74,7 +74,30 @@ alarm_override(11, function() {
 					actions.jump.hold(15);
 				}
 			} else {
-				var cherry = collision_rectangle(bbox_left - 22, bbox_top - 128 - 64 * (vspd < 0), bbox_right + 22, bbox_bottom, objMinigame1vs3_Avoid_Cherry, true, true);
+				var cherry;
+				
+				if (vspd <= 0) {
+					cherry = collision_rectangle(bbox_left - 30, bbox_top, bbox_right + 30, bbox_bottom, objMinigame1vs3_Avoid_Cherry, true, true);
+				
+					if (cherry != noone && ((cherry.x < x && cherry.hspeed > 0) || (cherry.x > x && cherry.hspeed < 0))) {
+						if (cherry.hspeed > 0) {
+							actions.right.hold(irandom_range(10, 20));
+						} else {
+							actions.left.hold(irandom_range(10, 20));
+						}
+						
+						actions.jump.hold(irandom_range(10, 18));
+						break;
+					}
+				} else {
+					cherry = instance_place(x, y + vspd, objMinigame1vs3_Avoid_Cherry);
+				
+					if (cherry != noone) {
+						actions.jump.hold(irandom_range(10, 18));
+					}
+				}
+				
+				cherry = collision_rectangle(bbox_left - 22, bbox_top - 128 - 64 * (vspd < 0), bbox_right + 22, bbox_bottom, objMinigame1vs3_Avoid_Cherry, true, true);
 			
 				if (cherry != noone) {
 					if ((cherry.x >= x && !place_meeting(x - 3, y, objBlock)) || place_meeting(x + 3, y, objBlock)) {
@@ -84,20 +107,6 @@ alarm_override(11, function() {
 					}
 				
 					break;
-				}
-				
-				cherry = collision_rectangle(bbox_left - 6, bbox_top, bbox_right + 6, bbox_bottom, objMinigame1vs3_Avoid_Cherry, true, true);
-				
-				if (cherry != noone && ((cherry.x < x && cherry.hspeed > 0) || (cherry.x > x && cherry.hspeed < 0))) {
-					actions.jump.hold(12);
-				}
-			
-				if (vspd > 0) {
-					cherry = instance_place(x, y + vspd, objMinigame1vs3_Avoid_Cherry);
-				
-					if (cherry != noone) {
-						actions.jump.hold(irandom_range(10, 21));
-					}
 				}
 			}
 		}

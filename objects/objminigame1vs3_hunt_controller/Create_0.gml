@@ -3,6 +3,7 @@ event_inherited();
 minigame_start = minigame1vs3_start;
 minigame_players = function() {
 	with (objPlayerBase) {
+		grav_amount = 0;
 		enable_shoot = false;
 		shoot_delay = 0;
 		reticle = null;
@@ -34,12 +35,27 @@ player_type = objPlayerPlatformer;
 shoot_start = false;
 shoot_delay = array_create(3, 0);
 
+if (trial_is_title(RANDRANDRAND_TIME)) {
+	instance_destroy(objMinigame1vs3_Hunt_Block);
+	
+	repeat (irandom_range(20, 50)) {
+		do {
+			var rand_x = irandom_range(0, 800 - 32);
+			var rand_y = irandom_range(0, 608 - 32);
+		} until (!position_meeting(rand_x, rand_y, objPlayerReference));
+		
+		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame1vs3_Hunt_Block);
+	}
+}
+
 function create_shoot(x, y) {
 	instance_create_layer(x, y, "Actors", objMinigame1vs3_Hunt_Shot);
 }
 
 alarm_override(1, function() {
 	with (objPlayerBase) {
+		grav_amount = 0.4;
+		
 		if (y < 640) {
 			frozen = false;
 			break;

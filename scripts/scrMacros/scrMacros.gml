@@ -7,7 +7,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "0.9.1.10"
+#macro VERSION "0.9.2.2"
 
 //Network
 #macro FAILCHECK_ID 121
@@ -17,8 +17,3 @@
 #macro IS_MINIGAME (string_count("Minigame", room_get_name(room)) > 0)
 #macro DESC_START function() { return 
 #macro DESC_END ; }
-#macro TRIAL [
-#macro RANDOM "RANDOM"
-#macro SOLO ]
-#macro TEAM ]
-#macro EITHER ]

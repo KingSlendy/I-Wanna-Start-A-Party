@@ -1,5 +1,6 @@
 global.board_price = 5000;
 global.minigame_price = 2000;
+global.trial_price = 100;
 
 function Skin(id, name, fangame_name, fangame_index, maker, price = 100) constructor {
 	self.id = id;
@@ -71,7 +72,7 @@ function skin_init() {
 		new Skin("Critic", "Critic", "I Wanna Kill The 3sweepor", 45, "RandomErik", 400),
 		new Skin("Troller", "The Troller", "I Wanna Kill The 3sweepor", 45, "Tralexium", 300),
 		new Skin("Explorer", "Explorer Kid", "I Wanna Be The Explorer", 46, "Hone", 200),
-		new Skin("Syobon", "Syobon Cat", "Original", 29, "SergioGameMaker", 500),
+		new Skin("Syobon", "Syobon Cat", "Original", 29, "SergioGameMaker", 400),
 		new Skin("Cute", "Cute Girl", "I Wanna Nonamed Spike 2", 47, "Mobiun", 400),
 		new Skin("Stand", "Kid And Stand", "I Wanna Nonamed Spike 2", 47, "Nyinmir", 400),
 		new Skin("PD", "PDplayer Kid", "I Wanna Nonamed Spike 2", 47, "PDplayer", 500),
@@ -82,7 +83,7 @@ function skin_init() {
 		new Skin("Limit", "Hot Limit Kid", "I Wanna Can't Stop", 48, "Doruppi", 100),
 		new Skin("Crush", "Crush Kid", "I Wanna Can't Stop", 48, "Doruppi", 400),
 		new Skin("Tennis", "Tennis Kid", "I Wanna Can't Stop", 48, "Doruppi", 300),
-		new Skin("Migueto", "Migueto", "Original", 29, "PlayerDash2017", 1000),
+		new Skin("Migueto", "Migueto", "Original", 29, "PlayerDash2017", 500),
 		new Skin("Monkey", "The Monkey", "I Wanna See You Suffer", 49, "UltraJDude", 700),
 		new Skin("Crewmate", "Crewmate", "Original", 29, "JPRG666", 900),
 		new Skin("Adventurer", "The Adventurer", "I Wanna Escape From The Dun.", 50, "AlejoFangamer", 1000),
@@ -96,7 +97,7 @@ function skin_init() {
 		new Skin("Hat", "Hat Kid", "Original", 29, "JPRG666", 1000),
 		new Skin("Monokuma", "Monokuma", "Original", 29, "JPRG666", 1000),
 		new Skin("Lost", "The Lost", "Original", 29, "JPRG666", 1000),
-		new Skin("Huse", "Huse", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Huse", "Huse", "Original", 29, "Kogami Takara", 800),
 		new Skin("Yonaka", "Yonaka Kurai", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Monika", "Monika", "Original", 29, "Kaurosu", 1000),
 		new Skin("Yuri", "Yuri", "Original", 29, "Kaurosu", 1000),
@@ -163,12 +164,12 @@ function skin_init() {
 		new Skin("Luffy", "Monkey D. Luffy", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Mecha", "Mecha Kid", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Sherlock", "Sherlock Shellingford", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Luna", "Luna Rurine", "Original", 29, "PlayerDash2017", 1000),
+		new Skin("Luna", "Luna Rurine", "Original", 29, "PlayerDash2017", 600),
 		new Skin("Crane", "Crane Kid", "Un Ange Et Un Crane", 76, "Yukii", 400),
 		new Skin("SnowCoat", "Snow Coat Kid", "Jingle Jam", 14, "AlejoFangamer", 500),
 		new Skin("Skuldafn", "Skuldafn", "Original", 29, "Kogami Takara", 1000),
-		new Skin("JGB", "JGB", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Alejo", "AlejoFangamer", "Original", 29, "Kogami Takara", 1000),
+		new Skin("JGB", "JGB", "Original", 29, "Kogami Takara", 500),
+		new Skin("Alejo", "AlejoFangamer", "Original", 29, "Kogami Takara", 900),
 		new Skin("PlayerDash", "PlayerDash2017", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Kogami", "Kogami Takara", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Don", "Don-chan", "Original", 29, "Kogami Takara", 1000),

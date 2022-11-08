@@ -138,7 +138,7 @@ global.trophies = [
 	new Trophy(61, TrophyRank.Gold, "Spare Items", "You received a Blackhole or a Mirror from an item space!\nNow that's a handy item after so many Poisons!", "Heck yeah! I was getting tired of so many lame items in this space!\nThis is definitely better!"),
 	new Trophy(62, TrophyRank.Platinum, "Turning Tables", "You recieved a Shine in the last 5 turns event!\nThat was unexpected, the other players are hating you right now!", "I bet you weren't expecting to get that on the last 5 turns!"),
 	new Trophy(63, TrophyRank.Silver, "Flag Toucher", "You scored 99 points in Golf Course.\nHere hoping for the wind to barely move the ball, right?", "Come on, man! The flag is right there!"),
-	new Trophy(64, TrophyRank.Gold, "Empty Chests", "You scored 0 points in Crazy Chests.\nThose chests were kind of a scam, huh?", "Hey wait a minute... these chests are empty!"),
+	new Trophy(64, TrophyRank.Platinum, "Empty Chests", "You scored 0 points in Crazy Chests.\nThose chests were kind of a scam, huh?", "Hey wait a minute... these chests are empty!"),
 	new Trophy(65, TrophyRank.Platinum, "All Minigames", "You unlocked all Minigames!\nThe full package is now on your hands!", "I want all the Minigames!"),
 	new Trophy(66, TrophyRank.Silver, "Cuadruple Kill", "All 4 players died in Western Duel.\nAll of you are either really good or really bad.", "Two duels, four deaths!"),
 	new Trophy(67, TrophyRank.Silver, "Mini Golf", "You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?", "I barely attempted to get to the flag and I still won."),

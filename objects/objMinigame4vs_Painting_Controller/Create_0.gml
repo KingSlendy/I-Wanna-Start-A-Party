@@ -13,6 +13,16 @@ minigame_time = 30;
 points_draw = true;
 player_type = objPlayerPlatformer;
 
+if (trial_is_title(RANDRANDRAND_TIME)) {
+	instance_destroy(objMinigame4vs_Painting_Platform);
+	
+	repeat (irandom_range(30, 50)) {
+		var rand_x = irandom_range(32, 800 - 48);
+		var rand_y = irandom_range(32, 608 - 64);
+		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame4vs_Painting_Platform);
+	}
+}
+
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);

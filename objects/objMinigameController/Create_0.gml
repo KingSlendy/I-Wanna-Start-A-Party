@@ -2,6 +2,7 @@ fade_alpha = 1;
 info = global.minigame_info;
 shuffle_seed_bag();
 reset_seed_inline();
+minigame_info_score_reset();
 
 with (objPlayerBase) {
 	draw = true;
@@ -41,6 +42,11 @@ function back_to_board() {
 		save_file();
 		disable_board();
 		room_goto(rMinigames);
+		return;
+	}
+	
+	if (info.is_trials) {
+		trial_start();
 		return;
 	}
 	
@@ -91,26 +97,44 @@ alarm_create(function() {
 		loser_count += (info.player_scores[i].points <= 0);
 	}
 	
-	if (array_length(info.players_won) > 0 && loser_count < global.player_max) {
-		for (var i = 0; i < array_length(info.players_won); i++) {
-			var player = focus_player_by_id(info.players_won[i]);
-			winner_title += player.network_name + "\n";
-		}
-		
-		winner_title += "WON";
-		music_play(bgmMinigameWin, false);
-		audio_play_sound((array_length(info.players_won) == 1) ? sndMinigameWinner : sndMinigameWinners, 0, false);
-	} else {
-		info.players_won = [];
-		winner_title = "TIE";
-		music_play(bgmMinigameTie, false);
-		audio_play_sound(sndMinigameTie, 0, false);
-		achieve_trophy(9);
-	}
+	if (!info.is_trials) {
+		var loser_count = 0;
 
-	if (!info.is_practice) {
-		for (var i = 0; i < array_length(info.players_won); i++) {
-			bonus_shine_by_id(BonusShines.MostMinigames).increase_score(player_info_by_id(info.players_won[i]).turn);
+		for (var i = 0; i < global.player_max; i++) {
+			loser_count += (info.player_scores[i].points <= 0);
+		}
+	
+		if (array_length(info.players_won) > 0 && loser_count < global.player_max) {
+			for (var i = 0; i < array_length(info.players_won); i++) {
+				var player = focus_player_by_id(info.players_won[i]);
+				winner_title += player.network_name + "\n";
+			}
+		
+			winner_title += "WON";
+			music_play(bgmMinigameWin, false);
+			audio_play_sound((array_length(info.players_won) == 1) ? sndMinigameWinner : sndMinigameWinners, 0, false);
+		} else {
+			info.players_won = [];
+			winner_title = "TIE";
+			music_play(bgmMinigameTie, false);
+			audio_play_sound(sndMinigameTie, 0, false);
+			achieve_trophy(9);
+		}
+
+		if (!info.is_practice) {
+			for (var i = 0; i < array_length(info.players_won); i++) {
+				bonus_shine_by_id(BonusShines.MostMinigames).increase_score(player_info_by_id(info.players_won[i]).turn);
+			}
+		}
+	} else {
+		if (array_length(info.players_won) > 0 && loser_count < global.player_max && array_contains(info.players_won, global.player_id)) {
+			winner_title = "CLEAR";
+			music_play(bgmMinigameWin, false);
+			audio_play_sound(sndMinigameClear, 0, false);
+		} else {
+			winner_title = "TOO BAD...";
+			music_play(bgmMinigameTie, false);
+			audio_play_sound(sndMinigameTooBad, 0, false);
 		}
 	}
 
