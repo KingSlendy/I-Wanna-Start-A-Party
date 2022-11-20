@@ -99,16 +99,16 @@ switch (room) {
 		var box_y = 0;
 		draw_sprite_stretched(sprPartyBoardMark, 1, box_x + 60, box_y + 32, board_w, board_h);
 		gpu_set_colorwriteenable(true, true, true, false);
-		var length = array_length(global.boards);
+		var length = array_length(global.boards) + 1;
 
 		for (var i = -1; i <= 1; i++) {
 			var location = (board_selected + length + i) % length;
-			var picture = (board_collected(location)) ? location + 1 : 0;
+			var picture = (board_collected(location) || location == length - 1) ? location + 1 : 0;
 			var pic_x = box_x + 104 + 264 * i + board_x;
 			var pic_y = box_y + 47;
 			draw_sprite_stretched(sprPartyBoardPictures, picture, pic_x, pic_y, board_img_w, board_img_h);
 		
-			if (board_collected(location)) {
+			if (board_collected(location) && location != length - 1) {
 				draw_sprite_ext(sprPartyBoardLogos, picture, pic_x + board_img_w / 2, pic_y + board_img_h / 2, 0.75, 0.75, 0, c_white, 1);
 			}
 		}

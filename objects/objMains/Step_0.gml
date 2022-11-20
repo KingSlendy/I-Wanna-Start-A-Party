@@ -22,8 +22,22 @@ if (fade_start) {
 			
 			switch (state) {
 				case 0:
-					global.board_selected = board_selected;
-					room_goto(global.boards[board_selected].scene);
+					if (board_selected < array_length(global.boards)) {
+						global.board_selected = board_selected;
+					} else {
+						var boards = [];
+						
+						for (var i = 0; i < array_length(global.boards); i++) {
+							if (board_collected(i)) {
+								array_push(boards, i);
+							}
+						}
+						
+						array_shuffle(boards);
+						global.board_selected = array_pop(boards);
+					}
+					
+					room_goto(global.boards[global.board_selected].scene);
 					break;
 					
 				case 1:
@@ -248,7 +262,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 						if (scroll != 0) {
 							switch (board_options_selected) {
 								case 0:
-									var length = array_length(global.boards);
+									var length = array_length(global.boards) + 1;
 									board_target_x -= 264 * scroll;
 									board_target_selected = (board_selected + length + scroll) % length;
 									break;
@@ -261,7 +275,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							exit;
 						}
 				
-						if ((global.player_id != 1 || board_options_selected != 0 || board_collected(board_selected)) && sync_actions("jump", 1)) {
+						if ((global.player_id != 1 || board_options_selected != 0 || (board_collected(board_selected) || board_selected == array_length(global.boards))) && sync_actions("jump", 1)) {
 							if (++board_options_selected == 3) {
 								board_options_selected = 2;
 								global.player_game_ids = [];
@@ -337,6 +351,7 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 							audio_play_sound(global.sound_cursor_back, 0, false);
 						}
 					}
+					break;
 					
 				case rTrials:
 					if (trials_selected == trials_target_selected && trials_minigame_selected == trials_minigame_target_selected) {

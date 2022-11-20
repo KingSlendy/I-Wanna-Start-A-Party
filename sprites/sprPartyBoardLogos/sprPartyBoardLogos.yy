@@ -35,6 +35,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f199b5c0-41e2-43fe-94f2-5e3176117c12",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06b04542-0cef-4efa-a0b9-1697046671b9",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0c66b41e-2a36-4dc7-a5bf-2874bc24aa14",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b42b7242-3e5a-4948-b601-c2b64c3532ac",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,7 +47,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 7.0,
+    "length": 8.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -58,6 +59,7 @@
             {"id":"aa3a56cd-5a74-4cd4-babe-55d2f71cfe4a","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f199b5c0-41e2-43fe-94f2-5e3176117c12","path":"sprites/sprPartyBoardLogos/sprPartyBoardLogos.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"f33ebca1-18bf-487c-a042-17d25b2bcf98","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06b04542-0cef-4efa-a0b9-1697046671b9","path":"sprites/sprPartyBoardLogos/sprPartyBoardLogos.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"7a2deffc-67ff-4f56-9487-744476ea7d88","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0c66b41e-2a36-4dc7-a5bf-2874bc24aa14","path":"sprites/sprPartyBoardLogos/sprPartyBoardLogos.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4ec5ab91-1170-45fd-ac7a-73e835617f35","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b42b7242-3e5a-4948-b601-c2b64c3532ac","path":"sprites/sprPartyBoardLogos/sprPartyBoardLogos.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

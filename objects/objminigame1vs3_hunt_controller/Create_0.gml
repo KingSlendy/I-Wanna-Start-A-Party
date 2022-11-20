@@ -41,8 +41,8 @@ if (trial_is_title(RANDRANDRAND_TIME)) {
 	repeat (irandom_range(20, 50)) {
 		do {
 			var rand_x = irandom_range(0, 800 - 32);
-			var rand_y = irandom_range(0, 608 - 32);
-		} until (!position_meeting(rand_x, rand_y, objPlayerReference));
+			var rand_y = irandom_range(32, 608 - 32);
+		} until (collision_rectangle(rand_x, rand_y, rand_x + 31, rand_y + 31, objPlayerReference, true, true) == noone && collision_rectangle(rand_x, rand_y, rand_x + 31, rand_y + 31, objMinigame1vs3_Hunt_Block, true, true) == noone);
 		
 		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame1vs3_Hunt_Block);
 	}
@@ -147,7 +147,7 @@ alarm_override(11, function() {
 						solo_y += solo_player.vspd * 5 + lengthdir_y(offset_len, offset_dir);
 					}
 					
-					aim_delay = get_frames(random_range(0.05, 0.1));
+					aim_delay = get_frames(random_range(0.1, 0.2));
 				}
 				
 				if (--offset_delay <= 0) {

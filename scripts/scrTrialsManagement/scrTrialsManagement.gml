@@ -53,12 +53,12 @@ function trial_init() {
 			new Prove(AVOID_THE_ANGUISH, TEAM)
 		], 200),
 		
-		//new Trial(RANDRANDRAND_TIME, [
-		//	new Prove(DRAWN_KEYS),
-		//	new Prove(PAINTING_PLATFORMS),
-		//	new Prove(UNSTABLE_BLOCKS),
-		//	new Prove(HUNT_TROUBLE, SOLO)
-		//], 200)
+		new Trial(RANDRANDRAND_TIME, [
+			new Prove(HUNT_TROUBLE, SOLO),
+			new Prove(DRAWN_KEYS),
+			new Prove(PAINTING_PLATFORMS),
+			new Prove(UNSTABLE_BLOCKS),
+		], 300)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {

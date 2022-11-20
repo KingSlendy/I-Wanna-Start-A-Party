@@ -22,8 +22,8 @@ if (trial_is_title(RANDRANDRAND_TIME)) {
 	repeat (irandom_range(20, 50)) {
 		do {
 			var rand_x = irandom_range(32, 800 - 64);
-			var rand_y = irandom_range(0, 608 - 64);
-		} until (!position_meeting(rand_x, rand_y, objPlayerReference) && !position_meeting(rand_x, rand_y, objMinigame4vs_Blocks_Block));
+			var rand_y = irandom_range(32, 608 - 64);
+		} until (collision_rectangle(rand_x, rand_y, rand_x + 31, rand_y + 31, objPlayerReference, true, true) == noone && collision_rectangle(rand_x, rand_y, rand_x + 31, rand_y + 31, objMinigame4vs_Blocks_Block, true, true) == noone);
 		
 		instance_create_layer(rand_x, rand_y, "Collisions", objMinigame4vs_Blocks_Block);
 	}
