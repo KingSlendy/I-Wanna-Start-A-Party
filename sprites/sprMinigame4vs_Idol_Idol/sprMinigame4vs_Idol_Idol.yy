@@ -31,6 +31,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ab159d67-c548-40b9-8589-9b10a2a94d88",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a2e61d83-5fbb-430e-8b19-88c827322aca",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5ab616bb-514c-4274-b7d4-a7c04349697d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3edb070c-9216-4c5f-832e-7e351a99f9e6",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -42,7 +43,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 3.0,
+    "length": 4.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -50,6 +51,7 @@
             {"id":"9fb4246d-4759-4b22-b9ea-1ab67fdabbb0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ab159d67-c548-40b9-8589-9b10a2a94d88","path":"sprites/sprMinigame4vs_Idol_Idol/sprMinigame4vs_Idol_Idol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"f9edb0a6-3a16-4a76-9ef7-137c7eb79e83","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a2e61d83-5fbb-430e-8b19-88c827322aca","path":"sprites/sprMinigame4vs_Idol_Idol/sprMinigame4vs_Idol_Idol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"d26be612-59d6-4ec5-9209-c0166d11e78a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5ab616bb-514c-4274-b7d4-a7c04349697d","path":"sprites/sprMinigame4vs_Idol_Idol/sprMinigame4vs_Idol_Idol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9f641a97-e60f-48b9-8379-6c177586d699","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3edb070c-9216-4c5f-832e-7e351a99f9e6","path":"sprites/sprMinigame4vs_Idol_Idol/sprMinigame4vs_Idol_Idol.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

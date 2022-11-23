@@ -23,6 +23,7 @@ function collect_key(player_id, network = true) {
 	}
 	
 	visible = false;
+	audio_play_sound(sndMinigame4vs_Drawn_Keys, 0, false);
 	alarm_call(0, random_range(2, 4));
 	
 	if (network) {

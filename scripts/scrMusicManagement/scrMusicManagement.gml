@@ -20,8 +20,8 @@ function music_play(music, loop = true) {
 
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
-		global.music_current = audio_play_sound(music, 0, loop);
 		music_set_loop_points(music);
+		global.music_current = audio_play_sound(music, 0, loop, 1);
 	}
 }
 
@@ -151,8 +151,10 @@ function music_stop() {
 }
 
 function music_pause() {
-	audio_pause_sound(global.music_current);
-	global.music_previous = global.music_current;
+	if (global.music_current != null) {
+		audio_pause_sound(global.music_current);
+		global.music_previous = global.music_current;
+	}
 }
 
 function music_resume() {

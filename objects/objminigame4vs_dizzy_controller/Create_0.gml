@@ -14,6 +14,11 @@ minigame_players = function() {
 player_type = objPlayerPlatformer;
 trophy_none = true;
 
+if (trial_is_title(FOGGY_DAY)) {
+	layer_set_visible("Fog_2", true);
+}
+
+
 alarm_override(1, function() {
 	alarm_inherited(1);
 	objPlayerBase.grav_amount = 0.8;

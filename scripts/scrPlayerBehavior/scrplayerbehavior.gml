@@ -1,7 +1,19 @@
 function player_jump() {
 	if (room != rMinigame4vs_Dizzy) {
 		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform) || place_meeting(x, y, objMinigame4vs_Painting_Platform)) {
-			vspd = -(jump_height[0] * orientation);
+			if (room == rMinigame4vs_Drawn) {
+				var b = instance_place(x, y + 1, objMinigame4vs_Drawn_Block);
+	
+				if (b != noone && b.image_blend == c_lime) {
+					vspd = -16;
+					audio_play_sound(sndMinigame4vs_Drawn_Block, 0, false);
+				}
+			}
+			
+			if (vspd == 0) {
+				vspd = -(jump_height[0] * orientation);
+			}
+			
 			sprite_index = skin[$ "Jump"];
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);

@@ -455,13 +455,13 @@ function board_advance() {
 	}
 }
 
-function board_path_finding() {
+function board_path_finding(space = null) {
 	global.path_spaces = [];
 	global.path_spaces_record = infinity;
 	objSpaces.visited = false;
 	
 	with (focused_player()) {
-		space_path_finding(instance_place(x, y, objSpaces), []);
+		space_path_finding(space ?? instance_place(x, y, objSpaces), []);
 	}
 }
 
@@ -474,7 +474,7 @@ function space_path_finding(space, path_spaces) {
 	array_push(path_spaces, space);
 	
 	with (space) {
-		if (visited || array_length(path_spaces) > global.path_spaces_record) {
+		if (visited || array_length(path_spaces) >= global.path_spaces_record) {
 			break;
 		}
 		
@@ -517,10 +517,9 @@ function space_path_finding(space, path_spaces) {
 				
 			space_path_finding(space_check, path_spaces);
 		}
-		
-		visited = false;
 	}
 	
+	space.visited = false;
 	array_pop(path_spaces);
 }
 

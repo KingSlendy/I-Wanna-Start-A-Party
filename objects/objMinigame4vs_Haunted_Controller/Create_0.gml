@@ -29,6 +29,12 @@ if (trial_is_title(HAUNTED_REFLEXES)) {
 	minigame_time = 50;
 }
 
+if (trial_is_title(FOGGY_DAY)) {
+	for (var i = 2; i <= 9; i++) {
+		layer_set_visible("Fog_" + string(i), true);
+	}
+}
+
 alarm_override(0, function() {
 	if (state++ == 1) {
 		alarm_inherited(0);

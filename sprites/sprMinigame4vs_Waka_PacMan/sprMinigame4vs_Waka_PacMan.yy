@@ -28,8 +28,8 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fb444c49-09cc-412d-a254-a39e8dd3ee93",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"547def74-3c91-4bb7-b64d-eba0dac55ccb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fb444c49-09cc-412d-a254-a39e8dd3ee93",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ee7d4b4b-8b80-4dcb-87a4-61199e1ca5c7",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d4d01e6e-a3f0-45cf-afca-973c020ad87a",},
   ],
@@ -48,8 +48,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"6c9a2116-0bb6-4f51-ad5d-ec8ddd356275","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb444c49-09cc-412d-a254-a39e8dd3ee93","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"350b7a2a-ab52-44d7-90a0-e8081338c2c5","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"547def74-3c91-4bb7-b64d-eba0dac55ccb","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"350b7a2a-ab52-44d7-90a0-e8081338c2c5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"547def74-3c91-4bb7-b64d-eba0dac55ccb","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6c9a2116-0bb6-4f51-ad5d-ec8ddd356275","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb444c49-09cc-412d-a254-a39e8dd3ee93","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c2ef56d2-5456-425b-84d5-02ceb07e5a59","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ee7d4b4b-8b80-4dcb-87a4-61199e1ca5c7","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"66beb1dd-5a92-43e8-b6fb-e4f9372657f6","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d4d01e6e-a3f0-45cf-afca-973c020ad87a","path":"sprites/sprMinigame4vs_Waka_PacMan/sprMinigame4vs_Waka_PacMan.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},

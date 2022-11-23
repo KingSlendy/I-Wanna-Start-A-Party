@@ -9,6 +9,7 @@ if (x == target_x && y == target_y) {
 		
 		target_player = null;
 		next_target_player();
+		exit;
 	}
 	
 	if (returning) {
@@ -20,6 +21,7 @@ if (x == target_x && y == target_y) {
 		
 		alarm_instant(2);
 		player_targets = [];
+		image_blend = c_white;
 		targeting = false;
 		returning = false;
 	}

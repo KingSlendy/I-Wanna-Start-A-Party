@@ -1,6 +1,10 @@
 if (!frozen) {
 	var move_h = (global.actions.right.held(network_id) - global.actions.left.held(network_id));
 	var move_v = (global.actions.down.held(network_id) - global.actions.up.held(network_id));
+	
+	if (network_id == global.player_id && trial_is_title(INVERTED_COMPETITION)) {
+		move_h *= -1;
+	}
 
 	hspd += move_h * 0.1;
 	vspd += move_v * 0.1;

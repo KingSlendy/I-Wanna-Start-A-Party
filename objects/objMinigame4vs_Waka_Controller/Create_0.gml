@@ -8,7 +8,6 @@ minigame_players = function() {
 
 minigame_time_end = function() {
 	objPlayerBase.frozen = true;
-	minigame_time = -1;
 	alarm_instant(4);
 }
 
@@ -20,8 +19,18 @@ camera_state = -1;
 current_round = 0;
 player_pos = array_create(global.player_max, 0);
 
+trophy_luigi = true;
+
 alarm_override(1, function() {
 	alarm_call(4, 1);
+});
+
+alarm_override(2, function() {
+	alarm_inherited(2);
+	
+	if (array_contains(info.players_won, global.player_id) && trophy_luigi) {
+		achieve_trophy(69);
+	}
 });
 
 alarm_create(4, function() {

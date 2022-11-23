@@ -1,4 +1,4 @@
-if (other.num == goal_num + 1 || (other.num == 0 && goal_num == 3)) {
+if (last_num != other.num && last_num == (other.num + 4 - 1) % 4 (other.num == goal_num + 1 || (other.num == 0 && goal_num == 3))) {
 	goal_num = other.num;
 	
 	if (goal_num == 0) {
@@ -18,3 +18,5 @@ if (other.num == goal_num + 1 || (other.num == 0 && goal_num == 3)) {
 		network_send_tcp_packet();
 	}
 }
+
+last_num = other.num;

@@ -1,5 +1,11 @@
 if (!frozen) {
-	image_angle = (image_angle + 360 + (global.actions.left.held(network_id) - global.actions.right.held(network_id))) % 360;
+	var move_h = (global.actions.left.held(network_id) - global.actions.right.held(network_id));
+	
+	if (network_id == global.player_id && trial_is_title(INVERTED_COMPETITION)) {
+		move_h *= -1;
+	}
+	
+	image_angle = (image_angle + 360 + move_h) % 360;
 	var move = (global.actions.up.held(network_id) - global.actions.down.held(network_id));
 	
 	if (move != 0) {

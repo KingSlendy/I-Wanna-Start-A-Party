@@ -3,6 +3,7 @@ event_inherited();
 minigame_players = function() {
 	with (objPlayerBase) {
 		goal_num = 0;
+		last_num = 0;
 		fast_collide = false;
 	}
 }

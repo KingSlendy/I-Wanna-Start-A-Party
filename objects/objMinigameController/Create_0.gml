@@ -3,6 +3,7 @@ info = global.minigame_info;
 shuffle_seed_bag();
 reset_seed_inline();
 minigame_info_score_reset();
+music_stop();
 
 with (objPlayerBase) {
 	draw = true;

@@ -95,6 +95,7 @@ alarm_create(function() {
 
 alarm_create(function() {
 	lookout = false;
+	image_blend = #FF7070;
 	objPlayerBase.frozen = true;
 	next_target_player();
 });

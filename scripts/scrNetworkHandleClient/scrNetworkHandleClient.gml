@@ -101,6 +101,7 @@ enum ClientTCP {
 	Minigame4vs_Mansion_Door,
 	Minigame4vs_Painting_Platform,
 	Minigame4vs_Bugs_Counting,
+	Minigame4vs_Blocks_BlockDestabilize,
 	Minigame4vs_Chests_ChestSelected,
 	Minigame4vs_Slime_BlockEntrance,
 	Minigame4vs_Slime_SlimeShot,
@@ -845,6 +846,17 @@ f[$ ClientTCP.Minigame4vs_Bugs_Counting] = function(buffer) {
 		if (self.player_turn == player_turn) {
 			self.count = count;
 			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Blocks_BlockDestabilize] = function(buffer) {
+	var block_x = buffer_read(buffer, buffer_s32);
+	var block_y = buffer_read(buffer, buffer_s32);
+	
+	with (objMinigame4vs_Blocks_Block) {
+		if (x == block_x && y == block_y) {
+			block_destabilize(false);
 		}
 	}
 }

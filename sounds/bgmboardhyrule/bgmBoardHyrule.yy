@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmBoardHyrule",
-  "conversionMode": 1,
+  "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
   "preload": false,

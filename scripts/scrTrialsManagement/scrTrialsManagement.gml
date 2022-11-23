@@ -9,6 +9,8 @@
 #macro STINGY_CHESTS "Stingy Chests"
 #macro AVOID_THE_ANXIETY "Avoid The Anxiety"
 #macro RANDRANDRAND_TIME "RandRandRand Time"
+#macro INVERTED_COMPETITION "Inverted Competition"
+#macro FOGGY_DAY "Foggy Day"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -58,7 +60,17 @@ function trial_init() {
 			new Prove(DRAWN_KEYS),
 			new Prove(PAINTING_PLATFORMS),
 			new Prove(UNSTABLE_BLOCKS),
-		], 300)
+		], 300),
+		
+		new Trial(INVERTED_COMPETITION, [
+			new Prove(BUBBLE_DERBY),
+			new Prove(ROCKET_IGNITION)
+		], 400),
+		
+		new Trial(FOGGY_DAY, [
+			new Prove(HAUNTED_FOREST),
+			new Prove(DIZZY_CONUNDRUM)
+		], 400)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {

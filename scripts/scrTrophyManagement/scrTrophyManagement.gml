@@ -142,7 +142,9 @@ global.trophies = [
 	new Trophy(65, TrophyRank.Platinum, "All Minigames", "You unlocked all Minigames!\nThe full package is now on your hands!", "I want all the Minigames!"),
 	new Trophy(66, TrophyRank.Silver, "Cuadruple Kill", "All 4 players died in Western Duel.\nAll of you are either really good or really bad.", "Two duels, four deaths!"),
 	new Trophy(67, TrophyRank.Silver, "Mini Golf", "You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?", "I barely attempted to get to the flag and I still won."),
-	new Trophy(68, TrophyRank.Bronze, "Bubble Racing", "You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?", "Bubble maneuvers.")
+	new Trophy(68, TrophyRank.Bronze, "Bubble Racing", "You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?", "Bubble maneuvers."),
+	new Trophy(69, TrophyRank.Bronze, "Piranha Fanatic", "You touched the piranha plant in Springing Piranha.\nThere's so many dodging at hand and yet you somehow touched the piranha!?", "Don't worry, that thing is scary so you don't have to worry to touch it."),
+	new Trophy(70, TrophyRank.Silver, "Luigi-Man", "You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.", "Luigi meets namco!")
 ];
 
 global.collected_trophies_stack = [];

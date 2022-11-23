@@ -11,6 +11,8 @@ if (next_path == 0) {
 		
 		switch (state_path) {
 			case 0:
+				minigame_time = -1;
+			
 				with (objPlayerBase) {
 					x = xstart;
 					y = ystart;
@@ -119,6 +121,10 @@ with (objPlayerBase) {
 	var move = (global.actions.right.pressed(network_id) - global.actions.left.pressed(network_id));
 	
 	if (move != 0) {
+		if (network_id == global.player_id) {
+			other.trophy_luigi = false;
+		}
+		
 		other.player_pos[network_id - 1] = (other.player_pos[network_id - 1] + global.player_max + move) % global.player_max;
 		x = 192 + (32 * 4) * other.player_pos[network_id - 1] + 17;
 	}

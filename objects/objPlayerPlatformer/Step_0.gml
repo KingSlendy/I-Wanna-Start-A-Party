@@ -73,14 +73,6 @@ if (!frozen) {
 	}
 	
 	shoot_delay = max(--shoot_delay, 0);
-	
-	if (room == rMinigame4vs_Drawn) {
-		var b = instance_place(x, y + 1, objMinigame4vs_Drawn_Block);
-	
-		if (b != noone && b.image_blend == c_lime && global.actions[$ jump_action].pressed(network_id)) {
-			vspd = -16;
-		}
-	}
 
 	if (room == rMinigame1vs3_Conveyor) {
 		var c = instance_place(x, y + 1, objMinigame1vs3_Conveyor_Conveyor);
@@ -142,7 +134,7 @@ if (block != noone) {
 			reset_jumps();
 		}
 		
-		if (vspd * orientation < 0 && block.object_index == objMinigame1vs3_Avoid_Block) {
+		if (room == rMinigame1vs3_Avoid && vspd * orientation < 0 && place_meeting(x, y - 1, objMinigame1vs3_Avoid_Block)) {
 			with (block) {
 				activate(attack);
 			}

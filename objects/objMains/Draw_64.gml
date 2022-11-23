@@ -85,6 +85,22 @@ for (var r = -2; r <= 2; r++) {
 	}
 }
 
+draw_set_font(fntDialogue);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_bottom);
+var skin = skins[| skin_target_row][| skin_col];
+var name = "???";
+
+if (skin == noone) {
+	name = "Random";
+} else if (have_skin(skin)) {
+	name = global.skins[skin].name;
+}
+
+draw_text_outline(menu_x + draw_w / 2, draw_h - 10, name, c_black);
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
 var key_x = menu_x + skin_w * skin_col;
 var key_y = skin_y + skin_h * sign(skin_y - skin_target_y);
 draw_sprite_ext(global.actions.right.bind(), 0, key_x + 120, key_y + 60, 0.3, 0.3, 0, c_white, 1);

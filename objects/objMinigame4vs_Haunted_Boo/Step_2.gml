@@ -1,4 +1,4 @@
-if (objMinigameController.info.is_finished) {
+if (objMinigameController.info.is_finished || targeting || returning) {
 	exit;
 }
 
@@ -18,12 +18,7 @@ if (sign(image_xscale) == -1) {
 		}
 	}
 	
-	if (!targeting && array_length(player_targets) > 0) {
+	if (array_length(player_targets) > 0) {
 		start_target_player();
-	} else {
-		if (returning) {
-			next_target_player();
-			returning = false;
-		}
 	}
 }

@@ -17,6 +17,7 @@ if (keyboard_check_pressed(vk_escape)) {
 		game_end();
 	} else {
 		network_disable();
+		paused = false;
 		room_goto(rTitle);
 		exit;
 	}
