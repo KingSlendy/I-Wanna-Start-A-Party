@@ -11,6 +11,11 @@ minigame_players = function() {
 points_draw = true;
 player_type = objPlayerBubble;
 
+lap_total = 4;
+goal_total = instance_number(objMinigame4vs_Bubble_Goal);
+priority = ds_priority_create();
+places = ds_map_create();
+
 trophy_hitless = true;
 
 alarm_override(11, function() {

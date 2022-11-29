@@ -11,6 +11,9 @@
 #macro RANDRANDRAND_TIME "RandRandRand Time"
 #macro INVERTED_COMPETITION "Inverted Competition"
 #macro FOGGY_DAY "Foggy Day"
+#macro INVISI_GAME "Invisi-game"
+#macro FLIPPED_WORLD "Flipped World"
+#macro COLORFUL_MADNESS "Colorful Madness"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -65,12 +68,27 @@ function trial_init() {
 		new Trial(INVERTED_COMPETITION, [
 			new Prove(BUBBLE_DERBY),
 			new Prove(ROCKET_IGNITION)
-		], 400),
+		], 500),
 		
 		new Trial(FOGGY_DAY, [
 			new Prove(HAUNTED_FOREST),
 			new Prove(DIZZY_CONUNDRUM)
-		], 400)
+		], 300),
+		
+		new Trial(INVISI_GAME, [
+			new Prove(CONVEYOR_HAVOC, TEAM),
+			new Prove(WARPING_UP, SOLO),
+			new Prove(GETTINGS_COINS, SOLO)
+		], 400),
+		
+		new Trial(FLIPPED_WORLD, [
+			new Prove(MAGIC_MEMORY),
+			new Prove(GIGANTIC_RACE, SOLO)
+		], 400),
+		
+		new Trial(COLORFUL_MADNESS, [
+			new Prove(COLORFUL_INSANITY)
+		], 300)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {
@@ -116,11 +134,15 @@ function trial_start() {
 	var exit_trial = false;
 	
 	if (trial_info.current > 0) {
-		if (!array_contains(minigame_info.players_won, global.player_id)) {
+		if (!array_contains(minigame_info.players_won, global.player_id) || minigame_info.player_scores[global.player_id - 1].points == 0) {
 			exit_trial = true;
 		} else if (trial_info.current == array_length(trial_info.reference.minigames)) {
 			change_collected_coins(trial_info.reference.reward);
-			trial_beat(trial_info.reference.index);
+			
+			if (!trial_beaten(trial_info.reference.index)) {
+				trial_beat(trial_info.reference.index);
+			}
+			
 			exit_trial = true;
 		}
 	

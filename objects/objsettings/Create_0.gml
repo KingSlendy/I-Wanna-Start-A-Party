@@ -134,7 +134,7 @@ var controls_draw = function(x, y) {
 		return;
 	}
 	
-	draw_sprite_ext(global.actions[$ string_lower(self.label)].bind(), 0, x + 40, y, 0.75, 0.75, 0, c_white, 1);
+	draw_sprite_ext(global.actions[$ string_lower(self.label)].bind(), 0, x + 40, y, 0.75, 0.75, 0, c_white, draw_get_alpha());
 }
 
 sections = [

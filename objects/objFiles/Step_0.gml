@@ -18,8 +18,7 @@ if (fade_start) {
 				switch (option_selected) {
 					case 0: room_goto(rSettings); break;
 					
-					case 2:
-						break;
+					case 2: room_goto(rCredits); break;
 				}
 			}
 			
@@ -101,7 +100,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 				];
 			} else {
 				switch (option_selected) {
-					case 0: //case 2:
+					case 0: case 2:
 						fade_start = true;
 						back_option = true;
 						music_fade();

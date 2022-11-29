@@ -98,8 +98,8 @@ global.trophies = [
 	new Trophy(21, TrophyRank.Gold, "Sonic Speed", "You rolled 25 or more with Triple Dice!\nJust casually going for a walk around the board, no big deal.", "Hey slow down a little bit!"),
 	new Trophy(22, TrophyRank.Bronze, "Snail Pace", "You rolled 10 or less with a Triple Dice.\nI'm gonna reach the Shine, I swear...", "I would've used a regular one if I knew this was gonna happen..."),
 	new Trophy(23, TrophyRank.Silver, "Pattern Expert", "You found all pattern pairs first in Colorful Insanity.\nLosing stuff isn't a problem for you.", "Those finding skills would come in handy when I'm trying to find my keys between my mess."),
-	new Trophy(24, TrophyRank.Bronze, "Negative Coins", "You landed on a red space when having 0 Coins.\nWhat does it feel to be at -3 Coins?", "I can't lose more, stop!!"),
-	new Trophy(25, TrophyRank.Silver, "Turning Red", "All of you turned red before the minigame was chosen.\nRed everywhere you see.", "Living all the red!"),
+	new Trophy(24, TrophyRank.Bronze, "Negative Coins", "You landed on a Red space when having 0 Coins.\nWhat does it feel to be at -3 Coins?", "I can't lose more, stop!!"),
+	new Trophy(25, TrophyRank.Gold, "Landing Red", "All of you landed on Red spaces.\nRed everywhere you see.", "Living all the red!"),
 	new Trophy(26, TrophyRank.Bronze, "Catch The Small", "You catched most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp", "It's just like playing osu!\nBut I go small."),
 	new Trophy(27, TrophyRank.Silver, "Catch The Gordos", "You catched almost all or all the gordos in Catch The Fruits.\nIs spikes your thing or what?", "Meh fruits isn't the thing for me."),
 	new Trophy(28, TrophyRank.Bronze, "Cornered Maze", "You went to the opposite corner in A-Maze-Ing.\nWere you that lost?", "I'm so lost I'm on the other end!"),
@@ -144,7 +144,9 @@ global.trophies = [
 	new Trophy(67, TrophyRank.Silver, "Mini Golf", "You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?", "I barely attempted to get to the flag and I still won."),
 	new Trophy(68, TrophyRank.Bronze, "Bubble Racing", "You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?", "Bubble maneuvers."),
 	new Trophy(69, TrophyRank.Bronze, "Piranha Fanatic", "You touched the piranha plant in Springing Piranha.\nThere's so many dodging at hand and yet you somehow touched the piranha!?", "Don't worry, that thing is scary so you don't have to worry to touch it."),
-	new Trophy(70, TrophyRank.Silver, "Luigi-Man", "You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.", "Luigi meets namco!")
+	new Trophy(70, TrophyRank.Silver, "Luigi-Man", "You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.", "Luigi meets namco!"),
+	new Trophy(71, TrophyRank.Gold, "Landing Green", "All of you landed on Green spaces.\Green everywhere you see.", "Living all the green!"),
+	new Trophy(72, TrophyRank.Gold, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
 ];
 
 global.collected_trophies_stack = [];

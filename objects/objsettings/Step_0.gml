@@ -1,6 +1,6 @@
 if (fade_start) {
 	if (back) {
-		fade_alpha += 0.03 * DELTA;
+		fade_alpha += 0.03;
 	
 		if (fade_alpha >= 1) {
 			fade_alpha = 1;
@@ -9,7 +9,7 @@ if (fade_start) {
 			exit;
 		}
 	} else {
-		fade_alpha -= 0.03 * DELTA;
+		fade_alpha -= 0.03;
 	
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;

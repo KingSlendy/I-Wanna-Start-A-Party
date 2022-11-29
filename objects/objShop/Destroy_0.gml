@@ -4,3 +4,5 @@ if (is_local_turn()) {
 		text_end();
 	}
 }
+
+global.buy_choice = -1;

@@ -65,6 +65,24 @@ offset_target = 1;
 offset_pos = 0;
 offset_y = -454;
 
+var coins = player_info_by_turn().coins;
+var length = array_length(stock);
+
+while (global.buy_choice == -1) {
+	for (var i = length - 1; i >= 0; i--) {
+		var price = stock[i].price;
+		
+		if (coins >= price && (coins - price >= 20 || irandom(length - ((length - 1) - i)) == 1)) {
+			global.buy_choice = i;
+			break;
+		}
+	}
+	
+	if (coins < 60) {
+		break;
+	}
+}
+
 function shop_end() {
 	offset_target = 0;
 	

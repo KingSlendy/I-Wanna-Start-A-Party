@@ -4,6 +4,19 @@ if (objMinigameController.info.is_finished || pattern_player_ids == null) {
 
 for (var i = 0; i < 2; i++) {
 	var player_id = pattern_player_ids[i];
+	
+	if (trial_is_title(COLORFUL_MADNESS)) {
+		player_id = global.player_id;
+		
+		if (global.actions.shoot.pressed(player_id)) {
+			pattern_select(pattern_selected[1]);
+			break;
+		}
+		
+		if ((i == 0 && pattern_selected[0]) || (i == 1 && !pattern_selected[0])) {
+			continue;
+		}
+	}
 		
 	if (!is_player_local(player_id)) {
 		continue;
@@ -11,6 +24,10 @@ for (var i = 0; i < 2; i++) {
 		
 	if (global.actions.jump.pressed(player_id)) {
 		pattern_select(i);
+		
+		if (trial_is_title(COLORFUL_MADNESS)) {
+			break;
+		}
 	}
 		
 	if (pattern_selected[i]) {

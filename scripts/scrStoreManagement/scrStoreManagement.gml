@@ -203,21 +203,19 @@ function get_skin(type = global.skin_current) {
 	return skin;
 }
 
-function get_skin_index_by_sprite(sprite, pose = null) {
+function get_skin_index_by_sprite(sprite) {
 	if (sprite == sprPlayerBlank) {
 		return null;
 	}
 	
 	var name = sprite_get_name(sprite);
-	
-	if (pose == null) {
-		var poses = get_skin_poses();
+	var poses = get_skin_poses();
+	var pose = null;
 		
-		for (var i = 0; i < array_length(poses); i++) {
-			if (string_count(poses[i], name) > 0) {
-				pose = poses[i];
-				break;
-			}
+	for (var i = 0; i < array_length(poses); i++) {
+		if (string_count(poses[i], name) > 0) {
+			pose = poses[i];
+			break;
 		}
 	}
 	
@@ -249,7 +247,7 @@ function get_skin_pose_object(object, pose) {
 }
 
 function get_skin_pose(sprite, pose) {
-	var index = get_skin_index_by_sprite(sprite, pose);
+	var index = get_skin_index_by_sprite(sprite);
 	
 	if (index == null) {
 		return sprNothing;

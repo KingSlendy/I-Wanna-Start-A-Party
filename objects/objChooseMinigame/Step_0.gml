@@ -29,6 +29,45 @@ switch (state) {
 		fade_alpha -= 0.05;
 	
 		if (fade_alpha <= 0) {
+			var all_reds = true;
+			var all_greens = true;
+			var all_different = true;
+			
+			with (objPlayerInfo) {
+				if (all_reds && player_info.space != c_red) {
+					all_reds = false;
+				}
+				
+				if (all_greens && player_info.space != c_lime) {
+					all_greens = false;
+				}
+				
+				if (all_different) {
+					with (objPlayerInfo) {
+						if (id == other.id) {
+							continue;
+						}
+						
+						if (player_info.space == other.player_info.space) {
+							all_different = false;
+							break;
+						}
+					}
+				}
+			}
+			
+			if (all_reds) {
+				achieve_trophy(24);
+			}
+			
+			if (all_greens) {
+				achieve_trophy(70);
+			}
+			
+			if (all_different) {
+				achieve_trophy(71);
+			}
+			
 			//Temp
 			if (force_type != null) {
 				with (objPlayerInfo) {
@@ -211,19 +250,6 @@ switch (state) {
 				with (other) {
 					alarm_call(0, 1);
 				}
-			}
-			
-			var all_reds = true;
-			
-			with (objPlayerInfo) {
-				if (player_info.space != c_red) {
-					all_reds = false;
-					break;
-				}
-			}
-			
-			if (all_reds) {
-				achieve_trophy(24);
 			}
 		
 			fade_alpha = 0;

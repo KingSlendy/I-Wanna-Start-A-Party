@@ -2,33 +2,37 @@ event_inherited();
 width = 400;
 height = 180;
 stock = [
-	{text: "{SPRITE,sprCoin,0,0,2,0.6,0.6} ", name: "Coins", desc: "Steals coins from a player. Mash to reduce the amount.", price: 5, can_select: function() {
-		for (var i = 1; i <= global.player_max; i++) {
-			if (i == global.player_turn) {
-				continue;
-			}
+	{
+		text: "{SPRITE,sprCoin,0,0,2,0.6,0.6} ", name: "Coins", desc: "Steals coins from a player. Mash to reduce the amount.", price: global.min_blackhole_coins, can_select: function() {
+			for (var i = 1; i <= global.player_max; i++) {
+				if (i == global.player_turn) {
+					continue;
+				}
 			
-			if (player_info_by_turn(i).coins > 0) {
-				return true;
+				if (player_info_by_turn(i).coins > 0) {
+					return true;
+				}
 			}
-		}
 		
-		return false;
-	}()},
+			return false;
+		}()
+	},
 	
-	{text: "{SPRITE,sprShine,0,-6,-5,0.5,0.5}", name: "Shine", desc: "Steals a shine from a player. If that's not evil I don't know what is.", price: 50, can_select: function() {
-		for (var i = 1; i <= global.player_max; i++) {
-			if (i == global.player_turn) {
-				continue;
-			}
+	{
+		text: "{SPRITE,sprShine,0,-6,-5,0.5,0.5}", name: "Shine", desc: "Steals a shine from a player. If that's not evil I don't know what is.", price: global.max_blackhole_coins, can_select: function() {
+			for (var i = 1; i <= global.player_max; i++) {
+				if (i == global.player_turn) {
+					continue;
+				}
 			
-			if (player_info_by_turn(i).shines > 0) {
-				return true;
+				if (player_info_by_turn(i).shines > 0) {
+					return true;
+				}
 			}
-		}
 		
-		return false;
-	}()}
+			return false;
+		}()
+	}
 ];
 
 option_selected = -1;

@@ -17,12 +17,14 @@ global.player_turn = 1;
 global.dice_roll = 0;
 global.choice_selected = -1;
 global.item_choice = false;
+global.buy_choice = -1;
 
 //Board values
 global.shine_spawn_count = 1;
 global.shine_price = 20;
 global.min_shop_coins = 5;
 global.min_blackhole_coins = 5;
+global.max_blackhole_coins = 50;
 
 //Bonus values
 for (var i = 0; i < array_length(global.bonus_shines); i++) {
@@ -216,15 +218,41 @@ alarm_create(11, function() {
 		if (instance_exists(objPathChange)) {
 			perform_action(actions.jump);
 		}
+		
+		if (instance_exists(objShop) && objShop.shopping) {
+			if (global.buy_choice == -1) {
+				perform_action(actions.shoot);
+				perform_action(ac);
+			}
+			
+			if (objShop.option_selected != global.buy_choice) {
+				perform_action(global.actions.down);
+			}
+			
+			perform_action(actions.jump);
+		}
+		
+		if (instance_exists(objBlackhole)) {
+			if (player_info_by_turn().coins >= global.max_blackhole_coins && objBlackhole.option_selected != 1) {
+				perform_action(actions.down);
+			} else {
+				perform_action(actions.jump);
+			}
+			
+			perform_action(actions.jump);
+		}
 	
-		//if (instance_exists(objDialogue)) {
-		//	if (!objDialogue.text_display.text.tw_active) {
-		//		stale_action(1);
-		//		perform_action(actions.jump);
-		//	} else {
-		//		perform_action(actions.jump);
-		//	}
-		//}
+		if (instance_exists(objDialogue)) {
+			//if (!objDialogue.text_display.text.tw_active) {
+			//	stale_action(1);
+			//	perform_action(actions.jump);
+			//} else {
+			//	perform_action(actions.jump);
+			//}
+			
+			stale_action(0.1);
+			perform_action(actions.jump);
+		}
 
 		var keys = variable_struct_get_names(actions);
 		perform_action(actions[$ keys[irandom(array_length(keys) - 1)]]);

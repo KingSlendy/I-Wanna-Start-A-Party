@@ -43,12 +43,19 @@ function Pattern(pattern) constructor {
 	}
 }
 
-for (var r = 0; r < pattern_rows; r++) {
-	pattern_grid[r] = [];
+function pattern_grid_init() {
+	for (var r = 0; r < pattern_rows; r++) {
+		pattern_grid[r] = [];
 	
-	for (var c = 0; c < pattern_cols; c++) {
-		pattern_grid[r][c] = null;
+		for (var c = 0; c < pattern_cols; c++) {
+			pattern_grid[r][c] = null;
+		}
 	}
+}
+
+function pattern_grid_start() {
+	pattern_grid_init();
+	pattern_grid_generate();
 }
 
 function pattern_choose(chosen = null) {
@@ -134,8 +141,15 @@ function pattern_grid_generate() {
 	}
 	
 	with (objPlayerBase) {
-		find_timer = get_frames(min(irandom_range(5, 30), 20));
 		found = false;
+		
+		if (trial_is_title(COLORFUL_MADNESS) && network_id == focus_player_by_id().teammate.network_id) {
+			find_timer = infinity;
+			found = false;
+			continue;
+		}
+		
+		find_timer = get_frames(min(irandom_range(5, 30), 20));
 	}
 }
 
@@ -183,8 +197,13 @@ function pattern_select(index, network = true) {
 			
 	if (pattern_selected[index] && pattern_grid[pattern_row_selected[index]][pattern_col_selected[index]].equals(pattern_chosen)) {
 		var player = focus_player_by_id(player_id);
-		player.teammate.find_timer *= 0.25;
-		player.teammate.find_timer = ceil(player.teammate.find_timer);
+		
+		if (!trial_is_title(COLORFUL_MADNESS)) {
+			player.teammate.find_timer *= 0.25;
+			player.teammate.find_timer = ceil(player.teammate.find_timer);
+		} else {
+			player.teammate.find_timer = 0;
+		}
 		
 		if (player_id == global.player_id) {
 			if (pattern_selected[!index]) {
@@ -223,5 +242,5 @@ function pattern_select(index, network = true) {
 alarms_init(1);
 
 alarm_create(function() {
-	event_perform(ev_other, ev_room_start);
+	pattern_grid_generate();
 });

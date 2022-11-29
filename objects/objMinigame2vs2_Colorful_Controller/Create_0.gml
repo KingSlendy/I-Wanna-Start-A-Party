@@ -1,6 +1,13 @@
 event_inherited();
 
 minigame_start = minigame2vs2_start;
+minigame_players = function() {
+	with (objPlayerBase) {
+		find_timer = infinity;
+		found = false;
+	}
+}
+
 player_type = objPlayerStatic;
 
 next_seed_inline();
@@ -17,19 +24,20 @@ alarm_override(1, function() {
 	with (objMinigame2vs2_Colorful_Patterns) {
 		if (x < 400) {
 			var player = objMinigameController.points_teams[0][0];
-			pattern_player_ids = [player.network_id, player.teammate.network_id];
-		}
-	}
-
-	with (objMinigame2vs2_Colorful_Patterns) {
-		if (x > 400) {
+		} else {
 			var player = objMinigameController.points_teams[1][0];
-			pattern_player_ids = [player.network_id, player.teammate.network_id];
 		}
+		
+		pattern_player_ids = [player.network_id, player.teammate.network_id];
+		pattern_grid_start()
 	}
 });
 
 alarm_override(11, function() {
+	if (trial_is_title(COLORFUL_MADNESS)) {
+		return;
+	}
+	
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 
