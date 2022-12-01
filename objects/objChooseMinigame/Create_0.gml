@@ -152,7 +152,7 @@ alarm_create(function() {
 			minigame_name = minigame_names[i];
 		
 			if (minigame_count[$ minigame_name] == min_minigame) {
-				array_push(minigame_list, array_first(minigames_now, function(x) { return (x.title == minigame_name); }));
+				array_push(minigame_list, array_first(array_filter(minigames_now, function(x) { return (x.title == minigame_name); })));
 			
 				if (array_length(minigame_list) == 5) {
 					minigame_add = false;

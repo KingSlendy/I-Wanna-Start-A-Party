@@ -48,16 +48,6 @@ function array_sequence(start, count) {
 	return array;
 }
 
-function array_first(array, func) {
-	for (var i = 0; i < array_length(array); i++) {
-		if (func(array[i])) {
-			return array[i];
-		}
-	}
-	
-	return noone;
-}
-
 function array_search(array, value, left = 0, right = array_length(array) - 1) {
 	if (right < left) {
 		return false;

@@ -10,6 +10,8 @@ stealed = false;
 
 steal_min = min(irandom_range(7, 11), player_info_by_id(player2.network_id).coins);
 
+controls_text = new Text(fntControls);
+
 function start_blackhole_steal() {
 	state = 0;
 	

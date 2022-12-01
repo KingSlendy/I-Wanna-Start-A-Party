@@ -216,6 +216,10 @@ alarm_create(11, function() {
 		}
 	
 		if (instance_exists(objPathChange)) {
+			if (0.125 > random(1)) {
+				perform_action(choose(actions.jump, actions.left, actions.up, actions.down, actions.right));
+			}
+			
 			perform_action(actions.jump);
 		}
 		

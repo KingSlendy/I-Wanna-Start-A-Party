@@ -21,7 +21,7 @@ network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
 network_connect_raw_async(socket, "startaparty.sytes.net", 33320);
 
-function error_occurred() {
+function occurred_error() {
 	text = "An error ocurred...";
 	alarm_call(0, 3);
 }

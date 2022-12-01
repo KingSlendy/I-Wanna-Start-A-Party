@@ -37,15 +37,15 @@ function space_directions() {
 	}
 
 	if (array_count(space_directions_normal, null) == 3) {
-		space_next = array_first(space_directions_normal, function(x) {
+		space_next = array_first(array_filter(space_directions_normal, function(x) {
 			return (x != null);
-		});
+		}));
 	}
 	
 	if (array_count(space_directions_reverse, null) == 3) {
-		space_previous = array_first(space_directions_reverse, function(x) {
+		space_previous = array_first(array_filter(space_directions_reverse, function(x) {
 			return (x != null);
-		});
+		}));
 	}
 
 	if (array_count(space_directions_normal, null) < 3 || array_count(space_directions_reverse, null) < 3) {

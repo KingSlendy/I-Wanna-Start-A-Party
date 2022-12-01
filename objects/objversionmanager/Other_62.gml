@@ -5,7 +5,7 @@ if (async_load[? "id"] != file) {
 var status = async_load[? "status"];
 
 if (status < 0) {
-	error_occurred();
+	occurred_error();
 	exit;
 }
 
@@ -22,7 +22,7 @@ if (status == 0) {
 	var zip = zip_unzip("Version.zip", game_save_id);
 	
 	if (zip <= 0) {
-		error_occurred();
+		occurred_error();
 		exit;
 	}
 	
