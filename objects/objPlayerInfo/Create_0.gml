@@ -14,7 +14,7 @@ reacted = -1;
 reaction_alpha = 0;
 reaction_scale = 0;
 reaction_target = 0;
-reaction_text = new Text(fntControls);
+controls_text = new Text(fntControls);
 
 function setup() {
 	player_idle_image = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");
@@ -55,8 +55,8 @@ function setup() {
 	}
 }
 
-function can_react() {
-	return (global.board_started && global.player_turn != player_info.turn && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame) && !instance_exists(objLastTurns));
+function can_controls() {
+	return (global.board_started && !instance_exists(objMapLook) && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame) && !instance_exists(objLastTurns));
 }
 
 function reaction(index) {

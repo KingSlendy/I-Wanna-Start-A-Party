@@ -11,7 +11,7 @@ if (option_selected == -1) {
 	option_selected = 0;
 }
 
-option_selected = (option_selected + 3 + scroll) % 3;
+option_selected = (option_selected + 2 + scroll) % 2;
 
 if (option_selected != prev_choice) {
 	audio_play_sound(global.sound_cursor_move, 0, false);
@@ -40,12 +40,6 @@ if (global.actions.jump.pressed(network_id)) {
 					change_items(item, ItemChangeType.Use);
 					bonus_shine_by_id(BonusShines.MostItems).increase_score();
 				}
-			}
-			break;
-		
-		case 2:
-			if (!focus_player.ai) {
-				show_map();
 			}
 			break;
 	}

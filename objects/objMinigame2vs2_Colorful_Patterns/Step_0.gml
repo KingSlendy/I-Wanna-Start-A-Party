@@ -8,7 +8,7 @@ for (var i = 0; i < 2; i++) {
 	if (trial_is_title(COLORFUL_MADNESS)) {
 		player_id = global.player_id;
 		
-		if (global.actions.shoot.pressed(player_id)) {
+		if (pattern_selected[1] && global.actions.shoot.pressed(player_id)) {
 			pattern_select(pattern_selected[1]);
 			break;
 		}

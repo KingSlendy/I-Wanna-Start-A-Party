@@ -27,6 +27,11 @@ if (dir != 0) {
 	
 	if ((dir == 1 && !on_vineR) || (dir == -1 && !on_vineL)) {
 		hspd = max_hspd * dir;
+		
+		if (trial_is_title(SPEEDY_KID) && network_id == global.player_id) {
+			hspd *= 3;
+		}
+		
 		sprite_index = skin[$ "Run"];
 	}
 } else {

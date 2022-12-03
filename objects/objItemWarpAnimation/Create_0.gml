@@ -22,7 +22,7 @@ alarm_create(function() {
 	player2.y = player1_pos.y;
 	player1.x = player2_pos.x;
 	player1.y = player2_pos.y;
-
+	audio_play_sound(sndItemWarpAnimation, 0, false);
 	alarm_call(1, 1);
 });
 

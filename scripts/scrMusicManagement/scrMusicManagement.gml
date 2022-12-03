@@ -166,6 +166,6 @@ function music_resume() {
 	}
 }
 
-function music_fade(time = 1000) {
+function music_fade(time = 750) {
 	audio_sound_gain(global.music_current, 0, time);
 }

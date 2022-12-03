@@ -10,7 +10,7 @@ with (objChanceTime) {
 
 var reactions_x, reactions_y;
 
-if (IS_BOARD && can_react() && player_info.network_id == global.player_id) {
+if (IS_BOARD && can_controls() && player_info.network_id == global.player_id) {
 	reactions_x = draw_x;
 	
 	switch (player_info.turn) {
@@ -23,8 +23,13 @@ if (IS_BOARD && can_react() && player_info.network_id == global.player_id) {
 			break;
 	}
 
-	reaction_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " Reactions" : draw_action_small(global.actions.jump) + " React  " + draw_action_small(global.actions.shoot) + " Cancel");
-	reaction_text.draw(reactions_x, reactions_y);
+	controls_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " Reactions" : draw_action_small(global.actions.jump) + " React  " + draw_action_small(global.actions.shoot) + " Cancel");
+	controls_text.draw(reactions_x, reactions_y);
+	
+	if (player_info.turn == global.player_turn && !reactions) {
+		controls_text.set(draw_action_small(global.actions.misc) + " Map");
+		controls_text.draw(reactions_x + 120, reactions_y);
+	}
 }
 
 if (reactions) {

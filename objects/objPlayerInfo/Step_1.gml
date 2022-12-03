@@ -38,39 +38,52 @@ with (objChanceTime) {
 	}
 }
 
-if (global.player_turn != player_info.turn) {
-	if (reactions) {
-		var move_v = (global.actions.down.pressed(player_info.network_id) - global.actions.up.pressed(player_info.network_id));
-		var move_h = (global.actions.right.pressed(player_info.network_id) - global.actions.left.pressed(player_info.network_id));
+if (!is_player_local(player_info.network_id)) {
+	exit;
+}
+
+if (reactions) {
+	var ignore_input = global.ignore_input;
+	global.ignore_input = true;
+	var move_v = (global.actions.down.pressed(player_info.network_id) - global.actions.up.pressed(player_info.network_id));
+	var move_h = (global.actions.right.pressed(player_info.network_id) - global.actions.left.pressed(player_info.network_id));
 		
-		if (move_v != 0) {
-			selected += move_v;
-			move_h = 0;
-			audio_play_sound(global.sound_cursor_move, 0, false);
-		}
+	if (move_v != 0) {
+		selected += move_v;
+		move_h = 0;
+		audio_play_sound(global.sound_cursor_move, 0, false);
+	}
 		
-		if (move_h != 0) {
-			selected += 2 * move_h;
-			audio_play_sound(global.sound_cursor_move, 0, false);
-		}
+	if (move_h != 0) {
+		selected += 2 * move_h;
+		audio_play_sound(global.sound_cursor_move, 0, false);
+	}
 		
-		selected = clamp(selected, 0, sprite_get_number(sprReactions) - 1);
+	selected = clamp(selected, 0, sprite_get_number(sprReactions) - 1);
 		
-		if (selected < 2 * page) {
-			page--;
-		}
+	if (selected < 2 * page) {
+		page--;
+	}
 		
-		if (selected >= 2 * (page + 2)) {
-			page++;
-		}
+	if (selected >= 2 * (page + 2)) {
+		page++;
+	}
 		
-		if (have_reaction(selected) && global.actions.jump.pressed(player_info.network_id)) {
-			reaction(selected);
-		}
+	if (have_reaction(selected) && global.actions.jump.pressed(player_info.network_id)) {
+		reaction(selected);
 	}
 	
-	if (can_react() && reaction_target == 0 && reaction_alpha == 0 && global.actions.shoot.pressed(player_info.network_id)) {
+	global.ignore_input = ignore_input;
+}
+	
+if (can_controls()) {
+	if (reaction_target == 0 && reaction_alpha == 0 && global.actions.shoot.pressed(player_info.network_id)) {
 		reactions ^= true;
+		audio_play_sound(global.sound_cursor_select2, 0, false);
+	}
+		
+	if (player_info.turn == global.player_turn && focused_player().advancing && !reactions && global.actions.misc.pressed(player_info.network_id)) {
+		show_map();
 		audio_play_sound(global.sound_cursor_select2, 0, false);
 	}
 }

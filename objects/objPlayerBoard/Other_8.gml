@@ -44,4 +44,6 @@ if (global.dice_roll > 0) {
 	with (space) {
 		space_finish_event();
 	}
+	
+	advancing = false;
 }

@@ -1,3 +1,3 @@
-if (reactions && !can_react()) {
+if (reactions && !can_controls()) {
 	reactions = false;
 }

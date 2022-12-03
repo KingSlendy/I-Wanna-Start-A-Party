@@ -1,3 +1,5 @@
+draw_surface(application_surface, 0, 0);
+
 var text = new Text(fntControls);
 text.set(draw_action_big(global.actions.right));
 text.draw(751, 274);

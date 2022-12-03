@@ -19,5 +19,5 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 	
 text = new Text(fntControls);
 text.set(draw_action_small(global.actions.jump) + " Select\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Move");
-text.draw(draw_x - 20, draw_y + 120);
+text.draw(draw_x - 20, draw_y + 80);
 draw_set_alpha(1);

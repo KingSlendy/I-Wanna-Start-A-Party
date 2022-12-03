@@ -6,8 +6,7 @@ player_info = player_info_by_turn();
 option_selected = -1;
 choice_texts = [
 	"Dice",
-	"Item",
-	"Map"
+	"Item"
 ];
 
 available_item = false;

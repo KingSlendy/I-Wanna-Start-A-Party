@@ -452,6 +452,7 @@ function board_advance() {
 		image_xscale = (next_space.x + 16 >= x) ? 1 : -1;
 		path_set_closed(follow_path, false);
 		path_start(follow_path, max_speed, path_action_stop, true);
+		advancing = true;
 	}
 }
 

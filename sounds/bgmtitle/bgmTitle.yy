@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmTitle",
-  "conversionMode": 0,
+  "conversionMode": 1,
   "compression": 1,
   "volume": 0.75,
   "preload": false,
