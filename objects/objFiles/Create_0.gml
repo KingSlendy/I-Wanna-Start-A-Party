@@ -132,7 +132,18 @@ function file_sprite(file) {
 	load_file();
 	var surf = surface_create(file_width, file_height);
 	surface_set_target(surf);
-	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, #7FC1FA, 1);
+	
+	var done_minigames = array_length(global.seen_minigames);
+	var total_minigames = array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"]);
+	var done_trials = array_length(global.beaten_trials);
+	var total_trials = array_length(global.trials);
+	var done_store = array_length(global.collected_boards) + done_minigames + array_length(global.collected_trials) + array_length(global.collected_skins) + array_length(global.collected_reactions);
+	var total_store = array_length(global.boards) + total_minigames + total_trials + array_length(global.skins) + array_length(global.reactions);
+	var done_trophies = array_length(global.collected_trophies);
+	var total_trophies = array_length(global.trophies);
+	var done_everything = ((done_minigames + done_trials + done_store + done_trophies) == (total_minigames + total_trials + total_store + total_trophies));
+	
+	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, (!done_everything) ? #7FC1FA : c_yellow, 1);
 	draw_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
 	draw_text_color_outline(file_width / 2, 10, "FILE " + string(file + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
@@ -140,21 +151,22 @@ function file_sprite(file) {
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	draw_sprite_stretched(sprModesParty, 0, 40 - 14, 85 - 20, 32, 32);
+	draw_sprite_stretched(sprModesParty, 0, 40 - 20, 85 - 20, 40, 40);
 	draw_text_outline(70, 85, string(global.games_played), c_black);
 	draw_sprite_ext(sprShine, 0, 40, 120, 0.6, 0.6, 0, c_white, 1);
 	draw_text_outline(70, 120, string(global.collected_shines), c_black);
 	draw_sprite_ext(sprCoin, 0, 40, 155, 0.75, 0.75, 0, c_white, 1);
 	draw_text_outline(70, 155, string(global.collected_coins), c_black);
-	draw_sprite_stretched(sprModesMinigames, 0, 40 - 16, 190 - 16, 32, 32);
-	draw_text_outline(70, 190, string(array_length(global.seen_minigames)) + "/" + string(array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"])), c_black);
-	draw_sprite_stretched(sprModesTrials, 0, 40 - 16, 225 - 16, 32, 32);
-	draw_text_outline(70, 225, string(array_length(global.beaten_trials)) + "/" + string(array_length(global.trials)), c_black);
-	draw_sprite_stretched(sprModesStore, 0, 40 - 16, 260 - 16, 32, 32);
-	draw_text_outline(70, 260, string(array_length(global.collected_boards) + array_length(global.collected_trials) + array_length(global.collected_skins) + array_length(global.collected_reactions)) + "/" + string(array_length(global.boards) + array_length(global.trials) + array_length(global.skins) + array_length(global.reactions)), c_black);
-	draw_sprite_stretched(sprTrophyCups, TrophyRank.Gold, 40 - 16, 295 - 16, 32, 32);
-	draw_text_outline(70, 295, string(array_length(global.collected_trophies)) + "/" + string(array_length(global.trophies)), c_black);
-	draw_sprite(sprFilesClock, 0, 40 - 16, 330 - 16);
+	
+	draw_sprite_stretched(sprModesMinigames, 0, 40 - 20, 190 - 20, 40, 40);
+	draw_text_outline(70, 190, string(done_minigames) + "/" + string(total_minigames), c_black);
+	draw_sprite_stretched(sprModesTrials, 0, 40 - 20, 225 - 20, 40, 40);
+	draw_text_outline(70, 225, string(done_trials) + "/" + string(total_trials), c_black);
+	draw_sprite_stretched(sprModesStore, 0, 40 - 20, 260 - 20, 40, 40);
+	draw_text_outline(70, 260, string(done_store) + "/" + string(total_store), c_black);
+	draw_sprite_stretched(sprModesTrophies, 0, 40 - 20, 295 - 20, 40, 40);
+	draw_text_outline(70, 295, string(done_trophies) + "/" + string(total_trophies), c_black);
+	draw_sprite(sprFilesClock, 0, 40 - 20, 330 - 20);
 	draw_text_outline(70, 330, string_interp("{0}:{1}{2}:{3}{4}", (global.ellapsed_time div 60) div 60, ((global.ellapsed_time div 60) div 10) mod 6, (global.ellapsed_time div 60) mod 10, (global.ellapsed_time div 10) mod 6, global.ellapsed_time mod 10), c_black);
 	draw_set_valign(fa_top);
 	surface_reset_target();

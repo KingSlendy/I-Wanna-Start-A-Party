@@ -4,9 +4,9 @@ skin = get_skin();
 max_speed = 6;
 follow_path = null;
 can_jump = false;
+has_hit = false;
 dice_hit_y = y;
 alpha_target = 1;
-advancing = false;
 
 function snap_to_object(obj) {
 	y = yprevious;

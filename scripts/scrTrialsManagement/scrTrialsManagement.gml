@@ -83,8 +83,8 @@ function trial_init() {
 		], 400),
 		
 		new Trial(FLIPPED_WORLD, [
-			new Prove(MAGIC_MEMORY),
-			new Prove(GIGANTIC_RACE, SOLO)
+			new Prove(GIGANTIC_RACE, SOLO),
+			new Prove(MAGIC_MEMORY)
 		], 400),
 		
 		new Trial(COLORFUL_MADNESS, [
@@ -93,8 +93,8 @@ function trial_init() {
 		
 		new Trial(SPEEDY_KID, [
 			new Prove(TOWER_ASCENSION),
-			new Prove(AVOID_THE_ANGUISH, TEAM),
-			new Prove(CONVEYOR_HAVOC, TEAM)
+			new Prove(CONVEYOR_HAVOC, TEAM),
+			new Prove(AVOID_THE_ANGUISH, TEAM)
 		], 500)
 	];
 	

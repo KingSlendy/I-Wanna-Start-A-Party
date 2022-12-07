@@ -53,10 +53,6 @@ if (fade_start) {
 					break;
 					
 				case 2:
-					if (array_length(global.seed_bag) == 0) {
-						exit;
-					}
-				
 					with (objPlayerBase) {
 						change_to_object(objPlayerBase);
 					}

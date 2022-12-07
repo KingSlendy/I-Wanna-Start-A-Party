@@ -38,7 +38,7 @@ switch (state) {
 					all_reds = false;
 				}
 				
-				if (all_greens && player_info.space != c_lime) {
+				if (all_greens && player_info.space != c_green) {
 					all_greens = false;
 				}
 				

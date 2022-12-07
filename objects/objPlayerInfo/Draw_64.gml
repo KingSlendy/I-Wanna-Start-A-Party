@@ -23,12 +23,14 @@ if (IS_BOARD && can_controls() && player_info.network_id == global.player_id) {
 			break;
 	}
 
-	controls_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " Reactions" : draw_action_small(global.actions.jump) + " React  " + draw_action_small(global.actions.shoot) + " Cancel");
-	controls_text.draw(reactions_x, reactions_y);
+	if (can_react()) {
+		controls_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " Reactions" : draw_action_small(global.actions.jump) + " React  " + draw_action_small(global.actions.shoot) + " Cancel");
+		controls_text.draw(reactions_x, reactions_y);
+	}
 	
-	if (player_info.turn == global.player_turn && !reactions) {
+	if (can_map()) {
 		controls_text.set(draw_action_small(global.actions.misc) + " Map");
-		controls_text.draw(reactions_x + 120, reactions_y);
+		controls_text.draw(reactions_x, reactions_y);
 	}
 }
 

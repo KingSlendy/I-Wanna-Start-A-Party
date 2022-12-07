@@ -219,6 +219,10 @@ function get_skin_index_by_sprite(sprite) {
 		}
 	}
 	
+	if (pose == null) {
+		return null;
+	}
+	
 	var check = string_copy(name, 4, string_length(name) - 9 - string_length(pose));
 	
 	for (var i = 0; i < array_length(global.skins); i++) {

@@ -7,7 +7,6 @@ player2_pos = {x: player2.x, y: player2.y};
 
 scale = 0;
 state = 0;
-ang = 0;
 
 alarms_init(2);
 

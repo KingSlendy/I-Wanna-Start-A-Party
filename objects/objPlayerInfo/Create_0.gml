@@ -59,6 +59,15 @@ function can_controls() {
 	return (global.board_started && !instance_exists(objMapLook) && !instance_exists(objChooseMinigame) && !instance_exists(objResultsMinigame) && !instance_exists(objLastTurns));
 }
 
+function can_react() {
+	return (player_info.turn != global.player_turn && reaction_target == 0 && reaction_alpha == 0);
+}
+
+function can_map() {
+	var player = focused_player();
+	return (player_info.turn == global.player_turn && player.object_index == objPlayerBoard && !player.has_hit && player.follow_path == null);
+}
+
 function reaction(index) {
 	reacted = index;
 	reaction_alpha = 0;

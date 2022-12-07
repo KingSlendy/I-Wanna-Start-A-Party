@@ -5,7 +5,6 @@ current_player = player2;
 
 state = -2;
 scale = 0;
-angle = 0;
 stealed = false;
 
 steal_min = min(irandom_range(7, 11), player_info_by_id(player2.network_id).coins);

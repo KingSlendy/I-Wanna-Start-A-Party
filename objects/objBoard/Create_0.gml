@@ -224,13 +224,14 @@ alarm_create(11, function() {
 		}
 		
 		if (instance_exists(objShop) && objShop.shopping) {
+			stale_action(random_range(0.5, 1));
+			
 			if (global.buy_choice == -1) {
 				perform_action(actions.shoot);
-				perform_action(ac);
 			}
 			
 			if (objShop.option_selected != global.buy_choice) {
-				perform_action(global.actions.down);
+				perform_action(actions.down);
 			}
 			
 			perform_action(actions.jump);

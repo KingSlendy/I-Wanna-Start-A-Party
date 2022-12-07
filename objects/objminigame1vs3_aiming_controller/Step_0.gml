@@ -16,7 +16,7 @@ shoot_delay = max(--shoot_delay, 0);
 if (shoot_delay == 0 && global.actions.shoot.pressed(minigame1vs3_solo().network_id)) {
 	var laser = objMinigame1vs3_Aiming_Spike;
 	create_laser(laser.x, laser.y);
-	shoot_delay = get_frames(1.5);
+	shoot_delay = get_frames(1.75);
 		
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.Minigame1vs3_Aiming_LaserShoot);

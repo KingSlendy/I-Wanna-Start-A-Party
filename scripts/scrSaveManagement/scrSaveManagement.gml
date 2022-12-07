@@ -124,7 +124,7 @@ function load_file() {
 		global.beaten_trials = [];
 	}
 	
-	array_unique_ext(global.beaten_trials);
+	global.beaten_trials = array_unique(global.beaten_trials);
 	global.collected_skins = save.main_game.saved_collected_skins;
 	
 	try {

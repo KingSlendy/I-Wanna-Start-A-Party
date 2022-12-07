@@ -43,8 +43,6 @@ if (!is_player_local(player_info.network_id)) {
 }
 
 if (reactions) {
-	var ignore_input = global.ignore_input;
-	global.ignore_input = true;
 	var move_v = (global.actions.down.pressed(player_info.network_id) - global.actions.up.pressed(player_info.network_id));
 	var move_h = (global.actions.right.pressed(player_info.network_id) - global.actions.left.pressed(player_info.network_id));
 		
@@ -72,17 +70,15 @@ if (reactions) {
 	if (have_reaction(selected) && global.actions.jump.pressed(player_info.network_id)) {
 		reaction(selected);
 	}
-	
-	global.ignore_input = ignore_input;
 }
 	
 if (can_controls()) {
-	if (reaction_target == 0 && reaction_alpha == 0 && global.actions.shoot.pressed(player_info.network_id)) {
+	if (can_react() && global.actions.shoot.pressed(player_info.network_id)) {
 		reactions ^= true;
 		audio_play_sound(global.sound_cursor_select2, 0, false);
 	}
 		
-	if (player_info.turn == global.player_turn && focused_player().advancing && !reactions && global.actions.misc.pressed(player_info.network_id)) {
+	if (can_map() && global.actions.misc.pressed(player_info.network_id)) {
 		show_map();
 		audio_play_sound(global.sound_cursor_select2, 0, false);
 	}

@@ -121,6 +121,7 @@ if (save_present && room == rParty) {
 		board_selected = 0;
 		board_target_selected = 0;
 		instance_destroy(objPlayerInfo);
+		show_message("An error occurred while trying to load the saved Party and it has been ignored.");
 	}
 }
 
