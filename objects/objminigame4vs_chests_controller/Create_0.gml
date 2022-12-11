@@ -71,6 +71,10 @@ alarm_override(1, function() {
 	}
 
 	with (objMinigame4vs_Chests_Chest) {
+		x = xstart;
+		y = ystart;
+		target_x = x;
+		target_y = y;
 		alarm_frames(0, 1);
 	}
 

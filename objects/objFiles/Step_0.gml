@@ -153,10 +153,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 			if (!lobby_seeing) {
 				switch (menu_type) {
 					case 0:
-						if (menu_selected[menu_type] == 0) {
-							menu_type = 1;
-						} else {
-							menu_type = 2;
+						switch (menu_selected[menu_type]) {
+							case 0: menu_type = 1; break;
+							case 1: menu_type = 6; break;
+							case 2: menu_type = 2; break;
 						}
 						break;
 					
@@ -170,12 +170,6 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							ai_join_all();
 							global.lobby_started = true;
 							fade_start = true;
-							
-							if (variable_struct_exists(global.board_games, "Offline")) {
-								global.game_id = "Offline";
-								global.player_game_ids = array_sequence(1, 5);
-							}
-							
 							generate_seed_bag();
 							music_fade();
 							audio_play_sound(global.sound_cursor_big_select, 0, false);
@@ -212,17 +206,18 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 					
 					case 2:
+						menu_selected[menu_type] = 0;
+					
 						if (menu_selected[menu_type] == 0) {
 							menu_type = 0;
 						} else {
 							delete_file();
 							file_sprite(file_opened);
 							file_opened = -1;
-							menu_selected[0] = 0;
-							menu_selected[1] = 0;
 						}
 						
 						menu_type = 0;
+						menu_selected[menu_type] = 0;
 						break;
 					
 					case 3:
@@ -348,6 +343,21 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						buffer_write_action(ClientUDP.LobbyStart);
 						network_send_udp_packet();
 						exit;
+						
+					case 6:
+						menu_selected[menu_type] = 0;
+					
+						if (menu_selected[menu_type] == 0) {
+							menu_type = 0;
+						} else {
+							//delete_file();
+							file_sprite(file_opened);
+							file_opened = -1;
+						}
+						
+						menu_type = 0;
+						menu_selected[menu_type] = 0;
+						break;
 				}
 			} else {
 				var lobby = lobby_list[lobby_selected];
@@ -370,7 +380,14 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 			if (!lobby_seeing) {
 				switch (menu_type) {
 					case 0: file_opened = -1; break;
-					case 1: case 2: menu_type = 0; break;
+					case 2:
+						menu_selected[menu_type] = 0;
+						
+					case 1:
+						menu_type = 0;
+						menu_selected[menu_type] = 0;
+						break;
+						
 					case 3: menu_type = 1; break;
 					
 					case 4:
@@ -386,6 +403,12 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						buffer_write_data(buffer_u64, global.master_id);
 						network_send_tcp_packet();
 						lobby_return = true;
+						break;
+						
+					case 6:
+						menu_selected[menu_type] = 0;
+						menu_type = 0;
+						menu_selected[menu_type] = 0;
 						break;
 				}
 			} else {

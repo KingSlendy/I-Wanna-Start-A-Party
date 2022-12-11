@@ -114,14 +114,6 @@ if (global.minigame_info.is_finished) {
 	instance_create_layer(0, 0, "Managers", objResultsMinigame);
 }
 
-if (room == rBoardIsland) {
-	global.board_day = ((global.board_turn - 1) % 6 < 3);
-	
-	if (!global.board_day) {
-		layer_set_visible("Night", true);
-	}
-}
-
 switch (room) {
 	case rBoardIsland:
 		global.board_day = ((global.board_turn - 1) % 6 < 3);
@@ -133,4 +125,9 @@ switch (room) {
 	
 	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
 	case rBoardHyrule: global.shine_spawn_count = 3; break;
+	
+	case rBoardNsanity:
+		layer_background_xscale(layer_back_id, camera_get_view_width(view_camera[0]) / sprite_get_width(sprBkgBoardNsanity));
+		layer_background_yscale(layer_back_id, camera_get_view_height(view_camera[0]) / sprite_get_height(sprBkgBoardNsanity));
+		break;
 }

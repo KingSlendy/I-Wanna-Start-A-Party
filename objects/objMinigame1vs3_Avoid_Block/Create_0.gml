@@ -14,6 +14,8 @@ function activate(image, network = false) {
 				alarm_frames((image + 3 + choose(-1, 1)) % 3, 10);
 			}
 			
+			audio_play_sound(sndMinigame1vs3_Avoid_Block, 0, false);
+			
 			if (!network) {
 				buffer_seek_begin();
 				buffer_write_action(ClientTCP.Minigame1vs3_Avoid_Block);

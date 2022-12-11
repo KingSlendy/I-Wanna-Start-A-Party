@@ -28,8 +28,8 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"75186ed5-26c1-451a-8856-548bbfde6128",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3d8c059d-cc58-40cc-bc15-b62d0f726b96",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"578089bb-5486-4ddf-9197-39394c8dd41c",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"75ec7cae-4222-4282-bee9-0e6eb1f07d84",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"74c130bf-beef-4ffd-b899-11ab4e56a4c2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"75186ed5-26c1-451a-8856-548bbfde6128","path":"sprites/sprPartyBoardMark/sprPartyBoardMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"f95c04ce-dd3e-4f1d-b4ce-5723ccf9800a","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3d8c059d-cc58-40cc-bc15-b62d0f726b96","path":"sprites/sprPartyBoardMark/sprPartyBoardMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ae58882a-43e2-4425-89be-0306898da17c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"578089bb-5486-4ddf-9197-39394c8dd41c","path":"sprites/sprPartyBoardMark/sprPartyBoardMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5eac2610-1b57-47c9-a402-58fe91e9d60c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"75ec7cae-4222-4282-bee9-0e6eb1f07d84","path":"sprites/sprPartyBoardMark/sprPartyBoardMark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -66,7 +66,7 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d3f1f56d-6d69-4cd6-b366-84d6aa99fcf2","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0974ba52-8e41-4481-8a56-51cea422aa81","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": {
     "left": 68,

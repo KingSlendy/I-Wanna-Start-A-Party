@@ -14,7 +14,9 @@
 #macro INVISI_GAME "Invisi-game"
 #macro FLIPPED_WORLD "Flipped World"
 #macro COLORFUL_MADNESS "Colorful Madness"
-#macro SPEEDY_KID "Speedy Kid"
+#macro SPEEDY_KIDZALES "Speedy Kidzales"
+#macro WIDE_KID "Wide Kid"
+#macro SLOW_POKE "Slow Poke"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -91,11 +93,22 @@ function trial_init() {
 			new Prove(COLORFUL_INSANITY)
 		], 600),
 		
-		new Trial(SPEEDY_KID, [
+		new Trial(SPEEDY_KIDZALES, [
 			new Prove(TOWER_ASCENSION),
 			new Prove(CONVEYOR_HAVOC, TEAM),
 			new Prove(AVOID_THE_ANGUISH, TEAM)
-		], 500)
+		], 500),
+		
+		new Trial(WIDE_KID, [
+			new Prove(SPRINGING_PIRANHA),
+			new Prove(AVOID_THE_ANGUISH, TEAM)
+		]),
+		
+		new Trial(SLOW_POKE, [
+			new Prove(BAD_HOUSE, SOLO),
+			new Prove(HIDDEN_HOST, SOLO),
+			new Prove(CATCH_THE_FRUITS)
+		], 200)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {

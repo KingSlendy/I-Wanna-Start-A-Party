@@ -110,7 +110,7 @@ function pattern_grid_generate() {
 		minigame2vs2_points(pattern_player_ids[0], pattern_player_ids[1]);
 		minigame_finish();
 		
-		if (array_contains(pattern_player_ids, global.player_id) && objMinigameController.trophy_found) {
+		if (array_contains(pattern_player_ids, global.player_id) && objMinigameController.trophy_found && !trial_is_title(COLORFUL_MADNESS)) {
 			achieve_trophy(22);
 		}
 		

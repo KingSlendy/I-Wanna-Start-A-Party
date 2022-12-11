@@ -50,7 +50,7 @@ alarm_create(function() {
 					break;
 			
 				case 1:
-					text = "Oh no!\nThe blackhole is gonna steal a shine!";
+					text = "Oh no!\nThe blackhole is gonna steal a Shine!";
 					break;
 			}
 	

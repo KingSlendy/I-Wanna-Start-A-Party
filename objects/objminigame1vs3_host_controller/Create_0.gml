@@ -171,7 +171,7 @@ alarm_create(6, function() {
 			}
 		}
 		
-		if (current_round < 3) {
+		if (current_round < 3 && !trial_is_title(SLOW_POKE)) {
 			alarm_call(7, 3);
 		} else {
 			minigame4vs_points(minigame1vs3_solo().network_id);

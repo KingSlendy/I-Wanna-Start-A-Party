@@ -28,8 +28,8 @@ if (is_local_turn()) {
 		}
 	}
 	
-	if (room == rBoardBasement) {
-		for (var i = 0; i < array_length(stock); i++) {
+	if (room == rBoardNsanity) {
+		for (var i = 0; i < 5; i++) {
 			if (stock[i].id == ItemType.Reverse) {
 				array_delete(stock, i, 1);
 				break;

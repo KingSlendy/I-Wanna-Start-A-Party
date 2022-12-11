@@ -79,6 +79,7 @@ enum ClientTCP {
 	BoardPalletObtain,
 	BoardPalletBattle,
 	BoardDreamsTeleports,
+	BoardNsanityReturn,
 	#endregion
 	
 	#region Animations
@@ -688,6 +689,10 @@ f[$ ClientTCP.BoardPalletBattle] = function(buffer) {
 f[$ ClientTCP.BoardDreamsTeleports] = function(buffer) {
 	var reference = buffer_read(buffer, buffer_u8);
 	board_dreams_teleports(reference);
+}
+
+f[$ ClientTCP.BoardNsanityReturn] = function(buffer) {
+	board_nsanity_return();
 }
 #endregion
 

@@ -1,0 +1,1 @@
+global.ignore_input = false;

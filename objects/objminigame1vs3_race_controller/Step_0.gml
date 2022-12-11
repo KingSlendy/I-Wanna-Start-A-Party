@@ -30,8 +30,10 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				
 				solo_advance++;
 				solo_correct = true;
+				audio_play_sound(sndMinigame1vs3_Race_Correct, 0, false);
 			} else {
 				solo_wrong = true;
+				audio_play_sound(sndMinigame1vs3_Race_Wrong, 0, false);
 			}
 			
 			alarm_call(4, (!advance && !solo_wrong) ? 0.15 : 0.75);
@@ -69,8 +71,10 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				
 				team_advance++;
 				team_correct = true;
+				audio_play_sound(sndMinigame1vs3_Race_Correct, 0, false);
 			} else {
 				team_wrong = true;
+				audio_play_sound(sndMinigame1vs3_Race_Wrong, 0, false);
 			}
 			
 			alarm_call(5, (!advance && !team_wrong) ? 0.15 : 0.75);

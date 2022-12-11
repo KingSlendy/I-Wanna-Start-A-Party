@@ -135,7 +135,7 @@ alarm_override(11, function() {
 		
 			if (action != null) {
 				action.press();
-				press_delay = get_frames(random_range(0.75, 1.1));
+				press_delay = get_frames(random_range(0.85, 1.2));
 			}
 		}
 	}

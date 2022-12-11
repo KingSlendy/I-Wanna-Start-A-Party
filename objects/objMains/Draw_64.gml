@@ -121,7 +121,7 @@ switch (room) {
 			var location = (board_selected + length + i) % length;
 			var picture = (board_collected(location) || location == length - 1) ? location + 1 : 0;
 			var pic_x = box_x + 104 + 264 * i + board_x;
-			var pic_y = box_y + 47;
+			var pic_y = box_y + 48;
 			draw_sprite_stretched(sprPartyBoardPictures, picture, pic_x, pic_y, board_img_w, board_img_h);
 		
 			if (board_collected(location) && location != length - 1) {

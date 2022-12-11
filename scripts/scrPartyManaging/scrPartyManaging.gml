@@ -13,7 +13,8 @@ enum SpaceType {
 	TheGuy,
 	Shine,
 	PathEvent,
-	PathChange
+	PathChange,
+	Start
 }
 
 randomize();
@@ -272,9 +273,22 @@ function board_start() {
 		buffer_write_data(buffer_string, global.game_id);
 		network_send_tcp_packet();
 		
+		var board = null;
+		
+		for (var i = 0; i < array_length(global.boards); i++) {
+			board = global.boards[i];
+			
+			if (board.scene == room) {
+				break;
+			}
+		}
+		
 		start_dialogue([
-			"Welcome!",
-			new Message("Let's choose the turns",, choose_turns)
+			board.welcome,
+			new Message("Would you like to hear about this board?", [
+				["Yes", array_concat(board.rules, [new Message(board.alright,, choose_turns)])],
+				["No", [new Message(board.alright,, choose_turns)]]
+			])
 		]);
 	} else {
 		turn_start();
@@ -343,7 +357,7 @@ function tell_turns() {
 				if (i == 1) {
 					c.final_action = function() {
 						start_dialogue([
-							new Message("I wonder where the first shine is gonna be...",, choose_shine)
+							new Message("Let's see where the Shine is gonna end up...",, choose_shine)
 						]);
 					}
 				}
@@ -353,11 +367,22 @@ function tell_turns() {
 }
 
 function turn_start() {
+	switch (room) {
+		case rBoardNsanity:
+			global.shine_price = 20;
+		
+			for (var i = 1; i <= global.player_max; i++) {
+				global.shine_price += 5 * player_info_by_turn(i).shines;
+			}
+			break;
+	}
+	
 	global.dice_roll = 0;
 	var in_space = true;
 	
 	with (focused_player()) {
 		in_space = place_meeting(x, y, objSpaces);
+		has_hit = false;
 	}
 	
 	if (global.board_turn == 1 && !in_space) {
@@ -430,6 +455,11 @@ function board_advance() {
 		var next_space;
 		
 		if (space != noone) {
+			if (space.image_index = SpaceType.Shine && room == rBoardNsanity) {
+				board_nsanity_return();
+				break;
+			}
+			
 			var next_space;
 		
 			if (BOARD_NORMAL) {
@@ -439,7 +469,7 @@ function board_advance() {
 			}
 		} else {
 			with (objSpaces) {
-				if (image_index == 12) {
+				if (image_index == SpaceType.Start) {
 					next_space = id;
 					break;
 				}
@@ -1171,7 +1201,7 @@ function choose_shine() {
 	
 	if (room != rBoardPallet) {
 		with (objSpaces) {
-			if (space_shine && image_index != SpaceType.Shine) {
+			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
 				array_push(choices, id);
 			}
 		}
@@ -1357,6 +1387,16 @@ function board_dreams_teleports(reference) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardDreamsTeleports);
 		buffer_write_data(buffer_u8, reference);
+		network_send_tcp_packet();
+	}
+}
+
+function board_nsanity_return() {
+	instance_create_layer(0, 0, "Managers", objBoardNsanityReturn);
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardNsanityReturn);
 		network_send_tcp_packet();
 	}
 }

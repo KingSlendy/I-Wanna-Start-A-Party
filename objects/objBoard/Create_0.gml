@@ -46,21 +46,25 @@ cpu_staled = true;
 cpu_performed = true;
 cpu_item = -1;
 
-//Island's Board
+//Island Board
 global.board_day = true;
 
-//Baba's Board
+//Baba Board
 tile_image_speed = 0.12;
 tile_image_index = 0;
 
-//Pallet's Board
+//Pallet Board
 global.pokemon_price = 15;
 
-//Hyrule's Board
+//Hyrule Board
 global.board_light = true;
 global.board_dark_chance = 0;
 prev_board_light = !global.board_light;
 instance_deactivate_layer("Path_Dark");
+
+//Nsanity Board
+layer_back_name = "Background";
+layer_back_id = layer_background_get_id(layer_back_name);
 
 alarms_init(12);
 

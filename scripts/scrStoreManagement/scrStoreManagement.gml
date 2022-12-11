@@ -170,11 +170,11 @@ function skin_init() {
 		new Skin("Skuldafn", "Skuldafn", "Original", 29, "Kogami Takara", 1000),
 		new Skin("JGB", "JGB", "Original", 29, "Kogami Takara", 500),
 		new Skin("Alejo", "AlejoFangamer", "Original", 29, "Kogami Takara", 900),
-		new Skin("PlayerDash", "PlayerDash2017", "Original", 29, "Kogami Takara", 1000),
+		new Skin("PlayerDash", "PlayerDash2017", "Original", 29, "AlejoFangamer", 1000),
 		new Skin("Kogami", "Kogami Takara", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Don", "Don-chan", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Boyfriend", "Boyfriend", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Melodii", "Melodii", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Melodii", "Melodii", "Original", 29, "Kogami Takara", 1000)
 	];
 }
 

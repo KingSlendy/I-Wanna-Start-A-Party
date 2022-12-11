@@ -104,7 +104,7 @@ alarm_create(5, function() {
 
 alarm_create(6, function() {
 	if (minigame2vs2_get_points_team(0) >= point_condition || minigame2vs2_get_points_team(1) >= point_condition) {
-		minigame_finish();
+		minigame_finish(true);
 		return;
 	}
 	

@@ -90,7 +90,6 @@ if (paused) {
 					break;
 					
 				case 3:
-					global.player_game_ids = array_sequence(1, 5);
 					disable_board();
 					paused = false;
 					pause_state = 0;

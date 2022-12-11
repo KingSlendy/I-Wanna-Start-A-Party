@@ -19,7 +19,7 @@ stock = [
 	},
 	
 	{
-		text: "{SPRITE,sprShine,0,-6,-5,0.5,0.5}", name: "Shine", desc: "Steals a shine from a player. If that's not evil I don't know what is.", price: global.max_blackhole_coins, can_select: function() {
+		text: "{SPRITE,sprShine,0,-6,-5,0.5,0.5}", name: "Shine", desc: "Steals a Shine from a player. If that's not evil I don't know what is.", price: global.max_blackhole_coins, can_select: function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				if (i == global.player_turn) {
 					continue;

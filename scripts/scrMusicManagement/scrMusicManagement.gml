@@ -56,6 +56,7 @@ mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
 mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
 mlp[$ bgmBoardHyrule] = new LoopPoint(14.129, 72.326);
 mlp[$ bgmBoardHyruleDark] = new LoopPoint(1.627, 60.759);
+mlp[$ bgmBoardNsanity] = new LoopPoint(0.0, 124.282);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
 mlp[$ bgmChanceTime] = new LoopPoint(5.779, 38.693);
 mlp[$ bgmTheGuy] = new LoopPoint(0.0, 36.735);

@@ -3,7 +3,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 		if (i == file_opened) {
 			file_pos[i][0] = lerp(file_pos[i][0], 400 - file_width / 2, 0.2);
 			
-			if (menu_type < 3) {
+			if (menu_type < 3 || menu_type == 6) {
 				file_pos[i][1] = lerp(file_pos[i][1], file_original_pos[i][1] - 32, 0.2);
 			} else {
 				file_pos[i][1] = lerp(file_pos[i][1], -400, 0.2);

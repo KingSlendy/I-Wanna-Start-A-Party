@@ -58,13 +58,19 @@ board_options_y = 0;
 board_options_w = 440;
 board_options_h = board_h + 32;
 state = -1;
+
+if (!IS_ONLINE && variable_struct_exists(global.board_games, "Offline")) {
+	global.game_id = "Offline";
+	global.player_game_ids = array_sequence(1, 5);
+}
+
 save_present = (room == rParty && array_length(global.player_game_ids) > 0);
 save_sprite = noone;
 save_board_turn = 0;
 save_max_turns = 0;
 save_selected = 0;
 
-if (save_present && room == rParty) {
+if (save_present) {
 	try {
 		board = global.board_games[$ global.game_id];
 		board_selected = board.saved_board.saved_board;

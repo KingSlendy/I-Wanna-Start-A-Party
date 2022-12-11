@@ -1,4 +1,8 @@
 #region Movement
+if (trial_is_title(WIDE_KID) && network_id == global.player_id) {
+	image_xscale = 5;
+}
+
 grav = grav_amount * orientation;
 
 var dir_left = global.actions[$ left_action].held(network_id);
@@ -28,8 +32,12 @@ if (dir != 0) {
 	if ((dir == 1 && !on_vineR) || (dir == -1 && !on_vineL)) {
 		hspd = max_hspd * dir;
 		
-		if (trial_is_title(SPEEDY_KID) && network_id == global.player_id) {
+		if (trial_is_title(SPEEDY_KIDZALES) && network_id == global.player_id) {
 			hspd *= 3;
+		}
+		
+		if (trial_is_title(SLOW_POKE) && network_id == global.player_id) {
+			hspd = sign(hspd);
 		}
 		
 		sprite_index = skin[$ "Run"];
