@@ -105,6 +105,11 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"85cba8ff-2b3a-432c-bac1-5f0455f3b8f5",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0ac0fbb5-6d25-4929-ae08-b1123f6b107b",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ec039e83-22eb-44c9-bc7e-7c18e14ea726",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"885433ec-596e-4cb9-a4cf-69536929dfcb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ba28cc4f-d314-4b10-9a8b-6da7de7f0ccd",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"940dd1c8-0737-4b57-92a4-7e8c2b8e2417",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06b60d63-421c-4794-93a6-fee87fd5f53c",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e8700e69-1dcd-404e-9a49-1836aeb97604",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -116,7 +121,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 77.0,
+    "length": 82.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -198,6 +203,11 @@
             {"id":"b6d0d508-173f-4757-a91c-4c5e152df191","Key":74.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"85cba8ff-2b3a-432c-bac1-5f0455f3b8f5","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"4bb2881d-f111-4c27-bfb6-ec98d4808f83","Key":75.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0ac0fbb5-6d25-4929-ae08-b1123f6b107b","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"a5dea192-4213-4328-954f-881ffa875112","Key":76.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ec039e83-22eb-44c9-bc7e-7c18e14ea726","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"af5aee94-7406-4fdd-aa40-2e2cc6911084","Key":77.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"885433ec-596e-4cb9-a4cf-69536929dfcb","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3127e401-3764-4fef-8008-ea3478e0a99d","Key":78.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ba28cc4f-d314-4b10-9a8b-6da7de7f0ccd","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"8e07e725-3138-4700-8617-fe61d2944484","Key":79.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"940dd1c8-0737-4b57-92a4-7e8c2b8e2417","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bd2e1da1-5670-45e9-8c5c-ddc2122c16e6","Key":80.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06b60d63-421c-4794-93a6-fee87fd5f53c","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"79243862-6474-483a-96c2-417b9cbc5f43","Key":81.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e8700e69-1dcd-404e-9a49-1836aeb97604","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -220,7 +230,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Skins",
-    "path": "folders/Sprites/Objects/Menu/Skins.yy",
+    "name": "Store",
+    "path": "folders/Sprites/Objects/Menu/Store.yy",
   },
 }

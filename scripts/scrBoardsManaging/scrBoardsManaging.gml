@@ -9,13 +9,13 @@ function Board(name, scene, makers, welcome, rules) constructor {
 
 function board_init() {
 	global.boards = [
-		new Board("Island", rBoardIsland, "KingSlendy\nJPRG666", "Welcome to this island! There's pretty much only ocean surrounding it. But it's still pretty nice!", ["In this board every 3 turns it'll cycle between day and night.", "At day you can use the Shop but can't use the Blackhole. At night you can use the Blackhole but can't use the Shop.", "When it's a night turn the Shine will have a random price. It can be 50, 40, 30, 10 or 0! It'll be at this price the remainder of the turn."]),
-		new Board("Hotland", rBoardHotland, "KingSlendy\nJPRG666", "Welcome!", ["Yes"]),
-		new Board("Baba Is Board", rBoardBaba, "KingSlendy", "Welcome!", ["Yes"]),
+		new Board("Island", rBoardIsland, "KingSlendy\nJPRG666", "Welcome to the island! There's pretty much only ocean surrounding it. But it's still pretty nice!", ["In this board every 3 turns it'll cycle between day and night.", "At day you can use the Shop but can't use the Blackhole. At night you can use the Blackhole but can't use the Shop.", "When it's a night turn the Shine will have a random price. It can be 50, 40, 30, 10 or 0! It'll be at this price the remainder of the turn."]),
+		new Board("Hotland", rBoardHotland, "KingSlendy\nJPRG666", "Welcome! My it's really hot in here... hope you don't mind the heat too much!", ["In this board two Shines will spawn. The goal is to purchase the correct Shine! One of them is fake and the other is real. You won't know it until you pay for it!", "Once the fake Shine is discovered the other one is guaranteed to be real. If the real one is obtained. The fake one will disappear and two more Shines will spawn."]),
+		new Board("Baba Is Board", rBoardBaba, "KingSlendy", "Welcome to drawings everywhere! Let's hope for no puzzle shenanigans.", ["This is a very simple board. The only goal is to go after the Shine. And that's it!", "You gotta appreciate some simple board every once in a while."]),
 		new Board("Pallet Town", rBoardPallet, "KingSlendy", "Welcome!", ["Yes"]),
-		new Board("Lucid Dreams", rBoardDreams, "Kogami Takara\nKingSlendy", "Welcome!", ["Yes"]),
-		new Board("Hyrule", rBoardHyrule, "KingSlendy", "Welcome!", ["Yes"]),
-		new Board("Outer Nsanity", rBoardNsanity, "KingSlendy", "Welcome!", ["Yes"])
+		new Board("Lucid Dreams", rBoardDreams, "Kogami Takara\nKingSlendy", "Welcome to your dreams! Is this how your dreams look like? That's LCD stuff right there.", ["Here you only need to reach the Shine as usual. The difference is that there's some teleports scattered throught the board.", "Every pair of two teleports are connected, you gotta remember where each one leads where!"]),
+		new Board("Hyrule", rBoardHyrule, "KingSlendy", "Welcome to Hyrule! In the peaceful Kakariko Village no less.", ["This board has a unique thing going on. It spawns three Shines instead of only one. So what's the deal you say?", "When a new turn starts, there's a chance the board changes to the Dark World or back to the Light World.", "In the Light World everything works as you normally expect.", "In the Dark World the board direction reverses and the Shines become Evil Shines. They take away one Shine from you if you have one, or 20 coins if you don't.", "So be careful and try to avoid them as much as you can!"]),
+		new Board("Outer Nsanity", rBoardNsanity, "KingSlendy", "Welcome to the insanity! It's very interesting to be here in outer space.", ["This is a linear board, with only a single Shine. Your goal is to reach it fast!", "Why fast you ask? Because everytime someone buys a Shine the total cost goes up by 5! Starting from 20."])
 	];
 }
 

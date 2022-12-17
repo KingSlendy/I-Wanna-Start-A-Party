@@ -8,6 +8,12 @@ function restore_target() {
 	image_index = 0;
 	x = xstart;
 	y = ystart;
+	
+	if (trial_is_title(PERFECT_AIM)) {
+		image_xscale = 0.5;
+		image_yscale = 0.5;
+	}
+	
 	angle = anglestart;
 	spd = 10;
 	fading = false;

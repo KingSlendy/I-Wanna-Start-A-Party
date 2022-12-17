@@ -14,6 +14,10 @@ var points = -1;
 if (image_index == 0 || image_index == 1) {
 	points = image_index + 1;
 	audio_play_sound(sndMinigamePointsA, 0, false);
+	
+	if (other.network_id == global.player_id && image_index == 0) {
+		objMinigameController.trophy_saves = false;
+	}
 } else if (minigame4vs_get_points(other.network_id) > 0) {
 	audio_play_sound(sndMinigamePointsF, 0, false);
 }

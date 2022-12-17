@@ -212,7 +212,6 @@ function minigame_info_score_reset() {
 
 function minigame_info_set(reference, type, team) {
 	minigame_info_reset();
-	var types = minigame_types();
 	var info = global.minigame_info;
 	info.reference = reference;
 	info.type = type;
@@ -323,6 +322,23 @@ function player_4vs_positioning() {
 
 function player_1vs3_positioning(info) {
 	objMinigameController.points_teams = [[], []];
+	
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		var player_info = player_info_by_turn(i);
+		
+		if (player_info.space == info.player_colors[1]) {
+			with (objPlayerReference) {
+				if (reference == 0) {
+					player.x = x + 17;
+					player.y = y + 23;
+					array_push(objMinigameController.points_teams[0], i);
+					break;
+				}
+			}
+		}
+	}
+	
 	var index = 1;
 	
 	for (var i = 1; i <= global.player_max; i++) {
@@ -335,22 +351,6 @@ function player_1vs3_positioning(info) {
 					player.x = x + 17;
 					player.y = y + 23;
 					index++;
-					array_push(objMinigameController.points_teams[0], i);
-					break;
-				}
-			}
-		}
-	}
-	
-	for (var i = 1; i <= global.player_max; i++) {
-		var player = focus_player_by_turn(i);
-		var player_info = player_info_by_turn(i);
-		
-		if (player_info.space == info.player_colors[1]) {
-			with (objPlayerReference) {
-				if (reference == 0) {
-					player.x = x + 17;
-					player.y = y + 23;
 					array_push(objMinigameController.points_teams[1], i);
 					break;
 				}
@@ -639,15 +639,15 @@ function minigame1vs3_lost() {
 }
 
 function minigame1vs3_team_length() {
-	return array_length(objMinigameController.points_teams[0]);
+	return array_length(objMinigameController.points_teams[1]);
 }
 
 function minigame1vs3_team(num) {
-	return objMinigameController.points_teams[0][num];
+	return objMinigameController.points_teams[1][num];
 }
 
 function minigame1vs3_solo() {
-	return objMinigameController.points_teams[1][0];
+	return objMinigameController.points_teams[0][0];
 }
 
 function minigame1vs3_is_solo(player_id) {

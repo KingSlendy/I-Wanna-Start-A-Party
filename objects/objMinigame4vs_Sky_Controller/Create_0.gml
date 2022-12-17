@@ -18,9 +18,19 @@ action_end = function() {
 points_draw = true;
 player_type = objPlayerDir8;
 
+trophy_saves = true;
+
 alarm_override(1, function() {
 	alarm_inherited(1);
 	alarm_instant(4);
+});
+
+alarm_override(2, function() {
+	alarm_inherited(2);
+	
+	if (array_contains(info.players_won, global.player_id) && trophy_saves) {
+		achieve_trophy(75);
+	}
 });
 
 alarm_create(4, function() {

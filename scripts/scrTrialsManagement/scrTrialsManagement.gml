@@ -17,6 +17,7 @@
 #macro SPEEDY_KIDZALES "Speedy Kidzales"
 #macro WIDE_KID "Wide Kid"
 #macro SLOW_POKE "Slow Poke"
+#macro PERFECT_AIM "Perfect Aim"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -108,7 +109,12 @@ function trial_init() {
 			new Prove(BAD_HOUSE, SOLO),
 			new Prove(HIDDEN_HOST, SOLO),
 			new Prove(CATCH_THE_FRUITS)
-		], 200)
+		], 200),
+		
+		new Trial(PERFECT_AIM, [
+			new Prove(TARGETING_TARGETS),
+			new Prove(GOLF_COURSE)
+		], 300)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {

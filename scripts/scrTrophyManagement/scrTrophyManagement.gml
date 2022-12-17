@@ -109,8 +109,8 @@ global.trophies = [
 	new Trophy(32, TrophyRank.Silver, "Party Winner", "You won a Party!\nI want more parties! Bring it on!", "A winner is you."),
 	new Trophy(33, TrophyRank.Silver, "Party Loser", "You lost a Party...\nWell there's always next time I guess.", "A loser is you."),
 	new Trophy(34, TrophyRank.Silver, "Where's My Shiny?", "You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting Shines.", "Wait... isn't the whole point getting shiny?"),
-	new Trophy(35, TrophyRank.Silver, "Free Night", "You received a Night Shine for 0 Coins!\nThat was free trial, next time you won't be so lucky.", "This one is on the house."),
-	new Trophy(36, TrophyRank.Silver, "Expensive Night", "You bought a Night Shine for 40 Coins.\nIt'd be best if you waited for sales next time.", "Gimme full price! I ain't waiting for the hot sale."),
+	new Trophy(35, TrophyRank.Silver, "Free Night", "You received a Night Shine for 0 Coins in the Island board!\nThat was free trial, next time you won't be so lucky.", "This one is on the house."),
+	new Trophy(36, TrophyRank.Silver, "Expensive Night", "You bought a Night Shine for 40 Coins in the Island board.\nIt'd be best if you waited for sales next time.", "Gimme full price! I ain't waiting for the hot sale."),
 	new Trophy(37, TrophyRank.Platinum, "Triple Threat", "You rolled three identical numbers with Triple Dice!\nI can't stop rolling!", "Oh baby, a triple!"),
 	new Trophy(38, TrophyRank.Silver, "Dyslexic Pusher", "You pushed the block in Warping Up the wrong way.\nBut that's harder! Why would you think of doing that!?", "Wait, pushing it to the other side...?"),
 	new Trophy(39, TrophyRank.Bronze, "Slime Hugger", "You touched the slime in Slime Annoyer.\nIt's cute, I know, but it's deadly!", "I know it's tempting, but it's not huggable."),
@@ -147,6 +147,10 @@ global.trophies = [
 	new Trophy(70, TrophyRank.Silver, "Luigi-Man", "You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.", "Luigi meets namco!"),
 	new Trophy(71, TrophyRank.Gold, "Landing Green", "All of you landed on Green spaces.\Green everywhere you see.", "Living all the green!"),
 	new Trophy(72, TrophyRank.Gold, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
+	new Trophy(73, TrophyRank.Platinum, "Pokemon Not Trainer", "You won without catching a Pokemon in the Pallet Town board!\nI thought your dream was to become a Pokemon trainer... where's your Pokemon then?", "Not gotta catch 'em all!"),
+	new Trophy(74, TrophyRank.Gold, "It's Not Effective", "You lost a Pokemon battle while having a favorable Pokemon.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.", "Water vs. Fire should be an easy win... right?"),
+	new Trophy(75, TrophyRank.Silver, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon!\nI didn't think a fire attack to a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
+	new Trophy(76, TrophyRank.Bronze, "Green Savings", "You only touched green saves and won in Sky Diving!\nThat satisfaction to see the green circle after a long save, am I right?", "I prefer the green circles for yellow boxes.")
 ];
 
 global.collected_trophies_stack = [];

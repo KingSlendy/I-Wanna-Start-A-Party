@@ -34,11 +34,13 @@ minigame_time_end = function() {
 	}
 	
 	lights = false;
+	audio_play_sound(sndMinigame1vs3_Host_LightsOff, 0, false);
 	alarm_call(6, 2);
 }
 
 action_end = function() {
 	lights = true;
+	audio_play_sound(sndMinigame1vs3_Host_LightsOn, 0, false);
 }
 
 player_type = objPlayerPlatformer;
@@ -182,6 +184,7 @@ alarm_create(6, function() {
 	
 	lights = true;
 	hider ^= true;
+	audio_play_sound(sndMinigame1vs3_Host_LightsOn, 0, false);
 });
 
 alarm_create(7, function() {
@@ -197,6 +200,7 @@ alarm_create(7, function() {
 	
 	lights = false;
 	current_round++;
+	audio_play_sound(sndMinigame1vs3_Host_LightsOff, 0, false);
 	alarm_call(4, 1);
 });
 

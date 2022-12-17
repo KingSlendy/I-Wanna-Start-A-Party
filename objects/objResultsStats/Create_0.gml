@@ -1,4 +1,5 @@
 depth = -8999;
+info = global.minigame_info;
 sprite = null;
 fade_alpha = 0;
 fade_start = false;
@@ -134,6 +135,10 @@ alarm_create(function() {
 	
 	if (global.bonus_shines[BonusShines.MostMinigames].scores[player_info.turn - 1] == global.max_board_turns) {
 		achieve_trophy(57);
+	}
+	
+	if (info.previous_board == rBoardPallet && player_info.place == 1 && player_info.pokemon == -1) {
+		achieve_trophy(72);
 	}
 });
 

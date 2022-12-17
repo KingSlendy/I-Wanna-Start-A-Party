@@ -1,3 +1,3 @@
 if (is_local_turn()) {
-	turn_next();
+	board_advance();
 }

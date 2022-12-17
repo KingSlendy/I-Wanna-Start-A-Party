@@ -8,7 +8,26 @@ if (is_local_turn()) {
 		stock[i] = global.board_items[i];
 	}
 
-	array_shuffle(stock);
+	while (true) {
+		array_shuffle(stock);
+		
+		if (room != rBoardNsanity) {
+			break;
+		}
+		
+		var cancel_loop = true;
+		
+		for (var i = 0; i < 5; i++) {
+			if (stock[i].id == ItemType.Reverse) {
+				cancel_loop = false;
+				break;
+			}
+		}
+		
+		if (cancel_loop) {
+			break;
+		}
+	}
 
 	var has_lowest = false;
 
@@ -23,15 +42,6 @@ if (is_local_turn()) {
 		for (var i = 5; i < array_length(stock); i++) {
 			if (stock[i].price == 5) {
 				stock[0] = stock[i];
-				break;
-			}
-		}
-	}
-	
-	if (room == rBoardNsanity) {
-		for (var i = 0; i < 5; i++) {
-			if (stock[i].id == ItemType.Reverse) {
-				array_delete(stock, i, 1);
 				break;
 			}
 		}

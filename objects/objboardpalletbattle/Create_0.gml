@@ -32,13 +32,16 @@ var win_types = {
 };
 
 var win_chance = 0;
+var win_favorable = 0;
 
 if (win_types[$ self_pokemon.power_type] == other_pokemon.power_type) {
 	win_chance = 0.9;
+	win_favorable = 1;
 } else if (self_pokemon.power_type == other_pokemon.power_type) {
 	win_chance = 0.5;
 } else {
 	win_chance = 0.25;
+	win_favorable = -1;
 }
 
 if (win_chance > random(1)) {
@@ -49,8 +52,16 @@ if (win_chance > random(1)) {
 			change_coins(10, CoinChangeType.Gain).final_action = board_advance;
 		}
 	}
+	
+	if (win_favorable == -1) {
+		achieve_trophy(74);
+	}
 } else {
 	change_coins(-10, CoinChangeType.Lose).final_action = board_advance;
+	
+	if (win_favorable == 1) {
+		achieve_trophy(73);
+	}
 }
 
 instance_destroy();
