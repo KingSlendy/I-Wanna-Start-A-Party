@@ -53,14 +53,7 @@ if (powering) {
 	aim_power = clamp(aim_power, 0, 1);
 		
 	if (global.actions.jump.pressed(network_id)) {
-	    var total_power = aim_power * max_velocity;
-	    phy_linear_velocity_x = lengthdir_x(total_power, aim_angle);
-	    phy_linear_velocity_y = lengthdir_y(total_power, aim_angle);
-	    phy_angular_velocity = -200;
-		aiming = false;
-		powering = false;
-		shot = true;
-	    audio_play_sound(sndMinigame4vs_Golf_Hit, 0, false, 0.1 + (0.9 * aim_power));
+	    hit_ball();
 	}
 	
 	if (global.actions.shoot.pressed(network_id)) {

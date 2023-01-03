@@ -60,6 +60,7 @@ alarm_create(function() {
 alarm_create(11, function() {
 	if (instance_exists(spawned_shine)) {
 		instance_destroy(spawned_shine);
+		spawned_shine = noone;
 	}
 
 	animation_state = 1;

@@ -98,7 +98,11 @@ alarm_override(1, function() {
 });
 
 alarm_create(4, function() {
-	lights = true;
+	if (!lights) {
+		lights = true;
+		audio_play_sound(sndMinigame1vs3_Host_LightsOn, 0, false);
+	}
+	
 	show_popup("ROUND " + string(current_round));
 	alarm_call(5, 2);
 });

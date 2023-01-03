@@ -15,6 +15,7 @@ enum ClientTCP {
 	LeaveLobby,
 	LobbyList,
 	LobbyStart,
+	LobbyKick,
 	BoardGameID,
 	BoardPlayerIDs,
 	ModesAction,
@@ -179,6 +180,7 @@ f[$ ClientTCP.ReceiveID] = function(buffer) {
 	with (objFiles) {
 		online_reading = false;
 		menu_type = 5;
+		menu_selected[menu_type] = 0;
 		upper_type = menu_type;
 		upper_text = lobby_texts[0];
 	}
@@ -298,6 +300,16 @@ f[$ ClientTCP.LobbyStart] = function(buffer) {
 	global.lobby_started = true;
 	objFiles.fade_start = true;
 	music_stop();
+}
+
+f[$ ClientTCP.LobbyKick] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	
+	if (global.player_id == player_id) {
+		with (objFiles) {
+			lobby_leave();
+		}
+	}
 }
 
 f[$ ClientTCP.BoardGameID] = function(buffer) {

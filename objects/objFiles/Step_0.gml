@@ -158,6 +158,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							case 1: menu_type = 6; break;
 							case 2: menu_type = 2; break;
 						}
+						
+						menu_selected[menu_type] = 0;
 						break;
 					
 					case 1:
@@ -206,8 +208,6 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 					
 					case 2:
-						menu_selected[menu_type] = 0;
-					
 						if (menu_selected[menu_type] == 0) {
 							menu_type = 0;
 						} else {
@@ -300,7 +300,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								lobby_texts[select] = string_copy(lobby_texts[select], 1, lobby_limits[select]);
 							}
 						} else {
-							if (select == 2 || select == 3) {
+							if (select == 2 || (select == 3 && array_length(lobby_list) > 0)) {
 								buffer_seek_begin();
 								buffer_write_action((select == 2) ? ClientTCP.CreateLobby : ClientTCP.JoinLobby);
 								buffer_write_data(buffer_u64, global.master_id);
@@ -320,37 +320,44 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 5:
-						if (global.player_id != 1 || alarm[0] != -1 || global.lobby_started) {
-							exit;
+						if (menu_selected[menu_type] == 0) {
+							if (global.player_id != 1 || alarm[0] != -1 || global.lobby_started) {
+								exit;
+							}
+						
+							var player_count = 0;
+						
+							with (objPlayerBase) {
+								player_count += draw;
+							}
+						
+							if (player_count < 2) {
+								exit;
+							}
+						
+							ai_join_all();
+							alarm[0] = get_frames(1);
+							music_fade();
+							audio_play_sound(global.sound_cursor_big_select, 0, false);
+						
+							buffer_seek_begin();
+							buffer_write_action(ClientUDP.LobbyStart);
+							network_send_udp_packet();
+						} else {
+							audio_play_sound(global.sound_cursor_select, 0, false);
+							
+							buffer_seek_begin();
+							buffer_write_action(ClientTCP.LobbyKick);
+							buffer_write_data(buffer_u8, menu_selected[menu_type] + 1);
+							network_send_tcp_packet();
 						}
-						
-						var player_count = 0;
-						
-						with (objPlayerBase) {
-							player_count += draw;
-						}
-						
-						if (player_count < 2) {
-							exit;
-						}
-						
-						ai_join_all();
-						alarm[0] = get_frames(1);
-						music_fade();
-						audio_play_sound(global.sound_cursor_big_select, 0, false);
-						
-						buffer_seek_begin();
-						buffer_write_action(ClientUDP.LobbyStart);
-						network_send_udp_packet();
 						exit;
 						
 					case 6:
-						menu_selected[menu_type] = 0;
-					
 						if (menu_selected[menu_type] == 0) {
 							menu_type = 0;
 						} else {
-							//delete_file();
+							restore_file();
 							file_sprite(file_opened);
 							file_opened = -1;
 						}
@@ -398,11 +405,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 5:
-						buffer_seek_begin();
-						buffer_write_action(ClientTCP.LeaveLobby);
-						buffer_write_data(buffer_u64, global.master_id);
-						network_send_tcp_packet();
-						lobby_return = true;
+						lobby_leave();
 						break;
 						
 					case 6:

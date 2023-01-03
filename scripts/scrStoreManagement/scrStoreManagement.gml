@@ -177,11 +177,11 @@ function skin_init() {
 		new Skin("Melodii", "Melodii", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Shitass", "Shitass", "Hey Shitass", 77, "AliceNobodi"),
 		new Skin("Tomodati", "Tomodati", "I Wanna Kami2Kami2Kami2", 24, "Reimu2020"),
-		new Skin("Freddy", "Freddy Fazbear", "I Wanna MedlMedlMedl", 78, "Reimu2020"),
+		new Skin("Freddy", "Freddy Fazbear", "I Wanna MedlMedlMedl", 78, "Reimu2020", 200),
 		new Skin("Mountain", "Mountain Girl", "I Wanna Be The Mountain Man", 79, "chefornak", 300),
 		new Skin("Holic", "Anti The Holic", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
 		new Skin("Corn", "Corn", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
-		new Skin("Fubuki", "Shirakami Fubuki", "Holocure", 81, "MauriPlays!", 30000),
+		new Skin("Fubuki", "Shirakami Fubuki", "Holocure", 81, "MauriPlays!", 1000),
 		new Skin("Ringo", "Happy Ringo", "Original", 29, "Kogami Takara", 2000)
 	];
 }

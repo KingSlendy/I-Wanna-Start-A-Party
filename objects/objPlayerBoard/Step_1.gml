@@ -6,8 +6,8 @@ if (vspeed == 0) {
 	sprite_index = (vspeed < 0) ? skin[$ "Jump"] : skin[$ "Fall"];
 }
 
-if (vspeed > 0 && y >= dice_hit_y) {
+if (vspeed > 0 && y >= jump_y) {
 	vspeed = 0;
 	gravity = 0;
-	y = dice_hit_y;
+	y = jump_y;
 }

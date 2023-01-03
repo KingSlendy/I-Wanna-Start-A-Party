@@ -19,6 +19,16 @@ minigame_players = function() {
 	}
 }
 
+minigame_time_end = function() {
+	with (focus_player_by_turn(player_turn)) {
+		if (is_player_local(network_id)) {
+			hit_ball();
+		}
+	}
+	
+	minigame_time = -1;
+}
+
 points_draw = true;
 player_type = objPlayerGolf;
 
@@ -40,6 +50,8 @@ if (trial_is_title(PERFECT_AIM)) {
 function unfreeze_player() {
 	var player = focus_player_by_turn(player_turn);
 	player.frozen = false;
+	minigame_time = 20;
+	alarm_call(10, 1);
 }
 
 function give_points(player_id, points, network = true) {

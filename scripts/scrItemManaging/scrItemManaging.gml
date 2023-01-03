@@ -41,7 +41,7 @@ global.board_items = [
 		return false;
 	}),
 	
-	new Item(ItemType.Reverse, "Reverse", "Board direction is reversed with this item.", sprItemReverse, 9, objItemReverseAnimation,, function() {
+	new Item(ItemType.Reverse, "Reverse", "Board direction is reversed with this item.\nCan be used on other players.", sprItemReverse, 9, objItemReverseAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
 			if (player_info_by_turn(i).item_effect == null) {
 				return true;
@@ -99,4 +99,3 @@ global.board_items = [
 function get_item(id) {
 	return global.board_items[id];
 }
-

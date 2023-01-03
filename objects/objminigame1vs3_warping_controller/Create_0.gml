@@ -27,6 +27,24 @@ player_type = objPlayerPlatformer;
 warp_start = false;
 warp_delay = array_create(3, 0);
 
+surf = noone;
+
+part_system = part_system_create();
+part_system_depth(part_system, layer_get_depth("Background") - 1);
+
+part_type = part_type_create();
+part_type_sprite(part_type, sprMinigame1vs3_Warping_Particle, false, false, false);
+part_type_color_hsv(part_type, 0, 255, 127, 127, 255, 255);
+part_type_alpha3(part_type, 0, 1, 0);
+part_type_size(part_type, 0.5, 1, 0, 0);
+part_type_speed(part_type, 0.5, 5, 0, 0); 
+part_type_direction(part_type, 0, 359, 0, 0);
+part_type_life(part_type, 200, 300);
+
+part_emitter = part_emitter_create(part_system);
+part_emitter_region(part_system, part_emitter, 0, 800, 0, 608, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(part_system, part_emitter, part_type, -40);
+
 function create_warp(x, y) {
 	instance_create_layer(x, y, "Actors", objMinigame1vs3_Warping_Warp, {
 		vspeed: -8

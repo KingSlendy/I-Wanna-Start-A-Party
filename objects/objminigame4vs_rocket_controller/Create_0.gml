@@ -20,6 +20,10 @@ minigame_players = function() {
 		delay_player = get_frames(10);
 		delay_offset = get_frames(1);
 		delay_shoot = 0;
+		
+		if (trial_is_title(TOUGH_IGNITION)) {
+			hp = (network_id == global.player_id) ? 1 : 5;
+		}
 	}
 }
 

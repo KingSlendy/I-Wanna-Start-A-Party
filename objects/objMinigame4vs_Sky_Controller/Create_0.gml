@@ -18,6 +18,8 @@ action_end = function() {
 points_draw = true;
 player_type = objPlayerDir8;
 
+created_green = 0;
+
 trophy_saves = true;
 
 alarm_override(1, function() {
@@ -28,15 +30,26 @@ alarm_override(1, function() {
 alarm_override(2, function() {
 	alarm_inherited(2);
 	
-	if (array_contains(info.players_won, global.player_id) && trophy_saves) {
+	if (array_contains(info.players_won, global.player_id) && trophy_saves && !trial_is_title(GREEN_DIVING)) {
 		achieve_trophy(75);
 	}
 });
 
 alarm_create(4, function() {
+	created_green = 0;
+	var created_saves = [];
+	
 	for (var r = 0; r < 5; r++) {
 		for (var c = 0; c < 5; c++) {
-			instance_create_layer(320 + 32 * c, 224 + 32 * r, "Actors", objMinigame4vs_Sky_Save);
+			array_push(created_saves, instance_create_layer(320 + 32 * c, 224 + 32 * r, "Actors", objMinigame4vs_Sky_Save));
+		}
+	}
+	
+	if (created_green == 0) {
+		array_shuffle(created_saves);
+			
+		with (array_pop(created_saves)) {
+			image_index = 1;
 		}
 	}
 	
@@ -44,7 +57,16 @@ alarm_create(4, function() {
 	alarm_call(4, 2);
 });
 
+alarm_create(5, function() {
+	instance_create_layer(irandom_range(200, 500), irandom_range(200, 408), "Actors", objMinigame4vs_Sky_Clouds);
+	alarm_call(5, 0.05);
+});
+
 alarm_override(11, function() {
+	if (trial_is_title(GREEN_DIVING)) {
+		return;
+	}
+	
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 
@@ -91,5 +113,7 @@ alarm_override(11, function() {
 		}
 	}
 
-	alarm_frames(11, 1);
+	alarm_next(11);
 });
+
+alarm_next(5);

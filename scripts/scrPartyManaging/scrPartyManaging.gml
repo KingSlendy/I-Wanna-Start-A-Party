@@ -30,7 +30,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [null, global.board_items[ItemType.TripleDice], global.board_items[ItemType.DoubleDice]];
+	//self.items = [null, global.board_items[ItemType.Mirror], global.board_items[ItemType.SuperWarp]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -286,8 +286,8 @@ function board_start() {
 		start_dialogue([
 			board.welcome,
 			new Message("Would you like to hear about this board?", [
-				["Yes", array_concat(board.rules, [new Message(board.alright,, choose_turns)])],
-				["No", [new Message(board.alright,, choose_turns)]]
+				["No", [new Message(board.alright,, choose_turns)]],
+				["Yes", array_concat(board.rules, [new Message(board.alright,, choose_turns)])]
 			])
 		]);
 	} else {
@@ -350,7 +350,7 @@ function tell_turns() {
 		}),
 		
 		string_interp("And last to go is {COLOR,0000FF}{0}{COLOR,FFFFFF}.", turn_names[3]),
-		new Message("Let's give each one {COLOR,00FFFF}10{COLOR,FFFFFF} coins to start.",, function() {
+		new Message("Let's give each one " + draw_coins_price(10) + " to start.",, function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				var c = change_coins(10, CoinChangeType.Gain, i);
 				

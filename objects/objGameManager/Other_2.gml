@@ -73,4 +73,3 @@ trial_init();
 trial_info_reset();
 skin_init();
 reaction_init();
-global.part_system = part_system_create();

@@ -6,6 +6,8 @@ alarm_create(function() {
 	f.vspeed = irandom_range(-7, -9);
 	f.gravity = 0.25;
 
+	audio_play_sound(sndMinigame2vs2_Springing_Fireball, 0, false);
+
 	if (objMinigameController.points_teams[0][0].lost || objMinigameController.points_teams[0][1].lost) {
 		alarm_call(0, 0.1);
 	} else {
@@ -18,6 +20,8 @@ alarm_create(function() {
 	f.hspeed = random_range(0.1, 5);
 	f.vspeed = irandom_range(-7, -9);
 	f.gravity = 0.25;
+	
+	audio_play_sound(sndMinigame2vs2_Springing_Fireball, 0, false);
 	
 	if (objMinigameController.points_teams[1][0].lost || objMinigameController.points_teams[1][1].lost) {
 		alarm_call(1, 0.1);

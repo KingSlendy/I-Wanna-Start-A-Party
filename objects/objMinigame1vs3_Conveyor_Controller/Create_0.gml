@@ -29,6 +29,20 @@ action_end = function() {
 
 player_type = objPlayerPlatformer;
 
+part_system = part_system_create();
+part_system_depth(part_system, -10000);
+
+part_type = part_type_create();
+part_type_sprite(part_type, sprMinigame1vs3_Conveyor_Particle, false, false, false);
+part_type_size(part_type, 1, 1.5, -0.02, 0);
+part_type_speed(part_type, 1.5, 3, 0, 0); 
+part_type_direction(part_type, 60, 120, 0, 0);
+part_type_life(part_type, 100, 100);
+
+part_emitter = part_emitter_create(part_system);
+part_emitter_region(part_system, part_emitter, 0, 800, 620, 620, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(part_system, part_emitter, part_type, 1);
+
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);

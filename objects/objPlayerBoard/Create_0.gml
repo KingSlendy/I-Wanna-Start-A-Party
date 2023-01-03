@@ -5,7 +5,7 @@ max_speed = 6;
 follow_path = null;
 can_jump = false;
 has_hit = false;
-dice_hit_y = y;
+jump_y = y;
 alpha_target = 1;
 
 function snap_to_object(obj) {
@@ -16,4 +16,12 @@ function snap_to_object(obj) {
 	}
 
 	vspeed = 0;
+}
+
+function board_jump() {
+	vspeed = -6;
+	gravity = 0.4;
+	jump_y = y;
+	can_jump = false;
+	audio_play_sound(sndJump, 0, false);
 }

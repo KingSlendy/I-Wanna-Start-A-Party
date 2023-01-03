@@ -37,6 +37,10 @@ for (var i = 0; i < array_length(menu_buttons); i++) {
 			continue;
 		}
 		
+		if (i == 5 && (j > 0 && j < 5) && global.player_id != 1) {
+			continue;
+		}
+		
 		button.check((file_opened != -1 && menu_type == i), menu_selected[menu_type] == j);
 		button.draw(files_alpha);
 	}

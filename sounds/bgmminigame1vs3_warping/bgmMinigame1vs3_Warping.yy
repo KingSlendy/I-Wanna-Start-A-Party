@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_BGM",
   },
   "soundFile": "bgmminigame1vs3_warping.ogg",
-  "duration": 37.761833,
+  "duration": 0.0,
   "parent": {
     "name": "1vs3",
     "path": "folders/Sounds/BGM/Minigames/1vs3.yy",

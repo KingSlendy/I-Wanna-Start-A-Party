@@ -155,11 +155,17 @@ function flip_orientation() {
 
 function player_kill(network = false) {
 	if (!lost && (is_player_local(network_id) || network)) {
-		instance_create_layer(x, y, "Actors", objBloodEmitter);
+		if (room != rMinigame4vs_Rocket) {
+			instance_create_layer(x, y, "Actors", objBloodEmitter);
+			audio_play_sound(sndDeath, 0, false);
+		} else {
+			instance_create_layer(x, y, "Actors", objExplosion);
+			audio_play_sound(sndExplosion, 0, false);
+		}
+		
 		frozen = true;
 		grav_amount = 0;
 		lost = true;
-		audio_play_sound(sndDeath, 0, false);
 		
 		with (objCameraSplit4) {
 			dead[player_info_by_id(other.network_id).turn - 1] = true;

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "objMinigame4vs_Golf_MicroBlock",
   "spriteId": {
-    "name": "sprMicroBlockMask",
-    "path": "sprites/sprMicroBlockMask/sprMicroBlockMask.yy",
+    "name": "sprMicroLongBlockMask",
+    "path": "sprites/sprMicroLongBlockMask/sprMicroLongBlockMask.yy",
   },
   "solid": false,
   "visible": false,
@@ -29,8 +29,8 @@
   "physicsShapePoints": [
     {"x":0.0,"y":0.0,},
     {"x":4.0,"y":0.0,},
-    {"x":4.0,"y":4.0,},
-    {"x":0.0,"y":4.0,},
+    {"x":4.0,"y":32.0,},
+    {"x":0.0,"y":32.0,},
   ],
   "eventList": [],
   "properties": [],

@@ -12,7 +12,7 @@ if (network_id == global.player_id) {
 }
 
 switch (objMinigameController.places[? network_id]) {
-	case 1: var recover = 2.0; break;
+	case 1: var recover = 3.0; break;
 	case 2: var recover = 1.0; break;
 	case 3: var recover = 0.5; break;
 	case 4: var recover = 0.1; break;

@@ -1,4 +1,6 @@
 global.game_started = false;
+minigame_info_reset();
+trial_info_reset();
 fade_start = true;
 fade_alpha = 1;
 
@@ -107,7 +109,7 @@ menu_buttons = [
 	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
 	[new FileButton(150, 172, file_width, 64, -1, "IP", c_white), new FileButton(150, 252, file_width, 64, -1, "PORT", c_white), new FileButton(150, 332, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
 	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), new FileButton(150, 562, file_width, 64, -1, "REFRESH", c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
-	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), null, new FileButton(400, 150, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(400, 230, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(400, 310, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(400, 390, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), new FileButton(650, 230, file_width * 0.8, 64, 1, "KICK", c_red), new FileButton(650, 310, file_width * 0.8, 64, 1, "KICK", c_red), new FileButton(650, 390, file_width * 0.8, 64, 1, "KICK", c_red), null, new FileButton(300, 150, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 230, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(300, 310, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 390, file_width * 2, 64, 1, "", c_ltgray, false)],
 	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "RESTORE", c_aqua)]
 ];
 
@@ -116,7 +118,7 @@ menu_selected = array_create(array_length(menu_buttons), 0);
 option_buttons = [
 	new FileButton(144, 480, file_width, file_width - 96, 2, "SETTINGS"),
 	new FileButton(400, 480, file_width, file_width - 96, 2, "DISCORD"),
-	new FileButton(656, 480, file_width, file_width - 96, 2, "CREDITS"),
+	new FileButton(656, 480, file_width, file_width - 96, 2, "WEBSITE"),
 ];
 
 option_selected = -1;
@@ -211,3 +213,11 @@ controls_text = new Text(fntControls);
 back = false;
 back_option = false;
 global.mode_selected = -1;
+
+function lobby_leave() {
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.LeaveLobby);
+	buffer_write_data(buffer_u64, global.master_id);
+	network_send_tcp_packet();
+	lobby_return = true;
+}

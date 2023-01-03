@@ -3,6 +3,7 @@ if (last_num != other.num && last_num == (other.num + objMinigameController.goal
 	
 	if (goal_num == 0) {
 		minigame4vs_points(network_id, 1);
+		audio_play_sound(sndMinigamePointsA, 0, false);
 		
 		if (minigame4vs_get_points(network_id) == objMinigameController.lap_total) {
 			minigame_finish(true);

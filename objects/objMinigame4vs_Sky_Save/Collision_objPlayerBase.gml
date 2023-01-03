@@ -1,4 +1,4 @@
-if (image_xscale < 3.5 || other.touched || objMinigameController.info.is_finished) {
+if (image_xscale < 3.5 || front || other.touched || objMinigameController.info.is_finished) {
 	exit;
 }
 
@@ -20,6 +20,11 @@ if (image_index == 0 || image_index == 1) {
 	}
 } else if (minigame4vs_get_points(other.network_id) > 0) {
 	audio_play_sound(sndMinigamePointsF, 0, false);
+}
+
+if (trial_is_title(GREEN_DIVING) && other.network_id == global.player_id && image_index != 1) {
+	minigame4vs_set_points(global.player_id, 0);
+	minigame_finish();
 }
 
 if (points == -1 && minigame4vs_get_points(other.network_id) == 0) {

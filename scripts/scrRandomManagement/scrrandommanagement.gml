@@ -43,7 +43,7 @@ function generate_seed_bag() {
 	
 	global.seed_bag = [];
 
-	repeat (100) {
+	repeat (10000) {
 		array_push(global.seed_bag, irandom(9999999));
 	}
 	

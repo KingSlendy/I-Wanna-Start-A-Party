@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndItemUse.wav",
-  "duration": 1.352708,
+  "duration": 0.266833,
   "parent": {
     "name": "Party",
     "path": "folders/Sounds/SFX/Party.yy",

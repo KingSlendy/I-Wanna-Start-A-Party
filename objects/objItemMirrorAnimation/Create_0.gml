@@ -1,11 +1,17 @@
 event_inherited();
 
+space_shine = null;
+space_current = {x: focus_player.x, y: focus_player.y};
+
+state = 0;
+scale = 0;
+angle = 0;
+
 if (is_local_turn()) {
 	if (room != rBoardPallet) {
 		with (objSpaces) {
 			if (image_index == SpaceType.Shine) {
-				other.focus_player.x = x + 16;
-				other.focus_player.y = y + 16;
+				other.space_shine = id;
 				break;
 			}
 		}
@@ -16,7 +22,6 @@ if (is_local_turn()) {
 			}
 			
 			var space_record = infinity;
-			var near = null;
 		
 			with (objSpaces) {
 				if (image_index != SpaceType.PathEvent) {
@@ -27,25 +32,44 @@ if (is_local_turn()) {
 						
 				if (dist < space_record) {
 					space_record = dist;
-					near = id;
+					other.space_shine = id;
 				}
 			}
 
-			other.focus_player.x = near.x + 16;
-			other.focus_player.y = near.y + 16;
 			break;
 		}
 	}
-
-	with (focus_player) {
-		event_perform(ev_other, ev_end_of_path);	
-	}
 }
 
-alarms_init(1);
+//with (focus_player) {
+//	x = other.space_shine.x + 16;
+//	y = other.space_shine.y + 16;
+//	event_perform(ev_other, ev_end_of_path);	
+//}
+
+space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
+
+alarms_init(3);
 
 alarm_create(function() {
-	instance_destroy();
+	with (focused_player()) {
+		board_jump();
+	}
+	
+	alarm_call(1, 0.3);
 });
 
-alarm_frames(0, 1);
+alarm_create(function() {
+	with (focus_player) {
+		var diff_y = (jump_y - y);
+		jump_y = other.space_shine.y;
+		x = other.space_shine.x;
+		y = other.space_shine.y - diff_y;
+	}
+	
+	alarm_call(2, 1);
+});
+
+alarm_create(function() {
+	state = 1;
+});

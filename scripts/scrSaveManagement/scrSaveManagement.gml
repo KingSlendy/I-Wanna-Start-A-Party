@@ -28,6 +28,8 @@ function save_variables() {
 	global.collected_hint_trophies = [];
 	global.collected_spoiler_trophies = [];
 	
+	//Misc
+	global.saved_times = 0;
 	global.ellapsed_time = 0;
 	global.player_name = "Player";
 	global.ip = "startaparty.sytes.net";
@@ -42,12 +44,14 @@ function save_variables() {
 function save_file() {
 	var save_name = "Save" + string(global.file_selected + 1);
 	var save_name_backup = save_name + "_Backup";
-	
-	if (file_exists(save_name_backup)) {
-		file_delete(save_name_backup);
+
+	if (global.saved_times == 3) {
+		if (file_exists(save_name_backup)) {
+			file_delete(save_name_backup);
+		}
+		
+		file_rename(save_name, save_name_backup);
 	}
-	
-	file_rename(save_name, save_name_backup);
 	
 	var save = {
 		main_game: {
@@ -63,6 +67,7 @@ function save_file() {
 			saved_collected_trophies: global.collected_trophies,
 			saved_collected_hint_trophies: global.collected_hint_trophies,
 			saved_collected_spoiler_trophies: global.collected_spoiler_trophies,
+			saved_times: ++global.saved_times,
 			saved_ellapsed_time: global.ellapsed_time,
 			saved_player_name: global.player_name,
 			saved_ip: global.ip,
@@ -76,7 +81,7 @@ function save_file() {
 	var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
 	buffer_seek_begin(buffer);
 	buffer_write(buffer, buffer_text, data);
-	buffer_save(buffer, "Save" + string(global.file_selected + 1));
+	buffer_save(buffer, save_name);
 	buffer_delete(buffer);
 }
 
@@ -84,17 +89,23 @@ function load_file() {
 	var save_name = "Save" + string(global.file_selected + 1);
 	var save_name_backup = save_name + "_Backup";
 	
-	if (!file_exists(save_name)) {
+	if (!file_exists(save_name) && !file_exists(save_name_backup)) {
 		return false;
 	}
 	
+	var buffer = noone;
+	
 	try {
-		var buffer = buffer_load(save_name);
+		buffer = buffer_load(save_name);
 		buffer_seek_begin(buffer);
 		var data = buffer_read(buffer, buffer_text);
 		var save = json_parse(data);
 	} catch (_) {
-		var buffer = buffer_load(save_name_backup);
+		if (buffer_exists(buffer)) {
+			buffer_delete(buffer);
+		}
+		
+		buffer = buffer_load(save_name_backup);
 		buffer_seek_begin(buffer);
 		var data = buffer_read(buffer, buffer_text);
 		var save = json_parse(data);
@@ -145,6 +156,12 @@ function load_file() {
 		global.collected_spoiler_trophies = save.main_game.saved_collected_spoiler_trophies;
 	} catch (_) {
 		global.collected_spoiler_trophies = [];
+	}
+	
+	try {
+		global.saved_times = save.main_game.saved_times;
+	} catch (_) {
+		global.saved_times = 0;
 	}
 	
 	global.ellapsed_time = save.main_game.saved_ellapsed_time;
@@ -222,16 +239,36 @@ function save_board() {
 	save_file();
 }
 
-function delete_file() {
+function restore_file() {
 	var file_selected = global.file_selected;
+	var save_name = "Save" + string(file_selected + 1);
+	var save_name_backup = save_name + "_Backup";
 	
-	if (file_exists("Save" + string(global.file_selected + 1))) {
-		file_delete("Save" + string(global.file_selected + 1));
+	if (!file_exists(save_name_backup)) {
+		return;
 	}
 	
+	file_delete(save_name);
+	file_rename(save_name_backup, save_name);
+	load_file();
+}
+
+function delete_file() {
+	var file_selected = global.file_selected;
+	var save_name = "Save" + string(file_selected + 1);
+	var save_name_backup = save_name + "_Backup";
+	var save_name_backup_temp = save_name_backup + "_Temp";
+	
+	if (!file_exists(save_name)) {
+		return;
+	}
+	
+	file_rename(save_name, save_name_backup_temp);
 	save_variables();
 	global.file_selected = file_selected;
+	global.saved_times = 0;
 	save_file();
+	file_rename(save_name_backup_temp, save_name_backup);
 }
 
 function config_variables() {

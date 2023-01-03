@@ -9,6 +9,7 @@ minigame_players = function() {
 minigame_time_end = function() {
 	objPlayerBase.frozen = true;
 	alarm_instant(4);
+	minigame_time = -1;
 }
 
 player_type = objPlayerStatic;
