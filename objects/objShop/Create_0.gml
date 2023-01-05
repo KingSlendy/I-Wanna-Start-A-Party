@@ -9,16 +9,24 @@ if (is_local_turn()) {
 	}
 
 	while (true) {
+		var ignore_items = [];
 		array_shuffle(stock);
 		
-		if (room != rBoardNsanity) {
+		switch (room) {
+			case rBoardPallet: ignore_items = [ItemType.Mirror]; break;
+			case rBoardNsanity: ignore_items = [ItemType.Reverse]; break;
+		}
+		
+		if (array_length(ignore_items) == 0) {
 			break;
 		}
 		
 		var cancel_loop = true;
 		
 		for (var i = 0; i < 5; i++) {
-			if (stock[i].id == ItemType.Reverse) {
+			now_stock = stock[i];
+			
+			if (array_any(ignore_items, function(x) { return (now_stock.id == x); })) {
 				cancel_loop = false;
 				break;
 			}

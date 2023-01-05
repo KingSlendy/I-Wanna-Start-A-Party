@@ -10,8 +10,8 @@ with (instance_place(x, y + 1, objMinigame4vs_Golf_Block)) {
 	instance_destroy();
 }
 
-instance_create_layer(x, y, layer, objMinigame4vs_Golf_MicroBlock);
-instance_create_layer(x + 32 - 4, y, layer, objMinigame4vs_Golf_MicroBlock);
+instance_create_layer(x - 1, y, layer, objMinigame4vs_Golf_MicroBlock);
+instance_create_layer(x + 32 - 3, y, layer, objMinigame4vs_Golf_MicroBlock);
 instance_create_layer(x, y, layer, objMinigame4vs_Golf_Hole);
 
 x -= 12;

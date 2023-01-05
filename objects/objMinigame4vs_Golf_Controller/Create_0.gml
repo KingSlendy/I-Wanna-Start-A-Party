@@ -52,6 +52,11 @@ function unfreeze_player() {
 	player.frozen = false;
 	minigame_time = 20;
 	alarm_call(10, 1);
+	
+	if (trial_is_title(PERFECT_AIM)) {
+		minigame_time = -1;
+		alarm_stop(10);
+	}
 }
 
 function give_points(player_id, points, network = true) {

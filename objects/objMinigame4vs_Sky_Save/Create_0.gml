@@ -9,7 +9,7 @@ image_index = irandom(image_number - 1);
 if (trial_is_title(GREEN_DIVING)) {
 	do {
 		image_index = irandom_range(1, image_number - 1);
-	} until (image_index != 1 || objMinigameController.created_green < 2);
+	} until (image_index != 1 || objMinigameController.created_green == 0);
 }
 
 if (image_index == 1) {

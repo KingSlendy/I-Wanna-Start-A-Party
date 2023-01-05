@@ -14,7 +14,7 @@ end_turn = function() {
 	objPlayerBase.frozen = true;
 	alarm_pause(10);
 	
-	if (player_turn < global.player_max) {
+	if (player_turn < global.player_max && !trial_is_title(PERFECT_AIM)) {
 		next_turn = 0;
 	} else {
 		minigame_finish();
@@ -35,6 +35,11 @@ function unfreeze_player() {
 	player.frozen = false;
 	minigame_time = 15;
 	alarm_call(10, 1);
+	
+	if (trial_is_title(PERFECT_AIM)) {
+		minigame_time = -1;
+		alarm_stop(10);
+	}
 }
 
 function reposition_player() {
@@ -42,7 +47,7 @@ function reposition_player() {
 	var prev_player = focus_player_by_turn(player_turn - 1);
 	
 	with (objPlayerReference) {
-		if (reference == 1) {
+		if (reference == 0) {
 			player.x = x + 17;
 			player.y = y + 23;
 			break;
@@ -50,7 +55,7 @@ function reposition_player() {
 	}
 	
 	with (objPlayerReference) {
-		if (reference == other.player_turn) {
+		if (reference == other.player_turn - 1) {
 			prev_player.x = x + 17;
 			prev_player.y = y + 23;
 			break;

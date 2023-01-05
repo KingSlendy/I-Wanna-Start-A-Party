@@ -112,9 +112,11 @@ enum ClientTCP {
 	Minigame4vs_Bullets_Stop,
 	Minigame4vs_Drawn_CollectKey,
 	Minigame4vs_Bubble_Goal,
-	Minigame4vs_Idol_WhacIdol,
 	Minigame4vs_Sky_Points,
 	Minigame4vs_Golf_GivePoints,
+	Minigame4vs_Jingle_SledgeShoot,
+	Minigame4vs_Jingle_SledgeJump,
+	Minigame4vs_Jingle_SledgeHit,
 	#endregion
 	
 	#region 1vs3
@@ -145,9 +147,7 @@ enum ClientTCP {
 	Minigame2vs2_Duos_Button,
 	Minigame2vs2_Duel_Shot,
 	Minigame2vs2_Soccer_Goal,
-	Minigame2vs2_Jingle_SledgeShoot,
-	Minigame2vs2_Jingle_SledgeJump,
-	Minigame2vs2_Jingle_SledgeHit,
+	Minigame2vs2_Idol_WhacIdol,
 	#endregion
 	#endregion
 	
@@ -970,19 +970,6 @@ f[$ ClientTCP.Minigame4vs_Bubble_Goal] = function(buffer) {
 	minigame4vs_points(player_id, 1);
 }
 
-f[$ ClientTCP.Minigame4vs_Idol_WhacIdol] = function(buffer) {
-	var hole_x = buffer_read(buffer, buffer_s32);
-	var hole_y = buffer_read(buffer, buffer_s32);
-	var player_id = buffer_read(buffer, buffer_u8);
-	
-	with (objMinigame4vs_Idol_Hole) {
-		if (x == hole_x && y == hole_y) {
-			whac_idol(player_id, false);
-			break;
-		}
-	}
-}
-
 f[$ ClientTCP.Minigame4vs_Sky_Points] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
 	var points = buffer_read(buffer, buffer_s8);
@@ -995,6 +982,39 @@ f[$ ClientTCP.Minigame4vs_Golf_GivePoints] = function(buffer) {
 	
 	with (objMinigameController) {
 		give_points(player_id, points, false);
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Jingle_Sledge) {
+		if (self.player_id == player_id) {
+			sledge_shoot(false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeJump] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Jingle_Sledge) {
+		if (self.player_id == player_id) {
+			sledge_jump(false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeHit] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Jingle_Sledge) {
+		if (self.player_id == player_id) {
+			sledge_hit(false);
+			break;
+		}
 	}
 }
 #endregion
@@ -1257,34 +1277,14 @@ f[$ ClientTCP.Minigame2vs2_Soccer_Goal] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame2vs2_Jingle_SledgeShoot] = function(buffer) {
-	var sledge_down = buffer_read(buffer, buffer_bool);
+f[$ ClientTCP.Minigame2vs2_Idol_WhacIdol] = function(buffer) {
+	var hole_x = buffer_read(buffer, buffer_s32);
+	var hole_y = buffer_read(buffer, buffer_s32);
+	var player_id = buffer_read(buffer, buffer_u8);
 	
-	with (objMinigame2vs2_Jingle_Sledge) {
-		if (sledge_down == is_down) {
-			sledge_shoot(false);
-			break;
-		}
-	}
-}
-
-f[$ ClientTCP.Minigame2vs2_Jingle_SledgeJump] = function(buffer) {
-	var sledge_down = buffer_read(buffer, buffer_bool);
-	
-	with (objMinigame2vs2_Jingle_Sledge) {
-		if (sledge_down == is_down) {
-			sledge_jump(false);
-			break;
-		}
-	}
-}
-
-f[$ ClientTCP.Minigame2vs2_Jingle_SledgeHit] = function(buffer) {
-	var sledge_down = buffer_read(buffer, buffer_bool);
-	
-	with (objMinigame2vs2_Jingle_Sledge) {
-		if (sledge_down == is_down) {
-			sledge_hit(false);
+	with (objMinigame2vs2_Idol_Hole) {
+		if (x == hole_x && y == hole_y) {
+			whac_idol(player_id, false);
 			break;
 		}
 	}

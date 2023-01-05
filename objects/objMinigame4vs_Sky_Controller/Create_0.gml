@@ -36,6 +36,10 @@ alarm_override(2, function() {
 });
 
 alarm_create(4, function() {
+	if (instance_exists(objMinigame4vs_Sky_Save)) {
+		objMinigame4vs_Sky_Save.front = true;
+	}
+	
 	created_green = 0;
 	var created_saves = [];
 	
@@ -54,7 +58,7 @@ alarm_create(4, function() {
 	}
 	
 	objPlayerBase.touched = false;
-	alarm_call(4, 2);
+	alarm_call(4, 2.2);
 });
 
 alarm_create(5, function() {

@@ -10,7 +10,7 @@ vspd = v * max_spd;
 if (image_index == 0 && can_hit  && global.actions.shoot.pressed(network_id)) {
 	image_index = 1;
 	can_hit = false;
-	audio_play_sound(sndMinigame4vs_Idol_Hit, 0, false);
+	audio_play_sound(sndMinigame2vs2_Idol_Hit, 0, false);
 	alarm_call(0, 0.1);
 	alarm_call(1, 0.4);
 }

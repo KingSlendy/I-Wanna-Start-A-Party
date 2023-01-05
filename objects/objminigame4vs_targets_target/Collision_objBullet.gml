@@ -2,7 +2,7 @@ if (!visible || image_alpha < 1) {
 	exit;
 }
 
-instance_destroy(other);
+instance_destroy(other, false);
 
 if (!is_player_local(other.network_id)) {
 	exit;

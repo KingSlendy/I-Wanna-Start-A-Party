@@ -15,8 +15,10 @@ if (state == 0) {
 		scale = 0;
 		state = -1;
 		
-		with (focused_player()) {
-			event_perform(ev_other, ev_end_of_path)
+		if (is_local_turn()) {
+			with (focus_player) {
+				event_perform(ev_other, ev_end_of_path)
+			}
 		}
 		
 		instance_destroy();

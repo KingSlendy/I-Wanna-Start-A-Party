@@ -16,6 +16,8 @@ if (is_local_turn()) {
 			}
 		}
 	} else {
+		var animation = id;
+		
 		with (objBoardPalletPokemon) {
 			if (!has_shine()) {
 				continue;
@@ -32,39 +34,37 @@ if (is_local_turn()) {
 						
 				if (dist < space_record) {
 					space_record = dist;
-					other.space_shine = id;
+					animation.space_shine = id;
 				}
 			}
 
 			break;
 		}
 	}
+	
+	space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
 }
-
-//with (focus_player) {
-//	x = other.space_shine.x + 16;
-//	y = other.space_shine.y + 16;
-//	event_perform(ev_other, ev_end_of_path);	
-//}
-
-space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
 
 alarms_init(3);
 
 alarm_create(function() {
-	with (focused_player()) {
-		board_jump();
+	if (is_local_turn()) {
+		with (focus_player) {
+			board_jump();
+		}
 	}
 	
 	alarm_call(1, 0.3);
 });
 
 alarm_create(function() {
-	with (focus_player) {
-		var diff_y = (jump_y - y);
-		jump_y = other.space_shine.y;
-		x = other.space_shine.x;
-		y = other.space_shine.y - diff_y;
+	if (is_local_turn()) {
+		with (focus_player) {
+			var diff_y = (jump_y - y);
+			jump_y = other.space_shine.y;
+			x = other.space_shine.x;
+			y = other.space_shine.y - diff_y;
+		}
 	}
 	
 	alarm_call(2, 1);

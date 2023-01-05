@@ -22,6 +22,12 @@ switch (room) {
 		mode = 1;
 		break;
 		
+	case rMinigame4vs_Jingle:
+		var w = 800;
+		var h = 152;
+		mode = 2;
+		break;
+		
 	case rMinigame1vs3_Race:
 		var w = 800;
 		var h = 304;

@@ -87,7 +87,6 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	alarm_stop(1);
 	steal_count = ceil(steal_count);
 	state = -2;
 

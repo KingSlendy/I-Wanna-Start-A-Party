@@ -18,6 +18,8 @@ if (state == 0) {
 				steal_count *= -1;
 				alarm_frames(2, 1);
 			}
+			
+			alarm_stop(1);
 		}
 	}
 } else if (state == 1) {

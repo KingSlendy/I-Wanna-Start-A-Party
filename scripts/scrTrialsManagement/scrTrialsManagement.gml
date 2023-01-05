@@ -116,7 +116,7 @@ function trial_init() {
 		new Trial(PERFECT_AIM, [
 			new Prove(TARGETING_TARGETS),
 			new Prove(GOLF_COURSE)
-		], 300),
+		], 500),
 		
 		new Trial(TOUGH_IGNITION, [
 			new Prove(ROCKET_IGNITION)
@@ -124,7 +124,7 @@ function trial_init() {
 		
 		new Trial(GREEN_DIVING, [
 			new Prove(SKY_DIVING)
-		], 400)
+		], 300)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {
