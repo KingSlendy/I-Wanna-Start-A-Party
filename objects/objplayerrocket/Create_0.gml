@@ -7,8 +7,3 @@ shoot_delay = 0;
 alarm_create(0, function() {
 	image_alpha = 1;
 });
-
-alarm_create(1, function() {
-	x = xstart;
-	y = ystart;
-});

@@ -75,7 +75,7 @@ alarm_create(5, function() {
 	}
 
 	var rival_times = [
-		player_shot_time[points_teams[0][0].network_id - 1] - player_shot_time[minigame1vs3_solo().network_id - 1],
+		player_shot_time[points_teams[0][0].network_id - 1] - player_shot_time[points_teams[1][0].network_id - 1],
 		player_shot_time[points_teams[0][1].network_id - 1] - player_shot_time[points_teams[1][1].network_id - 1]
 	];
 

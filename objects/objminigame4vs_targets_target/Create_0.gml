@@ -10,8 +10,8 @@ function restore_target() {
 	y = ystart;
 	
 	if (trial_is_title(PERFECT_AIM)) {
-		image_xscale = 0.3;
-		image_yscale = 0.3;
+		image_xscale = 0.5;
+		image_yscale = 0.5;
 	}
 	
 	angle = anglestart;

@@ -182,15 +182,15 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 }
 
 global.file_selected = prev_selected;
-file_name = "Player";
+file_name = DEFAULT_PLAYER;
 file_limit = 16;
 upper_type = 0;
 upper_text = "";
 
 finish = false;
 online_texts = [
-	"startaparty.sytes.net",
-	"33321"
+	DEFAULT_URL,
+	DEFAULT_PORT
 ]
 
 online_limits = [-1, 5];

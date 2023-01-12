@@ -122,15 +122,15 @@ function coins_give_chance_time(amount, to_left) {
 }
 
 events = [
-	new ChanceTimeEvent("{p1} and {p2} will exchange their shines and coins!", shines_coins_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their shines!", shines_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their coins!", coins_exchange_chance_time),
-	new ChanceTimeEvent("{p2} will give 1 shine to {p1}!", shines_give_chance_time, 1, true),
-	new ChanceTimeEvent("{p1} will give 1 shine to {p2}!", shines_give_chance_time, 1, false),
-	new ChanceTimeEvent("{p2} will give 2 shines to {p1}!", shines_give_chance_time, 2, true),
-	new ChanceTimeEvent("{p1} will give 2 shines to {p2}!", shines_give_chance_time, 2, false),
-	new ChanceTimeEvent("{p2} will give 30 coins to {p1}!", coins_give_chance_time, 30, true),
-	new ChanceTimeEvent("{p1} will give 30 coins to {p2}!", coins_give_chance_time, 30, false)
+	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} and " + draw_coins_price(0) + "!", shines_coins_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5}!", shines_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their " + draw_coins_price() + "!", coins_exchange_chance_time),
+	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p1}!", shines_give_chance_time, 1, true),
+	new ChanceTimeEvent("{p1} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p2}!", shines_give_chance_time, 1, false),
+	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}2 to {p1}!", shines_give_chance_time, 2, true),
+	new ChanceTimeEvent("{p1} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}2 to {p2}!", shines_give_chance_time, 2, false),
+	new ChanceTimeEvent("{p2} will give " + draw_coins_price(30) + " to {p1}!", coins_give_chance_time, 30, true),
+	new ChanceTimeEvent("{p1} will give " + draw_coins_price(30) + " to {p2}!", coins_give_chance_time, 30, false)
 ];
 #endregion
 

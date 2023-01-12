@@ -35,9 +35,8 @@ if (place_meeting(x, y + vspeed, objBlock)) {
 }
 
 if (place_meeting(x, y, objBlock)) {
-	if (alarm_is_stopped(1)) {
-		alarm_call(1, 5);
+	while (!place_meeting(x, y, objBlock)) {
+		x += lengthdir_x(1, point_direction(x, y, room_width / 2, room_height / 2));
+		y += lengthdir_y(1, point_direction(x, y, room_width / 2, room_height / 2));
 	}
-} else {
-	alarm_stop(1);
 }

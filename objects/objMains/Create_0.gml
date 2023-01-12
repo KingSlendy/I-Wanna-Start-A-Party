@@ -45,6 +45,7 @@ skin_selected = array_create(global.player_max, null);
 global.max_board_turns = 20;
 global.give_bonus_shines = true;
 
+global.board_selected = -1;
 board_selected = 0;
 board_target_selected = 0;
 board_w = 352;

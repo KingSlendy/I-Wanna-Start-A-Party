@@ -36,7 +36,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				audio_play_sound(sndMinigame1vs3_Race_Wrong, 0, false);
 			}
 			
-			alarm_call(4, (!advance && !solo_wrong) ? 0.15 : 0.75);
+			alarm_frames(4, (!advance && !solo_wrong) ? 7 : 37);
 			
 			if (array_length(network_solo_actions) == 0) {
 				buffer_seek_begin();
@@ -77,7 +77,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				audio_play_sound(sndMinigame1vs3_Race_Wrong, 0, false);
 			}
 			
-			alarm_call(5, (!advance && !team_wrong) ? 0.15 : 0.75);
+			alarm_frames(5, (!advance && !team_wrong) ? 7 : 37);
 			
 			if (array_length(network_team_actions) == 0) {
 				buffer_seek_begin();

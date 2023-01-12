@@ -124,9 +124,9 @@ function player_join(id) {
 	}
 }
 
-function player_leave(id) {
-	if (id != global.player_id) {
-		var player = global.player_client_list[id - 1];
+function player_leave(player_id) {
+	if (player_id != global.player_id) {
+		var player = global.player_client_list[player_id - 1];
 		player.draw = false;
 		player.network_name = "";
 	}
@@ -134,14 +134,13 @@ function player_leave(id) {
 
 function player_disconnection(player_id) {
 	if (!global.lobby_started) {
-		player_leave(player_id);
+		with (objPlayerBase) {
+			player_leave(network_id);
+		}
 		
 		if (player_id < global.player_id) {
-			with (objPlayerBase) {
-				if (network_id == global.player_id) {
-					network_id--;
-					break;
-				}
+			with (focus_player_by_id(global.player_id)) {
+				network_id--;
 			}
 				
 			global.player_id--;
@@ -367,17 +366,21 @@ function network_reset() {
 	global.player_game_ids = [];
 	player_leave_all();
 
-	if (room == rFiles) {
-		with (objFiles) {
-			online_reading = false;
+	if (room == rFiles && !global.lobby_started) {
+		if (global.lobby_started) {
+			with (objFiles) {
+				online_reading = false;
 		
-			if (menu_type != 3) {
-				menu_type = 1;
+				if (menu_type != 3) {
+					menu_type = 1;
+				}
 			}
+			
+			return;
 		}
-	} else {
-		room_goto(rFiles);
 	}
+	
+	room_goto(rFiles);
 }
 
 function network_disable() {

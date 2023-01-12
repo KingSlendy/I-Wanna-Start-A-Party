@@ -8,6 +8,7 @@ if (state == 0) {
 		state = -1;
 		
 		if (!stealed) {
+			sprite_index = sprItemBlackhole_Stealing;
 			alarm_frames(1, 1);
 		
 			if (is_local_turn()) {
@@ -18,12 +19,12 @@ if (state == 0) {
 				steal_count *= -1;
 				alarm_frames(2, 1);
 			}
-			
-			alarm_stop(1);
 		}
 	}
 } else if (state == 1) {
 	scale -= 0.05;
+	sprite_index = sprItemBlackhole;
+	alarm_stop(1);
 	
 	if (scale <= 0) {
 		scale = 0;

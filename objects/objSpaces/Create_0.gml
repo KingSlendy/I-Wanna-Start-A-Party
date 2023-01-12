@@ -121,9 +121,9 @@ function space_passing_event() {
 					var buy_option = "Buy " + draw_coins_price(global.shine_price);
 				
 					start_dialogue([
-						new Message("Do you wanna buy a shine?", [
+						new Message("Do you wanna buy a Shine?", [
 							[buy_option, [
-								new Message("Here you go! The shine is yours!",, buy_shine)
+								new Message("Here you go! The Shine is yours!",, buy_shine)
 							]],
 						
 							["Pass", [
@@ -155,7 +155,7 @@ function space_passing_event() {
 					]);
 				} else {
 					start_dialogue([
-						new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the shine!\nCome back later.",, board_advance)
+						new Message("You don't have " + draw_coins_price(global.shine_price) + " to buy the Shine!\nCome back later.",, board_advance)
 					]);
 				
 					if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {
@@ -176,7 +176,7 @@ function space_passing_event() {
 				}
 				
 				start_dialogue([
-					new Message("Oh no! The evil shine is looking at you menacingly!\nIt won't accept a no for an answer!",, buy_shine)
+					new Message("Oh no! The Evil Shine is looking at you menacingly!\nIt won't accept a no for an answer!",, buy_shine)
 				]);
 				
 				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {

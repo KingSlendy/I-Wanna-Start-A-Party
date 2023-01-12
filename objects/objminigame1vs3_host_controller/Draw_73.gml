@@ -3,7 +3,7 @@ var view_h = camera_get_view_height(view_camera[0]) + 1;
 
 if (!surface_exists(surf)) {
 	surf = surface_create(view_w, view_h);
-} else if (surface_get_width(view_w) < view_w || surface_get_height(view_h) < view_h) {
+} else if (surface_get_width(surf) != view_w || surface_get_height(surf) != view_h) {
 	surface_resize(surf, view_w, view_h);
 }
 

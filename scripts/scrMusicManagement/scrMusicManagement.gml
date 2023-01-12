@@ -169,5 +169,7 @@ function music_resume() {
 }
 
 function music_fade(time = 750) {
-	audio_sound_gain(global.music_current, 0, time);
+	if (global.music_current != null) {
+		audio_sound_gain(global.music_current, 0, time);
+	}
 }

@@ -413,7 +413,7 @@ function turn_start() {
 	}
 }
 
-function turn_next(network = true) {
+function turn_next() {
 	var player_info = player_info_by_turn();
 	player_info.item_used = null;
 	player_info.item_effect = null;

@@ -15,11 +15,7 @@ if (fade_start) {
 			}
 			
 			if (back_option) {
-				switch (option_selected) {
-					case 0: room_goto(rSettings); break;
-					
-					case 2: room_goto(rCredits); break;
-				}
+				room_goto(rSettings);
 			}
 			
 			exit;
@@ -100,7 +96,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 				];
 			} else {
 				switch (option_selected) {
-					case 0: case 2:
+					case 0:
 						fade_start = true;
 						back_option = true;
 						music_fade();
@@ -109,6 +105,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 					
 					case 1:
 						execute_shell_simple("https://discord.gg/dQsUg2g3P2",,, 0);
+						break;
+						
+					case 2:
+						execute_shell_simple("https://startapartytest.netlify.app/",,, 0);
 						break;
 				}
 			}
@@ -198,7 +198,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							file_name = string_trim(file_name);
 						
 							if (string_length(file_name) == 0) {
-								file_name = "Player";
+								file_name = DEFAULT_PLAYER;
 							}
 						
 							if (file_limit != -1) {
@@ -250,8 +250,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						
 							if (string_length(online_texts[select]) == 0) {
 								switch (select) {
-									case 0: online_texts[select] = "startaparty.sytes.net"; break;
-									case 1: online_texts[select] = "33321"; break;
+									case 0: online_texts[select] = DEFAULT_URL; break;
+									case 1: online_texts[select] = DEFAULT_PORT; break;
 								}
 							}
 						

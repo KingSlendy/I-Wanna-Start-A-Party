@@ -25,18 +25,30 @@ if (fade_start) {
 					if (board_selected < array_length(global.boards)) {
 						global.board_selected = board_selected;
 					} else {
-						var boards = [];
+						if (global.player_id == 1) {
+							var boards = [];
 						
-						for (var i = 0; i < array_length(global.boards); i++) {
-							if (board_collected(i)) {
-								array_push(boards, i);
+							for (var i = 0; i < array_length(global.boards); i++) {
+								if (board_collected(i)) {
+									array_push(boards, i);
+								}
+							}
+						
+							shuffle_seed_bag();
+							reset_seed_inline();
+							array_shuffle(boards);
+							global.board_selected = array_pop(boards);
+							
+							buffer_seek_begin();
+							buffer_write_action(ClientTCP.BoardRandom);
+							buffer_write_data(buffer_u8, global.board_selected);
+							network_send_tcp_packet();
+						} else {
+							if (global.board_selected == -1) {
+								fade_start = true;
+								break;
 							}
 						}
-						
-						shuffle_seed_bag();
-						reset_seed_inline();
-						array_shuffle(boards);
-						global.board_selected = array_pop(boards);
 					}
 					
 					room_goto(global.boards[global.board_selected].scene);

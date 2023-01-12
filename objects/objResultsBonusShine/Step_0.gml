@@ -11,7 +11,7 @@ if (increase) {
 			var times = ["The first", "The second", "And the last"];
 			
 			start_dialogue([
-				string_interp("{0} bonus shine goes to the one that {1}.", times[objResults.bonus_round - 1], bonus.text),
+				string_interp("{0} bonus Shine goes to the one that {1}.", times[objResults.bonus_round - 1], bonus.text),
 				new Message("And this goes to...",, function() {
 					with (objResultsBonusShine) {
 						go_up();

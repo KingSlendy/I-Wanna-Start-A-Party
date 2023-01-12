@@ -7,43 +7,41 @@ state = 0;
 scale = 0;
 angle = 0;
 
-if (is_local_turn()) {
-	if (room != rBoardPallet) {
-		with (objSpaces) {
-			if (image_index == SpaceType.Shine) {
-				other.space_shine = id;
-				break;
-			}
-		}
-	} else {
-		var animation = id;
-		
-		with (objBoardPalletPokemon) {
-			if (!has_shine()) {
-				continue;
-			}
-			
-			var space_record = infinity;
-		
-			with (objSpaces) {
-				if (image_index != SpaceType.PathEvent) {
-					continue;
-				}
-				
-				var dist = point_distance(x + 16, y + 16, other.x, other.y);
-						
-				if (dist < space_record) {
-					space_record = dist;
-					animation.space_shine = id;
-				}
-			}
-
+if (room != rBoardPallet) {
+	with (objSpaces) {
+		if (image_index == SpaceType.Shine) {
+			other.space_shine = id;
 			break;
 		}
 	}
-	
-	space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
+} else {
+	var animation = id;
+		
+	with (objBoardPalletPokemon) {
+		if (!has_shine()) {
+			continue;
+		}
+			
+		var space_record = infinity;
+		
+		with (objSpaces) {
+			if (image_index != SpaceType.PathEvent) {
+				continue;
+			}
+				
+			var dist = point_distance(x + 16, y + 16, other.x, other.y);
+						
+			if (dist < space_record) {
+				space_record = dist;
+				animation.space_shine = id;
+			}
+		}
+
+		break;
+	}
 }
+	
+space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
 
 alarms_init(3);
 

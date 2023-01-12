@@ -105,7 +105,7 @@ function draw_collected_coins(x, y) {
 	draw_set_halign(fa_left);
 }
 
-function draw_coins_price(price) {
+function draw_coins_price(price = "") {
 	return "{SPRITE,sprCoin,0,0,2,0.6,0.6}" + string(price);
 }
 

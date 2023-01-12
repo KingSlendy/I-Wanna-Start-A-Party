@@ -4,17 +4,10 @@ image_alpha = 0;
 sprite = sprite_duplicate(sprite_index);
 sprite_set_speed(sprite, 0, spritespeed_framespersecond);
 sprite_index = sprite;
-image_index = irandom(image_number - 1);
 
-if (trial_is_title(GREEN_DIVING)) {
-	do {
-		image_index = irandom_range(1, image_number - 1);
-	} until (image_index != 1 || objMinigameController.created_green == 0);
-}
-
-if (image_index == 1) {
-	objMinigameController.created_green++;
-}
+do {
+	image_index = irandom(image_number - 1);
+} until (image_index != 1 && (!trial_is_title(GREEN_DIVING) || image_index != 0));
 
 var dist = point_distance(x, y, 400, 304);
 var dir = point_direction(x, y, 400, 304);
@@ -27,4 +20,3 @@ alpha_spd = 0.01;
 scale_spd = 0.006;
 xcenter = x;
 ycenter = y;
-front = false;

@@ -182,7 +182,7 @@ function skin_init() {
 		new Skin("Holic", "Anti The Holic", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
 		new Skin("Corn", "Corn", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
 		new Skin("Fubuki", "Shirakami Fubuki", "Holocure", 81, "MauriPlays!", 1000),
-		new Skin("Ringo", "Happy Ringo", "Original", 29, "Kogami Takara", 2000)
+		new Skin("Ringo", "Happy Ringo", "Original", 29, "Kogami Takara", 1000)
 	];
 }
 

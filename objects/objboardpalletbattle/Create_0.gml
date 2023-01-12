@@ -40,7 +40,7 @@ if (win_types[$ self_pokemon.power_type] == other_pokemon.power_type) {
 } else if (self_pokemon.power_type == other_pokemon.power_type) {
 	win_chance = 0.5;
 } else {
-	win_chance = 0.25;
+	win_chance = 0.15;
 	win_favorable = -1;
 }
 

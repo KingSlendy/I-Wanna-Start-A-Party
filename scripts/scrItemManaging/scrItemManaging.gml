@@ -72,7 +72,7 @@ global.board_items = [
 		return (player_info_by_turn().coins >= global.min_shop_coins && global.board_turn < global.max_board_turns);
 	}),
 	
-	new Item(ItemType.Blackhole, "Blackhole", "Summons the blackhole, allowing you to steal coins or shines from other players.", sprItemBlackhole, 30, objItemBlackholeAnimation,, function() {
+	new Item(ItemType.Blackhole, "Blackhole", "Summons the blackhole, allowing you to steal Coins or Shines from other players.", sprItemBlackhole, 30, objItemBlackholeAnimation,, function() {
 		var other_has_things = false;
 		
 		for (var i = 1; i <= global.player_max; i++) {
@@ -91,7 +91,7 @@ global.board_items = [
 		return (player_info_by_turn().coins >= global.min_blackhole_coins && other_has_things);
 	}),
 	
-	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the shine space.", sprItemMirror, 30, objItemMirrorAnimation),
+	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the Shine space.", sprItemMirror, 30, objItemMirrorAnimation),
 	//new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 1000),
 	new Item(ItemType.ItemBag, "Item Bag", "Gives you 3 random items!", sprItemItemBag, 40)
 ];

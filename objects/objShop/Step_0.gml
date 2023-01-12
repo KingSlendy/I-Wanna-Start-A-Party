@@ -63,7 +63,13 @@ if (shopping && is_local_turn()) {
 								global.bag_items = [];
 								
 								repeat (3) {
-									array_push(global.bag_items, global.board_items[irandom(ItemType.Length - 2)]);
+									var item = null;
+									
+									do {
+										item = global.board_items[irandom(ItemType.Length - 2)];
+									} until (room != rBoardNsanity || item.id != ItemType.Reverse);
+									
+									array_push(global.bag_items, item);
 								}
 								
 								var action = function() {

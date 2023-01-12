@@ -126,7 +126,7 @@ alarms_init(4);
 alarm_create(function() {
 	if (global.give_bonus_shines) {
 		start_dialogue([
-			new Message("But first we need to give the bonus shines!\nThey could change the course of the whole game!",, results_bonus)
+			new Message("But first we need to give the bonus Shines!\nThey could change the course of the whole game!",, results_bonus)
 		]);
 	} else {
 		start_dialogue([

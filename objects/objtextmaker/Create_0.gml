@@ -1,7 +1,7 @@
 draw_set_font(fntTitle);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-title_text = "INVITATION";
+title_text = "I WANNA START\nA\nPARTY";
 title_x = 400;
 title_y = 250;
 title_w = string_width(title_text);
@@ -30,6 +30,6 @@ for (var i = 1; i <= 6; i++) {
 
 draw_sprite(title_sprite, 0, floor(title_w / 2), floor(title_h / 2));
 surface_reset_target();
-text_sprite = sprite_create_from_surface(surf, 0, 0, title_w, title_h, false, false, 0, 0);
+text_sprite = sprite_create_from_surface(surf, 0, 0, title_w, title_h, false, false, title_w / 2, title_h / 2);
 surface_free(surf);
 sprite_save(text_sprite, 0, "TEXT.png");

@@ -4,8 +4,7 @@ if (!surface_exists(surf)) {
 
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
-gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
-shader_set(shdDropShadow);
+gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_zero);
 
 with (all) {
 	if (id == other.id || array_any([objPlayerReference, objBloodEmitter, objBlood, objMinigame1vs3_Warping_Stop, objMinigame1vs3_Warping_Next], function(x) { return (object_index == x); }) || sprite_index == -1) {
@@ -23,10 +22,9 @@ with (all) {
 	}
 }
 
-shader_reset();
 surface_reset_target();
 
-draw_surface(surf, 3, 3);
+draw_surface_ext(surf, 3, 3, 1, 1, 0, c_black, 0.75);
 
 event_inherited();
 

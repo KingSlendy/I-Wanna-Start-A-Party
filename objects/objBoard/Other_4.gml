@@ -80,6 +80,7 @@ if (!global.board_started) {
 			global.game_id = "Offline";
 		}
 		
+		shuffle_seed_bag();
 		next_seed_inline();
 		global.initial_rolls = array_sequence(1, 10);
 		array_shuffle(global.initial_rolls);

@@ -1,4 +1,4 @@
-//If camera is close to the shine space location, spawn the object shine
+//If camera is close to the Shine space location, spawn the object Shine
 with (objCamera) {
 	if (other.fade_state != 2) {
 		target_follow = {x: other.space_x + 16, y: other.space_y + 16};

@@ -10,7 +10,7 @@ enum ShineChangeType {
 
 spawned_shine = noone;
 animation_type = ShineChangeType.None;
-final_action = choose_shine;
+final_action = null;
 
 alarm_create(function() {
 	if (spawned_shine == noone) {

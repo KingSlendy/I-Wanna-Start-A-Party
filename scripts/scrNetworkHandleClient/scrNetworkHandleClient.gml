@@ -19,6 +19,7 @@ enum ClientTCP {
 	BoardGameID,
 	BoardPlayerIDs,
 	ModesAction,
+	BoardRandom,
 	PlayerShoot,
 	PlayerKill,
 	#endregion
@@ -360,6 +361,11 @@ f[$ ClientTCP.ModesAction] = function(buffer) {
 		array_push(network_actions, [action, player_id]);
 	}
 }
+
+f[$ ClientTCP.BoardRandom] = function(buffer) {
+	global.board_selected = buffer_read(buffer, buffer_u8);
+}
+
 
 f[$ ClientTCP.PlayerShoot] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);

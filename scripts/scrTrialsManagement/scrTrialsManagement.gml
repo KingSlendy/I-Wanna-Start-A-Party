@@ -116,11 +116,11 @@ function trial_init() {
 		new Trial(PERFECT_AIM, [
 			new Prove(TARGETING_TARGETS),
 			new Prove(GOLF_COURSE)
-		], 500),
+		], 600),
 		
 		new Trial(TOUGH_IGNITION, [
 			new Prove(ROCKET_IGNITION)
-		], 600),
+		], 500),
 		
 		new Trial(GREEN_DIVING, [
 			new Prove(SKY_DIVING)

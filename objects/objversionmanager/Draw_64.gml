@@ -26,3 +26,6 @@ if (downloading) {
 	draw_text(400, 300 + 8, VERSION + " -> " + version);
 	draw_set_halign(fa_left);
 }
+
+draw_set_font(fntTitleCreator);
+draw_text(0, 0, "Press Esc to cancel this operation");

@@ -38,7 +38,7 @@ alarm_create(function() {
 		var players = bonus.max_players();
 
 		for (var i = 0; i < array_length(players); i++) {
-			change_shines(1, ShineChangeType.Spawn, players[i]).final_action = null;
+			change_shines(1, ShineChangeType.Spawn, players[i]);
 		}
 
 		alarm_call(1, 3);

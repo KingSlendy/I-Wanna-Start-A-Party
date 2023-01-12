@@ -1,3 +1,5 @@
+LIVE
+
 if (!surface_exists(surf)) {
 	surf = surface_create(344, 408 - 112);
 }
@@ -26,6 +28,18 @@ draw_sprite_ext(global.actions.up.bind(), 0, 400, 16, 0.5, 0.5, 0, c_white, 1);
 draw_sprite_ext(global.actions.down.bind(), 0, 400, draw_y + draw_h + 16, 0.5, 0.5, 0, c_white, 1);
 controls_text.set(draw_action(global.actions.jump) + " Buy");
 controls_text.draw(draw_x, draw_y + draw_h + 5);
-controls_text.set(draw_action(global.actions.shoot) + " Cancel");
+controls_text.set(draw_action(global.actions.shoot) + " Back");
 controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
+
+var sorting = "";
+
+switch (store_sort[store_row]) {
+	case 0: sorting = "Default"; break;
+	case 1: sorting = "Price (Ascending)"; break;
+	case 2: sorting = "Price (Descending)"; break;
+	case 3: sorting = "Name"; break;
+}
+
+controls_text.set(draw_action(global.actions.misc) + " Sorted By: " + sorting);
+controls_text.draw(draw_x, draw_y + draw_h + 230);
 draw_collected_coins(400, draw_y + draw_h + 60);

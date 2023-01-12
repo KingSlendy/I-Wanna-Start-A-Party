@@ -100,5 +100,65 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 		fade_start = true;
 		music_fade();
 		audio_play_sound(global.sound_cursor_back, 0, false);
+		exit;
+	}
+	
+	if (global.actions.misc.pressed()) {
+		/*
+			0: Release
+			1: Price (ascending)
+			2: Price (descending)
+			3: Name
+		*/
+
+		store_sort[store_row] = (store_sort[store_row] + 4 + 1) % 4;
+		var row = store_stock[store_row];
+
+		switch (store_sort[store_row]) {
+			case 0:
+				array_sort(row, function(a, b) { return (a.index - b.index); });
+				break;
+				
+			case 1:
+				array_sort(row, function(a, b) {
+					var price_a = (a.has()) ? 0 : a.price;
+					var price_b = (b.has()) ? 0 : b.price;
+					
+					if (price_a == price_b) {
+						return (a.index - b.index);
+					}
+					
+					return (price_a - price_b);
+				});
+				break;
+				
+			case 2:
+				array_sort(row, function(a, b) {
+					var price_a = (a.has()) ? 0 : a.price;
+					var price_b = (b.has()) ? 0 : b.price;
+					
+					if (price_a == price_b) {
+						return (a.index - b.index);
+					}
+					
+					return (price_b - price_a);
+				});
+				break;
+				
+			case 3:
+				array_sort(row, function(a, b) {
+					var name_a = a.element().name;
+					var name_b = b.element().name;
+					
+					if (name_a == name_b) {
+						return 0;
+					}
+					
+					return (name_a < name_b) ? -1 : 1;
+				});
+				break;
+		}
+		
+		audio_play_sound(global.sound_cursor_select, 0, false);
 	}
 }

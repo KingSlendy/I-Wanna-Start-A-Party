@@ -31,9 +31,9 @@ function save_variables() {
 	//Misc
 	global.saved_times = 0;
 	global.ellapsed_time = 0;
-	global.player_name = "Player";
-	global.ip = "startaparty.sytes.net";
-	global.port = "33321";
+	global.player_name = DEFAULT_PLAYER;
+	global.ip = DEFAULT_URL;
+	global.port = DEFAULT_PORT;
 
 	//Board information
 	global.board_games = {};

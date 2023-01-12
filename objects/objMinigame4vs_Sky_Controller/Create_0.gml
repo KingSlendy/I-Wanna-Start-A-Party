@@ -18,8 +18,6 @@ action_end = function() {
 points_draw = true;
 player_type = objPlayerDir8;
 
-created_green = 0;
-
 trophy_saves = true;
 
 alarm_override(1, function() {
@@ -36,11 +34,6 @@ alarm_override(2, function() {
 });
 
 alarm_create(4, function() {
-	if (instance_exists(objMinigame4vs_Sky_Save)) {
-		objMinigame4vs_Sky_Save.front = true;
-	}
-	
-	created_green = 0;
 	var created_saves = [];
 	
 	for (var r = 0; r < 5; r++) {
@@ -49,15 +42,12 @@ alarm_create(4, function() {
 		}
 	}
 	
-	if (created_green == 0) {
-		array_shuffle(created_saves);
+	array_shuffle(created_saves);
 			
-		with (array_pop(created_saves)) {
-			image_index = 1;
-		}
+	with (array_pop(created_saves)) {
+		image_index = 1;
 	}
 	
-	objPlayerBase.touched = false;
 	alarm_call(4, 2.2);
 });
 
