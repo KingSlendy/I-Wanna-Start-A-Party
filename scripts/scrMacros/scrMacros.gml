@@ -7,7 +7,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "0.9.6.11"
+#macro VERSION "0.9.7.0"
 
 //Network
 #macro DEFAULT_URL "https://iwannastartaparty.com"
