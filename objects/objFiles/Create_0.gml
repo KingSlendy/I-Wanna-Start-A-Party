@@ -189,7 +189,7 @@ upper_text = "";
 
 finish = false;
 online_texts = [
-	DEFAULT_URL,
+	DEFAULT_IP,
 	DEFAULT_PORT
 ]
 

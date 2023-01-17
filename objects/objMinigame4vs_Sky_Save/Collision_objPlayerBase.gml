@@ -2,15 +2,15 @@ if (image_xscale < 3.5 || image_alpha < 0.5 || other.touched || objMinigameContr
 	exit;
 }
 
-with (other) {
-	touched = true;
-	alarm_frames(0, 20);
-}
-
 alarm[0] = 1;
 
 if (!is_player_local(other.network_id)) {
 	exit;
+}
+
+with (other) {
+	touched = true;
+	alarm_frames(0, 20);
 }
 
 var points = -1;

@@ -46,13 +46,15 @@ if (fade_start) {
 						} else {
 							if (global.board_selected == -1) {
 								fade_start = true;
-								break;
+								exit;
 							}
 						}
 					}
 					
+					shuffle_seed_bag();
+					reset_seed_inline();
 					room_goto(global.boards[global.board_selected].scene);
-					break;
+					exit;
 					
 				case 1:
 					var check = array_index(global.all_ai_actions, null);
@@ -62,7 +64,7 @@ if (fade_start) {
 					}
 				
 					room_goto(rModes);
-					break;
+					exit;
 					
 				case 2:
 					with (objPlayerBase) {
@@ -70,11 +72,11 @@ if (fade_start) {
 					}
 				
 					room_goto(rMinigameOverview);
-					break;
+					exit;
 					
 				case 3:
 					trial_start();
-					break;
+					exit;
 			}
 			
 			exit;

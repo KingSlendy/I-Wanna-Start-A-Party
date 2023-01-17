@@ -72,6 +72,8 @@ with (objPlayerBase) {
 	change_to_object(objPlayerBase);
 }
 
+instance_destroy(objPlayerInfo);
+
 var check = array_index(global.all_ai_actions, null);
 	
 if (check != -1) {

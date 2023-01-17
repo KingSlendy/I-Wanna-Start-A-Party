@@ -3,6 +3,10 @@ if (!IS_BOARD) {
 }
 
 if (!global.board_started) {
+	with (objPlayerBase) {
+		change_to_object(objPlayerBoard);
+	}
+	
 	if (array_length(global.player_game_ids) > 0) { //Load board
 		global.board_started = true;
 		var board = global.board_games[$ global.game_id];
@@ -10,8 +14,10 @@ if (!global.board_started) {
 		global.board_turn = board.saved_board.saved_board_turn;
 		global.minigame_history = board.saved_board.saved_minigame_history;
 		global.minigame_type_history = board.saved_board.saved_minigame_type_history;
-		global.board_light = board.saved_board.saved_board_light;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
+		
+		//Hyrule Board
+		global.board_light = board.saved_board.saved_board_light;
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
 			var position = board.saved_board.saved_shine_positions[i];
@@ -33,6 +39,20 @@ if (!global.board_started) {
 					break;
 				}
 			}
+		}
+		
+		//World Board
+		with (objBoardWorldNegaScott) {
+			var position;
+			
+			if (object_index == objBoardWorldNegaGhost) {
+				position = board.saved_board.saved_nega_ghost_position;
+			} else {
+				position = board.saved_board.saved_nega_scott_position;
+			}
+			
+			x = position.x;
+			y = position.y;
 		}
 	
 		for (var i = 1; i <= global.player_max; i++) {
@@ -64,6 +84,7 @@ if (!global.board_started) {
 				global.bonus_shines[j].scores[player_info.turn - 1] = saved_player.saved_bonus_shines_score[j];
 			}
 			
+			//Pallet Board
 			player_info.pokemon = saved_player.saved_pokemon;
 		}
 	
@@ -131,4 +152,6 @@ switch (room) {
 		layer_background_xscale(layer_back_id, camera_get_view_width(view_camera[0]) / sprite_get_width(sprBkgBoardNsanity));
 		layer_background_yscale(layer_back_id, camera_get_view_height(view_camera[0]) / sprite_get_height(sprBkgBoardNsanity));
 		break;
+		
+	case rBoardWorld: global.shine_spawn_count = 0; break;
 }

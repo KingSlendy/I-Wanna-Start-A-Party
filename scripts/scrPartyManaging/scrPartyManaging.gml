@@ -1,5 +1,5 @@
 #region Initialization Management
-#macro BOARD_NORMAL (player_info_by_turn().item_effect != ItemType.Reverse)
+#macro BOARD_NORMAL (global.player_turn > global.player_max || player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {
 	Blue,
@@ -68,6 +68,10 @@ function is_local_turn() {
 		return false;
 	}
 	
+	if (global.player_turn > global.player_max) {
+		return true;
+	}
+	
 	var player_info = player_info_by_turn(global.player_turn);
 	
 	with (objPlayerBase) {
@@ -92,6 +96,10 @@ function focused_player() {
 		}
 	}
 	
+	if (room == rBoardWorld && global.player_turn > global.player_max) {
+		return focus_player_by_turn(global.player_turn);
+	}
+	
 	with (objPlayerBase) {
 		var player_info = player_info_by_id(network_id);
 		
@@ -114,6 +122,14 @@ function focus_player_by_id(player_id = global.player_id) {
 }
 
 function focus_player_by_turn(turn = global.player_turn) {
+	if (room == rBoardWorld && turn > global.player_max) {
+		with (objBoardWorldNegaScott) {
+			if (turn == network_id) {
+				return id;
+			}
+		}
+	}
+	
 	return focus_player_by_id(player_info_by_turn(turn).network_id);
 }
 
@@ -366,7 +382,7 @@ function tell_turns() {
 	]);
 }
 
-function turn_start() {
+function turn_start(network = true) {
 	switch (room) {
 		case rBoardNsanity:
 			global.shine_price = 20;
@@ -394,6 +410,14 @@ function turn_start() {
 		return;
 	}
 	
+	if (global.player_turn > global.player_max) {
+		with (objBoard) {
+			alarm_frames(5, 1);
+		}
+		
+		return;
+	}
+	
 	var freezed = (player_info_by_turn().item_effect == ItemType.Ice);
 	
 	if (freezed) {
@@ -402,7 +426,7 @@ function turn_start() {
 		}
 	}
 	
-	if (is_local_turn()) {
+	if (network && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.TurnStart);
 		network_send_tcp_packet();
@@ -413,18 +437,22 @@ function turn_start() {
 	}
 }
 
-function turn_next() {
-	var player_info = player_info_by_turn();
-	player_info.item_used = null;
-	player_info.item_effect = null;
+function turn_next(network = true) {
+	if (global.player_turn <= global.player_max) {
+		var player_info = player_info_by_turn();
+		player_info.item_used = null;
+		player_info.item_effect = null;
+	}
 	
-	if (is_local_turn()) {
+	if (network && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.TurnNext);
 		network_send_tcp_packet();
 	}
 	
-	if (++global.player_turn > global.player_max) {
+	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 2;
+	
+	if (++global.player_turn > max_turns) {
 		global.player_turn = global.player_max;
 		
 		if (is_local_turn()) {
@@ -455,7 +483,7 @@ function board_advance() {
 		var next_space;
 		
 		if (space != noone) {
-			if (space.image_index = SpaceType.Shine && room == rBoardNsanity) {
+			if (room == rBoardNsanity && space.image_index = SpaceType.Shine) {
 				board_nsanity_return();
 				break;
 			}
@@ -577,7 +605,7 @@ function show_dice(player_id) {
 	d.network_id = player_id;
 	focus_player.can_jump = true;
 	
-	if (is_local_turn()) {
+	if (is_local_turn() && global.player_turn <= global.player_max) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowDice);
 		buffer_write_data(buffer_u8, player_id);
@@ -621,7 +649,7 @@ function roll_dice() {
 	instance_destroy();
 	audio_play_sound(sndDiceHit, 0, false);
 	
-	if (global.board_started) {
+	if (global.board_started && global.player_turn <= global.player_max) {
 		var player_info = player_info_by_turn();
 		bonus_shine_by_id(BonusShines.MostRoll).increase_score(global.player_turn, roll);
 	} else {
@@ -668,7 +696,7 @@ function roll_dice() {
 		objDiceRoll.target_x = focused_player().x;
 	}
 	
-	if (is_local_turn() || !global.board_started) {
+	if ((is_local_turn() || !global.board_started) && global.player_turn <= global.player_max) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.RollDice);
 		buffer_write_data(buffer_u8, network_id);
@@ -1197,29 +1225,33 @@ function all_item_stats(player_info) {
 
 #region Event Management
 function choose_shine() {
-	var choices = [];
+	if (room != rBoardWorld) {
+		var choices = [];
 	
-	if (room != rBoardPallet) {
-		with (objSpaces) {
-			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
-				array_push(choices, id);
+		if (room != rBoardPallet) {
+			with (objSpaces) {
+				if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
+					array_push(choices, id);
+				}
+			}
+		} else {
+			with (objBoardPalletPokemon) {
+				if (!has_shine()) {
+					array_push(choices, id);
+				}
 			}
 		}
-	} else {
-		with (objBoardPalletPokemon) {
-			if (!has_shine()) {
-				array_push(choices, id);
-			}
+	
+		array_shuffle(choices);
+		var space = array_pop(choices);
+	
+		if (room != rBoardPallet) {
+			space.image_index = SpaceType.Shine;
+		} else {
+			space = {x: space.x + 32, y: space.y + 32};
 		}
-	}
-	
-	array_shuffle(choices);
-	var space = array_pop(choices);
-	
-	if (room != rBoardPallet) {
-		space.image_index = SpaceType.Shine;
 	} else {
-		space = {x: space.x + 32, y: space.y + 32};
+		space = {x: objBoardWorldNegaScott.x, y: objBoardWorldNegaScott.y};
 	}
 	
 	place_shine(space.x, space.y);
@@ -1232,29 +1264,31 @@ function choose_shine() {
 }
 
 function place_shine(space_x, space_y) {
-	with (focused_player()) {
-		if (room != rBoardPallet) {
-			if (!instance_exists(objShine)) {
-				with (objSpaces) {
-					if (space_shine) {
-						image_index = SpaceType.Blue;
+	if (room != rBoardWorld) {
+		with (focused_player()) {
+			if (room != rBoardPallet) {
+				if (!instance_exists(objShine)) {
+					with (objSpaces) {
+						if (space_shine) {
+							image_index = SpaceType.Blue;
+						}
 					}
-				}
-			} else {
-				with (instance_place(x, y, objSpaces)) {
-					if (space_shine) {
-						image_index = SpaceType.Blue;
+				} else {
+					with (instance_place(x, y, objSpaces)) {
+						if (space_shine) {
+							image_index = SpaceType.Blue;
+						}
 					}
 				}
 			}
 		}
-	}
 	
-	if (room != rBoardPallet) {
-		with (objSpaces) {
-			if (x == space_x && y == space_y) {
-				image_index = SpaceType.Shine;
-				break;
+		if (room != rBoardPallet) {
+			with (objSpaces) {
+				if (x == space_x && y == space_y) {
+					image_index = SpaceType.Shine;
+					break;
+				}
 			}
 		}
 	}

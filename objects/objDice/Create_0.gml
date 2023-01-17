@@ -1,7 +1,7 @@
 event_inherited();
 box_activate = roll_dice;
 
-if (global.board_started) {
+if (global.board_started && global.player_turn <= global.player_max) {
 	player_info = player_info_by_turn();
 } else {
 	player_info = {item_effect: -1};

@@ -77,6 +77,21 @@ function space_glow(state) {
 }
 
 function space_passing_event() {
+	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
+	var is_change = (array_count(space_array, null) < 3);
+	
+	if (global.player_turn > global.player_max) {
+		if (array_any([SpaceType.Shop, SpaceType.Blackhole], function(x) { return (image_index == x); })) {
+			return 2;
+		}
+		
+		if (is_change) {
+			space_next = space_array[irandom(array_length(space_array) - 1)];
+		}
+		
+		return 0;
+	}
+	
 	var player_info = player_info_by_turn();
 	
 	switch (image_index) {
@@ -198,9 +213,7 @@ function space_passing_event() {
 			return 1;
 	}
 	
-	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
-	
-	if (array_count(space_array, null) < 3) {
+	if (is_change) {
 		space_choose_path();
 		return 1;
 	}
@@ -213,6 +226,14 @@ function space_passing_event() {
 }
 
 function space_finish_event() {
+	if (global.player_turn > global.player_max) {
+		with (objBoard) {
+			alarm_frames(4, 50);
+		}
+		
+		return;
+	}
+	
 	change_space(image_index);
 	
 	switch (image_index) {

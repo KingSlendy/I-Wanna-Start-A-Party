@@ -19,7 +19,7 @@ if (socket < 0) {
 
 network_set_config(network_config_connect_timeout, 10000);
 network_set_config(network_config_use_non_blocking_socket, true);
-network_connect_raw_async(socket, DEFAULT_URL, 33320);
+network_connect_raw_async(socket, DEFAULT_IP, 33320);
 
 function occurred_error() {
 	text = "An error ocurred...";

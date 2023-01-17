@@ -73,3 +73,5 @@ trial_init();
 trial_info_reset();
 skin_init();
 reaction_init();
+
+print(network_resolve("iwannastartaparty.com"));

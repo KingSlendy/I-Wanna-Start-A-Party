@@ -4,8 +4,9 @@ network_mode = PlayerDataMode.Heartbeat;
 skin = null;
 ai = false;
 send_timer = 0;
-lost = false;
+online = true;
 draw = true;
+lost = false;
 frozen = false;
 
 function change_to_object(obj) {
@@ -38,5 +39,5 @@ function change_to_object(obj) {
 alarms_init(12);
 
 alarm_create(11, function() {
-	player_disconnection(network_id);
+	player_leave(network_id);
 });

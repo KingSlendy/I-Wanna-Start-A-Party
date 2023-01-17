@@ -10,7 +10,7 @@
 #macro VERSION "0.9.7.0"
 
 //Network
-#macro DEFAULT_URL "https://iwannastartaparty.com"
+#macro DEFAULT_IP "iwannastartaparty.com"
 #macro DEFAULT_PORT "33321"
 #macro DEFAULT_PLAYER "Player"
 #macro FAILCHECK_ID 121

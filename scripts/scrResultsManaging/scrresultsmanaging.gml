@@ -8,10 +8,18 @@ function BonusShine(text) constructor {
 	self.reset_scores();
 	
 	static increase_score = function(player_turn = global.player_turn, amount = 1) {
+		if (player_turn > global.player_max) {
+			return;
+		}
+		
 		self.scores[player_turn - 1] += amount;
 	}
 	
 	static set_score = function(player_turn = global.player_turn, score = 0) {
+		if (player_turn > global.player_max) {
+			return;
+		}
+		
 		self.scores[player_turn - 1] = score;
 	}
 	

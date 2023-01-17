@@ -88,19 +88,6 @@ function network_send_udp_packet() {
 	}
 }
 
-function player_join_all() {
-	for (var i = 1; i <= global.player_max; i++) {
-		if (global.player_client_list[i - 1] == null) {
-			player_join(i);
-		}
-	}
-}
-
-function player_leave_all() {
-	instance_destroy(objPlayerBase);
-	global.player_client_list = array_create(global.player_max, null);
-}
-
 function player_join(id) {
 	if (id != global.player_id) {
 		var player = global.player_client_list[id - 1];
@@ -115,7 +102,7 @@ function player_join(id) {
 			p.network_id = id;
 			global.player_client_list[id - 1] = p;
 		} else {
-			player.draw = true;
+			player.online = true;
 		}
 	} else {
 		var player = instance_create_layer(0, 0, "Actors", objPlayerBase);
@@ -125,25 +112,33 @@ function player_join(id) {
 }
 
 function player_leave(player_id) {
-	if (player_id != global.player_id) {
-		var player = global.player_client_list[player_id - 1];
-		player.draw = false;
-		player.network_name = "";
+	var player = focus_player_by_id(player_id);
+	
+	if (!player.online) {
+		return;
 	}
-}
-
-function player_disconnection(player_id) {
+	
 	if (!global.lobby_started) {
+		//Calculate the maximum ID of all the connected players
+		var max_id = 1;
+		
 		with (objPlayerBase) {
-			player_leave(network_id);
+			if (online) {
+				max_id = max(max_id, network_id);
+			}
 		}
 		
+		//Move the local player by one spot
 		if (player_id < global.player_id) {
-			with (focus_player_by_id(global.player_id)) {
-				network_id--;
-			}
-				
+			focus_player_by_id(global.player_id).network_id--;
 			global.player_id--;
+		}
+		
+		popup(max_id);
+		
+		//Disable the empty spaces that generated after the player disconnected
+		for (var i = global.player_max; i >= max_id; i--) {
+			focus_player_by_id(i).online = false;
 		}
 		
 		return;
@@ -155,13 +150,30 @@ function player_disconnection(player_id) {
 		return;
 	}
 	
-	popup(focus_player_by_id(player_id).network_name + " disconnected.\nExiting lobby.");
+	popup(player.network_name + " disconnected.\nExiting lobby.");
 	network_disable();
+}
+
+function player_join_all() {
+	for (var i = 1; i <= global.player_max; i++) {
+		if (global.player_client_list[i - 1] == null) {
+			player_join(i);
+		}
+	}
+	
+	for (var i = 1; i < global.player_id; i++) {
+		player_join(i);
+	}
+}
+
+function player_leave_all() {
+	instance_destroy(objPlayerBase);
+	global.player_client_list = array_create(global.player_max, null);
 }
 
 function ai_join_all() {
 	for (var i = 2; i <= global.player_max; i++) {
-		if (!focus_player_by_id(i).draw) {
+		if (!focus_player_by_id(i).online) {
 			ai_join(i);
 		}
 	}
@@ -246,44 +258,46 @@ function player_read_data(buffer) {
 	var network_id = buffer_read(buffer, buffer_u8);
 	var instance = global.player_client_list[network_id - 1];
 		
-	if (instance != null) {
-		with (instance) {
-			alarm_call(11, 11);
+	if (instance == null) {
+		return;
+	}
+	
+	with (instance) {
+		alarm_call(11, 11);
+			
+		network_name = buffer_read(buffer, buffer_string);
+		ai = buffer_read(buffer, buffer_bool);
+		network_index = buffer_read(buffer, buffer_u16);
+		network_room = buffer_read(buffer, buffer_u16);
+		sprite_index = buffer_read(buffer, buffer_u16);
+		image_alpha = buffer_read(buffer, buffer_f16);
+		image_xscale = buffer_read(buffer, buffer_s8);
+		image_yscale = buffer_read(buffer, buffer_s8);
+		
+		if (network_index == objPlayerPlatformer || network_index == objPlayerBasic) {
+			xscale = buffer_read(buffer, buffer_s8);
+			orientation = buffer_read(buffer, buffer_s8);
 		}
 		
-		instance.network_name = buffer_read(buffer, buffer_string);
-		instance.ai = buffer_read(buffer, buffer_bool);
-		instance.network_index = buffer_read(buffer, buffer_u16);
-		instance.network_room = buffer_read(buffer, buffer_u16);
-		instance.sprite_index = buffer_read(buffer, buffer_u16);
-		instance.image_alpha = buffer_read(buffer, buffer_f16);
-		instance.image_xscale = buffer_read(buffer, buffer_s8);
-		instance.image_yscale = buffer_read(buffer, buffer_s8);
-		
-		if (instance.network_index == objPlayerPlatformer || instance.network_index == objPlayerBasic) {
-			instance.xscale = buffer_read(buffer, buffer_s8);
-			instance.orientation = buffer_read(buffer, buffer_s8);
-		}
-		
-		instance.image_angle = buffer_read(buffer, buffer_u16);
-		instance.x = buffer_read(buffer, buffer_s32);
-		instance.y = buffer_read(buffer, buffer_s32);
+		image_angle = buffer_read(buffer, buffer_u16);
+		x = buffer_read(buffer, buffer_s32);
+		y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
 			case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
-				instance.image_index = buffer_read(buffer, buffer_u8);
+				image_index = buffer_read(buffer, buffer_u8);
 				break;
 				
 			case PlayerDataMode.Rocket:
-				instance.hp = buffer_read(buffer, buffer_u8);
-				instance.spd = buffer_read(buffer, buffer_s8);
+				hp = buffer_read(buffer, buffer_u8);
+				spd = buffer_read(buffer, buffer_s8);
 				break;
 				
 			case PlayerDataMode.Golf:
-				instance.aiming = buffer_read(buffer, buffer_bool);
-				instance.powering = buffer_read(buffer, buffer_bool);
-				instance.aim_angle = buffer_read(buffer, buffer_u16);
-				instance.aim_power = buffer_read(buffer, buffer_f16);
+				aiming = buffer_read(buffer, buffer_bool);
+				powering = buffer_read(buffer, buffer_bool);
+				aim_angle = buffer_read(buffer, buffer_u16);
+				aim_power = buffer_read(buffer, buffer_f16);
 				break;
 		}
 	}
@@ -367,17 +381,15 @@ function network_reset() {
 	player_leave_all();
 
 	if (room == rFiles && !global.lobby_started) {
-		if (global.lobby_started) {
-			with (objFiles) {
-				online_reading = false;
+		with (objFiles) {
+			online_reading = false;
 		
-				if (menu_type != 3) {
-					menu_type = 1;
-				}
+			if (menu_type != 3) {
+				menu_type = 1;
 			}
-			
-			return;
 		}
+			
+		return;
 	}
 	
 	room_goto(rFiles);

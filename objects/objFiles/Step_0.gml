@@ -108,7 +108,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						break;
 						
 					case 2:
-						execute_shell_simple("https://startapartytest.netlify.app/",,, 0);
+						execute_shell_simple("https://iwannastartaparty.com/",,, 0);
 						break;
 				}
 			}
@@ -235,14 +235,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
 								
-								if (select == 0 && char == ".") {
-									online_texts[select] += char;
-								}
-								
 								if (select == 1) {
 									online_texts[select] += string_digits(char);
 								} else {
-									online_texts[select] += string_letters(char) + string_digits(char);
+									online_texts[select] += char;
 								}
 							}
 							
@@ -250,7 +246,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 						
 							if (string_length(online_texts[select]) == 0) {
 								switch (select) {
-									case 0: online_texts[select] = DEFAULT_URL; break;
+									case 0: online_texts[select] = DEFAULT_IP; break;
 									case 1: online_texts[select] = DEFAULT_PORT; break;
 								}
 							}
@@ -328,7 +324,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							var player_count = 0;
 						
 							with (objPlayerBase) {
-								player_count += draw;
+								player_count += online;
 							}
 						
 							if (player_count < 2) {

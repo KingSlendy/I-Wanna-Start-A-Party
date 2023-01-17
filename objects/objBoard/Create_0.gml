@@ -6,10 +6,6 @@ if (instance_number(object_index) > 1) {
 fade_start = true;
 fade_alpha = 1;
 
-with (objPlayerBase) {
-	change_to_object(objPlayerBoard);
-}
-
 //Board controllers
 global.board_started = false;
 global.board_turn = 1;
@@ -100,8 +96,19 @@ alarm_create(function() {
 alarm_create(function() {});
 
 alarm_create(function() {
-	if (is_local_turn()) {
-		turn_next();
+	turn_next(false);
+});
+
+//World Board
+alarm_create(function() {
+	next_seed_inline();
+	show_dice(focused_player().network_id);
+	alarm_frames(6, irandom_range(25, 75));
+});
+
+alarm_create(function() {
+	with (focused_player()) {
+		board_jump();
 	}
 });
 
@@ -136,7 +143,7 @@ alarm_create(11, function() {
 
 	var stale_frames = random_range(0.1, 0.3);
 
-	if (global.board_started) {
+	if (global.board_started && global.player_turn <= global.player_max) {
 		var player_info = player_info_by_turn();
 		var actions = check_player_actions_by_id(player_info.network_id);
 

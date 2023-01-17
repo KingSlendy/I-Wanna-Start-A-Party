@@ -34,9 +34,7 @@ if (place_meeting(x, y + vspeed, objBlock)) {
 	vspeed *= -0.8;
 }
 
-if (place_meeting(x, y, objBlock)) {
-	while (!place_meeting(x, y, objBlock)) {
-		x += lengthdir_x(1, point_direction(x, y, room_width / 2, room_height / 2));
-		y += lengthdir_y(1, point_direction(x, y, room_width / 2, room_height / 2));
-	}
+while (place_meeting(x, y, objBlock)) {
+	x += lengthdir_x(1, point_direction(x, y, room_width / 2, room_height / 2));
+	y += lengthdir_y(1, point_direction(x, y, room_width / 2, room_height / 2));
 }

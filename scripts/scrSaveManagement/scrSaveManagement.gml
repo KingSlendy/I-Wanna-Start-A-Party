@@ -32,7 +32,7 @@ function save_variables() {
 	global.saved_times = 0;
 	global.ellapsed_time = 0;
 	global.player_name = DEFAULT_PLAYER;
-	global.ip = DEFAULT_URL;
+	global.ip = DEFAULT_IP;
 	global.port = DEFAULT_PORT;
 
 	//Board information
@@ -121,6 +121,7 @@ function load_file() {
 		global.collected_boards = array_sequence(0, 3);
 	}
 	
+	global.collected_boards = array_unique(global.collected_boards);
 	global.seen_minigames = save.main_game.saved_seen_minigames;
 	
 	try {
@@ -128,6 +129,8 @@ function load_file() {
 	} catch (_) {
 		global.collected_trials = [];
 	}
+	
+	global.collected_trials = array_unique(global.collected_trials);
 	
 	try {
 		global.beaten_trials = save.main_game.saved_beaten_trials;
@@ -137,6 +140,7 @@ function load_file() {
 	
 	global.beaten_trials = array_unique(global.beaten_trials);
 	global.collected_skins = save.main_game.saved_collected_skins;
+	global.collected_skins = array_unique(global.collected_skins);
 	
 	try {
 		global.collected_reactions = save.main_game.saved_collected_reactions;
@@ -144,6 +148,7 @@ function load_file() {
 		global.collected_reactions = array_sequence(0, 4);
 	}
 	
+	global.collected_reactions = array_unique(global.collected_reactions);
 	global.collected_trophies = save.main_game.saved_collected_trophies;
 	
 	try {
@@ -183,10 +188,16 @@ function save_board() {
 			saved_board_turn: global.board_turn,
 			saved_minigame_history: global.minigame_history,
 			saved_minigame_type_history: global.minigame_type_history,
-			saved_board_light: global.board_light,
 			saved_give_bonus_shines: global.give_bonus_shines,
 			saved_shine_positions: [],
-			saved_spaces: []
+			saved_spaces: [],
+			
+			//Hyrule Board
+			saved_board_light: global.board_light,
+			
+			//World Board
+			saved_nega_scott_position: {},
+			saved_nega_ghost_position: {}
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -198,6 +209,14 @@ function save_board() {
 	
 	with (objSpaces) {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
+	}
+	
+	with (objBoardWorldNegaScott) {
+		if (object_index == objBoardWorldNegaGhost) {
+			board.saved_board.saved_nega_ghost_position = {x: self.x, y: self.y};	
+		} else {
+			board.saved_board.saved_nega_scott_position = {x: self.x, y: self.y};
+		}
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
@@ -213,6 +232,8 @@ function save_board() {
 			saved_item_effect: player_info.item_effect ?? -1,
 			saved_position: [player.x, player.y],
 			saved_bonus_shines_score: [],
+			
+			//Pallet Board
 			saved_pokemon: player_info.pokemon
 		};
 		

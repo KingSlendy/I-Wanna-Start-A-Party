@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "objBoardHotlandAnnoyingDog",
   "spriteId": {
-    "name": "sprHotlandAnnoyingDog",
-    "path": "sprites/sprHotlandAnnoyingDog/sprHotlandAnnoyingDog.yy",
+    "name": "sprBoardHotlandAnnoyingDog",
+    "path": "sprites/sprBoardHotlandAnnoyingDog/sprBoardHotlandAnnoyingDog.yy",
   },
   "solid": false,
   "visible": true,

@@ -194,7 +194,7 @@ f[$ ClientTCP.PlayerConnect] = function(buffer) {
 
 f[$ ClientTCP.PlayerDisconnect] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
-	player_disconnection(player_id);
+	player_leave(player_id);
 }
 
 f[$ ClientTCP.CreateLobby] = function(buffer) {

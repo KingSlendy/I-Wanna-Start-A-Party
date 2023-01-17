@@ -64,6 +64,20 @@ for (var i = 0; i < array_length(info.shine_positions); i++) {
 	}
 }
 
+//World Board
+with (objBoardWorldNegaScott) {
+	var position;
+			
+	if (object_index == objBoardWorldNegaGhost) {
+		position = other.info.nega_ghost_position;
+	} else {
+		position = other.info.nega_scott_position;
+	}
+			
+	x = position.x;
+	y = position.y;
+}
+
 alarms_init(3);
 
 alarm_create(function() {
