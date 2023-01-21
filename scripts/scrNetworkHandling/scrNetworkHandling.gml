@@ -86,23 +86,26 @@ function network_send_udp_packet() {
 	}
 }
 
-function player_join(player_id) {
+function player_join(player_id, player_name = "") {
+	var player;
+	
 	if (player_id == global.player_id) {
-		var player = instance_create_layer(0, 0, "Actors", objPlayerBase);
+		player = instance_create_layer(0, 0, "Actors", objPlayerBase);
 		player.network_id = global.player_id;
 		player.network_name = global.player_name;
 		return;
 	}
 	
-	var player = focus_player_by_id(player_id);
+	player = focus_player_by_id(player_id);
 		
 	if (player != null && player.ai) {
 		instance_destroy(player);
 	}
 		
 	if (player == null) {
-		var p = instance_create_layer(0, 0, "Actors", objNetworkPlayer);
-		p.network_id = player_id;
+		player = instance_create_layer(0, 0, "Actors", objNetworkPlayer);
+		player.network_id = player_id;
+		player.network_name = player_name;
 	} else {
 		player.online = true;
 	}
@@ -134,6 +137,7 @@ function player_leave(player_id) {
 		//Disable the empty spaces that generated after the player disconnected
 		for (var i = global.player_max; i >= max_id; i--) {
 			with (focus_player_by_id(i)) {
+				network_name = "";
 				online = false;
 			}
 		}
@@ -210,7 +214,6 @@ function player_write_data() {
 	buffer_write_action(ClientUDP.PlayerData);
 	buffer_write_data(buffer_u8, network_mode);
 	buffer_write_data(buffer_u8, network_id);
-	buffer_write_data(buffer_string, network_name);
 	buffer_write_data(buffer_bool, ai);
 	buffer_write_data(buffer_u16, object_index);
 	buffer_write_data(buffer_u16, room);
@@ -267,7 +270,6 @@ function player_read_data(buffer) {
 	with (instance) {
 		alarm_call(11, 11);
 		
-		network_name = buffer_read(buffer, buffer_string);
 		ai = buffer_read(buffer, buffer_bool);
 		network_index = buffer_read(buffer, buffer_u16);
 		network_room = buffer_read(buffer, buffer_u16);

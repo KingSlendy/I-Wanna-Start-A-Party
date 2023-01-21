@@ -8,12 +8,15 @@ enum ClientTCP {
 	#region Networking
 	ReceiveMasterID,
 	ReceiveID,
+	ReceiveName,
+	Heartbeat,
 	PlayerConnect,
 	PlayerDisconnect,
 	CreateLobby,
 	JoinLobby,
 	LeaveLobby,
 	LobbyList,
+	LobbyPlayers,
 	LobbyStart,
 	LobbyKick,
 	BoardGameID,
@@ -22,7 +25,6 @@ enum ClientTCP {
 	BoardRandom,
 	PlayerShoot,
 	PlayerKill,
-	Heartbeat,
 	#endregion
 	
 	#region Interactables
@@ -188,9 +190,18 @@ f[$ ClientTCP.ReceiveID] = function(buffer) {
 	}
 }
 
+f[$ ClientTCP.ReceiveName] = function(buffer) {
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.ReceiveName);
+	buffer_write_data(buffer_u64, global.master_id);
+	buffer_write_data(buffer_text, global.player_name);
+	network_send_tcp_packet();
+}
+
 f[$ ClientTCP.PlayerConnect] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
-	player_join(player_id);
+	var player_name = buffer_read(buffer, buffer_string);
+	player_join(player_id, player_name);
 }
 
 f[$ ClientTCP.PlayerDisconnect] = function(buffer) {
@@ -294,6 +305,20 @@ f[$ ClientTCP.LobbyList] = function(buffer) {
 			upper_type = menu_type;
 			upper_text = "LOBBY DATA";
 			lobby_selected = 0;
+		}
+	}
+}
+
+f[$ ClientTCP.LobbyPlayers] = function(buffer) {
+	for (var i = 1; i <= global.player_max; i++) {
+		var name = buffer_read(buffer, buffer_string);
+		
+		if (i == global.player_id) {
+			continue;
+		}
+		
+		with (focus_player_by_id(i)) {
+			network_name = name;
 		}
 	}
 }

@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmBoardHotland",
-  "conversionMode": 0,
+  "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
   "preload": false,
@@ -14,7 +14,7 @@
     "name": "audiogroup_BGM",
     "path": "audiogroups/audiogroup_BGM",
   },
-  "soundFile": "bgmBoardHotland.mp3",
+  "soundFile": "bgmBoardHotland.ogg",
   "duration": 142.248,
   "parent": {
     "name": "Party",

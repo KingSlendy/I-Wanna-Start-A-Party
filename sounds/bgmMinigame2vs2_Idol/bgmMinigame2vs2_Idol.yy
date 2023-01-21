@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmMinigame2vs2_Idol",
-  "conversionMode": 0,
+  "conversionMode": 1,
   "compression": 1,
   "volume": 1.0,
   "preload": false,

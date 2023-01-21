@@ -49,7 +49,7 @@ mlp[$ bgmTrophies] = new LoopPoint(1.657, 60.433);
 #region Boards
 mlp[$ bgmBoardIsland] = new LoopPoint(5.377, 68.542);
 mlp[$ bgmBoardIslandNight] = new LoopPoint(5.338, 68.513);
-mlp[$ bgmBoardHotland] = new LoopPoint(37.010, 110.858);
+mlp[$ bgmBoardHotland] = new LoopPoint(37.083, 110.929);
 mlp[$ bgmBoardHotlandAnnoyingDog] = new LoopPoint(0.005, 36.102);
 mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
 mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
