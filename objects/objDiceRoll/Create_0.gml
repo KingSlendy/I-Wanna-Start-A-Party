@@ -56,7 +56,7 @@ alarm_create(function() {
 		return;
 	}
 	
-	if (global.player_turn <= global.player_max) {
+	if (is_player_turn()) {
 		if (player_info_by_id(network_id).item_effect == ItemType.TripleDice) {
 			if (network_id == global.player_id) {
 				if (global.dice_roll >= 25) {

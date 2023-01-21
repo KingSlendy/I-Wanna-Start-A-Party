@@ -47,6 +47,7 @@ alarm_create(function() {
 	} else {
 		spawned_shine.vspeed = -6;
 		spawned_shine.losing = true;
+		audio_play_sound(sndShineLose, 0, false);
 	}
 });
 

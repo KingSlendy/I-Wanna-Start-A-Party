@@ -2,6 +2,7 @@ event_inherited();
 width = 400;
 height = 300;
 stock = [];
+timer = 0;
 
 if (is_local_turn()) {
 	for (var i = 0; i < array_length(global.board_items); i++) {

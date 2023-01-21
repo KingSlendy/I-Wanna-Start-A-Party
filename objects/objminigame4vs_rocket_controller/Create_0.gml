@@ -28,6 +28,14 @@ minigame_players = function() {
 }
 
 minigame_camera = CameraMode.Center;
+action_end = function() {
+	with (objPlayerBase) {
+		if (is_player_local(network_id)) {
+			audio_stop_sound(audio_idle_looping);
+		}
+	}
+}
+
 player_type = objPlayerRocket;
 
 alarm_override(11, function() {

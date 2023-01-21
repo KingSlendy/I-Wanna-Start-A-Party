@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Pallet",
-    "path": "folders/Sprites/Objects/Party/Pallet.yy",
+    "path": "folders/Sprites/Objects/Party/Events/Pallet.yy",
   },
 }

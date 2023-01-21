@@ -1,5 +1,4 @@
 depth = layer_get_depth("Marks") + 1;
-player_id = 0;
 shot = false;
 stopped = false;
 
@@ -8,9 +7,11 @@ function sledge_shoot(network = true) {
 		return;
 	}
 	
-	instance_create_layer(x + sprite_width, y + 8, "Actors", objMinigame4vs_Jingle_Snowflake);
+	instance_create_layer(x + sprite_width, y + 8, "Actors", objMinigame4vs_Jingle_Snowflake, {
+		sledge: id
+	});
+	
 	shot = true;
-	alarm_call(2, 1);
 	
 	if (network) {
 		buffer_seek_begin();
@@ -61,7 +62,7 @@ function sledge_hit(network = true) {
 	}
 }
 
-alarms_init(3);
+alarms_init(2);
 
 alarm_create(function() {
 	if (objMinigameController.info.is_finished) {
@@ -78,8 +79,4 @@ alarm_create(function() {
 
 alarm_create(function() {
 	image_alpha = 1;
-});
-
-alarm_create(function() {
-	shot = false;
 });

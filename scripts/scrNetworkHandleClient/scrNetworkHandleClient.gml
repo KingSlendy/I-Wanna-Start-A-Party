@@ -22,6 +22,7 @@ enum ClientTCP {
 	BoardRandom,
 	PlayerShoot,
 	PlayerKill,
+	Heartbeat,
 	#endregion
 	
 	#region Interactables
@@ -652,7 +653,7 @@ f[$ ClientTCP.EndChanceTime] = function(buffer) {
 }
 
 f[$ ClientTCP.ChooseMinigame] = function(buffer) {
-	choose_minigame();
+	choose_minigame(false);
 }
 
 f[$ ClientTCP.StartTheGuy] = function(buffer) {
@@ -1391,10 +1392,9 @@ var f = global.udp_functions;
 
 #region Networking
 f[$ ClientUDP.Initialize] = function(buffer) {
-	global.udp_ready = true;
-			
 	with (objNetworkClient) {
 		alarm_stop(1);
+		alarm_call(2, 1);
 	}
 			
 	buffer_seek_begin();
@@ -1405,7 +1405,7 @@ f[$ ClientUDP.Initialize] = function(buffer) {
 f[$ ClientUDP.Heartbeat] = function(buffer) {
 	if (IS_ONLINE) {
 		with (objNetworkClient) {
-			alarm_call(0, 9);
+			alarm_call(0, 12);
 		}
 	}
 }

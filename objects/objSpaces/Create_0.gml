@@ -77,16 +77,39 @@ function space_glow(state) {
 }
 
 function space_passing_event() {
+	var focus_player = focused_player();
+	
+	if (room == rBoardWorld) {
+		with (focus_player) {
+			var player_collide = (is_player_turn()) ? objBoardWorldScott : objPlayerBoard;
+			var player_collision = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, player_collide, false, true);
+			
+			if (player_collision != noone && (is_player_turn() || (player_collision.object_index != objBoardWorldScott && player_collision.object_index != objBoardWorldNega))) {
+				board_world_scott_interact();
+				return 1;
+			}
+		}
+	}
+	
 	var space_array = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
 	var is_change = (array_count(space_array, null) < 3);
 	
-	if (global.player_turn > global.player_max) {
-		if (array_any([SpaceType.Shop, SpaceType.Blackhole], function(x) { return (image_index == x); })) {
+	if (!is_player_turn()) {
+		if (is_change) {
+			next_seed_inline();
+			var space_valid = array_filter(space_array, function(x) { return (x != null); });
+			space_next = space_valid[irandom(array_length(space_valid) - 1)];
 			return 2;
 		}
 		
-		if (is_change) {
-			space_next = space_array[irandom(array_length(space_array) - 1)];
+		if (array_any([SpaceType.Shop, SpaceType.Blackhole, SpaceType.PathChange], function(x) { return (image_index == x); })) {
+			return 2;
+		}
+		
+		with (focus_player) {
+			if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objBoardWorldScott, false, true) != noone) {
+				return 2;
+			}
 		}
 		
 		return 0;
@@ -226,7 +249,7 @@ function space_passing_event() {
 }
 
 function space_finish_event() {
-	if (global.player_turn > global.player_max) {
+	if (!is_player_turn()) {
 		with (objBoard) {
 			alarm_frames(4, 50);
 		}
@@ -261,8 +284,6 @@ function space_finish_event() {
 			break;
 			
 		case SpaceType.Green:
-			//turn_next();
-			
 			if (irandom(1) == 0) {
 				change_coins(6, CoinChangeType.Gain).final_action = turn_next;
 			} else {

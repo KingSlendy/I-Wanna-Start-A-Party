@@ -34,8 +34,7 @@ if (fade_start) {
 								}
 							}
 						
-							shuffle_seed_bag();
-							reset_seed_inline();
+							next_seed_inline();
 							array_shuffle(boards);
 							global.board_selected = array_pop(boards);
 							

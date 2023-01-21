@@ -3,9 +3,13 @@ if (intersect == noone) {
 	var intersect_right = instance_place(x + 16, y, objMinigame4vs_Waka_Intersect);
 
 	if (intersect_left != noone || intersect_right != noone) {
-		intersect = (intersect_left != noone) ? intersect_left : intersect_right;
+		if (intersect_left != noone ^^ intersect_right != noone) {
+			intersect = (intersect_left != noone) ? intersect_left : intersect_right;
+		} else {
+			intersect = choose(intersect_left, intersect_right, null);
+		}
 	
-		if (intersect != prev_intersect && y >= intersect.y + 16) {
+		if (intersect != null && intersect != prev_intersect && (prev_intersect == null || intersect.y != prev_intersect.y) && y >= intersect.y + 16) {
 			y = intersect.y + 16;
 			image_angle = (intersect_left != noone) ? 180 : 0;
 			hspeed = (intersect_left != noone) ? -max_spd : max_spd;

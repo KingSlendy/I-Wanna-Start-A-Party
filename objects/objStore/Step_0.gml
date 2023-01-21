@@ -147,8 +147,17 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 				
 			case 3:
 				array_sort(row, function(a, b) {
-					var name_a = a.element().name;
-					var name_b = b.element().name;
+					try {
+						var name_a = a.element().name;
+					} catch (_) {
+						var name_a = a.element().title;
+					}
+					
+					try {
+						var name_b = b.element().name;
+					} catch (_) {
+						var name_b = b.element().title;
+					}
 					
 					if (name_a == name_b) {
 						return 0;

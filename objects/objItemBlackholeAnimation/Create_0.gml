@@ -1,4 +1,5 @@
 event_inherited();
+image_speed = 0;
 player1 = focus_player_by_turn();
 player2 = focus_player_by_turn(global.choice_selected + 1);
 current_player = player2;

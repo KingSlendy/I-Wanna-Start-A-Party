@@ -24,14 +24,18 @@ x += hspd;
 y += vspd;
 
 //Collision with block
-var block = instance_place(x, y, objBlock);
-
-if (block != noone) {
+if (place_meeting(x, y, objBlock)) {
 	x = xprevious;
 	y = yprevious;
 
 	//Detect horizontal collision
 	if (place_meeting(x + hspd, y, objBlock)) {
+		if (hspd > 0) {
+			x = floor(x);
+		} else {
+			x = ceil(x);
+		}
+		
 		while (!place_meeting(x + sign(hspd), y, objBlock)) {
 			x += sign(hspd);
 		}
@@ -41,6 +45,12 @@ if (block != noone) {
 
 	//Detect vertical collision
 	if (place_meeting(x, y + vspd, objBlock)) {
+		if (vspd > 0) {
+			y = floor(y);
+		} else {
+			y = ceil(y);
+		}
+		
 		while (!place_meeting(x, y + sign(vspd), objBlock)) {
 			y += sign(vspd);
 		}

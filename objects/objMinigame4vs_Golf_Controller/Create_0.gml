@@ -88,10 +88,8 @@ alarm_override(1, function() {
 alarm_override(2, function() {
 	alarm_inherited(2);
 	
-	if (array_contains(info.players_won, global.player_id)) {
-		if (trophy_main) {
-			achieve_trophy(66);
-		}
+	if (minigame_has_won() && trophy_main) {
+		achieve_trophy(66);
 	}
 });
 

@@ -36,7 +36,7 @@ function back_to_board() {
 	}
 	
 	if (info.is_minigames) {
-		if (array_contains(info.players_won, global.player_id)) {
+		if (minigame_has_won()) {
 			change_collected_coins(20);
 		}
 			
@@ -128,7 +128,7 @@ alarm_create(function() {
 			}
 		}
 	} else {
-		if (array_length(info.players_won) > 0 && loser_count < global.player_max && array_contains(info.players_won, global.player_id)) {
+		if (minigame_has_won()) {
 			winner_title = "CLEAR";
 			music_play(bgmMinigameWin, false);
 			audio_play_sound(sndMinigameClear, 0, false);

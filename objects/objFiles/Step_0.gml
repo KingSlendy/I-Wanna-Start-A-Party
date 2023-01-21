@@ -126,6 +126,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 	} else if (!online_reading) {
 		if (!lobby_seeing) {
 			var scroll = (global.actions.down.pressed() - global.actions.up.pressed());
+			
+			if (menu_type == 5 && global.player_id != 1) {
+				scroll = 0;
+			}
+			
 			var prev_selected = menu_selected[menu_type];
 			var length = array_index(menu_buttons[menu_type], null);
 		
@@ -346,6 +351,8 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							buffer_write_action(ClientTCP.LobbyKick);
 							buffer_write_data(buffer_u8, menu_selected[menu_type] + 1);
 							network_send_tcp_packet();
+							
+							menu_selected[menu_type] = 0;
 						}
 						exit;
 						

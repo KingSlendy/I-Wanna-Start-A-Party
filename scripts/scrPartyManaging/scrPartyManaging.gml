@@ -1,5 +1,5 @@
 #region Initialization Management
-#macro BOARD_NORMAL (global.player_turn > global.player_max || player_info_by_turn().item_effect != ItemType.Reverse)
+#macro BOARD_NORMAL (!is_player_turn() || player_info_by_turn().item_effect != ItemType.Reverse)
 
 enum SpaceType {
 	Blue,
@@ -30,7 +30,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [null, global.board_items[ItemType.Mirror], global.board_items[ItemType.SuperWarp]];
+	//self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.Reverse], global.board_items[ItemType.TripleDice]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -68,7 +68,7 @@ function is_local_turn() {
 		return false;
 	}
 	
-	if (global.player_turn > global.player_max) {
+	if (!is_player_turn()) {
 		return true;
 	}
 	
@@ -83,8 +83,16 @@ function is_local_turn() {
 	return false;
 }
 
+function is_player_turn() {
+	return (global.player_turn <= global.player_max);
+}
+
 function is_player_local(player_id = global.player_id) {
 	return (focus_player_by_id(player_id).object_index != objNetworkPlayer);
+}
+
+function is_player_locality() {
+	return ((!is_player_turn() && global.player_id == 1) || (is_player_turn() && is_local_turn()));
 }
 
 function focused_player() {
@@ -96,7 +104,7 @@ function focused_player() {
 		}
 	}
 	
-	if (room == rBoardWorld && global.player_turn > global.player_max) {
+	if (room == rBoardWorld && !is_player_turn()) {
 		return focus_player_by_turn(global.player_turn);
 	}
 	
@@ -123,7 +131,7 @@ function focus_player_by_id(player_id = global.player_id) {
 
 function focus_player_by_turn(turn = global.player_turn) {
 	if (room == rBoardWorld && turn > global.player_max) {
-		with (objBoardWorldNegaScott) {
+		with (objBoardWorldScott) {
 			if (turn == network_id) {
 				return id;
 			}
@@ -229,7 +237,7 @@ function get_ai_count() {
 }
 
 function player_color_by_turn(turn) {
-	var colors = [c_blue, c_red, c_lime, c_yellow];
+	var colors = [c_blue, c_red, c_lime, c_yellow, c_blue, c_blue];
 	return colors[turn - 1];
 }
 #endregion
@@ -410,7 +418,7 @@ function turn_start(network = true) {
 		return;
 	}
 	
-	if (global.player_turn > global.player_max) {
+	if (!is_player_turn()) {
 		with (objBoard) {
 			alarm_frames(5, 1);
 		}
@@ -438,7 +446,7 @@ function turn_start(network = true) {
 }
 
 function turn_next(network = true) {
-	if (global.player_turn <= global.player_max) {
+	if (is_player_turn()) {
 		var player_info = player_info_by_turn();
 		player_info.item_used = null;
 		player_info.item_effect = null;
@@ -453,9 +461,9 @@ function turn_next(network = true) {
 	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 2;
 	
 	if (++global.player_turn > max_turns) {
-		global.player_turn = global.player_max;
+		global.player_turn = max_turns;
 		
-		if (is_local_turn()) {
+		if (is_player_locality()) {
 			choose_minigame();
 		}
 		
@@ -582,10 +590,10 @@ function space_path_finding(space, path_spaces) {
 	array_pop(path_spaces);
 }
 
-function choose_minigame() {
+function choose_minigame(network = true) {
 	instance_create_layer(0, 0, "Managers", objChooseMinigame);
 	
-	if (is_local_turn()) {
+	if (network && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChooseMinigame);
 		network_send_tcp_packet();
@@ -605,7 +613,7 @@ function show_dice(player_id) {
 	d.network_id = player_id;
 	focus_player.can_jump = true;
 	
-	if (is_local_turn() && global.player_turn <= global.player_max) {
+	if (is_local_turn() && is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowDice);
 		buffer_write_data(buffer_u8, player_id);
@@ -645,11 +653,17 @@ function roll_dice() {
 		roll -= 10;
 	}
 	
+	if (!is_player_turn()) {
+		next_seed_inline();
+		roll = 1;
+		random_roll();
+	}
+
 	r.roll = roll;
 	instance_destroy();
 	audio_play_sound(sndDiceHit, 0, false);
 	
-	if (global.board_started && global.player_turn <= global.player_max) {
+	if (global.board_started && is_player_turn()) {
 		var player_info = player_info_by_turn();
 		bonus_shine_by_id(BonusShines.MostRoll).increase_score(global.player_turn, roll);
 	} else {
@@ -696,7 +710,7 @@ function roll_dice() {
 		objDiceRoll.target_x = focused_player().x;
 	}
 	
-	if ((is_local_turn() || !global.board_started) && global.player_turn <= global.player_max) {
+	if ((is_local_turn() || !global.board_started) && is_player_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.RollDice);
 		buffer_write_data(buffer_u8, network_id);
@@ -1251,7 +1265,7 @@ function choose_shine() {
 			space = {x: space.x + 32, y: space.y + 32};
 		}
 	} else {
-		space = {x: objBoardWorldNegaScott.x, y: objBoardWorldNegaScott.y};
+		space = {x: objBoardWorldScott.x, y: objBoardWorldScott.y};
 	}
 	
 	place_shine(space.x, space.y);
@@ -1432,6 +1446,77 @@ function board_nsanity_return() {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardNsanityReturn);
 		network_send_tcp_packet();
+	}
+}
+
+function board_world_scott_interact() {
+	if (!is_player_locality()) {
+		return;
+	}
+	
+	var player = focused_player();
+	var texts;
+	global.player_scott_shines = [];
+	var event_give = function() {
+		board_world_scott_shines(true);
+	}
+	
+	var event_take = function() {
+		board_world_scott_shines(false);
+	}
+	
+	if (is_player_turn()) {
+		global.player_scott_shines = [player];
+		
+		if (instance_place(x, y, objBoardWorldScott).object_index == objBoardWorldScott) {
+			texts = [
+				new Message("Oh! You reached Scott and now it's gonna give you one Shine!",, event_give)
+			];
+		} else {
+			texts = [
+				new Message("Oh no! You reached Nega Ghost and now it's gonna take one Shine away from you!",, event_take)
+			];
+		}
+	} else {
+		with (player) {
+			var list = ds_list_create();
+			var count = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, objPlayerBase, false, true, list, false);
+			
+			for (var i = 0; i < count; i++) {
+				array_push(global.player_scott_shines, list[| i]);
+			}
+			
+			ds_list_destroy(list);
+		}
+		
+		if (player.object_index == objBoardWorldScott) {
+			texts = [
+				new Message("Oh! Scott reached you and now it's gonna give you one Shine!",, event_give)
+			];
+		} else {
+			texts = [
+				new Message("Oh no! Nega Ghost reached you and now it's gonna take one Shine away from you!",, event_take)
+			];
+		}
+	}
+	
+	start_dialogue(texts);
+}
+
+function board_world_scott_shines(give, network = true) {
+	var turn = (give) ? global.player_max + 1 : global.player_max + 2;
+	
+	with (focus_player_by_turn(turn)) {
+		sprite_index = event_sprite;
+		image_index = 0;
+	}
+	
+	if (is_local_turn() && network) {
+		//buffer_seek_begin();
+		//buffer_write_action(ClientTCP.BoardWorldScottShines);
+		//buffer_write_data(buffer_bool, give);
+		//buffer_write_array(buffer_u64, global.player_scott_shines);
+		//network_send_tcp_packet();
 	}
 }
 #endregion

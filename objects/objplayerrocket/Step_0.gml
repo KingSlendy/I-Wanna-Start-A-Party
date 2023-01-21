@@ -21,6 +21,12 @@ if (!frozen) {
 	}
 	
 	shoot_delay = max(--shoot_delay, 0);
+	
+	if (/*network_id == global.player_id && */audio_is_playing(audio_idle_looping)) {
+	    var sfx_factor = remap(speed, 0, max_spd, 0, 1);
+	    audio_sound_gain(audio_idle_looping, sfx_factor, 0);
+	    audio_sound_pitch(audio_idle_looping, remap(sfx_factor, 0, 1, 0.5, 1));
+	}
 } else {
     hspeed = 0;
     vspeed = 0;

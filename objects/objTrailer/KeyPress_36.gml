@@ -1,0 +1,1 @@
+layer_sequence_create("Animation", 0, 0, seqTrailerBegin);

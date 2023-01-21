@@ -3,7 +3,6 @@ network_name = "";
 network_mode = PlayerDataMode.Heartbeat;
 skin = null;
 ai = false;
-send_timer = 0;
 online = true;
 draw = true;
 lost = false;

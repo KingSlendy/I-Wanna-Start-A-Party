@@ -31,7 +31,7 @@ if (trial_is_title(RANDRANDRAND_TIME)) {
 alarm_override(2, function() {
 	alarm_inherited(2);
 	
-	if (array_contains(info.players_won, global.player_id) && trophy_green) {
+	if (minigame_has_won() && trophy_green) {
 		achieve_trophy(58);
 	}
 });

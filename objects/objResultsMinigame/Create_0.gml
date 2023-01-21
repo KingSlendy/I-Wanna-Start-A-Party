@@ -65,13 +65,13 @@ for (var i = 0; i < array_length(info.shine_positions); i++) {
 }
 
 //World Board
-with (objBoardWorldNegaScott) {
+with (objBoardWorldScott) {
 	var position;
 			
-	if (object_index == objBoardWorldNegaGhost) {
-		position = other.info.nega_ghost_position;
+	if (object_index == objBoardWorldNega) {
+		position = other.info.nega_position;
 	} else {
-		position = other.info.nega_scott_position;
+		position = other.info.scott_position;
 	}
 			
 	x = position.x;

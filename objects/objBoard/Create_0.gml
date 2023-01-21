@@ -56,7 +56,6 @@ global.pokemon_price = 15;
 global.board_light = true;
 global.board_dark_chance = 0;
 prev_board_light = !global.board_light;
-instance_deactivate_layer("Path_Dark");
 
 //Nsanity Board
 layer_back_name = "Background";
@@ -101,7 +100,8 @@ alarm_create(function() {
 
 //World Board
 alarm_create(function() {
-	next_seed_inline();
+	shuffle_seed_bag();
+	reset_seed_inline();
 	show_dice(focused_player().network_id);
 	alarm_frames(6, irandom_range(25, 75));
 });
@@ -110,6 +110,10 @@ alarm_create(function() {
 	with (focused_player()) {
 		board_jump();
 	}
+});
+
+alarm_create(function() {
+	board_advance();
 });
 
 alarm_create(11, function() {
@@ -143,7 +147,7 @@ alarm_create(11, function() {
 
 	var stale_frames = random_range(0.1, 0.3);
 
-	if (global.board_started && global.player_turn <= global.player_max) {
+	if (global.board_started &&  is_player_turn()) {
 		var player_info = player_info_by_turn();
 		var actions = check_player_actions_by_id(player_info.network_id);
 
@@ -259,12 +263,10 @@ alarm_create(11, function() {
 		}
 	
 		if (instance_exists(objDialogue)) {
-			//if (!objDialogue.text_display.text.tw_active) {
-			//	stale_action(1);
-			//	perform_action(actions.jump);
-			//} else {
-			//	perform_action(actions.jump);
-			//}
+			if (room == rBoardPallet && player_info_by_turn().pokemon != -1 && objDialogue.answer_index == 0 && 0.75 > random(1)) {
+				stale_action(1);
+				perform_action(actions.down);
+			}
 			
 			stale_action(0.1);
 			perform_action(actions.jump);

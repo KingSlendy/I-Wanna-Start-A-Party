@@ -4,6 +4,7 @@ if (reset == 0) {
 	if (fade_alpha >= 1) {
 		fade_alpha = 1;
 		reset = 1;
+		action_end();
 		
 		with (objPlayerBase) {
 			x = xstart;

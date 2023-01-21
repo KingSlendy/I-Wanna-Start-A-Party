@@ -160,7 +160,7 @@ function player_kill(network = false) {
 			audio_play_sound(sndDeath, 0, false);
 		} else {
 			instance_create_layer(x, y, "Actors", objExplosion);
-			audio_play_sound(sndExplosion, 0, false);
+			audio_play_sound(sndExplosion, 0, false, 0.7);
 		}
 		
 		frozen = true;

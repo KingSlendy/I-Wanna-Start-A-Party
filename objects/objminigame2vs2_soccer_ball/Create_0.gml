@@ -7,7 +7,9 @@ function soccer_goal(network = true) {
 	objPlayerBase.frozen = true;
 
 	with (objMinigameController) {
-		minigame4vs_points(points_teams[(other.x < 400)][0].network_id, 1);
+		team_just_score = (other.x < 400);
+		alarm_call(4, 0.25);  
+		minigame4vs_points(points_teams[team_just_score][0].network_id, 1);
 	}
 
 	hspeed = 0;

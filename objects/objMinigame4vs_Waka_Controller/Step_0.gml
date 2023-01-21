@@ -19,34 +19,8 @@ if (next_path == 0) {
 					other.player_pos[network_id - 1] = player_info_by_id(network_id).turn - 1;
 				}
 			
-				instance_destroy(objMinigame4vs_Waka_Intersect);
-				var map_id = layer_tilemap_get_id("Lines");
-			
-				for (var c = 0; c < 13; c++) {
-					for (var r = 0; r < 55; r++) {
-						var tile_x = 192 + c * 32;
-						var tile_y = 32 + r * 32;
-						var tile = 7;
-						
-						if (c % 4 == 0) {
-							tile = 28;
-						}
-						
-						tilemap_set(map_id, tile, tilemap_get_cell_x_at_pixel(map_id, tile_x, tile_y), tilemap_get_cell_y_at_pixel(map_id, tile_x, tile_y));
-					}
-				}
-			
-				next_seed_inline();
-				var choices = [208, 336, 464, 592];
-				
-				repeat (current_round++ + 1) {
-					array_shuffle(choices);
-					instance_create_layer(array_pop(choices), 48, "Actors", objMinigame4vs_Waka_PacMan);
-				}
-			
-				for (var i = 0; i < 25; i++) {
-					instance_create_layer(choose(224, 352, 480), 128 + 64 * i, "Actors", objMinigame4vs_Waka_Intersect);
-				}
+				intersect_generate();
+				pacman_generate();
 				
 			case 1:
 				camera_set_view_pos(view_camera[0], 0, 0);
@@ -78,7 +52,7 @@ if (next_path == 0) {
 
 switch (camera_state) {
 	case 0:
-		camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]) + 7);
+		camera_set_view_pos(view_camera[0], 0, camera_get_view_y(view_camera[0]) + ((!trial_is_title(WAKA_DODGES)) ? 7 : 1));
 	
 		if (camera_get_view_y(view_camera[0]) >= 1216) {
 			camera_set_view_pos(view_camera[0], 0, 1216);

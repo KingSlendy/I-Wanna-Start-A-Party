@@ -8,6 +8,7 @@ if (image_alpha < 1 || other.network_id == network_id) {
 
 if (--hp <= 0) {
 	player_kill();
+	audio_stop_sound(audio_idle_looping);
 	exit;
 }
 

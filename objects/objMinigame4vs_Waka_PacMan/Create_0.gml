@@ -1,6 +1,6 @@
 image_speed = 0;
 image_angle = 270;
-max_spd = 10;
+max_spd = (!trial_is_title(WAKA_DODGES)) ? 10 : 15;
 intersect = noone;
 prev_intersect = null;
 

@@ -20,6 +20,7 @@
 #macro PERFECT_AIM "Perfect Aim"
 #macro TOUGH_IGNITION "Tough Ignition"
 #macro GREEN_DIVING "Green Diving"
+#macro WAKA_DODGES "Waka Dodges"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -124,7 +125,11 @@ function trial_init() {
 		
 		new Trial(GREEN_DIVING, [
 			new Prove(SKY_DIVING)
-		], 300)
+		], 300),
+		
+		new Trial(WAKA_DODGES, [
+			new Prove(WAKA_EVASION)
+		], 400)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {
@@ -165,12 +170,11 @@ function trial_info_reset() {
 }
 
 function trial_start() {
-	var minigame_info = global.minigame_info;
 	var trial_info = global.trial_info;
 	var exit_trial = false;
 	
 	if (trial_info.current > 0) {
-		if (!array_contains(minigame_info.players_won, global.player_id) || minigame_info.player_scores[global.player_id - 1].points <= 0) {
+		if (!minigame_has_won()) {
 			exit_trial = true;
 		} else if (trial_info.current == array_length(trial_info.reference.minigames)) {
 			change_collected_coins(trial_info.reference.reward);

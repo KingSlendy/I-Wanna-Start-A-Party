@@ -1,4 +1,3 @@
-if (global.player_id != 0 && global.udp_socket != null && send_timer++ >= 0) {
+if (global.player_id != 0 && global.udp_socket != null && online) {
 	player_write_data();
-	send_timer = 0;
 }

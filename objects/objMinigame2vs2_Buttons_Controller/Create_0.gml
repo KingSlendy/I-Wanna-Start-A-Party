@@ -45,6 +45,10 @@ alarm_create(4, function() {
 			if (index == other.buttons_inside_list[other.buttons_inside_current]) {
 				image_index = 1;
 				other.buttons_inside_current++;
+				
+				//if (trial_is_title()) {
+					
+				//}
 				break;
 			}
 		

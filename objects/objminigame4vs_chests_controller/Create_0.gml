@@ -34,11 +34,7 @@ minigame_time_end = function() {
 }
 
 action_end = function() {
-	if (trial_is_title(STINGY_CHESTS)) {
-		return;
-	}
-	
-	if (trophy_chests && info.player_scores[global.player_id - 1].points == 0) {
+	if (info.player_scores[global.player_id - 1].points == 0 && trophy_chests && !trial_is_title(STINGY_CHESTS)) {
 		achieve_trophy(63);
 	}
 }

@@ -42,13 +42,13 @@ if (!global.board_started) {
 		}
 		
 		//World Board
-		with (objBoardWorldNegaScott) {
+		with (objBoardWorldScott) {
 			var position;
 			
-			if (object_index == objBoardWorldNegaGhost) {
-				position = board.saved_board.saved_nega_ghost_position;
+			if (object_index == objBoardWorldNega) {
+				position = board.saved_board.saved_nega_position;
 			} else {
-				position = board.saved_board.saved_nega_scott_position;
+				position = board.saved_board.saved_scott_position;
 			}
 			
 			x = position.x;

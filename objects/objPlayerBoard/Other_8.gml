@@ -31,11 +31,13 @@ if (passing == 0) {
 		space_glow(true);
 	}
 	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.LessRoll);
-	buffer_write_data(buffer_s32, space.x);
-	buffer_write_data(buffer_s32, space.y);
-	network_send_tcp_packet();
+	if (is_player_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.LessRoll);
+		buffer_write_data(buffer_s32, space.x);
+		buffer_write_data(buffer_s32, space.y);
+		network_send_tcp_packet();
+	}
 }
 
 if (global.dice_roll > 0) {

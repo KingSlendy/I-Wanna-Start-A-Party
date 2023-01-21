@@ -23,3 +23,7 @@ pause_x = 400;
 pause_target_x = pause_x;
 
 controls_text = new Text(fntControls);
+
+//Temp
+a = false;
+//Temp

@@ -109,7 +109,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ba28cc4f-d314-4b10-9a8b-6da7de7f0ccd",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"940dd1c8-0737-4b57-92a4-7e8c2b8e2417",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06b60d63-421c-4794-93a6-fee87fd5f53c",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e8700e69-1dcd-404e-9a49-1836aeb97604",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7f63f59b-41c4-41bb-8e1d-7e8e5b576840",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -207,7 +207,7 @@
             {"id":"3127e401-3764-4fef-8008-ea3478e0a99d","Key":78.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ba28cc4f-d314-4b10-9a8b-6da7de7f0ccd","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"8e07e725-3138-4700-8617-fe61d2944484","Key":79.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"940dd1c8-0737-4b57-92a4-7e8c2b8e2417","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"bd2e1da1-5670-45e9-8c5c-ddc2122c16e6","Key":80.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06b60d63-421c-4794-93a6-fee87fd5f53c","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"79243862-6474-483a-96c2-417b9cbc5f43","Key":81.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e8700e69-1dcd-404e-9a49-1836aeb97604","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"18a89753-a115-4d4a-bbc5-20146a60197f","Key":81.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7f63f59b-41c4-41bb-8e1d-7e8e5b576840","path":"sprites/sprSkinsFangames/sprSkinsFangames.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

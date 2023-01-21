@@ -1,3 +1,5 @@
+timer++;
+timer %= 1000;
 offset_pos = lerp(offset_pos, offset_target, 0.2);
 
 if (point_distance(offset_pos, 0, offset_target, 0) < 0.001) {

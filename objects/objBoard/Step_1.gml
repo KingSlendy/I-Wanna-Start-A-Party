@@ -33,18 +33,6 @@ switch (room) {
 				layer_set_visible(layers[i] + "_Dark", !global.board_light);
 			}
 	
-			if (!global.board_light) {
-				instance_deactivate_layer("Path_Light");
-				instance_activate_layer("Path_Dark");
-			} else {
-				instance_deactivate_layer("Path_Dark");
-				instance_activate_layer("Path_Light");
-			}
-	
-			with (objSpaces) {
-				space_directions();
-			}
-	
 			prev_board_light = global.board_light;
 		}
 		break;

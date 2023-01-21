@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Nsanity",
-    "path": "folders/Sprites/Objects/Party/Nsanity.yy",
+    "path": "folders/Sprites/Objects/Party/Misc/Nsanity.yy",
   },
 }

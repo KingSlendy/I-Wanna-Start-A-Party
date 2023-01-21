@@ -43,9 +43,11 @@ if (points_draw) {
             draw_set_valign(fa_middle);
             draw_text(score_x[i] + square_centered + number_separation / 2, score_y + square_centered, "88");
             
+			draw_set_alpha(goal_score_alpha[i]);
             draw_set_color(c_red);
-            draw_text(score_x[i] + square_centered + number_separation / 2, score_y + square_centered, "0" + string(points));
-        }
+			draw_text(score_x[i] + square_centered + number_separation / 2, score_y + square_centered, "0" + string(points));
+			draw_set_alpha(1);
+		}
     }
 }
 

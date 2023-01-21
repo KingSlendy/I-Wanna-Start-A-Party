@@ -1,12 +1,7 @@
 event_inherited();
 
 minigame_players = function() {
-	with (objPlayerBase) {
-		with (instance_place(x, y, objMinigame4vs_Jingle_Sledge)) {
-			player_id = other.network_id;
-			other.sledge = id;
-		}
-	}
+	objPlayerBase.sledge = null;
 }
 
 minigame_camera = CameraMode.Split4;
@@ -114,6 +109,10 @@ function set_spd(scene_spd, player_id) {
 }
 
 alarm_override(1, function() {
+	with (objMinigame4vs_Jingle_Sledge) {
+		focus_player_by_id(player_id).sledge = id;
+	}
+	
 	for (var i = 0; i < global.player_max; i++) {
 		alarm_instant(4 + i);
 	}

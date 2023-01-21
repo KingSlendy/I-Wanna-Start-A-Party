@@ -98,7 +98,7 @@ function minigame_init() {
 		new Minigame(CRAZY_CHESTS, [DESC_START draw_page("Rules", "Each chest will contain a different amount of coins, and after they're gonna shuffle like crazy, follow the one with the most coins and be the first to pick it! 3 rounds, the chests get crazier everytime.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.up) + " Pick Chest") DESC_END], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
 		new Minigame(SLIME_ANNOYER, [DESC_START draw_page("Rules", "Look at that cute slime!\nI bet you wanna annoy it, don't you? Well you can by shooting it, but beware! It can either forgive you or kill you. So try to be the last one standing.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 23, rMinigame4vs_Slime, "SlimePark"),
 		new Minigame(ROCKET_IGNITION, [DESC_START draw_page("Rules", "This is a rocket competition, all of you will compete against each other, aiming and shooting everywhere. You have 3 HP each, the last one standing wins!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Turn\n" + draw_action(global.actions.up) + " Accelerate Forward\n" + draw_action(global.actions.down) + " Accelerate Backwards") DESC_END], 24, rMinigame4vs_Rocket, "I Wanna Walk OIT Morning Dew"),
-		new Minigame(DIZZY_CONUNDRUM, [DESC_START draw_page("Rules", "Try not to get too dizzy on this one!\nCollect all the coins of your respective color. Each time you touch a warp it's gonna shuffle all your actions, so figure out which is which!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Flip Gravity") DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
+		new Minigame(DIZZY_CONUNDRUM, [DESC_START draw_page("Rules", "Try not to get too dizzy on this one!\nCollect all the coins of your respective color. Each time you touch a warp it's gonna shuffle all your actions, so figure out which is which!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Flip Gravity\n" + draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + draw_action(global.actions.jump) + " After Shuffle") DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
 		new Minigame(TARGETING_TARGETS, [DESC_START draw_page("Rules", "Break the targets! You have 6 bullets to do so, red gives you 1 point, blue 2 points and yellow 3 points.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
 		new Minigame(UNCERTAIN_BULLETS, [DESC_START draw_page("Rules", "There's gonna be a line of bullets, the water bullets are safe, try to avoid the other ones. Select the number of bullets to move with the die, after that you're gonna jump to the bullet it moved to. Last alive wins.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.jump) + " Hit Die") DESC_END], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
 		new Minigame(DRAWN_KEYS, [DESC_START draw_page("Rules", "Grab as much key drawings as possible, green gives 1 point, yellow gives 2 points and red gives 3 points. Make use of the blocks below you, if they're green and you jump they're gonna launch you upwards.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Jump") DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
@@ -608,7 +608,7 @@ function minigame_times_up() {
 }
 
 function minigame_lost_all(count_last = false) {
-	if (!count_last && trial_is_title(RAPID_ASCENSION)) {
+	if (!count_last && (trial_is_title(RAPID_ASCENSION) || trial_is_title(WAKA_DODGES))) {
 		return false;
 	}
 	
@@ -660,6 +660,10 @@ function minigame1vs3_is_solo(player_id) {
 
 function minigame2vs2_is_team(player_id, num) {
 	return (player_id == objMinigameController.points_teams[num][0].network_id || player_id == objMinigameController.points_teams[num][1].network_id);
+}
+
+function minigame_has_won() {
+	return (array_length(objMinigameController.info.players_won) > 0 && array_contains(objMinigameController.info.players_won, global.player_id) && objMinigameController.info.player_scores[global.player_id - 1].points > 0);
 }
 
 function minigame_angle_dir8(actions, angle, frames = irandom_range(3, 6)) {

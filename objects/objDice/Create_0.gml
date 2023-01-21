@@ -1,7 +1,7 @@
 event_inherited();
-box_activate = roll_dice;
+box_activate = method(id, roll_dice);
 
-if (global.board_started && global.player_turn <= global.player_max) {
+if (global.board_started && is_player_turn()) {
 	player_info = player_info_by_turn();
 } else {
 	player_info = {item_effect: -1};
@@ -15,6 +15,7 @@ switch (player_info.item_effect) {
 }
 
 function random_roll() {
+	var min_roll = 1;
 	var max_roll = 10;
 	
 	switch (player_info.item_effect) {
@@ -24,20 +25,29 @@ function random_roll() {
 			
 		case ItemType.Clock:
 			if (++roll > 10) {
-				roll = 1;
+				roll = min_roll;
 			}
 			return;
+	}
+	
+	if (!is_player_turn()) {
+		min_roll = 3;
+		max_roll = 5;
 	}
 	
 	var previous = roll;
 	
 	do {
-		roll = irandom_range(1, max_roll);
+		roll = irandom_range(min_roll, max_roll);
 	} until (roll != previous);
 	
 	//if (global.board_started) {
+	//	if (is_player_turn()) {
+	//		roll = 5;
+	//	}
+
 	//	//roll = max_roll;
-	//	roll = 1;
+	//	//roll = min_roll;
 	//	//roll = 110;
 	//}
 }

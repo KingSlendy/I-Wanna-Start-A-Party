@@ -196,8 +196,8 @@ function save_board() {
 			saved_board_light: global.board_light,
 			
 			//World Board
-			saved_nega_scott_position: {},
-			saved_nega_ghost_position: {}
+			saved_scott_position: {},
+			saved_nega_position: {}
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -211,11 +211,11 @@ function save_board() {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
 	}
 	
-	with (objBoardWorldNegaScott) {
-		if (object_index == objBoardWorldNegaGhost) {
-			board.saved_board.saved_nega_ghost_position = {x: self.x, y: self.y};	
+	with (objBoardWorldScott) {
+		if (object_index == objBoardWorldNega) {
+			board.saved_board.saved_nega_position = {x: self.x, y: self.y};	
 		} else {
-			board.saved_board.saved_nega_scott_position = {x: self.x, y: self.y};
+			board.saved_board.saved_scott_position = {x: self.x, y: self.y};
 		}
 	}
 	
