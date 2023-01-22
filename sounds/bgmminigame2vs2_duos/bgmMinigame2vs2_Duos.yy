@@ -2,7 +2,7 @@
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
   "name": "bgmMinigame2vs2_Duos",
-  "conversionMode": 1,
+  "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
   "preload": false,

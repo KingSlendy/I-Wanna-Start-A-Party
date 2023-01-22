@@ -107,7 +107,10 @@ function player_join(player_id, player_name = "") {
 		player.network_id = player_id;
 		player.network_name = player_name;
 	} else {
-		player.online = true;
+		with (player) {
+			online = true;
+			alarm_stop(11);
+		}
 	}
 }
 

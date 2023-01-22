@@ -72,8 +72,9 @@ if (array_contains([1, 3, 4, 5], menu_type)) {
 		if (menu_type == 5) {
 			var player = focus_player_by_id(i + 1);
 			
-			if (player != null && player.online) {
+			if (player != null/* && player.online*/) {
 				texts[i] = player.network_name;
+				//texts[i] = string("{0}: {1} ({2}) [{3}]", player.network_name, player.network_id, player.online, (player.network_id == global.player_id) ? "Me" : "No");
 			}
 		}
 		

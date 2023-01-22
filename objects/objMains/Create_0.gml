@@ -72,6 +72,8 @@ save_max_turns = 0;
 save_selected = 0;
 
 if (save_present) {
+	instance_destroy(objPlayerInfo);
+	
 	try {
 		board = global.board_games[$ global.game_id];
 		board_selected = board.saved_board.saved_board;

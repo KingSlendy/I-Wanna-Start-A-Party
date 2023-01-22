@@ -1,2 +1,2 @@
-draw_sprite_ext(sprite, 0, player1.x, player1.y, scale, scale, 0, c_white, 1);
-draw_sprite_ext(sprite, 0, player2.x, player2.y, scale, scale, 0, c_white, 1);
+draw_sprite_ext(sprite, timer * sprite_get_speed(sprite) / game_get_speed(gamespeed_fps), player1.x, player1.y, scale, scale, 0, c_white, 1);
+draw_sprite_ext(sprite, timer * sprite_get_speed(sprite) / game_get_speed(gamespeed_fps), player2.x, player2.y, scale, scale, 0, c_white, 1);

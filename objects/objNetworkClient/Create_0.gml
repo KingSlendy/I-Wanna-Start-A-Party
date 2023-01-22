@@ -39,10 +39,10 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.Heartbeat);
-	buffer_write_data(buffer_u64, global.master_id);
-	network_send_tcp_packet();
+	//buffer_seek_begin();
+	//buffer_write_action(ClientTCP.Heartbeat);
+	//buffer_write_data(buffer_u64, global.master_id);
+	//network_send_tcp_packet();
 	
 	buffer_seek_begin();
 	buffer_write_action(ClientUDP.Heartbeat);

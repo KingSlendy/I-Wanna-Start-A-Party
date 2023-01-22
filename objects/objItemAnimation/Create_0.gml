@@ -5,3 +5,4 @@ sprite = null;
 additional = noone;
 current_player = null;
 final_action = null;
+timer = 1;

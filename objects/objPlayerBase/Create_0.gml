@@ -38,5 +38,10 @@ function change_to_object(obj) {
 alarms_init(12);
 
 alarm_create(11, function() {
+	if (network_id == global.player_id || !online) {
+		return;
+	}
+	
 	player_leave(network_id);
+	network_name = "Left";
 });

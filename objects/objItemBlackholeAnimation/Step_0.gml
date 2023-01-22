@@ -8,8 +8,7 @@ if (state == 0) {
 		state = -1;
 		
 		if (!stealed) {
-			image_speed = 1;
-			image_index = 0;
+			timer = 0;
 			alarm_frames(1, 1);
 		
 			if (is_local_turn()) {
@@ -24,8 +23,7 @@ if (state == 0) {
 	}
 } else if (state == 1) {
 	scale -= 0.05;
-	image_speed = 0;
-	image_index = 0;
+	timer = 0;
 	alarm_stop(1);
 	
 	if (scale <= 0) {

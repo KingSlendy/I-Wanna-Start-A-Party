@@ -16,7 +16,7 @@ enum ClientTCP {
 	JoinLobby,
 	LeaveLobby,
 	LobbyList,
-	LobbyPlayers,
+	LobbyUpdate,
 	LobbyStart,
 	LobbyKick,
 	BoardGameID,
@@ -309,7 +309,7 @@ f[$ ClientTCP.LobbyList] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.LobbyPlayers] = function(buffer) {
+f[$ ClientTCP.LobbyUpdate] = function(buffer) {
 	for (var i = 1; i <= global.player_max; i++) {
 		var name = buffer_read(buffer, buffer_string);
 		
