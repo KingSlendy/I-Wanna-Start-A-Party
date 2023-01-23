@@ -321,17 +321,17 @@ switch (room) {
 				var minigame = prove.reference;
 				var seen_minigame = minigame_seen(minigame.title);
 				var portrait = (collected && seen_minigame) ? minigame.portrait : minigame.hidden;
-				var team = "";
+				//var team = "";
 				
-				if (collected) {
-					switch (prove.team) {
-						case EITHER: team = "Either"; break;
-						case SOLO: team = "Solo"; break;
-						case TEAM: team = "Team"; break;
-					}
-				}
+				//if (collected) {
+				//	switch (prove.team) {
+				//		case EITHER: team = "Either"; break;
+				//		case SOLO: team = "Solo"; break;
+				//		case TEAM: team = "Team"; break;
+				//	}
+				//}
 				
-				draw_text_transformed_color_outline(trials_x + draw_w / 2, trials_y + 65, team, dist, dist, 0, c_white, c_white, c_white, c_white, dist, c_black);
+				//draw_text_transformed_color_outline(trials_x + draw_w / 2, trials_y + 65, team, dist, dist, 0, c_white, c_white, c_white, c_white, dist, c_black);
 				draw_sprite_ext(portrait, 0, trials_x + draw_w / 2, trials_y + draw_h / 2, dist, dist, 0, c_white, dist);
 			}
 			

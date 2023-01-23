@@ -69,7 +69,7 @@ if (shopping && is_local_turn()) {
 									
 									do {
 										item = global.board_items[irandom(ItemType.Length - 2)];
-									} until (room != rBoardNsanity || item.id != ItemType.Reverse);
+									} until (!array_contains(item.ignore_in, room));
 									
 									array_push(global.bag_items, item);
 								}

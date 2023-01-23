@@ -21,6 +21,7 @@
 #macro TOUGH_IGNITION "Tough Ignition"
 #macro GREEN_DIVING "Green Diving"
 #macro WAKA_DODGES "Waka Dodges"
+#macro TINY_TEAMING "Tiny Teaming"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -129,7 +130,13 @@ function trial_init() {
 		
 		new Trial(WAKA_DODGES, [
 			new Prove(WAKA_EVASION)
-		], 400)
+		], 400),
+		
+		new Trial(TINY_TEAMING, [
+			new Prove(SOCCER_MATCH),
+			new Prove(SPRINGING_PIRANHA),
+			new Prove(CATCH_THE_FRUITS)
+		], 300)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {

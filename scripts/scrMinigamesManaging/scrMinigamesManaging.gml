@@ -87,7 +87,7 @@ global.minigames = {};
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame(FOLLOW_THE_LEAD, [DESC_START draw_page("Rules", "King DeDeDe is gonna show a sequence of four actions that you need to replicate. Upon doing so successfully add one more action for the next player!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Direction\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		new Minigame(FOLLOW_THE_LEAD, [DESC_START draw_page("Rules", "King DeDeDe is gonna show a sequence of four actions that you need to replicate. Upon doing so successfully add one more action for the next player!\nYou can't perform the same action twice in a row.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Direction\n" + draw_action(global.actions.jump) + " Jump\n" + draw_action(global.actions.shoot) + " Shoot") DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
 		new Minigame(TOWER_ASCENSION, [DESC_START draw_page("Rules", "A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
 		new Minigame(HAUNTED_FOREST, [DESC_START draw_page("Rules", "Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear in its head.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.right) + " Move") DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
 		new Minigame(MAGIC_MEMORY, [DESC_START draw_page("Rules", "A set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.") DESC_END, DESC_START draw_page("Controls", draw_action(global.actions.left) + draw_action(global.actions.up) + draw_action(global.actions.down) + draw_action(global.actions.right) + " Move\n" + draw_action(global.actions.jump) + " Hold/Release Item\n" + draw_action(global.actions.shoot) + " Cover Items") DESC_END], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
@@ -658,8 +658,12 @@ function minigame1vs3_is_solo(player_id) {
 	return (minigame1vs3_solo().network_id == player_id);
 }
 
+function minigame2vs2_team(team, num) {
+	return objMinigameController.points_teams[team][num];
+}
+
 function minigame2vs2_is_team(player_id, num) {
-	return (player_id == objMinigameController.points_teams[num][0].network_id || player_id == objMinigameController.points_teams[num][1].network_id);
+	return (player_id == minigame2vs2_team(num, 0).network_id || player_id == minigame2vs2_team(num, 1).network_id);
 }
 
 function minigame_has_won() {

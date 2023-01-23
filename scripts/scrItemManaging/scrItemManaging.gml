@@ -1,4 +1,4 @@
-function Item(id, name, desc, sprite, price, animation = null, stock_criteria = null, use_criteria = function() { return true; }) constructor {
+function Item(id, name, desc, sprite, price, animation = null, stock_criteria = null, use_criteria = function() { return true; }, ignore_in = []) constructor {
 	self.id = id;
 	self.name = name;
 	self.desc = desc;
@@ -49,7 +49,7 @@ global.board_items = [
 		}
 		
 		return false;
-	}),
+	}, [rBoardNsanity]),
 	
 	new Item(ItemType.Ice, "Ice", "Completely freezes a player of your choosing.\nDisabling all actions on their turn.", sprItemIce, 12, objItemIceAnimation,, function() {
 		for (var i = 1; i <= global.player_max; i++) {
@@ -91,7 +91,7 @@ global.board_items = [
 		return (player_info_by_turn().coins >= global.min_blackhole_coins && other_has_things);
 	}),
 	
-	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the Shine space.", sprItemMirror, 30, objItemMirrorAnimation),
+	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the Shine space.", sprItemMirror, 30, objItemMirrorAnimation,,, [rBoardWorld]),
 	//new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 1000),
 	new Item(ItemType.ItemBag, "Item Bag", "Gives you 3 random items!", sprItemItemBag, 40)
 ];

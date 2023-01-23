@@ -24,7 +24,7 @@ if (points_draw) {
             draw_sprite_stretched_ext(sprMinigame2vs2_Soccer_UI_Point1x1, 0, player_x, player_y, square_size, square_size, color_character_background, 1);
             
             // Draw Player's kid // Player original size 32x32 - origin 17x23
-            draw_sprite_ext(focus_info_by_id(player.network_id).player_idle_image, 0, player_x + square_centered + 3 - 2, player_y + square_size - 23 - 5 - 2, 3, 3, 0, c_white, 1);
+            draw_sprite_ext(focus_info_by_id(player.network_id).player_idle_image, 0, player_x + square_centered + 3 - 2, player_y + square_size - 23 - 5 - 2, 3 * ((i == 0) ? 1 : -1), 3, 0, c_white, 1);
             
             //Draw outline
             draw_sprite_stretched_ext(sprMinigame2vs2_Soccer_UI_Outline, 0, player_x, player_y, square_size, square_size, colors[i], 1);

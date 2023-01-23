@@ -7,9 +7,9 @@ function soccer_goal(network = true) {
 	objPlayerBase.frozen = true;
 
 	with (objMinigameController) {
-		team_just_score = (other.x < 400);
-		alarm_call(4, 0.25);  
-		minigame4vs_points(points_teams[team_just_score][0].network_id, 1);
+		team_just_score = (other.x < 400); 
+		minigame4vs_points(minigame2vs2_team(team_just_score, 0).network_id, 1);
+		alarm_call(4, 0.25);
 	}
 
 	hspeed = 0;
@@ -34,6 +34,13 @@ alarms_init(2);
 
 alarm_create(function() {
 	with (objMinigameController) {
+		if (trial_is_title(TINY_TEAMING) && minigame2vs2_get_points_team(0) == 1) {
+			minigame4vs_set_points(minigame2vs2_team(0, 0).network_id, 5);
+			minigame4vs_set_points(minigame2vs2_team(1, 0).network_id, 0);
+			minigame_finish();
+			return;
+		}
+		
 		if (minigame2vs2_get_points_team(0) == 5 || minigame2vs2_get_points_team(1) == 5) {
 			minigame_finish();
 			return;

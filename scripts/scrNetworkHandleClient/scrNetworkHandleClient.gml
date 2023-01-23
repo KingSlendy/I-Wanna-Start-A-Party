@@ -284,18 +284,6 @@ f[$ ClientTCP.LobbyList] = function(buffer) {
 				button.has_password = data[1];
 			}
 		}
-				
-		//array_push(lobby_list, new FileButton(520, 412 + 60 * (array_length(lobbies) - 1), file_width * 2, 64, 1, "", c_white,,, {
-		//	lobby_name: "TESTAAAA",
-		//	lobby_password: false,
-		//	lobby_clients: 3
-		//}));
-				
-		//array_push(lobby_list, new FileButton(520, 412 + 60 * (array_length(lobbies) + 0), file_width * 2, 64, 1, "", c_white,,, {
-		//	lobby_name: "Hello!",
-		//	lobby_password: true,
-		//	lobby_clients: 2
-		//}));
 			
 		lobby_return = false;
 		online_reading = false;

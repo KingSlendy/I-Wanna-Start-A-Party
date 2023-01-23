@@ -10,24 +10,13 @@ if (is_local_turn()) {
 	}
 
 	while (true) {
-		var ignore_items = [];
 		array_shuffle(stock);
-		
-		switch (room) {
-			case rBoardPallet: ignore_items = [ItemType.Mirror]; break;
-			case rBoardNsanity: ignore_items = [ItemType.Reverse]; break;
-		}
-		
-		if (array_length(ignore_items) == 0) {
-			break;
-		}
-		
 		var cancel_loop = true;
 		
 		for (var i = 0; i < 5; i++) {
-			now_stock = stock[i];
+			var item = stock[i];
 			
-			if (array_any(ignore_items, function(x) { return (now_stock.id == x); })) {
+			if (array_contains(item.ignore_in, room)) {
 				cancel_loop = false;
 				break;
 			}
@@ -84,7 +73,7 @@ offset_target = 1;
 offset_pos = 0;
 offset_y = -454;
 
-if (focused_player().ai) {
+if (is_local_turn() && focused_player().ai) {
 	var coins = player_info_by_turn().coins;
 	var length = array_length(stock);
 

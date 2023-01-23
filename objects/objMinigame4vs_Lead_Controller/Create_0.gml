@@ -21,9 +21,16 @@ sequence_actions = [
 ];
 
 sequence = [];
+var choose_current = 0;
+var choose_previous = 0;
 
 for (var i = 0; i < 4; i++) {
-	array_push(sequence, irandom(array_length(sequence_actions) - 1));
+	do {
+		choose_current = irandom(array_length(sequence_actions) - 1);
+	} until (choose_current != choose_previous);
+	
+	array_push(sequence, choose_current);
+	choose_previous = choose_current;
 }
 
 allowed = false;

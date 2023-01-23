@@ -301,7 +301,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								lobby_texts[select] = string_copy(lobby_texts[select], 1, lobby_limits[select]);
 							}
 						} else {
-							if (select == 2 || (select == 3 && array_length(lobby_list) > 0)) {
+							if (select == 2 || select == 3) {
 								buffer_seek_begin();
 								buffer_write_action((select == 2) ? ClientTCP.CreateLobby : ClientTCP.JoinLobby);
 								buffer_write_data(buffer_u64, global.master_id);

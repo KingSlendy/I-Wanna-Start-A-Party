@@ -1,1 +1,1 @@
-x = objMinigameController.points_teams[follow][1].x - 48;
+x = objMinigameController.points_teams[follow][1].x;
