@@ -10,6 +10,10 @@ minigame_players = function() {
 	}
 }
 
+if (trial_is_title(CHALLENGE_MEDLEY)) {
+	minigame_time = 60;
+}
+
 minigame_camera = CameraMode.Split4;
 player_type = objPlayerPlatformer;
 distance_to_win = 16;
@@ -28,6 +32,11 @@ alarm_override(11, function() {
 		}
 		
 		var player = focus_player_by_id(i);
+		
+		if (trial_is_title(CHALLENGE_MEDLEY) && player.teammate.network_id != 1) {
+			continue;
+		}
+		
 		var player_info = player_info_by_id(i);
 		var near;
 		

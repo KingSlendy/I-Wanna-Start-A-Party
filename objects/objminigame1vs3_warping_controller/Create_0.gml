@@ -27,6 +27,8 @@ player_type = objPlayerPlatformer;
 warp_start = false;
 warp_delay = array_create(3, 0);
 
+trophy_warp = true;
+
 surf = noone;
 
 part_system = part_system_create();
@@ -54,6 +56,26 @@ function create_warp(x, y) {
 alarm_override(1, function() {
 	alarm_inherited(1);
 	warp_start = true;
+	
+	if (trial_is_title(CHALLENGE_MEDLEY)) {
+		alarm_instant(5);
+	}
+});
+
+alarm_override(2, function() {
+	alarm_inherited(2);
+	
+	if (minigame_has_won() && trophy_warp) {
+		achieve_trophy(76);
+	}
+})
+
+alarm_create(5, function() {
+	instance_create_layer(irandom_range(160, 544), -31, "Actors", objMinigame1vs3_Warping_Warp, {
+		vspeed: irandom_range(4, 8)
+	});
+	
+	alarm_frames(5, 12);
 });
 
 alarm_override(11, function() {

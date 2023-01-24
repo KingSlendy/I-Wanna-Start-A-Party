@@ -351,6 +351,7 @@
     {"id":{"name":"sprYonakaPlayerJump","path":"sprites/sprYonakaPlayerJump/sprYonakaPlayerJump.yy",},"order":2,},
     {"id":{"name":"objCollectedTrophy","path":"objects/objCollectedTrophy/objCollectedTrophy.yy",},"order":4,},
     {"id":{"name":"sprJoelPlayerRun","path":"sprites/sprJoelPlayerRun/sprJoelPlayerRun.yy",},"order":1,},
+    {"id":{"name":"sprModesTrials1124","path":"sprites/sprModesTrials1124/sprModesTrials1124.yy",},"order":8,},
     {"id":{"name":"sndMinigame4vs_Mansion_CloseDoor","path":"sounds/sndMinigame4vs_Mansion_CloseDoor/sndMinigame4vs_Mansion_CloseDoor.yy",},"order":1,},
     {"id":{"name":"sprKey_R","path":"sprites/sprKey_R/sprKey_R.yy",},"order":38,},
     {"id":{"name":"sprMinigame1vs3_Host_Door","path":"sprites/sprMinigame1vs3_Host_Door/sprMinigame1vs3_Host_Door.yy",},"order":0,},

@@ -468,12 +468,17 @@ function minigame2vs2_points(player_id1, player_id2, points = minigame_max_point
 	minigame4vs_points(player_id2, points);
 }
 
+function minigame2vs2_set_points(player_id1, player_id2, points = minigame_max_points()) {
+	minigame4vs_set_points(player_id1, points);
+	minigame4vs_set_points(player_id2, points);
+}
+
 function minigame2vs2_get_points(player_id1, player_id2) {
 	return minigame4vs_get_points(player_id1) + minigame4vs_get_points(player_id2);
 }
 
-function minigame2vs2_get_points_team(id) {
-	return minigame2vs2_get_points(points_teams[id][0].network_id, points_teams[id][1].network_id);	
+function minigame2vs2_get_points_team(team) {
+	return minigame2vs2_get_points(minigame2vs2_team(team, 0).network_id, minigame2vs2_team(team, 1).network_id);	
 }
 
 function minigame_finish(signal = false) {

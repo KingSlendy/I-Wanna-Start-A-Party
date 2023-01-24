@@ -1,3 +1,7 @@
+if (trial_is_title(CHALLENGE_MEDLEY)) {
+	visible = false;
+}
+
 function collect_item(player) {
 	if (objMinigameController.started && !player.has_item && player_info_by_id(player.network_id).space == image_blend) {
 		player.has_item = true;

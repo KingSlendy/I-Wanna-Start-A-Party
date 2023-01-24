@@ -1,8 +1,14 @@
 event_inherited();
 
 minigame_start = minigame2vs2_start;
-minigame_time = 40;
-points_draw = true;
+minigame_time = (!trial_is_title(CHALLENGE_MEDLEY)) ? 40 : 5;
+minigame_time_end = function() {
+	minigame2vs2_set_points(minigame2vs2_team(0, 0).network_id, minigame2vs2_team(0, 1).network_id, 0);
+	minigame2vs2_set_points(minigame2vs2_team(1, 0).network_id, minigame2vs2_team(1, 1).network_id, 0);
+	minigame_finish();
+}
+
+points_draw = (!trial_is_title(CHALLENGE_MEDLEY));
 player_type = objPlayerPlatformer;
 buttons_outside_list = [];
 buttons_inside_list = [];
@@ -78,6 +84,10 @@ alarm_create(5, function() {
 });
 
 alarm_override(11, function() {
+	if (trial_is_title(CHALLENGE_MEDLEY)) {
+		return;
+	}
+	
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

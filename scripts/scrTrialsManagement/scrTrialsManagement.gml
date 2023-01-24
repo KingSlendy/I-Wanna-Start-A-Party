@@ -22,6 +22,7 @@
 #macro GREEN_DIVING "Green Diving"
 #macro WAKA_DODGES "Waka Dodges"
 #macro TINY_TEAMING "Tiny Teaming"
+#macro CHALLENGE_MEDLEY "Challenge Medley"
 #endregion
 
 function Trial(title, minigames, reward = 100) constructor {
@@ -136,7 +137,14 @@ function trial_init() {
 			new Prove(SOCCER_MATCH),
 			new Prove(SPRINGING_PIRANHA),
 			new Prove(CATCH_THE_FRUITS)
-		], 300)
+		], 300),
+		
+		new Trial(CHALLENGE_MEDLEY, [
+			new Prove(DINNYAMIC_DUOS),
+			new Prove(WARPING_UP),
+			new Prove(A_MAZE_ING),
+			new Prove(BUTTONS_EVERYWHERE)
+		], 1000)
 	];
 	
 	for (var i = 0; i < array_length(global.trials); i++) {
@@ -164,8 +172,15 @@ function trial_beaten(index) {
 }
 
 function trial_beat(index) {
-	array_push(global.beaten_trials, index);
-	array_sort(global.beaten_trials, true);
+	if (!trial_beaten(index)) {
+		array_push(global.beaten_trials, index);
+		array_sort(global.beaten_trials, true);
+	}
+	
+	if (array_length(global.beaten_trials) == array_length(global.trials)) {
+		achieve_trophy(77);
+	}
+	
 	save_file();
 }
 
@@ -185,11 +200,7 @@ function trial_start() {
 			exit_trial = true;
 		} else if (trial_info.current == array_length(trial_info.reference.minigames)) {
 			change_collected_coins(trial_info.reference.reward);
-			
-			if (!trial_beaten(trial_info.reference.index)) {
-				trial_beat(trial_info.reference.index);
-			}
-			
+			trial_beat(trial_info.reference.index);
 			exit_trial = true;
 		}
 	

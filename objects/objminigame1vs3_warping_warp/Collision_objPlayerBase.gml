@@ -1,4 +1,4 @@
-if (!is_player_local(other.network_id)) {
+if (!is_player_local(other.network_id) || other.network_id != minigame1vs3_solo().network_id) {
 	exit;
 }
 
@@ -14,3 +14,5 @@ if (image_index == 0) {
 		}
 	}
 }
+
+objMinigameController.trophy_warp = false;

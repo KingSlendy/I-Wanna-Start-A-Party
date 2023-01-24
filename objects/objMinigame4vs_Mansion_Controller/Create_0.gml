@@ -43,12 +43,10 @@ alarm_override(11, function() {
 				}
 	
 				if (array_length(choices) == 0) {
-					if (y < 288) {
-						with (objMinigame4vs_Mansion_Door) {
-							if (y < 288) {
-								array_push(choices, id);
-								break;
-							}
+					with (objMinigame4vs_Mansion_Door) {
+						if (y < 288) {
+							array_push(choices, id);
+							break;
 						}
 					}
 				}
