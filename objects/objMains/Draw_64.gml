@@ -215,7 +215,7 @@ switch (room) {
 			gpu_set_colorwriteenable(true, true, true, true);
 			draw_sprite_stretched(sprFangameMark, 0, info_x + 300, 95, 150, 114);
 			draw_set_font(fntFilesData);
-			draw_text_outline(info_x + draw_w / 2, 250, minigame_selected.reference.fangame_name, c_black);
+			draw_text_info(info_x + draw_w / 2, 250, minigame_selected.reference.fangame_name, draw_w - 8);
 			var colors = minigame_colors[minigames_row_selected];
 		
 			switch (minigames_row_selected) {

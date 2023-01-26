@@ -65,17 +65,17 @@ alarm_override(1, function() {
 alarm_override(2, function() {
 	alarm_inherited(2);
 	
-	if (minigame_has_won() && trophy_warp) {
+	if (minigame_has_won() && minigame1vs3_solo().network_id == global.player_id && trophy_warp) {
 		achieve_trophy(76);
 	}
 })
 
 alarm_create(5, function() {
 	instance_create_layer(irandom_range(160, 544), -31, "Actors", objMinigame1vs3_Warping_Warp, {
-		vspeed: irandom_range(4, 8)
+		vspeed: 6
 	});
 	
-	alarm_frames(5, 12);
+	alarm_frames(5, 15);
 });
 
 alarm_override(11, function() {

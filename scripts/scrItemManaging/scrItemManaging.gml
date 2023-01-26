@@ -7,6 +7,7 @@ function Item(id, name, desc, sprite, price, animation = null, stock_criteria = 
 	self.animation = animation;
 	self.stock_criteria = stock_criteria;
 	self.use_criteria = use_criteria;
+	self.ignore_in = ignore_in;
 }
 
 enum ItemType {

@@ -92,7 +92,7 @@ function is_player_local(player_id = global.player_id) {
 }
 
 function is_player_locality() {
-	return ((!is_player_turn() && global.player_id == 1) || (is_player_turn() && is_local_turn()));
+	return ((is_player_turn() && is_local_turn()) || (!is_player_turn() && global.player_id == 1));
 }
 
 function focused_player() {
@@ -747,7 +747,7 @@ function open_chest() {
 #endregion
 
 #region Stat Management
-function change_shines(amount, type, player_turn = global.player_turn) {
+function change_shines(amount, type, player_turn = global.player_turn, network = true) {
 	var s = instance_create_layer(0, 0, "Managers", objShineChange);
 	s.player_info = player_info_by_turn(player_turn);
 	s.focus_player = focus_player_by_turn(player_turn);
@@ -773,7 +773,7 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 		}
 	}
 
-	if (is_local_turn()) {
+	if (is_local_turn() && network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeShines);
 		buffer_write_data(buffer_s16, amount);
@@ -785,7 +785,7 @@ function change_shines(amount, type, player_turn = global.player_turn) {
 	return s;
 }
 
-function change_coins(amount, type, player_turn = global.player_turn) {
+function change_coins(amount, type, player_turn = global.player_turn, network = true) {
 	var player_info = player_info_by_turn(player_turn);
 	
 	if (amount < 0) {
@@ -807,7 +807,7 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 		bonus_shine_by_id(BonusShines.MostCoins).increase_score(player_turn, amount);
 	}
 	
-	if (is_local_turn()) {
+	if (is_local_turn() && network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeCoins);
 		buffer_write_data(buffer_s16, amount);
@@ -819,7 +819,7 @@ function change_coins(amount, type, player_turn = global.player_turn) {
 	return c;
 }
 
-function change_items(item, type, player_turn = global.player_turn) {
+function change_items(item, type, player_turn = global.player_turn, network = true) {
 	var i = instance_create_layer(0, 0, "Managers", objItemChange);
 	i.player_info = player_info_by_turn(player_turn);
 	i.focus_player = focus_player_by_turn(player_turn);
@@ -828,7 +828,7 @@ function change_items(item, type, player_turn = global.player_turn) {
 	i.amount = (type == ItemChangeType.Gain) ? 1 : -1;
 	i.item = item;
 	
-	if (is_local_turn()) {
+	if (is_local_turn() && network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeItems);
 		buffer_write_data(buffer_u8, item.id);
@@ -1512,11 +1512,10 @@ function board_world_scott_shines(give, network = true) {
 	}
 	
 	if (is_local_turn() && network) {
-		//buffer_seek_begin();
-		//buffer_write_action(ClientTCP.BoardWorldScottShines);
-		//buffer_write_data(buffer_bool, give);
-		//buffer_write_array(buffer_u64, global.player_scott_shines);
-		//network_send_tcp_packet();
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardWorldScottShines);
+		buffer_write_data(buffer_bool, give);
+		network_send_tcp_packet();
 	}
 }
 #endregion

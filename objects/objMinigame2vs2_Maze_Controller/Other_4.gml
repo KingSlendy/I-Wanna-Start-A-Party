@@ -105,6 +105,6 @@ if (trial_is_title(CHALLENGE_MEDLEY)) {
 		do {;
 			x = 32 * irandom(room_width / 32);
 			y = 32 * irandom(room_height / 32);
-		} until (!place_meeting(x, y, objBlock) && !place_meeting(x, y, objPlayerBase))
+		} until (!place_meeting(x, y, objBlock) && !place_meeting(x, y, objPlayerBase) && distance_to_object(objPlayerBase) >= 192)
 	}
 }

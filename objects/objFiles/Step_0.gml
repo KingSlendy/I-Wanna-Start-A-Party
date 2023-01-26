@@ -337,13 +337,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							}
 						
 							ai_join_all();
-							alarm[0] = get_frames(1);
-							music_fade();
-							audio_play_sound(global.sound_cursor_big_select, 0, false);
-						
 							buffer_seek_begin();
-							buffer_write_action(ClientUDP.LobbyStart);
-							network_send_udp_packet();
+							buffer_write_action(ClientTCP.LobbyStart);
+							buffer_write_data(buffer_u64, global.master_id);
+							network_send_tcp_packet();
 						} else {
 							audio_play_sound(global.sound_cursor_select, 0, false);
 							

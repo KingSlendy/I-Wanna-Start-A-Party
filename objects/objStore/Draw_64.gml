@@ -1,7 +1,7 @@
 LIVE
 
 if (!surface_exists(surf)) {
-	surf = surface_create(344, 408 - 112);
+	surf = surface_create(draw_w - 8, 408 - 112);
 }
 
 surface_set_target(surf);

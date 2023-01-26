@@ -38,11 +38,10 @@ for (var i = 0; i < array_length(global.boards); i++) {
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
 		draw_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
-		draw_text_color_outline(x + objStore.draw_w / 2, 10, name, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_text_info(x + objStore.draw_w / 2, 10, name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_set_font(fntFilesData);
-		draw_set_color(c_white);
 		draw_set_halign(fa_left);
-		draw_text_outline(x + 20, 230, "Maker(s): " + board.makers, c_black);
+		draw_text_info(x + 20, 230, "Maker(s): " + board.makers, objStore.draw_w - 8);
 	}));
 }
 
@@ -80,10 +79,9 @@ for (var i = 0; i < array_length(types); i++) {
 			draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
 			draw_set_font(fntFilesButtons);
 			draw_set_halign(fa_center);
-			draw_text_color_outline(x + objStore.draw_w / 2, 10, title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+			draw_text_info(x + objStore.draw_w / 2, 10, title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 			draw_set_font(fntFilesData);
-			draw_set_color(c_white);
-			draw_text_outline(x + objStore.draw_w / 2, 220, fangame_name, c_black);
+			draw_text_info(x + objStore.draw_w / 2, 220, fangame_name, objStore.draw_w - 8);
 		});
 		
 		stock.minigame = minigame;
@@ -106,14 +104,13 @@ for (var i = 0; i < array_length(global.trials); i++) {
 		var trial = self.element();
 		draw_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
-		draw_text_color_outline(x + objStore.draw_w / 2, 10, trial.title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_text_info(x + objStore.draw_w / 2, 10, trial.title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
 		draw_set_font(fntFilesData);
-		draw_set_color(c_white);
 		draw_set_halign(fa_left);
-		draw_text_outline(x + 10, 220, "Minigames: " + string(array_length(trial.minigames)), c_black);
+		draw_text_info(x + 10, 220, "Minigames: " + string(array_length(trial.minigames)), objStore.draw_w - 8);
 		draw_sprite(sprCoin, 0, x + 120, 262);
-		draw_text_outline(x + 10, 250, "Reward:       " + string(trial.reward), c_black);
+		draw_text_info(x + 10, 250, "Reward:       " + string(trial.reward), objStore.draw_w - 8);
 	}));
 }
 
@@ -138,12 +135,11 @@ for (var i = 0; i < array_length(global.skins); i++) {
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
 		draw_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
-		draw_text_color_outline(x + objStore.draw_w / 2, 10, skin.name, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_text_info(x + objStore.draw_w / 2, 10, skin.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_set_font(fntFilesData);
-		draw_set_color(c_white);
-		draw_text_outline(x + objStore.draw_w / 2, 220, skin.fangame_name, c_black);
+		draw_text_info(x + objStore.draw_w / 2, 220, skin.fangame_name, objStore.draw_w - 8);
 		draw_set_halign(fa_left);
-		draw_text_outline(x + 20, 260, "Maker: " + skin.maker, c_black);
+		draw_text_info(x + 20, 260, "Maker: " + skin.maker, objStore.draw_w - 8);
 	}));
 }
 
@@ -162,11 +158,10 @@ for (var i = 0; i < array_length(global.reactions); i++) {
 		draw_sprite_ext(sprReactions, react.index, x + objStore.draw_w / 2, 160, 0.75, 0.75, 0, c_white, 1);
 		draw_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
-		draw_text_color_outline(x + objStore.draw_w / 2, 10, react.name, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+		draw_text_info(x + objStore.draw_w / 2, 10, react.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_set_font(fntFilesData);
-		draw_set_color(c_white);
 		draw_set_halign(fa_left);
-		draw_text_outline(x + 20, 260, "Maker: " + react.maker, c_black);
+		draw_text_info(x + 20, 260, "Maker: " + react.maker, objStore.draw_w - 8);
 	}));
 }
 

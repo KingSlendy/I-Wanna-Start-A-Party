@@ -87,6 +87,12 @@ function draw_player_name(x, y, player_id) {
 	draw_set_font(font);
 }
 
+function draw_text_info(x, y, text, max_width, c1 = c_white, c2 = c_white, c3 = c_white, c4 = c_white, border_color = c_black) {
+	var width = string_width(text);
+	var scale = min(max_width / width * 0.9, 1);
+	draw_text_transformed_color_outline(x, y, text, scale, scale, 0, c1, c2, c3, c4, draw_get_alpha(), border_color);
+}
+
 function draw_collected_coins(x, y) {
 	var showed_gui = (instance_exists(objCollectedCoins));
 	var coins = string((!showed_gui) ? global.collected_coins : objCollectedCoins.coins);

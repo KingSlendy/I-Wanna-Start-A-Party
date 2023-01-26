@@ -12,6 +12,7 @@ minigame_players = function() {
 
 if (trial_is_title(CHALLENGE_MEDLEY)) {
 	minigame_time = 60;
+	minigame_time_valign = fa_top;
 }
 
 minigame_camera = CameraMode.Split4;

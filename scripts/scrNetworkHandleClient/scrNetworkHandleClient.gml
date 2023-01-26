@@ -85,6 +85,7 @@ enum ClientTCP {
 	BoardPalletBattle,
 	BoardDreamsTeleports,
 	BoardNsanityReturn,
+	BoardWorldScottShines,
 	#endregion
 	
 	#region Animations
@@ -312,9 +313,11 @@ f[$ ClientTCP.LobbyUpdate] = function(buffer) {
 }
 
 f[$ ClientTCP.LobbyStart] = function(buffer) {
-	global.lobby_started = true;
-	objFiles.fade_start = true;
-	music_stop();
+	with (objFiles) {
+		music_fade();
+		audio_play_sound(global.sound_cursor_big_select, 0, false);
+		alarm[0] = get_frames(1);
+	}
 }
 
 f[$ ClientTCP.LobbyKick] = function(buffer) {
@@ -606,21 +609,21 @@ f[$ ClientTCP.ChangeShines] = function(buffer) {
 	var amount = buffer_read(buffer, buffer_s16);
 	var type = buffer_read(buffer, buffer_u8);
 	var player_id = buffer_read(buffer, buffer_u8);
-	change_shines(amount, type, player_id);
+	change_shines(amount, type, player_id, false);
 }
 
 f[$ ClientTCP.ChangeCoins] = function(buffer) {
 	var amount = buffer_read(buffer, buffer_s16);
 	var type = buffer_read(buffer, buffer_u8);
 	var player_id = buffer_read(buffer, buffer_u8);
-	change_coins(amount, type, player_id);
+	change_coins(amount, type, player_id, false);
 }
 
 f[$ ClientTCP.ChangeItems] = function(buffer) {
 	var item_id = buffer_read(buffer, buffer_u8);
 	var type = buffer_read(buffer, buffer_u8);
 	var player_id = buffer_read(buffer, buffer_u8);
-	change_items(global.board_items[item_id], type, player_id);
+	change_items(global.board_items[item_id], type, player_id, false);
 }
 
 f[$ ClientTCP.ChangeSpace] = function(buffer) {
@@ -725,6 +728,11 @@ f[$ ClientTCP.BoardDreamsTeleports] = function(buffer) {
 
 f[$ ClientTCP.BoardNsanityReturn] = function(buffer) {
 	board_nsanity_return();
+}
+
+f[$ ClientTCP.BoardWorldScottShines] = function(buffer) {
+	var give = buffer_read(buffer, buffer_bool);
+	board_world_scott_shines(give, false);
 }
 #endregion
 
@@ -1370,7 +1378,6 @@ enum ClientUDP {
 	#region Networking
 	Initialize,
 	Heartbeat,
-	LobbyStart,
 	PlayerData,
 	PlayerJump,
 	#endregion
@@ -1421,11 +1428,6 @@ f[$ ClientUDP.Heartbeat] = function(buffer) {
 			alarm_call(0, 12);
 		}
 	}
-}
-
-f[$ ClientUDP.LobbyStart] = function(buffer) {
-	music_fade();
-	audio_play_sound(global.sound_cursor_big_select, 0, false);
 }
 
 f[$ ClientUDP.PlayerData] = function(buffer) {

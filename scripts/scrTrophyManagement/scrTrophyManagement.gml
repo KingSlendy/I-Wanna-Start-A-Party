@@ -151,7 +151,7 @@ global.trophies = [
 	new Trophy(74, TrophyRank.Gold, "It's Not Effective", "You lost a Pokemon battle while having a favorable Pokemon.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.", "Water vs. Fire should be an easy win... right?"),
 	new Trophy(75, TrophyRank.Silver, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon!\nI didn't think a fire attack to a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
 	new Trophy(76, TrophyRank.Bronze, "Green Savings", "You only touched green saves and won in Sky Diving!\nThat satisfaction to see the green circle after a long save, am I right?", "I prefer the green circles for yellow boxes."),
-	new Trophy(77, TrophyRank.Bronze, "", "You didn't touch a single warp and won in Warping Up!\nI guess you're getting tired of seeing the same warp over and over all the time.", "Not the gray teleporter!"),
+	new Trophy(77, TrophyRank.Bronze, "Dodging Teleports", "You didn't touch a single warp from the players and won in Warping Up!\nI guess you're getting tired of seeing the same warp over and over all the time.", "Not the gray teleporter!"),
 	new Trophy(78, TrophyRank.Platinum, "All Trials", "You completed all Trials!\nNow you can truly call yourself the life of the party.", "I can beat all the Trials!")
 ];
 

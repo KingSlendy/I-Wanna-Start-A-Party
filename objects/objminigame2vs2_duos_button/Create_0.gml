@@ -2,6 +2,7 @@ depth = layer_get_depth("Tiles") - 1;
 
 function press_button(network = true) {
 	image_index = 1;
+	audio_play_sound(sndMinigame2vs2_Buttons_Press, 0, false);
 	
 	if (trg < 8) {
 		alarm_call(0, 0.1);
