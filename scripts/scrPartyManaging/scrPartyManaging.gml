@@ -1332,6 +1332,8 @@ function start_the_guy() {
 	}
 }
 
+global.board_lock_event = false;
+
 function board_hotland_annoying_dog() {
 	instance_create_layer(0, 0, "Managers", objBoardHotlandAnnoyingDog);
 	
@@ -1342,7 +1344,31 @@ function board_hotland_annoying_dog() {
 	}
 }
 
-global.board_lock_event = false;
+function board_baba_blocks(block_id) {
+	global.baba_block_id = block_id;
+	
+	start_dialogue([
+		new Message("There's some blocks here, they're gonna toggle!",, board_baba_toggle)
+	]);
+}
+
+function board_baba_toggle() {
+	global.baba_toggled[global.baba_block_id] ^= true;
+	
+	with (objBoardBabaBlock) {
+		if (block_id == global.baba_block_id) {
+			block_update();
+			break;
+		}
+	}
+	
+	if (is_local_turn()) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardBabaToggle);
+		buffer_write_data(buffer_u8, global.baba_block_id);
+		network_send_tcp_packet();
+	}
+}
 
 function board_pallet_pokemons() {
 	pokemon = collision_circle(x + 16, y + 16, 64, objBoardPalletPokemon, false, true);

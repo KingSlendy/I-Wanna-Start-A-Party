@@ -46,6 +46,14 @@ cpu_item = -1;
 global.board_day = true;
 
 //Baba Board
+global.baba_blocks = array_create(3, 0);
+global.baba_toggled = array_create(3, false);
+block_sprites = [
+	[sprBoardBabaBlockDoubleYellow, sprBoardBabaBlockFreeYellow],
+	[sprBoardBabaBlockDoubleBlue, sprBoardBabaBlockHalfBlue],
+	[sprBoardBabaBlockHalfPink, sprBoardBabaBlockFreePink]
+];
+
 tile_image_speed = 0.12;
 tile_image_index = 0;
 

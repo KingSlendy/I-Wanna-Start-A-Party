@@ -43,11 +43,22 @@ if (shopping && is_local_turn()) {
 
 	if (global.actions.jump.pressed(network_id)) {
 		io_clear();
+		var price = item_selected.price;
 		
-		if (player_info.coins >= item_selected.price) {
+		if (room == rBoardBaba && global.baba_toggled[2]) {
+			if (global.baba_blocks[0] == 0) {
+				price /= 2;
+			} else {
+				price = 0;
+			}
+			
+			price = floor(price);
+		}
+		
+		if (player_info.coins >= price) {
 			change_dialogue([
 				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
-					["Buy " + draw_coins_price(item_selected.price), [
+					["Buy " + draw_coins_price(price), [
 						new Message("Thank you for buying!",, function() {
 							with (objShop) {
 								shop_end();
@@ -83,7 +94,7 @@ if (shopping && is_local_turn()) {
 								}
 							}
 						
-							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = action;
+							change_coins(-price, CoinChangeType.Spend).final_action = action;
 							bonus_shine_by_id(BonusShines.MostPurchases).increase_score(global.player_turn, item_selected.price);
 						})
 					]],

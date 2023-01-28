@@ -5,9 +5,21 @@ var text = new Text(fntDialogue);
 
 for (var i = 0; i < array_length(stock); i++) {
 	var item = stock[i];
-	text.set("{SPRITE," + sprite_get_name(item.sprite) + "," + string(timer * sprite_get_speed(item.sprite) / game_get_speed(gamespeed_fps)) +  ",0,-2,0.5,0.5} " + draw_coins_price(item.price));
+	var price = item.price;
+		
+	if (room == rBoardBaba && global.baba_toggled[2]) {
+		if (global.baba_blocks[0] == 0) {
+			price /= 2;
+		} else {
+			price = 0;
+		}
+			
+		price = floor(price);
+	}
+	
+	text.set("{SPRITE," + sprite_get_name(item.sprite) + "," + string(timer * sprite_get_speed(item.sprite) / game_get_speed(gamespeed_fps)) +  ",0,-2,0.5,0.5} " + draw_coins_price(price));
 	text.draw(draw_x + 10, draw_y + 10 + 35 * i + offset_y);
-	text.set(draw_option_afford(item.name, player_info.coins >= item.price, i == option_selected));
+	text.set(draw_option_afford(item.name, player_info.coins >= price, i == option_selected));
 	text.draw(draw_x + 160, draw_y + 10 + 35 * i + offset_y);
 }
 

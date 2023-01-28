@@ -128,6 +128,14 @@ function space_passing_event() {
 		
 		case SpaceType.Shine:
 			if (room != rBoardHyrule || global.board_light) {
+				if (room == rBoardBaba) {
+					if (!global.baba_toggled[0]) {
+						global.shine_price = 20;
+					} else {
+						global.shine_price = (global.baba_blocks[0] == 0) ? 40 : 0;
+					}
+				}
+				
 				if (player_info.coins >= global.shine_price) {
 					var buy_shine = function() {
 						change_coins(-global.shine_price, CoinChangeType.Spend).final_action = function() {
@@ -258,6 +266,17 @@ function space_finish_event() {
 	}
 	
 	change_space(image_index);
+	var space_give = (global.board_turn <= global.max_board_turns - 5) ? 3 : 6;
+	
+	if (room == rBoardBaba && global.baba_toggled[1]) {
+		if (global.baba_blocks[1] == 0) {
+			space_give *= 2;
+		} else {
+			space_give /= 2;
+		}
+	}
+	
+	space_give = floor(space_give);
 	
 	switch (image_index) {
 		case SpaceType.Blue:
@@ -267,7 +286,7 @@ function space_finish_event() {
 				blue_event = show_chest;
 			}
 			
-			change_coins((global.board_turn <= global.max_board_turns - 5) ? 3 : 6, CoinChangeType.Gain).final_action = blue_event;
+			change_coins(space_give, CoinChangeType.Gain).final_action = blue_event;
 			
 			if (focused_player().network_id == global.player_id && space_number(SpaceType.Blue) < space_number(SpaceType.Red)) {
 				achieve_trophy(56);
@@ -275,7 +294,7 @@ function space_finish_event() {
 			break;
 			
 		case SpaceType.Red:
-			change_coins(-((global.board_turn <= global.max_board_turns - 5) ? 3 : 6), CoinChangeType.Lose).final_action = turn_next;
+			change_coins(-space_give, CoinChangeType.Lose).final_action = turn_next;
 			bonus_shine_by_id(BonusShines.MostRedSpaces).increase_score();
 			
 			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
@@ -284,10 +303,12 @@ function space_finish_event() {
 			break;
 			
 		case SpaceType.Green:
+			space_give *= 2;
+		
 			if (irandom(1) == 0) {
-				change_coins(6, CoinChangeType.Gain).final_action = turn_next;
+				change_coins(space_give, CoinChangeType.Gain).final_action = turn_next;
 			} else {
-				change_coins(-6, CoinChangeType.Lose).final_action = turn_next;
+				change_coins(-space_give, CoinChangeType.Lose).final_action = turn_next;
 			}
 			
 			bonus_shine_by_id(BonusShines.MostCoinSpaces).increase_score();

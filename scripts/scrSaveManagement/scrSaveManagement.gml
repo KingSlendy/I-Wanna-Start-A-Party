@@ -192,6 +192,10 @@ function save_board() {
 			saved_shine_positions: [],
 			saved_spaces: [],
 			
+			//Baba Board
+			saved_baba_blocks: global.baba_blocks,
+			saved_baba_toggled: global.baba_toggled,
+			
 			//Hyrule Board
 			saved_board_light: global.board_light,
 			

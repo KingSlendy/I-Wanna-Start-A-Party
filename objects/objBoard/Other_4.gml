@@ -16,8 +16,26 @@ if (!global.board_started) {
 		global.minigame_type_history = board.saved_board.saved_minigame_type_history;
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 		
+		//Baba Board
+		global.baba_blocks = board.saved_board.saved_baba_blocks;
+		global.baba_toggled = board.saved_board.saved_baba_toggled;
+		
 		//Hyrule Board
 		global.board_light = board.saved_board.saved_board_light;
+		
+		//World Board
+		with (objBoardWorldScott) {
+			var position;
+			
+			if (object_index == objBoardWorldNega) {
+				position = board.saved_board.saved_nega_position;
+			} else {
+				position = board.saved_board.saved_scott_position;
+			}
+			
+			x = position.x;
+			y = position.y;
+		}
 	
 		for (var i = 0; i < array_length(board.saved_board.saved_shine_positions); i++) {
 			var position = board.saved_board.saved_shine_positions[i];
@@ -39,20 +57,6 @@ if (!global.board_started) {
 					break;
 				}
 			}
-		}
-		
-		//World Board
-		with (objBoardWorldScott) {
-			var position;
-			
-			if (object_index == objBoardWorldNega) {
-				position = board.saved_board.saved_nega_position;
-			} else {
-				position = board.saved_board.saved_scott_position;
-			}
-			
-			x = position.x;
-			y = position.y;
 		}
 	
 		for (var i = 1; i <= global.player_max; i++) {
@@ -146,6 +150,23 @@ switch (room) {
 		break;
 	
 	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
+	
+	case rBoardBaba:
+		for (var i = 0; i < array_length(global.baba_blocks); i++) {
+			if (!global.board_started) {
+				next_seed_inline();
+				global.baba_blocks[i] = irandom(1);
+			}
+			
+			with (objBoardBabaBlock) {
+				if (block_id == i) {
+					block_update();
+					break;
+				}
+			}
+		}
+		break;
+	
 	case rBoardHyrule: global.shine_spawn_count = 3; break;
 	
 	case rBoardNsanity:

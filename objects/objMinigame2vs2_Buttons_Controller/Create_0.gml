@@ -3,8 +3,11 @@ event_inherited();
 minigame_start = minigame2vs2_start;
 minigame_time = (!trial_is_title(CHALLENGE_MEDLEY)) ? 40 : 5;
 minigame_time_end = function() {
-	minigame2vs2_set_points(minigame2vs2_team(0, 0).network_id, minigame2vs2_team(0, 1).network_id, 0);
-	minigame2vs2_set_points(minigame2vs2_team(1, 0).network_id, minigame2vs2_team(1, 1).network_id, 0);
+	if (trial_is_title(CHALLENGE_MEDLEY)) {
+		minigame2vs2_set_points(minigame2vs2_team(0, 0).network_id, minigame2vs2_team(0, 1).network_id, 0);
+		minigame2vs2_set_points(minigame2vs2_team(1, 0).network_id, minigame2vs2_team(1, 1).network_id, 0);
+	}
+	
 	minigame_finish();
 }
 

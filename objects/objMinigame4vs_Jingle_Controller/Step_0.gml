@@ -3,16 +3,18 @@ if (!sledge_start || info.is_finished) {
 }
 
 for (var i = 1; i <= global.player_max; i++) {
-	with (focus_player_by_turn(i).sledge) {
+	var player = focus_player_by_turn(i);
+	
+	with (player.sledge) {
 		if (stopped) {
 			break;
 		}
 		
-		if (global.actions.shoot.pressed(player_id)) {
+		if (global.actions.shoot.pressed(player.network_id)) {
 			sledge_shoot();
 		}
 	
-		if (global.actions.jump.pressed(player_id)) {
+		if (global.actions.jump.pressed(player.network_id)) {
 			sledge_jump();
 		}
 	}

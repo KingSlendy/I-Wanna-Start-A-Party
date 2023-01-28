@@ -81,6 +81,7 @@ enum ClientTCP {
 	LastTurnsHelpLastPlace,
 	LastTurnsEndLastTurns,
 	BoardHotlandAnnoyingDog,
+	BoardBabaToggle,
 	BoardPalletObtain,
 	BoardPalletBattle,
 	BoardDreamsTeleports,
@@ -709,6 +710,11 @@ f[$ ClientTCP.LastTurnsEndLastTurns] = function(buffer) {
 
 f[$ ClientTCP.BoardHotlandAnnoyingDog] = function(buffer) {
 	board_hotland_annoying_dog();
+}
+
+f[$ ClientTCP.BoardBabaToggle] = function(buffer) {
+	global.block_baba_id = buffer_read(buffer, buffer_u8);
+	board_baba_toggle();
 }
 
 f[$ ClientTCP.BoardPalletObtain] = function(buffer) {

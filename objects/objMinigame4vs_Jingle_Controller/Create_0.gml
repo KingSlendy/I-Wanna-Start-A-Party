@@ -47,12 +47,12 @@ for (var i = 0; i < global.player_max; i++) {
 
 sledge_start = false;
 
-function jingle_obstacles(player_id) {
+function jingle_obstacles(player_turn) {
 	var start_x = -infinity;
-	var start_y = 120 + 152 * (player_id - 1);
+	var start_y = 120 + 152 * (player_turn - 1);
 
 	with (objMinigame4vs_Jingle_Block) {
-		if (self.player_id != player_id) {
+		if (self.player_turn != player_turn) {
 			continue;
 		}
 		
@@ -62,33 +62,33 @@ function jingle_obstacles(player_id) {
 	start_x += 32;
 		
 	with (instance_create_layer(start_x, start_y, "Collisions", objMinigame4vs_Jingle_Block)) {
-		self.player_id = player_id;
+		self.player_turn = player_turn;
 	}
 		
-	if (space_count[player_id - 1] % 10 == 0) {
+	if (space_count[player_turn - 1] % 10 == 0) {
 		var objs = [objMinigame4vs_Jingle_Spike, objMinigame4vs_Jingle_Tree, objMinigame4vs_Jingle_Candy];
-		var count = floor(space_count[player_id - 1] / 10);
+		var count = floor(space_count[player_turn - 1] / 10);
 		var obj = null;
 		
 		if (count < 35) {
-			obj = objs[space_objs[player_id - 1][count]];
+			obj = objs[space_objs[player_turn - 1][count]];
 		} else if (count == 35) {
 			obj = objMinigame4vs_Jingle_Goal;
 		}
 			
 		if (obj != null) {
 			with (instance_create_layer(start_x, start_y - sprite_get_height(object_get_sprite(obj)), "Actors", obj)) {
-				self.player_id = player_id;
+				self.player_turn = player_turn;
 			}
 		}
 	}
 	
-	space_count[player_id - 1]++;
-	set_spd(-7, player_id);
-	alarm_call(4 + (player_id - 1), 0.08);
+	space_count[player_turn - 1]++;
+	set_spd(-7, player_turn);
+	alarm_call(4 + (player_turn - 1), 0.08);
 }
 
-function set_spd(scene_spd, player_id) {
+function set_spd(scene_spd, player_turn) {
 	if (scene_spd != 0) {
 		var bg_layers = ["Background", "Trees"];
 	
@@ -100,7 +100,7 @@ function set_spd(scene_spd, player_id) {
 	}
 	
 	with (objMinigame4vs_Jingle_Block) {
-		if (self.player_id != player_id) {
+		if (self.player_turn != player_turn) {
 			continue;
 		}
 		
@@ -110,7 +110,7 @@ function set_spd(scene_spd, player_id) {
 
 alarm_override(1, function() {
 	with (objMinigame4vs_Jingle_Sledge) {
-		focus_player_by_id(player_id).sledge = id;
+		focus_player_by_turn(player_turn).sledge = id;
 	}
 	
 	for (var i = 0; i < global.player_max; i++) {
