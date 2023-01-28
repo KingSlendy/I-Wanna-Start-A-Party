@@ -43,10 +43,10 @@ if (shopping && is_local_turn()) {
 
 	if (global.actions.jump.pressed(network_id)) {
 		io_clear();
-		var price = item_selected.price;
+		price = item_selected.price;
 		
 		if (room == rBoardBaba && global.baba_toggled[2]) {
-			if (global.baba_blocks[0] == 0) {
+			if (global.baba_blocks[2] == 0) {
 				price /= 2;
 			} else {
 				price = 0;

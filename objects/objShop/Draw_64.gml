@@ -8,7 +8,7 @@ for (var i = 0; i < array_length(stock); i++) {
 	var price = item.price;
 		
 	if (room == rBoardBaba && global.baba_toggled[2]) {
-		if (global.baba_blocks[0] == 0) {
+		if (global.baba_blocks[2] == 0) {
 			price /= 2;
 		} else {
 			price = 0;

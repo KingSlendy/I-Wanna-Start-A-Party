@@ -1,6 +1,6 @@
 global.board_price = 5000;
 global.minigame_price = 2000;
-global.trial_price = 100;
+global.trial_price = 500;
 
 function Skin(id, name, fangame_name, fangame_index, maker, price = 100) constructor {
 	self.id = id;
