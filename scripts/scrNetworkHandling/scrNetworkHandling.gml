@@ -310,7 +310,15 @@ function player_read_data(buffer) {
 	}
 }
 
-function obtain_same_game_key(game_key = global.board_games[$ global.game_id].saved_key) {
+function obtain_same_game_key(game_key) {
+	if (game_key == null) {
+		var board_game = global.board_games[$ global.game_id];
+		
+		if (board_game != null) {
+			game_key = board_game.saved_key;
+		}
+	}
+	
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.BoardGameKey);
 	buffer_write_data(buffer_u8, global.player_id + 1);
