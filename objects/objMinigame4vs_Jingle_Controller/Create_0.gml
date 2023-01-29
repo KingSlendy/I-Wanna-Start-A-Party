@@ -40,7 +40,7 @@ for (var i = 0; i < global.player_max; i++) {
 	array_push(space_objs, []);
 	
 	repeat (100) {
-		var num = irandom(2);
+		var num = irandom(3);
 		array_push(space_objs[i], num);
 	}
 }
@@ -66,7 +66,7 @@ function jingle_obstacles(player_turn) {
 	}
 		
 	if (space_count[player_turn - 1] % 10 == 0) {
-		var objs = [objMinigame4vs_Jingle_Spike, objMinigame4vs_Jingle_Tree, objMinigame4vs_Jingle_Candy];
+		var objs = [objMinigame4vs_Jingle_Spike, objMinigame4vs_Jingle_Tree, objMinigame4vs_Jingle_Candy, objMinigame4vs_Jingle_Toggle];
 		var count = floor(space_count[player_turn - 1] / 10);
 		var obj = null;
 		
@@ -84,8 +84,8 @@ function jingle_obstacles(player_turn) {
 	}
 	
 	space_count[player_turn - 1]++;
-	set_spd(-7, player_turn);
-	alarm_call(4 + (player_turn - 1), 0.08);
+	set_spd(-9, player_turn);
+	alarm_call(4 + (player_turn - 1), 0.04);
 }
 
 function set_spd(scene_spd, player_turn) {
@@ -150,14 +150,20 @@ alarm_override(11, function() {
 			var obstacle = instance_place(x + 160, y, objMinigame4vs_Jingle_Spike);
 			
 			if (obstacle != noone) {
-				if (obstacle.object_index == objMinigame4vs_Jingle_Tree || obstacle.object_index == objMinigame4vs_Jingle_Candy) {
+				if (obstacle.object_index == objMinigame4vs_Jingle_Spike) {
+					if (0.5 > random(1)) {
+						break;
+					}
+					
+					actions.jump.press();
+				} else if (obstacle.object_index == objMinigame4vs_Jingle_Tree || obstacle.object_index == objMinigame4vs_Jingle_Candy) {
 					if (0.05 > random(1)) {
 						break;
 					}
 					
 					actions.shoot.press();
-				} else if (obstacle.object_index == objMinigame4vs_Jingle_Spike) {
-					if (0.5 > random(1)) {
+				} else if (obstacle.object_index == objMinigame4vs_Jingle_Toggle && obstacle.sprite_index == sprMinigame4vs_Jingle_ToggleFull) {
+					if (0.75 > random(1)) {
 						break;
 					}
 					

@@ -19,7 +19,7 @@ enum ClientTCP {
 	LobbyUpdate,
 	LobbyStart,
 	LobbyKick,
-	BoardGameID,
+	BoardGameKey,
 	BoardPlayerIDs,
 	ModesAction,
 	BoardRandom,
@@ -223,6 +223,7 @@ f[$ ClientTCP.CreateLobby] = function(buffer) {
 		return;
 	}
 		
+	objFiles.online_reading = true;
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.ReceiveID);
 	buffer_write_data(buffer_u64, global.master_id);
@@ -242,6 +243,7 @@ f[$ ClientTCP.JoinLobby] = function(buffer) {
 		case 3: popup("This lobby has already been started."); return;
 	}
 			
+	objFiles.online_reading = true;
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.ReceiveID);
 	buffer_write_data(buffer_u64, global.master_id);
@@ -331,25 +333,16 @@ f[$ ClientTCP.LobbyKick] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.BoardGameID] = function(buffer) {
+f[$ ClientTCP.BoardGameKey] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
-	var received_names = buffer_read_array(buffer, buffer_string);
+	var game_key = buffer_read(buffer, buffer_string);
 			
-	if (check_same_game_id(player_id, received_names)) {
+	if (check_same_game_key(player_id, game_key)) {
 		return;
 	}
 			
-	if (global.player_id == player_id) {
-		var names = variable_struct_get_names(global.board_games);
-		var send_names = [];
-				
-		for (var i = 0; i < array_length(names); i++) {
-			if (array_contains(received_names, names[i])) {
-				array_push(send_names, names[i]);
-			}
-		}
-				
-		obtain_same_game_id(send_names);
+	if (global.player_id == player_id) {	
+		obtain_same_game_key(game_key);
 	}
 }
 
@@ -635,7 +628,7 @@ f[$ ClientTCP.ChangeSpace] = function(buffer) {
 
 #region Events
 f[$ ClientTCP.BoardStart] = function(buffer) {
-	global.game_id = buffer_read(buffer, buffer_string);
+	global.game_key = buffer_read(buffer, buffer_string);
 }
 
 f[$ ClientTCP.TurnStart] = function(buffer) {
@@ -713,7 +706,7 @@ f[$ ClientTCP.BoardHotlandAnnoyingDog] = function(buffer) {
 }
 
 f[$ ClientTCP.BoardBabaToggle] = function(buffer) {
-	global.block_baba_id = buffer_read(buffer, buffer_u8);
+	global.baba_block_id = buffer_read(buffer, buffer_u8);
 	board_baba_toggle();
 }
 
@@ -1020,10 +1013,10 @@ f[$ ClientTCP.Minigame4vs_Golf_GivePoints] = function(buffer) {
 }
 
 f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
-	var player_id = buffer_read(buffer, buffer_u8);
+	var player_turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Jingle_Sledge) {
-		if (self.player_id == player_id) {
+		if (self.player_turn == player_turn) {
 			sledge_shoot(false);
 			break;
 		}
@@ -1031,10 +1024,10 @@ f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
 }
 
 f[$ ClientTCP.Minigame4vs_Jingle_SledgeJump] = function(buffer) {
-	var player_id = buffer_read(buffer, buffer_u8);
+	var player_turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Jingle_Sledge) {
-		if (self.player_id == player_id) {
+		if (self.player_turn == player_turn) {
 			sledge_jump(false);
 			break;
 		}
@@ -1042,10 +1035,10 @@ f[$ ClientTCP.Minigame4vs_Jingle_SledgeJump] = function(buffer) {
 }
 
 f[$ ClientTCP.Minigame4vs_Jingle_SledgeHit] = function(buffer) {
-	var player_id = buffer_read(buffer, buffer_u8);
+	var player_turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Jingle_Sledge) {
-		if (self.player_id == player_id) {
+		if (self.player_turn == player_turn) {
 			sledge_hit(false);
 			break;
 		}

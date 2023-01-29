@@ -17,7 +17,6 @@ if (!global.board_started) {
 		global.give_bonus_shines = board.saved_board.saved_give_bonus_shines;
 		
 		//Baba Board
-		global.baba_blocks = board.saved_board.saved_baba_blocks;
 		global.baba_toggled = board.saved_board.saved_baba_toggled;
 		
 		//Hyrule Board
@@ -96,14 +95,19 @@ if (!global.board_started) {
 		global.player_game_ids = [];
 		prev_board_light = !global.board_light;
 	} else { //Initialize board
+		//variable_struct_remove(global.board_games, global.game_id);
+		//save_file();
+		
+		//if (IS_ONLINE) {
+		//	global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
+		//} else {
+		//	global.game_id = "Offline";
+		//}
+		
+		global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
+		global.game_key =  date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
 		variable_struct_remove(global.board_games, global.game_id);
 		save_file();
-		
-		if (IS_ONLINE) {
-			global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
-		} else {
-			global.game_id = "Offline";
-		}
 		
 		shuffle_seed_bag();
 		next_seed_inline();
@@ -152,11 +156,11 @@ switch (room) {
 	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
 	
 	case rBoardBaba:
+		reset_seed_inline();
+	
 		for (var i = 0; i < array_length(global.baba_blocks); i++) {
-			if (!global.board_started) {
-				next_seed_inline();
-				global.baba_blocks[i] = irandom(1);
-			}
+			next_seed_inline();
+			global.baba_blocks[i] = irandom(array_length(global.baba_blocks) - 1);
 			
 			with (objBoardBabaBlock) {
 				if (block_id == i) {

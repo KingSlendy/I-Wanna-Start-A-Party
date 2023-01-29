@@ -48,11 +48,19 @@ global.board_day = true;
 //Baba Board
 global.baba_blocks = array_create(3, 0);
 global.baba_toggled = array_create(3, false);
-block_sprites = [
-	[sprBoardBabaBlockDoubleYellow, sprBoardBabaBlockFreeYellow],
-	[sprBoardBabaBlockDoubleBlue, sprBoardBabaBlockHalfBlue],
-	[sprBoardBabaBlockHalfPink, sprBoardBabaBlockFreePink]
-];
+block_sprites = [];
+var colors = ["Yellow", "Blue", "Pink"];
+var types = ["Double", "Half", "Free"];
+
+for (var i = 0; i < array_length(global.baba_blocks); i++) {
+	var blocks = [];
+	
+	for (var j = 0; j < array_length(global.baba_blocks); j++) {
+		array_push(blocks, asset_get_index(string("sprBoardBabaBlock{0}{1}", types[j], colors[i])));
+	}
+	
+	array_push(block_sprites, blocks);
+}
 
 tile_image_speed = 0.12;
 tile_image_index = 0;
@@ -121,7 +129,7 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	board_advance();
+	instance_create_layer(0, 0, "Managers", objBoardWorldShuffle);
 });
 
 alarm_create(11, function() {

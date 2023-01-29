@@ -19,17 +19,19 @@ if (state == 0) {
 			
 			with (objSpaces) {
 				if ((image_index == SpaceType.Blue || image_index == SpaceType.Red) && !place_meeting(x, y, objPlayerBoard)) {
-					array_push(spaces, id);
+					array_push(spaces, {x: self.x + 16, y: self.y + 16});
 				}
 			}
 			
+			array_sort(spaces, function(a, b) {
+				return (a.x + a.y) - (b.x + b.y);
+			});
+			
 			next_seed_inline();
 			array_shuffle(spaces);
-			
-			with (array_pop(spaces)) {
-				other.x = x + 16;
-				other.y = y + 16;
-			}
+			var space = array_pop(spaces);
+			x = space.x;
+			y = space.y;
 		}
 	}
 } else if (state == 1) {

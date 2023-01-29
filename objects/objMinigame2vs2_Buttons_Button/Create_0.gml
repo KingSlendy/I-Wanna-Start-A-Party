@@ -7,6 +7,7 @@ function press_button(player_id) {
 			
 			if (trial_is_title(CHALLENGE_MEDLEY)) {
 				minigame_time += 2;
+				minigame_time = min(minigame_time, 5);
 			}
 		}
 		

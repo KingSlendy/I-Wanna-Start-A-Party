@@ -1,3 +1,1 @@
-if (is_local_turn()) {
-	board_advance();
-}
+board_advance();

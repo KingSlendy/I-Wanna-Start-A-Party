@@ -3,6 +3,12 @@ shot = false;
 stopped = false;
 
 function sledge_shoot(network = true) {
+	with (objMinigame4vs_Jingle_Toggle) {
+		if (player_turn == other.player_turn) {
+			toggle_block();
+		}
+	}
+	
 	if (shot) {
 		return;
 	}
@@ -73,7 +79,7 @@ alarm_create(function() {
 	
 	with (objMinigameController) {
 		alarm_resume(4 + (other.player_turn - 1));
-		set_spd(-7, other.player_turn);
+		set_spd(-9, other.player_turn);
 	}
 });
 

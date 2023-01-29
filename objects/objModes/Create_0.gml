@@ -127,3 +127,17 @@ function back_to_files() {
 	music_fade();
 	audio_play_sound(global.sound_cursor_back, 0, false);
 }
+
+var names = variable_struct_get_names(global.board_games);
+
+for (var i = 0; i < array_length(names); i++) {
+	var name = names[i];
+	
+	if (name == "Offline" || name == "Online") {
+		continue;
+	}
+	
+	variable_struct_remove(global.board_games, names[i]);
+}
+
+save_file();

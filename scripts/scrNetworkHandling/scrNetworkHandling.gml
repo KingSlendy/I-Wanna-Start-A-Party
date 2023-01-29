@@ -310,23 +310,25 @@ function player_read_data(buffer) {
 	}
 }
 
-function obtain_same_game_id(names = variable_struct_get_names(global.board_games)) {
+function obtain_same_game_key(game_key = global.board_games[$ global.game_id].saved_key) {
 	buffer_seek_begin();
-	buffer_write_action(ClientTCP.BoardGameID);
+	buffer_write_action(ClientTCP.BoardGameKey);
 	buffer_write_data(buffer_u8, global.player_id + 1);
-	buffer_write_array(buffer_string, names);
+	buffer_write_data(buffer_string, game_key);
 	network_send_tcp_packet();
 	
-	check_same_game_id(global.player_id + 1, names);
+	check_same_game_key(global.player_id + 1, game_key);
 }
 
-function check_same_game_id(player_id, received_names) {
+function check_same_game_key(player_id, game_key) {
 	if (player_id < (global.player_max - get_ai_count()) + 1) {
 		return false;
 	}
 	
-	if (array_length(received_names) > 0 && get_ai_count() == global.board_games[$ received_names[0]].saved_ai_count) {
-		global.game_id = received_names[0];
+	var board_game = global.board_games[$ global.game_id];
+	
+	if (board_game != null && board_game.saved_key == game_key && get_ai_count() == board_game.saved_ai_count) {
+		global.game_key = game_key;
 
 		with (objPlayerBase) {
 			change_to_object(objPlayerBoardData);
@@ -382,6 +384,7 @@ function network_reset() {
 	global.player_id = 1;
 	global.lobby_started = false;
 	global.game_id = "";
+	global.game_key = "";
 	global.player_game_ids = [];
 	player_leave_all();
 

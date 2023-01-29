@@ -81,7 +81,7 @@ function space_passing_event() {
 	
 	if (room == rBoardWorld) {
 		with (focus_player) {
-			var player_collide = (is_player_turn()) ? objBoardWorldScott : objPlayerBoard;
+			var player_collide = (is_player_turn()) ? objBoardWorldScott : objPlayerBase;
 			var player_collision = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, player_collide, false, true);
 			
 			if (player_collision != noone && (is_player_turn() || (player_collision.object_index != objBoardWorldScott && player_collision.object_index != objBoardWorldNega))) {
@@ -132,7 +132,11 @@ function space_passing_event() {
 					if (!global.baba_toggled[0]) {
 						global.shine_price = 20;
 					} else {
-						global.shine_price = (global.baba_blocks[0] == 0) ? 40 : 0;
+						switch (global.baba_blocks) {
+							case 0: global.shine_price = 40; break;
+							case 1: global.shine_price = 10; break;
+							case 2: global.shine_price = 0; break;
+						}
 					}
 				}
 				
@@ -164,40 +168,8 @@ function space_passing_event() {
 						}
 					}
 				
-					var buy_option = "Buy " + draw_coins_price(global.shine_price);
-				
 					start_dialogue([
-						new Message("Do you wanna buy a Shine?", [
-							[buy_option, [
-								new Message("Here you go! The Shine is yours!",, buy_shine)
-							]],
-						
-							["Pass", [
-								new Message("Are you really sure you don't want it?", [
-									[buy_option, [
-										new Message("Good choice! Here you go!",, buy_shine)
-									]],
-								
-									["Pass", [
-										new Message("Are you really really sure?", [
-											[buy_option, [
-												new Message("You were starting to worry me for a second!",, buy_shine)
-											]],
-										
-											["Pass", [
-												new Message("Well too bad then, I hope next time you think it through.",, function() {
-													board_advance();
-												
-													if (focused_player().network_id == global.player_id) {
-														achieve_trophy(11);
-													}
-												})
-											]]
-										])
-									]]
-								])
-							]]
-						])
+						new Message("Do you wanna buy a Shine?", shine_ask(buy_shine))
 					]);
 				} else {
 					start_dialogue([
@@ -269,10 +241,10 @@ function space_finish_event() {
 	var space_give = (global.board_turn <= global.max_board_turns - 5) ? 3 : 6;
 	
 	if (room == rBoardBaba && global.baba_toggled[1]) {
-		if (global.baba_blocks[1] == 0) {
-			space_give *= 2;
-		} else {
-			space_give /= 2;
+		switch (global.baba_blocks[1]) {
+			case 0: space_give *= 2; break;
+			case 1: space_give /= 2; break;
+			case 2: space_give = 0; break;
 		}
 	}
 	
@@ -322,7 +294,11 @@ function space_finish_event() {
 			} else if (rnd >= 81 && rnd <= 95) {
 				var item = choose(ItemType.DoubleDice, ItemType.TripleDice);
 			} else {
-				var item = choose(ItemType.Blackhole, ItemType.Mirror);
+				if (room != rBoardWorld) {
+					var item = choose(ItemType.Blackhole, ItemType.Mirror);
+				} else {
+					var item = ItemType.Blackhole;
+				}
 				
 				if (focused_player().network_id == global.player_id) {
 					achieve_trophy(60);

@@ -46,10 +46,10 @@ if (shopping && is_local_turn()) {
 		price = item_selected.price;
 		
 		if (room == rBoardBaba && global.baba_toggled[2]) {
-			if (global.baba_blocks[2] == 0) {
-				price /= 2;
-			} else {
-				price = 0;
+			switch (global.baba_blocks[2]) {
+				case 0: price *= 2; break;
+				case 1: price /= 2; break;
+				case 2: price = 0; break;
 			}
 			
 			price = floor(price);

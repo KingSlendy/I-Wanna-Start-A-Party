@@ -35,8 +35,8 @@ global.rng_class = new Random();
 #macro rng global.rng_class
 
 function generate_seed_bag() {
-	if (global.game_id != "" && global.game_id != "Offline") {
-		var split = string_split(global.game_id, " ");
+	if (global.game_key != "") {
+		var split = string_split(global.game_key, " ");
 		var seed = real(split[array_length(split) - 1]);
 		random_set_seed(seed + 333 * (global.board_turn - 1));
 	}

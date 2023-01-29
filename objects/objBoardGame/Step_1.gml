@@ -1,5 +1,5 @@
 if (global.player_id == 1 && !sent_id && get_player_count(objPlayerBoardID) == global.player_max) {
-	obtain_same_game_id();
+	obtain_same_game_key();
 	sent_id = true;
 }
 

@@ -35,11 +35,12 @@ if (options_fade == 0) {
 		var view_x = camera_get_view_x(view_camera[0]);
 		var view_y = camera_get_view_y(view_camera[0]);
 			
-		with (objPlayerBase) {
-			x = view_x - 800;
-			y = view_y + 800;
+		for (var i = 1; i <= global.player_max; i++) {
+			var player = focus_player_by_turn(i);
+			player.x = view_x - 800;
+			player.y = view_y + 800;
 		}
-			
+
 		if (get_player_count(objPlayerTheGuy) != global.player_max) {
 			exit;
 		}

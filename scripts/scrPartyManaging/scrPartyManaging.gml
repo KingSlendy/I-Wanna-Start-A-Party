@@ -294,7 +294,7 @@ function board_start() {
 	if (!global.board_started) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardStart);
-		buffer_write_data(buffer_string, global.game_id);
+		buffer_write_data(buffer_string, global.game_key);
 		network_send_tcp_packet();
 		
 		var board = null;
@@ -899,6 +899,42 @@ function change_space(space) {
 	}
 }
 
+function shine_ask(buy_shine) {
+	var buy_option = string("Buy {0}", draw_coins_price(global.shine_price));
+	
+	return [
+		[buy_option, [
+			new Message("Here you go! The Shine is yours!",, buy_shine)
+		]],
+						
+		["Pass", [
+			new Message("Are you really sure you don't want it?", [
+				[buy_option, [
+					new Message("Good choice! Here you go!",, buy_shine)
+				]],
+								
+				["Pass", [
+					new Message("Are you really really sure?", [
+						[buy_option, [
+							new Message("You were starting to worry me for a second!",, buy_shine)
+						]],
+										
+						["Pass", [
+							new Message("Well too bad then, I hope next time you think it through.",, function() {
+								board_advance();
+												
+								if (focused_player().network_id == global.player_id) {
+									achieve_trophy(11);
+								}
+							})
+						]]
+					])
+				]]
+			])
+		]]
+	];
+}
+
 function item_applied(item) {
 	var player_info = player_info_by_turn();
 	
@@ -1362,6 +1398,8 @@ function board_baba_toggle() {
 		}
 	}
 	
+	board_advance();
+	
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardBabaToggle);
@@ -1496,7 +1534,7 @@ function board_world_scott_interact() {
 		
 		if (instance_place(x, y, objBoardWorldScott).object_index == objBoardWorldScott) {
 			texts = [
-				new Message("Oh! You reached Scott and now it's gonna give you one Shine!",, event_give)
+				new Message("Oh! You reached Scott!\nDo you wanna buy a Shine from him?", shine_ask(event_give))
 			];
 		} else {
 			texts = [
@@ -1517,7 +1555,7 @@ function board_world_scott_interact() {
 		
 		if (player.object_index == objBoardWorldScott) {
 			texts = [
-				new Message("Oh! Scott reached you and now it's gonna give you one Shine!",, event_give)
+				new Message("Oh! Scott reached you!\nDo you wanna buy a Shine from him?", shine_ask(event_give))
 			];
 		} else {
 			texts = [

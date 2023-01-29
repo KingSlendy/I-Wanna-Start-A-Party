@@ -3,6 +3,7 @@ function save_variables() {
 	global.game_started = false;
 	global.file_selected = -1;
 	global.game_id = "";
+	global.game_key = "";
 	global.player_game_ids = [];
 	global.board_selected = -1;
 
@@ -180,8 +181,9 @@ function load_file() {
 
 function save_board() {
 	var board = {
-		saved_id: global.player_id,
+		saved_key: global.game_key,
 		saved_ai_count: get_ai_count(),
+		saved_id: global.player_id,
 		saved_board: {
 			saved_board: global.board_selected,
 			saved_max_turns: global.max_board_turns,
@@ -193,7 +195,6 @@ function save_board() {
 			saved_spaces: [],
 			
 			//Baba Board
-			saved_baba_blocks: global.baba_blocks,
 			saved_baba_toggled: global.baba_toggled,
 			
 			//Hyrule Board

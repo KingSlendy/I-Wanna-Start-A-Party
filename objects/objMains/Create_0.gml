@@ -60,9 +60,12 @@ board_options_w = 440;
 board_options_h = board_h + 32;
 state = -1;
 
-if (!IS_ONLINE && variable_struct_exists(global.board_games, "Offline")) {
-	global.game_id = "Offline";
+global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
+	
+if (variable_struct_exists(global.board_games, global.game_id)) {
 	global.player_game_ids = array_sequence(1, 5);
+} else {
+	global.game_id = "";
 }
 
 save_present = (room == rParty && array_length(global.player_game_ids) > 0);
