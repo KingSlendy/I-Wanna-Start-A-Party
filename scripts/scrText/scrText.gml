@@ -203,7 +203,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 	}
 	
 	//static toString = function() {
-		//return string_interp("{ Text: {0} | Formats: {1} }", self.text, self.formats);
+		//return string("{ Text: {0} | Formats: {1} }", self.text, self.formats);
 	//}
 	
 	self.init_formats();
@@ -269,7 +269,7 @@ function Format(text) constructor {
 	}
 	
 	//static toString = function() {
-		//return string_interp("{ Type: {0} | Params: {1} }", self.type, self.params);
+		//return string("{ Type: {0} | Params: {1} }", self.type, self.params);
 	//}
 }
 
@@ -279,7 +279,7 @@ function Message(text, branches = [], event = null) constructor {
 	self.event = event;
 	
 	//static toString = function() {
-		//return string_interp("{ Text: {0} | Branches: {1} | Event: {2} }", self.text, self.branches, self.event);
+		//return string("{ Text: {0} | Branches: {1} | Event: {2} }", self.text, self.branches, self.event);
 	//}
 }
 

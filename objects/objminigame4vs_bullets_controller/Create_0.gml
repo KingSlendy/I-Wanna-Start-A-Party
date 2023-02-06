@@ -7,33 +7,26 @@ minigame_players = function() {
 	}
 }
 
+minigame_time_end = function() {
+	with (focus_player_by_turn(player_turn)) {
+		if (is_player_local(network_id)) {
+			player_jump();
+		}
+	}
+}
+
+points_draw = true;
 player_type = objPlayerBasic;
 player_turn = 0;
+current_round = 0;
 twice = false;
 
 next_seed_inline();
 bullet_indexes = [];
 bullet_current = 0;
-var chosen_index = 0;
-var chosen_count = 1;
-var now_index = 0;
 
 repeat (500) {
-	if (chosen_count-- > 0) {
-		now_index = chosen_index;
-	}
-	
-	array_push(bullet_indexes, now_index);
-	
-	if (chosen_count <= 0) {
-		chosen_index = !chosen_index;
-		
-		if (chosen_index == 0) {
-			chosen_count = min(2, irandom_range(1, 5));
-		} else {
-			chosen_count = min(3, irandom_range(2, 4));
-		}
-	}
+	array_push(bullet_indexes, clamp(choose(irandom_range(-2, 1), irandom_range(2, 3)), 0, 3));
 }
 
 function next_player() {
@@ -41,15 +34,18 @@ function next_player() {
 		return;
 	}
 	
+	for (var i = 1; i <= global.player_max; i++) {
+		if (minigame4vs_get_points(i) >= 5) {
+			minigame_finish();
+			return;
+		}
+	}
+	
 	twice = true;
 	
-	do {
-		player_turn++;
-	
-		if (player_turn > global.player_max) {
-			player_turn = 1;
-		}
-	} until (!focus_player_by_turn(player_turn).lost);
+	if (++player_turn > global.player_max) {
+		player_turn = 1;
+	}
 	
 	var player = focus_player_by_turn(player_turn);
 	
@@ -59,6 +55,9 @@ function next_player() {
 	
 	player.hspd = -player.max_hspd;
 	player.advance = true;
+	
+	minigame_time = 15;
+	alarm_call(10, 1);
 }
 
 function bullets_move() {

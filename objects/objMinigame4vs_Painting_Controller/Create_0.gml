@@ -77,7 +77,7 @@ alarm_override(11, function() {
 					array_push(choices, ds_priority_delete_min(priority));
 				}
 			
-				array_shuffle(choices);
+				array_shuffle_ext(choices);
 				var max_points = minigame4vs_get_max_points();
 			
 				if (max_points >= ceil(instance_number(objMinigame4vs_Painting_Platform) / global.player_max)) {

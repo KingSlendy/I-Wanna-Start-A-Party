@@ -19,7 +19,7 @@ switch (type) {
 		version = buffer_read(buffer, buffer_text);
 					
 		if (version != VERSION) {
-			file = http_get_file(string_interp("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/download/{0}/I.Wanna.Start.A.Party.zip", version), game_save_id + "\\Version.zip");
+			file = http_get_file(string("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/download/{0}/I.Wanna.Start.A.Party.zip", version), game_save_id + "\\Version.zip");
 		} else {
 			alarm_instant(0);
 			exit;

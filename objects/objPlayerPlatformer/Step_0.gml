@@ -147,8 +147,8 @@ if (block != noone) {
 			reset_jumps();
 		}
 		
-		if (room == rMinigame1vs3_Avoid && vspd * orientation < 0 && place_meeting(x, y - 1, objMinigame1vs3_Avoid_Block)) {
-			with (block) {
+		if (room == rMinigame1vs3_Avoid && vspd * orientation < 0) {
+			with (instance_place(x, y - 1, objMinigame1vs3_Avoid_Block)) {
 				activate(attack);
 			}
 		}

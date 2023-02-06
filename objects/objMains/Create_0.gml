@@ -62,13 +62,11 @@ state = -1;
 
 global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
 	
-if (variable_struct_exists(global.board_games, global.game_id)) {
+if (!IS_ONLINE && variable_struct_exists(global.board_games, global.game_id)) {
 	global.player_game_ids = array_sequence(1, 5);
-} else {
-	global.game_id = "";
 }
 
-save_present = (room == rParty && array_length(global.player_game_ids) > 0);
+save_present = (room == rParty && HAS_SAVED);
 save_sprite = noone;
 save_board_turn = 0;
 save_max_turns = 0;
@@ -158,9 +156,9 @@ if (room == rMinigames) {
 	if (info.is_minigames) {
 		menu_page = 1;
 		var types = minigame_types();
-		minigames_row_selected = array_index(types, info.type);
+		minigames_row_selected = array_get_index(types, info.type);
 		minigames_target_row_selected = minigames_row_selected;
-		minigames_col_selected = array_index(global.minigames[$ types[minigames_row_selected]], info.reference);
+		minigames_col_selected = array_get_index(global.minigames[$ types[minigames_row_selected]], info.reference);
 		minigames_target_col_selected = minigames_col_selected;
 		minigame_info_reset();
 	}
@@ -199,7 +197,7 @@ with (objPlayerBase) {
 	y = 500;
 }
 
-var check = array_index(global.all_ai_actions, null);
+var check = array_get_index(global.all_ai_actions, null);
 	
 if (check != -1) {
 	array_delete(global.all_ai_actions, check, 1);

@@ -62,7 +62,7 @@ alarm_override(11, function() {
 						array_push(blocks, x);
 					}
 					
-					array_shuffle(blocks);
+					array_shuffle_ext(blocks);
 					chosed_block = array_pop(blocks) + 16;
 				}
 			

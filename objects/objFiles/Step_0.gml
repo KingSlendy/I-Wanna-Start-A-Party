@@ -132,7 +132,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 			}
 			
 			var prev_selected = menu_selected[menu_type];
-			var length = array_index(menu_buttons[menu_type], null);
+			var length = array_get_index(menu_buttons[menu_type], null);
 		
 			if (length == -1) {
 				length = array_length(menu_buttons[menu_type]);
@@ -193,7 +193,7 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							for (var i = 1; i <= string_length(text); i++) {
 								var char = string_char_at(text, i);
 								
-								if (char == " " || char == "." || char == "!" || char == "?") {
+								if (char == " " || char == "." || char == ":" || char == "!" || char == "?") {
 									file_name += char;
 								}
 								

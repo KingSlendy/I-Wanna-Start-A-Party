@@ -72,7 +72,7 @@ alarm_create(function() {
 	}
 
 	start_dialogue([
-		new Message(string_interp("{0}!\n{1}", names, text),, function() {
+		new Message(string("{0}!\n{1}", names, text),, function() {
 			with (objResultsBonusShine) {
 				next_bonus();
 			}

@@ -7,7 +7,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "0.9.8.16"
+#macro VERSION "0.9.8.22"
 
 //Network
 #macro DEFAULT_IP "iwannastartaparty.com"
@@ -16,6 +16,7 @@
 #macro FAILCHECK_ID 121
 
 //Game
+#macro HAS_SAVED (array_length(global.player_game_ids) > 0)
 #macro IS_BOARD (string_count("Board", room_get_name(room)) > 0)
 #macro IS_MINIGAME (string_count("Minigame", room_get_name(room)) > 0)
 #macro DESC_START function() { return 

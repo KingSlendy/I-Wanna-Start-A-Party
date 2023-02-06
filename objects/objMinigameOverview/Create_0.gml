@@ -1,5 +1,5 @@
 info = global.minigame_info;
-layer_background_index(layer_background_get_id("Background"), array_index(minigame_types(), info.type));
+layer_background_index(layer_background_get_id("Background"), array_get_index(minigame_types(), info.type));
 
 with (objPlayerBase) {
 	change_to_object(objPlayerBase);

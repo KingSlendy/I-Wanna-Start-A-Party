@@ -53,7 +53,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	}
 	
 	static toString = function() {
-		return string_interp("ID: {0}\nName: {1}\nTurn: {2}\nShines: {3}\nCoins: {4}\nPlace: {5}", self.network_id, self.name, self.turn, self.shines, self.coins, self.place);
+		return string("ID: {0}\nName: {1}\nTurn: {2}\nShines: {3}\nCoins: {4}\nPlace: {5}", self.network_id, self.name, self.turn, self.shines, self.coins, self.place);
 	}
 }
 
@@ -160,7 +160,7 @@ function spawn_player_info(order, turn) {
 		setup();
 	}
 	
-	if (array_length(global.player_game_ids) == 0 && is_local_turn()) {
+	if (!HAS_SAVED && IS_BOARD && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.SpawnPlayerInfo);
 		buffer_write_data(buffer_u8, order);
@@ -340,7 +340,7 @@ function tell_turns() {
 	
 	for (var i = 1; i <= global.player_max; i++) {
 		var turn_roll = turn_rolls_ordered[i - 1];
-		var turn_id = array_index(turn_rolls, turn_roll) + 1;
+		var turn_id = array_get_index(turn_rolls, turn_roll) + 1;
 		turn_orders[i - 1] = turn_id;
 		
 		with (objPlayerBase) {
@@ -361,19 +361,19 @@ function tell_turns() {
 			dialogue_player_info(1);
 		}),
 		
-		new Message(string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF} goes first!", turn_names[0]),, function() {
+		new Message(string("{COLOR,0000FF}{0}{COLOR,FFFFFF} goes first!", turn_names[0]),, function() {
 			dialogue_player_info(2);
 		}),
 		
-		new Message(string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF} follows as second!", turn_names[1]),, function() {
+		new Message(string("{COLOR,0000FF}{0}{COLOR,FFFFFF} follows as second!", turn_names[1]),, function() {
 			dialogue_player_info(3);
 		}),
 		
-		new Message(string_interp("Then {COLOR,0000FF}{0}{COLOR,FFFFFF} goes third!", turn_names[2]),, function() {
+		new Message(string("Then {COLOR,0000FF}{0}{COLOR,FFFFFF} goes third!", turn_names[2]),, function() {
 			dialogue_player_info(4);
 		}),
 		
-		string_interp("And last to go is {COLOR,0000FF}{0}{COLOR,FFFFFF}.", turn_names[3]),
+		string("And last to go is {COLOR,0000FF}{0}{COLOR,FFFFFF}.", turn_names[3]),
 		new Message("Let's give each one " + draw_coins_price(10) + " to start.",, function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				var c = change_coins(10, CoinChangeType.Gain, i);
@@ -526,10 +526,13 @@ function board_path_finding(space = null) {
 	global.path_spaces = [];
 	global.path_spaces_record = infinity;
 	objSpaces.visited = false;
+	instance_deactivate_object(objBoardWorldNega);
 	
 	with (focused_player()) {
 		space_path_finding(space ?? instance_place(x, y, objSpaces), []);
 	}
+	
+	instance_activate_object(objBoardWorldNega);
 }
 
 function space_path_finding(space, path_spaces) {
@@ -570,7 +573,7 @@ function space_path_finding(space, path_spaces) {
 			global.board_lock_event = false;
 		}
 		
-		if (image_index == SpaceType.Shine) {
+		if (image_index == SpaceType.Shine || (room == rBoardWorld && place_meeting(x, y, objBoardWorldScott))) {
 			end_finding(path_spaces);
 			break;
 		}
@@ -1292,7 +1295,7 @@ function choose_shine() {
 			}
 		}
 	
-		array_shuffle(choices);
+		array_shuffle_ext(choices);
 		var space = array_pop(choices);
 	
 		if (room != rBoardPallet) {
@@ -1534,7 +1537,7 @@ function board_world_scott_interact() {
 		
 		if (instance_place(x, y, objBoardWorldScott).object_index == objBoardWorldScott) {
 			texts = [
-				new Message("Oh! You reached Scott!\nDo you wanna buy a Shine from him?", shine_ask(event_give))
+				new Message("Oh! You reached Scott and it's gonna give you a Shine!",, event_give)
 			];
 		} else {
 			texts = [
@@ -1555,7 +1558,7 @@ function board_world_scott_interact() {
 		
 		if (player.object_index == objBoardWorldScott) {
 			texts = [
-				new Message("Oh! Scott reached you!\nDo you wanna buy a Shine from him?", shine_ask(event_give))
+				new Message("Oh! Scott reached someone and it's gonna give them a Shine!",, event_give)
 			];
 		} else {
 			texts = [

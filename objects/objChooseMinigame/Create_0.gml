@@ -149,7 +149,7 @@ alarm_create(function() {
 
 	while (minigame_add) {
 		next_seed_inline();
-		array_shuffle(minigame_names);
+		array_shuffle_ext(minigame_names);
 		var min_minigame = infinity;
 	
 		for (var i = 0; i < array_length(minigame_names); i++) {

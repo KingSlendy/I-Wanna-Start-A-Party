@@ -131,8 +131,8 @@ function pattern_grid_generate() {
 	var choose_cols = array_sequence(0, pattern_cols);
 	
 	repeat (2) {
-		array_shuffle(choose_rows);
-		array_shuffle(choose_cols);
+		array_shuffle_ext(choose_rows);
+		array_shuffle_ext(choose_cols);
 		var chosen_r = choose_rows[0];
 		var chosen_c = choose_cols[0];
 		pattern_grid[chosen_r][chosen_c] = new Pattern(pattern_chosen);

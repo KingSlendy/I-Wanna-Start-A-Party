@@ -116,8 +116,7 @@ alarm_create(function() {
 
 //World Board
 alarm_create(function() {
-	shuffle_seed_bag();
-	reset_seed_inline();
+	next_seed_inline();
 	show_dice(focused_player().network_id);
 	alarm_frames(6, irandom_range(25, 75));
 });
@@ -204,7 +203,7 @@ alarm_create(11, function() {
 						}
 					}
 				
-					array_shuffle(most_percentage);
+					array_shuffle_ext(most_percentage);
 					var chosen_percentage = most_percentage[0];
 					cpu_item = chosen_percentage;
 				}
@@ -247,8 +246,8 @@ alarm_create(11, function() {
 		}
 	
 		if (instance_exists(objPathChange)) {
-			if (0.125 > random(1)) {
-				perform_action(choose(actions.jump, actions.left, actions.up, actions.down, actions.right));
+			if (0.3 > random(1)) {
+				perform_action(choose(actions.left, actions.up, actions.down, actions.right));
 			}
 			
 			perform_action(actions.jump);
@@ -279,9 +278,13 @@ alarm_create(11, function() {
 		}
 	
 		if (instance_exists(objDialogue)) {
-			if (room == rBoardPallet && player_info_by_turn().pokemon != -1 && objDialogue.answer_index == 0 && 0.75 > random(1)) {
-				stale_action(1);
-				perform_action(actions.down);
+			if (room == rBoardPallet) {
+				var space = instance_place(x, y, objSpaces);
+				
+				if (space != noone && space.image_index == SpaceType.PathEvent && player_info_by_turn().pokemon != -1 && array_length(objDialogue.answer_displays) > 0 && objDialogue.answer_index == 0 && 0.75 > random(1)) {
+					stale_action(1);
+					perform_action(actions.down);
+				}
 			}
 			
 			stale_action(0.1);

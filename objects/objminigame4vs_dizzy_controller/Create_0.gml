@@ -44,7 +44,7 @@ alarm_override(11, function() {
 					}
 				}
 				
-				array_shuffle(choices);
+				array_shuffle_ext(choices);
 				target_coin = array_pop(choices);
 			}
 			

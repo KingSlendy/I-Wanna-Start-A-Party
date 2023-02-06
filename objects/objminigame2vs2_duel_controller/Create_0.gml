@@ -8,6 +8,14 @@ minigame_players = function() {
 	}
 }
 
+minigame_time_end = function() {
+	with (objPlayerBase) {
+		if (is_player_local(network_id)) {
+			player_shoot();
+		}
+	}
+}
+
 action_end = function() {
 	if (trophy_obtain && trophy_shoot) {
 		achieve_trophy(48);
@@ -56,6 +64,8 @@ alarm_create(4, function() {
 	audio_play_sound(sndMinigame2vs2_Duel_Mark, 0, false);
 	alarm_call(5, 3);
 	alarm_call(7, 3);
+	minigame_time = 10;
+	alarm_call(10, 1);
 });
 
 alarm_create(5, function() {
@@ -100,6 +110,7 @@ alarm_create(5, function() {
 	}
 
 	alarm_call(6, 1);
+	alarm_stop(10);
 });
 
 alarm_create(6, function() {

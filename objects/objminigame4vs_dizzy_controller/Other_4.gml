@@ -62,7 +62,7 @@ while (true) {
 		continue;
 	}
 	
-	array_shuffle(neighbors);
+	array_shuffle_ext(neighbors);
 	var neighbor = neighbors[0];
 	var next = directions[neighbor];
 	var next_row = row + next[0];

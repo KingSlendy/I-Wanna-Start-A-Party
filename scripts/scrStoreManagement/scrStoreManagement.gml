@@ -285,7 +285,7 @@ function reaction_init() {
 		new Reaction("Kid Pain", null, "AliceNobodi", 200),
 		new Reaction("Miku Shock", null, "AliceNobodi", 300),
 		new Reaction("Colonel Moment", null, "AliceNobodi"),
-		new Reaction("Mayumushi Hi", null, "AliceNobodi"),
+		new Reaction("Mayumushi Wave", null, "p00ks"),
 		new Reaction("Kid Falling", null, "AliceNobodi", 200),
 		new Reaction("Kid Highroll", null, "AliceNobodi", 300),
 		new Reaction("Kid Balance", null, "PlayerDash2017", 200),
@@ -295,7 +295,15 @@ function reaction_init() {
 		new Reaction("Cool Cherry", null, "AlejoFangamer", 300),
 		new Reaction("Kid Nerd", null, "AliceNobodi", 300),
 		new Reaction("Geezer Unamused", null, "AliceNobodi"),
-		new Reaction("Kid Sleeping", null, "PlayerDash2017", 300)
+		new Reaction("Kid Sleeping", null, "PlayerDash2017", 300),
+		//new Reaction("Fubuki Yeah", null, "MauriPlays!", 300),
+		//new Reaction("Kamilia Happy", null, "Kogami Takara"),
+		//new Reaction("Kid Camera", null, "???"),
+		//new Reaction("Kid Eyebrow", null, "Neos"),
+		//new Reaction("Kid Sad Eyes", null, "RandomErik", 300),
+		//new Reaction("Kid Shocked", null, "AlejoFangamer", 300),
+		//new Reaction("Sepia Ouch", null, "Kogami Takara", 200),
+		//new Reaction("Sheryl Excited", null, "Renko97", 300)
 	];
 	
 	for (var i = 0; i < array_length(global.reactions); i++) {

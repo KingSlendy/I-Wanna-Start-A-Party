@@ -43,7 +43,7 @@ function unfreeze_player(network = true) {
 		image_xscale: 5
 	});
 	
-	minigame_time = 10;
+	minigame_time = 8;
 	alarm_call(10, 1);
 }
 

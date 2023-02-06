@@ -80,7 +80,7 @@ function results_bonus() {
 				}
 			}
 		
-			array_shuffle(bonus_candidates);
+			array_shuffle_ext(bonus_candidates);
 		}
 		
 		alarm_call(3, 0.25);
@@ -211,7 +211,7 @@ alarm_create(function() {
 		}
 	
 		count++;
-		winners += string_interp("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
+		winners += string("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
 	}
 
 	if (global.player_id == 1) {
@@ -219,10 +219,10 @@ alarm_create(function() {
 		var text = "";
 	
 		switch (count) {
-			case 1: text = string_interp("{0} is the winner!\nA round of applause!", winners); break;
-			case 2: text = string_interp("{0} are the winners!\nA double win, you don't see that very often!", winners); break;
-			case 3: text = string_interp("{0} are the winners!\nI can hardly believe my eyes!\nThree of you won!", winners); break;
-			case 4: text = string_interp("{0} are the winners!\nEveryone won???\nThat's even rarer than seeing a flying star!!!", winners); break;
+			case 1: text = string("{0} is the winner!\nA round of applause!", winners); break;
+			case 2: text = string("{0} are the winners!\nA double win, you don't see that very often!", winners); break;
+			case 3: text = string("{0} are the winners!\nI can hardly believe my eyes!\nThree of you won!", winners); break;
+			case 4: text = string("{0} are the winners!\nEveryone won???\nThat's even rarer than seeing a flying star!!!", winners); break;
 		}
 	
 		start_dialogue([

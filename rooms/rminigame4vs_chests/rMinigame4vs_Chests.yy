@@ -2,66 +2,10 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rMinigame4vs_Chests",
-  "isDnd": false,
-  "volume": 1.0,
-  "parentRoom": null,
-  "views": [
-    {"inherit":false,"visible":true,"xview":0,"yview":0,"wview":800,"hview":608,"xport":0,"yport":0,"wport":800,"hport":608,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":800,"hview":608,"xport":0,"yport":0,"wport":800,"hport":608,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":800,"hview":608,"xport":0,"yport":0,"wport":800,"hport":608,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":800,"hview":608,"xport":0,"yport":0,"wport":800,"hport":608,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-    {"inherit":false,"visible":false,"xview":0,"yview":0,"wview":1366,"hview":768,"xport":0,"yport":0,"wport":1366,"hport":768,"hborder":32,"vborder":32,"hspeed":-1,"vspeed":-1,"objectId":null,},
-  ],
-  "layers": [
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Actors","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C91227","properties":[],"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":512.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F21129E","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"1",},
-          ],"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":512.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2C3231E8","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"2",},
-          ],"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":480.0,"y":512.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_358B2662","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"3",},
-          ],"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":640.0,"y":512.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_185BDF3F","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"0",},
-          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294901760,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":480.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4ADE54","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"1",},
-          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4278190335,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":480.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_66C1AC4B","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"2",},
-          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4278255360,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":480.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24F37A1B","properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"3",},
-          ],"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4278255615,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":576.0,"y":480.0,},
-      ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Collisions","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_337603F","properties":[],"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":25.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":512.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1CC4F4AE","properties":[],"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":25.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_59BB3A7C","properties":[],"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":15.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":32.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5CD46C13","properties":[],"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":15.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":32.0,},
-      ],"visible":false,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Managers","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7F7AB33A","properties":[],"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Controller","path":"objects/objMinigame4vs_Chests_Controller/objMinigame4vs_Chests_Controller.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":-32.0,},
-      ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles","tilesetId":{"name":"tlsMinigame4vs_Chests","path":"tilesets/tlsMinigame4vs_Chests/tlsMinigame4vs_Chests.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":25,"SerialiseHeight":19,"TileCompressedData":[
--25,76,1,1,-23,-2147483648,2,52,1,-16,-2147483648,3,93,94,95,-4,-2147483648,2,52,1,-9,-2147483648,3,93,94,
-95,-11,-2147483648,2,52,1,-3,-2147483648,3,93,94,95,-17,-2147483648,2,52,1,-23,-2147483648,2,52,1,-23,-2147483648,2,
-52,1,-23,-2147483648,2,52,1,-9,-2147483648,3,93,94,95,-6,-2147483648,7,93,94,95,-2147483648,-2147483648,52,1,-23,-2147483648,
-2,52,1,-23,-2147483648,6,52,1,-2147483648,93,94,95,-19,-2147483648,2,52,1,-23,-2147483648,2,52,1,-15,-2147483648,3,
-93,94,95,-5,-2147483648,3,52,1,79,-5,-2147483648,1,79,-9,-2147483648,1,79,-4,-2147483648,7,79,-2147483648,52,1,91,
--2147483648,92,-3,-2147483648,1,91,-4,-2147483648,1,92,-4,-2147483648,1,91,-3,-2147483648,3,92,91,-2147483648,-26,52,-25,78,-25,
-90,],},"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","spriteId":{"name":"sprBkgMinigame4vs_Chests","path":"sprites/sprBkgMinigame4vs_Chests/sprBkgMinigame4vs_Chests.yy",},"colour":4294967295,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":true,"animationFPS":0.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-  ],
-  "inheritLayers": false,
   "creationCodeFile": "",
   "inheritCode": false,
+  "inheritCreationOrder": false,
+  "inheritLayers": false,
   "instanceCreationOrder": [
     {"name":"inst_337603F","path":"rooms/rMinigame4vs_Chests/rMinigame4vs_Chests.yy",},
     {"name":"inst_1CC4F4AE","path":"rooms/rMinigame4vs_Chests/rMinigame4vs_Chests.yy",},
@@ -77,20 +21,56 @@
     {"name":"inst_66C1AC4B","path":"rooms/rMinigame4vs_Chests/rMinigame4vs_Chests.yy",},
     {"name":"inst_24F37A1B","path":"rooms/rMinigame4vs_Chests/rMinigame4vs_Chests.yy",},
   ],
-  "inheritCreationOrder": false,
-  "sequenceId": null,
-  "roomSettings": {
-    "inheritRoomSettings": false,
-    "Width": 800,
-    "Height": 608,
-    "persistent": false,
+  "isDnd": false,
+  "layers": [
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Actors","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C91227","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"properties":[],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":160.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F21129E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"1",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":320.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2C3231E8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"2",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":480.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_358B2662","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMinigame4vs_Chests_Chest","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"propertyId":{"name":"n","path":"objects/objMinigame4vs_Chests_Chest/objMinigame4vs_Chests_Chest.yy",},"value":"3",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":640.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_185BDF3F","colour":4294901760,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"0",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":480.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4ADE54","colour":4278190335,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"1",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":480.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_66C1AC4B","colour":4278255360,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"2",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":448.0,"y":480.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24F37A1B","colour":4278255615,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"3",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":480.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Collisions","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_337603F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"properties":[],"rotation":0.0,"scaleX":25.0,"scaleY":1.0,"x":0.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1CC4F4AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"properties":[],"rotation":0.0,"scaleX":25.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_59BB3A7C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":15.0,"x":0.0,"y":32.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5CD46C13","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":15.0,"x":768.0,"y":32.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Managers","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7F7AB33A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame4vs_Chests_Controller","path":"objects/objMinigame4vs_Chests_Controller/objMinigame4vs_Chests_Controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":-32.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":19,"SerialiseWidth":25,"TileCompressedData":[
+-25,76,1,1,-23,-2147483648,2,52,1,-16,-2147483648,3,93,94,95,-4,-2147483648,2,52,1,-9,-2147483648,3,93,94,
+95,-11,-2147483648,2,52,1,-3,-2147483648,3,93,94,95,-17,-2147483648,2,52,1,-23,-2147483648,2,52,1,-23,-2147483648,2,
+52,1,-23,-2147483648,2,52,1,-9,-2147483648,3,93,94,95,-6,-2147483648,7,93,94,95,-2147483648,-2147483648,52,1,-23,-2147483648,
+2,52,1,-23,-2147483648,6,52,1,-2147483648,93,94,95,-19,-2147483648,2,52,1,-23,-2147483648,2,52,1,-15,-2147483648,3,
+93,94,95,-5,-2147483648,3,52,1,79,-5,-2147483648,1,79,-9,-2147483648,1,79,-4,-2147483648,7,79,-2147483648,52,1,91,
+-2147483648,92,-3,-2147483648,1,91,-4,-2147483648,1,92,-4,-2147483648,1,91,-3,-2147483648,3,92,91,-2147483648,-26,52,-25,78,-25,
+90,],"TileDataFormat":1,},"tilesetId":{"name":"tlsMinigame4vs_Chests","path":"tilesets/tlsMinigame4vs_Chests/tlsMinigame4vs_Chests.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":0.0,"animationSpeedType":0,"colour":4294967295,"depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":{"name":"sprBkgMinigame4vs_Chests","path":"sprites/sprBkgMinigame4vs_Chests/sprBkgMinigame4vs_Chests.yy",},"stretch":true,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+  ],
+  "parent": {
+    "name": "4vs",
+    "path": "folders/Rooms/Minigames/4vs.yy",
   },
-  "viewSettings": {
-    "inheritViewSettings": false,
-    "enableViews": true,
-    "clearViewBackground": false,
-    "clearDisplayBuffer": true,
-  },
+  "parentRoom": null,
   "physicsSettings": {
     "inheritPhysicsSettings": false,
     "PhysicsWorld": false,
@@ -98,8 +78,28 @@
     "PhysicsWorldGravityY": 10.0,
     "PhysicsWorldPixToMetres": 0.1,
   },
-  "parent": {
-    "name": "4vs",
-    "path": "folders/Rooms/Minigames/4vs.yy",
+  "roomSettings": {
+    "Height": 608,
+    "inheritRoomSettings": false,
+    "persistent": false,
+    "Width": 800,
   },
+  "sequenceId": null,
+  "views": [
+    {"hborder":32,"hport":608,"hspeed":-1,"hview":608,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":800,"wview":800,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":608,"hspeed":-1,"hview":608,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":800,"wview":800,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":608,"hspeed":-1,"hview":608,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":800,"wview":800,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":608,"hspeed":-1,"hview":608,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":800,"wview":800,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
+  ],
+  "viewSettings": {
+    "clearDisplayBuffer": true,
+    "clearViewBackground": false,
+    "enableViews": true,
+    "inheritViewSettings": false,
+  },
+  "volume": 1.0,
 }

@@ -2,27 +2,8 @@
   "resourceType": "GMTileSet",
   "resourceVersion": "1.0",
   "name": "tlsBoardBabaIsBoard_3",
-  "spriteId": {
-    "name": "sprTlsBoardBaba",
-    "path": "sprites/sprTlsBoardBaba/sprTlsBoardBaba.yy",
-  },
-  "tileWidth": 48,
-  "tileHeight": 48,
-  "tilexoff": 2,
-  "tileyoff": 2,
-  "tilehsep": 2,
-  "tilevsep": 2,
-  "spriteNoExport": true,
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
-  },
-  "out_tilehborder": 2,
-  "out_tilevborder": 2,
-  "out_columns": 24,
-  "tile_count": 561,
   "autoTileSets": [
-    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Walls","tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Walls","closed_edge":false,"tiles":[
         453,
         457,
         454,
@@ -70,8 +51,8 @@
         445,
         447,
         443,
-      ],"closed_edge":false,},
-    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Hedge","tiles":[
+      ],},
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Hedge","closed_edge":false,"tiles":[
         249,
         253,
         250,
@@ -119,10 +100,30 @@
         241,
         243,
         239,
-      ],"closed_edge":false,},
+      ],},
   ],
-  "tileAnimationFrames": [],
-  "tileAnimationSpeed": 6.0,
+  "macroPageTiles": {
+    "SerialiseHeight": 0,
+    "SerialiseWidth": 0,
+    "TileSerialiseData": [],
+  },
+  "out_columns": 24,
+  "out_tilehborder": 2,
+  "out_tilevborder": 2,
+  "parent": {
+    "name": "Baba Is Board",
+    "path": "folders/Tilesets/Party/Baba Is Board.yy",
+  },
+  "spriteId": {
+    "name": "sprTlsBoardBaba",
+    "path": "sprites/sprTlsBoardBaba/sprTlsBoardBaba.yy",
+  },
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "tile_count": 561,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -689,13 +690,12 @@
     ],
     "SerialiseFrameCount": 1,
   },
-  "macroPageTiles": {
-    "SerialiseWidth": 0,
-    "SerialiseHeight": 0,
-    "TileSerialiseData": [],
-  },
-  "parent": {
-    "name": "Baba Is Board",
-    "path": "folders/Tilesets/Party/Baba Is Board.yy",
-  },
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 6.0,
+  "tileHeight": 48,
+  "tilehsep": 2,
+  "tilevsep": 2,
+  "tileWidth": 48,
+  "tilexoff": 2,
+  "tileyoff": 2,
 }

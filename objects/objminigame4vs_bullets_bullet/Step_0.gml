@@ -3,6 +3,7 @@ x = approach(x, target_x, 4 * DELTA);
 if (x <= 112 - sprite_width) {
 	x = 112 + sprite_width * (instance_number(object_index) - 1);
 	target_x = x;
+	touchable = true;
 	change_index();
 	
 	if (objMinigame4vs_Bullets_Block.image_index == 0 || !objMinigameController.twice) {

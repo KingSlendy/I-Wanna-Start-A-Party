@@ -310,13 +310,10 @@ function player_read_data(buffer) {
 	}
 }
 
-function obtain_same_game_key(game_key) {
+function obtain_same_game_key(game_key = null) {
 	if (game_key == null) {
 		var board_game = global.board_games[$ global.game_id];
-		
-		if (board_game != null) {
-			game_key = board_game.saved_key;
-		}
+		game_key = (board_game != null) ? board_game.saved_key : "Nothing";
 	}
 	
 	buffer_seek_begin();

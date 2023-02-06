@@ -49,7 +49,7 @@ chest_switches = [];
 
 repeat (50) {
 	var switches = array_sequence(0, 4);
-	array_shuffle(switches);
+	array_shuffle_ext(switches);
 	array_delete(switches, 0, 2);
 	array_push(chest_switches, switches);
 }

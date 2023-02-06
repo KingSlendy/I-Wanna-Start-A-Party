@@ -78,7 +78,7 @@ if (array_contains([1, 3, 4, 5], menu_type)) {
 			}
 		}
 		
-		var button = menu_buttons[menu_type][i + (array_index(menu_buttons[menu_type], null) + 1)];
+		var button = menu_buttons[menu_type][i + (array_get_index(menu_buttons[menu_type], null) + 1)];
 		var text = texts[i];
 		text = string_copy(text, 1, 21);
 		

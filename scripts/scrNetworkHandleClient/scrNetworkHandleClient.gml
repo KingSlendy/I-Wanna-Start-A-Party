@@ -116,6 +116,7 @@ enum ClientTCP {
 	Minigame4vs_Dizzy_GrabCoin,
 	Minigame4vs_Targets_DestroyTarget,
 	Minigame4vs_Bullets_Stop,
+	Minigame4vs_Bullets_Points,
 	Minigame4vs_Drawn_CollectKey,
 	Minigame4vs_Bubble_Goal,
 	Minigame4vs_Sky_Points,
@@ -276,7 +277,7 @@ f[$ ClientTCP.LobbyList] = function(buffer) {
 					name = string_copy(name, 1, 8) + "-";
 				}
 					
-				//var text = string_interp("{0}\n\n\n{1}/4", name, data[2]);
+				//var text = string("{0}\n\n\n{1}/4", name, data[2]);
 				var button = new FileButton(520, 412 + 60 * i, file_width * 2, 64, 1, "", (data[2] == 4 || data[3]) ? c_red : c_white,,, {
 					lobby_name: name,
 					lobby_password: data[1],
@@ -976,6 +977,21 @@ f[$ ClientTCP.Minigame4vs_Bullets_Stop] = function(buffer) {
 		image_index = stop_index;
 		scale = stop_scale;
 		stop(false);
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Bullets_Points] = function(buffer) {
+	var player_id = buffer_read(buffer, buffer_u8);
+	var points = buffer_read(buffer, buffer_s8);
+	
+	if (points == -1 && minigame4vs_get_points(player_id) == 0) {
+		return;
+	}
+	
+	minigame4vs_points(player_id, points);
+	
+	if (minigame4vs_get_points(player_id) < 0) {
+		minigame4vs_set_points(player_id, 0)
 	}
 }
 

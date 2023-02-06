@@ -122,7 +122,7 @@ function coins_give_chance_time(amount, to_left) {
 }
 
 events = [
-	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} and " + draw_coins_price(0) + "!", shines_coins_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} and " + draw_coins_price() + "!", shines_coins_exchange_chance_time),
 	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5}!", shines_exchange_chance_time),
 	new ChanceTimeEvent("{p1} and {p2} will exchange their " + draw_coins_price() + "!", coins_exchange_chance_time),
 	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p1}!", shines_give_chance_time, 1, true),
@@ -170,7 +170,7 @@ function advance_chance_time() {
 			case 1: //Spawns the second player box
 				b.sprites = all_player_sprites();
 				var other_sprite = objChanceTimeChoice.sprite;
-				var del_index = array_index(b.sprites, other_sprite);
+				var del_index = array_get_index(b.sprites, other_sprite);
 				array_delete(b.sprites, del_index, 1);
 				break;
 				

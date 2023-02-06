@@ -132,7 +132,7 @@ function space_passing_event() {
 					if (!global.baba_toggled[0]) {
 						global.shine_price = 20;
 					} else {
-						switch (global.baba_blocks) {
+						switch (global.baba_blocks[0]) {
 							case 0: global.shine_price = 40; break;
 							case 1: global.shine_price = 10; break;
 							case 2: global.shine_price = 0; break;

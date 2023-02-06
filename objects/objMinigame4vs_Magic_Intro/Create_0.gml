@@ -25,7 +25,7 @@ time = 3;
 quake = false;
 fall_order = array_sequence(0, 10);
 fall_current = 0;
-array_shuffle(fall_order);
+array_shuffle_ext(fall_order);
 
 alarms_init(12);
 

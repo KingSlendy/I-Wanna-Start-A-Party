@@ -106,7 +106,7 @@ alarm_override(11, function() {
 						array_push(choices, id);
 					}
 				
-					array_shuffle(choices);
+					array_shuffle_ext(choices);
 					choose_block = array_pop(choices);
 				}
 			

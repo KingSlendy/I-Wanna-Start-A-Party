@@ -7,7 +7,7 @@ if (!global.board_started) {
 		change_to_object(objPlayerBoard);
 	}
 	
-	if (array_length(global.player_game_ids) > 0) { //Load board
+	if (HAS_SAVED) { //Load board
 		global.board_started = true;
 		var board = global.board_games[$ global.game_id];
 		global.max_board_turns = board.saved_board.saved_max_turns;
@@ -95,24 +95,11 @@ if (!global.board_started) {
 		global.player_game_ids = [];
 		prev_board_light = !global.board_light;
 	} else { //Initialize board
-		//variable_struct_remove(global.board_games, global.game_id);
-		//save_file();
-		
-		//if (IS_ONLINE) {
-		//	global.game_id = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
-		//} else {
-		//	global.game_id = "Offline";
-		//}
-		
-		global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
-		global.game_key =  date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
-		variable_struct_remove(global.board_games, global.game_id);
-		save_file();
-		
+		global.game_key = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
 		shuffle_seed_bag();
 		next_seed_inline();
 		global.initial_rolls = array_sequence(1, 10);
-		array_shuffle(global.initial_rolls);
+		array_shuffle_ext(global.initial_rolls);
 		array_delete(global.initial_rolls, global.player_max, array_length(global.initial_rolls) - global.player_max);
 		
 		for (var i = 1; i <= global.player_max; i++) {

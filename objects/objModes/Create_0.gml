@@ -1,4 +1,5 @@
 global.game_started = true;
+global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
 fade_alpha = 1;
 fade_start = true;
 state = -1;
@@ -74,7 +75,7 @@ with (objPlayerBase) {
 
 instance_destroy(objPlayerInfo);
 
-var check = array_index(global.all_ai_actions, null);
+var check = array_get_index(global.all_ai_actions, null);
 	
 if (check != -1) {
 	array_delete(global.all_ai_actions, check, 1);

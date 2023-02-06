@@ -42,7 +42,7 @@ alarm_create(4, function() {
 		}
 	}
 	
-	array_shuffle(created_saves);
+	array_shuffle_ext(created_saves);
 			
 	with (array_pop(created_saves)) {
 		image_index = 1;
@@ -88,7 +88,7 @@ alarm_override(11, function() {
 					array_push(choices, id);
 				}
 				
-				array_shuffle(choices);
+				array_shuffle_ext(choices);
 				chosen_save = array_pop(choices);
 			} else {
 				if (!instance_exists(chosen_save)) {

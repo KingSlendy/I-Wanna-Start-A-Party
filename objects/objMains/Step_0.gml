@@ -35,7 +35,7 @@ if (fade_start) {
 							}
 						
 							next_seed_inline();
-							array_shuffle(boards);
+							array_shuffle_ext(boards);
 							global.board_selected = array_pop(boards);
 							
 							buffer_seek_begin();
@@ -56,7 +56,7 @@ if (fade_start) {
 					exit;
 					
 				case 1:
-					var check = array_index(global.all_ai_actions, null);
+					var check = array_get_index(global.all_ai_actions, null);
 	
 					if (check != -1) {
 						array_delete(global.all_ai_actions, check, 1);

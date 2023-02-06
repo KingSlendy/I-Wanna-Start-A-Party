@@ -160,7 +160,7 @@ options = [
 	})
 ];
 
-array_shuffle(options);
+array_shuffle_ext(options);
 
 function show_the_guy_options() {
 	alarm_frames(2, 1);

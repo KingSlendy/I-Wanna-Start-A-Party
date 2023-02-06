@@ -2,27 +2,8 @@
   "resourceType": "GMTileSet",
   "resourceVersion": "1.0",
   "name": "tlsMinigame2vs2_Colorful",
-  "spriteId": {
-    "name": "sprTlsMinigame2vs2_Colorful",
-    "path": "sprites/sprTlsMinigame2vs2_Colorful/sprTlsMinigame2vs2_Colorful.yy",
-  },
-  "tileWidth": 32,
-  "tileHeight": 32,
-  "tilexoff": 0,
-  "tileyoff": 0,
-  "tilehsep": 0,
-  "tilevsep": 0,
-  "spriteNoExport": true,
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
-  },
-  "out_tilehborder": 2,
-  "out_tilevborder": 2,
-  "out_columns": 2,
-  "tile_count": 6,
   "autoTileSets": [
-    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","closed_edge":false,"tiles":[
         1,
         5,
         5,
@@ -70,10 +51,30 @@
         5,
         5,
         5,
-      ],"closed_edge":false,},
+      ],},
   ],
-  "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.0,
+  "macroPageTiles": {
+    "SerialiseHeight": 0,
+    "SerialiseWidth": 0,
+    "TileSerialiseData": [],
+  },
+  "out_columns": 2,
+  "out_tilehborder": 2,
+  "out_tilevborder": 2,
+  "parent": {
+    "name": "Colorful",
+    "path": "folders/Tilesets/Minigames/2vs2/Colorful.yy",
+  },
+  "spriteId": {
+    "name": "sprTlsMinigame2vs2_Colorful",
+    "path": "sprites/sprTlsMinigame2vs2_Colorful/sprTlsMinigame2vs2_Colorful.yy",
+  },
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "tile_count": 6,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -85,13 +86,12 @@
     ],
     "SerialiseFrameCount": 1,
   },
-  "macroPageTiles": {
-    "SerialiseWidth": 0,
-    "SerialiseHeight": 0,
-    "TileSerialiseData": [],
-  },
-  "parent": {
-    "name": "Colorful",
-    "path": "folders/Tilesets/Minigames/2vs2/Colorful.yy",
-  },
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 15.0,
+  "tileHeight": 32,
+  "tilehsep": 0,
+  "tilevsep": 0,
+  "tileWidth": 32,
+  "tilexoff": 0,
+  "tileyoff": 0,
 }

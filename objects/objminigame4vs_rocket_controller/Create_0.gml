@@ -14,7 +14,7 @@ minigame_players = function() {
 			array_push(players, id);
 		}
 	
-		array_shuffle(players);
+		array_shuffle_ext(players);
 		chosed_player = players[0];
 		chosed_offset = 0;
 		delay_player = get_frames(10);

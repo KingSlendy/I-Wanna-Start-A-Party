@@ -228,6 +228,10 @@ alarm_override(11, function() {
 					while (choosed_door == null) {
 						var door = instance_nearest(x, y, objMinigame1vs3_Host_Door);
 						
+						if (door == noone) {
+							break;
+						}
+						
 						if (door.image_index == 1 || array_contains(touched_doors, door) || (array_length(touched_doors) == 0 && 0.5 > random(1))) {
 							instance_deactivate_object(door);
 							continue;
@@ -236,12 +240,16 @@ alarm_override(11, function() {
 						choosed_door = door;
 					}
 					
+					if (choosed_door == null) {
+						break;
+					}
+					
 					instance_activate_object(objMinigame1vs3_Host_Door);
 				} else {
 					touched_doors = minigame1vs3_solo().touched_doors;
 					
 					if (array_length(touched_doors) > 0) {
-						array_shuffle(touched_doors);
+						array_shuffle_ext(touched_doors);
 						choosed_door = array_pop(touched_doors);
 					}
 				}

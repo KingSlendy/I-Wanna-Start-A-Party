@@ -85,7 +85,7 @@ function jingle_obstacles(player_turn) {
 	
 	space_count[player_turn - 1]++;
 	set_spd(-9, player_turn);
-	alarm_call(4 + (player_turn - 1), 0.04);
+	alarm_call(4 + (player_turn - 1), 0.06);
 }
 
 function set_spd(scene_spd, player_turn) {
@@ -167,7 +167,7 @@ alarm_override(11, function() {
 						break;
 					}
 					
-					actions.jump.press();
+					actions.shoot.press();
 				}
 			}
 		}

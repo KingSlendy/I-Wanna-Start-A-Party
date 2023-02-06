@@ -9,6 +9,7 @@ if (revive == 0) {
 		fade_alpha = 1;
 		revive = 1;
 		objPlayerBase.lost = false;
+		minigame_time = -1;
 	}
 } else if (revive == 1) {
 	fade_alpha -= 0.02 * DELTA;

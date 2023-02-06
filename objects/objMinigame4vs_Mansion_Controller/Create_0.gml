@@ -51,7 +51,7 @@ alarm_override(11, function() {
 					}
 				}
 	
-				array_shuffle(choices);
+				array_shuffle_ext(choices);
 				target = array_pop(choices);
 			}
 			

@@ -7,7 +7,7 @@ if (abs(yy) >= 32) {
 			array_push(choices, i);
 		}
 	
-		array_shuffle(choices);
+		array_shuffle_ext(choices);
 		var length = array_length(show_sprites);
 
 		if (show_sprites[0] == null) {

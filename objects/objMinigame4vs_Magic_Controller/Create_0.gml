@@ -38,7 +38,7 @@ player_type = objPlayerHand;
 
 state = 0;
 item_order = array_sequence(0, sprite_get_number(sprMinigame4vs_Magic_Items));
-array_shuffle(item_order);
+array_shuffle_ext(item_order);
 
 alarm_override(0, function() {
 	if (state++ == 1) {
@@ -83,7 +83,7 @@ alarm_override(11, function() {
 					break;
 				}
 				
-				array_shuffle(item_choices);
+				array_shuffle_ext(item_choices);
 				item_chosen = array_pop(item_choices);
 			}
 			

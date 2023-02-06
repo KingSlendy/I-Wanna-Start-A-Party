@@ -67,7 +67,7 @@ function pacman_generate() {
 	var choices = [208, 336, 464, 592];
 				
 	repeat ((!trial_is_title(WAKA_DODGES)) ? current_round++ + 1 : 3) {
-		array_shuffle(choices);
+		array_shuffle_ext(choices);
 		instance_create_layer(array_pop(choices), (!trial_is_title(WAKA_DODGES)) ? 48 : 1104, "Actors", objMinigame4vs_Waka_PacMan);
 	}
 }

@@ -17,7 +17,7 @@ for (var r = 0; r < 5; r++) {
 	var door_row = doors[r];
 	
 	while (array_length(door_row) > 1) {
-		array_shuffle(door_row);
+		array_shuffle_ext(door_row);
 		var door1 = door_row[0];
 		var door2 = door_row[1];
 		array_delete(door_row, 0, 2);
@@ -25,10 +25,10 @@ for (var r = 0; r < 5; r++) {
 		door2.link = door1;
 	}
 	
-	array_shuffle(door_row);
+	array_shuffle_ext(door_row);
 	var door1 = door_row[0];
 	var next_door_row = doors[r + 1];
-	array_shuffle(next_door_row);
+	array_shuffle_ext(next_door_row);
 	var door2 = next_door_row[0];
 	door1.link = door2;
 	door2.link = door1;

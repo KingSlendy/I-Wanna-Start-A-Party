@@ -18,7 +18,7 @@ if (state == 0) {
 			var spaces = [];
 			
 			with (objSpaces) {
-				if ((image_index == SpaceType.Blue || image_index == SpaceType.Red) && !place_meeting(x, y, objPlayerBoard)) {
+				if ((image_index == SpaceType.Blue || image_index == SpaceType.Red) && !place_meeting(x, y, objPlayerBase)) {
 					array_push(spaces, {x: self.x + 16, y: self.y + 16});
 				}
 			}
@@ -28,7 +28,7 @@ if (state == 0) {
 			});
 			
 			next_seed_inline();
-			array_shuffle(spaces);
+			array_shuffle_ext(spaces);
 			var space = array_pop(spaces);
 			x = space.x;
 			y = space.y;

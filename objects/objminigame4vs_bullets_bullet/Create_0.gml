@@ -1,5 +1,6 @@
 depth = layer_get_depth("Tiles_Back_Black") + 1;
 target_x = x;
+touchable = true;
 
 alarms_init(2);
 

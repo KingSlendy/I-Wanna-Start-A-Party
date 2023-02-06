@@ -10,7 +10,7 @@ if (is_local_turn()) {
 	}
 
 	while (true) {
-		array_shuffle(stock);
+		array_shuffle_ext(stock);
 		var cancel_loop = true;
 		
 		for (var i = 0; i < 5; i++) {

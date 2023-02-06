@@ -66,6 +66,11 @@ function give_points(player_id, points, network = true) {
 		achieve_trophy(62);
 	}
 	
+	if (trial_is_title(PERFECT_AIM) && points == 100) {
+		minigame_finish();
+		return;
+	}
+	
 	if (player_turn == global.player_max) {
 		minigame_finish();
 	} else {

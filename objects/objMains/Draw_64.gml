@@ -38,8 +38,8 @@ if (save_present && room == rParty) {
 	
 	draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
 	draw_set_font(fntPlayerInfo);
-	draw_text_outline(save_x + 290, save_y + 140, string_interp("Turn: {0}/{1}", save_board_turn, save_max_turns), c_black);
-	draw_text_outline(save_x + 290, save_y + 170, string_interp("Bonus: {0}", (save_give_bonus_shines) ? "ON" : "OFF"), c_black);
+	draw_text_outline(save_x + 290, save_y + 140, string("Turn: {0}/{1}", save_board_turn, save_max_turns), c_black);
+	draw_text_outline(save_x + 290, save_y + 170, string("Bonus: {0}", (save_give_bonus_shines) ? "ON" : "OFF"), c_black);
 	var text = new Text(fntDialogue);
 
 	for (var i = 0; i < 2; i++) {

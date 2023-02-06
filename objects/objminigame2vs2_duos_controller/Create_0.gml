@@ -145,7 +145,7 @@ alarm_override(11, function() {
 						}
 					
 						if (array_length(choices) > 0) {
-							array_shuffle(choices);
+							array_shuffle_ext(choices);
 							state_presses[state][1] = choices[0] + 16;
 						}
 					}

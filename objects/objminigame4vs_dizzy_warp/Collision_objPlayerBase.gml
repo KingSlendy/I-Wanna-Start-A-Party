@@ -3,7 +3,7 @@ if (touched || other.last_touched == id || objMinigameController.info.is_finishe
 }
 
 if (is_player_local(other.network_id)) {
-	array_shuffle(actions);
+	array_shuffle_ext(actions);
 		
 	with (other) {
 		if (!ai) {

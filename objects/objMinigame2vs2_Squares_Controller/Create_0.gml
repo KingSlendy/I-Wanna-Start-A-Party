@@ -29,7 +29,7 @@ function create_halfs() {
 	}
 	
 	var indexes = array_sequence(0, sprite_get_number(sprMinigame2vs2_Squares_Square));
-	array_shuffle(indexes);
+	array_shuffle_ext(indexes);
 	array_delete(indexes, 2, array_length(indexes) - 2);
 	
 	for (var i = 0; i < 2; i++) {
