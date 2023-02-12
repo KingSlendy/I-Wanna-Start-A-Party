@@ -15,8 +15,14 @@ switch (state) {
 				target_y = view_y;
 			}
 		
-			//Doubles the view size
-			camera_set_view_size(view_camera[0], 800 * 3, 608 * 3);
+			//Zooms out to the whole board
+			var ratio = 800 / 608;
+			var dist_x = room_width;
+			var dist_y = room_height;
+			var view_h = dist_y * max(dist_x / dist_y, 1);
+			var view_w = view_h * ratio;
+			
+			camera_set_view_size(view_camera[0], view_w, view_h);
 			fade_alpha = 1;
 			state = 1;
 			

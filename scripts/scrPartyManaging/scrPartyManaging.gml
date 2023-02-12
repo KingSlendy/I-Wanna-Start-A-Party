@@ -948,11 +948,11 @@ function item_applied(item) {
 			player_info.item_effect = item.id;
 			break;
 	}
-	
+
 	if (is_local_turn()) {
 		switch (item.id) {
 			case ItemType.Poison:
-				show_multiple_player_choices(function(i) {
+				show_multiple_player_choices("Which player to poison?", function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Poison);
@@ -960,7 +960,7 @@ function item_applied(item) {
 				break;
 				
 			case ItemType.Reverse:
-				show_multiple_player_choices(function(i) {
+				show_multiple_player_choices("Which player to reverse?", function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Reverse);
@@ -968,7 +968,7 @@ function item_applied(item) {
 				break;
 			
 			case ItemType.Ice:
-				show_multiple_player_choices(function(i) {
+				show_multiple_player_choices("Which player to freeze?", function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
@@ -980,7 +980,7 @@ function item_applied(item) {
 				break;
 			
 			case ItemType.SuperWarp:
-				show_multiple_player_choices(function(_) { return true; }, true).final_action = function() {
+				show_multiple_player_choices("Which player to switch places with?", function(_) { return true; }, true).final_action = function() {
 					item_animation(ItemType.SuperWarp);
 				}
 				break;
@@ -1145,9 +1145,10 @@ function call_blackhole() {
 	}
 }
 
-function show_multiple_choices(titles, choices, descriptions, availables) {
+function show_multiple_choices(motive, titles, choices, descriptions, availables) {
 	global.choice_selected = -1;
 	var m = instance_create_layer(0, 0, "Managers", objMultipleChoices);
+	m.motive = motive;
 	m.titles = titles;
 	m.choices = choices;
 	m.descriptions = descriptions;
@@ -1156,6 +1157,7 @@ function show_multiple_choices(titles, choices, descriptions, availables) {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowMultipleChoices);
+		buffer_write_data(buffer_string, motive);
 		buffer_write_array(buffer_string, titles);
 		buffer_write_array(buffer_string, choices);
 		buffer_write_array(buffer_string, descriptions);
@@ -1166,8 +1168,8 @@ function show_multiple_choices(titles, choices, descriptions, availables) {
 	return m;
 }
 
-function show_multiple_player_choices(available_func, not_me = false) {
-	return show_multiple_choices(all_player_names(not_me), all_player_choices(not_me), [], all_player_availables(available_func, not_me));
+function show_multiple_player_choices(motive, available_func, not_me = false) {
+	return show_multiple_choices(motive, all_player_names(not_me), all_player_choices(not_me), [], all_player_availables(available_func, not_me));
 }
 
 function all_player_names(not_me = false) {
@@ -1442,7 +1444,7 @@ function board_pallet_pokemons() {
 	}
 
 	start_dialogue([
-		"Hey, there's a Pokemon here with the " + pokemon.power_type + " power.",
+		"Hey, there's a Pokemon here with the " + pokemon.power_type + " type.",
 		new Message("What would you like to do with it?", [
 			["Bring " + draw_coins_price(global.pokemon_price), bring_dialogues],
 			["Battle", battle_dialogues],
@@ -1562,7 +1564,7 @@ function board_world_scott_interact() {
 			];
 		} else {
 			texts = [
-				new Message("Oh no! Nega Ghost reached you and now it's gonna take one Shine away from you!",, event_take)
+				new Message("Oh no! Nega Ghost reached someone and now it's gonna take one Shine away from you!",, event_take)
 			];
 		}
 	}

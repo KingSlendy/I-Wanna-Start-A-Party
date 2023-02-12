@@ -156,6 +156,20 @@ switch (room) {
 				}
 			}
 		}
+		
+		var price = 5;
+		
+		if (global.baba_toggled[2]) {
+			switch (global.baba_blocks[2]) {
+				case 0: price *= 2; break;
+				case 1: price /= 2; break;
+				case 2: price = 0; break;
+			}
+			
+			price = floor(price);
+		}
+		
+		global.min_shop_coins = price;
 		break;
 	
 	case rBoardHyrule: global.shine_spawn_count = 3; break;

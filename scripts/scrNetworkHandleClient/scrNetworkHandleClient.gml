@@ -566,11 +566,12 @@ f[$ ClientTCP.EndBlackhole] = function(buffer) {
 }
 
 f[$ ClientTCP.ShowMultipleChoices] = function(buffer) {
+	var motive = buffer_read(buffer, buffer_string);
 	var titles = buffer_read_array(buffer, buffer_string);
 	var choices = buffer_read_array(buffer, buffer_string);
 	var descriptions = buffer_read_array(buffer, buffer_string);
 	var availables = buffer_read_array(buffer, buffer_bool);
-	show_multiple_choices(titles, choices, descriptions, availables);
+	show_multiple_choices(motive, titles, choices, descriptions, availables);
 }
 
 f[$ ClientTCP.ChangeMultipleChoiceSelected] = function(buffer) {
@@ -767,7 +768,7 @@ f[$ ClientTCP.MinigameOverviewStart] = function(buffer) {
 	var set = buffer_read(buffer, buffer_u8);
 		
 	with (objMinigameOverview) {
-		start_minigame(set);
+		start_minigame(set, false);
 	}
 }
 

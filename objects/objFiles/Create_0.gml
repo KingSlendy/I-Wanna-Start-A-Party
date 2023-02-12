@@ -206,6 +206,9 @@ lobby_list = [];
 lobby_seeing = false;
 lobby_selected = 0;
 lobby_return = false;
+lobby_window_name = "";
+lobby_window_desc = "";
+lobby_window = false;
 
 player_texts = array_create(4, "");
 controls_text = new Text(fntControls);

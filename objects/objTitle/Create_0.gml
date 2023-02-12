@@ -7,7 +7,7 @@ draw_set_valign(fa_middle);
 title_start = false;
 title_text = "I WANNA START\nA\nPARTY";
 title_x = 400;
-title_y = 250;
+title_y = 300;
 title_w = string_width(title_text);
 title_h = string_height(title_text);
 title_alpha = 0;

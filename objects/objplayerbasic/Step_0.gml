@@ -23,12 +23,6 @@ if (!frozen) {
 	if (enable_jump) {
 		if (global.actions.jump.pressed(network_id)) {
 			player_jump();
-			
-			if (room == rMinigame4vs_Bullets) {
-				with (objMinigameController) {
-					alarm_pause(10);
-				}
-			}
 		}
 	}
 }

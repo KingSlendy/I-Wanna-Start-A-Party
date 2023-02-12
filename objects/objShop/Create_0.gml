@@ -80,6 +80,16 @@ if (is_local_turn() && focused_player().ai) {
 	while (global.buy_choice == -1) {
 		for (var i = length - 1; i >= 0; i--) {
 			var price = stock[i].price;
+			
+			if (room == rBoardBaba && global.baba_toggled[2]) {
+				switch (global.baba_blocks[2]) {
+					case 0: price *= 2; break;
+					case 1: price /= 2; break;
+					case 2: price = 0; break;
+				}
+			
+				price = floor(price);
+			}
 		
 			if (coins >= price && (coins - price >= 20 || irandom(length - ((length - 1) - i)) == 1)) {
 				global.buy_choice = i;

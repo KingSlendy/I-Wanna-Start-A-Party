@@ -75,20 +75,8 @@ if (option_selected != prev_choice) {
 
 if (global.actions.jump.pressed(global.player_id)) {
 	start_minigame(option_selected + 1);
-	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.MinigameOverviewStart);
-	buffer_write_data(buffer_u8, state);
-	network_send_tcp_packet();
 }
 
 if (info.is_minigames && global.actions.shoot.pressed(global.player_id)) {
-	state = 3;
-	audio_play_sound(global.sound_cursor_back, 0, false);
-	music_fade();
-	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.MinigameOverviewStart);
-	buffer_write_data(buffer_u8, state);
-	network_send_tcp_packet();
+	start_minigame(3);
 }

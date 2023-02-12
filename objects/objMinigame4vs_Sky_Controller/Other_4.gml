@@ -2,6 +2,8 @@ event_inherited();
 
 if (trial_is_title(GREEN_DIVING)) {
 	with (objPlayerBase) {
-		y = -64;
+		if (network_id != global.player_id) {
+			y = -64;
+		}
 	}
 }

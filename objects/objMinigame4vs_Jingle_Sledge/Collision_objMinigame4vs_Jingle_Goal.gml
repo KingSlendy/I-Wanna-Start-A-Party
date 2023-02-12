@@ -1,8 +1,8 @@
-if (!is_player_local(focus_player_by_turn(player_turn).network_id)) {
+var player_id = focus_player_by_turn(player_turn).network_id;
+
+if (!is_player_local(player_id)) {
 	exit;
 }
 
-with (objMinigameController) {
-	minigame4vs_points(other.player_turn);
-	minigame_finish(true);
-}
+minigame4vs_points(player_id);
+minigame_finish(true);

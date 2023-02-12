@@ -29,8 +29,20 @@ fade_alpha = 1;
 pages_text = new Text(fntControls);
 controls_text = new Text(fntControls);
 
-function start_minigame(set) {
+function start_minigame(set, network = true) {
 	state = set;
 	music_fade();
-	audio_play_sound(sndMinigameOverviewPick, 0, false);
+	
+	if (state != 3) {
+		audio_play_sound(sndMinigameOverviewPick, 0, false);
+	} else {
+		audio_play_sound(global.sound_cursor_back, 0, false);
+	}
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.MinigameOverviewStart);
+		buffer_write_data(buffer_u8, state);
+		network_send_tcp_packet();
+	}
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sprHerzPlayerFall",
+  "name": "sprHerzewittPlayerFall",
   "bbox_bottom": 30,
   "bbox_left": 5,
   "bbox_right": 26,
@@ -28,14 +28,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Herz",
-    "path": "folders/Sprites/Objects/Player/Skins/Herz.yy",
+    "name": "Herzewitt",
+    "path": "folders/Sprites/Objects/Player/Skins/Herzewitt.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sprHerzPlayerFall",
+    "name": "sprHerzewittPlayerFall",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -57,10 +57,10 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b81a3fd3-2062-4927-b718-3a0cf27164de","path":"sprites/sprHerzPlayerFall/sprHerzPlayerFall.yy",},},},"Disabled":false,"id":"76add6ef-c421-4c3b-a0b3-612d4e2b9e02","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4bfda55a-1c9a-4be6-9d30-fa23ee27a93a","path":"sprites/sprHerzPlayerFall/sprHerzPlayerFall.yy",},},},"Disabled":false,"id":"693cdd56-74a2-40c0-b5db-82fae6ab515a","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ba2e7980-08a8-4df8-9f38-65421f1484ad","path":"sprites/sprHerzPlayerFall/sprHerzPlayerFall.yy",},},},"Disabled":false,"id":"681e61eb-0d9b-4de7-a825-2e4633324af8","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f6523db1-6ad1-4992-8085-bbb0d56d57a4","path":"sprites/sprHerzPlayerFall/sprHerzPlayerFall.yy",},},},"Disabled":false,"id":"6cba6cfe-040c-4d2c-bda7-7a67517e6db9","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b81a3fd3-2062-4927-b718-3a0cf27164de","path":"sprites/sprHerzewittPlayerFall/sprHerzewittPlayerFall.yy",},},},"Disabled":false,"id":"76add6ef-c421-4c3b-a0b3-612d4e2b9e02","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4bfda55a-1c9a-4be6-9d30-fa23ee27a93a","path":"sprites/sprHerzewittPlayerFall/sprHerzewittPlayerFall.yy",},},},"Disabled":false,"id":"693cdd56-74a2-40c0-b5db-82fae6ab515a","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ba2e7980-08a8-4df8-9f38-65421f1484ad","path":"sprites/sprHerzewittPlayerFall/sprHerzewittPlayerFall.yy",},},},"Disabled":false,"id":"681e61eb-0d9b-4de7-a825-2e4633324af8","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f6523db1-6ad1-4992-8085-bbb0d56d57a4","path":"sprites/sprHerzewittPlayerFall/sprHerzewittPlayerFall.yy",},},},"Disabled":false,"id":"6cba6cfe-040c-4d2c-bda7-7a67517e6db9","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

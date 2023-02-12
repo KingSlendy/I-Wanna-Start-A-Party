@@ -1,3 +1,13 @@
+var draw_warps = function() {
+	for (var i = 0; i < minigame1vs3_team_length(); i++) {
+		var player = minigame1vs3_team(i);
+	
+		if (warp_delay[i] == 0) {
+			draw_sprite(sprMinigame1vs3_Warping_Warp, 0, player.x - 17, player.y - 42);
+		}
+	}
+}
+
 if (!surface_exists(surf)) {
 	surf = surface_create(800, 608);
 }
@@ -24,16 +34,11 @@ with (all) {
 	}
 }
 
+draw_warps();
 surface_reset_target();
 
 draw_surface_ext(surf, 4, 4, 1, 1, 0, c_black, 0.75);
 
 event_inherited();
 
-for (var i = 0; i < minigame1vs3_team_length(); i++) {
-	var player = minigame1vs3_team(i);
-	
-	if (warp_delay[i] == 0) {
-		draw_sprite(sprMinigame1vs3_Warping_Warp, 0, player.x - 17, player.y - 42);
-	}
-}
+draw_warps();

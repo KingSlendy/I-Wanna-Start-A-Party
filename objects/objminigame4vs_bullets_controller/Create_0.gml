@@ -26,7 +26,7 @@ bullet_indexes = [];
 bullet_current = 0;
 
 repeat (500) {
-	array_push(bullet_indexes, clamp(choose(irandom_range(-2, 1), irandom_range(2, 3)), 0, 3));
+	array_push(bullet_indexes, choose(0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3));
 }
 
 function next_player() {
@@ -47,6 +47,9 @@ function next_player() {
 		player_turn = 1;
 	}
 	
+	minigame_time = 15;
+	alarm_call(10, 1);
+	
 	var player = focus_player_by_turn(player_turn);
 	
 	if (!is_player_local(player.network_id)) {
@@ -55,9 +58,6 @@ function next_player() {
 	
 	player.hspd = -player.max_hspd;
 	player.advance = true;
-	
-	minigame_time = 15;
-	alarm_call(10, 1);
 }
 
 function bullets_move() {

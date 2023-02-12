@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sprHerzPlayerJump",
+  "name": "sprHerzewittPlayerJump",
   "bbox_bottom": 31,
   "bbox_left": 5,
   "bbox_right": 25,
@@ -26,14 +26,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Herz",
-    "path": "folders/Sprites/Objects/Player/Skins/Herz.yy",
+    "name": "Herzewitt",
+    "path": "folders/Sprites/Objects/Player/Skins/Herzewitt.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sprHerzPlayerJump",
+    "name": "sprHerzewittPlayerJump",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"31d333cf-ff67-44b8-99a4-c39151ea245f","path":"sprites/sprHerzPlayerJump/sprHerzPlayerJump.yy",},},},"Disabled":false,"id":"6ef34f57-701e-4705-8ffd-9d30b73347ad","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"73194c2e-01f0-45d2-8d9f-501c83978b7f","path":"sprites/sprHerzPlayerJump/sprHerzPlayerJump.yy",},},},"Disabled":false,"id":"0fa1bf3e-71a0-4f38-9b2f-5ecb31488b09","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"31d333cf-ff67-44b8-99a4-c39151ea245f","path":"sprites/sprHerzewittPlayerJump/sprHerzewittPlayerJump.yy",},},},"Disabled":false,"id":"6ef34f57-701e-4705-8ffd-9d30b73347ad","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"73194c2e-01f0-45d2-8d9f-501c83978b7f","path":"sprites/sprHerzewittPlayerJump/sprHerzewittPlayerJump.yy",},},},"Disabled":false,"id":"0fa1bf3e-71a0-4f38-9b2f-5ecb31488b09","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

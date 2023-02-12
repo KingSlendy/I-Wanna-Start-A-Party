@@ -1,5 +1,5 @@
 hspd = 0;
-max_hspd = 3;
+max_hspd = 2;
 
 function move_block() {
 	xprevious = x;

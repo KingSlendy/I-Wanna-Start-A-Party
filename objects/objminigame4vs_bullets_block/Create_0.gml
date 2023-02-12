@@ -14,6 +14,7 @@ function stop(network = true) {
 	
 	with (objMinigameController) {
 		alarm_call(4, 1.2);
+		alarm_stop(10);
 	}
 	
 	if (network) {

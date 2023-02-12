@@ -46,7 +46,7 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 	file_highlights[i] = lerp(file_highlights[i], target, 0.3);
 }
 
-if (!fade_start && files_fade == -1 && !global.lobby_started) {
+if (!fade_start && files_fade == -1 && !lobby_window && !global.lobby_started) {
 	if (file_opened == -1) {
 		if (global.file_selected == -1 && option_selected == -1) {
 			global.file_selected = files_prev;
@@ -187,28 +187,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 							upper_type = menu_type;
 							upper_text = "ONLINE DATA";
 						} else {
-							file_name = "";
-							var text = get_string("Enter your name.", file_name);
-							
-							for (var i = 1; i <= string_length(text); i++) {
-								var char = string_char_at(text, i);
-								
-								if (char == " " || char == "." || char == ":" || char == "!" || char == "?") {
-									file_name += char;
-								}
-								
-								file_name += string_letters(char) + string_digits(char);
-							}
-							
-							file_name = string_trim(file_name);
-						
-							if (string_length(file_name) == 0) {
-								file_name = DEFAULT_PLAYER;
-							}
-						
-							if (file_limit != -1) {
-								file_name = string_copy(file_name, 1, file_limit);
-							}
+							lobby_window_name = "Enter your name.";
+							lobby_window_desc = file_name;
+							lobby_window = true;
+							alarm[1] = 1;
 						}
 						break;
 					
@@ -234,31 +216,10 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								"Enter the port. (0~9)"
 							];
 						
-							online_texts[select] = "";
-							var text = get_string(signs[select], online_texts[select]);
-							
-							for (var i = 1; i <= string_length(text); i++) {
-								var char = string_char_at(text, i);
-								
-								if (select == 1) {
-									online_texts[select] += string_digits(char);
-								} else {
-									online_texts[select] += char;
-								}
-							}
-							
-							online_texts[select] = string_trim(online_texts[select]);
-						
-							if (string_length(online_texts[select]) == 0) {
-								switch (select) {
-									case 0: online_texts[select] = DEFAULT_IP; break;
-									case 1: online_texts[select] = DEFAULT_PORT; break;
-								}
-							}
-						
-							if (online_limits[select] != -1) {
-								online_texts[select] = string_copy(online_texts[select], 1, online_limits[select]);
-							}
+							lobby_window_name = signs[select];
+							lobby_window_desc = online_texts[select];
+							lobby_window = true;
+							alarm[1] = 1;
 						} else {
 							if (!IS_ONLINE) {
 								global.ip = online_texts[0];
@@ -277,29 +238,11 @@ if (!fade_start && files_fade == -1 && !global.lobby_started) {
 								"Enter the lobby's name.",
 								"Enter the password. (A~Z) (0~9)"
 							];
-						
-							lobby_texts[select] = "";
-							var text = get_string(signs[select], lobby_texts[select]);
 							
-							for (var i = 1; i <= string_length(text); i++) {
-								var char = string_char_at(text, i);
-								
-								if (select == 0 && (char == " " || char == "!" || char == "?")) {
-									lobby_texts[select] += char;
-								}
-								
-								lobby_texts[select] += string_letters(char) + string_digits(char);
-							}
-							
-							lobby_texts[select] = string_trim(lobby_texts[select]);
-							
-							if (select == 0 && string_length(lobby_texts[select]) == 0) {
-								lobby_texts[select] = "Room";
-							}
-						
-							if (lobby_limits[select] != -1) {
-								lobby_texts[select] = string_copy(lobby_texts[select], 1, lobby_limits[select]);
-							}
+							lobby_window_name = signs[select];
+							lobby_window_desc = lobby_texts[select];
+							lobby_window = true;
+							alarm[1] = 1;
 						} else {
 							if (select == 2 || select == 3) {
 								buffer_seek_begin();

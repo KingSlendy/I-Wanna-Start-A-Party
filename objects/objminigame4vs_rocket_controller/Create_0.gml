@@ -34,6 +34,8 @@ action_end = function() {
 			audio_stop_sound(audio_idle_looping);
 		}
 	}
+	
+	instance_destroy(objBullet);
 }
 
 player_type = objPlayerRocket;

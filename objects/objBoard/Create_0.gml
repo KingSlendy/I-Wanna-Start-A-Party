@@ -241,7 +241,13 @@ alarm_create(11, function() {
 		}
 	
 		if (instance_exists(objBox)) {
-			stale_action(random_range(0.5, 1.5));
+			var stale = random_range(0.5, 1.5);
+			
+			if (instance_exists(objDice) && player_info_by_turn().item_effect == ItemType.Clock) {
+				stale = random_range(3, 5);
+			}
+			
+			stale_action(stale);
 			perform_action(actions.jump);
 		}
 	

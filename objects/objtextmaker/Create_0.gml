@@ -1,7 +1,7 @@
 draw_set_font(fntTitle);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-title_text = "I WANNA START\nA\nPARTY";
+title_text = "I WANNA START\nA\nPARTY\nTRAILER";
 title_x = 400;
 title_y = 250;
 title_w = string_width(title_text);

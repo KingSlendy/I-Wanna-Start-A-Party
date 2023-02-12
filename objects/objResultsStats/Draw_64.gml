@@ -53,8 +53,10 @@ draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
 if (show_inputs) {
+	var board = array_find_index(global.boards, function(x) { return (x.scene == info.previous_board); });
+	draw_sprite_ext(sprPartyBoardLogos, board + 1, 170, 60, 0.75, 0.75, 0, c_white, 1);
 	draw_set_color(c_white);
-	draw_text_outline(50, 85, "Turns: " + string(global.max_board_turns), c_black);
+	draw_text_outline(50, 110, "Turns: " + string(global.max_board_turns), c_black);
 	
 	if (stats_page > 0){
 		draw_sprite_ext(global.actions.left.bind(), 0, 340, 570, 0.5, 0.5, 0, c_white, 1);

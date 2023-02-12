@@ -156,7 +156,7 @@ function skin_init() {
 		new Skin("Feer", "Feer", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Urotsuki", "Urotsuki", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Yui", "Yui", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Herz", "Herz", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Herzewitt", "Herzewitt", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Marvin", "Marvin The Martian", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Kunikida", "Kunikida Hanamaru", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Kagami", "Kagami Hiiragi", "Original", 29, "Kogami Takara", 1000),
