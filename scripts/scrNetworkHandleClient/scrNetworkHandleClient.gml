@@ -121,8 +121,9 @@ enum ClientTCP {
 	Minigame4vs_Bubble_Goal,
 	Minigame4vs_Sky_Points,
 	Minigame4vs_Golf_GivePoints,
-	Minigame4vs_Jingle_SledgeShoot,
 	Minigame4vs_Jingle_SledgeJump,
+	Minigame4vs_Jingle_SledgeShoot,
+	Minigame4vs_Jingle_SledgeToggle,
 	Minigame4vs_Jingle_SledgeHit,
 	#endregion
 	
@@ -1029,6 +1030,17 @@ f[$ ClientTCP.Minigame4vs_Golf_GivePoints] = function(buffer) {
 	}
 }
 
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeJump] = function(buffer) {
+	var player_turn = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Jingle_Sledge) {
+		if (self.player_turn == player_turn) {
+			sledge_jump(false);
+			break;
+		}
+	}
+}
+
 f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
 	var player_turn = buffer_read(buffer, buffer_u8);
 	
@@ -1040,12 +1052,12 @@ f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame4vs_Jingle_SledgeJump] = function(buffer) {
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
 	var player_turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Jingle_Sledge) {
 		if (self.player_turn == player_turn) {
-			sledge_jump(false);
+			sledge_toggle(false);
 			break;
 		}
 	}

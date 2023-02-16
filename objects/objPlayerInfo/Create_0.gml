@@ -65,7 +65,7 @@ function can_react() {
 
 function can_map() {
 	var player = focused_player();
-	return (player_info.turn == global.player_turn && player.object_index == objPlayerBoard && !player.has_hit && player.follow_path == null && !instance_exists(objStatChange) && !instance_exists(objItemAnimation));
+	return (player_info.turn == global.player_turn && player.object_index == objPlayerBoard && !player.has_hit && player.follow_path == null && !instance_exists(objStatChange) && !instance_exists(objItemAnimation) && !instance_exists(objChooseShine) && !instance_exists(objBoardPalletObtain) && !instance_exists(objBoardPalletBattle));
 }
 
 function reaction(index) {

@@ -1,6 +1,5 @@
 event_inherited();
 
-minigame_time = 10;
 minigame_time_end = function() {
 	with (objMinigameController) {
 		stop_input();
@@ -93,7 +92,7 @@ function next_player() {
 		y = player.y + 10;
 	}
 	
-	minigame_time = 10;
+	minigame_time = 6;
 	alarm_call(10, 1);
 }
 

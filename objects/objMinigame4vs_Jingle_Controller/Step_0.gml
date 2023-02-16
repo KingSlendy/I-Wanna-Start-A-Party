@@ -16,6 +16,7 @@ for (var i = 1; i <= global.player_max; i++) {
 		
 		if (global.actions.shoot.pressed(player.network_id)) {
 			sledge_shoot();
+			sledge_toggle();
 		}
 	
 		if (global.actions.jump.pressed(player.network_id)) {

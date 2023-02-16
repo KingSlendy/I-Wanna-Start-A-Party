@@ -65,9 +65,9 @@ function jingle_obstacles(player_turn) {
 		self.player_turn = player_turn;
 	}
 		
-	if (space_count[player_turn - 1] % 10 == 0) {
+	if (space_count[player_turn - 1] % 8 == 0) {
 		var objs = [objMinigame4vs_Jingle_Spike, objMinigame4vs_Jingle_Tree, objMinigame4vs_Jingle_Candy, objMinigame4vs_Jingle_Toggle];
-		var count = floor(space_count[player_turn - 1] / 10);
+		var count = floor(space_count[player_turn - 1] / 8);
 		var obj = null;
 		
 		if (count < 35) {
@@ -157,7 +157,7 @@ alarm_override(11, function() {
 					
 					actions.jump.press();
 				} else if (obstacle.object_index == objMinigame4vs_Jingle_Tree || obstacle.object_index == objMinigame4vs_Jingle_Candy) {
-					if (0.05 > random(1)) {
+					if (player.sledge.shot || 0.05 > random(1)) {
 						break;
 					}
 					

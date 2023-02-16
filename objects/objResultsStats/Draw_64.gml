@@ -54,7 +54,7 @@ draw_set_halign(fa_left);
 
 if (show_inputs) {
 	var board = array_find_index(global.boards, function(x) { return (x.scene == info.previous_board); });
-	draw_sprite_ext(sprPartyBoardLogos, board + 1, 170, 60, 0.75, 0.75, 0, c_white, 1);
+	draw_sprite_ext(sprPartyBoardLogos, board + 1, 170, 60, 0.65, 0.65, 0, c_white, 1);
 	draw_set_color(c_white);
 	draw_text_outline(50, 110, "Turns: " + string(global.max_board_turns), c_black);
 	

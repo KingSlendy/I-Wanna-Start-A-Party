@@ -2,13 +2,23 @@ depth = layer_get_depth("Marks") + 1;
 shot = false;
 stopped = false;
 
-function sledge_shoot(network = true) {
-	with (objMinigame4vs_Jingle_Toggle) {
-		if (player_turn == other.player_turn) {
-			toggle_block();
-		}
+function sledge_jump(network = true) {
+	if (y != ystart) {
+		return;
 	}
+			
+	vspeed = -6;
+	gravity = 0.3;
 	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame4vs_Jingle_SledgeJump);
+		buffer_write_data(buffer_u8, player_turn);
+		network_send_tcp_packet();
+	}
+}
+
+function sledge_shoot(network = true) {
 	if (shot) {
 		return;
 	}
@@ -27,17 +37,16 @@ function sledge_shoot(network = true) {
 	}
 }
 
-function sledge_jump(network = true) {
-	if (y != ystart) {
-		return;
+function sledge_toggle(network = true) {
+	with (objMinigame4vs_Jingle_Toggle) {
+		if (player_turn == other.player_turn) {
+			toggle_block();
+		}
 	}
-			
-	vspeed = -6;
-	gravity = 0.3;
 	
 	if (network) {
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.Minigame4vs_Jingle_SledgeJump);
+		buffer_write_action(ClientTCP.Minigame4vs_Jingle_SledgeToggle);
 		buffer_write_data(buffer_u8, player_turn);
 		network_send_tcp_packet();
 	}

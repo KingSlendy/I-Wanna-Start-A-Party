@@ -14,7 +14,7 @@ if (IS_ONLINE) {
 		"Settings",
 		"Exit Lobby"
 	];
-} else if (room == rFiles) {
+} else if (room == rFiles || room == rSettings) {
 	pause_options = [
 		"Resume",
 		"Settings"

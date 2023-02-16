@@ -56,7 +56,7 @@ if (selecting && is_local_turn()) {
 							}
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
-								show_multiple_player_choices(function(turn) {
+								show_multiple_player_choices("Which player do you wanna steal from?", function(turn) {
 									var player_info = player_info_by_turn(turn);
 									
 									switch (option_selected) {

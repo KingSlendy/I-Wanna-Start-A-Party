@@ -9,7 +9,7 @@
   "bitDepth": 1,
   "bitRate": 128,
   "compression": 1,
-  "conversionMode": 1,
+  "conversionMode": 0,
   "duration": 32.15946,
   "parent": {
     "name": "2vs2",
