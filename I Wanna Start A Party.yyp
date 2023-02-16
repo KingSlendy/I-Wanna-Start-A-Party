@@ -2214,6 +2214,7 @@
     {"id":{"name":"objTurnChoices","path":"objects/objTurnChoices/objTurnChoices.yy",},"order":4,},
     {"id":{"name":"sprDarkBoshyPlayerJump","path":"sprites/sprDarkBoshyPlayerJump/sprDarkBoshyPlayerJump.yy",},"order":2,},
     {"id":{"name":"sprBkgMinigame4vs_Sky","path":"sprites/sprBkgMinigame4vs_Sky/sprBkgMinigame4vs_Sky.yy",},"order":0,},
+    {"id":{"name":"fntMinigame1vs3_Showdown_BlockBig","path":"fonts/fntMinigame1vs3_Showdown_BlockBig/fntMinigame1vs3_Showdown_BlockBig.yy",},"order":0,},
     {"id":{"name":"sprYuriPlayerJump","path":"sprites/sprYuriPlayerJump/sprYuriPlayerJump.yy",},"order":2,},
     {"id":{"name":"sprMinigame1vs3_Warping_Push","path":"sprites/sprMinigame1vs3_Warping_Push/sprMinigame1vs3_Warping_Push.yy",},"order":1,},
     {"id":{"name":"objMinigame2vs2_Maze_Item","path":"objects/objMinigame2vs2_Maze_Item/objMinigame2vs2_Maze_Item.yy",},"order":1,},

@@ -22,20 +22,20 @@ alarm_create(function() {
 
 alarm_create(function() {
 	if (current_order == 10) {
-		if (objMinigameController.info.player_scores[global.player_id - 1].points == 10) {
+		if (minigame4vs_get_points(global.player_id) == 10) {
 			achieve_trophy(7);
 		}
 	
-		var empty = true;
+		var empty = false;
 	
 		with (objMinigame4vs_Magic_Holder) {
 			if (network_id == global.player_id && place_meeting(x, y, objMinigame4vs_Magic_Items)) {
-				empty = false;
+				empty = true;
 				break;
 			}
 		}
 	
-		if (empty) {
+		if (!empty && minigame4vs_get_points(global.player_id) == 0) {
 			achieve_trophy(8);
 		}
 	

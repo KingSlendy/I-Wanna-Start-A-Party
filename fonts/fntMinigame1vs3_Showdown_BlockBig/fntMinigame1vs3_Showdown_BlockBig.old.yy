@@ -1,7 +1,7 @@
 {
   "resourceType": "GMFont",
   "resourceVersion": "1.0",
-  "name": "fntMinigame1vs3_Showdown_Block",
+  "name": "fntMinigame1vs3_Showdown_BlockBig",
   "AntiAlias": 1,
   "applyKerning": 0,
   "ascender": 35,
