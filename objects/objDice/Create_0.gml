@@ -31,8 +31,13 @@ function random_roll() {
 	}
 	
 	if (!is_player_turn()) {
-		min_roll = 3;
-		max_roll = 5;
+		if (focus_player_by_turn().object_index == objBoardWorldScott) {
+			min_roll = 3;
+			max_roll = 5;
+		} else {
+			min_roll = 5;
+			max_roll = 8;
+		}
 	}
 	
 	var previous = roll;

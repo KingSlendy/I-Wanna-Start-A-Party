@@ -26,7 +26,7 @@ bullet_indexes = [];
 bullet_current = 0;
 
 repeat (500) {
-	array_push(bullet_indexes, choose(0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3));
+	array_push(bullet_indexes, choose(0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 3));
 }
 
 function next_player() {

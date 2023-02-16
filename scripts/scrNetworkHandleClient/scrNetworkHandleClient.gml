@@ -966,6 +966,7 @@ f[$ ClientTCP.Minigame4vs_Targets_DestroyTarget] = function(buffer) {
 	with (objMinigame4vs_Targets_Target) {
 		if (xstart == target_xstart && ystart == target_ystart && num == target_num) {
 			destroy_target(false);
+			instance_destroy(objBullet);
 			break;
 		}
 	}
@@ -1052,7 +1053,7 @@ f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame4vs_Jingle_SledgeShoot] = function(buffer) {
+f[$ ClientTCP.Minigame4vs_Jingle_SledgeToggle] = function(buffer) {
 	var player_turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Jingle_Sledge) {

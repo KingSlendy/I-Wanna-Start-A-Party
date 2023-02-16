@@ -12,8 +12,8 @@
   "conversionMode": 1,
   "duration": 69.5664,
   "parent": {
-    "name": "Party",
-    "path": "folders/Sounds/BGM/Party.yy",
+    "name": "Menu",
+    "path": "folders/Sounds/BGM/Menu.yy",
   },
   "preload": false,
   "sampleRate": 44100,

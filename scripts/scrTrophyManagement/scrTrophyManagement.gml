@@ -83,7 +83,7 @@ global.trophies = [
 	new Trophy(6, TrophyRank.Silver, "Money Money", "You reached 100 Coins in Party!\nWhat does it feel to be rich?", "I wanna be able to purchase anything!"),
 	new Trophy(7, TrophyRank.Bronze, "Coinless", "You went down to 0 Coins in Party...\nWelp, time to live in the streets.", "You don't wanna lose that many."),
 	new Trophy(8, TrophyRank.Bronze, "Memory Magician", "You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?", "How can you keep so many items in your head?"),
-	new Trophy(9, TrophyRank.Bronze, "Messed Memory", "You got all items wrong in Maigc Memory...\nI bet you forget you house keys everytime you go out, huh?", "You can't have that bad of a memory..."),
+	new Trophy(9, TrophyRank.Bronze, "Messed Memory", "You got all items wrong in Magic Memory...\nI bet you forget your house keys everytime you go out, huh?", "You can't have that bad of a memory..."),
 	new Trophy(10, TrophyRank.Bronze, "Tie Your tie", "You obtained a Tie in a minigame.\nWelp guess no one wins anything.", "Seriously? No one wins?"),
 	new Trophy(11, TrophyRank.Bronze, "Flexing Ghosts", "You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.", "Spooky stuff ain't that scary for you."),
 	new Trophy(12, TrophyRank.Bronze, "Darkness' Friend", "You said 'No' to the Shine.\nLiving in darkness it is.", "I prefer not being too bright, thank you very much."),
