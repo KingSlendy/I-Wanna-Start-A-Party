@@ -63,13 +63,13 @@ alarm_create(function() {
 	a.image_index = 1;
 	a.direction = irandom_range(100, 135);
 	a.speed = irandom_range(6, 10);
-	a.gravity = 0.2;
+	a.gravity = 0.15;
 
 	var b = instance_create_layer(0, 576, "Actors", objMinigame1vs3_Avoid_Cherry);
 	b.image_index = 1;
 	b.direction = irandom_range(45, 80);
 	b.speed = irandom_range(6, 10);
-	b.gravity = 0.2;
+	b.gravity = 0.15;
 
 	alarm_frames(1, 8);
 });
@@ -84,7 +84,7 @@ alarm_create(function() {
 	b.image_index = 2;
 	b.hspeed = irandom_range(6, 8) * -1;
 
-	alarm_frames(2, 6);
+	alarm_frames(2, 8);
 });
 
 alarm_create(10, function() {

@@ -9,7 +9,7 @@
   "bitDepth": 1,
   "bitRate": 128,
   "compression": 1,
-  "conversionMode": 1,
+  "conversionMode": 0,
   "duration": 99.54807,
   "parent": {
     "name": "Party",

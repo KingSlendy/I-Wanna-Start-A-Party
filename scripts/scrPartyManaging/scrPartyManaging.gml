@@ -779,7 +779,7 @@ function change_shines(amount, type, player_turn = global.player_turn, network =
 			}
 		}
 	} else {
-		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score(2);
+		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score(amount * -1 * 2);
 	}
 
 	if (is_local_turn() && network) {

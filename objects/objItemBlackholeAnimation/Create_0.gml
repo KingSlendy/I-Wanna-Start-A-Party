@@ -94,7 +94,7 @@ alarm_create(function() {
 		case 0:
 			if (!stealed) {
 				var c = change_coins(steal_count * -1, CoinChangeType.Lose, global.choice_selected + 1);
-				bonus_shine_by_id(BonusShines.MostSteals).increase_score(, steal_count * -1);
+				bonus_shine_by_id(BonusShines.MostSteals).increase_score(global.player_turn, steal_count);
 			} else {
 				var c = change_coins(steal_count * -1, CoinChangeType.Gain);
 			}
@@ -105,7 +105,7 @@ alarm_create(function() {
 		case 1:
 			if (!stealed) {
 				var s = change_shines(sign(steal_count * -1), ShineChangeType.Lose, global.choice_selected + 1);
-				bonus_shine_by_id(BonusShines.MostSteals).increase_score(, 20);
+				bonus_shine_by_id(BonusShines.MostSteals).increase_score(global.player_turn, 20);
 			} else {
 				var s = change_shines(sign(steal_count * -1), ShineChangeType.Spawn);
 			}
