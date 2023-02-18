@@ -268,6 +268,7 @@ function space_finish_event() {
 		case SpaceType.Red:
 			change_coins(-space_give, CoinChangeType.Lose).final_action = turn_next;
 			bonus_shine_by_id(BonusShines.MostRedSpaces).increase_score();
+			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
 			
 			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
 				achieve_trophy(23);
@@ -317,6 +318,7 @@ function space_finish_event() {
 		case SpaceType.TheGuy:
 			start_the_guy();
 			bonus_shine_by_id(BonusShines.MostTheGuySpaces).increase_score();
+			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
 			break;
 	}
 }

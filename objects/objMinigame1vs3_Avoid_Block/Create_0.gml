@@ -50,8 +50,8 @@ alarm_create(function() {
 	next_seed_inline();
 	var a = instance_create_layer(400, 144, "Actors", objMinigame1vs3_Avoid_Cherry);
 	a.image_index = 0;
-	a.hspeed = irandom_range(-9, 9);
-	a.vspeed = irandom(5);
+	a.direction = irandom_range(180, 359);
+	a.speed = irandom_range(6, 10);
 	a.gravity = 0.2;
 	
 	alarm_frames(0, 3);
@@ -61,14 +61,14 @@ alarm_create(function() {
 	next_seed_inline();
 	var a = instance_create_layer(768, 576, "Actors", objMinigame1vs3_Avoid_Cherry);
 	a.image_index = 1;
-	a.hspeed = choose(2, 4) * -1;
-	a.vspeed = irandom_range(-10, -7);
+	a.direction = irandom_range(100, 135);
+	a.speed = irandom_range(6, 10);
 	a.gravity = 0.2;
 
 	var b = instance_create_layer(0, 576, "Actors", objMinigame1vs3_Avoid_Cherry);
 	b.image_index = 1;
-	b.hspeed = choose(2, 4);
-	b.vspeed = irandom_range(-10, -7);
+	b.direction = irandom_range(45, 80);
+	b.speed = irandom_range(6, 10);
 	b.gravity = 0.2;
 
 	alarm_frames(1, 8);
@@ -78,13 +78,13 @@ alarm_create(function() {
 	next_seed_inline();
 	var a = instance_create_layer(0, irandom_range(160 + 16, 608 - 32 - 16), "Actors", objMinigame1vs3_Avoid_Cherry);
 	a.image_index = 2;
-	a.hspeed = irandom_range(4, 6);
+	a.hspeed = irandom_range(6, 8);
 
 	var b = instance_create_layer(800, irandom_range(160 + 16, 608 - 32 - 16), "Actors", objMinigame1vs3_Avoid_Cherry);
 	b.image_index = 2;
-	b.hspeed = irandom_range(4, 6) * -1;
+	b.hspeed = irandom_range(6, 8) * -1;
 
-	alarm_frames(2, 8);
+	alarm_frames(2, 6);
 });
 
 alarm_create(10, function() {

@@ -667,8 +667,12 @@ function roll_dice() {
 	audio_play_sound(sndDiceHit, 0, false);
 	
 	if (global.board_started && is_player_turn()) {
-		var player_info = player_info_by_turn();
 		bonus_shine_by_id(BonusShines.MostRoll).increase_score(global.player_turn, roll);
+		var player_info = player_info_by_turn();
+	
+		if (player_info.item_effect != ItemType.Poison && roll <= 3) {
+			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
+		}
 	} else {
 		var player_info = {item_effect: -1};
 	}
@@ -774,6 +778,8 @@ function change_shines(amount, type, player_turn = global.player_turn, network =
 				achieve_trophy(2);
 			}
 		}
+	} else {
+		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score(2);
 	}
 
 	if (is_local_turn() && network) {
@@ -808,6 +814,8 @@ function change_coins(amount, type, player_turn = global.player_turn, network = 
 		}
 		
 		bonus_shine_by_id(BonusShines.MostCoins).increase_score(player_turn, amount);
+	} else {
+		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
 	}
 	
 	if (is_local_turn() && network) {

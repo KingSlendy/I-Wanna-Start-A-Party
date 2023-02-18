@@ -1,3 +1,7 @@
+if (!is_local_turn()) {
+	exit;
+}
+
 if (array_length(player_info.items) > 3) {
 	var items = all_item_stats(player_info);
 	
@@ -9,6 +13,6 @@ if (array_length(player_info.items) > 3) {
 	exit;
 }
 
-if (final_action != null && is_local_turn()) {
+if (final_action != null) {
 	final_action();
 }
