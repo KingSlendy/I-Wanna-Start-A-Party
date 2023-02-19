@@ -5,21 +5,11 @@ if (instance_number(object_index) > 1) {
 
 text = "Checking version...";
 version = "";
+tag = http_get("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/latest");
 file = null;
 downloading = false;
 size = 0;
 sent = 0;
-socket = network_create_socket(network_socket_tcp);
-
-if (socket < 0) {
-	print("Failed to create TCP socket.");
-	instance_destroy();
-	exit;
-}
-
-network_set_config(network_config_connect_timeout, 10000);
-network_set_config(network_config_use_non_blocking_socket, true);
-network_connect_raw_async(socket, DEFAULT_IP, 33320);
 
 function occurred_error() {
 	text = "An error ocurred...";
