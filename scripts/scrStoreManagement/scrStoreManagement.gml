@@ -296,14 +296,22 @@ function reaction_init() {
 		new Reaction("Kid Nerd", null, "AliceNobodi", 300),
 		new Reaction("Geezer Unamused", null, "AliceNobodi"),
 		new Reaction("Kid Sleeping", null, "PlayerDash2017", 300),
-		//new Reaction("Fubuki Yeah", null, "MauriPlays!", 300),
-		//new Reaction("Kamilia Happy", null, "Kogami Takara"),
-		//new Reaction("Kid Camera", null, "???"),
-		//new Reaction("Kid Eyebrow", null, "Neos"),
-		//new Reaction("Kid Sad Eyes", null, "RandomErik", 300),
-		//new Reaction("Kid Shocked", null, "AlejoFangamer", 300),
-		//new Reaction("Sepia Ouch", null, "Kogami Takara", 200),
-		//new Reaction("Sheryl Excited", null, "Renko97", 300)
+		new Reaction("Fubuki Yeah", null, "MauriPlays!", 300),
+		new Reaction("Kamilia Happy", null, "Kogami Takara"),
+		new Reaction("Kid Camera", null, "???"),
+		new Reaction("Kid Eyebrow", null, "Neos"),
+		new Reaction("Kid Sad Eyes", null, "RandomErik", 300),
+		new Reaction("Kid Shocked", null, "AlejoFangamer", 300),
+		new Reaction("Sepia Ouch", null, "Kogami Takara", 200),
+		new Reaction("Sheryl Excited", null, "Renko97", 300),
+		new Reaction("Take Your Time", null, "Renko97", 300),
+		new Reaction("Wait What!?", null, "Kogami Takara", 300),
+		new Reaction("Hopeless Feer", null, "Herzewitt", 300),
+		new Reaction("Kid Bless", null, "Herzewitt", 300),
+		new Reaction("My Savings...", null, "Herzewitt", 300),
+		new Reaction("No Luck", null, "Herzewitt", 300),
+		new Reaction("Sad Inside", null, "Herzewitt", 300),
+		new Reaction("Looking Cool, Joker!", null, "Kogami Takara", 300)
 	];
 	
 	for (var i = 0; i < array_length(global.reactions); i++) {

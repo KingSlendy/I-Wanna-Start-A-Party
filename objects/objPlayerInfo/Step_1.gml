@@ -14,6 +14,10 @@ with (player) {
 		case ItemType.Poison:
 			image_blend = c_fuchsia;
 			break;
+			
+		case ItemType.Reverse:
+			image_blend = c_green;
+			break;
 		
 		case ItemType.Ice:
 			image_speed = 0;

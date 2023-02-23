@@ -58,7 +58,7 @@ alarm_create(function() {
 	
 			switch (additional) {
 				case 0:
-					text = "The blackhole is gonna steal your coins!\nMash as fast as you can to reduce the amount!";
+					text = "The blackhole is gonna steal your Coins!\nMash as fast as you can to reduce the amount!";
 					break;
 			
 				case 1:

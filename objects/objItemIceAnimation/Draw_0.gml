@@ -1,1 +1,1 @@
-draw_sprite_ext(sprite, timer * sprite_get_speed(sprite) / game_get_speed(gamespeed_fps), current_player.x, current_player.y - 50 + ypos, scale, scale, 0, c_white, fade_alpha);
+draw_sprite_ext(sprite, 0, current_player.x, current_player.y - 50 + ypos, scale, scale, 0, c_white, fade_alpha);

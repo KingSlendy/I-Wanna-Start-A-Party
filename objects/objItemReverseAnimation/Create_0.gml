@@ -28,6 +28,9 @@ alarm_create(function() {
 
 alarm_create(function() {
 	player_info_by_turn().item_effect = type;
+	var color_effect = make_color_rgb(92, 248, 97);
+	create_effect(sprItemEffectReverse, color_effect);
+	audio_play_sound(sndItemReverseAnimation, 0, false);
 	alarm_call(2, 1);
 });
 

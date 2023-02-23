@@ -122,9 +122,9 @@ function coins_give_chance_time(amount, to_left) {
 }
 
 events = [
-	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} and " + draw_coins_price() + "!", shines_coins_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5}!", shines_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their " + draw_coins_price() + "!", coins_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} Shines and " + draw_coins_price() + " Coins!", shines_coins_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} Shines!", shines_exchange_chance_time),
+	new ChanceTimeEvent("{p1} and {p2} will exchange their " + draw_coins_price() + " Coins!", coins_exchange_chance_time),
 	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p1}!", shines_give_chance_time, 1, true),
 	new ChanceTimeEvent("{p1} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p2}!", shines_give_chance_time, 1, false),
 	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}2 to {p1}!", shines_give_chance_time, 2, true),

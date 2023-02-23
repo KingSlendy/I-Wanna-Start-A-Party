@@ -152,7 +152,9 @@ global.trophies = [
 	new Trophy(75, TrophyRank.Silver, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon!\nI didn't think a fire attack to a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
 	new Trophy(76, TrophyRank.Bronze, "Green Savings", "You only touched green saves and won in Sky Diving!\nThat satisfaction to see the green circle after a long save, am I right?", "I prefer the green circles for yellow boxes."),
 	new Trophy(77, TrophyRank.Bronze, "Dodging Teleports", "You didn't touch a single warp from the players and won in Warping Up!\nI guess you're getting tired of seeing the same warp over and over all the time.", "Not the gray teleporter!"),
-	new Trophy(78, TrophyRank.Platinum, "All Trials", "You completed all Trials!\nNow you can truly call yourself the life of the party.", "I can beat all the Trials!")
+	new Trophy(78, TrophyRank.Platinum, "All Trials", "You completed all Trials!\nNow you can truly call yourself the life of the party.", "I can beat all the Trials!"),
+	new Trophy(79, TrophyRank.Platinum, "All Stores", "You bought everything in the Store!\nThere's just so many things to use, it never ends!", "I want everything in the Store!"),
+	new Trophy(80, TrophyRank.Platinum, "All Trophies", "You got every single Trophy!!!\nThanks for participating in this Party, hopefully this won't be the last one!", "The life of the party!")
 ];
 
 global.collected_trophies_stack = [];
@@ -165,6 +167,10 @@ function achieve_trophy(image) {
 	}
 	
 	trophy.achieve();
+	
+	if (array_length(global.collected_trophies) == array_length(global.trophies) - 1) {
+		achieve_trophy(79);
+	}
 }
 
 function achieved_trophy(image) {

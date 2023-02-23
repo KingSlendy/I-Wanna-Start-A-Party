@@ -30,7 +30,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.Reverse], global.board_items[ItemType.TripleDice]];
+	//self.items = [global.board_items[ItemType.Poison], global.board_items[ItemType.Reverse], global.board_items[ItemType.Ice]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -657,7 +657,7 @@ function roll_dice() {
 	}
 	
 	if (!is_player_turn()) {
-		next_seed_inline();
+		set_seed_inline(2320);
 		roll = 1;
 		random_roll();
 	}

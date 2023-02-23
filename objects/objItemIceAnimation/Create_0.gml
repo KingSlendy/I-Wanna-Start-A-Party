@@ -28,7 +28,9 @@ alarm_create(function() {
 
 alarm_create(function() {
 	player_info_by_turn().item_effect = type;
-	audio_play_sound(sndItemIceAnimation, 0, false);
+	var color_effect = make_color_rgb(126, 228, 250);
+	create_effect(sprItemEffectIce, color_effect);
+	audio_play_sound(sndItemIceAnimation, 0, false, 0.9);
 	alarm_call(2, 1);
 });
 

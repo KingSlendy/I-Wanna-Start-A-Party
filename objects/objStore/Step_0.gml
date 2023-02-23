@@ -89,7 +89,18 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 		
 		if (!stock.has() && stock.price <= global.collected_coins) {
 			change_collected_coins(-stock.price);
-			stock.buy()
+			stock.buy();
+			var done_minigames = array_length(global.seen_minigames);
+			var total_minigames = array_length(global.minigames[$ "4vs"]) + array_length(global.minigames[$ "1vs3"]) + array_length(global.minigames[$ "2vs2"]);
+			var done_trials = array_length(global.beaten_trials);
+			var total_trials = array_length(global.trials);
+			var done_store = array_length(global.collected_boards) + done_minigames + array_length(global.collected_trials) + array_length(global.collected_skins) + array_length(global.collected_reactions);
+			var total_store = array_length(global.boards) + total_minigames + total_trials + array_length(global.skins) + array_length(global.reactions);
+	
+			if (done_store == total_store) {
+				achieve_trophy(78);
+			}
+	
 			audio_play_sound(global.sound_cursor_select2, 0, false);
 			exit;
 		}
@@ -104,13 +115,6 @@ if (!fade_start && store_selected[store_row] == store_target_selected[store_row]
 	}
 	
 	if (global.actions.misc.pressed()) {
-		/*
-			0: Release
-			1: Price (ascending)
-			2: Price (descending)
-			3: Name
-		*/
-
 		store_sort[store_row] = (store_sort[store_row] + 4 + 1) % 4;
 		var row = store_stock[store_row];
 

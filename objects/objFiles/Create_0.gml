@@ -169,7 +169,7 @@ function file_sprite(file) {
 	draw_text_outline(70, 260, string(done_store) + "/" + string(total_store), c_black);
 	draw_sprite_stretched(sprModesTrophies, 0, 40 - 20, 295 - 20, 40, 40);
 	draw_text_outline(70, 295, string(done_trophies) + "/" + string(total_trophies), c_black);
-	draw_sprite(sprFilesClock, 0, 40 - 20, 330 - 20);
+	draw_sprite(sprFilesClock, 0, 40 - 14, 330 - 20);
 	draw_text_outline(70, 330, string("{0}:{1}{2}:{3}{4}", (global.ellapsed_time div 60) div 60, ((global.ellapsed_time div 60) div 10) mod 6, (global.ellapsed_time div 60) mod 10, (global.ellapsed_time div 10) mod 6, global.ellapsed_time mod 10), c_black);
 	draw_set_valign(fa_top);
 	surface_reset_target();
