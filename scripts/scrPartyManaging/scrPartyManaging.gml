@@ -657,7 +657,7 @@ function roll_dice() {
 	}
 	
 	if (!is_player_turn()) {
-		set_seed_inline(2320);
+		next_seed_inline();
 		roll = 1;
 		random_roll();
 	}

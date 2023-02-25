@@ -116,7 +116,7 @@ alarm_create(function() {
 
 //World Board
 alarm_create(function() {
-	next_seed_inline();
+	reset_seed_inline();
 	show_dice(focused_player().network_id);
 	alarm_frames(6, irandom_range(25, 75));
 });

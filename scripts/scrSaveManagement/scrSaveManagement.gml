@@ -52,6 +52,7 @@ function save_file() {
 		}
 		
 		file_rename(save_name, save_name_backup);
+		global.saved_times = 0;
 	}
 	
 	var save = {

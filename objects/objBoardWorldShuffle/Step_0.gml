@@ -27,7 +27,7 @@ if (state == 0) {
 				return (a.x + a.y) - (b.x + b.y);
 			});
 			
-			set_seed_inline(4872);
+			next_seed_inline();
 			array_shuffle_ext(spaces);
 			var space = array_pop(spaces);
 			x = space.x;

@@ -57,7 +57,7 @@ function trial_init() {
 		
 		new Trial(BUGS_EVERYWHERE, [
 			new Prove(BUGS_AROUND)
-		]),
+		], 200),
 		
 		new Trial(STINGY_CHESTS, [
 			new Prove(CRAZY_CHESTS)
@@ -65,7 +65,7 @@ function trial_init() {
 		
 		new Trial(AVOID_THE_ANXIETY, [
 			new Prove(AVOID_THE_ANGUISH, TEAM)
-		], 200),
+		], 400),
 		
 		new Trial(RANDRANDRAND_TIME, [
 			new Prove(HUNT_TROUBLE, SOLO),

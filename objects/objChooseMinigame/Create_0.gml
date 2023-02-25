@@ -29,6 +29,11 @@ function choosed_minigame() {
 	info.reference = minigame;
 	minigame_unlock(minigame.title);
 	array_push(global.minigame_history, minigame.title);
+	
+	if (array_length(global.minigame_history) > 10) {
+		array_delete(global.minigame_history, 0, 1);
+	}
+	
 	audio_play_sound(sndRoulettePick, 0, false);
 	alarm_call(3, 1);
 }
@@ -133,6 +138,10 @@ alarm_create(function() {
 	}
 
 	array_push(global.minigame_type_history, info.type);
+	
+	if (array_length(global.minigame_type_history) > 10) {
+		array_delete(global.minigame_type_history, 0, 1);
+	}
 
 	minigame_list = [];
 	var minigames_now = global.minigames[$ info.type];
