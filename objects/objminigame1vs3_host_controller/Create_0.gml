@@ -240,11 +240,11 @@ alarm_override(11, function() {
 						choosed_door = door;
 					}
 					
+					instance_activate_object(objMinigame1vs3_Host_Door);
+					
 					if (choosed_door == null) {
 						break;
 					}
-					
-					instance_activate_object(objMinigame1vs3_Host_Door);
 				} else {
 					touched_doors = minigame1vs3_solo().touched_doors;
 					

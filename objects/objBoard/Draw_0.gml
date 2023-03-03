@@ -7,7 +7,7 @@ var draw_player = function(player) {
 }
 
 if (IS_BOARD) {
-	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 2;
+	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 1;
 	
 	if (!global.board_started) {
 		for (var i = 1; i <= max_turns; i++) {

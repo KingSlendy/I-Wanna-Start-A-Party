@@ -40,6 +40,7 @@ for (var i = 0; i < global.player_max; i++) {
 current_player = 1;
 event = -1;
 previous_turn = global.player_turn;
+global.player_turn = player_info_by_id(1).turn;
 
 function say_player_place() {
 	if (is_local_turn()) {

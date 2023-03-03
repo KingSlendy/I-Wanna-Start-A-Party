@@ -202,8 +202,7 @@ function save_board() {
 			saved_board_light: global.board_light,
 			
 			//World Board
-			saved_scott_position: {},
-			saved_nega_position: {}
+			saved_ghost_position: {}
 		},
 		
 		saved_players: array_create(global.player_max, null)
@@ -217,12 +216,8 @@ function save_board() {
 		array_push(board.saved_board.saved_spaces, [x, y, image_index]);
 	}
 	
-	with (objBoardWorldScott) {
-		if (object_index == objBoardWorldNega) {
-			board.saved_board.saved_nega_position = {x: self.x, y: self.y};	
-		} else {
-			board.saved_board.saved_scott_position = {x: self.x, y: self.y};
-		}
+	with (objBoardWorldGhost) {
+		board.saved_board.saved_ghost_position = {x: self.x, y: self.y};	
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
@@ -240,7 +235,7 @@ function save_board() {
 			saved_bonus_shines_score: [],
 			
 			//Pallet Board
-			saved_pokemon: player_info.pokemon
+			saved_pokemon: sprite_get_name(player_info.pokemon)
 		};
 		
 		var saved_player = board.saved_players[i - 1];

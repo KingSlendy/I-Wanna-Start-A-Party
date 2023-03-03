@@ -6,7 +6,8 @@ if (state == 0) {
 	if (scale >= 1) {
 		scale = 1;
 		state = -1;
-		alarm_call(0, 1);
+		alarm_call(0, 5);
+		alarm_call(3, 1);
 	}
 } else if (state == 1) {
 	scale -= 0.05;

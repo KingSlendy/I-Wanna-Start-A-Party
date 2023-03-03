@@ -1,6 +1,17 @@
 //change_collected_coins(99999);
-//achieve_trophy(0);
-//achieve_trophy(1);
-//achieve_trophy(2);
-//achieve_trophy(3);
-//achieve_trophy(4);
+
+//for (var i = 0; i < array_length(global.trophies); i++) {
+//	if (i == 4 || i == 54) {
+//		continue;
+//	}
+	
+//	achieve_trophy(i);
+//}
+
+//for (var i = 0; i < array_length(global.trials); i++) {
+//	trial_beat(i);
+//}
+
+//global.ellapsed_time = 48 * 3600;
+
+//save_file();

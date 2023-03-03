@@ -4,17 +4,8 @@ if (state == 0) {
 	if (fade_alpha >= 1) {
 		fade_alpha = 1;
 		state = 1;
-		var scott = null;
-		
-		if (is_player_turn()) {
-			with (focused_player()) {
-				scott = instance_place(x, y, objBoardWorldScott);
-			}
-		} else {
-			scott = focused_player();
-		}
-		
-		with (scott) {
+
+		with (objBoardWorldGhost) {
 			var spaces = [];
 			
 			with (objSpaces) {

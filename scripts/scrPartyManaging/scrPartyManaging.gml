@@ -14,7 +14,8 @@ enum SpaceType {
 	Shine,
 	PathEvent,
 	PathChange,
-	Start
+	Start,
+	Surprise
 }
 
 randomize();
@@ -30,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Poison], global.board_items[ItemType.Reverse], global.board_items[ItemType.Ice]];
+	//self.items = [global.board_items[ItemType.Mirror], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -91,10 +92,6 @@ function is_player_local(player_id = global.player_id) {
 	return (focus_player_by_id(player_id).object_index != objNetworkPlayer);
 }
 
-function is_player_locality() {
-	return ((is_player_turn() && is_local_turn()) || (!is_player_turn() && global.player_id == 1));
-}
-
 function focused_player() {
 	if (!global.board_started) {
 		with (objPlayerBase) {
@@ -131,10 +128,8 @@ function focus_player_by_id(player_id = global.player_id) {
 
 function focus_player_by_turn(turn = global.player_turn) {
 	if (room == rBoardWorld && turn > global.player_max) {
-		with (objBoardWorldScott) {
-			if (turn == network_id) {
-				return id;
-			}
+		with (objBoardWorldGhost) {
+			return id;
 		}
 	}
 	
@@ -458,12 +453,12 @@ function turn_next(network = true) {
 		network_send_tcp_packet();
 	}
 	
-	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 2;
+	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 1;
 	
 	if (++global.player_turn > max_turns) {
-		global.player_turn = max_turns;
+		global.player_turn = global.player_max;
 		
-		if (is_player_locality()) {
+		if (is_local_turn()) {
 			choose_minigame();
 		}
 		
@@ -526,13 +521,10 @@ function board_path_finding(space = null) {
 	global.path_spaces = [];
 	global.path_spaces_record = infinity;
 	objSpaces.visited = false;
-	instance_deactivate_object(objBoardWorldNega);
 	
 	with (focused_player()) {
 		space_path_finding(space ?? instance_place(x, y, objSpaces), []);
 	}
-	
-	instance_activate_object(objBoardWorldNega);
 }
 
 function space_path_finding(space, path_spaces) {
@@ -573,7 +565,7 @@ function space_path_finding(space, path_spaces) {
 			global.board_lock_event = false;
 		}
 		
-		if (image_index == SpaceType.Shine || (room == rBoardWorld && place_meeting(x, y, objBoardWorldScott))) {
+		if (image_index == SpaceType.Shine) {
 			end_finding(path_spaces);
 			break;
 		}
@@ -669,10 +661,6 @@ function roll_dice() {
 	if (global.board_started && is_player_turn()) {
 		bonus_shine_by_id(BonusShines.MostRoll).increase_score(global.player_turn, roll);
 		var player_info = player_info_by_turn();
-	
-		if (player_info.item_effect != ItemType.Poison && roll <= 3) {
-			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
-		}
 	} else {
 		var player_info = {item_effect: -1};
 	}
@@ -778,8 +766,6 @@ function change_shines(amount, type, player_turn = global.player_turn, network =
 				achieve_trophy(2);
 			}
 		}
-	} else {
-		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score(amount * -1 * 2);
 	}
 
 	if (is_local_turn() && network) {
@@ -814,8 +800,6 @@ function change_coins(amount, type, player_turn = global.player_turn, network = 
 		}
 		
 		bonus_shine_by_id(BonusShines.MostCoins).increase_score(player_turn, amount);
-	} else {
-		bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
 	}
 	
 	if (is_local_turn() && network) {
@@ -1288,33 +1272,29 @@ function all_item_stats(player_info) {
 
 #region Event Management
 function choose_shine() {
-	if (room != rBoardWorld) {
-		var choices = [];
+	var choices = [];
 	
-		if (room != rBoardPallet) {
-			with (objSpaces) {
-				if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
-					array_push(choices, id);
-				}
+	if (room != rBoardPallet) {
+		with (objSpaces) {
+			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
+				array_push(choices, id);
 			}
-		} else {
-			with (objBoardPalletPokemon) {
-				if (!has_shine()) {
-					array_push(choices, id);
-				}
-			}
-		}
-	
-		array_shuffle_ext(choices);
-		var space = array_pop(choices);
-	
-		if (room != rBoardPallet) {
-			space.image_index = SpaceType.Shine;
-		} else {
-			space = {x: space.x + 32, y: space.y + 32};
 		}
 	} else {
-		space = {x: objBoardWorldScott.x, y: objBoardWorldScott.y};
+		with (objBoardPalletPokemon) {
+			if (!has_shine()) {
+				array_push(choices, id);
+			}
+		}
+	}
+	
+	array_shuffle_ext(choices);
+	var space = array_pop(choices);
+	
+	if (room != rBoardPallet) {
+		space.image_index = SpaceType.Shine;
+	} else {
+		space = {x: space.x + 32, y: space.y + 32};
 	}
 	
 	place_shine(space.x, space.y);
@@ -1327,31 +1307,29 @@ function choose_shine() {
 }
 
 function place_shine(space_x, space_y) {
-	if (room != rBoardWorld) {
-		with (focused_player()) {
-			if (room != rBoardPallet) {
-				if (!instance_exists(objShine)) {
-					with (objSpaces) {
-						if (space_shine) {
-							image_index = SpaceType.Blue;
-						}
+	with (focused_player()) {
+		if (room != rBoardPallet) {
+			if (!instance_exists(objShine)) {
+				with (objSpaces) {
+					if (space_shine) {
+						image_index = SpaceType.Blue;
 					}
-				} else {
-					with (instance_place(x, y, objSpaces)) {
-						if (space_shine) {
-							image_index = SpaceType.Blue;
-						}
+				}
+			} else {
+				with (instance_place(x, y, objSpaces)) {
+					if (space_shine) {
+						image_index = SpaceType.Blue;
 					}
 				}
 			}
 		}
+	}
 	
-		if (room != rBoardPallet) {
-			with (objSpaces) {
-				if (x == space_x && y == space_y) {
-					image_index = SpaceType.Shine;
-					break;
-				}
+	if (room != rBoardPallet) {
+		with (objSpaces) {
+			if (x == space_x && y == space_y) {
+				image_index = SpaceType.Shine;
+				break;
 			}
 		}
 	}
@@ -1527,71 +1505,72 @@ function board_nsanity_return() {
 }
 
 function board_world_scott_interact() {
-	if (!is_player_locality()) {
-		return;
-	}
-	
 	var player = focused_player();
 	var texts;
-	global.player_scott_shines = [];
-	var event_give = function() {
-		board_world_scott_shines(true);
-	}
-	
-	var event_take = function() {
-		board_world_scott_shines(false);
-	}
+	global.player_ghost_shines = [];
+	global.player_ghost_turn = global.player_turn;
 	
 	if (is_player_turn()) {
-		global.player_scott_shines = [player];
-		
-		if (instance_place(x, y, objBoardWorldScott).object_index == objBoardWorldScott) {
-			texts = [
-				new Message("Oh! You reached Scott and it's gonna give you a Shine!",, event_give)
-			];
-		} else {
-			texts = [
-				new Message("Oh no! You reached Nega Ghost and now it's gonna take one Shine away from you!",, event_take)
-			];
-		}
+		global.player_ghost_shines = [player];
 	} else {
 		with (player) {
 			var list = ds_list_create();
 			var count = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, objPlayerBase, false, true, list, false);
 			
 			for (var i = 0; i < count; i++) {
-				array_push(global.player_scott_shines, list[| i]);
+				array_push(global.player_ghost_shines, list[| i]);
 			}
 			
 			ds_list_destroy(list);
 		}
-		
-		if (player.object_index == objBoardWorldScott) {
-			texts = [
-				new Message("Oh! Scott reached someone and it's gonna give them a Shine!",, event_give)
-			];
-		} else {
-			texts = [
-				new Message("Oh no! Nega Ghost reached someone and now it's gonna take one Shine away from you!",, event_take)
-			];
-		}
 	}
 	
+	board_world_ghost_texts();
+}
+
+function board_world_ghost_texts() {
+	if (array_length(global.player_ghost_shines) == 0) {
+		with (objBoard) {
+			alarm_call(7, 1);
+		}
+
+		return;
+	}
+	
+	var texts;
+	var player = global.player_ghost_shines[0];
+	var turn = player_info_by_id(player.network_id).turn;
+	global.player_turn = turn
+	
+	if (!is_local_turn()) {
+		return;
+	}
+	
+	global.player_turn = global.player_ghost_turn;
+	
+	if (is_player_turn()) {
+		texts = [
+			new Message("Oh no! You reached the Ghost and now it's gonna take one Shine away from you!",, board_world_ghost_shines)
+		];
+	} else {
+		texts = [
+			new Message("Oh no! The Ghost reached you {COLOR,0000FF}"+ focus_player_by_id(player.network_id).network_name +"{COLOR,FFFFFF} and now it's gonna take one Shine away from you!",, board_world_ghost_shines)
+		];
+	}
+	
+	global.player_turn = turn;
 	start_dialogue(texts);
 }
 
-function board_world_scott_shines(give, network = true) {
-	var turn = (give) ? global.player_max + 1 : global.player_max + 2;
-	
-	with (focus_player_by_turn(turn)) {
+function board_world_ghost_shines(network = true) {
+	with (focus_player_by_turn(global.player_max + 1)) {
 		sprite_index = event_sprite;
 		image_index = 0;
 	}
 	
 	if (is_local_turn() && network) {
 		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardWorldScottShines);
-		buffer_write_data(buffer_bool, give);
+		buffer_write_action(ClientTCP.BoardWorldGhostShines);
 		network_send_tcp_packet();
 	}
 }

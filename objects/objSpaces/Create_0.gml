@@ -81,10 +81,10 @@ function space_passing_event() {
 	
 	if (room == rBoardWorld) {
 		with (focus_player) {
-			var player_collide = (is_player_turn()) ? objBoardWorldScott : objPlayerBase;
+			var player_collide = (is_player_turn()) ? objBoardWorldGhost : objPlayerBase;
 			var player_collision = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, player_collide, false, true);
 			
-			if (player_collision != noone && (is_player_turn() || (player_collision.object_index != objBoardWorldScott && player_collision.object_index != objBoardWorldNega))) {
+			if (player_collision != noone && (is_player_turn() || player_collision.object_index != objBoardWorldGhost)) {
 				board_world_scott_interact();
 				return 1;
 			}
@@ -104,12 +104,6 @@ function space_passing_event() {
 		
 		if (array_any([SpaceType.Shop, SpaceType.Blackhole, SpaceType.PathChange], function(x) { return (image_index == x); })) {
 			return 2;
-		}
-		
-		with (focus_player) {
-			if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objBoardWorldScott, false, true) != noone) {
-				return 2;
-			}
 		}
 		
 		return 0;
@@ -268,7 +262,6 @@ function space_finish_event() {
 		case SpaceType.Red:
 			change_coins(-space_give, CoinChangeType.Lose).final_action = turn_next;
 			bonus_shine_by_id(BonusShines.MostRedSpaces).increase_score();
-			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
 			
 			if (focused_player().network_id == global.player_id && player_info_by_turn().coins == 0) {
 				achieve_trophy(23);
@@ -318,7 +311,32 @@ function space_finish_event() {
 		case SpaceType.TheGuy:
 			start_the_guy();
 			bonus_shine_by_id(BonusShines.MostTheGuySpaces).increase_score();
-			bonus_shine_by_id(BonusShines.MostBadLuck).increase_score();
+			break;
+			
+		case SpaceType.Surprise:
+			switch (irandom(4)) {
+				case 0: change_coins(space_give * 10, CoinChangeType.Gain).final_action = turn_next; break;
+				case 1: change_coins(-space_give * 5, CoinChangeType.Lose).final_action = turn_next; break;
+					
+				case 2:
+					if (irandom(1) == 0) {
+						var item = choose(ItemType.Ice, ItemType.Warp, ItemType.DoubleDice);
+					} else {
+						if (room != rBoardWorld) {
+							var item = choose(ItemType.SuperWarp, ItemType.TripleDice, ItemType.Blackhole, ItemType.Mirror);
+						} else {
+							var item = choose(ItemType.SuperWarp, ItemType.TripleDice, ItemType.Blackhole);
+						}
+					}
+		
+					change_items(global.board_items[item], ItemChangeType.Gain).final_action = turn_next;
+					break;
+				
+				case 3: start_chance_time(); break;
+				case 4: start_the_guy(); break;
+			}
+			
+			bonus_shine_by_id(BonusShines.MostSurpriseSpaces).increase_score();
 			break;
 	}
 }

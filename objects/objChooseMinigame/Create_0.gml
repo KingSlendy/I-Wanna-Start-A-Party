@@ -54,12 +54,8 @@ function send_to_minigame() {
 		array_push(other.info.shine_positions, [x, y]);
 	}
 	
-	with (objBoardWorldScott) {
-		if (object_index == objBoardWorldNega) {
-			other.info.nega_position = {x: self.x, y: self.y};	
-		} else {
-			other.info.scott_position = {x: self.x, y: self.y};
-		}
+	with (objBoardWorldGhost) {
+		other.info.ghost_position = {x: self.x, y: self.y};	
 	}
 	
 	room_goto(rMinigameOverview);

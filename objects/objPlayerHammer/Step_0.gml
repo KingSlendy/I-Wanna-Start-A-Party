@@ -7,8 +7,8 @@ var v = (global.actions.down.held(network_id) - global.actions.up.held(network_i
 hspd = h * max_spd;
 vspd = v * max_spd;
 
-if (image_index == 0 && can_hit  && global.actions.shoot.pressed(network_id)) {
-	image_index = 1;
+if (index == 0 && can_hit && global.actions.shoot.pressed(network_id)) {
+	index = 1;
 	can_hit = false;
 	audio_play_sound(sndMinigame2vs2_Idol_Hit, 0, false);
 	alarm_call(0, 0.1);

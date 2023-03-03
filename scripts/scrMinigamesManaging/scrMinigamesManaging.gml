@@ -191,8 +191,7 @@ function minigame_info_reset() {
 		shine_positions: [],
 		
 		//World Board
-		nega_scott_position: {},
-		nega_ghost_position: {}
+		ghost_position: {},
 	}
 	
 	minigame_info_score_reset();

@@ -55,9 +55,9 @@ enum BonusShines {
 	MostItemSpaces,
 	MostChanceTimeSpaces,
 	MostTheGuySpaces,
+	MostSurpriseSpaces,
 	MostPurchases,
-	MostSteals,
-	MostBadLuck
+	MostSteals
 }
 
 global.bonus_shines = [

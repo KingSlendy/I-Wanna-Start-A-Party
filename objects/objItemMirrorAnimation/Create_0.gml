@@ -43,7 +43,7 @@ if (room != rBoardPallet) {
 	
 space_shine = {x: space_shine.x + 16, y: space_shine.y + 16};
 
-alarms_init(3);
+alarms_init(6);
 
 alarm_create(function() {
 	if (is_local_turn()) {
@@ -70,4 +70,34 @@ alarm_create(function() {
 
 alarm_create(function() {
 	state = 1;
+});
+
+alarm_create(function() {
+	audio_play_sound(sndItemMirrorAnimation_Start, 0, false);
+	audio_play_sound(sndItemMirrorAnimation_NoiseLoop, 0, true);
+	
+	var cam_x = camera_get_view_x(view_camera[0]);
+	var cam_y = camera_get_view_y(view_camera[0]);
+	instance_create_depth(cam_x, cam_y, depth - 1, objItemMirrorAnimation_EffectCreateParticles);
+	
+	alarm_call(4, 2);
+});
+
+alarm_create(function() {
+	audio_play_sound(sndItemMirrorAnimation_Enter, 0, false);
+	
+	var cam_center_x = camera_get_view_x(view_camera[0]) + 400;
+	var cam_center_y = camera_get_view_y(view_camera[0]) + 304;
+	instance_create_depth(cam_center_x, cam_center_y, depth - 2, objItemMirrorAnimation_Effect);
+	
+	alarm_call(5, 2.5);
+});
+
+alarm_create(function() {
+	instance_create_depth(0, 0, depth - 1, objItemMirrorAnimation_EffectScreenFadeOut);
+	instance_destroy(objItemMirrorAnimation_EffectCreateParticles);
+	instance_destroy(objItemMirrorAnimation_Effect);
+	
+	audio_play_sound(sndItemMirrorAnimation_Teleported, 0, false);
+	audio_stop_sound(sndItemMirrorAnimation_NoiseLoop);
 });

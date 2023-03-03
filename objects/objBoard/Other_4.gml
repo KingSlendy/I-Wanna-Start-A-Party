@@ -23,15 +23,8 @@ if (!global.board_started) {
 		global.board_light = board.saved_board.saved_board_light;
 		
 		//World Board
-		with (objBoardWorldScott) {
-			var position;
-			
-			if (object_index == objBoardWorldNega) {
-				position = board.saved_board.saved_nega_position;
-			} else {
-				position = board.saved_board.saved_scott_position;
-			}
-			
+		with (objBoardWorldGhost) {
+			var position = board.saved_board.saved_ghost_position;
 			x = position.x;
 			y = position.y;
 		}
@@ -88,7 +81,7 @@ if (!global.board_started) {
 			}
 			
 			//Pallet Board
-			player_info.pokemon = saved_player.saved_pokemon;
+			player_info.pokemon = asset_get_index(saved_player.saved_pokemon);
 		}
 	
 		calculate_player_place();
@@ -178,6 +171,4 @@ switch (room) {
 		layer_background_xscale(layer_back_id, camera_get_view_width(view_camera[0]) / sprite_get_width(sprBkgBoardNsanity));
 		layer_background_yscale(layer_back_id, camera_get_view_height(view_camera[0]) / sprite_get_height(sprBkgBoardNsanity));
 		break;
-		
-	case rBoardWorld: global.shine_spawn_count = 0; break;
 }

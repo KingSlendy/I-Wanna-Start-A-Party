@@ -31,13 +31,8 @@ function random_roll() {
 	}
 	
 	if (!is_player_turn()) {
-		if (focus_player_by_turn().object_index == objBoardWorldScott) {
-			min_roll = 3;
-			max_roll = 5;
-		} else {
-			min_roll = 5;
-			max_roll = 8;
-		}
+		min_roll = 5;
+		max_roll = 8;
 	}
 	
 	var previous = roll;
@@ -47,11 +42,11 @@ function random_roll() {
 	} until (roll != previous);
 	
 	//if (global.board_started) {
-	//	//if (is_player_turn()) {
-	//	//	roll = 5;
-	//	//} else {
-	//	//	roll = 3;
-	//	//}
+	//	if (is_player_turn()) {
+	//		roll = 2;
+	//	} else {
+	//		roll = 2;
+	//	}
 
 	//	//roll = max_roll;
 	//	//roll = min_roll;

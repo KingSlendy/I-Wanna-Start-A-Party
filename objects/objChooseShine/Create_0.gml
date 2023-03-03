@@ -14,16 +14,11 @@ fade_state = 0;
 
 function spawn_shine() {
 	if (!spawned) {
-		alarm_call(0, 2);
-		spawned = true;
-		
-		if (room == rBoardWorld) {
-			return;
-		}
-		
 		instance_create_layer(space_x + 16, space_y + 16, "Actors", objShine);
 		var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;
 		audio_play_sound(sndShineSpawn, 0, false, 1, 0, pitch);
+		alarm_call(0, 2);
+		spawned = true;
 	}
 }
 

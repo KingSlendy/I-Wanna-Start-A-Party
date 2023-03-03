@@ -9,7 +9,7 @@ timer = 1;
 end_map();
 
 function create_effect(part_sprite, part_color)  {
-	instance_create_depth(current_player.x, current_player.bbox_bottom, depth - 1, objItemApplyEffect, {
+	instance_create_depth(current_player.x, current_player.bbox_bottom, depth - 1, objItemAnimation_ApplyEffect, {
 		particle_sprite: part_sprite,
 		image_blend: part_color
 	});

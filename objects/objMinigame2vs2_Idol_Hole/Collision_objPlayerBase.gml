@@ -1,4 +1,4 @@
-if (!is_player_local(other.network_id) || other.image_index != 1 || portion != height) {
+if (!is_player_local(other.network_id) || other.index != 1 || portion != height) {
 	exit;
 }
 

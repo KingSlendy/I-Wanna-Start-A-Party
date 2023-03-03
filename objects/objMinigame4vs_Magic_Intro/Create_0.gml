@@ -77,10 +77,3 @@ alarm_create(function() {
 alarm_create(function() {
 	fade_start = 2;
 });
-
-alarm_create(11, function() {
-	music_play(objMinigameController.music);
-});
-
-alarm_call(11, 1);
-alarm_call(0, 3);

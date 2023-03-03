@@ -86,7 +86,7 @@ enum ClientTCP {
 	BoardPalletBattle,
 	BoardDreamsTeleports,
 	BoardNsanityReturn,
-	BoardWorldScottShines,
+	BoardWorldGhostShines,
 	#endregion
 	
 	#region Animations
@@ -732,9 +732,9 @@ f[$ ClientTCP.BoardNsanityReturn] = function(buffer) {
 	board_nsanity_return();
 }
 
-f[$ ClientTCP.BoardWorldScottShines] = function(buffer) {
+f[$ ClientTCP.BoardWorldGhostShines] = function(buffer) {
 	var give = buffer_read(buffer, buffer_bool);
-	board_world_scott_shines(give, false);
+	board_world_ghost_shines(give, false);
 }
 #endregion
 

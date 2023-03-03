@@ -7,7 +7,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "0.9.9.1"
+#macro VERSION "0.9.9.4"
 
 //Network
 #macro DEFAULT_IP "iwannastartaparty.com"

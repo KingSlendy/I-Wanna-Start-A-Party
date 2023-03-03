@@ -128,6 +128,7 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
+	global.player_turn = global.player_ghost_turn;
 	instance_create_layer(0, 0, "Managers", objBoardWorldShuffle);
 });
 
@@ -162,13 +163,15 @@ alarm_create(11, function() {
 
 	var stale_frames = random_range(0.1, 0.3);
 
-	if (global.board_started &&  is_player_turn()) {
+	if (global.board_started && is_player_turn()) {
 		var player_info = player_info_by_turn();
 		var actions = check_player_actions_by_id(player_info.network_id);
 
 		if (actions == null) {
 			exit;
 		}
+	
+		var player = focused_player();
 	
 		if (instance_exists(objTurnChoices) && objTurnChoices.can_choose()) {
 			if (player_info.item_used != null) {
@@ -285,10 +288,13 @@ alarm_create(11, function() {
 	
 		if (instance_exists(objDialogue)) {
 			if (room == rBoardPallet) {
-				var space = instance_place(x, y, objSpaces);
+				var space = null;
 				
+				with (player) {
+					space = instance_place(x, y, objSpaces);
+				}
+
 				if (space != noone && space.image_index == SpaceType.PathEvent && player_info_by_turn().pokemon != -1 && array_length(objDialogue.answer_displays) > 0 && objDialogue.answer_index == 0 && 0.75 > random(1)) {
-					stale_action(1);
 					perform_action(actions.down);
 				}
 			}

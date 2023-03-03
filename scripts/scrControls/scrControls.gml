@@ -212,8 +212,8 @@ function bind_to_icon(bind) {
 	binds[$ gp_axisrv] = sprButton_StickRight;
 	binds[$ gp_face1] = sprButton_A;
 	binds[$ gp_face2] = sprButton_B;
-	binds[$ gp_face3] = sprButton_Y;
-	binds[$ gp_face4] = sprButton_X;
+	binds[$ gp_face3] = sprButton_X;
+	binds[$ gp_face4] = sprButton_Y;
 	binds[$ gp_padl] = sprButton_PadLeft;
 	binds[$ gp_padr] = sprButton_PadRight;
 	binds[$ gp_padu] = sprButton_PadUp;

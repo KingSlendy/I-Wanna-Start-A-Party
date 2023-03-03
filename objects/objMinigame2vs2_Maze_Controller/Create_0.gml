@@ -39,22 +39,31 @@ alarm_override(11, function() {
 		}
 		
 		var player_info = player_info_by_id(i);
-		var near;
-		
-		if (!player.has_item) {
-			with (objMinigame2vs2_Maze_Item) {
-				if (image_blend != player_info.space) {
-					instance_deactivate_object(id);
-				}
-			}
-	
-			near = instance_nearest(player.x, player.y, objMinigame2vs2_Maze_Item);
-			instance_activate_object(objMinigame2vs2_Maze_Item);
-		} else {
-			near = player.teammate;
-		}
 		
 		with (player) {
+			var near;
+			var near_x = 0;
+			var near_y = 0;
+		
+			if (!has_item) {
+				with (objMinigame2vs2_Maze_Item) {
+					if (image_blend != player_info.space) {
+						instance_deactivate_object(id);
+					}
+				}
+	
+				near = instance_nearest(x, y, objMinigame2vs2_Maze_Item);
+				near_x = near.x + 16;
+				near_y = near.y + 16;
+				instance_activate_object(objMinigame2vs2_Maze_Item);
+			} else {
+				near = teammate;
+				near_x = near.x;
+				near_y = near.y;
+			}
+			
+			mp_grid_path(other.grid, path, x, y, near_x, near_y, true);
+			
 			if (move_delay_timer > 0) {
 				move_delay_timer--;
 				break;
@@ -65,11 +74,10 @@ alarm_override(11, function() {
 				break;
 			}
 			
-			if (point_distance(x, y, near.x, near.y) < other.distance_to_win) {
+			if (point_distance(x, y, near_x, near_y) < other.distance_to_win) {
 				break;
 			}
 			
-			mp_grid_path(other.grid, path, x, y, near.x, near.y, true);
 			var dir = point_direction(x, y, path_get_point_x(path, 1), path_get_point_y(path, 1));
 			
 			if (abs(angle_difference(dir, 270)) >= 16) {

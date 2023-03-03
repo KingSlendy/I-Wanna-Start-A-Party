@@ -29,7 +29,7 @@ alarm_create(function() {
 alarm_create(function() {
 	player_info_by_turn().item_effect = type;
 	var color_effect = make_color_rgb(254, 109, 239);
-	create_effect(sprItemEffectPoison, color_effect);
+	create_effect(sprItemPoisonAnimation_Effect, color_effect);
 	audio_play_sound(sndItemPoisonAnimation, 0, false, 0.9);
 	alarm_call(2, 1);
 });

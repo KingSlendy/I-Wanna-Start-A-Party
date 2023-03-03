@@ -41,7 +41,13 @@ item_order = array_sequence(0, sprite_get_number(sprMinigame4vs_Magic_Items));
 array_shuffle_ext(item_order);
 
 alarm_override(0, function() {
-	if (state++ == 1) {
+	if (state++ == 0) {
+		music_play(music);
+		
+		with (objMinigame4vs_Magic_Intro) {
+			alarm_call(0, 2);
+		}
+	} else {
 		alarm_inherited(0);
 	}
 });
