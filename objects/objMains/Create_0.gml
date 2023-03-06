@@ -116,7 +116,8 @@ if (save_present) {
 				}
 			}
 		
-			player_info.player_info.pokemon = saved_player.saved_pokemon;
+			//Pokemon
+			player_info.player_info.pokemon = (saved_player.saved_pokemon != -1) ? asset_get_index(saved_player.saved_pokemon) : -1;
 				
 			player_info.target_draw_x = 0;
 			player_info.draw_x = player_info.target_draw_x;

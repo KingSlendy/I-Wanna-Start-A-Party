@@ -250,6 +250,10 @@ function player_write_data() {
 			buffer_write_data(buffer_s8, speed);
 			break;
 			
+		case PlayerDataMode.Hammer:
+			buffer_write_data(buffer_u8, index);
+			break;
+			
 		case PlayerDataMode.Golf:
 			buffer_write_data(buffer_bool, aiming);
 			buffer_write_data(buffer_bool, powering);
@@ -298,6 +302,10 @@ function player_read_data(buffer) {
 			case PlayerDataMode.Rocket:
 				hp = buffer_read(buffer, buffer_u8);
 				spd = buffer_read(buffer, buffer_s8);
+				break;
+				
+			case PlayerDataMode.Hammer:
+				index = buffer_read(buffer, buffer_u8);
 				break;
 				
 			case PlayerDataMode.Golf:

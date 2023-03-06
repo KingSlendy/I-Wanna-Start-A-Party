@@ -315,7 +315,7 @@ function space_finish_event() {
 			
 		case SpaceType.Surprise:
 			switch (irandom(4)) {
-				case 0: change_coins(space_give * 10, CoinChangeType.Gain).final_action = turn_next; break;
+				case 0: change_coins(space_give * 7, CoinChangeType.Gain).final_action = turn_next; break;
 				case 1: change_coins(-space_give * 5, CoinChangeType.Lose).final_action = turn_next; break;
 					
 				case 2:

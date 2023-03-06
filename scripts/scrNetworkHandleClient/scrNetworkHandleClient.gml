@@ -733,8 +733,7 @@ f[$ ClientTCP.BoardNsanityReturn] = function(buffer) {
 }
 
 f[$ ClientTCP.BoardWorldGhostShines] = function(buffer) {
-	var give = buffer_read(buffer, buffer_bool);
-	board_world_ghost_shines(give, false);
+	board_world_ghost_shines(false);
 }
 #endregion
 

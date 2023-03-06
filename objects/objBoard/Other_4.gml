@@ -81,7 +81,7 @@ if (!global.board_started) {
 			}
 			
 			//Pallet Board
-			player_info.pokemon = asset_get_index(saved_player.saved_pokemon);
+			player_info.pokemon = (saved_player.saved_pokemon != -1) ? asset_get_index(saved_player.saved_pokemon) : -1;
 		}
 	
 		calculate_player_place();

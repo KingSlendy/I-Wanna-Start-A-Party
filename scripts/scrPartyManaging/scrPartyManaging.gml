@@ -881,6 +881,7 @@ function change_space(space) {
 		case SpaceType.Warp: color = c_purple; break;
 		case SpaceType.ChanceTime: color = c_yellow; break;
 		case SpaceType.TheGuy: color = c_dkgray; break;
+		case SpaceType.Surprise: color = c_purple; break;
 		default: color = c_gray; break;
 	}
 	

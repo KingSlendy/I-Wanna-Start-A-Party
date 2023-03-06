@@ -135,6 +135,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Scripts/Player.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI","folderPath":"folders/Scripts/UI.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Minigames","folderPath":"folders/Sequences/Minigames.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"2vs2","folderPath":"folders/Sequences/Minigames/2vs2.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Party","folderPath":"folders/Sequences/Party.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Interactables","folderPath":"folders/Sequences/Party/Interactables.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Interfaces","folderPath":"folders/Sequences/Party/Interfaces.yy","order":2,},
@@ -568,8 +570,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Island","folderPath":"folders/Tilesets/Party/Island.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Nsanity","folderPath":"folders/Tilesets/Party/Nsanity.yy","order":7,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Pallet Town","folderPath":"folders/Tilesets/Party/Pallet Town.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Minigames","folderPath":"folders/Sequences/Minigames.yy","order":1,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"2vs2","folderPath":"folders/Sequences/Minigames/2vs2.yy","order":1,},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

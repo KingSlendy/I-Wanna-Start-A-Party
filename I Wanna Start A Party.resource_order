@@ -115,6 +115,8 @@
     {"name":"Player","order":3,"path":"folders/Scripts/Player.yy",},
     {"name":"UI","order":2,"path":"folders/Scripts/UI.yy",},
     {"name":"Sequences","order":4,"path":"folders/Sequences.yy",},
+    {"name":"Minigames","order":1,"path":"folders/Sequences/Minigames.yy",},
+    {"name":"2vs2","order":1,"path":"folders/Sequences/Minigames/2vs2.yy",},
     {"name":"Interactables","order":1,"path":"folders/Sequences/Party/Interactables.yy",},
     {"name":"Interfaces","order":2,"path":"folders/Sequences/Party/Interfaces.yy",},
     {"name":"Trailer","order":2,"path":"folders/Sequences/Trailer.yy",},
@@ -524,8 +526,6 @@
     {"name":"Island","order":1,"path":"folders/Tilesets/Party/Island.yy",},
     {"name":"Nsanity","order":7,"path":"folders/Tilesets/Party/Nsanity.yy",},
     {"name":"Pallet Town","order":4,"path":"folders/Tilesets/Party/Pallet Town.yy",},
-    {"name":"Minigames","order":1,"path":"folders/Sequences/Minigames.yy",},
-    {"name":"2vs2","order":1,"path":"folders/Sequences/Minigames/2vs2.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprRockPlayerRun","order":1,"path":"sprites/sprRockPlayerRun/sprRockPlayerRun.yy",},
