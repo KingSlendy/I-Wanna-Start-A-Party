@@ -241,7 +241,7 @@ function player_write_data() {
 	}
 	
 	switch (network_mode) {
-		case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
+		case PlayerDataMode.Hand:
 			buffer_write_data(buffer_u8, image_index);
 			break;
 			
@@ -295,7 +295,7 @@ function player_read_data(buffer) {
 		y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
-			case PlayerDataMode.Hand: case PlayerDataMode.Hammer:
+			case PlayerDataMode.Hand:
 				image_index = buffer_read(buffer, buffer_u8);
 				break;
 				

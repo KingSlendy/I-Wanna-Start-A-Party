@@ -60,12 +60,28 @@ function can_controls() {
 }
 
 function can_react() {
-	return (player_info.turn != global.player_turn && reaction_target == 0 && reaction_alpha == 0);
+	return (
+		player_info.turn != global.player_turn &&
+		reaction_target == 0 &&
+		reaction_alpha == 0
+	);
 }
 
 function can_map() {
 	var player = focused_player();
-	return (player_info.turn == global.player_turn && player.object_index == objPlayerBoard && !player.has_hit && player.follow_path == null && !instance_exists(objStatChange) && !instance_exists(objItemAnimation) && !instance_exists(objChooseShine) && !instance_exists(objBoardPalletObtain) && !instance_exists(objBoardPalletBattle));
+	return (
+		player_info.turn == global.player_turn &&
+		player.object_index == objPlayerBoard &&
+		!player.has_hit &&
+		player.follow_path == null &&
+		!instance_exists(objStatChange) &&
+		!instance_exists(objItemAnimation) &&
+		!instance_exists(objChooseShine) &&
+		!instance_exists(objBoardHotlandAnnoyingDog) &&
+		!instance_exists(objBoardPalletObtain) &&
+		!instance_exists(objBoardPalletBattle) &&
+		!instance_exists(objBoardWorldShuffle)
+	);
 }
 
 function reaction(index) {

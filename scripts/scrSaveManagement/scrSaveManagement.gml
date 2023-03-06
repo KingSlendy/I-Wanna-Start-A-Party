@@ -235,7 +235,7 @@ function save_board() {
 			saved_bonus_shines_score: [],
 			
 			//Pallet Board
-			saved_pokemon: (player_info.pokemon != -1) ? sprite_get_name(player_info.pokemon) : -1;
+			saved_pokemon: (player_info.pokemon != -1) ? sprite_get_name(player_info.pokemon) : -1
 		};
 		
 		var saved_player = board.saved_players[i - 1];

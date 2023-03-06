@@ -1532,7 +1532,7 @@ function board_world_scott_interact() {
 function board_world_ghost_texts() {
 	if (array_length(global.player_ghost_shines) == 0) {
 		with (objBoard) {
-			alarm_call(7, 1);
+			alarm_next(7);
 		}
 
 		return;

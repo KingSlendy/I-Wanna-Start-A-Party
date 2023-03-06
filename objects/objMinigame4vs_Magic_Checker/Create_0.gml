@@ -29,7 +29,7 @@ alarm_create(function() {
 		var empty = false;
 	
 		with (objMinigame4vs_Magic_Holder) {
-			if (network_id == global.player_id && place_meeting(x, y, objMinigame4vs_Magic_Items)) {
+			if (network_id == global.player_id && !place_meeting(x, y, objMinigame4vs_Magic_Items)) {
 				empty = true;
 				break;
 			}

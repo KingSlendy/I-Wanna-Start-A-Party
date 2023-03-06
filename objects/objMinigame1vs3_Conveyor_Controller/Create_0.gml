@@ -74,17 +74,35 @@ alarm_override(11, function() {
 					chosed_conveyor = -1;
 				}
 			} else {
+				var dist = point_distance(x, y, 400, y);
+				var sprite = objMinigame1vs3_Conveyor_Conveyor.sprite_index;
+				
 				switch (objMinigame1vs3_Conveyor_Conveyor.sprite_index) {
 					case sprMinigame1vs3_Conveyor_ConveyorStill: var action = null; break;
-					case sprMinigame1vs3_Conveyor_ConveyorRight: var action = actions.left; break;
-					case sprMinigame1vs3_Conveyor_ConveyorLeft: var action = actions.right; break;
+					case sprMinigame1vs3_Conveyor_ConveyorRight:
+						if (dist > 64 && x < 400) {
+							var action = actions.right;
+						} else {
+							var action = actions.left;
+						}
+						break;
+						
+					case sprMinigame1vs3_Conveyor_ConveyorLeft:
+						if (dist > 64 && x > 400) {
+							var action = actions.left;
+						} else {
+							var action = actions.right;
+						}
+						break;
 				}
+				
+				if (sprite == sprMinigame1vs3_Conveyor_ConveyorStill) {
+					var action = null;
+				} else if (sprite -- )
 			
 				if (action != null) {
 					action.hold(irandom_range(get_frames(0.1), get_frames(0.2)));
 				} else {
-					var dist = point_distance(x, y, 400, y);
-				
 					if (dist > 64) {
 						var dir = point_direction(x, y, 400, y);
 						var action = (dir == 0) ? actions.right : actions.left;
