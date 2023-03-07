@@ -13,7 +13,7 @@ var scroll_v = (global.actions.down.held(network_id) - global.actions.up.held(ne
 look_x = clamp(look_x + scroll_h * 8, 0, room_width);
 look_y = clamp(look_y + scroll_v * 8, 0, room_height);
 
-if (!player_info_by_turn().can_map()) {
+if (!focus_info_by_turn().can_map()) {
 	end_map();
 	exit;
 }
