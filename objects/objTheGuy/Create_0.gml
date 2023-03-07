@@ -66,6 +66,7 @@ options_timer = 3;
 options_dir = 1;
 shuffle_seed_bag();
 reset_seed_inline();
+desync_seed_offline();
 options_chosen = irandom(options_total - 1);
 global.choice_selected = irandom(options_total - 1);
 revolution = false;

@@ -82,3 +82,13 @@ function reset_seed_inline() {
 	global.current_seed = 0;
 	random_set_seed(global.seed_bag[global.current_seed]);
 }
+
+function desync_seed_offline() {
+	if (global.game_key == "Online") {
+		return;
+	}
+	
+	repeat (irandom_range(1, 10)) {
+		random_set_seed(irandom(9999999));
+	}
+}

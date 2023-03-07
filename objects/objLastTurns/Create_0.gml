@@ -98,6 +98,7 @@ function give_last_place() {
 			}
 		}
 		
+		desync_seed_offline();
 		var rnd = irandom(99);
 		
 		if (rnd <= 50 || array_count(player_info_by_turn().items, null) == 0) {
