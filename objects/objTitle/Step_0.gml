@@ -34,9 +34,16 @@ if (title_start) {
 	}
 }
 
-if (!fade_start && global.actions.jump.pressed()) {
-	audio_play_sound(sndTitleSelect, 0, false);
-	music_stop();
-	fade_start = true;
-	pressed = true;
+if (!fade_start) {
+	if (global.actions.jump.pressed()) {
+		audio_play_sound(sndTitleSelect, 0, false);
+		music_stop();
+		fade_start = true;
+		pressed = true;
+		exit;
+	}
+	
+	if (global.actions.shoot.pressed()) {
+		game_end();
+	}
 }

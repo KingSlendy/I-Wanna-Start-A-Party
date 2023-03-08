@@ -31,7 +31,18 @@ if (async_load[? "id"] == tag) {
 	});
 	
 	if (version != VERSION) {
-		file = http_get_file(string("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/download/{0}/I.Wanna.Start.A.Party.zip", version), game_save_id + "\\Version.zip");
+		var os_name = "";
+		
+		//if (os_type == os_linux) {
+		//	os_name = "-Linux"
+		//}
+		
+		//switch (os_type) {
+		//	case os_windows: os_name = "-Windows"; break;
+		//	case os_linux: os_name = "-Linux"; break;
+		//}
+		
+		file = http_get_file(string("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/download/{0}/I.Wanna.Start.A.Party{1}.zip", version, os_name), game_save_id + "\\Version.zip");
 	} else {
 		alarm_instant(0);
 		exit;

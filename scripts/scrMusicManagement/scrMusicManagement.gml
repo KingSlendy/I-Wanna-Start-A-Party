@@ -5,8 +5,6 @@ global.sound_cursor_select = sndCursorSelect;
 global.sound_cursor_select2 = sndCursorSelect2;
 global.sound_cursor_big_select = sndCursorBigSelect;
 global.sound_cursor_back = sndCursorBack;
-global.music_loop_start = -1;
-global.music_loop_end = -1;
 
 function music_play(music, loop = true) {
 	global.music_previous = null;
@@ -21,12 +19,15 @@ function music_play(music, loop = true) {
 
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
-		music_set_loop_points(music);
-		global.music_current = audio_play_sound(music, 0, loop, 1);
+		var music_loop = music_get_loop_points(music);
+        global.music_current = audio_play_sound(music, 0, loop, 1);
+        audio_sound_loop_start(music, music_loop.start_point);
+        audio_sound_loop_end(music, music_loop.end_point);
+        audio_sound_loop(global.music_current, loop);
 	}
 }
 
-function LoopPoint(start_point, end_point) constructor {
+function LoopPoint(start_point = 0.0, end_point = 0.0) constructor {
 	self.start_point = start_point;
 	self.end_point = end_point;
 }
@@ -120,21 +121,16 @@ mlp[$ bgmMinigame2vs2_Idol] = new LoopPoint(4.831, 40.170);
 mlp[$ bgmResults] = new LoopPoint(5.552, 13.415);
 mlp[$ bgmPartyStar] = new LoopPoint(0.560, 35.942);
 #endregion
+
+mlp[$ null] = new LoopPoint();
 #endregion
 
-function music_set_loop_points(music) {	
-	var loop_start = -1;
-	var loop_end = -1;
-	var music_id = asset_get_index(audio_get_name(music));
-	
-	if (variable_struct_exists(global.music_loop_points, music_id)) {
-		var loop_point = global.music_loop_points[$ music_id];
-		loop_start = loop_point.start_point;
-		loop_end = loop_point.end_point;
-	}
-	
-	global.music_loop_start = loop_start;
-	global.music_loop_end = loop_end - loop_start;
+function music_get_loop_points(music) {	
+	if (variable_struct_exists(global.music_loop_points, music)) {
+        return global.music_loop_points[$ music];
+    }
+    
+    return global.music_loop_points[$ null];
 }
 
 function music_is_same(music) {

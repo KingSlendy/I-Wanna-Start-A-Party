@@ -44,24 +44,10 @@ for (var i = 0; i < global.player_max; i++) {
 	}
 }
 
-stats_bonuses = [
-	"most_coins",
-	"most_items",
-	"most_minigames",
-	"most_roll",
-	"most_blue_spaces",
-	"most_red_spaces",
-	"most_coin_spaces",
-	"most_item_spaces",
-	"most_chance_time_spaces",
-	"most_the_guy_spaces",
-	"most_purchases"
-];
-
 stats_x = 800;
 stats_target_x = 800;
 stats_page = 0;
-stats_total_page = array_length(stats_bonuses) div 6;
+stats_total_page = array_length(global.bonus_shines) div 6;
 show_inputs = false;
 
 alarms_init(3);

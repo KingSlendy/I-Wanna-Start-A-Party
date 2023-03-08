@@ -53,13 +53,13 @@ if (win_chance > random(1)) {
 		}
 	}
 	
-	if (win_favorable == -1) {
+	if (focused_player().network_id == global.player_id && win_favorable == -1) {
 		achieve_trophy(74);
 	}
 } else {
 	change_coins(-10, CoinChangeType.Lose).final_action = board_advance;
 	
-	if (win_favorable == 1) {
+	if (focused_player().network_id == global.player_id && win_favorable == 1) {
 		achieve_trophy(73);
 	}
 }

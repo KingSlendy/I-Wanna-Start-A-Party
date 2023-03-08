@@ -89,7 +89,7 @@ function jingle_obstacles(player_turn) {
 }
 
 function set_spd(scene_spd, player_turn) {
-	if (scene_spd != 0) {
+	if (scene_spd != 0 || info.is_finished) {
 		var bg_layers = ["Background", "Trees"];
 	
 		for (var i = 0; i < array_length(bg_layers); i++) {

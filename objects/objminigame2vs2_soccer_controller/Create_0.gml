@@ -56,7 +56,7 @@ alarm_override(11, function() {
 			}
 			
 			var sign_middle = sign(xstart - 400);
-			var is_keeper = (collision_line(xstart + 32 * sign_middle, ystart, xstart + 32 * sign_middle, ystart - 96, objMinigame2vs2_Soccer_Goal, false, true) != noone);//place_meeting(xstart + 32 * sign_middle, ystart - 96, objMinigame2vs2_Soccer_Goal);
+			var is_keeper = (collision_line(xstart + 32 * sign_middle, ystart, xstart + 32 * sign_middle, ystart - 128, objMinigame2vs2_Soccer_Goal, false, true) != noone);//place_meeting(xstart + 32 * sign_middle, ystart - 96, objMinigame2vs2_Soccer_Goal);
 			var towards_goal = (sign(objMinigame2vs2_Soccer_Ball.hspeed) == sign_middle);
 			var follow_x = (minigame2vs2_is_team(i, 0)) ? objMinigame2vs2_Soccer_Ball.bbox_left : objMinigame2vs2_Soccer_Ball.bbox_right;
 			var follow_y = objMinigame2vs2_Soccer_Ball.y;

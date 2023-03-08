@@ -70,9 +70,9 @@ global.bonus_shines = [
 	new BonusShine("landed on the most Item spaces"),
 	new BonusShine("landed on the most Chance Time spaces"),
 	new BonusShine("landed on the most The Guy spaces"),
+	new BonusShine("landed on the most Surprise spaces"),
 	new BonusShine("spent the most Coins on the Shop"),
-	new BonusShine("lost most stuff due to Blackhole"),
-	new BonusShine("had the worst luck on the Party")
+	new BonusShine("lost most stuff due to Blackhole")
 ];
 
 for (var i = 0; i < array_length(global.bonus_shines); i++) {

@@ -146,7 +146,7 @@ global.trophies = [
 	new Trophy(69, TrophyRank.Bronze, "Piranha Fanatic", "You touched the piranha plant in Springing Piranha.\nThere's so many dodging at hand and yet you somehow touched the piranha!?", "Don't worry, that thing is scary so you don't have to worry to touch it."),
 	new Trophy(70, TrophyRank.Silver, "Luigi-Man", "You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.", "Luigi meets namco!"),
 	new Trophy(71, TrophyRank.Gold, "Landing Green", "All of you landed on Green spaces.\nGreen everywhere you see.", "Living all the green!"),
-	new Trophy(72, TrophyRank.Gold, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
+	new Trophy(72, TrophyRank.Silver, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
 	new Trophy(73, TrophyRank.Platinum, "Pokemon Not Trainer", "You won without catching a Pokemon in the Pallet Town board!\nI thought your dream was to become a Pokemon trainer... where's your Pokemon then?", "Not gotta catch 'em all!"),
 	new Trophy(74, TrophyRank.Gold, "It's Not Effective", "You lost a Pokemon battle while having a favorable Pokemon.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.", "Water vs. Fire should be an easy win... right?"),
 	new Trophy(75, TrophyRank.Silver, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon!\nI didn't think a fire attack to a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
