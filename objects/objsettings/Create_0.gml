@@ -105,7 +105,17 @@ var display_draw = function(x, y) {
 var controls_check = function() {
 	if (!input_binding_scan_in_progress()) {
 		input_binding_scan_start(function(bind) {
-			if (bind.value != vk_f4 && bind.value != vk_escape) {
+			checking_bind = bind;
+			var forbidden_binds = [
+				vk_f4,
+				vk_escape,
+				gp_axislh,
+				gp_axislv,
+				gp_axisrh,
+				gp_axisrv
+			];
+			
+			if (!array_any(forbidden_binds, function(x) { return (checking_bind.value != x); })) {
 				input_binding_set_safe(string_lower(self.label), bind);
 			}
 			
@@ -136,6 +146,18 @@ var controls_draw = function(x, y) {
 	
 	draw_sprite_ext(global.actions[$ string_lower(self.label)].bind(), 0, x + 40, y, 0.75, 0.75, 0, c_white, draw_get_alpha());
 }
+
+var defaults_check = function() {
+	input_profile_reset_bindings(input_profile_get() ?? "keyboard_and_mouse");
+	
+	with (objSettings) {
+		sections[section_selected].in_option = -1;
+	}
+	
+	audio_play_sound(global.sound_cursor_select, 0, false);
+}
+
+var defaults_draw = function() {}
 
 sections = [
 	new Section("VOLUME", [
@@ -170,6 +192,8 @@ for (var i = 0; i < array_length(keys); i++) {
 	
 	array_push(sections[2].options, new Option(string_upper(name), controls_check, controls_draw));
 }
+
+array_push(sections[2].options, new Option("RESET DEFAULTS", defaults_check, defaults_draw));
 
 section_selected = 0;
 section_x = 0;

@@ -47,7 +47,7 @@ for (var i = 0; i < global.player_max; i++) {
 stats_x = 800;
 stats_target_x = 800;
 stats_page = 0;
-stats_total_page = array_length(global.bonus_shines) div 6;
+stats_total_page = (array_length(global.bonus_shines) div 6) - 1;
 show_inputs = false;
 
 alarms_init(3);

@@ -8,6 +8,7 @@ sprite_prefetch_multi([
 
 audio_group_load(audiogroup_BGM);
 audio_group_load(audiogroup_SFX);
+music_loop_init();
 
 var files = [
 	"options.ini",

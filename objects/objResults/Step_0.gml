@@ -2,7 +2,7 @@ if (fade_start) {
 	if (!revealed) {
 		if (get_player_count(objPlayerParty) == global.player_max) {
 			fade_alpha -= 0.01;
-			music_play(bgmResults, true);
+			music_play(bgmResults);
 	
 			if (fade_alpha <= 0) {
 				fade_alpha = 0;

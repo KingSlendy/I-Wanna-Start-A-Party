@@ -19,11 +19,8 @@ function music_play(music, loop = true) {
 
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
-		var music_loop = music_get_loop_points(music);
         global.music_current = audio_play_sound(music, 0, loop, 1);
-        audio_sound_loop_start(music, music_loop.start_point);
-        audio_sound_loop_end(music, music_loop.end_point);
-        audio_sound_loop(global.music_current, loop);
+        audio_sound_loop(global.music_current, true);
 	}
 }
 
@@ -118,12 +115,29 @@ mlp[$ bgmMinigame2vs2_Idol] = new LoopPoint(4.831, 40.170);
 #endregion
 	
 #region Results
-mlp[$ bgmResults] = new LoopPoint(5.552, 13.415);
+mlp[$ bgmResults] = new LoopPoint(5.920, 13.783);
 mlp[$ bgmPartyStar] = new LoopPoint(0.560, 35.942);
 #endregion
 
 mlp[$ null] = new LoopPoint();
 #endregion
+
+function music_loop_init() {
+	var musics = variable_struct_get_names(global.music_loop_points);
+	
+	for (var i = 0; i < array_length(musics); i++) {
+		var music = musics[i];
+		
+		if (music == "undefined") {
+			continue;
+		}
+	
+		music = real(music);	
+		var music_loop = music_get_loop_points(music);
+		audio_sound_loop_start(music, music_loop.start_point);
+        audio_sound_loop_end(music, music_loop.end_point);
+	}
+}
 
 function music_get_loop_points(music) {	
 	if (variable_struct_exists(global.music_loop_points, music)) {
