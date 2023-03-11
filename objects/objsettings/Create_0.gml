@@ -115,7 +115,7 @@ var controls_check = function() {
 				gp_axisrv
 			];
 			
-			if (!array_any(forbidden_binds, function(x) { return (checking_bind.value != x); })) {
+			if (array_all(forbidden_binds, function(x) { return (checking_bind.value != x); })) {
 				input_binding_set_safe(string_lower(self.label), bind);
 			}
 			

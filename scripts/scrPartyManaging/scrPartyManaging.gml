@@ -703,6 +703,7 @@ function roll_dice() {
 	
 	if (global.board_started && rolled_all_die) {
 		objDiceRoll.target_x = focused_player().x;
+		instance_destroy(objDice);
 	}
 	
 	if ((is_local_turn() || !global.board_started) && is_player_turn()) {
@@ -1512,24 +1513,24 @@ function board_world_scott_interact() {
 	global.player_ghost_turn = global.player_turn;
 	
 	if (is_player_turn()) {
-		global.player_ghost_shines = [player];
+		global.player_ghost_shines = [player.network_id];
 	} else {
 		with (player) {
 			var list = ds_list_create();
 			var count = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, objPlayerBase, false, true, list, false);
 			
 			for (var i = 0; i < count; i++) {
-				array_push(global.player_ghost_shines, list[| i]);
+				array_push(global.player_ghost_shines, list[| i].network_id);
 			}
 			
 			ds_list_destroy(list);
 		}
 	}
 	
-	board_world_ghost_texts();
+	board_world_ghost_switch();
 }
 
-function board_world_ghost_texts() {
+function board_world_ghost_switch(network = true) {
 	if (array_length(global.player_ghost_shines) == 0) {
 		with (objBoard) {
 			alarm_next(7);
@@ -1538,11 +1539,23 @@ function board_world_ghost_texts() {
 		return;
 	}
 	
-	var texts;
-	var player = global.player_ghost_shines[0];
-	var turn = player_info_by_id(player.network_id).turn;
-	global.player_turn = turn
+	switch_camera_target(objCamera.target_follow.x, objCamera.target_follow.y).final_action = board_world_ghost_texts;
+	var player = focus_player_by_id(global.player_ghost_shines[0]);
+	global.player_ghost_previous = player_info_by_id(player.network_id).turn;
 	
+	if (is_local_turn() && network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.BoardWorldGhostSwitch);
+		buffer_write_array(buffer_u8, global.player_ghost_shines);
+		buffer_write_data(buffer_u8, global.player_ghost_turn);
+		buffer_write_data(buffer_u8, global.player_ghost_previous);
+		network_send_tcp_packet();
+	}
+	
+	global.player_turn = global.player_ghost_previous;
+}
+
+function board_world_ghost_texts() {
 	if (!is_local_turn()) {
 		return;
 	}
@@ -1551,15 +1564,15 @@ function board_world_ghost_texts() {
 	
 	if (is_player_turn()) {
 		texts = [
-			new Message("Oh no! You reached the Ghost and now it's gonna take one Shine away from you!",, board_world_ghost_shines)
+			new Message("Oh no! You reached the Ghost and now it's gonna take a Shine away from you!",, board_world_ghost_shines)
 		];
 	} else {
 		texts = [
-			new Message("Oh no! The Ghost reached you {COLOR,0000FF}"+ focus_player_by_id(player.network_id).network_name +"{COLOR,FFFFFF} and now it's gonna take one Shine away from you!",, board_world_ghost_shines)
+			new Message("Oh no! The Ghost reached you {COLOR,0000FF}"+ focus_player_by_turn(global.player_ghost_previous).network_name +"{COLOR,FFFFFF} and now it's gonna take a Shine away from you!",, board_world_ghost_shines)
 		];
 	}
 	
-	global.player_turn = turn;
+	global.player_turn = global.player_ghost_previous;
 	start_dialogue(texts);
 }
 

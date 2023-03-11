@@ -128,7 +128,6 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	global.player_turn = global.player_ghost_turn;
 	instance_create_layer(0, 0, "Managers", objBoardWorldShuffle);
 });
 

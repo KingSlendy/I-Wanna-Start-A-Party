@@ -82,9 +82,8 @@ function space_passing_event() {
 	if (room == rBoardWorld) {
 		with (focus_player) {
 			var player_collide = (is_player_turn()) ? objBoardWorldGhost : objPlayerBase;
-			var player_collision = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, player_collide, false, true);
 			
-			if (player_collision != noone && (is_player_turn() || player_collision.object_index != objBoardWorldGhost)) {
+			if (place_meeting(x, y, player_collide)) {
 				board_world_scott_interact();
 				return 1;
 			}

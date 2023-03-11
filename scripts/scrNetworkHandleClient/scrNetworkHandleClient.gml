@@ -86,6 +86,7 @@ enum ClientTCP {
 	BoardPalletBattle,
 	BoardDreamsTeleports,
 	BoardNsanityReturn,
+	BoardWorldGhostSwitch,
 	BoardWorldGhostShines,
 	#endregion
 	
@@ -730,6 +731,13 @@ f[$ ClientTCP.BoardDreamsTeleports] = function(buffer) {
 
 f[$ ClientTCP.BoardNsanityReturn] = function(buffer) {
 	board_nsanity_return();
+}
+
+f[$ ClientTCP.BoardWorldGhostSwitch] = function(buffer) {
+	global.player_ghost_shines = buffer_read_array(buffer, buffer_u8);
+	global.player_ghost_turn = buffer_read(buffer, buffer_u8);
+	global.player_ghost_previous = buffer_read(buffer, buffer_u8);
+	board_world_ghost_switch(false);
 }
 
 f[$ ClientTCP.BoardWorldGhostShines] = function(buffer) {

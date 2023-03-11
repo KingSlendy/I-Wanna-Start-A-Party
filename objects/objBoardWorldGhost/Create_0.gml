@@ -9,5 +9,5 @@ function change_to_object(obj) {}
 
 alarm_create(0, function() {
 	array_delete(global.player_ghost_shines, 0, 1);
-	board_world_ghost_texts();
+	board_world_ghost_switch();
 });

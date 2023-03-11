@@ -43,9 +43,9 @@ function random_roll() {
 	
 	//if (global.board_started) {
 	//	if (is_player_turn()) {
-	//		roll = 2;
+	//		roll = 1;
 	//	} else {
-	//		roll = 2;
+	//		roll = 1;
 	//	}
 
 	//	//roll = max_roll;
