@@ -101,7 +101,7 @@ function space_passing_event() {
 			return 2;
 		}
 		
-		if (array_any([SpaceType.Shop, SpaceType.Blackhole, SpaceType.PathChange], function(x) { return (image_index == x); })) {
+		if (array_any([SpaceType.Shop, SpaceType.Blackhole, SpaceType.Shine, SpaceType.PathChange], function(x) { return (image_index == x); })) {
 			return 2;
 		}
 		

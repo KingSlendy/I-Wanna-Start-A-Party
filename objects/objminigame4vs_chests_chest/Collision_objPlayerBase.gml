@@ -1,4 +1,4 @@
-if (!selectable || selected != -1 || y != target_y || !is_player_local(other.network_id)) {
+if (!selectable || selected != -1 || y != target_y || !is_player_local(other.network_id) || other.frozen) {
 	exit;
 }
 

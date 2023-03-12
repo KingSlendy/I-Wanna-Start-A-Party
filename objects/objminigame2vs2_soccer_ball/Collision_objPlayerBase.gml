@@ -5,7 +5,6 @@ if (global.player_id != 1 || !movable || !hittable) {
 var dir = point_direction(other.x, other.y, x, y - 16);
 hspeed = lengthdir_x(6, (other.xscale == 1) ? 0 : 180);
 vspeed = lengthdir_y(6, dir);
-gravity = 0.4;
 
 if (hittable) {
     var kick_volume = remap(abs(hspeed), 0, 6, 0.5, 1);

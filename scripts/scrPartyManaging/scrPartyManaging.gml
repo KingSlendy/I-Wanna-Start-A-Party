@@ -1278,7 +1278,7 @@ function choose_shine() {
 	
 	if (room != rBoardPallet) {
 		with (objSpaces) {
-			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity)) {
+			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity) && !place_meeting(x, y, objBoardWorldGhost)) {
 				array_push(choices, id);
 			}
 		}
