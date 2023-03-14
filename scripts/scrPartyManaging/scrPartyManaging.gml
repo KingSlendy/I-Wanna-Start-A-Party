@@ -445,12 +445,12 @@ function turn_next(network = true) {
 		var player_info = player_info_by_turn();
 		player_info.item_used = null;
 		player_info.item_effect = null;
-	}
-	
-	if (network && is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.TurnNext);
-		network_send_tcp_packet();
+		
+		if (network && is_local_turn()) {
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.TurnNext);
+			network_send_tcp_packet();
+		}
 	}
 	
 	var max_turns = (room != rBoardWorld) ? global.player_max : global.player_max + 1;
@@ -1524,10 +1524,11 @@ function board_world_scott_interact() {
 			}
 			
 			ds_list_destroy(list);
+			array_sort(global.player_ghost_shines, function(a, b) { return player_info_by_id(a).turn - player_info_by_id(b).turn; });
 		}
 	}
 	
-	board_world_ghost_switch();
+	board_world_ghost_switch(is_player_turn());
 }
 
 function board_world_ghost_switch(network = true) {
@@ -1543,7 +1544,7 @@ function board_world_ghost_switch(network = true) {
 	var player = focus_player_by_id(global.player_ghost_shines[0]);
 	global.player_ghost_previous = player_info_by_id(player.network_id).turn;
 	
-	if (is_local_turn() && network) {
+	if (network && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardWorldGhostSwitch);
 		buffer_write_array(buffer_u8, global.player_ghost_shines);
@@ -1582,7 +1583,7 @@ function board_world_ghost_shines(network = true) {
 		image_index = 0;
 	}
 	
-	if (is_local_turn() && network) {
+	if (network && is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.BoardWorldGhostShines);
 		network_send_tcp_packet();

@@ -9,7 +9,7 @@ if (state == 0) {
 			var spaces = [];
 			
 			with (objSpaces) {
-				if (image_index == SpaceType.Red && !place_meeting(x, y, objPlayerBase)) {
+				if (image_index == SpaceType.Surprise && !place_meeting(x, y, objPlayerBase)) {
 					array_push(spaces, {x: self.x + 16, y: self.y + 16});
 				}
 			}
