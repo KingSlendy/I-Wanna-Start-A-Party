@@ -9,8 +9,5 @@ function change_to_object(obj) {}
 
 alarm_create(0, function() {
 	array_delete(global.player_ghost_shines, 0, 1);
-	
-	if (is_local_turn()) {
-		board_world_ghost_switch();
-	}
+	board_world_ghost_switch(false);
 });
