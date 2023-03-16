@@ -41,17 +41,17 @@ function random_roll() {
 		roll = irandom_range(min_roll, max_roll);
 	} until (roll != previous);
 	
-	if (global.board_started && global.board_turn == 1) {
-		if (is_player_turn()) {
-			roll = 1;
-		} else {
-			roll = 1;
-		}
+	//if (global.board_started) {
+	//	if (is_player_turn()) {
+	//		roll = 1;
+	//	} else {
+	//		roll = 1;
+	//	}
 
-		//roll = max_roll;
-		//roll = min_roll;
-		//roll = 110;
-	}
+	//	//roll = max_roll;
+	//	//roll = min_roll;
+	//	//roll = 110;
+	//}
 }
 
 roll = 0;

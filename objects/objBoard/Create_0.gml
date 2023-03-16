@@ -14,6 +14,7 @@ global.dice_roll = 0;
 global.choice_selected = -1;
 global.item_choice = false;
 global.buy_choice = -1;
+global.max_board_turns = 1;
 
 //Board values
 global.shine_spawn_count = 1;
