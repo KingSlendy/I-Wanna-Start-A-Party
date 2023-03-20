@@ -124,15 +124,30 @@ if (save_present) {
 			player_info.target_draw_y = player_info.draw_h * (player_info.player_info.turn - 1);
 			player_info.draw_y = player_info.target_draw_y;
 		}
+		
+		if (instance_number(objPlayerInfo) < global.player_max) {
+			throw string("Insufficient player info cards loaded: {0}", instance_number(objPlayerInfo));
+		}
+		
+		var turns = [];
+		
+		for (var i = 1; i <= global.player_max; i++) {
+			array_push(turns, player_info_by_id(i).turn);
+		}
+		
+		if (array_length(array_unique(turns)) < global.player_max) {
+			throw string("Repeated player turns in one or more info cards: {0}", turns);
+		}
 	
 		calculate_player_place();
-	} catch (_) {
+	} catch (ex) {
 		save_present = false;
 		menu_page = 0;
 		board_selected = 0;
 		board_target_selected = 0;
 		instance_destroy(objPlayerInfo);
-		show_message("An error occurred while trying to load the saved Party and it has been ignored.");
+		show_message_async("An error occurred while trying to load the saved Party and it has been ignored.");
+		log_error(ex);
 	}
 }
 
