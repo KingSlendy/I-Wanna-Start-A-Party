@@ -5,6 +5,8 @@ global.sound_cursor_select = sndCursorSelect;
 global.sound_cursor_select2 = sndCursorSelect2;
 global.sound_cursor_big_select = sndCursorBigSelect;
 global.sound_cursor_back = sndCursorBack;
+global.music_loop_start = -1;
+global.music_loop_end = -1;
 
 function music_play(music, loop = true) {
 	global.music_previous = null;
@@ -17,10 +19,17 @@ function music_play(music, loop = true) {
 	music_change(music, loop);
 }
 
+//function music_change(music, loop = true) {
+//	if (music != null && !music_is_same(music)) {
+//        global.music_current = audio_play_sound(music, 0, loop, 1);
+//        audio_sound_loop(global.music_current, true);
+//	}
+//}
+
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
-        global.music_current = audio_play_sound(music, 0, loop, 1);
-        audio_sound_loop(global.music_current, true);
+		music_set_loop_points(music);
+		global.music_current = audio_play_sound(music, 0, loop, 1);
 	}
 }
 
@@ -122,29 +131,44 @@ mlp[$ bgmPartyStar] = new LoopPoint(0.560, 35.942);
 mlp[$ null] = new LoopPoint();
 #endregion
 
-function music_loop_init() {
-	var musics = variable_struct_get_names(global.music_loop_points);
+//function music_loop_init() {
+//	var musics = variable_struct_get_names(global.music_loop_points);
 	
-	for (var i = 0; i < array_length(musics); i++) {
-		var music = musics[i];
+//	for (var i = 0; i < array_length(musics); i++) {
+//		var music = musics[i];
 		
-		if (music == "undefined") {
-			continue;
-		}
+//		if (music == "undefined") {
+//			continue;
+//		}
 	
-		music = real(music);	
-		var music_loop = music_get_loop_points(music);
-		audio_sound_loop_start(music, music_loop.start_point);
-        audio_sound_loop_end(music, music_loop.end_point);
-	}
-}
+//		music = real(music);	
+//		var music_loop = music_get_loop_points(music);
+//		audio_sound_loop_start(music, music_loop.start_point);
+//        audio_sound_loop_end(music, music_loop.end_point);
+//	}
+//}
 
-function music_get_loop_points(music) {	
-	if (variable_struct_exists(global.music_loop_points, music)) {
-        return global.music_loop_points[$ music];
-    }
+//function music_get_loop_points(music) {	
+//	if (variable_struct_exists(global.music_loop_points, music)) {
+//        return global.music_loop_points[$ music];
+//    }
     
-    return global.music_loop_points[$ null];
+//    return global.music_loop_points[$ null];
+//}
+
+function music_set_loop_points(music) {	
+	var loop_start = -1;
+	var loop_end = -1;
+	var music_id = asset_get_index(audio_get_name(music));
+
+	if (variable_struct_exists(global.music_loop_points, music_id)) {
+		var loop_point = global.music_loop_points[$ music_id];
+		loop_start = loop_point.start_point;
+		loop_end = loop_point.end_point;
+	}
+
+	global.music_loop_start = loop_start;
+	global.music_loop_end = loop_end - loop_start;
 }
 
 function music_is_same(music) {
