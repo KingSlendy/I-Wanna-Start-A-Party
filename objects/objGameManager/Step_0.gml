@@ -18,6 +18,7 @@ if (keyboard_check_pressed(vk_escape)) {
 	} else {
 		network_disable();
 		paused = false;
+		audio_stop_all();
 		room_goto(rTitle);
 		exit;
 	}
@@ -62,9 +63,6 @@ if (room != rVersion && room != rTitle && (room != rFiles || objFiles.file_opene
 global.ignore_input = ignore_input;
 #endregion
 
-global.fullscreen_delay--;
-global.fullscreen_delay = max(global.fullscreen_delay, 0);
-
 #region Music Loop System
 if (global.music_current != null && global.music_loop_start != -1) {
     var current_position = audio_sound_get_track_position(global.music_current);
@@ -75,3 +73,6 @@ if (global.music_current != null && global.music_loop_start != -1) {
     }
 }
 #endregion
+
+global.fullscreen_delay--;
+global.fullscreen_delay = max(global.fullscreen_delay, 0);

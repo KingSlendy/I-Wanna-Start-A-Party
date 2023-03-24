@@ -55,6 +55,12 @@ if (async_load[? "id"] == tag) {
 
 	size = async_load[? "contentLength"];
 	sent = async_load[? "sizeDownloaded"];
+	
+	if (size == null || sent == null) {
+		occurred_error();
+		exit;
+	}
+	
 	alarm_call(2, 15);
 
 	if (status == 0) {
