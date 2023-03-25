@@ -342,7 +342,7 @@ function check_same_game_key(player_id, game_key) {
 	
 	var board_game = global.board_games[$ global.game_id];
 	
-	if (board_game != null && get_ai_count() == board_game.saved_ai_count) {
+	if (board_game != null && board_game.saved_key == game_key && get_ai_count() == board_game.saved_ai_count) {
 		global.game_key = game_key;
 
 		with (objPlayerBase) {

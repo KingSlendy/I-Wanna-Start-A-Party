@@ -53,12 +53,14 @@ if (async_load[? "id"] == tag) {
 		downloading = true;
 	}
 
+	var prev_size = size;
+	var prev_sent = sent;
 	size = async_load[? "contentLength"];
 	sent = async_load[? "sizeDownloaded"];
 	
 	if (size == null || sent == null) {
-		occurred_error();
-		exit;
+		size = prev_size;
+		sent = prev_sent;
 	}
 	
 	alarm_call(2, 15);
@@ -75,7 +77,7 @@ if (async_load[? "id"] == tag) {
 		execute_shell_simple(game_save_id + "update.bat",,, 0);
 		text = "Finished download!";
 		downloading = false;
-		alarm_call(1, 3);
+		alarm_call(1, 2.5);
 		alarm_stop(2);
 	}
 }

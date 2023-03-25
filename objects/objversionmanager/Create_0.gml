@@ -13,6 +13,7 @@ sent = 0;
 
 function occurred_error() {
 	text = "An error ocurred...";
+	downloading = false;
 	alarm_call(0, 3);
 }
 
