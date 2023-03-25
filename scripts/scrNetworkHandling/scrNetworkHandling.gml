@@ -318,19 +318,21 @@ function player_read_data(buffer) {
 	}
 }
 
-function obtain_same_game_key(game_key = null) {
-	if (game_key == null) {
-		var board_game = global.board_games[$ global.game_id];
-		game_key = (board_game != null) ? board_game.saved_key : "Nothing";
-	}
+function obtain_same_game_key(game_key = "Nothing") {
+	var board_game = global.board_games[$ global.game_id];
+	var my_game_key = (board_game != null) ? board_game.saved_key : "Nothing";
 	
+	if (global.player_id > 1 && my_game_key != game_key) {
+		my_game_key = "Nothing";
+	}
+		
 	buffer_seek_begin();
 	buffer_write_action(ClientTCP.BoardGameKey);
 	buffer_write_data(buffer_u8, global.player_id + 1);
-	buffer_write_data(buffer_string, game_key);
+	buffer_write_data(buffer_string, my_game_key);
 	network_send_tcp_packet();
 	
-	check_same_game_key(global.player_id + 1, game_key);
+	check_same_game_key(global.player_id + 1, my_game_key);
 }
 
 function check_same_game_key(player_id, game_key) {
@@ -340,7 +342,7 @@ function check_same_game_key(player_id, game_key) {
 	
 	var board_game = global.board_games[$ global.game_id];
 	
-	if (board_game != null && board_game.saved_key == game_key && get_ai_count() == board_game.saved_ai_count) {
+	if (board_game != null && get_ai_count() == board_game.saved_ai_count) {
 		global.game_key = game_key;
 
 		with (objPlayerBase) {

@@ -197,6 +197,7 @@ function music_pause() {
 function music_resume() {
 	if (global.music_previous != null) {
 		global.music_current = global.music_previous;
+		music_set_loop_points(global.music_current);
 		audio_resume_sound(global.music_current);
 	}
 }
