@@ -73,7 +73,7 @@ global.board_items = [
 		return (player_info_by_turn().coins >= global.min_shop_coins && global.board_turn < global.max_board_turns);
 	}),
 	
-	new Item(ItemType.Blackhole, "Blackhole", "Summons the blackhole, allowing you to steal Coins or Shines from other players.", sprItemBlackhole, 25, objItemBlackholeAnimation,, function() {
+	new Item(ItemType.Blackhole, "Blackhole", "Summons the blackhole, allowing you to steal Coins or Shines from other players.", sprItemBlackhole, 20, objItemBlackholeAnimation,, function() {
 		var other_has_things = false;
 		
 		for (var i = 1; i <= global.player_max; i++) {

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sprMiguetoPlayerRun",
+  "name": "sprAngemiPlayerRun",
   "bbox_bottom": 31,
   "bbox_left": 1,
   "bbox_right": 25,
@@ -28,14 +28,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Migueto",
-    "path": "folders/Sprites/Objects/Player/Skins/Migueto.yy",
+    "name": "Angemi",
+    "path": "folders/Sprites/Objects/Player/Skins/Angemi.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sprMiguetoPlayerRun",
+    "name": "sprAngemiPlayerRun",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -57,10 +57,10 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"76915284-0c6c-4c21-a0c8-d441cfaf3aa6","path":"sprites/sprMiguetoPlayerRun/sprMiguetoPlayerRun.yy",},},},"Disabled":false,"id":"a6fd9278-42a2-45ac-9503-f9f1634d9b2f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"997a9c78-5278-4497-920b-ce415e80e0cf","path":"sprites/sprMiguetoPlayerRun/sprMiguetoPlayerRun.yy",},},},"Disabled":false,"id":"0d7bcb56-086d-4427-aebe-f6b7f54b4c6e","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5d30cb53-5855-4346-b35b-3ca07cb19a41","path":"sprites/sprMiguetoPlayerRun/sprMiguetoPlayerRun.yy",},},},"Disabled":false,"id":"2476f055-30c2-44d7-9a7f-22ea212c0da8","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9539c799-7794-4abd-89a9-1c3ab96f9aaa","path":"sprites/sprMiguetoPlayerRun/sprMiguetoPlayerRun.yy",},},},"Disabled":false,"id":"da07b897-f4d5-4d26-88ae-4b6e44b6b48f","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"76915284-0c6c-4c21-a0c8-d441cfaf3aa6","path":"sprites/sprAngemiPlayerRun/sprAngemiPlayerRun.yy",},},},"Disabled":false,"id":"a6fd9278-42a2-45ac-9503-f9f1634d9b2f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"997a9c78-5278-4497-920b-ce415e80e0cf","path":"sprites/sprAngemiPlayerRun/sprAngemiPlayerRun.yy",},},},"Disabled":false,"id":"0d7bcb56-086d-4427-aebe-f6b7f54b4c6e","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5d30cb53-5855-4346-b35b-3ca07cb19a41","path":"sprites/sprAngemiPlayerRun/sprAngemiPlayerRun.yy",},},},"Disabled":false,"id":"2476f055-30c2-44d7-9a7f-22ea212c0da8","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9539c799-7794-4abd-89a9-1c3ab96f9aaa","path":"sprites/sprAngemiPlayerRun/sprAngemiPlayerRun.yy",},},},"Disabled":false,"id":"da07b897-f4d5-4d26-88ae-4b6e44b6b48f","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

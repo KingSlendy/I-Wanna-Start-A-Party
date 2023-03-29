@@ -83,7 +83,7 @@ function skin_init() {
 		new Skin("Limit", "Hot Limit Kid", "I Wanna Can't Stop", 48, "Doruppi", 100),
 		new Skin("Crush", "Crush Kid", "I Wanna Can't Stop", 48, "Doruppi", 400),
 		new Skin("Tennis", "Tennis Kid", "I Wanna Can't Stop", 48, "Doruppi", 300),
-		new Skin("Migueto", "Migueto", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Angemi", "Angemi", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Monkey", "The Monkey", "I Wanna See You Suffer", 49, "UltraJDude", 700),
 		new Skin("Crewmate", "Crewmate", "Original", 29, "JPRG666", 900),
 		new Skin("Adventurer", "The Adventurer", "I Wanna Escape From The Dungeon", 50, "AlejoFangamer", 1000),
