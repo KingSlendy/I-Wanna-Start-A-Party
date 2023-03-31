@@ -14,7 +14,7 @@ for (var i = 0; i < minigame1vs3_team_length(); i++) {
 		var warp_x = player.x - 17;
 		var warp_y = player.y - 42;
 		create_warp(warp_x, warp_y);
-		warp_delay[i] = get_frames(0.75);
+		warp_delay[i] = get_frames(0.85);
 		
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame1vs3_Warping_Warp);

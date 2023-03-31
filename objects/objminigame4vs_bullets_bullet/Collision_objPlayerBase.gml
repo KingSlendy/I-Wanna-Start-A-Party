@@ -6,7 +6,7 @@ switch (image_index) {
 	case 0: var points = 1; break;
 	case 1: var points = 2; break;
 	case 2: var points = -1; break;
-	case 3: var points = -5; break;
+	case 3: var points = -2; break;
 }
 
 if (points < 0 && minigame4vs_get_points(other.network_id) == 0) {

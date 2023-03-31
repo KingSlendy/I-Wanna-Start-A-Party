@@ -18,6 +18,13 @@ if (finished) {
 	}
 }
 
+practice_alpha = lerp(practice_alpha, 0.3, 0.01);
+
+if (global.player_id == 1 && global.actions.misc.pressed()) {
+	back_to_overview();
+	exit;
+}
+
 if (info.is_finished || global.trial_info.reference == null) {
 	exit;
 }

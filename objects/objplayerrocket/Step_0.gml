@@ -1,5 +1,5 @@
 if (!frozen) {
-	var move_h = (global.actions.left.held(network_id) - global.actions.right.held(network_id));
+	var move_h = (global.actions.left.held(network_id) - global.actions.right.held(network_id)) * 1.25;
 	
 	if (network_id == global.player_id && trial_is_title(INVERTED_COMPETITION)) {
 		move_h *= -1;

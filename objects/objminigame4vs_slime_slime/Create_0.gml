@@ -38,12 +38,14 @@ alarm_create(function() {
 
 	image_index = (1 / (5 - lost_count) > random(1)) ? 1 : 3;
 
-	if (no_kills < 10 && image_index == 3) {
+	if (no_kills < 8 && image_index == 3) {
 		audio_play_sound(sndMinigame4vs_Slime_Mercy, 0, false);
+		image_index = 3;
 		no_kills++;
 	} else {
 		instance_create_layer(x + sprite_width / 2, y - 20, "Actors", objMinigame4vs_Slime_Laser);
 		audio_play_sound(sndMinigame4vs_Slime_Laser, 0, false);
+		image_index = 1;
 		no_kills = 0;
 	}
 

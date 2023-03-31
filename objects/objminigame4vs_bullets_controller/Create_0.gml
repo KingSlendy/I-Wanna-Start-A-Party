@@ -35,7 +35,7 @@ function next_player() {
 	}
 	
 	for (var i = 1; i <= global.player_max; i++) {
-		if (minigame4vs_get_points(i) >= 5) {
+		if (minigame4vs_get_points(i) >= 4) {
 			minigame_finish();
 			return;
 		}

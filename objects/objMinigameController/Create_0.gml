@@ -28,10 +28,21 @@ points_draw = false;
 points_number = true;
 points_teams = [];
 player_type = objPlayerBase;
+practice_alpha = 1;
+
+function back_to_overview(network = true) {
+	room_goto(rMinigameOverview);
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.MinigameOverviewReturn);
+		network_send_tcp_packet();
+	}
+}
 
 function back_to_board() {
 	if (info.is_practice) {
-		room_goto(rMinigameOverview);
+		back_to_overview(false);
 		return;
 	}
 	

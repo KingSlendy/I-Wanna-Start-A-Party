@@ -31,6 +31,7 @@ goal_score_alpha = array_create(2, 1);
 team_just_score = 0;
 
 alarm_override(1, function() {
+	objMinigame2vs2_Soccer_Ball.hittable = true;
 	alarm_inherited(1);
 	audio_play_sound(sndMinigame2vs2_Soccer_Whistle_Begin, 0, false);
 });

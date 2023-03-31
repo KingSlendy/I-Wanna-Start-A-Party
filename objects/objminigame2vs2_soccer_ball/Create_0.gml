@@ -1,7 +1,7 @@
 depth = layer_get_depth("Tiles") + 1;
 image_speed = 0;
 movable = true;
-hittable = true;
+hittable = false;
 
 function soccer_goal(network = true) {
 	objPlayerBase.frozen = true;
@@ -16,6 +16,7 @@ function soccer_goal(network = true) {
 	vspeed = 0;
 	gravity = 0;
 	movable = false;
+	hittable = false;
 
 	show_popup("GOAL!");
 	audio_play_sound(sndMinigameGoal, 0, false);

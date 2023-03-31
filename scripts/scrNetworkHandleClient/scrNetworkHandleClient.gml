@@ -99,6 +99,7 @@ enum ClientTCP {
 	
 	#region Minigames
 	MinigameOverviewStart,
+	MinigameOverviewReturn,
 	MinigameFinish,
 	
 	#region 4vs
@@ -777,6 +778,12 @@ f[$ ClientTCP.MinigameOverviewStart] = function(buffer) {
 		
 	with (objMinigameOverview) {
 		start_minigame(set, false);
+	}
+}
+
+f[$ ClientTCP.MinigameOverviewReturn] = function(buffer) {
+	with (objMinigameController) {
+		back_to_overview(false);
 	}
 }
 
