@@ -18,9 +18,9 @@ if (finished) {
 	}
 }
 
-practice_alpha = lerp(practice_alpha, 0.3, 0.01);
+practice_alpha = lerp(practice_alpha, 0.2, 0.01);
 
-if (global.player_id == 1 && global.actions.misc.pressed()) {
+if (info.is_practice && global.player_id == 1 && global.actions.misc.pressed()) {
 	back_to_overview();
 	exit;
 }

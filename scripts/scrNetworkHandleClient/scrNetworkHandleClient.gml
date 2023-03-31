@@ -1624,9 +1624,13 @@ function network_read_client(ip, port, buffer) {
 		return;
 	}
 	
-	if (is_tcp) {
-		global.tcp_functions[$ data_id](buffer);
-	} else {
-		global.udp_functions[$ data_id](buffer);
+	try {
+		if (is_tcp) {
+			global.tcp_functions[$ data_id](buffer);
+		} else {
+			global.udp_functions[$ data_id](buffer);
+		}
+	} catch (ex) {
+		log_error(ex);
 	}
 }
