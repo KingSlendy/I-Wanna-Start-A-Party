@@ -123,7 +123,7 @@ alarm_override(11, function() {
 					
 						if (state_presses[state][1] < 5) {
 							actions.jump.hold(10);
-							state_presses[state][0] = get_frames((state_presses[state][1] != 2) ? 0.35 : 0.12);
+							state_presses[state][0] = get_frames((state_presses[state][1] != 2) ? 0.35 : 0.22);
 						}
 					
 						state_presses[state][1]++;
