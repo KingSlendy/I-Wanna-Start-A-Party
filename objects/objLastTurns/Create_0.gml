@@ -144,7 +144,7 @@ function event_decided() {
 		
 		start_dialogue([
 			text,
-			"And also...\nRemember that Blue and Red spaces are double the amount of coins too!",
+			"And also...\nRemember that all spaces give and take double the amount of Coins too!",
 			new Message("I wish good luck to everyone and have a great party!",, end_last_turns)
 		]);
 	}

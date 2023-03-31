@@ -1,3 +1,5 @@
+no_kills = 0;
+
 function slime_shot(network = true) {
 	sprite_index = sprMinigame4vs_Slime_SlimeShot;
 	image_index = 4;
@@ -36,11 +38,13 @@ alarm_create(function() {
 
 	image_index = (1 / (5 - lost_count) > random(1)) ? 1 : 3;
 
-	if (image_index == 3) {
+	if (no_kills < 10 && image_index == 3) {
 		audio_play_sound(sndMinigame4vs_Slime_Mercy, 0, false);
+		no_kills++;
 	} else {
 		instance_create_layer(x + sprite_width / 2, y - 20, "Actors", objMinigame4vs_Slime_Laser);
 		audio_play_sound(sndMinigame4vs_Slime_Laser, 0, false);
+		no_kills = 0;
 	}
 
 	alarm_call(1, 2);

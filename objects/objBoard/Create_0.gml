@@ -276,10 +276,14 @@ alarm_create(11, function() {
 		}
 		
 		if (instance_exists(objBlackhole)) {
-			if (player_info_by_turn().coins >= global.max_blackhole_coins && objBlackhole.option_selected != 1) {
-				perform_action(actions.down);
+			if (player_info_by_turn().coins >= global.max_blackhole_coins) {
+				if (objBlackhole.option_selected != 1) {
+					perform_action(actions.down);
+				}
 			} else {
-				perform_action(actions.jump);
+				if (objBlackhole.option_selected != 0) {
+					perform_action(actions.up);
+				}
 			}
 			
 			perform_action(actions.jump);
