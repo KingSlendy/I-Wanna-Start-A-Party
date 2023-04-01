@@ -54,6 +54,14 @@ if (state == 0) {
 					}
 				}
 				break;
+				
+			case 4:
+				with (objSpaces) {
+					if (image_index == SpaceType.Red) {
+						image_index = SpaceType.Surprise;
+					}
+				}
+				break;
 		}
 		
 		music_resume();

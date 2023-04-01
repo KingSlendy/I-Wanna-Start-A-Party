@@ -140,6 +140,7 @@ function event_decided() {
 			case 1: text = "Red spaces are gonna be Chance Time spaces!?\nAnything could happen now!"; break;
 			case 2: text = "Whoa! Red spaces are now Item spaces!\nTime to collect items everyone!"; break;
 			case 3: text = "No more Blue spaces!?\nThat's gonna be rough on the wallet!"; break;
+			case 4: text = "All Surprise spaces!\nNow that's gonna be some chaos!"; break;
 		}
 		
 		start_dialogue([

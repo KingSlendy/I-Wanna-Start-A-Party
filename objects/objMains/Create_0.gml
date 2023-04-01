@@ -11,6 +11,12 @@ draw_y = 32;
 draw_w = 32 * 15;
 draw_h = 32 * 15 - 112;
 
+turn_list = [];
+
+for (var i = 10; i <= 50; i += 5) {
+	array_push(turn_list, i);
+}
+
 skin_row = 0;
 skin_col = 0;
 skins = ds_list_create();

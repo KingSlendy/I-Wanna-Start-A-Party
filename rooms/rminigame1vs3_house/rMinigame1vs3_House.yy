@@ -65,6 +65,7 @@
     {"name":"inst_6E0C8973","path":"rooms/rMinigame1vs3_House/rMinigame1vs3_House.yy",},
     {"name":"inst_18CB3F79","path":"rooms/rMinigame1vs3_House/rMinigame1vs3_House.yy",},
     {"name":"inst_65A67402","path":"rooms/rMinigame1vs3_House/rMinigame1vs3_House.yy",},
+    {"name":"inst_3FA7E24C","path":"rooms/rMinigame1vs3_House/rMinigame1vs3_House.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -120,6 +121,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_39B73D6D","colour":4294967040,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objPlayerReference","path":"objects/objPlayerReference/objPlayerReference.yy",},"propertyId":{"name":"reference","path":"objects/objPlayerReference/objPlayerReference.yy",},"value":"3",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3FA7E24C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMinigame1vs3_House_Cherry","path":"objects/objMinigame1vs3_House_Cherry/objMinigame1vs3_House_Cherry.yy",},"properties":[],"rotation":0.0,"scaleX":57.38095,"scaleY":1.0,"x":374.85718,"y":640.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Collisions","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_10A88F36","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objMovingPlatform","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":313.0,"y":480.0,},

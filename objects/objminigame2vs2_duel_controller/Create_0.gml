@@ -31,7 +31,7 @@ cpu_shot_delay = array_create(global.player_max, 0);
 take_time = false;
 show_mark = false;
 revive = -1;
-point_condition = 6;
+point_condition = 5;
 
 trophy_obtain = true;
 trophy_shoot = false;

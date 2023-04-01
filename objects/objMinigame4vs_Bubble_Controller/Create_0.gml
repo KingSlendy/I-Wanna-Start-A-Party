@@ -11,7 +11,7 @@ minigame_players = function() {
 points_draw = true;
 player_type = objPlayerBubble;
 
-lap_total = 4;
+lap_total = 3;
 goal_total = instance_number(objMinigame4vs_Bubble_Goal);
 priority = ds_priority_create();
 places = ds_map_create();

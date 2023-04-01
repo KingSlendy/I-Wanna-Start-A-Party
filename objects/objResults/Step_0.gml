@@ -10,7 +10,7 @@ if (fade_start) {
 		
 				if (global.player_id == 1) {
 					start_dialogue([
-						"Good job everyone!\nThe moment of truth is coming close...\nTo see which is worth of being the superstar!",
+						"Good job everyone!\nThe moment of truth is coming close...\nTo see who is worthy of being the superstar!",
 						new Message("Let's give the winners of the past minigame their Coins!",, results_coins)
 					]);
 				}

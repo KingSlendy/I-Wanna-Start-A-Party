@@ -278,7 +278,11 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 									board_target_selected = (board_selected + length + scroll) % length;
 									break;
 							
-								case 1: global.max_board_turns = (global.max_board_turns + 40 + scroll * 10) % 50 + 10; break;
+								case 1:
+									var turn_total = array_length(turn_list);
+									global.max_board_turns = turn_list[(((global.max_board_turns / 5) - 2) + turn_total + scroll) % turn_total];
+									break;
+									
 								case 2: global.give_bonus_shines = !global.give_bonus_shines; break;
 							}
 					

@@ -21,7 +21,9 @@ house_start = false;
 
 function cherry_move(move, network = true) {
 	with (objMinigame1vs3_House_Cherry) {
-		x += move * 3;
+		if (y < 608) {
+			x += move * 3;
+		}
 	}
 	
 	if (network) {
@@ -34,16 +36,18 @@ function cherry_move(move, network = true) {
 
 function cherry_jump(network = true) {
 	with (objMinigame1vs3_House_Cherry) {
-		if (network) {
-			if (y != ystart) {
-				return;
+		if (y < 608) {
+			if (network) {
+				if (y != ystart) {
+					return;
+				}
+			} else {
+				y = ystart;
 			}
-		} else {
-			y = ystart;
-		}
 		
-		vspeed = -8.5;
-		gravity = 0.3;
+			vspeed = -8.5;
+			gravity = 0.3;
+		}
 	}
 	
 	if (network) {
