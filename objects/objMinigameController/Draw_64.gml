@@ -1,17 +1,10 @@
 LIVE
 
-if (info.is_practice || (global.trial_info.reference != null && global.trial_info.current == 1)) {
+if (info.is_practice) {
 	draw_set_font(fntPopup);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	
-	if (global.trial_info.reference == null) {
-		var text = "Press       to exit practice";
-	} else {
-		var text = "Press       to restart trial";
-	}
-	
-	draw_text_color_outline(display_get_gui_width() / 2, display_get_gui_height() / 2, text, c_orange, c_orange, c_yellow, c_yellow, practice_alpha, c_black);
+	draw_text_color_outline(display_get_gui_width() / 2, display_get_gui_height() / 2, "Press       to exit practice", c_orange, c_orange, c_yellow, c_yellow, practice_alpha, c_black);
 	draw_sprite_ext(global.actions.misc.bind(), 0, display_get_gui_width() / 2 - 95, display_get_gui_height() / 2, 1, 1, 0, c_white, practice_alpha);
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);

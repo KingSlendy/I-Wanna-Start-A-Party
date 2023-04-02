@@ -356,3 +356,8 @@ controls_text.set(draw_action(global.actions.jump) + " Confirm");
 controls_text.draw(draw_x, draw_y + draw_h + 5);
 controls_text.set(draw_action(global.actions.shoot) + " Cancel");
 controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
+
+if (room == rTrials) {
+	controls_text.set(draw_action(global.actions.misc) + " Retry");
+	controls_text.draw(draw_x + 200, draw_y + draw_h + 5);
+}
