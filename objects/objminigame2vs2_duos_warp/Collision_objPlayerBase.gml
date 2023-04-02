@@ -29,9 +29,12 @@ with (player) {
 		if (other.target != null) {
 			array_push(state_presses[state][0], other.target.x);
 		} else {
-			teammate.state_presses[state][1] = state_presses[state][1];
+			teammate.state_presses[state][1] = other.x + 16;
+			teammate.state_presses[state][2] = true;
 		}
 	}
 	
-	state_presses[state][1] = null;
+	if (!state_presses[state][2]) {
+		state_presses[state][1] = null;
+	}
 }

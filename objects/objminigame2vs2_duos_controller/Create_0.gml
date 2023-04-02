@@ -20,8 +20,8 @@ minigame_players = function() {
 			false,
 			[get_frames(7), 0],
 			false,
-			[[], null],
-			[[], null],
+			[[], null, false],
+			[[], null, false],
 			[get_frames(0.25), false],
 			[false, get_frames(1)]
 		];
@@ -131,7 +131,7 @@ alarm_override(11, function() {
 					break;
 				
 				case 15: case 16: //We've arrived at the warp batches, choose a warp at random.
-					if (state_presses[state][1] == null) {
+					if (state_presses[state][1] == null && !state_presses[state][2]) {
 						var iter = (state == 15) ? 5 : 13;
 						var start_x = (state == 15) ? 1152 : 1472;
 						var choices = [];

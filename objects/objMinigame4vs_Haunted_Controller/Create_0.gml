@@ -69,7 +69,7 @@ alarm_override(11, function() {
 				make_move = true;
 				
 				if (add_delay && move_delay_timer <= 0) {
-					move_delay_timer = get_frames(random_range(0.2, 0.3));
+					move_delay_timer = get_frames(random_range(0.4, 0.5));
 					add_delay = false;
 					break;
 				}

@@ -15,7 +15,13 @@ if (room == rBoardHyrule) {
 	
 	if (global.board_dark_chance > random(1)) {
 		instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);
-		global.board_dark_chance = 0;
+		
+		if (!global.board_light) {
+			global.board_dark_chance = 0;
+		} else {
+			global.board_dark_chance = 0.2;
+		}
+		
 		exit;
 	}
 	

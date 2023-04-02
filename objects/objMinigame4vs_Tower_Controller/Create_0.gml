@@ -4,6 +4,7 @@ minigame_players = function() {
 	with (objPlayerBase) {
 		enable_jump = false;
 		enable_shoot = false;
+		lookahead = irandom_range(2, 3);
 	}
 }
 
@@ -126,7 +127,7 @@ alarm_override(11, function() {
 			var check_x = x;
 			var check_y = y;
 		
-			if (!collision_line(x, y, x, y - 32 * 4, all, false, true)) {
+			if (!collision_line(x, y, x, y - 16 * lookahead, all, false, true)) {
 				continue;
 			}
 		

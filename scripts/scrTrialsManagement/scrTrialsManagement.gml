@@ -233,6 +233,11 @@ function trial_start() {
 	room_goto(prove.reference.scene);
 }
 
+function trial_restart() {
+	global.trial_info.current = 0;
+	trial_start();
+}
+
 function trial_is_title(title) {
 	var info = global.trial_info;
 	

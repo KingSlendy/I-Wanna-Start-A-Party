@@ -101,7 +101,7 @@ alarm_override(11, function() {
 				} else if (sprite -- )
 			
 				if (action != null) {
-					action.hold(irandom_range(get_frames(0.1), get_frames(0.2)));
+					action.hold(irandom_range(get_frames(0.1), get_frames(0.45)));
 				} else {
 					if (dist > 64) {
 						var dir = point_direction(x, y, 400, y);

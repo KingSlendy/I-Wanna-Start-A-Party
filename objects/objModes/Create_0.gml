@@ -1,5 +1,7 @@
 global.game_started = true;
 global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
+minigame_info_reset();
+trial_info_reset();
 fade_alpha = 1;
 fade_start = true;
 state = -1;

@@ -31,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 0;
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Mirror], null, null];
+	//self.items = [global.board_items[ItemType.Reverse], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;

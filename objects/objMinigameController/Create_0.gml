@@ -79,6 +79,10 @@ function back_to_board() {
 	room_goto(info.previous_board);
 }
 
+function retry_trial() {
+	trial_restart();
+}
+
 alarms_init(12);
 
 alarm_create(function() {

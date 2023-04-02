@@ -1,6 +1,4 @@
 global.game_started = false;
-minigame_info_reset();
-trial_info_reset();
 fade_start = true;
 fade_alpha = 1;
 

@@ -100,7 +100,7 @@ global.trophies = [
 	new Trophy(23, TrophyRank.Silver, "Pattern Expert", "You found all pattern pairs first in Colorful Insanity.\nLosing stuff isn't a problem for you.", "Those finding skills would come in handy when I'm trying to find my keys between my mess."),
 	new Trophy(24, TrophyRank.Bronze, "Negative Coins", "You landed on a Red space when having 0 Coins.\nWhat does it feel to be at -3 Coins?", "I can't lose more, stop!!"),
 	new Trophy(25, TrophyRank.Gold, "Landing Red", "All of you landed on Red spaces.\nRed everywhere you see.", "Living all the red!"),
-	new Trophy(26, TrophyRank.Bronze, "Catch The Small", "You catched most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp", "It's just like playing osu!\nBut I go small."),
+	new Trophy(26, TrophyRank.Bronze, "Catch The Small", "You caught the most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp", "It's just like playing osu!\nBut I go small."),
 	new Trophy(27, TrophyRank.Silver, "Catch The Gordos", "You catched almost all or all the gordos in Catch The Fruits.\nIs spikes your thing or what?", "Meh fruits isn't the thing for me."),
 	new Trophy(28, TrophyRank.Bronze, "Cornered Maze", "You went to the opposite corner in A-Maze-Ing.\nWere you that lost?", "I'm so lost I'm on the other end!"),
 	new Trophy(29, TrophyRank.Bronze, "Lonely Spikes", "You died to the top spikes in Unstable Blocks.\nWait, why? It's literally not moving.\nYou did it on purpose I swear.", "Those are at the very top, that can't seriously happen."),

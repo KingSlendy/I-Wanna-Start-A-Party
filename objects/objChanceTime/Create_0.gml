@@ -246,18 +246,22 @@ function reposition_chance_time() {
 		}
 	}
 	
-	//Puts the chosen players in its respective positions
-	for (var i = 0; i < array_length(player_ids); i++) {
-		var player = focus_player_by_turn(player_ids[i] + 1);
-		player.image_xscale = 1;
+	try {
+		//Puts the chosen players in its respective positions
+		for (var i = 0; i < array_length(player_ids); i++) {
+			var player = focus_player_by_turn(player_ids[i] + 1);
+			player.image_xscale = 1;
 		
-		if (i == 0) {
-			player.x = current_follow.x - 48;
-		} else {
-			player.x = current_follow.x + 48;
+			if (i == 0) {
+				player.x = current_follow.x - 48;
+			} else {
+				player.x = current_follow.x + 48;
+			}
+		
+			player.y = current_follow.y;
 		}
-		
-		player.y = current_follow.y;
+	} catch (ex) {
+		log_error(ex);
 	}
 	
 	show_others = true;

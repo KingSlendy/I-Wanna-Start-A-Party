@@ -18,10 +18,16 @@ if (finished) {
 	}
 }
 
-practice_alpha = lerp(practice_alpha, 0.1, 0.01);
+practice_alpha = lerp(practice_alpha, (global.trial_info.reference == null) ? 0.1 : 0, (global.trial_info.reference == null) ? 0.02 : 0.04);
 
-if (info.is_practice && global.player_id == 1 && global.actions.misc.pressed()) {
-	back_to_overview();
+if ((info.is_practice || global.trial_info.reference != null) && global.player_id == 1 && global.actions.misc.pressed()) {
+	if (global.trial_info.reference == null) {
+		back_to_overview();
+	} else {
+		retry_trial();
+	}
+	
+	global.actions.misc.consume();
 	exit;
 }
 

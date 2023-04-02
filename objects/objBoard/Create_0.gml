@@ -163,8 +163,13 @@ alarm_create(11, function() {
 	var stale_frames = random_range(0.1, 0.3);
 
 	if (global.board_started && is_player_turn()) {
-		var player_info = player_info_by_turn();
-		var actions = check_player_actions_by_id(player_info.network_id);
+		try {
+			var player_info = player_info_by_turn();
+			var actions = check_player_actions_by_id(player_info.network_id);
+		} catch (ex) {
+			log_error(ex);
+			exit;
+		}
 
 		if (actions == null) {
 			exit;
@@ -310,7 +315,12 @@ alarm_create(11, function() {
 		perform_action(actions[$ keys[irandom(array_length(keys) - 1)]]);
 	} else if (!instance_exists(objDialogue)) {
 		for (var i = 2; i <= global.player_max; i++) {
-			var actions = check_player_actions_by_id(i);
+			try {
+				var actions = check_player_actions_by_id(i);
+			} catch (ex) {
+				log_error(ex);
+				continue;
+			}
 		
 			if (actions == null) {
 				continue;
