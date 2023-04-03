@@ -313,7 +313,8 @@ function save_config() {
 			saved_smooth_display: global.smooth_display,
 			
 			saved_controls_keyboard_and_mouse: input_profile_export("keyboard_and_mouse"),
-			saved_controls_gamepad: input_profile_export("gamepad")
+			saved_controls_gamepad: input_profile_export("gamepad"),
+			saved_controls_hotswap: global.controls_hotswap
 		}
 	};
 	
@@ -347,6 +348,12 @@ function load_config() {
 		input_profile_import(config.settings.saved_controls_keyboard_and_mouse, "keyboard_and_mouse");
 		input_profile_import(config.settings.saved_controls_gamepad, "gamepad");
 	} catch (_) {}
+	
+	try {
+		global.controls_hotswap = config.settings.saved_controls_hotswap;
+	} catch (_) {
+		global.controls_hotswap = true;
+	}
 	
 	return true;
 }

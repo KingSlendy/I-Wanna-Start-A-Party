@@ -19,7 +19,7 @@ if (room == rBoardHyrule) {
 		if (!global.board_light) {
 			global.board_dark_chance = 0;
 		} else {
-			global.board_dark_chance = 0.2;
+			global.board_dark_chance = 0.6;
 		}
 		
 		exit;

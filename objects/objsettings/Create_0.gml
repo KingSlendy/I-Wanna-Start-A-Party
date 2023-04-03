@@ -159,6 +159,20 @@ var defaults_check = function() {
 
 var defaults_draw = function() {}
 
+var hotswap_check = function() {
+	var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
+	
+	if (scroll != 0) {
+		global.controls_hotswap ^= true;
+		input_source_mode_set((global.controls_hotswap) ? INPUT_SOURCE_MODE.HOTSWAP : INPUT_SOURCE_MODE.FIXED);
+	}
+}
+
+var hotswap_draw = function(x, y) {
+	draw_set_color((global.controls_hotswap) ? c_lime : c_red);
+	draw_text_outline(x + 30, y, (global.controls_hotswap) ? "ON" : "OFF", c_black);
+}
+
 sections = [
 	new Section("VOLUME", [
 		new Option("MASTER", volume_check, volume_draw),
@@ -193,7 +207,10 @@ for (var i = 0; i < array_length(keys); i++) {
 	array_push(sections[2].options, new Option(string_upper(name), controls_check, controls_draw));
 }
 
-array_push(sections[2].options, new Option("RESET DEFAULTS", defaults_check, defaults_draw));
+array_push(sections[2].options,
+	new Option("RESET DEFAULTS", defaults_check, defaults_draw),
+	new Option("HOTSWAP", hotswap_check, hotswap_draw)
+);
 
 section_selected = 0;
 section_x = 0;
