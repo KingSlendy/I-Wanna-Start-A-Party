@@ -26,28 +26,32 @@ var save_x = menu_x - menu_sep;
 var save_y = 0;
 
 if (save_present && room == rParty) {
-	for (var i = 1; i <= global.player_max; i++) {
-		var player_info = focus_info_by_turn(i);
+	try {
+		for (var i = 1; i <= global.player_max; i++) {
+			var player_info = focus_info_by_turn(i);
 	
-		with (player_info) {
-			target_draw_x = save_x;
-			self.draw_x = save_x;
-			event_perform(ev_draw, ev_gui);
+			with (player_info) {
+				target_draw_x = save_x;
+				self.draw_x = save_x;
+				event_perform(ev_draw, ev_gui);
+			}
 		}
-	}
 	
-	draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
-	draw_set_font(fntPlayerInfo);
-	draw_text_outline(save_x + 290, save_y + 140, string("Turn: {0}/{1}", save_board_turn, save_max_turns), c_black);
-	draw_text_outline(save_x + 290, save_y + 170, string("Bonus: {0}", (save_give_bonus_shines) ? "ON" : "OFF"), c_black);
-	var text = new Text(fntDialogue);
+		draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
+		draw_set_font(fntPlayerInfo);
+		draw_text_outline(save_x + 290, save_y + 140, string("Turn: {0}/{1}", save_board_turn, save_max_turns), c_black);
+		draw_text_outline(save_x + 290, save_y + 170, string("Bonus: {0}", (save_give_bonus_shines) ? "ON" : "OFF"), c_black);
+		var text = new Text(fntDialogue);
 
-	for (var i = 0; i < 2; i++) {
-		var option_x = save_x + 290;
-		var option_y = save_y + 270 + 45 * i;
-		draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray, c_white,,, 1);
-		text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
-		text.draw(option_x + 15, option_y + 6); 
+		for (var i = 0; i < 2; i++) {
+			var option_x = save_x + 290;
+			var option_y = save_y + 270 + 45 * i;
+			draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray, c_white,,, 1);
+			text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
+			text.draw(option_x + 15, option_y + 6); 
+		}
+	} catch (ex) {
+		abort_party(ex);
 	}
 }
 

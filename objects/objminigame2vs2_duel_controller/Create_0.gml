@@ -61,6 +61,7 @@ alarm_create(4, function() {
 	player_shot_time = array_create(global.player_max, 0);
 	take_time = true;
 	show_mark = true;
+	music_pause();
 	audio_play_sound(sndMinigame2vs2_Duel_Mark, 0, false);
 	alarm_call(5, 3);
 	alarm_call(7, 3);
@@ -109,6 +110,7 @@ alarm_create(5, function() {
 		}
 	}
 
+	music_resume();
 	alarm_call(6, 1);
 	alarm_stop(10);
 });

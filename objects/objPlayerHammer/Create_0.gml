@@ -12,5 +12,6 @@ alarm_create(0, function() {
 });
 
 alarm_create(1, function() {
+	image_alpha = 1;
 	can_hit = true;
 });

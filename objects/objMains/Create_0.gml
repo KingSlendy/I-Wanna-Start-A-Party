@@ -147,13 +147,7 @@ if (save_present) {
 	
 		calculate_player_place();
 	} catch (ex) {
-		save_present = false;
-		menu_page = 0;
-		board_selected = 0;
-		board_target_selected = 0;
-		instance_destroy(objPlayerInfo);
-		show_message_async("An error occurred while trying to load the saved Party and it has been ignored.");
-		log_error(ex);
+		abort_party(ex);
 	}
 }
 
@@ -232,6 +226,16 @@ function start_board() {
 	fade_start = true;
 	music_fade();
 	audio_play_sound(sndBoardEnter, 0, false);
+}
+
+function abort_party(ex) {
+	save_present = false;
+	menu_page = 0;
+	board_selected = 0;
+	board_target_selected = 0;
+	instance_destroy(objPlayerInfo);
+	show_message_async("An error occurred while trying to load the saved Party and it has been ignored.");
+	log_error(ex);
 }
 
 action_delay = 0;

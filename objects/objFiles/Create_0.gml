@@ -1,4 +1,5 @@
 global.game_started = false;
+player_leave_all();
 fade_start = true;
 fade_alpha = 1;
 

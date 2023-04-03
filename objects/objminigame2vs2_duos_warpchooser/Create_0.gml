@@ -1,5 +1,6 @@
 var warps = ds_list_create();
 instance_place_list(x, y, objMinigame2vs2_Duos_Warp, warps, false);
+next_seed_inline();
 ds_list_shuffle(warps);
 
 while (ds_list_size(warps) > 1) {
