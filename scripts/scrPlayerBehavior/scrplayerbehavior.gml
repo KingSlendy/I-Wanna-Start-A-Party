@@ -24,7 +24,7 @@ function player_jump() {
 			if (room == rMinigame1vs3_Hunt && network_id == global.player_id) {
 				objMinigameController.trophy_jump = false;
 			}
-		} else if (jump_left > 0 || jump_total == -1) {
+		} else if (jump_left > 0 || jump_total == -1 || place_meeting(x, y, objMinigame4vs_Bullets_Bullet)) {
 			vspd = -(jump_height[1] * orientation);
 			sprite_index = skin[$ "Jump"];
 		

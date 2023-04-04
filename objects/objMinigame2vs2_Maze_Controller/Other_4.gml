@@ -101,10 +101,18 @@ with (objPlayerBase) {
 objCameraSplit4.boundaries = true;
 
 if (trial_is_title(CHALLENGE_MEDLEY)) {
+	with (objPlayerBase) {
+		if (network_id != global.player_id) {
+			y = -64;
+		}
+	}
+	
 	with (objMinigame2vs2_Maze_Item) {
+		image_blend = c_red;
+		
 		do {
 			x = 32 * irandom(room_width / 32);
 			y = 32 * irandom(room_height / 32);
-		} until (!place_meeting(x, y, objBlock) && !place_meeting(x, y, objPlayerBase) && distance_to_object(objPlayerBase) >= 192)
+		} until (!place_meeting(x, y, objBlock) && !place_meeting(x, y, objPlayerBase) && distance_to_object(objPlayerBase) >= 192);
 	}
 }

@@ -75,7 +75,7 @@ alarm_create(5, function() {
 		vspeed: 6
 	});
 	
-	alarm_frames(5, 15);
+	alarm_frames(5, 16);
 });
 
 alarm_override(11, function() {

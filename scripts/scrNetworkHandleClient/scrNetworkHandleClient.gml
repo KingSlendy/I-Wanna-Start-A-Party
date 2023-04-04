@@ -986,32 +986,6 @@ f[$ ClientTCP.Minigame4vs_Targets_DestroyTarget] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame4vs_Bullets_Stop] = function(buffer) {
-	var stop_index = buffer_read(buffer, buffer_u8);
-	var stop_scale = buffer_read(buffer, buffer_u8);
-		
-	with (objMinigame4vs_Bullets_Block) {
-		image_index = stop_index;
-		scale = stop_scale;
-		stop(false);
-	}
-}
-
-f[$ ClientTCP.Minigame4vs_Bullets_Points] = function(buffer) {
-	var player_id = buffer_read(buffer, buffer_u8);
-	var points = buffer_read(buffer, buffer_s8);
-	
-	if (points == -1 && minigame4vs_get_points(player_id) == 0) {
-		return;
-	}
-	
-	minigame4vs_points(player_id, points);
-	
-	if (minigame4vs_get_points(player_id) < 0) {
-		minigame4vs_set_points(player_id, 0)
-	}
-}
-
 f[$ ClientTCP.Minigame4vs_Drawn_CollectKey] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
 	var key_x = buffer_read(buffer, buffer_s32);

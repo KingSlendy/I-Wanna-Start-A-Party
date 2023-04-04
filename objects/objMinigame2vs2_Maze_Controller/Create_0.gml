@@ -25,6 +25,10 @@ alarm_override(1, function() {
 });
 
 alarm_override(11, function() {
+	if (trial_is_title(CHALLENGE_MEDLEY)) {
+		return;
+	}
+	
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 
@@ -33,11 +37,6 @@ alarm_override(11, function() {
 		}
 		
 		var player = focus_player_by_id(i);
-		
-		if (trial_is_title(CHALLENGE_MEDLEY) && player.teammate.network_id != 1) {
-			continue;
-		}
-		
 		var player_info = player_info_by_id(i);
 		
 		with (player) {

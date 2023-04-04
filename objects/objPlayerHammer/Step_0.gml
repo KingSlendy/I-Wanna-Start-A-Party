@@ -8,7 +8,7 @@ hspd = h * max_spd;
 vspd = v * max_spd;
 
 if (index == 0 && can_hit && global.actions.shoot.pressed(network_id)) {
-	image_alpha = 0.75;
+	image_alpha = 0.5;
 	index = 1;
 	can_hit = false;
 	audio_play_sound(sndMinigame2vs2_Idol_Hit, 0, false);

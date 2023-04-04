@@ -1,12 +1,9 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objMinigame4vs_Bullets_Block",
+  "name": "objMinigame4vs_Bullets_Cherry",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":12,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -15,8 +12,8 @@
     "path": "folders/Objects/Minigames/4vs/Bullets.yy",
   },
   "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
+    "name": "objPlayerKiller",
+    "path": "objects/objPlayerKiller/objPlayerKiller.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -34,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprMinigame4vs_Bullets_Block",
-    "path": "sprites/sprMinigame4vs_Bullets_Block/sprMinigame4vs_Bullets_Block.yy",
+    "name": "sprMinigame4vs_Bullets_Cherry",
+    "path": "sprites/sprMinigame4vs_Bullets_Cherry/sprMinigame4vs_Bullets_Cherry.yy",
   },
   "spriteMaskId": null,
   "visible": true,

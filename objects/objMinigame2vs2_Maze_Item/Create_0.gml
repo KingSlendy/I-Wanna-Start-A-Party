@@ -1,4 +1,9 @@
 if (trial_is_title(CHALLENGE_MEDLEY)) {
+	if (instance_number(object_index) > 2) {
+		instance_destroy();
+		exit;
+	}
+	
 	visible = false;
 }
 
@@ -17,5 +22,10 @@ function collect_item(player) {
 		buffer_write_data(buffer_s16, x);
 		buffer_write_data(buffer_s16, y);
 		network_send_tcp_packet();
+	}
+	
+	if (trial_is_title(CHALLENGE_MEDLEY)) {
+		minigame4vs_points(player.network_id);
+		minigame_finish();
 	}
 }

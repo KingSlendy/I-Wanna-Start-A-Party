@@ -54,7 +54,7 @@ alarm_create(5, function() {
 	c.hspeed = random_range(-2, 2);
 	c.team = false;
 	
-	alarm_call(5, 0.165);
+	alarm_call(5, 0.155);
 });
 
 alarm_override(11, function() {

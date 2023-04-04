@@ -9,6 +9,8 @@ angle = 0;
 stealed = false;
 
 steal_min = min(irandom_range(7, 11), player_info_by_id(player2.network_id).coins);
+steal_xoff = 0;
+steal_yoff = 0;
 
 part_system = part_system_create();
 part_system_depth(part_system, -10000);
@@ -88,6 +90,8 @@ alarm_create(function() {
 
 alarm_create(function() {
 	steal_count = ceil(steal_count);
+	steal_xoff = 0;
+	steal_yoff = 0;
 	state = -2;
 
 	switch (additional) {

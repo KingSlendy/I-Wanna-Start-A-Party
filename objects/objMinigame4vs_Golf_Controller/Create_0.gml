@@ -66,7 +66,11 @@ function give_points(player_id, points, network = true) {
 		achieve_trophy(62);
 	}
 	
-	if (trial_is_title(PERFECT_AIM) && points == 100) {
+	if (trial_is_title(PERFECT_AIM)) {
+		if (points < 99) {
+			minigame4vs_set_points(player_id, 0);
+		}
+		
 		minigame_finish();
 		return;
 	}

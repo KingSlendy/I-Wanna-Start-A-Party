@@ -2,8 +2,10 @@ event_inherited();
 
 minigame_players = function() {
 	with (objPlayerBase) {
-		jump_total = 1;
-		advance = true;
+		grav_amount = 0;
+		enable_shoot = false;
+		bullet_inside = null;
+		bullet_change = get_frames(irandom_range(3, 8));
 	}
 }
 
@@ -15,63 +17,30 @@ minigame_time_end = function() {
 	}
 }
 
-points_draw = true;
-player_type = objPlayerBasic;
-player_turn = 0;
-current_round = 0;
-twice = false;
+player_type = objPlayerPlatformer;
 
 next_seed_inline();
-bullet_indexes = [];
-bullet_current = 0;
-
-repeat (500) {
-	array_push(bullet_indexes, choose(0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 3));
-}
-
-function next_player() {
-	if (info.is_finished) {
-		return;
-	}
-	
-	for (var i = 1; i <= global.player_max; i++) {
-		if (minigame4vs_get_points(i) >= 4) {
-			minigame_finish();
-			return;
-		}
-	}
-	
-	twice = true;
-	
-	if (++player_turn > global.player_max) {
-		player_turn = 1;
-	}
-	
-	minigame_time = 15;
-	alarm_call(10, 1);
-	
-	var player = focus_player_by_turn(player_turn);
-	
-	if (!is_player_local(player.network_id)) {
-		return;
-	}
-	
-	player.hspd = -player.max_hspd;
-	player.advance = true;
-}
-
-function bullets_move() {
-	with (objMinigame4vs_Bullets_Bullet) {
-		target_x = x - sprite_width;
-	}
-}
+bullet_index = 0;
+bullet_max = 2;
 
 alarm_override(1, function() {
-	next_player();
+	alarm_inherited(1);
+	objPlayerBase.grav_amount = 0.4;
+	objMinigame4vs_Bullets_Bullet.hspeed = -2;
+	alarm_call(5, 10);
 });
 
-alarm_create(4, function() {
-	bullets_move();
+alarm_create(5, function() {
+	next_seed_inline();
+	
+	repeat (2) { 
+		instance_create_layer(400, 420, "Actors", objMinigame4vs_Bullets_Cherry, {
+			direction: irandom(359),
+			speed: irandom_range(2, 3)
+		});
+	}
+	
+	alarm_call(5, 5);
 });
 
 alarm_override(11, function() {
@@ -82,8 +51,56 @@ alarm_override(11, function() {
 			continue;
 		}
 
-		if (0.3 > random(1)) {
-			actions.jump.press();
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (bullet_inside == null) {
+				bullet_inside = instance_place(x, y + 32, objMinigame4vs_Bullets_Bullet);
+			}
+			
+			if (x < 650) {
+				bullet_change--;
+			}
+			
+			if (vspd > 0 && place_meeting(x, y - 7, objMinigame4vs_Bullets_Bullet)) {
+				actions.jump.hold(irandom_range(10, 20));
+				
+				if (bullet_change <= 0 || x < 200) {
+					bullet_change = get_frames(irandom_range(0.5, 3));
+					
+					with (bullet_inside) {
+						for (var i = 1; i <= 3; i++) {
+							var next_bullet = collision_point(x + sprite_width * i, y, objMinigame4vs_Bullets_Bullet, true, true);
+							
+							if (next_bullet != noone && next_bullet.image_index == 0) {
+								other.bullet_inside = next_bullet;
+								break;
+							}
+						}				
+					}
+				}
+			}
+			
+			var dist = point_distance(x, y, bullet_inside.x, y);
+			var dir = point_direction(x, y, bullet_inside.x, y);
+			
+			if (dist > 6) {
+				var action = (dir == 0) ? actions.right : actions.left;
+				action.hold(irandom_range(2, 5));
+			}
+			
+			with (objMinigame4vs_Bullets_Bullet) {
+				if (image_index == 0) {
+					instance_deactivate_object(id);
+				}
+			}
+			
+			if (collision_rectangle(bbox_left, y, bbox_right, y + 32, objMinigame4vs_Bullets_Bullet, true, true) != noone) {
+				actions.jump.release(true);
+				actions.jump.hold(irandom_range(10, 20));
+			}
+			
+			instance_activate_object(objMinigame4vs_Bullets_Bullet);
 		}
 	}
 

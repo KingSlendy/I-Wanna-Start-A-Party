@@ -69,7 +69,7 @@ alarm_create(11, function() {
 			if (point_distance(x, y, idol_hole.x + 64, idol_hole.y - 15) <= max_spd) {
 				if (idol_hole.portion == idol_hole.height) {
 					actions.shoot.press();
-					idol_delay = irandom_range(5, 8);
+					idol_delay = irandom_range(10, 18);
 				}
 				
 				idol_hole = null;

@@ -171,7 +171,7 @@ alarm_override(11, function() {
 			continue;
 		}
 	
-		if (current < array_length(sequence) && irandom(max(24 - array_length(sequence), 1)) != 0) {
+		if (current < array_length(sequence) && irandom(max(22 - array_length(sequence), 1)) != 0) {
 			actions[$ sequence_actions[sequence[current]]].press();
 		} else {
 			actions[$ sequence_actions[irandom(array_length(sequence_actions) - 1)]].press();
