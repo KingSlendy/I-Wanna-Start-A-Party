@@ -281,7 +281,20 @@ alarm_create(11, function() {
 		}
 		
 		if (instance_exists(objBlackhole)) {
-			if (player_info_by_turn().coins >= global.max_blackhole_coins) {
+			var others_have_shines = false;
+			
+			for (var i = 1; i <= global.player_max; i++) {
+				if (i == focused_player().network_id) {
+					continue;
+				}
+				
+				if (player_info_by_id(i).shines > 0) {
+					others_have_shines = true;
+					break;
+				}
+			}
+			
+			if (player_info_by_turn().coins >= global.max_blackhole_coins && others_have_shines) {
 				if (objBlackhole.option_selected != 1) {
 					perform_action(actions.down);
 				}

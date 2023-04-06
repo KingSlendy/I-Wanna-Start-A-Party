@@ -1,6 +1,8 @@
 depth = layer_get_depth("Tiles_Back_Black") + 1;
 
 function change_index() {
+	next_seed_inline();
+	
 	with (objMinigameController) {
 		other.image_index = (bullet_index != 0);
 

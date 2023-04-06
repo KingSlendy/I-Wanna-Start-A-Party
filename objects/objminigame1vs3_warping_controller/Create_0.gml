@@ -11,7 +11,7 @@ minigame_players = function() {
 	}
 }
 
-minigame_time = 50;
+minigame_time = (!trial_is_title(CHALLENGE_MEDLEY)) ? 50 : 60;
 action_end = function() {
 	if (minigame1vs3_solo().lost) {
 		minigame4vs_points(minigame1vs3_solo().network_id);

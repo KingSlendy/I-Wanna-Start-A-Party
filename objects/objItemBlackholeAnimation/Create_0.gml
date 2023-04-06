@@ -52,7 +52,11 @@ alarm_create(function() {
 	turn_previous = global.player_turn;
 	global.player_turn = global.choice_selected + 1;
 	player_info = player_info_by_turn();
-	steal_count = clamp(player_info.coins, 0, 20);
+	
+	switch (additional) {
+		case 0: steal_count = clamp(player_info.coins, 0, 20); break;
+		case 1: steal_count = 1; break;
+	}
 
 	switch_camera_target(current_player.x, current_player.y).final_action = function() {
 		if (is_local_turn()) {
@@ -108,10 +112,10 @@ alarm_create(function() {
 		
 		case 1:
 			if (!stealed) {
-				var s = change_shines(sign(steal_count * -1), ShineChangeType.Lose, global.choice_selected + 1);
+				var s = change_shines(steal_count * -1, ShineChangeType.Lose, global.choice_selected + 1);
 				bonus_shine_by_id(BonusShines.MostSteals).increase_score(global.player_turn, 20);
 			} else {
-				var s = change_shines(sign(steal_count * -1), ShineChangeType.Spawn);
+				var s = change_shines(steal_count * -1, ShineChangeType.Spawn);
 			}
 		
 			s.final_action = end_blackhole_steal;

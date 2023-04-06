@@ -361,6 +361,7 @@ function load_config() {
 function apply_config() {
 	apply_volume();
 	apply_display();
+	apply_hotswap();
 }
 
 function apply_volume() {
@@ -377,4 +378,8 @@ function apply_display() {
 	}
 
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
+}
+
+function apply_hotswap() {
+	input_source_mode_set((global.controls_hotswap) ? INPUT_SOURCE_MODE.HOTSWAP : INPUT_SOURCE_MODE.FIXED);
 }

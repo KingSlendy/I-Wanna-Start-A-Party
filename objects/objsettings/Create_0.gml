@@ -164,7 +164,7 @@ var hotswap_check = function() {
 	
 	if (scroll != 0) {
 		global.controls_hotswap ^= true;
-		input_source_mode_set((global.controls_hotswap) ? INPUT_SOURCE_MODE.HOTSWAP : INPUT_SOURCE_MODE.FIXED);
+		apply_hotswap();
 	}
 }
 

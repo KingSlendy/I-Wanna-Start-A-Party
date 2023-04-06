@@ -27,7 +27,7 @@ alarm_override(1, function() {
 	alarm_inherited(1);
 	objPlayerBase.grav_amount = 0.4;
 	objMinigame4vs_Bullets_Bullet.hspeed = -2;
-	alarm_call(5, 10);
+	alarm_call(5, 8);
 });
 
 alarm_create(5, function() {

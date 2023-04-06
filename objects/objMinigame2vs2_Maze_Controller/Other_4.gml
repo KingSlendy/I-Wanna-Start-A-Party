@@ -108,7 +108,7 @@ if (trial_is_title(CHALLENGE_MEDLEY)) {
 	}
 	
 	with (objMinigame2vs2_Maze_Item) {
-		image_blend = c_red;
+		image_blend = c_blue;
 		
 		do {
 			x = 32 * irandom(room_width / 32);
