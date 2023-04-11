@@ -8,7 +8,7 @@ function sledge_jump(network = true) {
 	}
 			
 	vspeed = -6;
-	gravity = 0.3;
+	gravity = 0.4;
 	
 	if (network) {
 		buffer_seek_begin();

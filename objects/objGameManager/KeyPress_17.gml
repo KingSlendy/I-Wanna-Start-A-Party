@@ -15,3 +15,5 @@
 //global.ellapsed_time = 48 * 3600;
 
 //save_file();
+
+//achieve_trophy(76);

@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "bgmboardpallet.ogg",
+  "soundFile": "bgmBoardPallet.ogg",
   "type": 0,
   "volume": 1.0,
 }

@@ -12,17 +12,17 @@ if (keyboard_check_pressed(vk_f4)) {
 	save_config();
 }
 
-if (keyboard_check_pressed(vk_escape)) {
-	if (room == rTitle) {
-		game_end();
-	} else {
-		network_disable();
-		paused = false;
-		audio_stop_all();
-		room_goto(rTitle);
-		exit;
-	}
-}
+//if (keyboard_check_pressed(vk_escape)) {
+//	if (room == rTitle) {
+//		game_end();
+//	} else {
+//		network_disable();
+//		paused = false;
+//		audio_stop_all();
+//		room_goto(rTitle);
+//		exit;
+//	}
+//}
 
 var bgm_volume = global.bgm_volume;
 

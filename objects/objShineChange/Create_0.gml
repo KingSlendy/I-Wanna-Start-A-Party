@@ -29,8 +29,12 @@ alarm_create(function() {
 		}
 	}
 
-	spawned_shine.floating = false;
-	spawned_shine.getting = true;
+	with (spawned_shine) {
+		floating = false;
+		spawning = false;
+		getting = true;
+	}
+
 	spawned_shine = noone;
 	
 	var pitch = (room != rBoardHyrule || global.board_light) ? 1 : 0.75;

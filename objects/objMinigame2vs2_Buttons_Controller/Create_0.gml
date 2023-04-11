@@ -15,10 +15,25 @@ points_draw = (!trial_is_title(CHALLENGE_MEDLEY));
 player_type = objPlayerPlatformer;
 buttons_outside_list = [];
 buttons_inside_list = [];
+var button_outside_current = -1;
+var button_inside_current = -1;
+var button_outside_previous = -1;
+var button_inside_previous = -1;
 
 repeat (50) {
-	array_push(buttons_outside_list, irandom(5));
-	array_push(buttons_inside_list, irandom(5));
+	do {
+		button_outside_current = irandom(5);
+	} until (button_outside_current != button_outside_previous);
+	
+	array_push(buttons_outside_list, button_outside_current);
+	button_outside_previous = button_outside_current;
+	
+	do {
+		button_inside_current = irandom(5);
+	} until (button_inside_current != button_inside_previous);
+	
+	array_push(buttons_inside_list, button_inside_current);
+	button_inside_previous = button_inside_current;
 }
 
 buttons_outside_current = 0;

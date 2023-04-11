@@ -7,8 +7,6 @@ with (other) {
 		if (vspd > 2) {
 			vspd = 2;
 		}
-		
-		reset_jumps();
 	} else {
 		player_kill();	
 	}

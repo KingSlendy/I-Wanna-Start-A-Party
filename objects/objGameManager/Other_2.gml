@@ -27,7 +27,7 @@ file_text_write_string(file, "ping 127.0.0.1 -n 6 > nul");
 file_text_writeln(file);
 
 for (var i = 0; i < array_length(files); i++) {
-	file_text_write_string(file, string("xcopy \"{0}{2}\" \"{1}{3}\" /Y /F", game_save_id, program_directory, files[i], files[i]));
+	file_text_write_string(file, string("robocopy \"{0}\" \"{1}\" \"{2}\"", string_copy(game_save_id, 1, string_length(game_save_id) - 1), string_copy(program_directory, 1, string_length(program_directory) - 1), files[i]));
 	file_text_writeln(file);
 	file_text_write_string(file, string("del \"{0}{1}\"", game_save_id, files[i]));
 	file_text_writeln(file);

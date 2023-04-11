@@ -64,7 +64,7 @@ alarm_override(11, function() {
 				
 				case 2: case 5: case 9: case 11: //Start shooting switch.
 					if (!state_presses[2][0]) {
-						actions.right.hold(get_frames(0.1));
+						actions.right.hold(5);
 						state_presses[2][0] = true;
 					}
 				
@@ -74,13 +74,13 @@ alarm_override(11, function() {
 			
 					if (--state_presses[2][1] <= 0) {
 						actions.shoot.press();
-						state_presses[2][1] = get_frames(random_range(0.1, 0.15));
+						state_presses[2][1] = irandom_range(5, 8);
 					}
 					break;
 				
 				case 3: case 6: //Get out of switch, continue.
 					if (!state_presses[state]) {
-						actions.left.hold(get_frames(0.3));
+						actions.left.hold(15);
 						state_presses[state] = true;
 					}
 				
@@ -91,7 +91,7 @@ alarm_override(11, function() {
 				
 				case 4:
 					if (!state_presses[state][0]) {
-						actions.right.hold(get_frames(1))
+						actions.right.hold(50);
 						state_presses[state][0] = true;
 					}
 				
@@ -105,11 +105,11 @@ alarm_override(11, function() {
 				case 7: case 8: case 12: case 14: //Jump out of switch hole.
 					if (!state_presses[state]) {
 						if (state == 7) {
-							actions.right.hold(get_frames(0.75));
+							actions.right.hold(37);
 						} else if (state == 8) {
-							actions.right.hold(get_frames(0.35));
+							actions.right.hold(17);
 						} else {
-							actions.right.hold(get_frames(1.3));
+							actions.right.hold(65);
 						}
 					
 						actions.jump.hold(20);
@@ -119,11 +119,11 @@ alarm_override(11, function() {
 				
 				case 10: case 13: //Jump to platform.
 					if (--state_presses[state][0] <= 0) {
-						actions.right.hold(get_frames(0.5));
+						actions.right.hold(25);
 					
 						if (state_presses[state][1] < 5) {
 							actions.jump.hold(10);
-							state_presses[state][0] = get_frames((state_presses[state][1] != 2) ? 0.35 : 0.22);
+							state_presses[state][0] = (state_presses[state][1] != 2) ? 17 : 11;
 						}
 					
 						state_presses[state][1]++;
@@ -164,7 +164,7 @@ alarm_override(11, function() {
 					break;
 				
 				case 17:
-					actions.right.hold(get_frames(2));
+					actions.right.hold(100);
 				
 					if (!state_presses[state][1] && --state_presses[state][0] <= 0) {
 						actions.jump.hold(20);
@@ -180,7 +180,7 @@ alarm_override(11, function() {
 			
 					if (--state_presses[state][1] <= 0) {
 						actions.jump.hold(8);
-						state_presses[state][1] = get_frames(random_range(0.75, 0.9));
+						state_presses[state][1] = irandom_range(37, 45);
 					}
 					break;
 			}

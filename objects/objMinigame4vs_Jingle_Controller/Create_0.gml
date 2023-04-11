@@ -147,7 +147,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			var obstacle = instance_place(x + 160, y, objMinigame4vs_Jingle_Spike);
+			var obstacle = instance_place(x + 100, y, objMinigame4vs_Jingle_Spike);
 			
 			if (obstacle != noone) {
 				if (obstacle.object_index == objMinigame4vs_Jingle_Spike) {

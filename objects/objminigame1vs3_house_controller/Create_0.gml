@@ -22,7 +22,7 @@ house_start = false;
 function cherry_move(move, network = true) {
 	with (objMinigame1vs3_House_Cherry) {
 		if (y < 608) {
-			x += move * 3;
+			x += move * 4;
 		}
 	}
 	

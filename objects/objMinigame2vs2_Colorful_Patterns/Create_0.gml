@@ -59,8 +59,6 @@ function pattern_grid_start() {
 }
 
 function pattern_choose(chosen = null) {
-	var pattern;
-	
 	while (true) {
 		var pattern = new Pattern({
 			image: irandom(sprite_get_number(sprMinigame2vs2_Colorful_PatternA) - 1),
@@ -77,10 +75,6 @@ function pattern_choose(chosen = null) {
 		for (var r = 0; r < pattern_rows; r++) {
 			for (var c = 0; c < pattern_cols; c++) {
 				var check_pattern = pattern_grid[r][c];
-				
-				if (check_pattern == null) {
-					return pattern;
-				}
 				
 				if (check_pattern != null && (pattern.equals(check_pattern) || pattern.equals(chosen))) {
 					break_loop = true;

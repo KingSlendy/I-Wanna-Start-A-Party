@@ -31,6 +31,10 @@ function player_jump() {
 			if (jump_left > 0) {
 				jump_left--;
 			}
+			
+			if (place_meeting(x, y, objMinigame4vs_Bullets_Bullet)) {
+				reset_jumps();
+			}
 		
 			audio_play_sound(sndDoubleJump, 0, false);
 			

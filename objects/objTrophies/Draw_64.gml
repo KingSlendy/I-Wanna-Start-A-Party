@@ -19,9 +19,9 @@ for (var i = -2; i <= 2; i++) {
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_outline(box_x + draw_w / 2 - 10, 30, (achieved_trophy(location)) ? trophy.name : "??????", c_black);
+	draw_text_outline(box_x + draw_w / 2 - 10, 30, (achieved_trophy(trophy.image - 1)) ? trophy.name : "??????", c_black);
 	draw_set_font(fntTrophiesDesc);
-	draw_set_color((achieved_trophy(location)) ? c_white : c_ltgray)
+	draw_set_color((achieved_trophy(trophy.image - 1)) ? c_white : c_ltgray)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_sprite_stretched(sprFangameMark, 1, box_x + 10, 60, box_x + draw_w - 30, 130);

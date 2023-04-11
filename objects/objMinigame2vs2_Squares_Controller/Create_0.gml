@@ -112,7 +112,7 @@ alarm_override(11, function() {
 			}
 
 			var action = (sign(angle_diff) == 1) ? actions.right : actions.left;
-			action.hold(irandom_range(1, 10));
+			action.hold(irandom_range(2, 14));
 		}
 	}
 

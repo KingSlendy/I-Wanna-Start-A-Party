@@ -8,7 +8,7 @@ for (var i = -2; i <= 2; i++) {
 	var sy = 520;
 	var location = (trophy_selected + array_length(global.trophies) + i) % array_length(global.trophies);
 	var trophy = global.trophies[location];
-	draw_trophy(sx, sy, trophy, location);
+	draw_trophy(sx, sy, trophy);
 	var price = 0;
 	
 	switch (trophy.state()) {

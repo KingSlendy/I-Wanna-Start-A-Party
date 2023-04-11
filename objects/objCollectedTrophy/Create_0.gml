@@ -22,7 +22,7 @@ alarm_create(function() {
 	draw_text_outline(w / 2, h - 40, string(trophy + 1), c_black);
 	draw_set_halign(fa_left);
 	//gpu_set_blendmode(bm_normal);
-	draw_trophy(w / 2, h, global.trophies[trophy], trophy);
+	draw_trophy(w / 2, h, get_trophy(trophy));
 	surface_reset_target();
 	sprite = sprite_create_from_surface(surf, 0, 0, w, h, false, false, w / 2, h / 2);
 	surface_free(surf);

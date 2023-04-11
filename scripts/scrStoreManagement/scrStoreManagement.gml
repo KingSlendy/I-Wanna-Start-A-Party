@@ -134,7 +134,7 @@ function skin_init() {
 		new Skin("Solgryn", "Solgryn", "I Wanna Be The Boshy", 60, "Solgryn", 300),
 		new Skin("Chair", "The Chair", "I Wanna Be The Chair 2", 67, "Stonk", 300),
 		new Skin("Icy", "Icy Kid", "Icy Needle", 68, "Kogami Takara", 400),
-		new Skin("Maaya", "Maaya", "I Wanna Fine-House", 69, "anxKha", 700),
+		new Skin("Maaya", "Maaya", "I Wanna Be The Scenario", 69, "azure", 700),
 		new Skin("Apple", "Apple", "I Wanna Be The Crimson Kids", 71, "Ice saeki", 500),
 		new Skin("Yaoguo", "Yaoguo", "I Wanna Be The Crimson Kids", 71, "Ice saeki", 500),
 		new Skin("Ermeng", "Ermeng", "I Wanna Be The Crimson Kids", 71, "Ice saeki", 500),
