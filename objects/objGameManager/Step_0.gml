@@ -24,6 +24,11 @@ if (keyboard_check_pressed(vk_f4)) {
 //	}
 //}
 
+if (keyboard_check_pressed(vk_escape) && room == rVersion) {
+	room_goto(rTitle);
+	exit;
+}
+
 var bgm_volume = global.bgm_volume;
 
 if (paused) {

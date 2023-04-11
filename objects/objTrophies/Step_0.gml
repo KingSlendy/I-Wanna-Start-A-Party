@@ -53,8 +53,9 @@ if (!fade_start && trophy_selected == trophy_target_selected) {
 		exit;
 	}
 	
-	if (!achieved_trophy(trophy_selected) && !spoilered_trophy(trophy_selected) && global.actions.jump.pressed()) {
-		var trophy = global.trophies[trophy_selected];
+	var trophy = global.trophies[trophy_selected];
+	
+	if (!achieved_trophy(trophy.image - 1) && !spoilered_trophy(trophy.image - 1) && global.actions.jump.pressed()) {
 		var price = 0;
 		
 		if (trophy.state() == TrophyState.Unknown) {
@@ -65,9 +66,9 @@ if (!fade_start && trophy_selected == trophy_target_selected) {
 		
 		if (global.collected_coins >= price) {
 			if (trophy.state() == TrophyState.Unknown) {
-				hint_trophy(trophy_selected);
+				hint_trophy(trophy.image - 1);
 			} else {
-				spoiler_trophy(trophy_selected);
+				spoiler_trophy(trophy.image - 1);
 			}
 			
 			change_collected_coins(-price);
