@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.shines = 0;
+	//self.shines = irandom(1);
 	//self.coins = 100;
 	//self.items = [global.board_items[ItemType.Blackhole], null, null];
 	self.score = 0;
@@ -1563,24 +1563,32 @@ function board_world_ghost_texts() {
 	
 	global.player_turn = global.player_ghost_turn;
 	
-	if (is_player_turn()) {
-		texts = [
-			new Message("Oh no! You reached the Ghost and now it's gonna take a Shine away from you!",, board_world_ghost_shines)
-		];
+	if (player_info_by_id(global.player_ghost_shines[0]).shines > 0) {
+		if (is_player_turn()) {
+			var text = "Oh no! You reached the Ghost and now it's gonna take a Shine away from you!";
+		} else {
+			var text = "Oh no! The Ghost reached you {COLOR,0000FF}" + focus_player_by_turn(global.player_ghost_previous).network_name + "{COLOR,FFFFFF} and now it's gonna take a Shine away from you!";
+		}
 	} else {
-		texts = [
-			new Message("Oh no! The Ghost reached you {COLOR,0000FF}"+ focus_player_by_turn(global.player_ghost_previous).network_name +"{COLOR,FFFFFF} and now it's gonna take a Shine away from you!",, board_world_ghost_shines)
-		];
+		if (is_player_turn()) {
+			var text = "Oh no! You reached the Ghost, but you don't have a Shine so you're safe!";
+		} else {
+			var text = "Oh no! The Ghost reached you {COLOR,0000FF}" + focus_player_by_turn(global.player_ghost_previous).network_name + "{COLOR,FFFFFF}, but you don't have a Shine so you're safe!";
+		}
 	}
 	
 	global.player_turn = global.player_ghost_previous;
-	start_dialogue(texts);
+	start_dialogue([new Message(text,, board_world_ghost_shines)]);
 }
 
 function board_world_ghost_shines(network = true) {
 	with (focus_player_by_turn(global.player_max + 1)) {
-		sprite_index = event_sprite;
-		image_index = 0;
+		if (player_info_by_id(global.player_ghost_shines[0]).shines > 0) {
+			sprite_index = event_sprite;
+			image_index = 0;
+		} else {
+			alarm_call(0, 0.5);
+		}
 	}
 	
 	if (network && is_local_turn()) {

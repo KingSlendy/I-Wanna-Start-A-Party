@@ -1,5 +1,6 @@
 global.game_started = true;
 global.game_id = (!IS_ONLINE) ? "Offline" : "Online";
+disable_board();
 minigame_info_reset();
 trial_info_reset();
 fade_alpha = 1;
@@ -75,15 +76,11 @@ with (objPlayerBase) {
 	change_to_object(objPlayerBase);
 }
 
-instance_destroy(objPlayerInfo);
-
 var check = array_get_index(global.all_ai_actions, null);
 	
 if (check != -1) {
 	array_delete(global.all_ai_actions, check, 1);
 }
-
-minigame_info_reset();
 
 controls_text = new Text(fntControls);
 action_delay = 0;

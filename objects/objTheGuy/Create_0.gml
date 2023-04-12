@@ -69,6 +69,7 @@ reset_seed_inline();
 desync_seed_offline();
 options_chosen = irandom(options_total - 1);
 global.choice_selected = irandom(options_total - 1);
+options_reroll = (irandom(6) == 0);
 revolution = false;
 options = [
 	new TheGuyOption(true, 10,,),
@@ -266,7 +267,12 @@ alarm_create(function() {
 	if (options_dir == 1) {
 		options_timer += 0.10;
 	
-		if (options_timer > 6 && irandom(10) == 0) {
+		if (options_timer > 6 && global.choice_selected == options_chosen && irandom(2) == 0) {
+			if (!options_reroll) {
+				alarm_call(6, 1);
+				return;
+			}
+			
 			options_timer = 5;
 			options_dir = -1;
 		
@@ -278,7 +284,7 @@ alarm_create(function() {
 			return;
 		}
 	} else {
-		if (irandom(1) == 0 && global.choice_selected == options_chosen) {
+		if (global.choice_selected == options_chosen && irandom(1) == 0) {
 			alarm_call(6, 1);
 			return;
 		}

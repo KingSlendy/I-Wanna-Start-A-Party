@@ -92,7 +92,7 @@ global.trophies = [
 	new Trophy(55, TrophyRank.Platinum, "1 Coin Payment", "You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...", "Even a bad guy can give you... something...?"),
 	new Trophy(25, TrophyRank.Silver, "Landing Red", "All of you landed on Red spaces.\nRed everywhere you see.", "Living all the red!"),
 	new Trophy(71, TrophyRank.Gold, "Landing Green", "All of you landed on Green spaces.\nGreen everywhere you see.", "Living all the green!"),
-	new Trophy(72, TrophyRank.Silver, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
+	new Trophy(72, TrophyRank.Bronze, "Landing Colors", "All of you landed on different colored spaces.\nDifferent colors everywhere you see.", "Living all the different colors!"),
 	new Trophy(62, TrophyRank.Platinum, "Turning Tables", "You recieved a Shine in the last 5 turns event!\nThat was unexpected, the other players are hating you right now!", "I bet you weren't expecting to get that on the last 5 turns!"),
 	new Trophy(57, TrophyRank.Silver, "Blue Savior", "You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.", "Landing on a good one while there's so many bad ones."),
 	new Trophy(46, TrophyRank.Bronze, "Wrong Number", "You used the Cellphone and said no.\nCalling the wrong number, happens from time to time.", "Woops, that's not the right number, my bad."),
@@ -110,11 +110,11 @@ global.trophies = [
 	
 	//Pallet
 	new Trophy(73, TrophyRank.Platinum, "Pokemon Not Trainer", "You won without catching a Pokemon in the Pallet Town board!\nI thought your dream was to become a Pokemon trainer... where's your Pokemon then?", "Not gotta catch 'em all!"),
-	new Trophy(74, TrophyRank.Gold, "It's Not Effective", "You lost a Pokemon battle while having a favorable Pokemon in the Pallet Town board.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.", "Water vs. Fire should be an easy win... right?"),
-	new Trophy(75, TrophyRank.Silver, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon in the Pallet Town board.!\nI didn't think a fire attack against a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
+	new Trophy(74, TrophyRank.Silver, "It's Not Effective", "You lost a Pokemon battle while having a favorable Pokemon in the Pallet Town board.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.", "Water vs. Fire should be an easy win... right?"),
+	new Trophy(75, TrophyRank.Gold, "It's Very Effective", "You won a Pokemon battle while not having a favorable Pokemon in the Pallet Town board.!\nI didn't think a fire attack against a water type was gonna work out. But I'm not complaining!", "Fire vs. Water could never work out... right?"),
 	
 	//Hyrule
-	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDo you know you can't see your reflection in the dark?\nThen I wonder why did you use this for.", "I wonder what my reflection looks like when it's dark."),
+	new Trophy(51, TrophyRank.Bronze, "Evil Mirror", "You used the Mirror in Dark World in the Hyrule board.\nDid you know you can't see your reflection in the dark?\nThen I wonder why you used this.", "I wonder what my reflection looks like when it's dark."),
 	
 	
 	///Minigames

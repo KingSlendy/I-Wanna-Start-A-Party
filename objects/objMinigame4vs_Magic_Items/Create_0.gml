@@ -62,6 +62,7 @@ function release_item(place = true, network = true) {
 		if (place) {
 			x = holder.x;
 			y = holder.y;
+			grav = 0;
 		}
 		
 		holder.item = order;

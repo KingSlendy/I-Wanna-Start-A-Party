@@ -136,6 +136,10 @@ alarm_create(7, function() {
 	jingle_obstacles(4);
 });
 
+alarm_create(8, function() {
+	minigame_finish(true);
+});
+
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);

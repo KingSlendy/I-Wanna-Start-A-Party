@@ -1,4 +1,4 @@
-change_collected_coins(99999);
+//change_collected_coins(99999);
 
 //for (var i = 0; i < array_length(global.trophies); i++) {
 //	if (i == 4 || i == 54) {

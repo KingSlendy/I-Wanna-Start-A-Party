@@ -104,7 +104,7 @@ alarm_override(11, function() {
 					}
 				}
 				
-				var laser = collision_rectangle(block.bbox_left, block.bbox_top, block.bbox_right, block.bbox_bottom + 200, objMinigame1vs3_Aiming_Laser, true, true);
+				var laser = collision_rectangle(block.bbox_left, block.bbox_top, block.bbox_right, block.bbox_bottom + 250, objMinigame1vs3_Aiming_Laser, true, true);
 				
 				if (laser != noone) {
 					if ((laser.x > x + 16 && !place_meeting(x - 6, y, objMinigame1vs3_Aiming_Block)) || place_meeting(x + 6, y, objMinigame1vs3_Aiming_Block)) {
