@@ -1640,6 +1640,7 @@
     {"name":"sprItemTripleDice","order":1,"path":"sprites/sprItemTripleDice/sprItemTripleDice.yy",},
     {"name":"objMinigame4vs_Haunted_Trophy","order":6,"path":"objects/objMinigame4vs_Haunted_Trophy/objMinigame4vs_Haunted_Trophy.yy",},
     {"name":"sndMinigameClear","order":16,"path":"sounds/sndMinigameClear/sndMinigameClear.yy",},
+    {"name":"sndMinigame2vs2_Idol_Bonk","order":1,"path":"sounds/sndMinigame2vs2_Idol_Bonk/sndMinigame2vs2_Idol_Bonk.yy",},
     {"name":"sprQPlayerFall","order":3,"path":"sprites/sprQPlayerFall/sprQPlayerFall.yy",},
     {"name":"objMinigame2vs2_Springing_Fireball","order":3,"path":"objects/objMinigame2vs2_Springing_Fireball/objMinigame2vs2_Springing_Fireball.yy",},
     {"name":"sprNatsukiPlayerFall","order":3,"path":"sprites/sprNatsukiPlayerFall/sprNatsukiPlayerFall.yy",},

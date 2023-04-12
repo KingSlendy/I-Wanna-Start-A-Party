@@ -29,6 +29,7 @@ function whac_idol(player_id, network = true) {
 	hit = player_id;
 	hide_idol();
 	minigame4vs_points(player_id, 1);
+	audio_play_sound(sndMinigame2vs2_Idol_Bonk, 0, false);
 	
 	if (network) {
 		buffer_seek_begin();

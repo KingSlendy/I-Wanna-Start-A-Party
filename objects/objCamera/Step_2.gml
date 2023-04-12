@@ -3,8 +3,12 @@ if (target_follow == null) {
 }
 
 //Position the view to the target coordinates
-target_x = target_follow.x;
-target_y = target_follow.y;
+try {
+	target_x = target_follow.x;
+	target_y = target_follow.y;
+} catch (ex) {
+	log_error(ex);
+}
 
 view_w = camera_get_view_width(view_camera[camera]);
 view_h = camera_get_view_height(view_camera[camera]);

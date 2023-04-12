@@ -2072,6 +2072,7 @@
     {"id":{"name":"sprBoyfriendPlayerIdle","path":"sprites/sprBoyfriendPlayerIdle/sprBoyfriendPlayerIdle.yy",},},
     {"id":{"name":"objMinigame4vs_Haunted_Trophy","path":"objects/objMinigame4vs_Haunted_Trophy/objMinigame4vs_Haunted_Trophy.yy",},},
     {"id":{"name":"sndMinigameClear","path":"sounds/sndMinigameClear/sndMinigameClear.yy",},},
+    {"id":{"name":"sndMinigame2vs2_Idol_Bonk","path":"sounds/sndMinigame2vs2_Idol_Bonk/sndMinigame2vs2_Idol_Bonk.yy",},},
     {"id":{"name":"sprQPlayerFall","path":"sprites/sprQPlayerFall/sprQPlayerFall.yy",},},
     {"id":{"name":"objMinigame2vs2_Springing_Fireball","path":"objects/objMinigame2vs2_Springing_Fireball/objMinigame2vs2_Springing_Fireball.yy",},},
     {"id":{"name":"sprNatsukiPlayerFall","path":"sprites/sprNatsukiPlayerFall/sprNatsukiPlayerFall.yy",},},
