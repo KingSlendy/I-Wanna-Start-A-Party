@@ -281,6 +281,7 @@ alarm_create(11, function() {
 		}
 		
 		if (instance_exists(objBlackhole)) {
+			var others_have_nothing = true;
 			var others_have_shines = false;
 			
 			for (var i = 1; i <= global.player_max; i++) {
@@ -288,10 +289,20 @@ alarm_create(11, function() {
 					continue;
 				}
 				
-				if (player_info_by_id(i).shines > 0) {
-					others_have_shines = true;
-					break;
+				var player_info = player_info_by_id(i);
+				
+				if (player_info.coins > 0) {
+					others_have_nothing = false;
 				}
+				
+				if (player_info.shines > 0) {
+					others_have_nothing = false;
+					others_have_shines = true;
+				}
+			}
+			
+			if (others_have_nothing) {
+				perform_action(actions.shoot);
 			}
 			
 			if (player_info_by_turn().coins >= global.max_blackhole_coins && others_have_shines) {

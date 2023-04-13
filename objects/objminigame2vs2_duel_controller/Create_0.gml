@@ -80,7 +80,7 @@ alarm_create(5, function() {
 
 	take_time = false;
 
-	while (array_count(player_shot_time, 0) > 0) {
+	while (array_count(player_can_shoot, true) > 0 || array_count(player_shot_time, 0) > 0) {
 		alarm_frames(5, 1);
 		return;
 	}

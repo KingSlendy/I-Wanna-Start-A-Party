@@ -92,7 +92,7 @@ global.board_items = [
 		return (player_info_by_turn().coins >= global.min_blackhole_coins && other_has_things);
 	}),
 	
-	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the Shine space.", sprItemMirror, 30, objItemMirrorAnimation,,, [rBoardWorld]),
+	new Item(ItemType.Mirror, "Mirror", "It teleports you directly on top of the Shine space.", sprItemMirror, 30, objItemMirrorAnimation),
 	//new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 1000),
 	new Item(ItemType.ItemBag, "Item Bag", "Gives you 3 random items!", sprItemItemBag, 40)
 ];

@@ -104,12 +104,7 @@ function give_last_place() {
 		if (rnd <= 50 || array_count(player_info_by_turn().items, null) == 0) {
 			change_coins(30, CoinChangeType.Gain).final_action = final_action;
 		} else if (rnd >= 51 && rnd <= 98) {
-			if (room != rBoardWorld) {
-				var item = choose(ItemType.Blackhole, ItemType.Mirror);
-			} else {
-				var item = ItemType.Blackhole;
-			}
-			
+			var item = choose(ItemType.Blackhole, ItemType.Mirror);
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = final_action;
 		} else {
 			change_shines(1, ShineChangeType.Spawn).final_action = final_action;

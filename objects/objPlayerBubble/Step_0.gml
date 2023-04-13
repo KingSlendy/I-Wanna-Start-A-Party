@@ -10,7 +10,7 @@ if (!frozen) {
 	vspd += move_v * 0.1;
 	
 	if (move_h != 0) {
-		image_xscale = move_h;
+		xscale = move_h;
 	}
 }
 

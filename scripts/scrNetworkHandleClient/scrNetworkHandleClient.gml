@@ -1308,7 +1308,11 @@ f[$ ClientTCP.Minigame2vs2_Duos_Button] = function(buffer) {
 f[$ ClientTCP.Minigame2vs2_Duel_Shot] = function(buffer) {
 	var player_id = buffer_read(buffer, buffer_u8);
 	var shot_time = buffer_read(buffer, buffer_u16);
-	objMinigameController.player_shot_time[player_id - 1] = shot_time;
+	
+	with (objMinigameController) {
+		player_can_shoot[player_id - 1] = false;
+		player_shot_time[player_id - 1] = shot_time;
+	}
 }
 
 f[$ ClientTCP.Minigame2vs2_Soccer_Goal] = function(buffer) {

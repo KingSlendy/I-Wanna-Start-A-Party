@@ -85,12 +85,12 @@ function player_shoot(speed = null, direction = null) {
 		case rMinigame2vs2_Duel:
 			with (objMinigameController) {
 				can_shoot = player_can_shoot[other.network_id - 1];
+				player_can_shoot[other.network_id - 1] = false;
 			
 				if (can_shoot && !take_time) {
 					if (other.network_id == global.player_id) {
 						trophy_shoot = true;
 					}
-					
 					
 					with (other) {
 						player_kill();

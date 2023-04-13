@@ -5,14 +5,15 @@ minigame_time_end = function() {
 		player_kill();
 	}
 	
-	unfreeze_player();
+	alarm_instant(4);
 	instance_destroy(objBullet);
 }
 
 player_type = objPlayerPlatformer;
 player_turn = 0;
 
-function unfreeze_player(network = true) {
+function unfreeze_player() {
+	alarm_stop(4);
 	instance_destroy(objMinigame4vs_Slime_Blocking);
 	instance_destroy(objMinigame4vs_Slime_Next);
 	
@@ -61,6 +62,12 @@ function block_entrance(network = true) {
 
 alarm_override(1, function() {
 	unfreeze_player();
+});
+
+alarm_create(4, function() {
+	if (focus_player_by_turn(player_turn).lost) {
+		unfreeze_player();
+	}
 });
 
 alarm_override(11, function() {

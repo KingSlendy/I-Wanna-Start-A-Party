@@ -264,6 +264,9 @@ alarm_create(function() {
 	global.choice_selected = (global.choice_selected + options_dir + options_total) % options_total;
 	audio_play_sound(sndRouletteRoll, 0, false);
 
+	next_seed_inline();
+	desync_seed_offline();
+
 	if (options_dir == 1) {
 		options_timer += 0.10;
 	
@@ -273,6 +276,7 @@ alarm_create(function() {
 				return;
 			}
 			
+			options_chosen = irandom(options_total - 1);
 			options_timer = 5;
 			options_dir = -1;
 		
