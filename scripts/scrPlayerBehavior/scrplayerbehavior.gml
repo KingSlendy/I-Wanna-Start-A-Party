@@ -132,7 +132,6 @@ function player_shoot(speed = null, direction = null) {
 	network_send_tcp_packet();
 	
 	if (room == rMinigame2vs2_Duel) {
-		objMinigameController.player_can_shoot[network_id - 1] = false;
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Duel_Shot);
 		buffer_write_data(buffer_u8, network_id);

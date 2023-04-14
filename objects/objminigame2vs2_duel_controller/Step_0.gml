@@ -22,10 +22,16 @@ if (revive == 0) {
 }
 
 if (take_time) {
-	for (var i = 0; i < global.player_max; i++) {
-		if (is_player_local(i + 1) && player_can_shoot[i]) {
-			player_shot_time[i]++;
+	with (objPlayerBase) {
+		if (is_player_local(network_id) && other.player_can_shoot[network_id - 1]) {
+			other.player_shot_time[network_id - 1]++;
 		}
+	}
+}
+
+with (objPlayerBase) {
+	if (lost) {
+		other.player_can_shoot[network_id - 1] = false;
 	}
 }
 

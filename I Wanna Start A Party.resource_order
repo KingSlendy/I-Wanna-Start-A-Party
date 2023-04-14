@@ -840,6 +840,7 @@
     {"name":"sprKey_N","order":34,"path":"sprites/sprKey_N/sprKey_N.yy",},
     {"name":"sprTrollerPlayerRun","order":1,"path":"sprites/sprTrollerPlayerRun/sprTrollerPlayerRun.yy",},
     {"name":"bgmModes","order":3,"path":"sounds/bgmModes/bgmModes.yy",},
+    {"name":"scrTranslationManagement","order":8,"path":"scripts/scrTranslationManagement/scrTranslationManagement.yy",},
     {"name":"sprApplePlayerRun","order":1,"path":"sprites/sprApplePlayerRun/sprApplePlayerRun.yy",},
     {"name":"GMLive_parser","order":4,"path":"scripts/GMLive_parser/GMLive_parser.yy",},
     {"name":"sprDinosaurPlayerJump","order":2,"path":"sprites/sprDinosaurPlayerJump/sprDinosaurPlayerJump.yy",},
