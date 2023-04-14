@@ -1,8 +1,8 @@
 event_inherited();
 network_mode = PlayerDataMode.Basic;
+xscale = 1;
 orientation = 1;
 set_mask();
-xscale = 1;
 hspd = 0;
 vspd = 0;
 grav = 0;

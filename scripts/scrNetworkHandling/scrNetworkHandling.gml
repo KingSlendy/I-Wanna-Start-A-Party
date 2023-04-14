@@ -225,7 +225,7 @@ function player_write_data() {
 	buffer_write_data(buffer_s8, image_xscale);
 	buffer_write_data(buffer_s8, image_yscale);
 	
-	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic) {
+	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic || object_index == objPlayerBubble) {
 		buffer_write_data(buffer_s8, xscale);
 		buffer_write_data(buffer_s8, orientation);
 	}
@@ -285,7 +285,7 @@ function player_read_data(buffer) {
 		image_xscale = buffer_read(buffer, buffer_s8);
 		image_yscale = buffer_read(buffer, buffer_s8);
 		
-		if (network_index == objPlayerPlatformer || network_index == objPlayerBasic) {
+		if (network_index == objPlayerPlatformer || network_index == objPlayerBasic || network_index == objPlayerBubble) {
 			xscale = buffer_read(buffer, buffer_s8);
 			orientation = buffer_read(buffer, buffer_s8);
 		}
