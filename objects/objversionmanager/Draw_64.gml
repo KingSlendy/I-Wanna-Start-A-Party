@@ -28,4 +28,4 @@ if (downloading) {
 }
 
 draw_set_font(fntTitleCreator);
-draw_text(0, 0, "Press Esc to cancel this operation");
+draw_text(0, 0, language_get_text("VERSION_CANCEL"));

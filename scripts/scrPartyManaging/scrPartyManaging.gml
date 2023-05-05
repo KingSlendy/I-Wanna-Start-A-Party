@@ -901,23 +901,23 @@ function shine_ask(buy_shine) {
 	
 	return [
 		[buy_option, [
-			new Message("Here you go! The Shine is yours!",, buy_shine)
+			new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_1"),, buy_shine)
 		]],
 						
 		["Pass", [
-			new Message("Are you really sure you don't want it?", [
+			new Message(language_get_text("PARTY_BOARD_SHINE_PASS_1"), [
 				[buy_option, [
-					new Message("Good choice! Here you go!",, buy_shine)
+					new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_2"),, buy_shine)
 				]],
 								
 				["Pass", [
-					new Message("Are you really really sure?", [
+					new Message(language_get_text("PARTY_BOARD_SHINE_PASS_2"), [
 						[buy_option, [
-							new Message("You were starting to worry me for a second!",, buy_shine)
+							new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_3"),, buy_shine)
 						]],
 										
 						["Pass", [
-							new Message("Well too bad then, I hope next time you think it through.",, function() {
+							new Message(language_get_text("PARTY_BOARD_SHINE_PASS_3"),, function() {
 								board_advance();
 												
 								if (focused_player().network_id == global.player_id) {
@@ -946,7 +946,7 @@ function item_applied(item) {
 	if (is_local_turn()) {
 		switch (item.id) {
 			case ItemType.Poison:
-				show_multiple_player_choices("Which player to poison?", function(i) {
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_POISON"), function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Poison);
@@ -954,7 +954,7 @@ function item_applied(item) {
 				break;
 				
 			case ItemType.Reverse:
-				show_multiple_player_choices("Which player to reverse?", function(i) {
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_REVERSE"), function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Reverse);
@@ -962,7 +962,7 @@ function item_applied(item) {
 				break;
 			
 			case ItemType.Ice:
-				show_multiple_player_choices("Which player to freeze?", function(i) {
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_FREEZE"), function(i) {
 					return (player_info_by_turn(i).item_effect == null);
 				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
@@ -974,7 +974,7 @@ function item_applied(item) {
 				break;
 			
 			case ItemType.SuperWarp:
-				show_multiple_player_choices("Which player to switch places with?", function(_) { return true; }, true).final_action = function() {
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_SWITCH"), function(_) { return true; }, true).final_action = function() {
 					item_animation(ItemType.SuperWarp);
 				}
 				break;
@@ -1054,7 +1054,7 @@ function call_shop() {
 	
 	if (!global.board_day) {
 		start_dialogue([
-			new Message("Sorry but the shop is closed during the night, visit us at any time during the day. Thanks!",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_SHOP_NIGHT"),, board_advance)
 		]);
 		
 		if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Cellphone) {
@@ -1066,7 +1066,7 @@ function call_shop() {
 	
 	if (global.board_turn == global.max_board_turns) {
 		start_dialogue([
-			new Message("We're currently closed!\nSorry for the inconvenience!",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_SHOP_CLOSED"),, board_advance)
 		]);
 		
 		exit;
@@ -1074,7 +1074,7 @@ function call_shop() {
 	
 	if (player_info.coins >= global.min_shop_coins) {
 		start_dialogue([
-			new Message("Do you wanna enter the shop?", [
+			new Message(language_get_text("PARTY_BOARD_SHOP_ENTER"), [
 				["Yes", [
 					new Message("",, function() {
 						instance_create_layer(0, 0, "Managers", objShop);
@@ -1095,7 +1095,7 @@ function call_shop() {
 		]);
 	} else {
 		start_dialogue([
-			new Message("You don't have enough money to enter the shop!",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_SHOP_ITEM_NOT_ENOUGH"),, board_advance)
 		]);
 	}
 }
@@ -1105,7 +1105,7 @@ function call_blackhole() {
 	
 	if (room == rBoardIsland && global.board_day) {
 		start_dialogue([
-			new Message("I hate the day... please come back when it's nighttime.",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_DAY"),, board_advance)
 		]);
 		
 		exit;
@@ -1113,7 +1113,7 @@ function call_blackhole() {
 	
 	if (player_info.coins >= global.min_blackhole_coins) {
 		start_dialogue([
-			new Message("Do you wanna use the blackhole?", [
+			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_USE"), [
 				["Yes", [
 					new Message("",, function() {
 						instance_create_layer(0, 0, "Managers", objBlackhole);
@@ -1134,7 +1134,7 @@ function call_blackhole() {
 		]);
 	} else {
 		start_dialogue([
-			new Message("You don't have enough money!",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_NOT_ENOUGH"),, board_advance)
 		]);
 	}
 }

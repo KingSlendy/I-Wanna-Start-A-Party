@@ -3,7 +3,7 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 
-text = "Checking version...";
+text = language_get_text("VERSION_CHECK");
 version = "";
 tag = http_get("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/latest");
 file = null;
@@ -12,7 +12,7 @@ size = 0;
 sent = 0;
 
 function occurred_error() {
-	text = "An error ocurred...";
+	text = language_get_text("VERSION_ERROR");
 	downloading = false;
 	alarm_call(0, 3);
 }
@@ -28,7 +28,7 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	text = "Connection timeout!";
+	text = language_get_text("VERSION_TIMEOUT");
 	downloading = false;
 	alarm_call(0, 3);
 });
