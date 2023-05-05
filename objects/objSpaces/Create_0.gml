@@ -162,7 +162,7 @@ function space_passing_event() {
 					}
 				
 					start_dialogue([
-						new Message("Do you wanna buy a Shine?", shine_ask(buy_shine))
+						new Message(language_get_text("PARTY_BOARD_SHINE_WANNA_BUY"), shine_ask(buy_shine))
 					]);
 				} else {
 					start_dialogue([
@@ -187,7 +187,7 @@ function space_passing_event() {
 				}
 				
 				start_dialogue([
-					new Message("Oh no! The Evil Shine is looking at you menacingly!\nIt won't accept a no for an answer!",, buy_shine)
+					new Message(language_get_text("PARTY_BOARD_HYRULE_EVIL_SHINE"),, buy_shine)
 				]);
 				
 				if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {

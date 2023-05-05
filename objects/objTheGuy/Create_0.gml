@@ -20,7 +20,7 @@ function TheGuyOption(only_me, amount, text = "", action = null) constructor {
 	self.amount = amount;
 	
 	if (self.text == "") {
-		self.text += (self.only_me) ? "You " : "All of you ";
+		self.text += (self.only_me) ? language_get_text("PARTY_THE_GUY_YOU") : language_get_text("PARTY_THE_GUY_ALL_OF_YOU");
 		self.text += "{COLOR,0000FF}lose{COLOR,FFFFFF} " + draw_coins_price(self.amount);
 	} else {
 		self.text = text;
@@ -30,8 +30,8 @@ function TheGuyOption(only_me, amount, text = "", action = null) constructor {
 		self.action = function() {
 			if (self.only_me && player_info_by_turn().coins == 0) {
 				start_dialogue([
-					"What!? You don't even have Coins!?",
-					new Message("Let's see if this makes you feel like you're good at playing.",, function() {
+					language_get_text("PARTY_THE_GUY_DONT_HAVE_COINS"),
+					new Message(language_get_text("PARTY_THE_GUY_GOOD_AT_PLAYING"),, function() {
 						change_coins(30, CoinChangeType.Gain);
 						
 						with (objTheGuy) {
@@ -86,8 +86,8 @@ options = [
 		if (player_info.shines == 0) {
 			if (player_info.coins > 0) {
 				start_dialogue([
-					"I see you don't have a Shine on you.",
-					new Message("To compensate I'm gonna take a couple Coins instead.",, function() {
+					language_get_text("PARTY_THE_GUY_DONT_HAVE_SHINES"),
+					new Message(language_get_text("PARTY_THE_GUY_TAKE_COINS"),, function() {
 						change_coins(-30, CoinChangeType.Lose);
 						
 						with (objTheGuy) {
@@ -97,8 +97,8 @@ options = [
 				]);
 			} else {
 				start_dialogue([
-					"You don't have Shines, and I was gonna take Coins away but apparently you're this bad at playing.",
-					new Message("Here have a spare Coin, play better.",, function() {
+					language_get_text("PARTY_THE_GUY_DONT_HAVE_SHINES_AND_COINS"),
+					new Message(language_get_text("PARTY_THE_GUY_SPARE_COIN"),, function() {
 						change_coins(1, CoinChangeType.Gain);
 						
 						with (objTheGuy) {
@@ -122,7 +122,7 @@ options = [
 		change_shines(-1, ShineChangeType.Lose);
 	}),
 	
-	new TheGuyOption(false, 0, "{COLOR,0000FF}The Guy{COLOR,FFFFFF} revolution", function() {
+	new TheGuyOption(false, 0, language_get_text("PARTY_THE_GUY_GUY_REVOLUTION","{COLOR,0000FF}","{COLOR,FFFFFF}"), function() {
 		revolution = true;
 		total_coins = 0;
 		
@@ -321,7 +321,7 @@ alarm_create(function() {
 
 	if (is_local_turn()) {
 		start_dialogue([
-			new Message("Hope you think twice before landing on my space again.",, end_the_guy)
+			new Message(language_get_text("PARTY_THE_GUY_THINK_BEFORE"),, end_the_guy)
 		]);
 	
 		buffer_seek_begin();
