@@ -1,0 +1,782 @@
+#	English	#English but Naloa	Spanish	Korean	Chinese Simplified	#Chinese Traditional	#Japanese	Russian
+#VERSION								
+#								
+VERSION_CHECK	Checking version...	Checking version...	Verificando versión...	버전 확인중...	新版检查中...	檢查版本...		Проверка версии...
+VERSION_DOWNLOADING	Downloading version...	Downloading version...	Descargando versión...	버전 다운로드중...	下载新版本...	下載新版本...		Скачивание версии...
+VERSION_FINISHED	Finished download!	Finished download!	¡Descarga finalizada!	다운로드 완료!	下载完成！	下載完成！		Загрузка завершена!
+VERSION_TIMEOUT	Connection timeout!	Connection timeout!	¡El tiempo de conexión expiró!	연결시간초과!	连接超时！	連接超時！		вышло время подключения
+VERSION_ERROR	An error occurred...	An error occurred...	Ocurrió un error...	에러가 발생했습니다...	发生错误...	發生錯誤...		Произошла ошибка...
+VERSION_CANCEL	Press Esc to cancel this operation	Press Esc to cancel this operation	Presiona Esc para cancelar esta operación	Esc를 눌러 해당 작업을 중지	按 Esc 键取消更新	按 Esc 鍵取消更新		Нажмите Esc чтобы отменить операцию
+#								
+#TITLE								
+#								
+TITLE_PRESS	PRESS {Shift key}	PRESS {Shift key}	PRESIONA {Shift key}	{Shift key}를 누르십시오	按 {Shift key}	按 {Shift key}		НАЖМИТЕ
+TITLE_MADE	MADE BY	MADE BY	HECHO POR	제작 : 	作者	作者		СДЕЛАНО
+#								
+#FILES								
+#								
+FILES_FILE	FILES	FILES	ARCHIVO	파일	存档	存檔		ФАЙЛЫ
+FILES_SETTINGS	SETTINGS	SETTINGS	OPCIONES	설정	游戏设置	設置		НАСТРОЙКИ
+FILES_DISCORD	DISCORD	DISCORD	DISCORD	디스코드	DISCORD	DISCORD		DISCORD
+FILES_WEBSITE	WEBSITE	WEBSITE	PÁGINA	웹사이트	官方网站	官方網站		САЙТ
+FILES_START	START	START	INICIAR	시작	开始	開始		НАЧАТЬ
+FILES_RESTORE	RESTORE	RESTORE	RESTAURAR	복구	恢复	恢復		ВОССТОНОВИТЬ
+FILES_DELETE	DELETE	DELETE	BORRAR	삭제	删除	刪除		УДАЛИТЬ
+FILES_OFFLINE	OFFLINE	OFFLINE	OFFLINE	오프라인	离线模式	離線模式		ОФФЛАЙН
+FILES_ONLINE	ONLINE	ONLINE	ONLINE	온라인	联机模式	線上模式		ОНЛАЙН
+FILES_NAME	NAME	NAME	NOMBRE	이름	昵称	暱稱		Имя
+FILES_ENTER_NAME	Enter your name.	Enter your name.	Introduce tu nombre.	이름을 입력하세요.	输入你的昵称	輸入你的暱稱		Введите своё имя
+FILES_CANCEL	CANCEL	CANCEL	CANCELAR	취소	取消	取消		Отмена
+FILES_ONLINE_DATA	ONLINE DATA	ONLINE DATA	DATOS DE ONLINE	온라인 정보	联机信息	線上信息		Серверы
+FILES_IP	IP	IP	IP	IP	IP	IP		IP
+FILES_PORT	PORT	PORT	PUERTO	포트	端口号	埠		PORT
+FILES_CONNECT	CONNECT	CONNECT	CONECTAR	접속	连接	連接		Присоединится
+FILES_LOBBY_DATA	LOBBY DATA	LOBBY DATA	DATOS DE LOBBY	로비 정보	大厅信息	大廳信息		Информация о лобби
+FILES_PASSWORD	PASSWORD	PASSWORD	CONTRASEÑA	비밀번호	密码	密碼		Пароль
+FILES_CREATE	CREATE	CREATE	CREAR	생성	创建房间	創建房間		Создать
+FILES_JOIN	JOIN	JOIN	UNIRSE	접속	加入房间	加入房間		Присоединится
+FILES_LIST	LIST	LIST	LISTA	목록	房间列表	房間列表		Список
+FILES_REFRESH	REFRESH	REFRESH	REFRESCAR	새로고침	刷新	刷新		Обновить
+FILES_ENTER_LOBBY_NAME	Enter the lobby's name.	Enter the lobby's name.	Introduce el nombre del lobby.	로비 이름을 입력하세요.	输入房间名	輸入房間名稱		Введите имя лобби
+FILES_ENTER_PASSWORD	Enter the password.	Enter the password.	Introduce la contraseña.	비밀번호를 입력하세요	输入密码	輸入密碼		Введите пароль
+FILES_KICK	KICK	KICK	SACAR	강퇴	踢出	踢出		Выгнать
+#								
+#SETTINGS								
+#								
+SETTINGS_VOLUME	VOLUME	VOLUME	VOLUMEN	음량	声音	聲音		Громкость
+SETTINGS_VOLUME_MASTER	MASTER	MASTER	GENERAL	전체 음량	主音量	主音量		Общая громкость
+SETTINGS_VOLUME_BGM	BGM	BGM	MÚSICA	배경음악	音乐	音樂		Громкость музыки
+SETTINGS_VOLUME_SFX	SFX	SFX	EFECTOS	효과음	音效	音效		Громкость эффектов
+SETTINGS_DISPLAY	DISPLAY	DISPLAY		화면	显示	展示		Экран
+SETTINGS_DISPLAY_FULLSCREEN	FULLSCREEN	FULLSCREEN	PANTALLA COMPLETA	전체화면	全屏	全螢幕		Полный экран
+SETTINGS_DISPLAY_VSYNC	VSYNC	VSYNC		수직동기화	垂直同步	垂直同步		Вертикальная синхронизация
+SETTINGS_DISPLAY_SMOOTH	SMOOTH	SMOOTH	SUAVIZADO		抗锯齿	抗鋸齒		Плавность картинки
+SETTINGS_GAME_LANGUAGE	LANGUAGE	LANGUAGE	IDIOMA	언어	语言	語言	言語	Язык
+SETTINGS_GAME_ENGLISH	ENGLISH	ENGLISH	ENGLISH	ENGLISH	ENGLISH	ENGLISH	ENGLISH	ENGLISH
+SETTINGS_GAME_SPANISH	ESPAÑOL	ESPAÑOL	ESPAÑOL	ESPAÑOL	ESPAÑOL	ESPAÑOL	ESPAÑOL	ESPAÑOL
+SETTINGS_GAME_KOREAN	한국어	한국어	한국어	한국어	한국어	한국어	한국어	한국어
+SETTINGS_GAME_CHINESE_SIMPLIFIED	简体中文	简体中文	简体中文	简体中文	简体中文	简体中文	简体中文	简体中文
+SETTINGS_GAME_CHINESE_TRADITIONAL	繁體中文	繁體中文	繁體中文	繁體中文	繁體中文	繁體中文	繁體中文	繁體中文
+SETTINGS_GAME_JAPANESE	日本語	日本語	日本語	日本語	日本語	日本語	日本語	日本語
+SETTINGS_GAME_RUSSIAN								
+SETTINGS_CONTROLS	CONTROLS	CONTROLS	CONTROLES	조작	键位设置	按鍵設置		Управление
+SETTINGS_CONTROLS_LEFT	LEFT	LEFT	IZQUIERDA	왼쪽	左	左		Лево
+SETTINGS_CONTROLS_RIGHT	RIGHT	RIGHT	DERECHA	오른쪽	右	右		Право
+SETTINGS_CONTROLS_UP	UP	UP	ARRIBA	위	上	上		Вверх
+SETTINGS_CONTROLS_DOWN	DOWN	DOWN	ABAJO	아래	下	下		Вниз
+SETTINGS_CONTROLS_JUMP	JUMP	JUMP	SALTO	점프	跳跃	跳躍		Прыжок
+SETTINGS_CONTROLS_SHOOT	SHOOT	SHOOT	DISPARO	총	射击	射擊		Выстрел
+SETTINGS_CONTROLS_MISC	MISC	MISC	MISC	기타	杂项	雜項		Разное
+SETTINGS_CONTROLS_PAUSE	PAUSE	PAUSE	PAUSA	일시정지	暂停	暫停		Пауза
+SETTINGS_CONTROLS_RESET_DEFAULTS	RESET TO DEFAULTS	RESET TO DEFAULTS	CONTROLES PREDETERMINADOS	기본값으로 초기화	重置	重置		Вернуть к стандартным настройкам
+SETTINGS_CONTROLS_HOTSWAP	HOTSWAP	HOTSWAP			热切换	熱切換		Хотсвап
+#								
+#PAUSE								
+#								
+PAUSE_PAUSE	PAUSE	PAUSE	PAUSA	일시정지	暂停	暫停		ПАУЗА
+PAUSE_RESUME	Resume	Resume	Reanudar	재개	继续	繼續		Продолжить
+PAUSE_SETTINGS	Settings	Settings	Configuración	설정	设置	設置		Опции
+PAUSE_BACK_TO_FILES	Back To Files	Back To Files	Volver a Archivos	파일 메뉴로 돌아가기	返回存档界面	返回存檔介面		Вернуться к файлам
+PAUSE_BACK_TO_MODES	Back To Modes	Back To Menu	Volver al Menú	모드 메뉴로 돌아가기	返回模式选择界面	返回模式選擇介面		Вернуться к модам
+PAUSE_BACK_TO_OVERVIEW	Back To Overview	Back To Overview			返回概览界面	返回概覽介面		Вернуться к 
+PAUSE_BACK_TO_TRIALS	Back To Trials	Back To Trials	Volver a Desafíos	시련 메뉴로 돌아가기	返回挑战界面	返回挑戰介面		Вернуться к испытаниям
+PAUSE_EXIT_LOBBY	Exit Lobby	Exit Lobby	Salir de la Sala	로비 나가기	退出大厅	退出大廳		Выйти из лобби
+#								
+#MODES								
+#								
+MODES_PARTY	PARTY	PARTY	FIESTA	파티	派对	派對		ВЕЧЕРИНКА
+MODES_PARTY_DESCRIPTION	Play on a board, collect the most Shines and become the party star!	Play on a board, collect the most Shines and become the party star!	¡Juega en un tablero y consigue muchos Soles para ser la estrella de la fiesta!	보드판 위에서 플레이하며 샤인을 많이 모아 파티 스타가 되세요!	在棋盘上冒险，收集最多的太阳，成为超级巨星吧！	在棋盤上冒險，收集最多的太陽，成為超級巨星吧！		Сыграйте в настолку, находите Шайни и станьте героем вечеринки
+MODES_MINIGAMES	MINIGAMES	MINIGAMES	MINIJUEGOS	미니게임	小游戏	小遊戲		МИНИИГРЫ
+MODES_MINIGAMES_DESCRIPTION	Play and enjoy all the minigames!	Play and enjoy all the minigames!	¡Juega y disfruta de los minijuegos!	모든 미니게임을 여기서 즐기세요!	享受所有的小游戏吧！	玩和享受所有的小遊戲吧！		Сыграйте во все миниигры
+MODES_TRIALS	TRIALS	TRIALS	RETOS	시련	挑战	挑戰		ИСПЫТАНИЯ
+MODES_TRIALS_DESCRIPTION	Different minigames packed together in all sorts of whacky ways!	Different minigames packed together in all sorts of whacky ways!	¡Diferentes minijuegos agrupados en todo tipo de maneras descabelladas!	여러가지 색다른 방식으로 미니게임을 즐겨보세요!	各种奇怪规则下的小游戏挑战！	各種小遊戲以各種奇怪的方式組合在一起！		Различные миниигры собраны вместе в самых разных испытаниях
+MODES_STORE	STORE	STORE	TIENDA	상점	商店	商店		МАГАЗИН
+MODES_STORE_DESCRIPTION	Buy all sorts of different things to spice up the game	Buy all sorts of different things to spice up the game	¡Compra diferentes artículos para animar el juego!	게임을 여러분의 입맛대로 바꿔줄 다양한 아이템을 여기서 구매하세요!	购买不同道具来获得更多游戏趣味。	購買不同的道具來為遊戲增添趣味。		Покупайте различные вещи чтобы разнообразить игру
+MODES_TROPHIES	TROPHIES	TROPHIES	TROFEOS	트로피	奖杯	獎盃		ТРОФЕИ
+MODES_TROPHIES_DESCRIPTION	All the trophies you've earned are stored here!	All the trophies you've earned are stored here!	¡Todos los trofeos que has conseguido se guardan aquí!	여러분이 얻은 모든 트로피는 여기서 보실 수 있습니다!	这里会展示你获得的所有奖杯！	您獲得的所有獎盃都存放在這裡！		Все трофеи, заработанные вами, будут храниться здесь
+#								
+#MODE PARTY								
+#								
+PARTY_TURNS	Turns	Turns	Turnos	턴	回合数	回合數		Ходы
+PARTY_TURN	Turn	Turn	Turno	턴	回合	回合		Ход
+PARTY_BONUS	Bonus	Bonus	Bonus	보너스	额外奖励	額外獎勵		Бонус
+PARTY_DICE	Dice	Dice	Dado	주사위	骰子	骰子		Игральная кость
+PARTY_ITEMS	Items	Items	Objetos	아이템	道具	道具		Предметы
+PARTY_MAP	Map	Map	Mapa	지도	地图	地圖		Карта
+PARTY_REACTIONS	Reactions	Reactions	Reacciones	리액션	表情	反應		Реакции
+PARTY_REACT	React	React	Reacciona	리액션	发送	發送		Отреагировать
+PARTY_MASH	Mash	Mash	Pulsa	연타	连击	連擊		Клацать
+#								
+#MODE TRIALS								
+#								
+TRIALS_RETRY	Retry	Retry	Reintentar	재도전	重试	重試		Попробовать снова
+#								
+#MODE STORE								
+#								
+STORE_MAKER	Maker	Maker	Creador	제작자	作者	作者		Создатель
+STORE_MINIGAMES	Minigames	Minigames	Minijuegos	미니게임	小游戏	小遊戲		Миниигры
+STORE_SORTED_BY	Sorted By	Sorted By	Agrupar:	정렬:	排序方式	排序		Сортировать по
+STORE_SORTED_DEFAULT	Default	Default	Por defecto	기본	默认	默認		Стандартно
+STORE_SORTED_ASCENDING	Price (Ascending)	Price (Ascending)	Precio (Ascendente)	가격 (오름차순)	价格（升序）	價格（升序）		Цена (по возрастанию)
+STORE_SORTED_DESCENDING	Price (Descending)	Price (Descending)	Precio (Descendente)	가격 (내림차순)	价格（降序）	價格（降序）		Цена (по убыванию)
+STORE_SORTED_NAME	Name	Name	Nombre	이름	名称	名稱		Имя
+#								
+#MODE TROPHIES								
+#								
+TROPHIES_HINT	Hint	Hint	Pista	힌트	提示	提示		Подсказска
+TROPHIES_SPOILER	Spoiler	Spoiler	Revelar	스포일러	剧透	劇透		Спойлер
+#								
+#BOARD WELCOME AND RULES								
+#								
+PARTY_BOARD_HEAR	Would you like to hear about this board?	Would you like to hear about this board?	¿Te gustaría escuchar sobre este tablero?	보드에 대한 설명을 들으시겠어요?	你想要了解这张地图的介绍吗？	你想要了解這張地圖的介紹嗎？		Хотели бы вы узнать об этой доске?
+PARTY_BOARD_ISLAND_NAME	Island	Island	Isla	섬	耀西岛	耀西島		Остров
+PARTY_BOARD_ISLAND_WELCOME	Welcome to the island! There's pretty much only ocean surrounding it. But it's still pretty nice!	Welcome to the island! There's pretty much only ocean surrounding it. But it's still pretty nice!	¡Bienvenidos a la Isla!. Prácticamente solo hay mar rodeándola, ¡Pero sigue siendo bastante agradable!	섬에 오신것을 환영합니다! 주변에 보이는게 딱히 바다밖에 없지만, 그래도 꽤 괜찮은 곳이네요!	欢迎来到耀西岛！这里四处环海，风景优美！	歡迎來到耀西島上！它周圍幾乎只有海洋。但它仍然很不 錯！		Добро пожаловать на остров! Правда вокруг него лишь океан, но он все равно довольно неплох!
+PARTY_BOARD_ISLAND_RULES_1	This board has a 3 turn cycle between day and night.	This board has a 3 turn cycle between day and night.	Este tablero tiene un ciclo de 3 turnos entre día y noche.	이 보드는 3턴마다 밤낮이 바뀝니다.	地图每三个回合切换昼夜。	這張地圖每三個回合後會切換白天和黑夜。		Это доска имеет цикл в 3 хода по смене дня и ночи.
+PARTY_BOARD_ISLAND_RULES_2	At day you can use the Shop but can't use the Blackhole. At night you can use the Blackhole but can't use the Shop.	At day you can use the Shop but can't use the Blackhole. At night you can use the Blackhole but can't use the Shop.	Durante el día puedes usar la Tienda, pero no puedes usar el Agujero Negro. Y, durante la noche, puedes usar el Agujero negro, pero no la Tienda.	낮에는 상점을 이용할 수 있지만 블랙홀을 사용하지 못하고, 반대로 밤에는 블랙홀이 사용 가능하지만 상점을 이용하지 못합니다.	在白天你可以进入商店但是不能使用黑洞。在晚上你可以使用黑洞但是不能进入商店。	在白天你可以進入商店但是不能使用黑洞。在晚上你 可以使用黑洞但是不能進入商店。		Когда на улице день вы можете использовать Магазин, однако не можете использовать Черную Дыру. Ночью же наоборот, вы можете использовать Черную Дыру, но не Магазин.
+PARTY_BOARD_ISLAND_RULES_3	Also, the Shine will have a random price at night. It can be {40 coins} {30 coins} {10 coins} and {0 coins}! All Shines will stay at this price for the rest of the turn.	Also, the Shine will have a random price at night. It can be {40 coins} {30 coins} {10 coins} and {0 coins}! All Shines will stay at this price for the rest of the turn.	Cuando es un turno nocturno, el Sol tendrá un precio aleatorio. Puede ser {50 coins}, {40 coins}, {30 coins}, {10 coins}, ¡Y {0 coins}!. Tendrá ese precio durante el resto del turno.	밤에는 샤인의 가격이 무작위 하게 바뀝니다. 가격은 {50 coins} {40 coins} {30 coins} {10 coins}, 심지어 {0 coins}이 될 수 있습니다! 남은 턴 동안 가격은 동일하게 유지됩니다.	在晚上太阳的价格将随机为 {40 coins} {30 coins} {10 coins} 或 {0 coins} ！每回合太阳的价格都是固定的。	當輪到晚上時，太陽將有一個隨機價格，可以是{40  coins} {30 coins} {10 coins} 或 {0 coins}！每回合太陽 的價格都是固定的。		Ночью во время хода у Шайни будет случайная цена. Она может стоит как  {40 coins} {30 coins} {10 coins} так и вовсе {0 coins}! Цена Шайни сохраняется во время всего хода.
+PARTY_BOARD_HOTLAND_NAME	Hotland	Hotland	Hotland	핫랜드	热域	熱域		Хотленд
+PARTY_BOARD_HOTLAND_WELCOME	Welcome! My it's really hot in here... hope you don't mind the heat too much!	Welcome! My it's really hot in here... hope you don't mind the heat too much!	¡Bienvenidos! Vaya, sí que hace calor aquí... ¡Espero no les moleste mucho el calor!		欢迎！天气好热啊……希望你没有中暑！	歡迎！我的天，這裡真的很熱……希望您不要太介意 高溫！		Добро пожаловать! О божечки, тут довольно жарко... надеюсь вас это не сильно побеспокоит.
+PARTY_BOARD_HOTLAND_RULES_1	Two Shines are present on this board. The goal is to purchase the correct Shine! One of them is fake and the other is real. You won't know until you pay for it!	Two Shines are present on this board. The goal is to purchase the correct Shine! One of them is fake and the other is real. You won't know until you pay for it!	Dos Soles se mostrarán en este tablero. La meta será comprar el Sol correcto, uno de ellos es falso y el otro es real. ¡No sabrás cuál es cual hasta que compres uno de ellos!	이 보드에는 샤인이 두개가 있습니다. 올바른 샤인을 구매하는것이 여러분의 목표입니다! 둘 중 하나는 진짜고 하나는 가짜입니다만, 구매하기 전까진 구분을 못한답니다!	这张地图可以同时存在两个太阳，其中一个是真的一个是假的。你的目标是购买真的太阳，但是在你购买之前无法确认真假。	這張地圖同時存在兩個太陽，其中有一個是真的有一 個是假的。你的目標是購買真的太陽，但是在你購買 之前你無法確認真假。		На этой доске есть два Шайни. Цель доски это купить правильную Шайни! Одна из Шайни поддельная, а другая реальная. Но, чтобы узнать настоящая она или нет вы должны будете ее купить!
+PARTY_BOARD_HOTLAND_RULES_2	Once the fake Shine is discovered the other one is guaranteed to be real. If the real one is obtained, the fake one will disappear and two more Shines will spawn.	Once the fake Shine is discovered the other one is guaranteed to be real. If the real one is obtained, the fake one will disappear and two more Shines will spawn.	Una vez que el Sol falso fue encontrado está asegurado que el otro sea el real. Si el real es obtenido primero, el falso desaperecerá y reaparecerán dos Soles más.	만약 가짜 샤인이 밝혀진다면 남은 하나는 진짜로 확정됩니다. 만약 진짜 샤인을 누가 획득한다면, 가짜 샤인은 사라지고 샤인 2개가 더 나타납니다.	当有人购买了假太阳后，剩下的那个太阳一定是真的。如果有人购买了真的太阳，假的太阳将会消失，然后重新生成一对新的真假太阳。	一旦有人發現假的太陽，就可以保證另一個是真的。  如果有人購買了真的太陽，假的太陽就會消失，並且 會另外生成一對新的真假太陽。		Когда поддельная Шайни обнаружена, другая Шайни гарантированно будет верной. Если правильная Шайни была выбрана изначально, то поддельная также исчезнет, и вместо них появятся две новых Шайни.
+PARTY_BOARD_BABA_NAME	Baba Is Board	Baba Is Board		바바는 보드야		Baba is地圖		Баба это доска
+PARTY_BOARD_BABA_WELCOME	Welcome to drawings everywhere! Let's hope for no puzzle shenanigans.	Welcome to drawings everywhere! Let's hope for no puzzle shenanigans.						Добро пожаловать в нарисованный мир! Надеюсь здесь не будет никаких странных пазлов.
+PARTY_BOARD_BABA_RULES_1	There's some puzzle blocks on some paths, those blocks are toggled everytime you cross them.	There's some puzzle blocks on some paths, those blocks are toggled every time you cross them.						Здесь есть несколько пазловых блоков на некоторыхпутях, они активируются каждый раз когда вы проходите по ним.
+PARTY_BOARD_BABA_RULES_2	There's a block pair for Shines, one for Spaces, and another for Shops. Depending on what the text says on the rightmost block, that's the thing it's gonna apply.	There's a block pair for Shines, one for Spaces, and another for Shops. Depending on what the text says on the rightmost block, that's the thing it's gonna apply.						Есть пара блоков специально для Шайни, также один для каждой Клетки, и другой для Магазинов. В зависимости от того что написано на самом правом блоке, то будет применено.
+PARTY_BOARD_BABA_RULES_3	The text from that block changes every turn, so be careful!	The text from that block changes every turn, so be careful!						Каждый ход эти блоки меняют свой текст, так что будьте осторожны.
+PARTY_BOARD_PALLET_NAME	Pallet Town	Pallet Town	Pueblo Paleta	태초마을	真新镇	真新鎮		Паллет Таун
+PARTY_BOARD_PALLET_WELCOME	Welcome to the land of the Pokemon! Gotta catch 'em all!	Welcome to the world of Pokemon! Gotta catch 'em all!	¡Bienvenido al mundo de los Pokémon! ¡Atrápalos a todos!	포켓몬 세계에 온 것을 환영합니다! 우리 모두의 꿈은 포켓몬 마스터!	欢迎来到宝可梦大陆！我抓到了！	歡迎來到神奇寶貝大陸！需要把他們全都抓到！		Добро пожаловать в мир Покемонов! Поймай их всех!
+PARTY_BOARD_PALLET_RULES_1	Here your objective is to fight Pokemon, and win their Shines.	Here your objective is to fight Pokemon, and win their Shines.	Aquí tu objetivo es combatir contra pokemones y conseguir sus Soles.	이 보드의 주 목표는 포켓몬과 배틀을 하여 샤인을 얻는 것입니다,	你的目标是和精灵战斗，并且赢取他们的太阳。	你的目標是和神奇寶貝戰鬥，並贏取他們的太陽。		На этой доске цель состоит в том чтобы сражаться с Покемонами и выигрывать у них Шайни.
+PARTY_BOARD_PALLET_RULES_2	When you pass over a Pokemon Space, you will have the option to catch that Pokemon for {15 coins} or to battle it.	When you pass over a Pokemon Space, you will have the option to catch that Pokemon for {15 coins} or to battle it.	Cuando pases sobre una casilla Pokémon tendrás la opción de capturar tal Pokémon por {15 coins} o combatir contra él.	포켓몬이 있는 칸을 지나가게 된다면, {15 coins}을 지불하고 포켓몬을 잡거나, 배틀을 할 수 있습니다.	每当你路过一只精灵，你可以选择花费 {15 coins} 捕获它，或者和它战斗。			Каждый раз когда вы проходите через Клетку с Покемоном, у вас будет опция как поймать его {15 coins}, либо же сразиться с ним.
+PARTY_BOARD_PALLET_RULES_3	If you win against a Pokemon that has a Shine, you'll obtain it. If you win against a Pokemon with no Shine, it'll give you {10 coins}. If you lose however, you'll lose {10 coins}.	If you win against a Pokemon that has a Shine, you'll obtain it. If you win against a Pokemon with no Shine, it'll give you {10 coins}. If you lose however, you'll lose {10 coins}.	Si ganas contra un Pokémon que tiene un Sol, lo obtendrás. Si ganas contra un Pokémon sin Sol, te dará {10 coins}. En cambio si pierdes, se llevará {10 coins}.	샤인을 갖고 있는 포켓몬과 배틀해서 이긴다면, 샤인을 얻을 수 있습니다. 샤인을 갖고있지 않은 포켓몬을 상대로 이긴다면, {10 coins}을 얻습니다. 하지만 만약 배틀에서 지게된다면, {10 coins}을 잃게됩니다.	如果你战胜了一只携带太阳的精灵，你就会获得它的太阳。如果你战胜了一只没有携带太阳的精灵，你会获得 {10 coins} 。反之如果你输了，你会失去 {10 coins} 。			Если вы победите в битве Покемона, у которого был Шайни, вы получите его Шайни. Если же у Покемона не было Шайни, то тот даст вам {10 coins}. При пройгрыше, вы потеряете {10 coins}.
+PARTY_BOARD_PALLET_RULES_4	Certain Pokemon types are more effective against others.\nThe hierarchy goes as follows: Water -> Fire -> Grass -> Water.	Certain Pokemon types are more effective against others.\nThe hierarchy goes as follows: Water -> Fire -> Grass -> Water.	Ciertos tipos de Pokémon son más efectivos contra otros.\nEl orden de efectividad es la siguiente: Agua -> Fuego -> Planta -> Agua.	포켓몬의 각 타입은 서로 상성이 있습니다.\n 상성은 다음과 같습니다 : 물 -> 불 -> 풀 ->물.	精灵属性存在克制关系。水系克制火系，火系克制草系，草系克制水系。			Эффективность Покемона зависит от типов Покемонов, что учавствуют в битве. \nИерархия типов покемонов: Водянной -> Огненный -> Травянной -> Водянной
+PARTY_BOARD_PALLET_RULES_5	If you have a favorable Pokemon type, your chances of winning are 90%. If you have the same type it's 50%. Otherwise it's 15%.	If you have a favorable Pokemon type, your chances of winning are really high. If you have the same type it's a 50/50. Otherwise it's really low.	Si tienes un Pokémon de tipo favorable, tus chances de ganar son altas, si son del mismo tipo, es un 50/50. Caso contrario las chances son muy bajas.	만약 상성이 좋은 포켓몬을 지니고 있다면, 승리할 확률이 매우 높습니다. 동일 타입끼리는 확률이 반반이고, 상성이 좋지 않다면 확률이 매우 낮습니다.	如果你的精灵拥有有利的属性，你获胜的概率就很高。如果你的精灵是相同属性，获胜概率是一半一半。如果你的精灵是不利的属性，你有很高的概率输掉。			Если тип вашего Покемона выше по иерархии, то ваши шансы на победу гораздо выше. Если типы Покемонов одинаковы то шансы пятьдесят на пятьдесят. Если ваш Покемон слабее по типу, то шансы на победу очень низки.
+PARTY_BOARD_PALLET_RULES_6	Now go and become a real Pokemon trainer!	Now go and become a real Pokemon trainer!	¡Ahora ve y conviértete en un genuino entrenador Pokémon!	자, 이제 포켓몬 마스터가 되어봅시다!	那么现在就出发成为真正的精灵训练家吧！			Теперь же вперед, станьте настоящим Покетренером!
+PARTY_BOARD_DREAMS_NAME	Lucid Dreams	Lucid Dreams	Sueños Lúcidos	자각몽				
+PARTY_BOARD_DREAMS_WELCOME	Welcome to your dreams! Is this how your dreams look like? That's LSD stuff right there.	Welcome to your dreams! Is this how your dreams look like? That's LSD stuff right there.	¡Bienvenido a tus sueños! ¿Es así cómo se ven? Sí que tenemos material de LSD justo aquí.	여러분의 꿈속으로 들어오신것을 환영합니다! 이게 여러분의 꿈의 모습인가요? LSD라도 한 것 마냥 생겨먹었네요.				
+PARTY_BOARD_DREAMS_RULES_1	Here you need to reach the Shine like usual. The difference is that there are some teleports scattered throughout the board.	Here you need to reach the Shine like usual. The difference is that there are some teleports scattered throughout the board.	Aquí solo necesitas alcanzar el Sol como lo es normalmente. La diferencia es que hay algunos teletransportadores esparcidos a través del tablero.					
+PARTY_BOARD_DREAMS_RULES_2	Every pair of teleporters are connected, you gotta remember where each one leads to!	Every pair of teleporters are connected, you gotta remember where each one leads to!	Cada par de teletransportadores están conectados. ¡Tendrás que recordar hacia dónde lleva cuál!					
+PARTY_BOARD_HYRULE_NAME	Hyrule	Hyrule	Hyrule	하이랄				
+PARTY_BOARD_HYRULE_WELCOME	Welcome to Hyrule! In the peaceful Kakariko Village no less.	Welcome to Hyrule! In the peaceful Kakariko Village no less.	¡Bienvenido a Hyrule! Nada menos que el pacífico Pueblo Kakarito.					
+PARTY_BOARD_HYRULE_RULES_1	This board has a unique thing going on. It spawns three Shines instead of only one.\nSo what's the deal you say?	This board has a unique thing going on. It spawns three Shines instead of only one.\nSo what's the deal you say?	Este tablero tiene algo único. Aparecerán tres Soles en vez de uno solo.\n¿Entonces que sucede con esto?					
+PARTY_BOARD_HYRULE_RULES_2	When a new turn starts, there's a chance the board changes to the Dark World or back to the Light World.	When a new turn starts, there's a chance the board changes to the Dark World or back to the Light World.	Cuando un nuevo turno comience, hay una posibilidad de que tablero cambie al Mundo Oscuro o regresar al Mundo Luminoso.					
+PARTY_BOARD_HYRULE_RULES_3	In the Light World everything works as you normally expect.	In the Light World everything works as you normally expect.	En el Mundo Luminoso todo funciona normalmente, nada del otro mundo.					
+PARTY_BOARD_HYRULE_RULES_4	In the Dark World all the Shines become Evil Shines. They take away one Shine from you if you have one, or {20 coins} if you don't.	In the Dark World all the Shines become Evil Shines. They take away one Shine from you if you have one, or {20 coins} if you don't.	En cambio en el Mundo Oscuro, los Soles se convierten en Soles Malignos. Te quitarán un Sol o {20 coins} si no tienes una.					
+PARTY_BOARD_HYRULE_RULES_5	So be careful and try to avoid them as much as you can!	So be careful and try to avoid them as much as you can!	¡Así que mantente alerta e intenta evitarlos a toda costa!					
+PARTY_BOARD_NSANITY_NAME	Outer Nsanity	Outer Nsanity	Nsanity Exterior					Внеземное безумие
+PARTY_BOARD_NSANITY_WELCOME	Welcome to the insanity! It's very interesting to be here in outer space.	Welcome to the insanity! It's very interesting to be here in outer space.	¡Bienvenido a la locura! Es muy interesante estar aquí, en el espacio exterior.					Добро пожаловать в безумие! Очень интересно быть здесь, в открытом космосе.
+PARTY_BOARD_NSANITY_RULES_1	This is a linear board, with only a single Shine. Your goal is to reach it fast!	This is a linear board, with only a single Shine. Your goal is to reach it fast!	Este es un tablero lineal con solo un único Sol. Tu meta será llegar a ella lo más rápido que puedas.					Это линейная доска с одним Шайни. Твоя цель достичь этого быстро!
+PARTY_BOARD_NSANITY_RULES_2	Why fast you ask? Because everytime someone buys a Shine the total cost goes up by {5 coins}! Starting from {10 coins}.	Why fast you ask? Because everytime someone buys a Shine the total cost goes up by {5 coins}! Starting from {10 coins}.	¿Y por qué rápido? Porque cada vez que alguien consigue un Sol, el precio irá incrementando en {5 coins}. Iniciando desde {10 coins}.					Ты спросишь почему быстро? Потому что каждый раз когда кто-то покупает Шайни стоимость поднимается на {5 coins}! Начиная с {10 coins}.
+PARTY_BOARD_WORLD_NAME	Kid VS. The World	Kid VS. The World	Kid VS. El Mundo	키드 VS. 더 월드				Кид против Мира
+PARTY_BOARD_WORLD_WELCOME	Welcome to everyone versus the world!	Welcome to everyone versus the world!	¡Bienvenidos a todos contra el mundo!					Добро пожаловать во всё против мира
+PARTY_BOARD_WORLD_RULES_1	You gotta be careful! There's a spooky Ghost roaming around! When it reaches you or you reach it, it takes a Shine away!	You gotta be careful! There's a spooky Ghost roaming around! When it reaches you or you reach it, it takes a Shine away!	¡Debes tener cuidado! ¡Hay un Fantasma merodeando alrededor! Cuando él te alcanza o tú lo alcanzas, ¡Te arrebatará un Sol!					Ты должен быть осторожным! здесь вокруг бродит страшный призрак! Если он дойтёт до вас или вы до него, то он заберёт твой Шайни!
+PARTY_BOARD_WORLD_RULES_2	Plan your route accordingly and try to avoid Ghost at all costs while you collect Shines!	Plan your route accordingly and try to avoid Ghost at all costs while you collect Shines!	¡Planea tu ruta con cuidado e intenta evitar al fantasma a toda costa mientras recolectas Soles!					Планируй свой маршрут и пытайтесь избегать призрака всей ценой пока вы будете собирать Шайни!
+#								
+#BOARD AFTER RULES								
+#								
+PARTY_BOARD_ALRIGHT	Alright. Then let's choose the turns!	Alright. Then let's choose the turns!	Muy bien, eligamos el orden de turnos.	자, 이제 순서를 정해봅시다!	好的。现在让我们来决定行动顺序！	好的。現在讓我們來決定順序！		Окей. Тогда давайте выберем ходы!
+PARTY_BOARD_DECIDED	The order has been decided!	The order has been decided!	¡El orden está decidido!	순서가 정해졌습니다!	顺序已经决定好了！	順序已經決定好了！		Порядок определён!
+PARTY_BOARD_FIRST	{Color}{Player}{Color} goes first!	{Color}{Player}{Color} goes first!	¡{Color}{Player}{Color} va primero!	{Color}{Player}{Color}님이 제일 먼저!	{Color}{Player}{Color} 第一个行动！	{Color}{Player}{Color} 第一個行動！		{Color}{Player}{Color} идёт первым!
+PARTY_BOARD_SECOND	{Color}{Player}{Color} follows as second!	{Color}{Player}{Color} follows as second!	¡{Color}{Player}{Color} lo sigue en segundo!	{Color}{Player}{Color}님이 그 다음!	{Color}{Player}{Color} 紧随其后！	{Color}{Player}{Color} 緊隨其後！		{Color}{Player}{Color} следует вторым!
+PARTY_BOARD_THIRD	Then {Color}{Player}{Color} goes third!	Then {Color}{Player}{Color} goes third!	¡Después {Color}{Player}{Color} será tercero!	{Color}{Player}{Color}님이 3번째!	{Color}{Player}{Color} 第三个行动！	{Color}{Player}{Color} 第三個行動！		Тогда {Color}{Player}{Color} идёт третьим!
+PARTY_BOARD_FORTH	And last to go is {Color}{Player}{Color}.	And last to go is {Color}{Player}{Color}.	¡Y {Color}{Player}{Color} irá en ultimo!	마지막으로 {Color}{Player}{Color}님 입니다!	最后行动的是{ Color}{Player}{Color} 。	最後行動的是{ Color}{Player}{Color} 。		И последним идёт {Color}{Player}{Color}.
+PARTY_BOARD_GIVE_COINS	Let's give each one {10 coins} to start.	Let's give each one {10 coins} to start.	Les daremos {10 coins} a cada uno para iniciar.	시작하기 앞서 모두에게 {10 coins}을 드리겠습니다.	每位玩家的初始资金为 {10 coins} 。	讓我們在開始給每個人 {10 coins}。		Давай дадим каждому {10 coins} для начала.
+PARTY_BOARD_SEE_SHINE	Let's see where the Shine is gonna end up...	Let's see where the Shine is gonna end up...	Veamos adónde terminará el Sol...	과연 샤인이 어디에 나타날까요...	现在确认太阳的位置……	讓我們看看太陽的位置會在......		
+#								
+#SHINE ENCOUNTER								
+#								
+PARTY_BOARD_SHINE_WANNA_BUY	Do you wanna buy a Shine?	Do you wanna buy a Shine?	¿Quieres comprar un Sol?	샤인을 구매하시겠습니까?	你想要购买这个太阳吗？	你想要購買這個太陽嗎？		Ты хочешь купить Шайни?
+PARTY_BOARD_SHINE_BOUGHT_1	Here you go! The Shine is yours!	Here you go! The Shine is yours!	¡Aquí tienes! ¡El Sol es tuyo!	여깄습니다! 샤인은 당신의 것입니다!	好的！这个太阳是你的了！	好的！這個太陽是你的了！		Держи! Шайни твой!
+PARTY_BOARD_SHINE_BOUGHT_2	Good choice! Here you go!	Good choice! Here you go!	¡Buena elección! ¡Aquí tienes!	좋은 선택입니다! 여깄습니다!	好主意！收下吧！	很好的選擇！收下吧！		Хороший выбор! Держи!
+PARTY_BOARD_SHINE_BOUGHT_3	You were starting to worry me for a second!	You were starting to worry me for a second!	¡Me estabas preocupando por un segundo!	아이참, 걱정했잖아요!		你開始讓我擔心一秒鐘了！		Ты начал меня беспокоить на секунду!
+PARTY_BOARD_SHINE_PASS_1	Are you really sure you don't want it?	Are you really sure you don't want it?	¿Seguro que no lo quieres?	정말로 원하지 않으시나요?	你确定不需要它吗？	你真的確定你不需要它嗎？		Ты действительно уверен что не хочешь этого?
+PARTY_BOARD_SHINE_PASS_2	Are you really, really sure?	Are you really, really sure?	¿Estás completamente seguro?	진짜진짜 확실하시죠?	你真的真的确定？	你真的真的確定嗎？		Ты действительно действительно уверен?
+PARTY_BOARD_SHINE_PASS_3	Well too bad then, I hope next time you change your mind.	Well too bad then, I hope next time you change your mind.	Qué lástima, espero que lo pienses mejor la proxima vez.	아쉽네요. 다음에는 잘 생각해보시길.	太遗憾了。希望下次你能好好想想。	太遺憾了，我希望下次你改變主意。		довольно жалко, я надеюсь в следующий раз ты хорошенько подумаешь.
+PARTY_BOARD_SHINE_NOT_ENOUGH	You don't have {X coins} to buy the Shine!\nCome back later.	You don't have {X coins} to buy the Shine!\nCome back later.	¡No tienes {X coins} para comprar el Sol!\nRegresa más tarde.	샤인을 구매할 {X coins}이 없습니다!\나중에 다시 오세요.	你没有足够的 {X coins} 购买这个太阳！\n之后再来吧。	你沒有足夠的 {X coins} 購買這個太陽！\n之後再來 吧。		У тебя нет {X coins} чтобы купить шайни!\nВозвращайся позже.
+#								
+#SHOP ENCOUNTER								
+#								
+PARTY_BOARD_SHOP_ENTER	Do you wanna enter the Shop?	Do you wanna enter the shop?	¿Quieres entrar a la tienda?	상점을 이용하시겠습니까?	你想要进入商店吗？	你想要進入商店嗎？		ты хочешь зайти в магазин?
+PARTY_BOARD_SHOP_NOT_ENOUGH	You don't have enough money to enter the shop!	You don't have enough money to enter the shop!	No tienes monedas suficientes para entrar a la tienda.	코인이 충분하지 않아 상점을 이용할 수 없습니다!	你没有足够的金币进入商店！	你沒有足夠的金幣進入商店！		у тебя недостаточно денег чтобы зайти в магазин
+PARTY_BOARD_SHOP_WANNA_BUY	Are you sure you wanna buy {Color}{Item}{Color}?	Are you sure you wanna buy {Color}{Item}{Color}?	¿Seguro que quieres comprar {Color}{Item}{Color}?	{Color}{Item}{Color}를 구매하시겠습니까?	确定要购买 {Color}{Item}{Color} 吗？	你確定要購買 {Color}{Item}{Color} 嗎？		ты уверен что ты хочешь купить {Color}{Item}{Color}? 
+PARTY_BOARD_SHOP_ITEM_THANK	Thank you for buying!	Thank you for buying!	¡Gracias por comprar!	이용해주셔서 감사합니다!	谢谢惠顾！	謝謝惠顧！		Спасибо за покупку!
+PARTY_BOARD_SHOP_ITEM_NOT_ENOUGH	You don't have enough coins to buy that item!	You don't have enough coins to buy that item!	¡No tienes suficientes monedas para comprar ese objeto!	아이템을 구입할 코인이 부족합니다!	你没有足够的金币购买那个道具！	你沒有足夠的金幣來購買那個道具！		у тебя недостаточно денег чтобы купить этот предмет
+PARTY_BOARD_SHOP_SEE_YOU	Hope to see you again soon!	Hope to see you again soon!	¡Espero verte pronto!	또오십쇼!	欢迎下次光临！	歡迎下次光臨！		надеемся скоро увидеть вас снова!
+PARTY_BOARD_SHOP_CLOSED	We're currently closed!\nSorry for the inconvenience!	We're currently closed!\nSorry for the inconvenience!	¡Estamos cerrado!\n Lamentamos el inconveniente.	현재 휴업중입니다!\n불편을 끼쳐 드려 죄송합니다!	我们已经关门了！\n给您带来不便很抱歉！	我們已經關門了！\n給您帶來不便，我們深表歉意！		сейчас мы закрыты!\nИзвините за неудобства!
+PARTY_BOARD_SHOP_NIGHT	Sorry but the shop is closed during the night, visit us at any time during the day. Thanks!	Sorry but the shop is closed during the night, visit us at any time during the day. Thanks!	Lo siento pero la tienda se encuentra cerrada por la noche, vuelva a vernos durante cualquier transcurso del día. ¡Gracias!	죄송하지만 밤에는 상점을 이용하실 수 없습니다. 낮에 방문하시면 도와드리겠습니다. 감사합니다!	抱歉，商店晚上不营业，请白天再来。谢谢！	抱歉，商店在晚上不營業，請白天再來。謝謝！		Извините, но магазин закрыт в течении ночи, посетите нас в любое время дня. Спасибо!
+#								
+#BLACKHOLE ENCOUNTER								
+#								
+PARTY_BOARD_BLACKHOLE_USE	Do you wanna use the Blackhole?	Do you wanna use the blackhole?	¿Quieres usar el agujero negro?	블랙홀을 사용하시곘습니까?	你想要使用黑洞吗？			Ты хочешь исползовать чёрную дыру?
+PARTY_BOARD_BLACKHOLE_NOT_ENOUGH	You don't have enough money!	You don't have enough money!	¡No tienes dinero suficiente!	돈이 충분하지 않습니다!	你的金币不足！			У тебя недостаточно денег!
+PARTY_BOARD_BLACKHOLE_COINS_DESCRIPTION	Steals Coins from a player. Mash to reduce the amount.	Steals Coins from a player. Mash to reduce the amount.	Roba Monedas a un jugador. Pulsa para reducir la cantidad.	다른 플레이어에게서 코인을 빼앗아옵니다. 버튼을 연타해 일정량 방어가 가능합니다.	现在将从一位玩家身上偷走金币。狂击Shift以减少损失。			Крадёт монеты у игрока. Клацайте чтобы уменьшить количество
+PARTY_BOARD_BLACKHOLE_SHINE_DESCRIPTION	Steals a Shine from a player. If that's not evil I don't know what is.	Steals a Shine from a player. If that's not evil I don't know what is.	Roba un Sol a un jugador. Si esto no es maldad entonces no sé lo que es.	다른 플레이어에게서 샤인을 빼앗아옵니다. 당신 정말 악랄하네요.	现在将从一位玩家身上偷走一个太阳。没有比这更邪恶的事情了。			Крадёт шайни у игрока. Если это не зло, то я не знаю что это такое
+PARTY_BOARD_BLACKHOLE_WANNA_SURE	Are you sure you wanna steal {Color}{Option}{Color}?	Are you sure you wanna steal {Color}{Option}{Color}?	¿Estás seguro de que quieres robar {Color}{Option}{Color}?	정말로 {Color}{Option}{Color}을 빼앗아오시겠습니까?	你确定想对 {Color}{Option}{Color} 使用黑洞吗？			ты уверен что ты хочешь украсть {Color}{Option}{Color}?
+PARTY_BOARD_BLACKHOLE_GOOD_CHOICE	Good choice.	Good choice.	Buena elección.	좋은 선택입니다.	好主意。			Хороший выбор.
+PARTY_BOARD_BLACKHOLE_CANT	You can't steal that.	You can't steal that.	No puedes robar eso.	그건 빼앗을 수 없습니다.	你不能偷这个。			Ты не можешь украсть это.
+PARTY_BOARD_BLACKHOLE_SHAME	What a shame...	What a shame...	Qué pena...	안타깝네요...	真遗憾……			Какой позор...
+PARTY_BOARD_BLACKHOLE_DAY	I hate the day... please come back when it's nighttime.	I hate the day... please come back when it's nighttime.	Detesto el día... por favor vuelve cuando anochezca.	낮은 싫어요...밤이 되면 다시 찾아와주세요.	我讨厌白天……请晚上再来吧。			Я ненавижу день... пожалуйста возвращайся в ночное время.
+PARTY_BOARD_BLACKHOLE_WHICH_PLAYER_STEAL	Which player do you wanna steal from?	Which player do you wanna steal from?	¿A qué jugador quieres robar?	누구에게서 빼앗아오시겠습니까?	你想对谁使用黑洞？			У какого игрока ты хочешь украсть?
+#								
+#CHANCE TIME EVENT								
+#								
+PARTY_CHANCE_TIME_WELCOME	Welcome to chance time!\nThe exciting event that can change everything!	Welcome to chance time!\nThe exciting event that can change everything!	¡Bienvenido al chance time!\n¡El increíble evento que lo puede cambiar todo!	찬스타임에 오신 것을 환영합니다!\n과연 게임의 판도가 뒤바뀔 수 있을까요?	机会时间到了！\n现在一切皆有可能！			Добро пожаловать в "Время шанса"!\nЗахватывающее событые которое может всё поменять!
+PARTY_CHANCE_TIME_PLAYERS_INVOLVED	Jump and hit the blocks to decide what players are gonna be involved!	Jump and hit the blocks to decide what players are gonna be involved!	¡Salta y golpea los bloques para decidir qué jugadores estarán involucrados!	블록을 향해 점프해서 플레이어 두명을 골라주세요!	跳起顶砖以选择参与的玩家！			Прыгни и задень блок чтобы узнать какие игроки будут задействованы!
+PARTY_CHANCE_TIME_CHOSEN_PLAYERS	It seems the chosen players would be {Color}{Player 1}{Color} and {Color}{Player 2}{Color}!	It seems the chosen players would be {Color}{Player 1}{Color} and {Color}{Player 2}{Color}!	¡Al parecer, los jugadores elegidos serían {Color}{Player 1}{Color} y {Color}{Player 2}{Color}!	{Color}{Player 1}{Color}님과 {Color}{Player 2}{Color}님이 선택되었습니다!	看起来被选中的玩家是 {Color}{Player 1}{Color} 和 {Color}{Player 2}{Color} ！			похоже выбранными игроками будут {Color}{Player 1}{Color} и {Color}{Player 2}{Color}!
+PARTY_CHANCE_TIME_WONDER_EXCHANGE	Now I wonder what the exchange will be...	Now I wonder what the exchange will be...	Ahora me pregunto cuál será el intercambio...	과연 둘 사이에 무슨 일이 벌어질까요...	现在决定他们交换什么……			Мне интересно, каким будет обмен
+PARTY_CHANCE_TIME_RESULTS	And... the results are in!	And... the results are in!	¡Y... tenemos los resultados!	그리고...정해졌습니다	那么……决定好了！			И... вот результаты!
+PARTY_CHANCE_TIME_LOOKS_LIKE	Looks like	Looks like	¡Parece que	<Just leave this as blank>	看样子			
+PARTY_CHANCE_TIME_EXCHANGE_SHINES_COINS	{Player 1} and {Player 2} will exchange their {Shine} Shines and {Coins} Coins!	{Player 1} and {Player 2} will exchange their {Shine} Shines and {Coins} Coins!	{Player 1} y {Player 2} intercambiarán sus {Shine} Soles y {Coins} Monedas!	{Player 1}님과 {Player 2} 님의 {Shine} 샤인과 {Coins}코인이 맞바뀝니다!	{Player 1} 和 {Player 2} 要交换他们的 {Shine} 太阳和 {Coins} 金币！			{Player 1} и {Player 2} обменяются своими {Shine} Шайни и {Coins} монетами!
+PARTY_CHANCE_TIME_EXCHANGE_SHINES	{Player 1} and {Player 2} will exchange their {Shine} Shines!	{Player 1} and {Player 2} will exchange their {Shine} Shines!	{Player 1} y {Player 2} intercambiarán sus {Shine} Soles!	{Player 1}님과 {Player 2} 님의 {Shine} 샤인이 맞바뀝니다!	{Player 1} 和 {Player 2} 要交换他们的 {Shine} 太阳！			{Player 1} и {Player 2} обменяются своими {Shine} Шайни!
+PARTY_CHANCE_TIME_EXCHANGE_COINS	{Player 1} and {Player 2} will exchange their {Coins} Coins!	{Player 1} and {Player 2} will exchange their {Coins} Coins!	{Player 1} y {Player 2} intercambiarán sus {Coins} Monedas!	{Player 1}님과 {Player 2} 님의  {Coins}코인이 맞바뀝니다!	{Player 1} 和 {Player 2} 要交换他们的 {Coins} 金币！			{Player 1} и {Player 2} обменяются своими {Coins} монетами!
+PARTY_CHANCE_TIME_GIVE_1_SHINE_P2_P1	{Player 2} will give {Shine}1 to {Player 1}!	{Player 2} will give {Shine}1 to {Player 1}!	{Player 2} le dará {Shine}1 a {Player 1}!	{Player 2}님이 {Player 1}님에게 {Shine} 1개를 뺴앗깁니다! 	{Player 2} 要交给 {Player 1} {Shine}1 ！			{Player 2} даст {Shine}1 для {Player 1}!
+PARTY_CHANCE_TIME_GIVE_1_SHINE_P1_P2	{Player 1} will give {Shine}1 to {Player 2}!	{Player 1} will give {Shine}1 to {Player 2}!	{Player 1} le dará {Shine}1 a {Player 2}!	{Player 1}님이 {Player 2}님에게 {Shine} 1개를 뺴앗깁니다!	{Player 1} 要交给 {Player 2} {Shine}1 ！			{Player 1} даст {Shine}1 для {Player 2}!
+PARTY_CHANCE_TIME_GIVE_2_SHINES_P2_P1	{Player 2} will give {Shine}2 to {Player 1}!	{Player 2} will give {Shine}2 to {Player 1}!	{Player 2} le dará {Shine}2 a {Player 1}!	{Player 2}님이 {Player 1}님에게 {Shine} 2개를 뺴앗깁니다!	{Player 2} 要交给 {Player 1} {Shine}2 ！			{Player 2} даст {Shine}2 для {Player 1}!
+PARTY_CHANCE_TIME_GIVE_2_SHINES_P1_P2	{Player 1} will give {Shine}2 to {Player 2}!	{Player 1} will give {Shine}2 to {Player 2}!	{Player 1} le dará {Shine}2 a {Player 2}!	{Player 1}님이 {Player 2}님에게 {Shine} 2개를 뺴앗깁니다! 	{Player 1} 要交给 {Player 2} {Shine}2 ！			{Player 1} даст {Shine}2 для {Player 2}!
+PARTY_CHANCE_TIME_GIVE_30_COINS_P2_P1	{Player 2} will give {30 coins} to {Player 1}!	{Player 2} will give {30 coins} to {Player 1}!	{Player 2} le dará {30 coins} a {Player 1}!	{Player 2}님이 {Player 1}님에게 {30 coins}를 뺴앗깁니다!	{Player 2} 要交给 {Player 1} {30 coins} ！			{Player 2} даст {30 coins} для {Player 1}!
+PARTY_CHANCE_TIME_GIVE_30_COINS_P1_P2	{Player 1} will give {30 coins} to {Player 2}!	{Player 1} will give {30 coins} to {Player 2}!	{Player 1} le dará {30 coins} a {Player 2}!	{Player 1}님이 {Player 2}님에게 {30 coins}를 뺴앗깁니다!	{Player 1} 要交给 {Player 2} {30 coins} ！			{Player 1} даст {30 coins} для {Player 2}!
+PARTY_CHANCE_TIME_NOTHING_CHANGED	Huh... nothing changed...\nWell, better luck next time!	Huh... nothing changed...\nWell, better luck next time!	Vaya... nada ha cambiado...\nBueno, ¡más suerte para la próxima vez!	얼레...아무 일도 일어나지 않았네요...\n	嗯？好像无事发生……\n那么祝你下次好运！			Хм... ничего не поменялось...\nЧто ж, в следующий раз повезёт больше!
+PARTY_CHANCE_TIME_THATS_IT	That's it for now!\nSee you next time!	That's it for now!\nSee you next time!	¡Eso es todo por ahora!\n¡Hasta la próxima!	이번에는 여기까지!\n나중에 다시 봅시다!	这次就到这里了！\n我们下回见！			На пока что всё!\nУвидимся в следующий раз!
+#								
+#THE GUY EVENT								
+#								
+PARTY_THE_GUY_WHAT_IS_THIS	What is this!? Another child dares to land on my space!?\nYou'll regret this!	What is this!? Another child dares to land on my space!?\nYou'll regret this!	¿¡Qué es esto!? ¿¡Otro niño se atreve a caer en mi casilla!?\n¡Lo vas a lamentar!	흠?! 감히 어떤 애송이가 이 몸의 땅에 발을 들어놓은 것이냐?!\n후회하게 만들어주지!	发生什么事？有孩子敢停在我的格子上？\n你会后悔的！			что это такое!? очередной ребёнок осмелился вторгнуться на моё пространство!?\nТы пожалеешь об этом!
+PARTY_THE_GUY_YOU	You	You	Tú pierdes	당신이	你			ты
+PARTY_THE_GUY_ALL_OF_YOU	All of you	All of you	Todos pierden	모두가	所有人			каждый из вас
+PARTY_THE_GUY_LOSE_X_COINS	{Color}lose{Color} {X coins}	{Color}lose{Color} {X coins}	{Color}{Color} {X coins}	{X coins}을 {Color}잃습니다{Color}	{Color}输掉{Color} {X coins}			{Color}лишается{Color} {X coins}
+PARTY_THE_GUY_LOSE_HALF_COINS	You {Color}lose{Color} half {Coin}	You {Color}lose{Color} half {Coin}	Tú {Color}pierdes{Color} la mitad {Coin}	당신의 {Coin} 절반을 {Color}잃습니다{Color}	你 {Color}输掉{Color} 一半 {Coin}			Ты {Color}лишаешся{Color} половины {Coin}
+PARTY_THE_GUY_LOSE_1_SHINE	You {Color}lose{Color} {Shine}1	You {Color}lose{Color} {Shine}1	Tú {Color}pierdes{Color} {Shine}1	당신의 {Shine} 하나를 {Color}잃습니다{Color}	你 {Color}输掉{Color} {Shine}1			Ты {Color}лишаешся{Color} {Shine}1
+PARTY_THE_GUY_GUY_REVOLUTION	{Color}The Guy{Color} revolution	{Color}The Guy{Color} revolution	La revolución del {Color}Pibe{Color}	{Color}The Guy{Color} 혁명	{Color}Guy{Color} 的变革			
+PARTY_THE_GUY_GET_100_SHINES	You {Color}get{Color} {Shine}100	You {Color}get{Color} {Shine}100	Tú {Color}ganas{Color} {Shine}100	당신은 {Shine} 100개를 {Color}얻습니다{Color}	你 {Color}赢得{Color} {Shine}100			Ты {Color}получаешь{Color} {Shine}100
+PARTY_THE_GUY_DONT_HAVE_COINS	What!? You don't even have Coins!?	What!? You don't even have Coins!?	¿¡Qué!? ¿¡Ni siquiera tienes Monedas!?	뭐!? 코인이 하나도 없다고!?	什么？你身无分文？			Что!? у тебя даже нет монет!?
+PARTY_THE_GUY_GOOD_AT_PLAYING	Let's see if this makes you feel like you're good at playing.	Let's see if this makes you feel like you're good at playing.	Veamos si esto te hace sentir que eres bueno jugando.		希望这能让你觉得你玩的很好。			Давай посмотрим сделает ли это тебя чувствовать себя лучше в игре.
+PARTY_THE_GUY_DONT_HAVE_SHINES	I see you don't have a Shine on you.	I see you don't have a Shine on you.	Veo que no tienes un Sol.		看来你身上没有太阳。			Вижу на тебе нет Шайни
+PARTY_THE_GUY_TAKE_COINS	To compensate I'm gonna take a couple Coins instead.	To compensate I'm gonna take a couple Coins instead.	Para compensarlo voy a tomar unas cuantas monedas en su lugar.		作为代替我将拿走你身上的一些金币。			В компенсацию я вместо этого возьму монеты
+PARTY_THE_GUY_DONT_HAVE_SHINES_AND_COINS	You don't have Shines, and I was gonna take Coins away but apparently you're this bad at playing.	You don't have Shines, and I was gonna take Coins away but apparently you're this bad at playing.	No tienes Soles, e iba a quitarte las Monedas, pero aparentemente eres así de malo jugando.		你没有太阳，所以我本想拿走你的金币，但是你玩的如此糟糕以至于一毛不拔。			У тебя нет Шайни, и я хотел взять монеты, но ты плохо играешь
+PARTY_THE_GUY_SPARE_COIN	Here, have a spare Coin, play better.	Here, have a spare Coin, play better.	Aquí tienes una moneda de repuesto, aprende a jugar, pelotudo.		拿上这枚金币，努力加油玩吧。			Бери лишнюю монету, играй лучше.
+PARTY_THE_GUY_THINK_BEFORE	I hope you think twice before landing on my space again.	I hope you think twice before landing on my space again.	Espero que lo pienses dos veces antes de volver a caer en mi casilla.		希望你下次停在我的格子前三思。			Надеюсь ты будешь думать дважды перед тем как вторгаться на моё пространство снова.
+#								
+#BOARD EVENTS								
+#								
+PARTY_BOARD_BABA_BLOCKS	There are some blocks here, they're gonna toggle!	There are some blocks here, they're gonna toggle!	Hay algunos bloques aquí. ¡Se van a alternar!					
+PARTY_BOARD_PALLET_POKEMON_ENCOUNTER	Hey, there's a Pokemon here with the {Type} type.	Hey, there's a Pokemon here with the {Type} type.	Hey, hay un Pokémon aquí con el tipo {Type}.	음, 여기 {Type}타입 포켓몬이 있네요.	嘿，这有一只 {Type} 系的精灵。			
+PARTY_BOARD_PALLET_POKEMON_WITH_IT	What would you like to do with it?	What would you like to do with it?	¿Qué te gustaría hacer con él?	무엇을 하시겠습니까?	你想要对它做什么？			
+PARTY_BOARD_PALLET_POKEMON_BRING	Bring {15 coins}	Bring {15 coins}	Trae {15 coins}	데려간다 {15 coins}	支付 {15 coins}			
+PARTY_BOARD_PALLET_POKEMON_BATTLE	Battle	Battle	Combate	포켓몬 배틀을 한다	战斗			
+PARTY_BOARD_PALLET_POKEMON_HAPPY	The Pokemon looks happy!	The Pokemon looks happy!	¡El Pokémon se ve contento!	포켓몬이 행복해 보이는군요!	这只精灵看上去很开心！			
+PARTY_BOARD_PALLET_POKEMON_DONT_HAVE	But you don't have {15 coins}!	But you don't have {15 coins}!	¡Pero no tienes {15 coins}!	{15 coins}이 없습니다!	但你没有 {15 coins} ！			
+PARTY_BOARD_PALLET_POKEMON_BEST_SHOT	Give it your best shot!	Give it your best shot!	¡Da tu mejor golpe!	최선을 다해보세요!	尽你最大的努力！			
+PARTY_BOARD_PALLET_POKEMON_CANT_BATTLE	You can't battle without a Pokemon!	You can't battle without a Pokemon!	¡No puedes combatir sin un Pokémon!	포켓몬 없이는 배틀을 하실 수 없습니다!	你没有用来战斗的精灵！			
+PARTY_BOARD_PALLET_POKEMON_SEE_YOU	See you around!	See you around!	¡Nos vemos!	나중에 봅시다!	下次再见！			
+PARTY_BOARD_HYRULE_EVIL_SHINE	Oh no! The Evil Shine is looking at you menacingly!\nIt won't take no for an answer!	Oh no! The Evil Shine is looking at you menacingly!\nIt won't take no for an answer!	¡Oh no! ¡El Sol Malvado te está mirando de una forma amenazadora!\n¡No tomará un no como respuesta!					
+PARTY_BOARD_WORLD_GHOST_TAKE_YOU	Oh no! You reached the Ghost and now it's gonna take a Shine away from you!	Oh no! You reached the Ghost and now it's gonna take a Shine away from you!	¡Oh no! ¡Alcanzaste al Fantasma y ahora te quitará un Sol!					
+PARTY_BOARD_WORLD_GHOST_TAKE_PLAYER	Oh no! The Ghost reached you {Color}{Player}{Color} and now it's gonna take a Shine away from you!	Oh no! The Ghost reached you {Color}{Player}{Color} and now it's gonna take a Shine away from you!	¡Oh no! ¡El Fantasma te ha alcanzado, {Color}{Player}{Color}! ¡Y ahora te quitará un Sol!					
+PARTY_BOARD_WORLD_GHOST_SAFE_YOU	Oh no! You reached the Ghost, but you don't have a Shine so you're safe!	Oh no! You reached the Ghost, but you don't have a Shine so you're safe!	¡Oh no! ¡Te encontraste con el Fantasma! Pero no tienes ningún Sol, ¡Así que estás a salvo!					
+PARTY_BOARD_WORLD_GHOST_SAFE_PLAYER	Oh no! The Ghost reached you {Color}{Player}{Color}, but you don't have a Shine so you're safe!	Oh no! The Ghost reached you {Color}{Player}{Color}, but you don't have a Shine so you're safe!	¡Oh no! ¡El Fantasma te ha alcanzado, {Color}{Player}{Color}! Pero no tienes ningún Sol, ¡Así que estás a salvo!					
+#								
+#ITEMS								
+#								
+PARTY_ITEM_DOUBLE_DICE_NAME	Double Dice	Double Dice	Doble Dado	더블 주사위	双骰子			
+PARTY_ITEM_DOUBLE_DICE_EFFECT	Lets you roll two dice.	Lets you roll two dice.	Te permite lanzar dos dados.	주사위 2개를 굴립니다	让你一次掷两个骰子			
+PARTY_ITEM_TRIPLE_DICE_NAME	Triple Dice	Triple Dice	Triple Dado	트리플 주사위	三骰子			
+PARTY_ITEM_TRIPLE_DICE_EFFECT	Lets you roll three dice.	Lets you roll three dice.	Te permite lanzar tres dados.	주사위 3개를 굴립니다.	让你一次掷三个骰子			
+PARTY_ITEM_CLOCK_NAME	Clock	Clock	Reloj	시계	时钟			
+PARTY_ITEM_CLOCK_NAME_EFFECT	Makes your dice roll slow.	Makes your dice roll slow.	Hace que tu dado gire lentamente	주사위가 느리게 굴러갑니다.	让你的骰子转的很慢			
+PARTY_ITEM_POISON_NAME	Poison	Poison	Veneno	독	毒药			
+PARTY_ITEM_POISON_EFFECT	Dice only gets to roll from 1-3.\nCan be used on other players.	Dice only gets to roll from 1-3.\nCan be used on other players.	El Dado solo entregará entre 1-3.\nPuede ser usado en otros jugadores.	주사위 눈금이 1~3만 나옵니다.\n다른 플레이어에게 사용이 가능합니다.	骰子只从1到3选择。\n可以对其他玩家使用。			
+PARTY_ITEM_REVERSE_NAME	Reverse	Reverse	Inverso	리버스	翻转			
+PARTY_ITEM_REVERSE_EFFECT	Board direction is reversed with this item.\nCan be used on other players.	Board direction is reversed with this item.\nCan be used on other players.	La dirección del tablero es invertida con este objeto.\nPuede ser usado en otros jugadores.	보드의 방향을 역전시킵니다.\n다른 플레이어에게 사용이 가능합니다	你的地图移动方向会翻转。\n可以对其他玩家使用。			
+PARTY_ITEM_ICE_NAME	Ice	Ice	Hielo	얼음	冰冻			
+PARTY_ITEM_ICE_EFFECT	Completely freezes a player of your choosing.\nDisabling all actions on their turn.	Completely freezes a player of your choosing.\nDisabling all actions on their turn.	Congela completamente a un jugador a elección.\nInhabilitando todas las acciones en su turno.	선택한 플레이어를 얼려버립니다.\n얼어버린 플레이어는 한 턴을 낭비하게 됩니다.	完全冻结你的目标玩家。\n这名玩家下回合完全不能行动。			
+PARTY_ITEM_WARP_NAME	Warp	Warp	Portal	워프	传送			
+PARTY_ITEM_WARP_EFFECT	Changes space with a player chosen at random.	Changes space with a player chosen at random.	Cambia de lugar con un jugador elegido aleatoriamente	다른 무작위의 플레이어와 위치를 바꿉니다	交换你和随机一名玩家的位置。			
+PARTY_ITEM_SUPER_WARP_NAME	Super Warp	Super Warp	Súper portal	슈퍼 워프	超级传送			
+PARTY_ITEM_SUPER_WARP_EFFECT	Changes space with any player of your choosing.	Changes space with any player of your choosing.	Cambia de lugar con un jugador a tu elección.	원하는 플레이어와 위치를 바꿉니다.	交换你和你的目标玩家的位置。			
+PARTY_ITEM_CELLPHONE_NAME	Cellphone	Cellphone	Teléfono Celular	휴대전화	手机			
+PARTY_ITEM_CELLPHONE_EFFECT	You can call the shop and get an item directly from the comfort of your space.	You can call the shop and get an item directly from the comfort of your space.	Puedes llamar a la tienda y comprar un objeto directamente desde la comodidad de tu lugar.	상점에 전화를 걸어 물건을 구매할 수 있습니다.	你可以对商店打电话购买一个道具并享受外送服务。			
+PARTY_ITEM_BLACKHOLE_NAME	Blackhole	Blackhole	Agujero Negro	블랙홀	黑洞			
+PARTY_ITEM_BLACKHOLE_EFFECT	Summons the Blackhole, allowing you to steal Coins or Shines from other players.	Summons the blackhole, allowing you to steal Coins or Shines from other players.	Invoca al Agujero Negro, permitiéndote robar Monedas o Soles de otros jugadores.	블랙홀을 소환합니다. 다른 플레이어에게서 코인이나 샤인을 빼얏을 수 있습니다.	召唤黑洞，你可以用黑洞偷走其他玩家的金币或太阳。			
+PARTY_ITEM_MIRROR_NAME	Mirror	Mirror	Espejo	거울	镜子			
+PARTY_ITEM_MIRROR_EFFECT	It teleports you directly on top of the Shine space.	It teleports you directly on top of the Shine space.	Te teletransporta directamente a la posición del Sol.	샤인이 있는 칸으로 텔레포트합니다.	它会把你直接传送到太阳的格子。			
+PARTY_ITEM_ITEM_BAG_NAME	Item Bag	Item Bag	Bolsa con objetos	아이템 가방	道具袋			
+PARTY_ITEM_ITEM_BAG_EFFECT	Gives you 3 random items!	Gives you 3 random items!	¡Te da 3 objetos aleatoriamente!	3개의 아이템을 무작위로 얻습니다!	随机给你三个道具！			
+PARTY_ITEM_WHICH_PLAYER_POISON	Which player to poison?	Which player to poison?	¿A cuál jugador envenenar?	누구에게 독을 사용하시겠습니까?	你想对谁使用毒药？			
+PARTY_ITEM_WHICH_PLAYER_REVERSE	Which player to reverse?	Which player to reverse?	¿A cuál jugador invertir?	누구의 방향을 역전시키겠습니까?	你想对谁使用翻转？			
+PARTY_ITEM_WHICH_PLAYER_FREEZE	Which player to freeze?	Which player to freeze?	¿A cuál jugador congelar?	누구를 얼리시겠습니까?	你想对谁使用冰冻？			
+PARTY_ITEM_WHICH_PLAYER_SWITCH	Which player to switch places with?	Which player to switch places with?	¿Con cuál jugador cambiar de lugar?	누구와 위치를 바꾸시겠습니까?	你想和谁交换位置？			
+#								
+#RESULTS								
+#								
+PARTY_RESULTS_GOOD_JOB	Good job everyone!\nThe moment of truth is coming close...\nTo see who is worthy of being the superstar!	Good job everyone!\nThe moment of truth is coming close...\nTo see who is worthy of being the superstar!	¡Todos han hecho un gran trabajo!\nEl momento de la verdad se está acercando...\n¡Para ver quién está a la altura de ser la súper estrella!		各位做得漂亮！\n结算时间就要到了……\n让我们看看谁是那位超级巨星！			
+PARTY_RESULTS_GIVE_COINS	Let's give the winners of the past minigame their Coins!	Let's give the winners of the past minigame their Coins!	¡Démosle a los ganadores del minijuego pasado sus Monedas!		在这之前我们要给予刚刚小游戏的获胜方金币！			
+PARTY_RESULTS_BUT_FIRST	But first we need to give the bonus Shines!\nThey could change the course of the whole game!	But first we need to give the bonus Shines!\nThey could change the course of the whole game!	¡Pero primero necesitamos dar los Soles de bonificación!\n¡Podrían cambiar el transcurso de todo el juego!		在这之前我们要奖励额外的太阳！\n这当然会改变这次派对最终的结果！			
+PARTY_RESULTS_THE_FIRST	The first	The first	El primer	첫번째	首先			
+PARTY_RESULTS_THE_SECOND	The second	The second	El segundo	두번째	其次			
+PARTY_RESULTS_THE_LAST	And the last	And the last	Y el último	마지막	最后			
+PARTY_RESULTS_BONUS_GOES	{Order} bonus Shine goes to the one that {Condition}	{Order} bonus Shine goes to the one that {Condition}	{Order} Sol de bonificación va a aquel que {Condition}	{Order} 보너스 샤인은 {Condition}	{Condition} 的人获得 {Order} 奖励太阳			
+PARTY_RESULTS_GOES_TO	And this goes to...	And this goes to...	Y este va para...	이 보너스 샤인의 주인공은...	让我们看看它花落谁家			
+PARTY_RESULTS_BONUS_COINS	got the most Coins	got the most Coins	obtuvo la mayor cantidad de Monedas	가장 많은 코인을 얻은 플레이어에게 주어집니다!	获得最多金币			
+PARTY_RESULTS_BONUS_ITEMS	used the most Items	used the most Items	usó más objetos	가장 많은 아이템을 사용한 플레이어에게 주어집니다!	使用最多道具			
+PARTY_RESULTS_BONUS_MINIGAMES	won the most Minigames	won the most Minigames	ganó más minijuegos	미니게임에서 가장 많이 승리한 플레이어에게 주어집니다!	赢得最多小游戏			
+PARTY_RESULTS_BONUS_ROLLS	rolled the biggest Numbers on the die	rolled the biggest Numbers on the die	obtuvo los números más altos en el Dado		用骰子掷出最大的数字			
+PARTY_RESULTS_BONUS_RED_SPACES	landed on the most Red spaces	landed on the most Red spaces	cayó más en casillas Rojas	가장 많이 빨간 칸에 착지한 플레이어에게 주어집니다!	最多次停在红色格子			
+PARTY_RESULTS_BONUS_COIN_SPACES	landed on the most Coin spaces	landed on the most Coin spaces	cayó más en casillas de Monedas	가장 많이 코인 칸에 착지한 플레이어에게 주어집니다!	最多次停在金币格子			
+PARTY_RESULTS_BONUS_ITEM_SPACES	landed on the most Item spaces	landed on the most Item spaces	cayó más en casillas de Objetos	가장 많이 아이템 칸에 착지한 플레이어에게 주어집니다!	最多次停在道具格子			
+PARTY_RESULTS_BONUS_CHANCE_SPACES	landed on the most Chance Time spaces	landed on the most Chance Time spaces	cayó más en casillas de Chance Time	가장 많이 찬스타임 칸에 착지한 플레이어에게 주어집니다!	最多次停在机会格子			
+PARTY_RESULTS_BONUS_GUY_SPACES	landed on the most The Guy spaces	landed on the most The Guy spaces	cayó más en casilas de The Guy	가장 많이 The Guy 칸에 착지한 플레이어에게 주어집니다!	最多次停在Guy格子			
+PARTY_RESULTS_BONUS_SURPRISE_SPACES	landed on the most Surprise spaces	landed on the most Surprise spaces	cayó más en casillas de Sorpresa	가장 많이 랜덤 칸에 착지한 플레이어에게 주어집니다!	最多次停在随机格子			
+PARTY_RESULTS_BONUS_SHOP	spent the most Coins on the Shop	spent the most Coins on the Shop	gastó más monedas en la Tienda	상점에서 가장 많은 코인을 사용한 플레이어에게 주어집니다!	在商店消费最多金币			
+PARTY_RESULTS_BONUS_BLACKHOLE	lost most stuff due to Blackhole	lost the most stuff due to the Blackhole	perdió más cosas debido al Agujero Negro	블랙홀에게 가장 많이 뺴앗긴 플레이어에게 주어집니다!	被黑洞偷走最多东西			
+PARTY_RESULTS_BONUS_WON_ONE	Congratulations!	Congratulations!	¡Felicitaciones!	축하드립니다!	恭喜！			
+PARTY_RESULTS_BONUS_WON_TWO	I applaud both of you!	I applaud both of you!	¡Les aplaudo a los dos!	두 분 모두 축하드립니다!	恭喜两位！			
+PARTY_RESULTS_BONUS_WON_THREE	Wow, three of you got it!\nI'm impressed!	Wow, three of you got it!\nI'm impressed!	¡Wow, tres de ustedes lo lograron!\n¡Estoy impresionado!	세 분이나 받으셨습니다!\n믿을 수가 없는 일이군요!	哇，有三个人完成！\n我很震惊！			
+PARTY_RESULTS_BONUS_WON_FOUR	What!? All of you managed to get it??\nYou're all so good!	What!? All of you managed to get it??\nYou're all so good!	¿¡Qué!? ¿¿Todos lo lograron??\n¡Todos ustedes son demasiado buenos!	네?! 여러분 전부 받으셨다고요??\n여러분 모두 정말 대단하시네요!	什么？所有人都一样？\n你们都太棒了！			
+PARTY_RESULTS_NOW_REVEAL	Now it's finally time to reveal the winner!\nI'm so nervous...	Now it's finally time to reveal the winner!\nI'm so nervous...	¡Ahora es finalmente la hora de revelar al ganador!\nEstoy tan nervioso...	자, 이제 최종 우승자를 발표할 시간입니다!\n정말 긴장되는군요...	现在是时候揭晓赢家了！\n真令人紧张……			
+PARTY_RESULTS_PARTY_WON_ONE	{Player} is the winner!\nA round of applause!	{Player} is the winner!\nA round of applause!	¡{Player} es el ganador!\n¡Ronda de aplausos!	{Player}님이 우승하셨습니다!\n모두 뜨거운 박수로 축하해주세요!	{Player} 获胜！\n掌声响起来！			
+PARTY_RESULTS_PARTY_WON_TWO	{Players} are the winners!\nA double win, you don't see that very often!	{Players} are the winners!\nA double win, you don't see that very often!	¡{Players} son los ganadores!\n¡Una victoria doble, no ves eso muy seguido!	{Players}님들께서 우승하셨습니다!\n공동우승이라, 흔히 있는 일이 아닌데요!	{Players} 同时获胜！\n是很少见的双赢！			
+PARTY_RESULTS_PARTY_WON_THREE	{Players} are the winners!\nI can hardly believe my eyes!\nThree of you won!	{Players} are the winners!\nI can hardly believe my eyes!\nThree of you won!	¡{Players} son los ganadores!\n¡Dificilmente creo lo que veo!\n¡Tres de ustedes ganaron!	{Players}님들께서 우승하셨습니다!\n세 분이나 우승하셨다니, 믿기지가 않네요!	{Players} 同时获胜！\n我不敢相信我的眼睛！\n恭喜三位！			
+PARTY_RESULTS_PARTY_WON_FOUR	{Players} are the winners!\nEveryone won???\nThat's even rarer than seeing a shooting star!!!	{Players} are the winners!\nEveryone won???\nThat's even rarer than seeing a shooting star!!!	¡{Players} son los ganadores!\n¿¿¿Todos ganaron???\n¡¡¡Eso es incluso más raro que ver una estrella fugaz!!!	{Players}님들께서 우승하셨습니다!\n전부 다 우승하셨다고요???\n여러분 가서 로또를 사세요!!!	{Players} 同时获胜！\n所有人都赢了？？？\n这比流星还罕见啊！！！			
+#								
+#MINIGAMES								
+#								
+MINIGAMES_MODE_NORMAL	Normal	Normal	Normal		开始			
+MINIGAMES_MODE_PRACTICE	Practice	Practice	Práctica		练习			
+MINIGAMES_PAGE	Page	Page	Página	페이지	第 {X} 页			
+MINIGAMES_RULES	Rules	Rules	Reglas	규칙	规则			
+MINIGAMES_CONTROLS	Controls	Controls	Controles	조작	操作方式			
+MINIGAMES_RULES_SOLO_PLAYER	Rules Solo Player	Rules Solo Player	Reglas Del Jugador Solitario	1인 플레이 규칙	单人规则			
+MINIGAMES_CONTROLS_SOLO_PLAYER	Controls Solo Player	Controls Solo Player	Controles Del Jugador Solitario	1인 플레이 조작	单人操作方式			
+MINIGAMES_RULES_TEAM_PLAYERS	Rules Team Players	Rules Team Players	Reglas De Jugadores En Equipo	팀 플레이 규칙	多人规则			
+MINIGAMES_CONTROLS_TEAM_PLAYERS	Controls Team Players	Controls Team Players	Controles De Jugadores En Equipo	팀 플레이 조작	多人操作方式			
+MINIGAMES_EXIT_PRACTICE	Press {Misc key} to exit practice	Press {Misc key} to exit practice	Presiona {Misc key} para salir de la práctica	{Misc key}를 눌러 연습을 종료합니다	按 {Misc key} 键退出练习			
+MINIGAMES_FINISH	FINISH	FINISH		종료	时间到			
+MINIGAMES_WON	WON	WON		승리	获胜			
+MINIGAMES_CLEAR	CLEAR	CLEAR	LIMPIO	클리어	通关			
+MINIGAMES_TOO_BAD	TOO BAD...	TOO BAD...		아쉽네요...	太遗憾了……			
+#								
+#4 VS.								
+#								
+MINIGAMES_LEAD_NAME	Follow The Lead	Follow The Lead	Sigue la secuencia	날 따라 해봐요				
+MINIGAMES_LEAD_PAGE_1	DeDeDe shows a sequence of four actions that you need to perform. Upon doing so successfully add one more action for the next player! Have in mind that you can't perform the same action twice in a row.	DeDeDe shows a sequence of four actions that you need to perform. Upon doing so successfully add one more action for the next player! Keep in mind that you can't perform the same action twice in a row.	DeDeDe mostrará una secuencia de movimientos que deben ejecutar. Una vez realizada correctamente, !añadan una acción extra para el siguiente jugador! Tengan en cuenta que no podrán repetir el mismo movimiento dos veces seguidas.	디디디 대왕이 여러분이 따라해야할 동작 4개를 보여줄겁니다. 만약 성공적으로 따라하게 된다면, 동작 하나를 추가해서 다음 플레이어에게 넘길 수 있습니다. 단, 같은 동작을 연속으로 하지 못하는 점 유의해주세요. 				
+MINIGAMES_LEAD_PAGE_2	{Left key}{Down key}{Right key} Direction\n{Jump key} Jump\n{Shoot key} Shoot	{Left key}{Down key}{Right key} Direction\n{Jump key} Jump\n{Shoot key} Shoot		{Left key}{Down key}{Right key} 방향키\n{Jump key} 점프\n{Shoot key} 총				
+MINIGAMES_TOWER_NAME	Tower Ascension	Tower Ascension		탑을 올라요				
+MINIGAMES_TOWER_PAGE_1	A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!	A platform that increases speed overtime\nis ascending the tower!\nAvoid the spikes at all costs and be\nthe last one standing!		여러분은 계속해서 빨라지는 플랫폼을 타고 탑을 올라야 합니다!!\n가시를 피해 마지막까지 살아남으세요!				
+MINIGAMES_TOWER_PAGE_2	{Left key}{Right key} Move	{Left key}{Right key} Move		{Left key}{Right key} 이동				
+MINIGAMES_HAUNTED_NAME	Haunted Forest	Haunted Forest		귀신의 숲				
+MINIGAMES_HAUNTED_PAGE_1	Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear in its head.	Don't let that intimidating ghost see you moving, stop if it faces you!\nIf it's about to turn around it'll laugh and an exclamation mark will appear above its head.						
+MINIGAMES_HAUNTED_PAGE_2	{Left key}{Right key} Move	{Left key}{Right key} Move						
+MINIGAMES_MAGIC_NAME	Magic Memory	Magic Memory						
+MINIGAMES_MAGIC_PAGE_1	A set of items are above the pedestals.\nRemember the order of each item before\nthe earthquake strikes!\nPut them all back in the correct order.	A set of items are above the pedestals.\nRemember the place of each item before\nthe earthquake strikes!\nPut them all back in the correct place.						
+MINIGAMES_MAGIC_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Hold/Release Item\n{Shoot key} Cover Items	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Hold/Release Item\n{Shoot key} Cover Items						
+MINIGAMES_MANSION_NAME	Mansion Escape	Mansion Escape		멘션 탈출				
+MINIGAMES_MANSION_PAGE_1	You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.	You've been trapped in the attic of an old\nmansion!\nBe the first to escape!\nFind all the doors that lead downstairs.						
+MINIGAMES_MANSION_PAGE_2	{Left key}{Right key} Move\n{Up key} Open Door	{Left key}{Right key} Move\n{Up key} Open Door						
+MINIGAMES_PLATFORMS_NAME	Painting Platforms	Painting Platforms		플랫폼 색칠하기				
+MINIGAMES_PLATFORMS_PAGE_1	It's time to paint! Jump while inside the platforms to paint them with your color, the one with more platforms wins.	It's time to paint! Jump while inside the platforms to paint them with your color, the one with the most platforms wins.						
+MINIGAMES_PLATFORMS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_BUGS_NAME	Bugs Around	Bugs Around		벌레가 너무 많아				
+MINIGAMES_BUGS_PAGE_1	There's so many bugs! 0/10\nYou need to count the number of bugs of the color that appears at the top. The one closest to the total wins.	There's so many bugs! 0/10\nYou need to count the number of bugs of the color that appears at the top. The one closest to the total wins.						
+MINIGAMES_BUGS_PAGE_2	{Left key}{Right key} Change Number	{Left key}{Right key} Change Number						
+MINIGAMES_BLOCKS_NAME	Unstable Blocks	Unstable Blocks		무너지는 블럭				
+MINIGAMES_BLOCKS_PAGE_1	These blocks break upon anything that touches it. Be careful where you stand to be the last one alive!	These blocks break upon anything landing on it. Be careful where you stand to be the last one alive!						
+MINIGAMES_BLOCKS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_CHESTS_NAME	Crazy Chests	Crazy Chests		야바위게임				
+MINIGAMES_CHESTS_PAGE_1	Each chest will contain a different amount of coins, and after they're gonna shuffle like crazy, follow the one with the most coins and be the first to pick it! 3 rounds, the chests get crazier everytime.	Each chest will contain a different amount of coins, and then they're gonna shuffle like crazy! Follow the one with the most coins and be the first to pick it! 3 rounds, the chests get crazier every time.						
+MINIGAMES_CHESTS_PAGE_2	{Left key}{Right key} Move\n{Up key} Pick Chest	{Left key}{Right key} Move\n{Up key} Pick Chest						
+MINIGAMES_SLIME_NAME	Slime Annoyer	Slime Annoyer		슬라임을 괴롭혀요				
+MINIGAMES_SLIME_PAGE_1	Look at that cute slime!\nI bet you wanna annoy it, don't you? Well you can by shooting it, but beware! It can either forgive you or kill you. So try to be the last one standing.	Look at that cute slime!\nI bet you wanna annoy it, don't you? Well you can by shooting it, but beware! It can either forgive you or kill you. So try to be the last one standing.						
+MINIGAMES_SLIME_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot						
+MINIGAMES_ROCKET_NAME	Rocket Ignition	Rocket Ignition		로켓 발사				
+MINIGAMES_ROCKET_PAGE_1	This is a rocket competition, all of you will compete against each other, aiming and shooting everywhere. You have 3 HP each, the last one standing wins!	This is a rocket competition, all of you will compete against each other, aiming and shooting everywhere. You have 3 HP each, the last one standing wins!						
+MINIGAMES_ROCKET_PAGE_2	{Left key}{Right key} Turn\n{Up key} Accelerate Forward\n{Down key} Accelerate Backwards\n{Shoot key} Shoot	{Left key}{Right key} Turn\n{Up key} Accelerate Forward\n{Down key} Accelerate Backwards\n{Shoot key} Shoot						
+MINIGAMES_DIZZY_NAME	Dizzy Conundrum	Dizzy Conundrum		으악 어지러워				
+MINIGAMES_DIZZY_PAGE_1	Try not to get too dizzy on this one!\nCollect all the coins of your respective color. Each time you touch a warp it's gonna shuffle all your actions, so figure out which is which!	Try not to get too dizzy on this one!\nCollect all the coins of your respective color. Each time you touch a warp it's gonna shuffle all your actions, so figure out which is which!						
+MINIGAMES_DIZZY_PAGE_2	{Left key}{Right key} Move\n{Jump key} Flip Gravity\n{Left key}{Up key}{Down key}{Right key}{Jump key} After Shuffle	{Left key}{Right key} Move\n{Jump key} Flip Gravity\n{Left key}{Up key}{Down key}{Right key}{Jump key} After Shuffle						
+MINIGAMES_TARGETS_NAME	Targeting Targets	Targeting Targets		과녁 맞추기				
+MINIGAMES_TARGETS_PAGE_1	Break the targets! You have 6 bullets to do so, red gives you 1 point, blue 2 points and yellow 3 points.	Break the targets! You have 6 bullets to do so. Red gives you 1 point, blue 2 points, and yellow 3 points.						
+MINIGAMES_TARGETS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot						
+MINIGAMES_BULLETS_NAME	Uncertain Bullets	Uncertain Bullets						
+MINIGAMES_BULLETS_PAGE_1	Time to dodge the bullets! Blue bullets are water and you can jump infinitely while in them, black and white bullets kill you, avoid them! After a while bouncing cherries spawn on the bottom so avoid them too!	Time to dodge the bullets! Blue bullets are water and you can jump infinitely while in them. Black and white bullets kill you, avoid them! After a while bouncing cherries spawn on the bottom so avoid them too!						
+MINIGAMES_BULLETS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_DRAWN_NAME	Drawn Keys	Drawn Keys		열쇠 그림				
+MINIGAMES_DRAWN_PAGE_1	Grab as much key drawings as possible, green gives 1 point, yellow gives 2 points and red gives 3 points. Make use of the blocks below you, if they're green and you jump they're gonna launch you upwards.	Grab as many key drawings as possible. Green gives 1 point, yellow gives 2 points and red gives 3 points. Make use of the blocks below you, if they're green and you jump they're gonna launch you upwards.						
+MINIGAMES_DRAWN_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_BUBBLE_NAME	Bubble Derby	Bubble Derby		비눗방울 레이스				
+MINIGAMES_BUBBLE_PAGE_1	Time for bubble race! It's hard to control, try not going too fast! If you hit a spike you're unable to move for a bit. Take into account the better you're doing in the race the longer you have to wait. 3 laps to win!	Time for bubble race! It's hard to control, don't try going too fast! If you hit a spike you're unable to move for a bit. Take into account the better you're doing in the race the longer you have to wait. 3 laps to win!						
+MINIGAMES_BUBBLE_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move	{Left key}{Up key}{Down key}{Right key} Move						
+MINIGAMES_SKY_NAME	Sky Diving	Sky Diving		스카이다이빙				
+MINIGAMES_SKY_PAGE_1	I hope you prepared your parachute, because you're falling. And while at it, make sure to touch the yellow saves, red circle gives you 1 point and green circle gives you 2 points. The one with more points wins!	I hope you prepared your parachute, because you're falling fast! While you're at it, make sure to touch the yellow saves. Red circles gives you 1 point and green circles gives you 2 points. The one with the most points wins!						
+MINIGAMES_SKY_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move	{Left key}{Up key}{Down key}{Right key} Move						
+MINIGAMES_GOLF_NAME	Golf Course	Golf Course		미니골프				
+MINIGAMES_GOLF_PAGE_1	Mini-golf time! Prepare your shot carefully, the ball needs to land on the flag hole for a perfect 100 score. If it doesn't land you get points based on how close you were and if you fall off no points for you!	Mini-golf time! Prepare your shot carefully. The ball needs to land in the flag hole for a perfect 100 score. If it doesn't, you get points based on how close you were, and if you fall off no points for you!						
+MINIGAMES_GOLF_PAGE_2	{Left key}{Right key} Adjust Angle\n{Jump key} Use Angle/Use Force\n{Shoot key} Cancel Angle	{Left key}{Right key} Adjust Angle\n{Jump key} Use Angle/Use Force\n{Shoot key} Cancel Angle						
+MINIGAMES_WAKA_NAME	Waka Evasion	Waka Evasion		팩맨을 피해요				
+MINIGAMES_WAKA_PAGE_1	The Pac-Man invasion is upon us... pay attention to all the safe trajectories, or else you'll get killed! The last one standing wins!	The Pac-Man invasion is upon us... pay attention to all the safe trajectories, or else you'll get killed! The last one standing wins!						
+MINIGAMES_WAKA_PAGE_2	{Left key}{Right key} Change Location	{Left key}{Right key} Change Location						
+MINIGAMES_JINGLE_NAME	Jingle Sledge	Jingle Sledge		징글징글한 징글벨				
+MINIGAMES_JINGLE_PAGE_1	Sledge in the snow couldn't be left out! But there's obstacles in the way! Jump to avoid the spikes and shoot to destroy the trees and candies and toggle the colored blocks. First to reach the goal wins!	Sledge in the snow couldn't be left out! But there's obstacles in the way! Jump to avoid the spikes and shoot to destroy the trees and candies and toggle the colored blocks. First to reach the goal wins!						
+MINIGAMES_JINGLE_PAGE_2	{Jump key} Jump\n{Shoot key} Shoot/Toggle	{Jump key} Jump\n{Shoot key} Shoot/Toggle						
+#								
+#1 VS. 3								
+#								
+MINIGAMES_AVOID_NAME	Avoid The Anguish	Avoid The Anguish		개판을 피해라				
+MINIGAMES_AVOID_PAGE_1	Your job is to eliminate the {Color}Team Players{Color}, choose a different type of attack by hitting the 3 blocks from below. Each attack is different!	Your job is to eliminate the {Color}Team Players{Color}, choose a different type of attack by hitting the 3 blocks from below. Each attack is different!						
+MINIGAMES_AVOID_PAGE_2	Avoid the cherries at all costs! The {Color}Solo Player{Color} is trying to eliminate you with their arsenal of cherries! Pay attention to which block they activate.	Avoid the cherries at all costs! The {Color}Solo Player{Color} is trying to eliminate you with their arsenal of cherries! Pay attention to which block they activate.						
+MINIGAMES_AVOID_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_CONVEYOR_NAME	Conveyor Havoc	Conveyor Havoc		혼란의 컨베이어벨트				
+MINIGAMES_CONVEYOR_PAGE_1	That conveyor seems useful, touch the buttons to change the direction the conveyor goes. Confuse the {Color}Team Players{Color} by changing the conveyor constantly and eliminate them!	That conveyor seems useful, touch the buttons to change the direction the conveyor goes. Confuse the {Color}Team Players{Color} by changing the conveyor constantly and eliminate them!						
+MINIGAMES_CONVEYOR_PAGE_2	That conveyor is fast, beware! The {Color}Solo Player{Color} is gonna constantly change the conveyor's direction, pay attention and survive!	That conveyor is fast, beware! The {Color}Solo Player{Color} is gonna constantly change the conveyor's direction, pay attention and survive!						
+MINIGAMES_CONVEYOR_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_SHOWDOWN_NAME	Number Showdown	Number Showdown		넘버 쇼다운				
+MINIGAMES_SHOWDOWN_PAGE_1	Pick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.	Pick a number between 1 and 3.\nIf you happen to choose the same number as\none of your opponents, their block\nfalls apart.	Selecciona un número del 1 al 3.\nSi has elegido el mismo número que alguno de tus rivales, su bloque desaparecera.					
+MINIGAMES_SHOWDOWN_PAGE_2	Pick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{Color}Solo Player{Color} picked, then your\nblock breaks.	Pick a number between 1 and 3.\nThat number will be on your block.\nIf that number is the same as the one that\n{Color}Solo Player{Color} picked, then your\nblock breaks.	Selecciona un número del 1 al 3.\nEse número estara en tu bloque. Si el número que elegiste es el mismo que el\n{Color}Solo Player{Color} selecciono, tu bloque desaparecerá.					
+MINIGAMES_SHOWDOWN_PAGE_3	{Jump key} Select Number\n{Left key}{Right key} Change Number	{Jump key} Select Number\n{Left key}{Right key} Change Number	{Jump key} Seleccionar número\n{Left key}{Right key} Cambiar número					
+MINIGAMES_COINS_NAME	Getting Coins	Getting Coins		동전을 모아라				
+MINIGAMES_COINS_PAGE_1	So many coins! Perfect for becoming rich! Grab as many coins as you can to win!	So many coins! Perfect for becoming rich! Grab as many coins as you can to win!	¡Mira todas esas monedas! ¡Perfecto para volverte rico! ¡Consigue todas las monedas que puedas para ganar!					
+MINIGAMES_COINS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Mover\n{Jump key} Salto					
+MINIGAMES_RACE_NAME	Gigantic Race	Gigantic Race						
+MINIGAMES_RACE_PAGE_1	A sequence of four buttons will show up below you. Press all of them in the correct order to advance!	A sequence of four buttons will show up below you. Press all of them in the correct order to advance!						
+MINIGAMES_RACE_PAGE_2	Press the button that shows up above your head on your turn. Once all of you have pressed the three buttons the spaceship will advance!	Press the button that shows up above your head on your turn. Once all of you have pressed the three buttons the spaceship will advance!						
+MINIGAMES_RACE_PAGE_3	{Left key}{Up key}{Down key}{Right key}{Jump key}{Shoot key} Buttons	{Left key}{Up key}{Down key}{Right key}{Jump key}{Shoot key} Buttons						
+MINIGAMES_WARPING_NAME	Warping Up	Warping Up						
+MINIGAMES_WARPING_PAGE_1	Avoid the warps at all costs! Your goal is to push three gray blocks all the way to the left in order to cross and kill yourself with the spike. The {Color}Team Players{Color} will shoot warps up to mess with you.	Avoid the warps at all costs! Your goal is to push three gray blocks all the way to the left in order to cross and kill yourself with the spike. The {Color}Team Players{Color} will shoot warps up to mess with you.						
+MINIGAMES_WARPING_PAGE_2	The {Color}Solo Player{Color} is trying to kill themselves, you need to stop them! Shoot warps up constantly to make them go back to the beginning and prevent them from pushing all three gray blocks!	The {Color}Solo Player{Color} is trying to kill themselves, you need to stop them! Shoot warps up constantly to make them go back to the beginning and prevent them from pushing all three gray blocks!						
+MINIGAMES_WARPING_PAGE_3	{Left key}{Right key} Move\n{Color}Team Players{Color}\n{Shoot key} Shoot Warp	{Left key}{Right key} Move\n{Color}Team Players{Color}\n{Shoot key} Shoot Warp						
+MINIGAMES_HUNT_NAME	Hunt Trouble	Hunt Trouble						
+MINIGAMES_HUNT_PAGE_1	The {Color}Team Players{Color} are hunting you, throw them off by constantly jumping around and try not to fall off the blocks!	The {Color}Team Players{Color} are hunting you, throw them off by constantly jumping around and try not to fall off the blocks!						
+MINIGAMES_HUNT_PAGE_2	The {Color}Solo Player{Color} is trying to get away, corner them, aim and then shoot to kill!	The {Color}Solo Player{Color} is trying to get away. Corner them, aim, and then shoot to kill!						
+MINIGAMES_HUNT_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_HUNT_PAGE_4	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} Shoot	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} Shoot						
+MINIGAMES_AIMING_NAME	Aiming Tiles	Aiming Tiles						
+MINIGAMES_AIMING_PAGE_1	Destroy all the {Color}Team Players{Color}' blocks by shooting at them. But don't destroy the empty blocks or else they're gonna have more freedom to move!	Destroy all the {Color}Team Players{Color}' blocks by shooting at them. But don't destroy the empty blocks or else they're gonna have more freedom to move!						
+MINIGAMES_AIMING_PAGE_2	Don't get hit by the {Color}Solo Player{Color}' laser! Move around to dodge it, but don't get trapped in between two empty blocks or you're gonna be unable to escape!	Don't get hit by the {Color}Solo Player{Color}'s laser! Move around to dodge it, but don't get trapped in between two empty blocks or you're gonna be unable to escape!						
+MINIGAMES_AIMING_PAGE_3	{Left key}{Right key} Move\n{Color}Solo Player{Color}:\n{Shoot key} Shoot	{Left key}{Right key} Move\n{Color}Solo Player{Color}:\n{Shoot key} Shoot						
+MINIGAMES_HOST_NAME	Hidden Host	Hidden Host						
+MINIGAMES_HOST_PAGE_1	Choose which door you wanna hide in at the start. But try to trick the {Color}Team Players{Color} by just wandering around. After each round the door the others chose are gonna be locked. It's three rounds to win!	Choose which door you wanna hide in at the start. But try to trick the {Color}Team Players{Color} by just wandering around. After each round the doors the others chose are gonna be locked. It's three rounds to win!						
+MINIGAMES_HOST_PAGE_2	The {Color}Solo Player{Color} will choose one of the doors. Try to guess which door they chose, if you fail to find them the door you chose is gonna lock up! Try to find them before three rounds pass.	The {Color}Solo Player{Color} will choose one of the doors. Try to guess which door they chose, if you fail to find them the door you chose is gonna lock up! Try to find them before three rounds pass.						
+MINIGAMES_HOST_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump Infinitely\n{Up key} Pick Door	{Left key}{Right key} Move\n{Jump key} Jump Infinitely\n{Up key} Pick Door						
+MINIGAMES_HOUSE_NAME	Bad House	Bad House						
+MINIGAMES_HOUSE_PAGE_1	That's a very bad house! Don't let the cherries touch you, the house is being controlled by the {Color}Team Players{Color}, survive and wait for the timer to expire.	That's a very bad house! Don't let the cherries touch you. The house is being controlled by the {Color}Team Players{Color}, survive and wait for the timer to expire.	Esa es una casa muy mala! No dejes que las cerezas te toquen, la casa esta siendo controlada por el {Color}Equipo Rival{Color}, sobrevive hasta que el reloj llegue a cero.					
+MINIGAMES_HOUSE_PAGE_2	You control the bad house, but each member of the team only has control of a single action. Cooperate and kill the {Color}Solo Player{Color} before the time runs out!	You control the bad house, but each member of the team only has control of a single action. Cooperate and kill the {Color}Solo Player{Color} before the time runs out!	Tu controlaras la casa mala, pero cada miembro solo tendra una unica accion para controlar. Cooperen y maten al {Color}Solo Player{Color} antes de que termine el tiempo					
+MINIGAMES_HOUSE_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Mover\n{Jump key} Salto					
+#								
+#2 VS. 2								
+#								
+MINIGAMES_MAZE_NAME	A-Maze-Ing	A-Maze-Ing		어메이즈잉				
+MINIGAMES_MAZE_PAGE_1	Quick! You have to assemble your team spike. It's divided into two pieces, you and your teammate must each find one of the pieces and then reunite! Make sure to grab a piece of your team's color!	Quick! You have to assemble your team spike. It's divided into two pieces, you and your teammate must each find one of the pieces and then reunite! Make sure to grab a piece of your team's color!						
+MINIGAMES_MAZE_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump Infinitely	{Left key}{Right key} Move\n{Jump key} Jump Infinitely						
+MINIGAMES_FRUITS_NAME	Catch The Fruits	Catch The Fruits		캐치 더 프루트				
+MINIGAMES_FRUITS_PAGE_1	Fruits are falling from the tree, catch as many as you can to win! Big fruits give 1 point, medium fruits give 2 points and small fruits give 3 points. Don't catch the spiky Gordos or 1 point will be taken away.	Fruits are falling from the tree, catch as many as you can to win! Big fruits give 1 point, medium fruits give 2 points, and small fruits give 3 points. Don't catch the spiky Gordos or 1 point will be taken away.						
+MINIGAMES_FRUITS_PAGE_2	{Left key}{Right key} Move	{Left key}{Right key} Move						
+MINIGAMES_BUTTONS_NAME	Buttons Everywhere	Buttons Everywhere		사방이 버튼이야				
+MINIGAMES_BUTTONS_PAGE_1	Compete to press more buttons than the other team! Once the button highlights red you have to be quick and shoot it.	Compete to press more buttons than the other team! Once the button highlights red you have to be quick and shoot it.						
+MINIGAMES_BUTTONS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump Infinitely\n{Shoot key} Shoot	{Left key}{Right key} Move\n{Jump key} Jump Infinitely\n{Shoot key} Shoot						
+MINIGAMES_SQUARES_NAME	Fitting Squares	Fitting Squares		네모네모 맞추기				
+MINIGAMES_SQUARES_PAGE_1	Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half square each.	Each team must assemble\ntheir squares,\nput both of them in the correct orientation\nto fit them!\nPlayers control half a square each.						
+MINIGAMES_SQUARES_PAGE_2	{Left key}{Right key} Change Square Angle	{Left key}{Right key} Change Square Angle						
+MINIGAMES_COLORFUL_NAME	Colorful Insanity	Colorful Insanity		이런 미친 색깔				
+MINIGAMES_COLORFUL_PAGE_1	That's a ton of colors... cooperate with your teammate to find the only two squares that are exactly the same. 4 rounds to win!	That's a ton of colors... cooperate with your teammate to find the only two squares that are exactly the same. 4 rounds to win!						
+MINIGAMES_COLORFUL_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Select/Deselect Square	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Select/Deselect Square						
+MINIGAMES_SPRINGING_NAME	Springing Piranha	Springing Piranha						
+MINIGAMES_SPRINGING_PAGE_1	Avoid the fireballs! Survive longer than the other team. The upper player bounces around a spring, the bottom player controls the spring. If either on the team die the fireballs start shooting faster!	Avoid the fireballs! Survive longer than the other team. The upper player bounces around a spring, the bottom player controls the spring. If either on the team die the fireballs start shooting faster!						
+MINIGAMES_SPRINGING_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_DUOS_NAME	Dynyaamic Duos	Dynyaamic Duos		다이냐믹 듀오				
+MINIGAMES_DUOS_PAGE_1	Be the first duo to reach the end. Help your teammate to overcome each section. First you need to press buttons by shooting. Then finding the correct warp to advance. And finally inflate the leek to win!	Be the first duo to reach the end. Help your teammate to overcome each section. First you need to press buttons by shooting. Then finding the correct warp to advance. And finally inflate the leek to win!						
+MINIGAMES_DUOS_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot						
+MINIGAMES_DUEL_NAME	Western Duel	Western Duel		서부의 총잡이				
+MINIGAMES_DUEL_PAGE_1	Pay attention! Be the fastest shooter on the old west. Once you see the exclamation mark, shoot as fast as you can. Whoever shoots faster wins 1 point. Reach 5 points to win.	Pay attention! Be the fastest shooter in the Old West. Once you see the exclamation mark, shoot as fast as you can. Whoever shoots faster wins 1 point. Reach 5 points to win.						
+MINIGAMES_DUEL_PAGE_2	{Shoot key} Shoot	{Shoot key} Shoot						
+MINIGAMES_SOCCER_NAME	Soccer Match	Soccer Match		축구				
+MINIGAMES_SOCCER_PAGE_1	This is soccer, everyone knows the rules! Score 5 points in order to win. If you touch the ball it shoots off based on the direction you're looking, so careful with that!	This is soccer, everyone knows the rules! Score 5 points in order to win. If you touch the ball it shoots off based on the direction you're looking, so careful with that!						
+MINIGAMES_SOCCER_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Move\n{Jump key} Jump						
+MINIGAMES_IDOL_NAME	Whac-an-idol	Whac-an-idol		아이돌 두더지 게임				
+MINIGAMES_IDOL_PAGE_1	Whac-a-mole idol edition! Hit as many idols, gently of course, as you can. The team that hits more idols wins!	Whac-a-mole idol edition! Hit as many idols, gently of course, as you can. The team that hits more idols wins!						
+MINIGAMES_IDOL_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} Hit	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} Hit						
+#								
+#TRIALS								
+#								
+TRIALS_RAPID_ASCENSION_NAME	Rapid Ascension	Rapid Ascension		급속상승				
+TRIALS_HAUNTED_REFLEXES_NAME	Haunted Reflexes	Haunted Reflexes						
+TRIALS_BUGS_EVERYWHERE_NAME	Bugs Everywhere	Bugs Everywhere						
+TRIALS_STINGY_CHESTS_NAME	Stingy Chests	Stingy Chests						
+TRIALS_AVOID_THE_ANXIETY_NAME	Avoid The Anxiety	Avoid The Anxiety						
+TRIALS_RANDRANDRAND_TIME_NAME	RandRandRand Time	RandRandRand Time						
+TRIALS_INVERTED_COMPETITION_NAME	Inverted Competition	Inverted Competition						
+TRIALS_FOGGY_DAY_NAME	Foggy Day	Foggy Day						
+TRIALS_INVISI-GAME_NAME	Invisi-game	Invisi-game						
+TRIALS_FLIPPED_WORLD_NAME	Flipped World	Flipped World						
+TRIALS_COLORFUL_MADNESS_NAME	Colorful Madness	Colorful Madness						
+TRIALS_SPEEDY_KIDZALES_NAME	Speedy Kidzales	Speedy Kidzales						
+TRIALS_WIDE_KID_NAME	Wide Kid	Wide Kid						
+TRIALS_SLOW_POKE_NAME	Slow Poke	Slow Poke						
+TRIALS_PERFECT_AIM_NAME	Perfect Aim	Perfect Aim						
+TRIALS_TOUGH_IGNITION_NAME	Tough Ignition	Tough Ignition						
+TRIALS_GREEN_DIVING_NAME	Green Diving	Green Diving						
+TRIALS_WAKA_DODGES_NAME	Waka Dodges	Waka Dodges						
+TRIALS_TINY_TEAMING_NAME	Tiny Teaming	Tiny Teaming						
+TRIALS_CHALLENGE_MEDLEY_NAME	Challenge Medley	Challenge Medley						
+#								
+#TROPHIES								
+#								
+TROPHIES_NAME_1	Shiny!	Shiny!	¡Brillante!	반짝 반짝	闪亮！			
+TROPHIES_DESCRIPTION_1	You obtained 10 Shines!\nI can do more!	You obtained 10 Shines!\nI can do more!	¡Obtuviste 10 Soles!\n¡Yo puedo hacer más!	샤인 10개를 모으셨습니다!\n난 더 할 수 있어!	你获得了10个太阳！\n我可以做得更好！			
+TROPHIES_HINT_1	You're gonna obtain something shiny sooner or later.	You're gonna obtain something shiny sooner or later.	Tarde o temprano obtendrás el brillo.	조만간 빛나는걸 얻을겁니다.	你迟早会变得闪亮。			
+TROPHIES_NAME_2	Shinier!	Shinier!	¡Más brillante!	매우 반짝	闪耀！			
+TROPHIES_DESCRIPTION_2	You obtained 50 Shines!\nBut is it really enough?	You obtained 50 Shines!\nBut is it really enough?	¡Has obtenido 50 Soles!\n¿Pero es suficiente?	샤인 50개를 모으셨습니다!\n아직 만족 못하셨죠?	你获得了50个太阳！\n但你满足了吗？			
+TROPHIES_HINT_2	I love me something shiny.	I love me something shiny.	Me encantan las cosas brillantes.	나는 반짝이는게 좋아.	我喜欢闪亮的东西。			
+TROPHIES_NAME_3	Shiny Yet Shinier!	Shiny yet Shinier!	¡Aún más brillante!	엄청 반짝!	更加闪耀！			
+TROPHIES_DESCRIPTION_3	You obtained 100 Shines!\nNow that's a decent amount.	You obtained 100 Shines!\nNow that's a decent amount.	¡Has obtenido 50 Soles!\nEso es una buena cantidad	샤인 100개를 모으셨습니다!\n이제야 충분히 모였네요.	你获得了100个太阳！\n这还真是个可观的数量。			
+TROPHIES_HINT_3	I WANT MORE SHINY!!!	I WANT MORE SHINY!!!	¡¡¡QUIERO MÁS BRILLO!!!	반짝거려요!!!	我 要 更 加 闪 亮！！！			
+TROPHIES_NAME_4	Money Money	Money Money	Dinero Dinero	난 돈이 좋아	钱……我要钱			
+TROPHIES_DESCRIPTION_4	You reached 100 Coins in Party!\nWhat does it feel to be rich?	You reached 100 Coins in Party!\nWhat does it feel like to be rich?	¡Has alcanzado las 100 monedas en una Fiesta!\n¿Que se siente ser rico?	한 게임에서 100게의 코인을 보유하셨습니다!\n금수저의 삶은 어땠나요?	你在派对中持有100枚金币！\n成为富翁有什么感想？			
+TROPHIES_HINT_4	I wanna be able to purchase anything!	I wanna be able to purchase anything!	¡Quiero ser capaz de comprar lo que sea!	난 내가 원하는거 다 살거야!	我要买得起任何东西！			
+TROPHIES_NAME_5	Coinless	Coinless	Sin Monedas	난 거지	身无分文			
+TROPHIES_DESCRIPTION_5	You went down to 0 Coins in Party...\nWelp, time to live in the streets.	You went down to 0 Coins in Party...\nWelp, time to live in the streets.	¡Has perdido hasta tener 0 monedas un una Fiesta!\n Supongo que es hora de vivir en la calle.	코인이 바닥나셨네요...\n	你在派对中持有0枚金币……\n这下要睡大街上了。			
+TROPHIES_HINT_5	You don't wanna lose that many.	You don't wanna lose that many.		많은 돈을 잃으면 좋지 않아요.	你不想失去那么多。			
+TROPHIES_NAME_6	Numberphile	Numberphile	Numerófilo		数字崇拜			
+TROPHIES_DESCRIPTION_6	You got the same number for the place, Shines and Coins!You love seeing the same number!	You got the same number for the place, Shines and Coins! You love seeing the same number!	Tuviste el mismo numero para el puesto, Soles y Monedas! Te encanta ver el mismo número	순위, 샤인, 코인이 전부 같은 숫자를 나타내고 있네요!\n역시 숫자가 같아야 보기 좋죠?	你的名次，太阳以及金币都是同样的数值！你喜欢看到同样的数字！			
+TROPHIES_HINT_6	Hey I have the same number for everything!	Hey, I have the same number for everything!	Hey, ¡tengo el mismo número para todo!	야야, 이거봐! 숫자가 다 똑같애!	嘿，我的一切都是同一个数字！			
+TROPHIES_NAME_7	Darkness' Friend	Darkness' Friend	Amigo Del Señor De La Noche	암흑마왕	暗黑使徒			
+TROPHIES_DESCRIPTION_7	You said 'No' to the Shine.\nLiving in darkness it is.	You said 'No' to the Shine.\nLiving in darkness it is.	Dijiste 'No' al Sol. Así es vivir en la oscuridad.	샤인 구매를 거부하셨습니다.\n어둠속에서 지내기를 좋아하시는군요.	你拒绝了太阳。\n你要活在黑暗中。			
+TROPHIES_HINT_7	I prefer not being too bright, thank you very much.	I prefer not being too bright, thank you very much.	Prefiero no ser tan brillante, muchas gracias.	저기요, 그 빛나는 것 좀 치워줘요.	我不要那么耀眼，多谢。			
+TROPHIES_NAME_8	Kidiana Jones	Kidiana Jones	Kidiana Jones	파티에서 보물찾기	Kid·琼斯			
+TROPHIES_DESCRIPTION_8	You found a Hidden Chest!\nEvery good explorer finds treasure! Or wait... maybe you're just lucky.	You found a Hidden Chest!\nEvery good explorer finds treasure! Or wait... maybe you're just lucky.	¡Has encontrado un cofre oculto!\nCada buen explorador encuentra sus tesoros! Espera... a lo mejor ha sido suerte	숨겨진 상자를 찾으셨습니다!\n모든 위대한 탐험가는 보물을 찾아낸다고 하죠! 근데 당신은...운이 좋았던 것 같네요.	你找到了一个隐藏宝箱！\n每个优秀的探险家都会找到宝藏！或者……也许你只是运气好？			
+TROPHIES_HINT_8	Something's hidden in this space... I swear...	Something's hidden in this space... I swear...		여기에 뭔가가 숨겨져있어...확실해...	这个格子上藏着些什么……我保证……			
+TROPHIES_NAME_9	Shiny Chest	Shiny Chest		반짝이는 보물상자	闪亮的宝箱			
+TROPHIES_DESCRIPTION_9	You found a Shine within a Hidden Chest!?\nNow that's peak exploring... I mean luck right there.	You found a Shine within a Hidden Chest!?\nNow that's peak exploring... I mean luck right there.		숨겨진 상자에서 샤인을 찾으셨다고요!?\n당신 정말로 위대한 탐험- 이 아니라 운이 좋으셨네요.	你在隐藏宝箱中找到了一个太阳！？\n这可是世纪发现……我的意思是你的运气很好。			
+TROPHIES_HINT_9	Why couldn't this give me something shinier?	Why couldn't this give me something shinier?		여기서 뭐 반짝이는게 나올 것 같지 않아?	这玩意为什么不能给我点更闪亮的东西？			
+TROPHIES_NAME_10	Negative Coins	Negative Coins		빚쟁이	赤字金币			
+TROPHIES_DESCRIPTION_10	You landed on a Red space when having 0 Coins.\nWhat does it feel to be at -3 Coins?	You landed on a Red space when having 0 Coins.\nWhat does it feel to be at -3 Coins?	Has caido en una casilla roja mientras tenias 0 monedas.\n¿Que se siente tener -3 monedas?	코인 0개를 보유 중일 때 빨간 칸에 착지하셨네요.\n -3코인을 가지게 된 소감이 어떻나요?	你在没有金币的时候停在了红色格子。\n持有-3枚金币是什么感受？			
+TROPHIES_HINT_10	I can't lose more, stop!!	I can't lose more, stop!!		여기서 더 잃을 순 없어! 멈춰!!	我不能失去更多了，快停下！			
+TROPHIES_NAME_11	Spare Items	Spare Items			后备道具			
+TROPHIES_DESCRIPTION_11	You received a Blackhole or a Mirror from an item space!\nNow that's a handy item after so many Poisons!	You received a Blackhole or a Mirror from an item space!\nNow that's a handy item after so many Poisons!	¡Recibiste un Agujero Negro o Espejo desde una casilla de objeto!\n¡Eso si que son buenos items despues de obtener tanto Veneno!		你在道具格子获得了一个黑洞或者镜子！\n在那么多毒药之后终于有点有用的道具了！			
+TROPHIES_HINT_11	Heck yeah! I was getting tired of so many lame items in this space!\nThis is definitely better!	Heck yeah! I was getting tired of so many lame items in this space!\nThis is definitely better!			太好了！我已经受够这格子上的那些辣鸡道具了！\n这要好太多了！			
+TROPHIES_NAME_12	100 Shine Debt	100 Shine Debt			100太阳欠条			
+TROPHIES_DESCRIPTION_12	You obtained 100 Shines landing on The Guy space!\nYES! 100 SHINES SIGN ME UP!\nWait... where are my Shines!!??	You obtained 100 Shines landing on The Guy space!\nYES! 100 SHINES SIGN ME UP!\nWait... where are my Shines!!??			你停在Guy格子上获得了100太阳！\n好 的！100 个 太 阳 让 我 拿 下！\n等等……我的太阳呢！！？？			
+TROPHIES_HINT_12	Even a bad guy can give you something shiny.	Even a bad guy can give you something shiny.			即使是个坏家伙也可以给你闪亮的东西。			
+TROPHIES_NAME_13	1 Coin Payment	1 Coin Payment			1元购			
+TROPHIES_DESCRIPTION_13	You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...	You received 1 coin landing on The Guy space...\nReally...? That's it...? Kinda hoping for a little bit more considering I had nothing...			你停在Guy格子上获得了1枚金币……\n真的……？就这……？还以为能得到更多，毕竟我已经一无所有……			
+TROPHIES_HINT_13	Even a bad guy can give you... something...?	Even a bad guy can give you... something...?			即使是个坏家伙也可以给你一些……什么……？			
+TROPHIES_NAME_14	Landing Red	Landing Red			红灯停			
+TROPHIES_DESCRIPTION_14	All of you landed on Red spaces.\nRed everywhere you see.	All of you landed on Red spaces.\nRed everywhere you see.			所有人都停在红色格子。\n你看现在到处都是红色。			
+TROPHIES_HINT_14	Living all the red!	Living all the red!			全都住在红色里！			
+TROPHIES_NAME_15	Landing Green	Landing Green			绿灯行			
+TROPHIES_DESCRIPTION_15	All of you landed on Green spaces.\nGreen everywhere you see.	All of you landed on Green spaces.\nGreen everywhere you see.			所有人都停在绿色格子。\n你看现在到处都是绿色。			
+TROPHIES_HINT_15	Living all the green!	Living all the green!			全都住在绿色里！			
+TROPHIES_NAME_16	Landing Colors	Landing Colors			彩色看队形			
+TROPHIES_DESCRIPTION_16	All of you landed on different colored spaces.\nDifferent colors everywhere you see.	All of you landed on different colored spaces.\nDifferent colors everywhere you see.			所有人都停在不同颜色的格子。\n你看现在到处都是不同颜色。			
+TROPHIES_HINT_16	Living all the different colors!	Living all the different colors!			全都住在不同颜色里！			
+TROPHIES_NAME_17	Turning Tables	Turning Tables			掀桌			
+TROPHIES_DESCRIPTION_17	You recieved a Shine in the last 5 turns event!\nThat was unexpected, the other players are hating you right now!	You received a Shine in the last 5 turns event!\nThat was unexpected, the other players must be hating you right now!	Obtuviste un Sol en el evento de Ultimos 5 turnos!\n¡Eso fue inesperado, los demas te deben estar odiando ahora mismo!		你在最后五回合事件中获得一个太阳！\n这还真是意料之外，其他玩家现在肯定恨死你了！			
+TROPHIES_HINT_17	I bet you weren't expecting to get that on the last 5 turns!	I bet you weren't expecting to get that on the last 5 turns!			我觉得你不该在最后五回合得到那个！			
+TROPHIES_NAME_18	Blue Savior	Blue Savior			蓝色救星			
+TROPHIES_DESCRIPTION_18	You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.	You landed on a blue space when all the blue spaces were red spaces!\nAt least you gained something while this mess was happening.			你在所有蓝色格子都变成红色格子的时候停在了蓝色格子上！\n至少你在这一团糟的时候获得了些什么。			
+TROPHIES_HINT_18	Landing on a good one while there's so many bad ones.	Landing on a good one while there's so many bad ones.			在到处都很糟糕的时候停在了一个好的位置。			
+TROPHIES_NAME_19	Wrong Number	Wrong Number			打错号码			
+TROPHIES_DESCRIPTION_19	You used the Cellphone and said no.\nCalling the wrong number, happens from time to time.	You used the Cellphone and said no.\nCalling the wrong number, happens from time to time.			你使用了手机但没完全使用。\n打错号码了，这是天天发生的事情。			
+TROPHIES_HINT_19	Woops, that's not the right number, my bad.	Woops, that's not the right number, my bad.			哎呀，这不是正确的号码，我的错。			
+TROPHIES_NAME_20	Wrong Galaxy	Wrong Galaxy			打错星系			
+TROPHIES_DESCRIPTION_20	You used the Blackhole and said no.\nYeah there's a bunch of galaxies to call, it's only natural you'd get confused.	You used the Blackhole and said no.\nYeah there's a bunch of galaxies to call, it's only natural you'd get confused.			你使用了黑洞但没完全使用。\n是啊，有太多星系了，搞错也很正常嘛。			
+TROPHIES_HINT_20	Woops, that's not the right galaxy, my bad.	Woops, that's not the right galaxy, my bad.			哎呀，这不是正确的星系，我的错。			
+TROPHIES_NAME_21	Double Trouble	Double Trouble			双喜临门			
+TROPHIES_DESCRIPTION_21	You rolled two identical numbers with Double Dice!\nMore rolling for me!	You rolled two identical numbers with Double Dice!\nMore rolling for me!			你用双骰子掷出了一对一样的数字！\n我还要更多！			
+TROPHIES_HINT_21	Double the numbers, double the fun.	Double the numbers, double the fun.			双倍的数字，双倍的惊喜。			
+TROPHIES_NAME_22	Sonic Speed	Sonic Speed			动如脱兔			
+TROPHIES_DESCRIPTION_22	You rolled 25 or more with Triple Dice!\nJust casually going for a walk around the board, no big deal.	You rolled 25 or more with Triple Dice!\nJust casually going for a walk around the board, no big deal.	¡Has sacado 25 o mas con un Triple Dado!\nSimplemente un paseo por todo el tablero, nada nuevo.		你用三骰子累计掷出25点或以上！\n现在随随便便绕图一周也不是什么问题。			
+TROPHIES_HINT_22	Hey slow down a little bit!	Hey slow down a little bit!			喂，你超速了！			
+TROPHIES_NAME_23	Snail Pace	Snail Pace			乌龟的速度			
+TROPHIES_DESCRIPTION_23	You rolled 10 or less with a Triple Dice.\nI'm gonna reach the Shine, I swear...	You rolled 10 or less with a Triple Dice.\nI'm gonna reach the Shine, I swear...	Has sacado 10 o menos con un Triple Dado.\nLlegare hasta el Sol, lo jiro...		你用三骰子累计掷出10点或以下！\n我会到达太阳的，我保证……			
+TROPHIES_HINT_23	I would've used a regular one if I knew this was gonna happen...	I would've used a regular one if I knew this was gonna happen...	Hubiera usado uno normal si sabia que esto pasaba...		若吾早知如此，就用个普通的了……			
+TROPHIES_NAME_24	Triple Threat	Triple Threat			红色有角三倍速			
+TROPHIES_DESCRIPTION_24	You rolled three identical numbers with Triple Dice!\nI can't stop rolling!	You rolled three identical numbers with Triple Dice!\nI can't stop rolling!			你用三骰子掷出了三个一样的数字！\n我停不下来了！			
+TROPHIES_HINT_24	Oh baby, a triple!	Oh baby, a triple!			你看，是三倍！			
+TROPHIES_NAME_25	Broken Mirror	Broken Mirror			破碎的镜子			
+TROPHIES_DESCRIPTION_25	You used the Mirror when you didn't have enough Coins.\nNow both you and the Mirror are broken, congratulations!	You used the Mirror when you didn't have enough Coins.\nNow both you and the Mirror are broke, congratulations!			你在身上没有足够金币的时候使用了镜子。\n现在你和镜子都破产了，恭喜！			
+TROPHIES_HINT_25	Now two things are broken by such waste.	Now two things are broke by such use.			这么浪费，现在两样都坏掉了。			
+TROPHIES_NAME_26	Free Night	Free Night			零元购之夜			
+TROPHIES_DESCRIPTION_26	You received a Night Shine for 0 Coins in the Island board!\nThat was free trial, next time you won't be so lucky.	You received a Night Shine for 0 Coins in the Island board!\nThat was a free trial, next time you won't be so lucky.						
+TROPHIES_HINT_26	This one is on the house.	This one is on the house.			这个是白给的。			
+TROPHIES_NAME_27	Expensive Night	Expensive Night			敲竹杠之夜			
+TROPHIES_DESCRIPTION_27	You bought a Night Shine for 40 Coins in the Island board.\nIt'd be best if you waited for sales next time.	You bought a Night Shine for 40 Coins in the Island board.\nIt'd be best if you waited for a sale next time.	Compraste un Sol Nocturno por 40 Monedas en el tablero Isla.\nSerá bueno que esperes a las ofertas para la próxima.					
+TROPHIES_HINT_27	Gimme full price! I ain't waiting for the hot sale.	Gimme full price! I ain't waiting for a hot sale.			我要全价！我并没有在等大甩卖。			
+TROPHIES_NAME_28	Night Shift	Night Shift			夜班			
+TROPHIES_DESCRIPTION_28	You used the Cellphone when it was night.\nSorry but the shop doesn't have night shifts.\nIt'd be best if you actually went during the day, thank you.	You used the Cellphone when it was night.\nSorry but the shop doesn't have night shifts.\nIt'd be best if you actually went during the day, thank you.			你在晚上使用了手机。\n抱歉，商店晚上不营业。\n如果你白天来就好了，谢谢。			
+TROPHIES_HINT_28	Pay attention to the customer support schedule.	Pay attention to the customer support schedule.			请注意顾客服务的日程安排。			
+TROPHIES_NAME_29	Pokemon Not Trainer	Gotta Avoid 'Em All			宝可梦但不训练家			
+TROPHIES_DESCRIPTION_29	You won without catching a Pokemon in the Pallet Town board!\nI thought your dream was to become a Pokemon trainer... where's your Pokemon then?	You won without catching a Pokemon in the Pallet Town board!\nI thought your dream was to become a Pokemon trainer... where's your Pokemon then?			你在真新镇地图没有抓精灵并获胜！\n我还以为你的梦想是成为精灵训练家……但是你的精灵呢？			
+TROPHIES_HINT_29	Not gotta catch 'em all!	Not gotta catch 'em all!			我没有抓到！			
+TROPHIES_NAME_30	It's Not Effective	It's Not Very Effective...		효과가 별로인 듯하다...	效果并不拔群			
+TROPHIES_DESCRIPTION_30	You lost a Pokemon battle while having a favorable Pokemon in the Pallet Town board.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.	You lost a Pokemon battle while having a favorable Pokemon in the Pallet Town board.\nWell that's some tough luck right there. Maybe try a different Pokemon next time.			你在真新镇地图使用克制对方的精灵但是输掉了战斗。\n看来你的运气不佳。下次换一只精灵试试吧。			
+TROPHIES_HINT_30	Water vs. Fire should be an easy win... right?	Water vs. Fire should be an easy win... right?			水系对付火系应该轻松获胜的……对吧？			
+TROPHIES_NAME_31	It's Very Effective	It's Super Effective!		효과가 굉장했다!	效果非常之佳			
+TROPHIES_DESCRIPTION_31	You won a Pokemon battle while not having a favorable Pokemon in the Pallet Town board.!\nI didn't think a fire attack against a water type was gonna work out. But I'm not complaining!	You won a Pokemon battle while not having a favorable Pokemon in the Pallet Town board.!\nI didn't think a fire attack against a water type was gonna work out. But I'm not complaining!			你在真新镇地图使用不利属性的精灵但是赢得了战斗！\n我不认为逆属性能够获胜。但我不会抱怨什么！			
+TROPHIES_HINT_31	Fire vs. Water could never work out... right?	Fire vs. Water could never work out... right?			火系对付水系应该不可能赢得……对吧？			
+TROPHIES_NAME_32	Evil Mirror	Evil Mirror						
+TROPHIES_DESCRIPTION_32	You used the Mirror in Dark World in the Hyrule board.\nDid you know you can't see your reflection in the dark?\nThen I wonder why you used this.	You used the Mirror in Dark World in the Hyrule board.\nDid you know you can't see your reflection in the dark?\nThen I wonder why you used this.						
+TROPHIES_HINT_32	I wonder what my reflection looks like when it's dark.	I wonder what my reflection looks like when it's dark.						
+TROPHIES_NAME_33	Tie Your tie	Tie Your tie			系好你的领带			
+TROPHIES_DESCRIPTION_33	You obtained a Tie in a minigame.\nWelp guess no one wins anything.	You obtained a Tie in a minigame.\nWelp guess no one wins anything.			你在小游戏中平局。\n看起来没有人拿到任何东西。			
+TROPHIES_HINT_33	Seriously? No one wins?	Seriously? No one wins?			没有人赢？你认真的？			
+TROPHIES_NAME_34	Broken Elevator	Broken Elevator						
+TROPHIES_DESCRIPTION_34	You died on the very first row of spikes in Tower Ascension.\nHaving the high ground wasn't appealing.	You died on the very first row of spikes in Tower Ascension.\nHaving the high ground wasn't appealing.						
+TROPHIES_HINT_34	I have the lower ground!	I have the lower ground!						
+TROPHIES_NAME_35	Flexing Ghosts	Flexing Ghosts						
+TROPHIES_DESCRIPTION_35	You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.	You went back after almost reaching the light in Haunted Forest.\nNow that's just showing off.						
+TROPHIES_HINT_35	Spooky stuff ain't that scary for you.	Spooky stuff ain't that scary for you.						
+TROPHIES_NAME_36	Memory Magician	Memory Magician						
+TROPHIES_DESCRIPTION_36	You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?	You scored a perfect 10 in Magic Memory.\nCan I borrow that memory of yours for a second?						
+TROPHIES_HINT_36	How can you keep so many items in your head?	How can you keep so many items in your head?						
+TROPHIES_NAME_37	Messed Memory	Messed Memory						
+TROPHIES_DESCRIPTION_37	You got all items wrong in Magic Memory...\nI bet you forget your house keys everytime you go out, huh?	You got all items wrong in Magic Memory...\nI bet you forget your house keys every time you go out, huh?						
+TROPHIES_HINT_37	You can't have that bad of a memory...	You can't have that bad of a memory...						
+TROPHIES_NAME_38	Expert Escapist	Expert Escapist						
+TROPHIES_DESCRIPTION_38	You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.	You chose only the correct doors in Mansion Escape.\nHoudini would be proud of you.						
+TROPHIES_HINT_38	Escaping? Piece of cake.	Escaping? Piece of cake.						
+TROPHIES_NAME_39	Lonely Spikes	Lonely Spikes						
+TROPHIES_DESCRIPTION_39	You died to the top spikes in Unstable Blocks.\nWait, why? It's literally not moving.\nYou did it on purpose I swear.	You died to the top spikes in Unstable Blocks.\nWait, why? It's literally not moving.\nYou did it on purpose I swear.						
+TROPHIES_HINT_39	Those are at the very top, that can't seriously happen.	Those are at the very top, that can't seriously happen.						
+TROPHIES_NAME_40	Empty Chests	Empty Chests						
+TROPHIES_DESCRIPTION_40	You scored 0 points by going for the empty chests in Crazy Chests.\nThose chests were kind of a scam, huh?	You scored 0 points by going for the empty chests in Crazy Chests.\nThose chests were kind of a scam, huh?						
+TROPHIES_HINT_40	Hey wait a minute... these chests are empty!	Hey wait a minute... these chests are empty!						
+TROPHIES_NAME_41	Slime Hugger	Slime Hugger						
+TROPHIES_DESCRIPTION_41	You touched the slime in Slime Annoyer.\nIt's cute, I know, but it's deadly!	You touched the slime in Slime Annoyer.\nIt's cute, I know, but it's deadly!						
+TROPHIES_HINT_41	I know it's tempting, but it's not huggable.	I know it's tempting, but it's not huggable.						
+TROPHIES_NAME_42	Born Astronaut	Born Astronaut						
+TROPHIES_DESCRIPTION_42	You didn't receive a single hit in Rocket Ignition!\nAll those years of astronaut training in the morning finally paid off!	You didn't receive a single hit in Rocket Ignition!\nAll those years of astronaut training in the morning finally paid off!						
+TROPHIES_HINT_42	Morning rocket training routine.	Morning rocket training routine.						
+TROPHIES_NAME_43	Dizzy Crazy	Dizzy Crazy						
+TROPHIES_DESCRIPTION_43	You touched every warp in Dizzy Conundrum.\nStop! You're making me dizzy!	You touched every warp in Dizzy Conundrum.\nStop! You're making me dizzy!						
+TROPHIES_HINT_43	My head is spinning...	My head is spinning...						
+TROPHIES_NAME_44	Motion Sickness	Motion Sickness						
+TROPHIES_DESCRIPTION_44	You never changed controls and won in Dizzy Conundrum!\nMy, you must really hate being dizzy.	You never changed controls and won in Dizzy Conundrum!\nMy, you must really hate being dizzy.						
+TROPHIES_HINT_44	Being dizzy makes me sick.	Being dizzy makes me sick.						
+TROPHIES_NAME_45	Target Master	Target Master						
+TROPHIES_DESCRIPTION_45	You hit a yellow target first in Targetting Targets.\nWith that level of aiming you should be able to win everytime.	You hit a yellow target first in Targetting Targets.\nWith that level of aiming you should be able to win everytime.						
+TROPHIES_HINT_45	Professional level aimer.	Professional level shooter.						
+TROPHIES_NAME_46	Wall Master	Wall Master						
+TROPHIES_DESCRIPTION_46	You wasted all your bullets in Targeting Targets.\nThe point was to shoot targets and not walls in case you didn't know.	You wasted all your bullets in Targeting Targets.\nThe point was to shoot targets and not walls, in case you didn't know.						
+TROPHIES_HINT_46	Wasting ammo to not hit any, great.	Wasting ammo to hit nothing, great.						
+TROPHIES_NAME_47	High Key Achiever	High Key Achiever						
+TROPHIES_DESCRIPTION_47	You didn't grab a single green key and won in Drawn Keys!\nGoing for the big prize keys here!	You didn't grab a single green key and won in Drawn Keys!\nGoing for the big prize keys here!						
+TROPHIES_HINT_47	Green is too low.	Green is too low.						
+TROPHIES_NAME_48	Bubble Racing	Bubble Racing						
+TROPHIES_DESCRIPTION_48	You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?	You didn't touch a single spike and won in Bubble Derby!\nAll that Kamilia 3 speedrunning must've paid off, huh?						
+TROPHIES_HINT_48	Bubble maneuvers.	Bubble maneuvers.						
+TROPHIES_NAME_49	Green Savings	Green Savings						
+TROPHIES_DESCRIPTION_49	You only touched green saves and won in Sky Diving!\nThat satisfaction to see the green circle after a long save, am I right?	You only touched green saves and won in Sky Diving!\nThat satisfaction to see the green circle after a long save, am I right?						
+TROPHIES_HINT_49	I prefer the green circles for yellow boxes.	I prefer the green circles for yellow boxes.						
+TROPHIES_NAME_50	Flag Toucher	Flag Toucher						
+TROPHIES_DESCRIPTION_50	You scored 99 points in Golf Course.\nHere hoping for the wind to barely move the ball, right?	You scored 99 points in Golf Course.\nHere hoping for the wind to barely move the ball, right?						
+TROPHIES_HINT_50	Come on, man! The flag is right there!	Come on, man! The flag is right there!						
+TROPHIES_NAME_51	Mini Golf	Mini Golf						
+TROPHIES_DESCRIPTION_51	You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?	You won while not leaving the main island in Golf Course!\nToo lazy to do a normal shot, aren't you?						
+TROPHIES_HINT_51	I barely attempted to get to the flag and I still won.	I barely attempted to get to the flag and I still won.						
+TROPHIES_NAME_52	Luigi-Man	Luigi-Man						
+TROPHIES_DESCRIPTION_52	You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.	You won by doing nothing in Waka Evasion!\nLuigi must be so proud of you right now.						
+TROPHIES_HINT_52	Luigi meets namco!	Luigi meets Namco!						
+TROPHIES_NAME_53	Conveyor Victory	Conveyor Victory						
+TROPHIES_DESCRIPTION_53	You jumped directly to the ceiling spikes in Conveyor Havoc.\nDid you think you could escape the conveyor by jumping? Think again.	You jumped directly into the ceiling spikes in Conveyor Havoc.\nDid you think you could escape the conveyor by jumping? Think again.						
+TROPHIES_HINT_53	Jump straight to victory! And by victory I mean death.	Jump straight to victory! And by victory I mean death.						
+TROPHIES_NAME_54	Showdown Survivor	Showdown Survivor						
+TROPHIES_DESCRIPTION_54	You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?	You survived all 3 rounds with your team in Number Showdown.\nThat's teamwork for you! Or not?						
+TROPHIES_HINT_54	That was certainly a showdown teamwork.	That was certainly some showdown teamwork.						
+TROPHIES_NAME_55	Showdown Killer	Showdown Killer						
+TROPHIES_DESCRIPTION_55	You killed the whole team in the first round in Number Showdown.\nIn cold blood.	You killed the whole team in the first round in Number Showdown.\nIn cold blood.						
+TROPHIES_HINT_55	You better not murder the showdown.	You better not murder the showdown.						
+TROPHIES_NAME_56	Coin Dodger	Coin Dodger						
+TROPHIES_DESCRIPTION_56	You didn't grab a single coin in Getting Coins.\nThe point is to collect them not to dodge them.	You didn't grab a single coin in Getting Coins.\nThe point is to collect them not to dodge them.						
+TROPHIES_HINT_56	There's a lot of coins, but I prefer being poor.	There's a lot of coins, but I prefer being poor.						
+TROPHIES_NAME_57	Red Coin	Red Coin						
+TROPHIES_DESCRIPTION_57	You collected a red coin in Getting Coins!\nFINALLY! The red coin in this G stage was really hard. Or wait... is this the wrong game?	You collected a red coin in Getting Coins!\nFINALLY! This red coin in G stage was really hard. Or wait... is this the wrong game?						
+TROPHIES_HINT_57	The coin looks different... Can I even pay with this...?	This coin looks different... Can I even pay with this?						
+TROPHIES_NAME_58	Dyslexic Pusher	Dyslexic Pusher						
+TROPHIES_DESCRIPTION_58	You pushed the block in Warping Up the wrong way.\nBut that's harder! Why would you think of doing that!?	You pushed the block in Warping Up the wrong way.\nBut that's harder! Why would you think of doing that!?						
+TROPHIES_HINT_58	Wait, pushing it to the other side...?	Wait, pushing it to the other side...?						
+TROPHIES_NAME_59	Dodging Teleports	Dodging Teleports						
+TROPHIES_DESCRIPTION_59	You didn't touch a single warp from the players and won in Warping Up!\nI guess you're getting tired of seeing the same warp over and over all the time.	You didn't touch a single warp from the players and won in Warping Up!\nI guess you're getting tired of seeing the same warp over and over all the time.						
+TROPHIES_HINT_59	Not the gray teleporter!	Not the gray teleporter!						
+TROPHIES_NAME_60	Block Hunter	Block Hunter						
+TROPHIES_DESCRIPTION_60	You touched all the blocks in Hunt Trouble.\nNow that's an stylish way of not getting hunted.	You touched all the blocks in Hunt Trouble.\nNow that's a stylish way of not getting hunted.						
+TROPHIES_HINT_60	Being hunted isn't fun unless you touch them all.	Being hunted isn't fun unless you touch them all.						
+TROPHIES_NAME_61	Block Saver	Block Saver						
+TROPHIES_DESCRIPTION_61	You didn't destroy a single normal block and won in Aiming Tiles!\nYou're a block saver now!	You didn't destroy a single normal block and won in Aiming Tiles!\nYou're a block saver now!						
+TROPHIES_HINT_61	Let the blocks live!	Let the blocks live!						
+TROPHIES_NAME_62	Cornered Maze	Cornered Maze						
+TROPHIES_DESCRIPTION_62	You went to the opposite corner in A-Maze-Ing.\nWere you that lost?	You went to the opposite corner in A-Maze-Ing.\nWere you that lost?						
+TROPHIES_HINT_62	I'm so lost I'm on the other end!	I'm so lost I'm on the other end!						
+TROPHIES_NAME_63	Catch The Small	Catch The Small						
+TROPHIES_DESCRIPTION_63	You caught the most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp	You caught the most of or all the small fruits in Catch The Fruits!\nThat level of accuracy must be worth at least 1,000pp.						
+TROPHIES_HINT_63	It's just like playing osu!\nBut I go small.	It's just like playing osu!\nBut I go small.						
+TROPHIES_NAME_64	Catch The Gordos	Catch The Gordos						
+TROPHIES_DESCRIPTION_64	You catched almost all or all the gordos in Catch The Fruits.\nIs spikes your thing or what?	You caught almost all or all the gordos in Catch The Fruits.\nIs spikes your thing or what?						
+TROPHIES_HINT_64	Meh fruits isn't the thing for me.	Meh fruits isn't the thing for me.						
+TROPHIES_NAME_65	Scoring Squares	Scoring Squares						
+TROPHIES_DESCRIPTION_65	You scored 22 in Fitting Squares!\nI bet you can do a T-Spin with that level of precision.	You scored 22 or more in Fitting Squares!\nI bet you can do a T-Spin with that level of precision.						
+TROPHIES_HINT_65	I hope all that Tetris training will pay off.	I hope all that Tetris training will pay off.						
+TROPHIES_NAME_66	Pattern Expert	Pattern Expert						
+TROPHIES_DESCRIPTION_66	You found all pattern pairs first in Colorful Insanity.\nLosing stuff isn't a problem for you.	You found all pattern pairs first in Colorful Insanity.\nLosing stuff isn't a problem for you.						
+TROPHIES_HINT_66	Those finding skills would come in handy when I'm trying to find my keys between my mess.	Those finding skills would come in handy when I'm trying to find my keys in my mess.						
+TROPHIES_NAME_67	Piranha Fanatic	Piranha Fanatic						
+TROPHIES_DESCRIPTION_67	You touched the piranha plant in Springing Piranha.\nThere's so much dodging at hand and yet you somehow touched the piranha!?	You touched the piranha plant in Springing Piranha.\nThere's so much dodging at hand and yet you somehow touched the piranha!?						
+TROPHIES_HINT_67	Don't worry, that thing is scary so you don't have to worry to touch it.	Don't worry, that thing is scary so you don't have to worry about touching it.						
+TROPHIES_NAME_68	Duel Marker	Duel Marker						
+TROPHIES_DESCRIPTION_68	You shot before the mark showed up everytime in Western Duel.\nI get that shooting faster is what you're supposed to do, but here you gotta wait for the mark!	You shot before the mark showed up everytime in Western Duel.\nI get that shooting faster is what you're supposed to do, but here you gotta wait for the mark!						
+TROPHIES_HINT_68	Waiting for the mark!?\nPfff, I'm faster.	Waiting for the mark!?\nPfff, I'm faster.						
+TROPHIES_NAME_69	Cuadruple Kill	Quadruple Kill						
+TROPHIES_DESCRIPTION_69	All 4 players died in Western Duel.\nAll of you are either really good or really bad.	All 4 players died in Western Duel.\nAll of you are either really good or really bad.						
+TROPHIES_HINT_69	Two duels, four deaths!	Two duels, four deaths!						
+TROPHIES_NAME_70	High Ball	High Ball						
+TROPHIES_DESCRIPTION_70	You made the soccer ball land above the net in Soccer Match.\nI'm certainly impressed because getting the ball up there is harder than scoring a goal.	You made the soccer ball land above the net in Soccer Match.\nI'm certainly impressed because getting the ball up there is harder than scoring a goal.						
+TROPHIES_HINT_70	Great job, now get it back down so we can continue.	Great job, now get it back down so we can continue.						
+TROPHIES_NAME_71	Party Winner	Party Winner			派对冠军			
+TROPHIES_DESCRIPTION_71	You won a Party!\nI want more parties! Bring it on!	You won a Party!\nI want more parties! Bring it on!			你赢得了一场派对！\n我要更多的派对！放马过来吧！			
+TROPHIES_HINT_71	A winner is you.	A winner is you.			赢家是你			
+TROPHIES_NAME_72	Party Loser	Party Loser			派对输家			
+TROPHIES_DESCRIPTION_72	You lost a Party...\nWell there's always next time I guess.	You lost a Party...\nWell there's always next time I guess.			你输掉了一场派对……\n嘛，还有下一次的。			
+TROPHIES_HINT_72	A loser is you.	A loser is you.			输家是你			
+TROPHIES_NAME_73	After Hours	After Hours			几小时后			
+TROPHIES_DESCRIPTION_73	Finish a 50 turn Party.\nLook! It's morning outside!	Finish a 50 turn Party.\nLook! It's morning outside!			完成一场50回合的派对。\n看啊！外面天亮了！			
+TROPHIES_HINT_73	Never ending Party.	Never ending Party.			派对永不结束。			
+TROPHIES_NAME_74	Item Hoarder	Item Hoarder			道具仓鼠			
+TROPHIES_DESCRIPTION_74	You finished a Party with 3 Items.\nOh my, that's such a waste!	You finished a Party with 3 Items.\nOh my, that's such a waste!			你手持三个道具完成派对。\n我的天，这可真是太浪费了！			
+TROPHIES_HINT_74	Hoarding isn't the best, you know?	Hoarding isn't the best, you know?			小仓鼠最后一无所有，你知道吗？			
+TROPHIES_NAME_75	Dude, Where's My Shine?	Dude, Where's My Shine?			我的灯光呢？			
+TROPHIES_DESCRIPTION_75	You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting Shines.	You ended a Party with 0 Shines...\nWell that's kinda unfortunate, I mean... that's the whole point, getting Shines.			你在派对结束的时候没有太阳……\n这真是太不幸了，我想说……这一切的目的都是获得太阳。			
+TROPHIES_HINT_75	Wait... isn't the whole point getting Shine?	Wait... isn't the whole point getting Shines?			等等……这一切的目的不都是变得闪亮？			
+TROPHIES_NAME_76	Minigame Expert	Minigame Expert			小游戏专家			
+TROPHIES_DESCRIPTION_76	You won every single minigame in Party!\nI wish I could win all the Minigames as well to gain a bunch of Coins!	You won every single minigame in Party Mode!\nI wish I could win all the Minigames as well to gain a bunch of Coins!			你在派对中赢得所有小游戏！\n我想要赢得所有小游戏，同时赢得很多金币！			
+TROPHIES_HINT_76	You're that much of an expert you won all of them.	You're so much of an expert you won all of them.			你是如此的优秀，你全都赢下了。			
+TROPHIES_NAME_77	All Minigames	All Minigames			所有小游戏			
+TROPHIES_DESCRIPTION_77	You unlocked all Minigames!\nThe full package is now on your hands!	You unlocked all Minigames!\nThe full package is now in your hands!			你解锁了所有小游戏！\n你现在获得了完整的资料包！			
+TROPHIES_HINT_77	I want all the Minigames!	I want all the Minigames!			我想要所有的小游戏			
+TROPHIES_NAME_78	All Trials	All Trials			全挑战			
+TROPHIES_DESCRIPTION_78	You completed all Trials!\nNow you can truly call yourself the life of the Party.	You completed all Trials!\nNow you can truly call yourself the life of the Party.			你完成了全部挑战！\n现在你可以真正的自称派对人生了。			
+TROPHIES_HINT_78	I can beat all the Trials!	I can beat all the Trials!			我可以击破所有挑战！			
+TROPHIES_NAME_79	All Stores	All Stores			商店清仓			
+TROPHIES_DESCRIPTION_79	You bought everything in the Store!\nThere's just so many things to use, it never ends!	You bought everything in the Store!\nThere's just so many things to use, it never ends!			你买下商店的所有物品！\n有太多可以用的东西了，它永无止境！			
+TROPHIES_HINT_79	I want everything in the Store!	I want everything in the Store!			商店里的东西我全都要了！			
+TROPHIES_NAME_80	All Trophies	All Trophies			全奖杯			
+TROPHIES_DESCRIPTION_80	You got every single Trophy!!!\nThanks for participating in this Party, hopefully this won't be the last one!	You got every single Trophy!!!\nThanks for participating in this Party, hopefully this won't be the last one!			你获得所有奖杯！！！\n感谢游玩派对，希望这不是最后！			
+TROPHIES_HINT_80	The life of the party!	The life of the party!			派对人生！			
+#								
+#GENERIC								
+#								
+WORD_GENERIC_YES	Yes	Yes	Sí	예	是	是		
+WORD_GENERIC_NO	No	No	No	아니오	否	否		
+WORD_GENERIC_BUY_COINS	Buy {X coins}	Buy {X coins}	Comprar {X coins}	구매 {X coins}	购买 {X coins}	購買 {X coins}		
+WORD_GENERIC_YES_COINS	Yes {X coins}	Yes {X coins}	Sí {X coins}	예 {X coins}	是 {X coins}	是 {X coins}		
+WORD_GENERIC_PASS	Pass	Pass	Paso	패스	跳过	跳過		
+WORD_GENERIC_SHINE	Shine	Shine	Sol	샤인	太阳	太陽		
+WORD_GENERIC_SHINES	Shines	Shines	Soles	샤인	太阳	太陽		
+WORD_GENERIC_COIN	Coin	Coin	Moneda	코인	金币	金幣		
+WORD_GENERIC_COINS	Coins	Coins	Monedas	코인	金币	金幣		
+WORD_GENERIC_ON	ON	ON	Activado	켜짐	开启	開啟		
+WORD_GENERIC_OFF	OFF	OFF	Desactivado	꺼짐	关闭	關閉		
+WORD_GENERIC_REWARD	Reward	Reward	Recompensa	보상	奖励	獎勵		
+WORD_GENERIC_CLEAR	CLEAR	CLEAR	Superado	클리어	通关	通關		
+WORD_GENERIC_MENU_ACCEPT	Accept	Accept	Aceptar	수락	确认	確認		
+WORD_GENERIC_MENU_MOVE	Move	Move	Mover	이동 	移动	移動		
+WORD_GENERIC_MENU_CANCEL	Cancel	Cancel	Cancelar	취소	取消	取消		
+WORD_GENERIC_MENU_SELECT	Select	Select	Seleccionar	선택	选择	選擇		
+WORD_GENERIC_MENU_MODE	Mode	Mode	Modo	모드	模式	模式		
+WORD_GENERIC_MENU_CHOOSE	Choose	Choose	Elige		选择	選擇		
+WORD_GENERIC_MENU_BACK	Back	Back	Regresar	뒤로가기	返回	返回		

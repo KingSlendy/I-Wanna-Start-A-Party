@@ -1,4 +1,3 @@
-global.controls_hotswap = true;
 global.ignore_input = false;
 
 input_axis_threshold_set(gp_axislh, 0.5, 1);

@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrTranslationManagement",
+  "name": "scrLanguagesManagement",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Game",
-    "path": "folders/Scripts/Game.yy",
+    "name": "Managers",
+    "path": "folders/Scripts/Managers.yy",
   },
 }
