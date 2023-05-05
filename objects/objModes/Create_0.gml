@@ -43,19 +43,19 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 }
 
 mode_buttons = [
-	new ModeButton("PARTY", sprModesParty, 0.3, 65, rParty),
-	new ModeButton("MINIGAMES", sprModesMinigames, 0.3, 65, rMinigames),
-	new ModeButton("TRIALS", sprModesTrials, 0.3, 65, rTrials, !IS_ONLINE),
-	new ModeButton("STORE", sprModesStore, 0.3, 65, rStore, !IS_ONLINE),
-	new ModeButton("TROPHIES", sprModesTrophies, 0.3, 65, rTrophies, !IS_ONLINE)
+	new ModeButton(language_get_text("MODES_PARTY"), sprModesParty, 0.3, 65, rParty),
+	new ModeButton(language_get_text("MODES_MINIGAMES"), sprModesMinigames, 0.3, 65, rMinigames),
+	new ModeButton(language_get_text("MODES_TRIALS"), sprModesTrials, 0.3, 65, rTrials, !IS_ONLINE),
+	new ModeButton(language_get_text("MODES_STORE"), sprModesStore, 0.3, 65, rStore, !IS_ONLINE),
+	new ModeButton(language_get_text("MODES_TROPHIES"), sprModesTrophies, 0.3, 65, rTrophies, !IS_ONLINE)
 ];
 
 mode_texts = [
-	"Play in a board, collect a lot of Shines and become the party star!",
-	"Play and enjoy all the minigames!",
-	"Different minigames packed together in all sorts of whacky ways!",
-	"Buy all sorts of different stuff to spice up the game!",
-	"All the trophies you've earned are stored here!"
+	language_get_text("MODES_PARTY_DESCRIPTION"),
+	language_get_text("MODES_MINIGAMES_DESCRIPTION"),
+	language_get_text("MODES_TRIALS_DESCRIPTION"),
+	language_get_text("MODES_STORE_DESCRIPTION"),
+	language_get_text("MODES_TROPHIES_DESCRIPTION")
 ];
 
 mode_prev = global.mode_selected;

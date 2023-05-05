@@ -185,9 +185,9 @@ if (!fade_start && files_fade == -1 && !lobby_window && !global.lobby_started) {
 							online_show = true;
 							menu_type = 3;
 							upper_type = menu_type;
-							upper_text = "ONLINE DATA";
+							upper_text = language_get_text("FILES_ONLINE_DATA");
 						} else {
-							lobby_window_name = "Enter your name.";
+							lobby_window_name = language_get_text("FILES_ENTER_NAME");
 							lobby_window_desc = file_name;
 							lobby_window = true;
 							alarm[1] = 1;
@@ -212,8 +212,8 @@ if (!fade_start && files_fade == -1 && !lobby_window && !global.lobby_started) {
 	
 						if (select < 2) {
 							var signs = [
-								"Enter the IP.",
-								"Enter the port. (0~9)"
+								language_get_text("FILES_ENTER_IP"),
+								language_get_text("FILES_ENTER_PORT")
 							];
 						
 							lobby_window_name = signs[select];
@@ -235,8 +235,8 @@ if (!fade_start && files_fade == -1 && !lobby_window && !global.lobby_started) {
 	
 						if (select < 2) {
 							var signs = [
-								"Enter the lobby's name.",
-								"Enter the password. (A~Z) (0~9)"
+								language_get_text("FILES_ENTER_LOBBY_NAME"),
+								language_get_text("FILES_ENTER_PASSWORD")
 							];
 							
 							lobby_window_name = signs[select];
@@ -343,7 +343,7 @@ if (!fade_start && files_fade == -1 && !lobby_window && !global.lobby_started) {
 					case 4:
 						menu_type = 3;
 						upper_type = menu_type;
-						upper_text = "ONLINE DATA";
+						upper_text = language_get_text("FILES_ONLINE_DATA");
 						instance_destroy(objNetworkClient);
 						break;
 						

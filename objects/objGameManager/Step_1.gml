@@ -2,44 +2,44 @@ delta = delta_time / 1000000 * 50;
 
 #region Pause Input Checking
 pause_options = [
-	"Resume",
-	"Settings",
-	"Back To Files",
-	"Back To Modes"
+	language_get_text("PAUSE_RESUME"),
+	language_get_text("PAUSE_SETTINGS"),
+	language_get_text("PAUSE_BACK_TO_FILES"),
+	language_get_text("PAUSE_BACK_TO_MODES")
 ];
 
 if (IS_ONLINE) {
 	pause_options = [
-		"Resume",
-		"Settings",
-		"Exit Lobby"
+		language_get_text("PAUSE_RESUME"),
+		language_get_text("PAUSE_SETTINGS"),
+		language_get_text("PAUSE_EXIT_LOBBY")
 	];
 } else if (room == rFiles || room == rSettings) {
 	pause_options = [
-		"Resume",
-		"Settings"
+		language_get_text("PAUSE_RESUME"),
+		language_get_text("PAUSE_SETTINGS")
 	];
 } else if (room == rModes) {
 	pause_options = [
-		"Resume",
-		"Settings",
-		"Back To Files"
+		language_get_text("PAUSE_RESUME"),
+		language_get_text("PAUSE_SETTINGS"),
+		language_get_text("PAUSE_BACK_TO_FILES")
 	];
 } else if (IS_MINIGAME && room != rMinigameOverview && global.minigame_info.is_minigames) {
 	pause_options = [
-		"Resume",
-		"Settings",
-		"Back To Files",
-		"Back To Modes",
-		"Back To Overview"
+		language_get_text("PAUSE_RESUME"),
+		language_get_text("PAUSE_SETTINGS"),
+		language_get_text("PAUSE_BACK_TO_FILES"),
+		language_get_text("PAUSE_BACK_TO_MODES"),
+		language_get_text("PAUSE_BACK_TO_OVERVIEW")
 	];
 } else if (global.minigame_info.is_trials) {
 	pause_options = [
-		"Resume",
-		"Settings",
-		"Back To Files",
-		"Back To Modes",
-		"Back To Trials"
+		language_get_text("PAUSE_RESUME"),
+		language_get_text("PAUSE_SETTINGS"),
+		language_get_text("PAUSE_BACK_TO_FILES"),
+		language_get_text("PAUSE_BACK_TO_MODES"),
+		language_get_text("PAUSE_BACK_TO_TRIALS")
 	];
 }
 

@@ -299,7 +299,7 @@ f[$ ClientTCP.LobbyList] = function(buffer) {
 		if (menu_type != 4) {
 			menu_type = 4;
 			upper_type = menu_type;
-			upper_text = "LOBBY DATA";
+			upper_text = language_get_text("FILES_LOBBY_DATA");
 			lobby_selected = 0;
 		}
 	}

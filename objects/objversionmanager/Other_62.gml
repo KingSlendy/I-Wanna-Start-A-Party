@@ -49,7 +49,7 @@ if (async_load[? "id"] == tag) {
 	}
 } else {
 	if (!downloading) {
-		text = "Downloading version...";
+		text = language_get_text("VERSION_DOWNLOADING");
 		downloading = true;
 	}
 
@@ -75,7 +75,7 @@ if (async_load[? "id"] == tag) {
 	
 		file_delete("Version.zip");
 		execute_shell_simple(game_save_id + "update.bat",,, 0);
-		text = "Finished download!";
+		text = language_get_text("VERSION_FINISHED");
 		downloading = false;
 		alarm_call(1, 2.5);
 		alarm_stop(2);

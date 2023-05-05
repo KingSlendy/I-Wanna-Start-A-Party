@@ -103,21 +103,21 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 }
 
 menu_buttons = [
-	[new FileButton(400, 400, file_width, 64, -1, "START", c_lime), new FileButton(400, 460, file_width, 64, -1, "RESTORE", c_aqua), new FileButton(400, 520, file_width, 64, 1, "DELETE", c_red)],
-	[new FileButton(150, 400, file_width, 64, -1, "OFFLINE", c_lime), new FileButton(150, 460, file_width, 64, -1, "ONLINE", c_aqua), new FileButton(150, 520, file_width, 64, -1, "NAME", c_white), null, new FileButton(520, 520, file_width * 2, 64, 1, "", c_ltgray, false)],
-	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "DELETE", c_red)],
-	[new FileButton(150, 172, file_width, 64, -1, "IP", c_white), new FileButton(150, 252, file_width, 64, -1, "PORT", c_white), new FileButton(150, 332, file_width, 64, -1, "CONNECT", c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
-	[new FileButton(150, 172, file_width, 64, -1, "NAME", c_white), new FileButton(150, 252, file_width, 64, -1, "PASSWORD", c_white), new FileButton(150, 332, file_width, 64, -1, "CREATE", c_lime), new FileButton(150, 402, file_width, 64, -1, "JOIN", c_lime), new FileButton(150, 482, file_width, 64, -1, "LIST", c_blue), new FileButton(150, 562, file_width, 64, -1, "REFRESH", c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
-	[new FileButton(400, 470, file_width, 64, -1, "START", c_lime), new FileButton(650, 230, file_width * 0.8, 64, 1, "KICK", c_red), new FileButton(650, 310, file_width * 0.8, 64, 1, "KICK", c_red), new FileButton(650, 390, file_width * 0.8, 64, 1, "KICK", c_red), null, new FileButton(300, 150, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 230, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(300, 310, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 390, file_width * 2, 64, 1, "", c_ltgray, false)],
-	[new FileButton(400, 400, file_width, 64, -1, "CANCEL", c_lime), new FileButton(400, 480, file_width, 64, 1, "RESTORE", c_aqua)]
+	[new FileButton(400, 400, file_width, 64, -1, language_get_text("FILES_START"), c_lime), new FileButton(400, 460, file_width, 64, -1, language_get_text("FILES_RESTORE"), c_aqua), new FileButton(400, 520, file_width, 64, 1, language_get_text("FILES_DELETE"), c_red)],
+	[new FileButton(150, 400, file_width, 64, -1, language_get_text("FILES_OFFLINE"), c_lime), new FileButton(150, 460, file_width, 64, -1, language_get_text("FILES_ONLINE"), c_aqua), new FileButton(150, 520, file_width, 64, -1, language_get_text("FILES_NAME"), c_white), null, new FileButton(520, 520, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(400, 400, file_width, 64, -1, language_get_text("FILES_CANCEL"), c_lime), new FileButton(400, 480, file_width, 64, 1, language_get_text("FILES_DELETE"), c_red)],
+	[new FileButton(150, 172, file_width, 64, -1, language_get_text("FILES_IP"), c_white), new FileButton(150, 252, file_width, 64, -1, language_get_text("FILES_PORT"), c_white), new FileButton(150, 332, file_width, 64, -1, language_get_text("FILES_CONNECT"), c_lime), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(150, 172, file_width, 64, -1, language_get_text("FILES_NAME"), c_white), new FileButton(150, 252, file_width, 64, -1, language_get_text("FILES_PASSWORD"), c_white), new FileButton(150, 332, file_width, 64, -1, language_get_text("FILES_CREATE"), c_lime), new FileButton(150, 402, file_width, 64, -1, language_get_text("FILES_JOIN"), c_lime), new FileButton(150, 482, file_width, 64, -1, language_get_text("FILES_LIST"), c_blue), new FileButton(150, 562, file_width, 64, -1, language_get_text("FILES_REFRESH"), c_aqua), null, new FileButton(520, 172, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(520, 252, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(400, 470, file_width, 64, -1, language_get_text("FILES_START"), c_lime), new FileButton(650, 230, file_width * 0.8, 64, 1, language_get_text("FILES_KICK"), c_red), new FileButton(650, 310, file_width * 0.8, 64, 1, language_get_text("FILES_KICK"), c_red), new FileButton(650, 390, file_width * 0.8, 64, 1, language_get_text("FILES_KICK"), c_red), null, new FileButton(300, 150, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 230, file_width * 2, 64, 1, "", c_ltgray, false), new FileButton(300, 310, file_width * 2, 64, -1, "", c_ltgray, false), new FileButton(300, 390, file_width * 2, 64, 1, "", c_ltgray, false)],
+	[new FileButton(400, 400, file_width, 64, -1, language_get_text("FILES_CANCEL"), c_lime), new FileButton(400, 480, file_width, 64, 1, language_get_text("FILES_RESTORE"), c_aqua)]
 ];
 
 menu_selected = array_create(array_length(menu_buttons), 0);
 
 option_buttons = [
-	new FileButton(144, 480, file_width, file_width - 96, 2, "SETTINGS"),
-	new FileButton(400, 480, file_width, file_width - 96, 2, "DISCORD"),
-	new FileButton(656, 480, file_width, file_width - 96, 2, "WEBSITE"),
+	new FileButton(144, 480, file_width, file_width - 96, 2, language_get_text("FILES_SETTINGS")),
+	new FileButton(400, 480, file_width, file_width - 96, 2, language_get_text("FILES_DISCORD")),
+	new FileButton(656, 480, file_width, file_width - 96, 2, language_get_text("FILES_WEBSITE")),
 ];
 
 option_selected = -1;
@@ -148,7 +148,7 @@ function file_sprite(file) {
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, (!done_everything) ? #7FC1FA : c_yellow, 1);
 	draw_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
-	draw_text_color_outline(file_width / 2, 10, "FILE " + string(file + 1), c_lime, c_lime, c_green, c_green, 1, c_black);
+	draw_text_color_outline(file_width / 2, 10, language_get_text("FILES_FILE", string(file + 1)), c_lime, c_lime, c_green, c_green, 1, c_black);
 	draw_set_font(fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);

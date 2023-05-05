@@ -21,7 +21,7 @@ draw_set_font(fntFilesInfo);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 pause_x = lerp(pause_x, pause_target_x, 0.2);
-draw_text_color_outline(pause_x, 150, "PAUSE", c_red, c_red, c_orange, c_orange, draw_get_alpha(), c_black);
+draw_text_color_outline(pause_x, 150, language_get_text("PAUSE_PAUSE"), c_red, c_red, c_orange, c_orange, draw_get_alpha(), c_black);
 
 draw_set_font(fntFilesButtons);
 
