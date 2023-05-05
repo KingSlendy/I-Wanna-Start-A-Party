@@ -10,7 +10,7 @@ if (info.is_practice) {
 	draw_set_halign(fa_left);
 }
 
-if (minigame_time != -1) {
+if (minigame_time != -1 && minigame_time <= 60) {
 	var w = 100;
 	var h = 32;
 	

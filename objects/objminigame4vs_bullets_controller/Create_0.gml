@@ -17,6 +17,10 @@ minigame_time_end = function() {
 	}
 }
 
+action_end = function() {
+	alarm_stop(5);
+}
+
 player_type = objPlayerPlatformer;
 
 next_seed_inline();

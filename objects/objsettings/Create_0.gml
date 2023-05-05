@@ -102,6 +102,18 @@ var display_draw = function(x, y) {
 	draw_text_outline(x + 40, y, (display) ? "ON" : "OFF", c_black);
 }
 
+var game_check = function() {
+}
+
+var game_draw = function(x, y) {
+	switch (self.label) {
+		case "LANGUAGE": var display = global.language_game; break;
+	}
+	
+	draw_set_color(c_white);
+	draw_text_outline(x + 40, y, string_upper(display), c_black);
+}
+
 var controls_check = function() {
 	if (!input_binding_scan_in_progress()) {
 		input_binding_scan_start(function(bind) {
@@ -186,6 +198,10 @@ sections = [
 		new Option("SMOOTH", display_check, display_draw)
 	]),
 	
+	new Section("GAME", [
+		new Option("LANGUAGE", game_check, game_draw)
+	]),
+	
 	new Section("CONTROLS", [])
 ];
 
@@ -204,10 +220,10 @@ for (var i = 0; i < array_length(keys); i++) {
 	var name = keys[i];
 	var action = global.actions[$ name];
 	
-	array_push(sections[2].options, new Option(string_upper(name), controls_check, controls_draw));
+	array_push(sections[3].options, new Option(string_upper(name), controls_check, controls_draw));
 }
 
-array_push(sections[2].options,
+array_push(sections[3].options,
 	new Option("RESET DEFAULTS", defaults_check, defaults_draw),
 	new Option("HOTSWAP", hotswap_check, hotswap_draw)
 );

@@ -31,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = irandom(1);
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Blackhole], null, null];
+	//self.items = [global.board_items[ItemType.Poison], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -304,9 +304,9 @@ function board_start() {
 		
 		start_dialogue([
 			board.welcome,
-			new Message("Would you like to hear about this board?", [
-				["No", [new Message(board.alright,, choose_turns)]],
-				["Yes", array_concat(board.rules, [new Message(board.alright,, choose_turns)])]
+			new Message(language_get_text("PARTY_BOARD_HEAR"), [
+				[language_get_text("WORD_GENERIC_NO"), [new Message(board.alright,, choose_turns)]],
+				[language_get_text("WORD_GENERIC_YES"), array_concat(board.rules, [new Message(board.alright,, choose_turns)])]
 			])
 		]);
 	} else {
@@ -352,31 +352,31 @@ function tell_turns() {
 	}
 	
 	start_dialogue([
-		new Message("The order has been decided!",, function() {
+		new Message(language_get_text("PARTY_BOARD_DECIDED"),, function() {
 			dialogue_player_info(1);
 		}),
 		
-		new Message(string("{COLOR,0000FF}{0}{COLOR,FFFFFF} goes first!", turn_names[0]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_FIRST", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[0]),, function() {
 			dialogue_player_info(2);
 		}),
 		
-		new Message(string("{COLOR,0000FF}{0}{COLOR,FFFFFF} follows as second!", turn_names[1]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_SECOND", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[1]),, function() {
 			dialogue_player_info(3);
 		}),
 		
-		new Message(string("Then {COLOR,0000FF}{0}{COLOR,FFFFFF} goes third!", turn_names[2]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_THIRD", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[2]),, function() {
 			dialogue_player_info(4);
 		}),
 		
-		string("And last to go is {COLOR,0000FF}{0}{COLOR,FFFFFF}.", turn_names[3]),
-		new Message("Let's give each one " + draw_coins_price(10) + " to start.",, function() {
+		string(language_get_text("PARTY_BOARD_FORTH", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[3]),
+		new Message(language_get_text("PARTY_BOARD_GIVE_COINS", draw_coins_price(10)),, function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				var c = change_coins(10, CoinChangeType.Gain, i);
 				
 				if (i == 1) {
 					c.final_action = function() {
 						start_dialogue([
-							new Message("Let's see where the Shine is gonna end up...",, choose_shine)
+							new Message(language_get_text("PARTY_BOARD_SEE_SHINE"),, choose_shine)
 						]);
 					}
 				}
@@ -388,7 +388,7 @@ function tell_turns() {
 function turn_start(network = true) {
 	switch (room) {
 		case rBoardNsanity:
-			global.shine_price = 20;
+			global.shine_price = 10;
 		
 			for (var i = 1; i <= global.player_max; i++) {
 				global.shine_price += 5 * player_info_by_turn(i).shines;
@@ -1213,7 +1213,7 @@ function all_player_choices(not_me = false) {
 			
 	for (var i = 0; i < array_length(choices); i++) {
 		if (choices[i] != "") {
-			choices[i] = "{SPRITE," + sprite_get_name(choices[i]) + ",0,-48,-64,3,3}";
+			choices[i] = "{SPRITE," + sprite_get_name(choices[i]) + ",0," + string(-sprite_get_xoffset(choices[i]) * 3) + "," + string(-sprite_get_yoffset(choices[i]) * 3) + ",3,3}";
 		}
 	}
 		

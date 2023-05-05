@@ -125,6 +125,11 @@ function load_file() {
 	
 	global.collected_boards = array_unique(global.collected_boards);
 	global.seen_minigames = save.main_game.saved_seen_minigames;
+	var index = array_get_index(global.seen_minigames, "Dinnyamic Duos");
+	
+	if (index != -1) {
+		global.seen_minigames[index] = "Dynyaamic Duos";
+	}
 	
 	try {
 		global.collected_trials = save.main_game.saved_collected_trials;
@@ -299,6 +304,10 @@ function config_variables() {
 	global.fullscreen_display = false;
 	global.vsync_display = false;
 	global.smooth_display = false;
+	
+	global.language_game = "English";
+	
+	global.controls_hotswap = true;
 }
 
 function save_config() {
@@ -311,6 +320,8 @@ function save_config() {
 			saved_fullscreen_display: global.fullscreen_display,
 			saved_vsync_display: global.vsync_display,
 			saved_smooth_display: global.smooth_display,
+			
+			saved_language_game: global.language_game,
 			
 			saved_controls_keyboard_and_mouse: input_profile_export("keyboard_and_mouse"),
 			saved_controls_gamepad: input_profile_export("gamepad"),
@@ -343,6 +354,12 @@ function load_config() {
 	global.fullscreen_display = config.settings.saved_fullscreen_display;
 	global.vsync_display = config.settings.saved_vsync_display;
 	global.smooth_display = config.settings.saved_smooth_display;
+	
+	try {
+		global.language_game = config.settings.saved_language_game;
+	} catch (_) {
+		global.language_game = "English";
+	}
 	
 	try {
 		input_profile_import(config.settings.saved_controls_keyboard_and_mouse, "keyboard_and_mouse");

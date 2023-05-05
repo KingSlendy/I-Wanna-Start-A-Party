@@ -30,15 +30,19 @@ player_type = objPlayerPlatformer;
 fruit_positions = [[], []];
 fruit_types = [[], []];
 current = 0;
+next_seed_inline();
 
 repeat (2000) {
-	array_push(fruit_positions[0], irandom_range(32, 320));
-	array_push(fruit_positions[1], irandom_range(480, 768));
+	var position = irandom_range(32, 320);
+	array_push(fruit_positions[0], position);
+	array_push(fruit_positions[1], position + 448);
 }
 
 repeat (2000) {
+	var type = choose(-2, 0, 1, 2);
+	
 	for (var i = 0; i < 2; i++) {
-		array_push(fruit_types[i], choose(-2, 0, 1, 2));
+		array_push(fruit_types[i], type);
 	}
 }
 
@@ -53,7 +57,7 @@ alarm_override(1, function() {
 alarm_create(4, function() {
 	for (var i = 0; i < 2; i++) {
 		var f = instance_create_layer(fruit_positions[i][current], 256, "Actors", objMinigame2vs2_Fruits_Fruit);
-		var type = fruit_types[i][current++];
+		var type = fruit_types[i][current];
 		f.type = type;
 
 		switch (type) {
@@ -81,6 +85,8 @@ alarm_create(4, function() {
 				break;
 		}
 	}
+	
+	current++;
 
 	alarm_call(4, 0.5);
 });

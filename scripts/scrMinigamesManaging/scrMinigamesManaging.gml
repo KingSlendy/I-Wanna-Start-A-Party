@@ -77,7 +77,7 @@ global.minigames = {};
 #macro FITTING_SQUARES "Fitting Squares"
 #macro COLORFUL_INSANITY "Colorful Insanity"
 #macro SPRINGING_PIRANHA "Springing Piranha"
-#macro DINNYAMIC_DUOS "Dinnyamic Duos"
+#macro DINNYAMIC_DUOS "Dynyaamic Duos"
 #macro WESTERN_DUEL "Western Duel"
 #macro SOCCER_MATCH "Soccer Match"
 #macro JINGLE_SLEDGE "Jingle Sledge"

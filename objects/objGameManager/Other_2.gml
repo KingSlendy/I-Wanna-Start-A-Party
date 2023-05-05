@@ -66,6 +66,7 @@ if (!load_config()) {
 }
 
 apply_config();
+languages_init();
 
 board_init();
 minigame_init();
@@ -74,3 +75,4 @@ trial_init();
 trial_info_reset();
 skin_init();
 reaction_init();
+trophies_init();

@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "I Wanna Start A Party",
-    "path": "I Wanna Start A Party.yyp",
+    "name": "Managers",
+    "path": "folders/Scripts/Managers.yy",
   },
 }

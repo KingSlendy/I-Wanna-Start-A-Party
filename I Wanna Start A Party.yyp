@@ -1010,7 +1010,7 @@
     {"id":{"name":"sprTrollerPlayerRun","path":"sprites/sprTrollerPlayerRun/sprTrollerPlayerRun.yy",},},
     {"id":{"name":"tlsMinigame4vs_Rocket","path":"tilesets/tlsMinigame4vs_Rocket/tlsMinigame4vs_Rocket.yy",},},
     {"id":{"name":"bgmModes","path":"sounds/bgmModes/bgmModes.yy",},},
-    {"id":{"name":"scrTranslationManagement","path":"scripts/scrTranslationManagement/scrTranslationManagement.yy",},},
+    {"id":{"name":"scrLanguagesManagement","path":"scripts/scrLanguagesManagement/scrLanguagesManagement.yy",},},
     {"id":{"name":"sprApplePlayerRun","path":"sprites/sprApplePlayerRun/sprApplePlayerRun.yy",},},
     {"id":{"name":"sprDinosaurPlayerJump","path":"sprites/sprDinosaurPlayerJump/sprDinosaurPlayerJump.yy",},},
     {"id":{"name":"sprKey_K","path":"sprites/sprKey_K/sprKey_K.yy",},},
