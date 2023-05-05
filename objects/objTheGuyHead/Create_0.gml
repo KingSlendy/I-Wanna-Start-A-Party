@@ -34,7 +34,7 @@ alarm_create(function() {
 
 	if (is_local_turn()) {
 		start_dialogue([
-			new Message("What is this!? Another child dares to land on my space!?\nYou'll regret this!",, objTheGuy.show_the_guy_options)
+			new Message(language_get_text("PARTY_THE_GUY_WHAT_IS_THIS"),, objTheGuy.show_the_guy_options)
 		]);
 	}
 });

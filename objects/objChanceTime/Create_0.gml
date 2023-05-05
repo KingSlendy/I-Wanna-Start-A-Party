@@ -151,8 +151,8 @@ rotate_turn = true;
 function begin_chance_time() {
 	if (is_local_turn()) {
 		start_dialogue([
-			"Welcome to chance time!\nThe exciting event that can change everything!",
-			new Message("Jump and hit the blocks to decide what players are gonna be involved!",, objChanceTime.advance_chance_time)
+			language_get_text("PARTY_CHANCE_TIME_WELCOME"),
+			new Message(language_get_text("PARTY_CHANCE_TIME_PLAYERS_INVOLVED"),, objChanceTime.advance_chance_time)
 		]);
 	}
 }
@@ -185,7 +185,7 @@ function advance_chance_time() {
 			
 				start_dialogue([
 					"It seems the chosen players would be {COLOR,0000FF}" + player_names[0] +"{COLOR,FFFFFF} and {COLOR,0000FF}" + player_names[1] + "{COLOR,FFFFFF}!",
-					new Message("Now I wonder what the exchange will be...",, function() {
+					new Message(language_get_text("PARTY_CHANCE_TIME_WONDER_EXCHANGE"),, function() {
 						with (objChanceTime) {
 							current_flag++;
 							advance_chance_time();
@@ -205,7 +205,7 @@ function advance_chance_time() {
 				event.dialogue = string_replace(event.dialogue, "[p2]", player_names[1]);
 				
 				start_dialogue([
-					"And... the results are in!",
+					language_get_text("PARTY_CHANCE_TIME_RESULTS"),
 					new Message(event.dialogue,, objChanceTime.reposition_chance_time)
 				]);
 				break;
@@ -214,9 +214,9 @@ function advance_chance_time() {
 				instance_destroy(b);
 				
 				if (!no_changes) {
-					var dialogue = "That's it for now!\nSee you next time!";
+					var dialogue = language_get_text("PARTY_CHANCE_TIME_THATS_IT");
 				} else {
-					var dialogue = "Huh... nothing changed...\nWell, better luck next time!"
+					var dialogue = language_get_text("PARTY_CHANCE_TIME_NOTHING_CHANGED")
 				}
 				
 				start_dialogue([
