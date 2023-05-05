@@ -1546,7 +1546,6 @@
     {"id":{"name":"objMinigame1vs3_Hunt_Block","path":"objects/objMinigame1vs3_Hunt_Block/objMinigame1vs3_Hunt_Block.yy",},},
     {"id":{"name":"sprBestPlayerIdle","path":"sprites/sprBestPlayerIdle/sprBestPlayerIdle.yy",},},
     {"id":{"name":"input_binding_gamepad_axis","path":"scripts/input_binding_gamepad_axis/input_binding_gamepad_axis.yy",},},
-    {"id":{"name":"scrLanguagesManagement","path":"scripts/scrLanguagesManagement/scrLanguagesManagement.yy",},},
     {"id":{"name":"sndRouletteRoll","path":"sounds/sndRouletteRoll/sndRouletteRoll.yy",},},
     {"id":{"name":"sndMinigame4vs_Golf_Sink","path":"sounds/sndMinigame4vs_Golf_Sink/sndMinigame4vs_Golf_Sink.yy",},},
     {"id":{"name":"sprReimuPlayerRun","path":"sprites/sprReimuPlayerRun/sprReimuPlayerRun.yy",},},
