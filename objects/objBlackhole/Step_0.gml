@@ -46,7 +46,7 @@ if (selecting && is_local_turn()) {
 			change_dialogue([
 				new Message("Are you sure you wanna steal {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
 					["Yes " + draw_coins_price(item_selected.price), [
-						new Message("Good choice.",, function() {
+						new Message(language_get_text("PARTY_BOARD_BLACKHOLE_GOOD_CHOICE"),, function() {
 							with (objBlackhole) {
 								blackhole_end();
 							}
@@ -56,7 +56,7 @@ if (selecting && is_local_turn()) {
 							}
 						
 							change_coins(-item_selected.price, CoinChangeType.Spend).final_action = function() {
-								show_multiple_player_choices("Which player do you wanna steal from?", function(turn) {
+								show_multiple_player_choices(language_get_text("PARTY_BOARD_BLACKHOLE_WHICH_PLAYER_STEAL"), function(turn) {
 									var player_info = player_info_by_turn(turn);
 									
 									switch (option_selected) {
@@ -85,7 +85,7 @@ if (selecting && is_local_turn()) {
 			selecting = false;
 		} else {
 			change_dialogue([
-				"You can't steal that."
+				language_get_text("PARTY_BOARD_BLACKHOLE_CANT")
 			]);
 			
 			objDialogue.active = false;
@@ -95,7 +95,7 @@ if (selecting && is_local_turn()) {
 	
 	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
-			new Message("What a shame...",, function() {
+			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_SHAME"),, function() {
 				with (objBlackhole) {
 					blackhole_end();
 				}

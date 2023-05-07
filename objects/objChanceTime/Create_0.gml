@@ -358,7 +358,7 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
-	show_popup("CHANCE TIME");
+	show_popup(language_get_text("PARTY_CHANCE_TIME_POPUP"));
 	alarm_call(3, 2);
 });
 
