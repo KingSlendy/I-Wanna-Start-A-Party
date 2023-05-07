@@ -1,5 +1,3 @@
-LIVE
-
 draw_sprite_ext(sprPlayerHammer, index, x, y, image_xscale, image_yscale, image_angle, player_info_by_id(network_id).space, image_alpha);
 
 if (index == 0) {

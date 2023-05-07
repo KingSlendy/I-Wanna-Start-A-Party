@@ -1,6 +1,6 @@
 #macro null undefined
 #macro DELTA objGameManager.delta
-#macro LIVE if (live_call()) return live_result
+//#macro LIVE if (live_call()) return live_result
 
 //Colors
 #macro c_chancetime make_color_rgb(255, 255, 0)

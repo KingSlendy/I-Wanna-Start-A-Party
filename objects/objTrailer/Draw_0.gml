@@ -1,5 +1,3 @@
-LIVE
-
 if (!trailer) {
 	exit;
 }

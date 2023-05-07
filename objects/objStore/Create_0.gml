@@ -69,7 +69,7 @@ for (var i = 0; i < array_length(types); i++) {
 			draw_set_halign(fa_left);
 		}, function(x, y) {
 			var seen_minigame = self.has();
-			var title = (seen_minigame) ? self.minigame.title : "?????????";
+			var label = (seen_minigame) ? self.minigame.label : "?????????";
 			var preview = (seen_minigame) ? self.minigame.preview : 0;
 			var fangame_name = (seen_minigame) ? self.minigame.fangame_name : "???";
 			draw_sprite_stretched(sprFangameMark, 1, x + 72, 60, 200, 152);
@@ -79,7 +79,7 @@ for (var i = 0; i < array_length(types); i++) {
 			draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
 			draw_set_font(fntFilesButtons);
 			draw_set_halign(fa_center);
-			draw_text_info(x + objStore.draw_w / 2, 10, title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
+			draw_text_info(x + objStore.draw_w / 2, 10, label, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 			draw_set_font(fntFilesData);
 			draw_text_info(x + objStore.draw_w / 2, 220, fangame_name, objStore.draw_w - 8);
 		});

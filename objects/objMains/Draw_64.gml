@@ -1,5 +1,3 @@
-LIVE
-
 draw_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 
@@ -185,12 +183,12 @@ switch (room) {
 				var minigame = minigames[location];
 				var dist = remap(point_distance(row_x, minigames_show_y, 0, minigames_target_show_y), 0, 480, 1, 0.5);
 				var seen_minigame = minigame_seen(minigame.title);
-				var title = (seen_minigame) ? minigame.title : "?????????";
+				var label = (seen_minigame) ? minigame.label : "?????????";
 				var portrait = (seen_minigame) ? minigame.portrait : minigame.hidden;
 				draw_set_font(fntPlayerInfo);
 				draw_set_halign(fa_center);
 				draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
-				draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, title, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
+				draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, label, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
 				draw_set_halign(fa_left);
 			}
 		}
@@ -211,7 +209,7 @@ switch (room) {
 		if (minigame_selected != null) {
 			draw_set_font(fntFilesButtons);
 			draw_set_halign(fa_center);
-			draw_text_color_outline(info_x + draw_w / 2, 10, minigame_selected.reference.title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
+			draw_text_color_outline(info_x + draw_w / 2, 10, minigame_selected.reference.label, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 			draw_sprite(minigame_selected.portrait, 0, info_x + 140, 150);
 			draw_sprite_stretched(sprFangameMark, 1, info_x + 300, 95, 150, 114);
 			gpu_set_colorwriteenable(true, true, true, false);

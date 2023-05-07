@@ -435,7 +435,7 @@ function network_disable() {
 	instance_deactivate_all(false);
 	instance_activate_object(objGameManager);
 	instance_activate_object(objFiles);
-	instance_activate_object(obj_gmlive);
+	//instance_activate_object(obj_gmlive);
 	application_surface_draw_enable(true);
 	
 	if (room != rFiles) {

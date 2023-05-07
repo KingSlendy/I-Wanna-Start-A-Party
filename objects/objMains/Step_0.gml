@@ -1,5 +1,3 @@
-LIVE
-
 if (fade_start) {
 	if (state == -1) {
 		if (get_player_count(objPlayerParty) == global.player_max) {

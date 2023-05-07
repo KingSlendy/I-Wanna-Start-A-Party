@@ -1,5 +1,3 @@
-LIVE
-
 if (info.is_practice) {
 	draw_set_font(fntPopup);
 	draw_set_halign(fa_center);

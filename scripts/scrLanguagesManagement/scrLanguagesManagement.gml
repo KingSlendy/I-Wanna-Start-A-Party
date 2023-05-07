@@ -34,6 +34,7 @@ function languages_init() {
 				}
 				
 				var text = texts[i];
+				text = string_replace_all(text, "\\n", "\n");
 				var text_key = "";
 				var found_keys = false;
 				var all_keys = [];
@@ -60,14 +61,13 @@ function languages_init() {
 				}
 				
 				for (var j = 0; j < array_length(all_keys); j++) {
-					
+					text = string_replace(text, all_keys[j], "@TEXT@");
 				}
 				
 				global.languages[$ languages[i]][$ text_id] = text;
 			}
 		}
 		
-		print(global.languages);
 		file_text_close(file);
 	//} catch (ex) {
 	//	log_error(ex);
@@ -78,14 +78,11 @@ function language_get_text(id) {
 	var text = global.languages[$ global.language_game][$ id];
 	
 	if (text == null) {
-		return string("<No Text> [{0}]", global.language_game);
+		return $"<No Text> [{global.language_game}]";
 	}
-	print(text);
 	
 	for (var i = 1; i < argument_count; i++) {
 		text = string_replace(text, "@TEXT@", argument[i]);
 	}
-	
-	print(text);
 	return text;
 }

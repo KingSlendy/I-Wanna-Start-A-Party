@@ -1,5 +1,3 @@
-LIVE
-
 if (global.choice_selected == -1) {
 	exit;
 }

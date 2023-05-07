@@ -1,5 +1,3 @@
-LIVE
-
 draw_sprite_ext(sprite_index, 0, x, y, image_xscale * 3, image_yscale * 3, 0, c_white, 1);
 
 if (layer_sequence_is_finished(sequence) && layer_sequence_get_headdir(sequence) == 1) {
