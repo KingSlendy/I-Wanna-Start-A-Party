@@ -131,17 +131,17 @@ function event_decided() {
 		var text = "";
 		
 		switch (event) {
-			case 0: text = "Oh no! The Guy spaces are gonna take over Red spaces!\nI hope he has mercy..."; break;
-			case 1: text = "Red spaces are gonna be Chance Time spaces!?\nAnything could happen now!"; break;
-			case 2: text = "Whoa! Red spaces are now Item spaces!\nTime to collect items everyone!"; break;
-			case 3: text = "No more Blue spaces!?\nThat's gonna be rough on the wallet!"; break;
-			case 4: text = "All Red are now Surprise spaces!\nNow that's gonna be some chaos!"; break;
+			case 0: text = language_get_text("PARTY_LAST_FIVE_SPACES_RED_GUY"); break;
+			case 1: text = language_get_text("PARTY_LAST_FIVE_SPACES_RED_CHANCE"); break;
+			case 2: text = language_get_text("PARTY_LAST_FIVE_SPACES_RED_ITEM"); break;
+			case 3: text = language_get_text("PARTY_LAST_FIVE_SPACES_RED_BLUE"); break;
+			case 4: text = language_get_text("PARTY_LAST_FIVE_SPACES_RED_SURPRISE"); break;
 		}
 		
 		start_dialogue([
 			text,
-			"And also...\nRemember that all spaces give and take double the amount of Coins too!",
-			new Message("I wish good luck to everyone and have a great party!",, end_last_turns)
+			language_get_text("PARTY_LAST_FIVE_REMEMBER_DOUBLE"),
+			new Message(language_get_text("PARTY_LAST_FIVE_GOOD_LUCK"),, end_last_turns)
 		]);
 	}
 }
@@ -166,15 +166,15 @@ alarms_init(3);
 alarm_create(function() {
 	music_pause();
 	music_change(bgmLastTurns);
-	show_popup("LAST 5 TURNS");
+	show_popup(language_get_text("PARTY_LAST_FIVE_POPUP"));
 	alarm_call(1, 2);
 });
 
 alarm_create(function() {
 	if (is_local_turn()) {
 		var texts = [
-			"Good party everyone! It has been super fun so far, but we're nearing the end, only a couple turns left!",
-			new Message("This is the perfect time to spice things up a little bit, but first let's see how everyone is doing so far...",, say_player_place)
+			language_get_text("PARTY_LAST_FIVE_GOOD_PARTY"),
+			new Message(language_get_text("PARTY_LAST_FIVE_LETS_SEE"),, say_player_place)
 		];
 	
 		for (var i = 1; i <= global.player_max; i++) {
@@ -197,8 +197,8 @@ alarm_create(function() {
 alarm_create(function() {
 	if (is_local_turn()) {
 		start_dialogue([
-			"Since you're already here, how about a little something extra?",
-			new Message("Hit the block to reveal what exciting event is gonna be applied to the whole board!",, spawn_last_turns_box)
+			language_get_text("PARTY_LAST_FIVE_ALREADY_HERE"),
+			new Message(language_get_text("PARTY_LAST_FIVE_HIT_BLOCK"),, spawn_last_turns_box)
 		]);
 	}
 });

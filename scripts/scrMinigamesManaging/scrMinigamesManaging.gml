@@ -485,7 +485,7 @@ function minigame_finish(signal = false) {
 		
 		if (!info.is_finished) {
 			objPlayerBase.frozen = true;
-			show_popup("FINISH");
+			show_popup(language_get_text("MINIGAMES_FINISH"));
 			announcer_finished = true;
 			audio_play_sound(sndMinigameFinish, 0, false);
 			music_stop();
@@ -599,7 +599,7 @@ function minigame2vs2_winner() {
 }
 
 function minigame_times_up() {
-	show_popup("TIMES UP");
+	show_popup(language_get_text("MINIGAMES_TIMES_UP"));
 	audio_play_sound(sndMinigameTimesUp, 0, false);
 	music_stop();
 }

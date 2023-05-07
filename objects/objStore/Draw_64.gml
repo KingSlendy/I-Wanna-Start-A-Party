@@ -32,12 +32,12 @@ controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
 var sorting = "";
 
 switch (store_sort[store_row]) {
-	case 0: sorting = "Default"; break;
-	case 1: sorting = "Price (Ascending)"; break;
-	case 2: sorting = "Price (Descending)"; break;
-	case 3: sorting = "Name"; break;
+	case 0: sorting = language_get_text("STORE_SORTED_DEFAULT"); break;
+	case 1: sorting = language_get_text("STORE_SORTED_ASCENDING"); break;
+	case 2: sorting = language_get_text("STORE_SORTED_DESCENDING"); break;
+	case 3: sorting = language_get_text("STORE_SORTED_NAME"); break;
 }
 
-controls_text.set(draw_action(global.actions.misc) + " Sorted By: " + sorting);
+controls_text.set(draw_action(global.actions.misc) + language_get_text("STORE_SORTED_BY") + ": " + sorting);
 controls_text.draw(draw_x, draw_y + draw_h + 230);
 draw_collected_coins(400, draw_y + draw_h + 60);
