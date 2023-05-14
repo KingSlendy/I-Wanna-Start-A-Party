@@ -126,11 +126,11 @@ alarms_init(4);
 alarm_create(function() {
 	if (global.give_bonus_shines) {
 		start_dialogue([
-			new Message("But first we need to give the bonus Shines!\nThey could change the course of the whole game!",, results_bonus)
+			new Message(language_get_text("PARTY_RESULTS_BUT_FIRST"),, results_bonus)
 		]);
 	} else {
 		start_dialogue([
-			new Message("Now it's finally time to reveal the winner!\nI'm so nervous...",, results_won)
+			new Message(language_get_text("PARTY_RESULTS_NOW_REVEAL"),, results_won)
 		]);
 	
 		//If it increased a bonus round that means this option was enabled from the start

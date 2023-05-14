@@ -65,10 +65,10 @@ alarm_create(function() {
 	var text = "";
 
 	switch (array_length(players)) {
-		case 1: text = "Congratulations!"; break;
-		case 2: text = "I applaud both of you!"; break;
-		case 3: text = "Wow, three of you got it!\nI'm impressed!"; break;
-		case 4: text = "What!? All of you managed to get it??\nYou're all so good!"
+		case 1: text = language_get_text("PARTY_RESULTS_BONUS_WON_ONE"); break;
+		case 2: text = language_get_text("PARTY_RESULTS_BONUS_WON_TWO"); break;
+		case 3: text = language_get_text("PARTY_RESULTS_BONUS_WON_THREE"); break;
+		case 4: text = language_get_text("PARTY_RESULTS_BONUS_WON_FOUR")
 	}
 
 	start_dialogue([

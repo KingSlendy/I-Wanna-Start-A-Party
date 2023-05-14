@@ -19,8 +19,8 @@ for (var i = 0; i < array_length(info.reference.instructions); i++) {
 instructions_page = 0;
 option_selected = -1;
 choice_texts = [
-	"Normal",
-	"Practice"
+	language_get_text("MINIGAMES_MODE_NORMAL"),
+	language_get_text("MINIGAMES_MODE_PRACTICE")
 ];
 
 state = 0;

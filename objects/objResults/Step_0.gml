@@ -10,8 +10,8 @@ if (fade_start) {
 		
 				if (global.player_id == 1) {
 					start_dialogue([
-						"Good job everyone!\nThe moment of truth is coming close...\nTo see who is worthy of being the superstar!",
-						new Message("Let's give the winners of the past minigame their Coins!",, results_coins)
+						language_get_text("PARTY_RESULTS_GOOD_JOB"),
+						new Message(language_get_text("PARTY_RESULTS_GIVE_COINS"),, results_coins)
 					]);
 				}
 			}
