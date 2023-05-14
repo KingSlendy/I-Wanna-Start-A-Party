@@ -61,18 +61,18 @@ enum BonusShines {
 }
 
 global.bonus_shines = [
-	new BonusShine("got the most Coins"),
-	new BonusShine("used the most Items"),
-	new BonusShine("won the most Minigames"),
-	new BonusShine("rolled the biggest Numbers on the die"),
-	new BonusShine("landed on the most Red spaces"),
-	new BonusShine("landed on the most Coin spaces"),
-	new BonusShine("landed on the most Item spaces"),
-	new BonusShine("landed on the most Chance Time spaces"),
-	new BonusShine("landed on the most The Guy spaces"),
-	new BonusShine("landed on the most Surprise spaces"),
-	new BonusShine("spent the most Coins on the Shop"),
-	new BonusShine("lost most stuff due to Blackhole")
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COINS")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEMS")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_MINIGAMES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ROLLS")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_RED_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COIN_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEM_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_CHANCE_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_GUY_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SURPRISE_SPACES")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SHOP")),
+	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_BLACKHOLE"))
 ];
 
 for (var i = 0; i < array_length(global.bonus_shines); i++) {

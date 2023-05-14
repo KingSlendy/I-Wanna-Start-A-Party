@@ -1095,7 +1095,7 @@ function call_shop() {
 		]);
 	} else {
 		start_dialogue([
-			new Message(language_get_text("PARTY_BOARD_SHOP_ITEM_NOT_ENOUGH"),, board_advance)
+			new Message(language_get_text("PARTY_BOARD_SHOP_NOT_ENOUGH"),, board_advance)
 		]);
 	}
 }
@@ -1377,7 +1377,7 @@ function board_baba_blocks(block_id) {
 	global.baba_block_id = block_id;
 	
 	start_dialogue([
-		new Message("There's some blocks here, they're gonna toggle!",, board_baba_toggle)
+		new Message(language_get_text("PARTY_BOARD_BABA_BLOCKS"),, board_baba_toggle)
 	]);
 }
 

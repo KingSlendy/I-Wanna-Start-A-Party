@@ -64,11 +64,11 @@ alarm_create(function() {
 	
 			switch (additional) {
 				case 0:
-					text = "The blackhole is gonna steal your Coins!\nMash as fast as you can to reduce the amount!";
+					text = language_get_text("PARTY_BOARD_BLACKHOLE_STEAL_COINS");
 					break;
 			
 				case 1:
-					text = "Oh no!\nThe blackhole is gonna steal a Shine!";
+					text = language_get_text("PARTY_BOARD_BLACKHOLE_STEAL_SHINE");
 					break;
 			}
 	

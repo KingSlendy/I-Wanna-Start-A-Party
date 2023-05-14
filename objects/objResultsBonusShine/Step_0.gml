@@ -8,11 +8,11 @@ if (increase) {
 		increase = false;
 		
 		if (global.player_id == 1) {
-			var times = ["The first", "The second", "And the last"];
+			var times = [language_get_text("PARTY_RESULTS_THE_FIRST"), language_get_text("PARTY_RESULTS_THE_SECOND"), language_get_text("PARTY_RESULTS_THE_LAST")];
 			
 			start_dialogue([
 				string("{0} bonus Shine goes to the one that {1}.", times[objResults.bonus_round - 1], bonus.text),
-				new Message("And this goes to...",, function() {
+				new Message(language_get_text("PARTY_RESULTS_GOES_TO"),, function() {
 					with (objResultsBonusShine) {
 						go_up();
 					}

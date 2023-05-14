@@ -126,12 +126,12 @@ alarm_create(function() {
 				winner_title += player.network_name + "\n";
 			}
 		
-			winner_title += "WON";
+			winner_title += language_get_text("MINIGAMES_WON");
 			music_play(bgmMinigameWin, false);
 			audio_play_sound((array_length(info.players_won) == 1) ? sndMinigameWinner : sndMinigameWinners, 0, false);
 		} else {
 			info.players_won = [];
-			winner_title = "TIE";
+			winner_title = language_get_text("MINIGAMES_TIE");
 			music_play(bgmMinigameTie, false);
 			audio_play_sound(sndMinigameTie, 0, false);
 			achieve_trophy(9);
@@ -144,11 +144,11 @@ alarm_create(function() {
 		}
 	} else {
 		if (minigame_has_won()) {
-			winner_title = "CLEAR";
+			winner_title = language_get_text("MINIGAMES_CLEAR");
 			music_play(bgmMinigameWin, false);
 			audio_play_sound(sndMinigameClear, 0, false);
 		} else {
-			winner_title = "TOO BAD...";
+			winner_title = language_get_text("MINIGAMES_TOO_BAD");
 			music_play(bgmMinigameTie, false);
 			audio_play_sound(sndMinigameTooBad, 0, false);
 		}

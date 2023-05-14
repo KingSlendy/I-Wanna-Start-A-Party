@@ -59,7 +59,7 @@ if (shopping && is_local_turn()) {
 			change_dialogue([
 				new Message("Are you sure you wanna buy {COLOR,0000FF}" + item_selected.name + "{COLOR,FFFFFF}?", [
 					["Buy " + draw_coins_price(price), [
-						new Message("Thank you for buying!",, function() {
+						new Message(language_get_text("PARTY_BOARD_SHOP_ITEM_THANK"),, function() {
 							with (objShop) {
 								shop_end();
 							}
@@ -114,7 +114,7 @@ if (shopping && is_local_turn()) {
 			shopping = false;
 		} else {
 			change_dialogue([
-				"You don't have enough coins to buy that item!"
+				language_get_text("PARTY_BOARD_SHOP_ITEM_NOT_ENOUGH")
 			]);
 			
 			objDialogue.active = false;
@@ -124,7 +124,7 @@ if (shopping && is_local_turn()) {
 	
 	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
-			new Message("Hope to see you again soon!",, function() {
+			new Message(language_get_text("PARTY_BOARD_SHOP_SEE_YOU"),, function() {
 				with (objShop) {
 					shop_end();
 				}
