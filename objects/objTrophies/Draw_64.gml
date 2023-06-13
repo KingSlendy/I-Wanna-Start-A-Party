@@ -48,8 +48,8 @@ var trophy = global.trophies[trophy_selected];
 var buy = "";
 
 switch (trophy.state()) {
-	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " Hint "; break;
-	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " Spoiler "; break;
+	case TrophyState.Unknown: buy = draw_action(global.actions.jump) + " " + language_get_text("TROPHIES_HINT"); break;
+	case TrophyState.Hint: buy = draw_action(global.actions.jump) + " " + language_get_text("TROPHIES_SPOILER"); break;
 }
 
 controls_text.set(buy);

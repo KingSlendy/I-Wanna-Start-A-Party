@@ -2,6 +2,11 @@ event_inherited();
 
 minigame_players = function() {
 	objPlayerBase.sledge = null;
+	
+	with (objPlayerBase) {
+		sledge = null;
+		minigame4vs_set_points(network_id, other.space_max);
+	}
 }
 
 minigame_camera = CameraMode.Split4;
@@ -34,12 +39,13 @@ surf = noone;
 //	surface_reset_target();	
 //});
 
+space_max = 35;
 next_seed_inline();
 
 for (var i = 0; i < global.player_max; i++) {
 	array_push(space_objs, []);
 	
-	repeat (100) {
+	repeat (space_max) {
 		var num = irandom(3);
 		array_push(space_objs[i], num);
 	}
@@ -70,9 +76,9 @@ function jingle_obstacles(player_turn) {
 		var count = floor(space_count[player_turn - 1] / 8);
 		var obj = null;
 		
-		if (count < 35) {
+		if (count < space_max) {
 			obj = objs[space_objs[player_turn - 1][count]];
-		} else if (count == 35) {
+		} else if (count == space_max) {
 			obj = objMinigame4vs_Jingle_Goal;
 		}
 			

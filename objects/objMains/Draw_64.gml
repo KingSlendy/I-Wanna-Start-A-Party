@@ -45,7 +45,7 @@ if (save_present && room == rParty) {
 			var option_x = save_x + 290;
 			var option_y = save_y + 270 + 45 * i;
 			draw_box(option_x, option_y, 130, 40, (i == save_selected) ? c_ltgray : c_dkgray, c_white,,, 1);
-			text.set(draw_option_afford((i == 0) ? "Resume" : "Decline", true, (i == save_selected)));
+			text.set(draw_option_afford((i == 0) ? language_get_text("PARTY_RESUME") : language_get_text("PARTY_DECLINE"), true, (i == save_selected)));
 			text.draw(option_x + 15, option_y + 6); 
 		}
 	} catch (ex) {
@@ -135,9 +135,9 @@ switch (room) {
 		draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, board_w, board_h);
 	
 		var text = new Text(fntFilesButtons);
-		text.set("Turns: " + ((board_options_selected == 1) ? "{WAVE}{RAINBOW}" : "") + string(global.max_board_turns));
+		text.set(language_get_text("PARTY_TURNS") + ": " + ((board_options_selected == 1) ? "{WAVE}{RAINBOW}" : "") + string(global.max_board_turns));
 		text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10);
-		text.set("Bonus: " + ((board_options_selected == 2) ? "{WAVE}{RAINBOW}" : "") + ((global.give_bonus_shines) ? "ON" : "OFF"));
+		text.set(language_get_text("PARTY_BONUS") + ": " + ((board_options_selected == 2) ? "{WAVE}{RAINBOW}" : "") + ((global.give_bonus_shines) ? "ON" : "OFF"));
 		text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10 + 40);
 		var target_y, target_h;
 	
@@ -296,7 +296,7 @@ switch (room) {
 			var trial = global.trials[location];
 			var collected = trial_collected(location);
 			var title = (collected) ? trial.title : "?????????";
-			var clear = (trial_beaten(location)) ? "CLEAR" : "";
+			var clear = (trial_beaten(location)) ? language_get_text("WORD_GENERIC_CLEAR") : "";
 			var reward = (collected) ? string(trial.reward) : "???";
 			draw_set_font(fntPlayerInfo);
 			draw_set_halign(fa_center);
@@ -307,7 +307,7 @@ switch (room) {
 			draw_text_color_outline(trials_x + 20, trials_y + 55, clear, c_green, c_green, c_lime, c_lime, 1, c_black);
 			draw_set_font(fntPlayerInfo);
 			draw_sprite(sprCoin, 0, trials_x + 260, trials_y + 300);
-			draw_text_outline(trials_x + 150, trials_y + 288, "Reward:       " + reward, c_black);
+			draw_text_outline(trials_x + 150, trials_y + 288, language_get_text("WORD_GENERIC_REWARD") + ":       " + reward, c_black);
 			draw_set_halign(fa_center);
 			
 			for (var j = -2; j <= 2; j++) {
@@ -354,12 +354,12 @@ surface_reset_target();
 draw_sprite_stretched_ext(sprBoxFill, 2, draw_x, draw_y, draw_w, draw_h, (room == rParty) ? #3B8A66 : #3B8A66, 0.75);
 draw_surface(surf, draw_x + 4, draw_y + 4);
 draw_sprite_stretched_ext(sprBoxFrame, 0, draw_x, draw_y, draw_w, draw_h, c_yellow, 1);
-controls_text.set(draw_action(global.actions.jump) + " Confirm");
+controls_text.set(draw_action(global.actions.jump) + " " + language_get_text("WORD_GENERIC_CONFIRM"));
 controls_text.draw(draw_x, draw_y + draw_h + 5);
-controls_text.set(draw_action(global.actions.shoot) + " Cancel");
+controls_text.set(draw_action(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_CANCEL"));
 controls_text.draw(draw_x + draw_w - 120, draw_y + draw_h + 5);
 
 if (room == rTrials) {
-	controls_text.set(draw_action(global.actions.misc) + " Retry");
+	controls_text.set(draw_action(global.actions.misc) + " " + language_get_text("TRIALS_RETRY"));
 	controls_text.draw(draw_x + 200, draw_y + draw_h + 5);
 }

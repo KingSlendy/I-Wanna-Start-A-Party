@@ -4,8 +4,6 @@ if (!is_player_local(player_id)) {
 	exit;
 }
 
-minigame4vs_points(player_id);
-
 with (objMinigameController) {
 	alarm_next(8);
 }

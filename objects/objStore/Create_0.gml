@@ -41,7 +41,7 @@ for (var i = 0; i < array_length(global.boards); i++) {
 		draw_text_info(x + objStore.draw_w / 2, 10, name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_set_font(fntFilesData);
 		draw_set_halign(fa_left);
-		draw_text_info(x + 20, 230, "Maker(s): " + board.makers, objStore.draw_w - 8);
+		draw_text_info(x + 20, 230, language_get_text("STORE_MAKER") + board.makers, objStore.draw_w - 8);
 	}));
 }
 
@@ -108,9 +108,9 @@ for (var i = 0; i < array_length(global.trials); i++) {
 		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
 		draw_set_font(fntFilesData);
 		draw_set_halign(fa_left);
-		draw_text_info(x + 10, 220, "Minigames: " + string(array_length(trial.minigames)), objStore.draw_w - 8);
+		draw_text_info(x + 10, 220, language_get_text("STORE_MINIGAMES") + ": " + string(array_length(trial.minigames)), objStore.draw_w - 8);
 		draw_sprite(sprCoin, 0, x + 120, 262);
-		draw_text_info(x + 10, 250, "Reward:       " + string(trial.reward), objStore.draw_w - 8);
+		draw_text_info(x + 10, 250, language_get_text("WORD_GENERIC_REWARD") + ":       " + string(trial.reward), objStore.draw_w - 8);
 	}));
 }
 
@@ -139,7 +139,7 @@ for (var i = 0; i < array_length(global.skins); i++) {
 		draw_set_font(fntFilesData);
 		draw_text_info(x + objStore.draw_w / 2, 220, skin.fangame_name, objStore.draw_w - 8);
 		draw_set_halign(fa_left);
-		draw_text_info(x + 20, 260, "Maker: " + skin.maker, objStore.draw_w - 8);
+		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + skin.maker, objStore.draw_w - 8);
 	}));
 }
 
@@ -161,7 +161,7 @@ for (var i = 0; i < array_length(global.reactions); i++) {
 		draw_text_info(x + objStore.draw_w / 2, 10, react.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_set_font(fntFilesData);
 		draw_set_halign(fa_left);
-		draw_text_info(x + 20, 260, "Maker: " + react.maker, objStore.draw_w - 8);
+		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + react.maker, objStore.draw_w - 8);
 	}));
 }
 

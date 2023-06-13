@@ -59,6 +59,7 @@ function sledge_hit(network = true) {
 
 	image_alpha = 0.5;
 	stopped = true;
+	minigame4vs_points(focus_player_by_turn(player_turn).network_id, -1);
 
 	with (objMinigameController) {
 		alarm_pause(4 + (other.player_turn - 1));

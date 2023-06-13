@@ -52,7 +52,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 		self.text = string_replace_all(self.text, "}", "");
 	}
 	
-	static draw = function(x, y, max_width = 5000, outline = c_black) {
+	static draw = function(x, y, max_width = 5000, outline = c_black, c1 = c_white, c2 = c_white, c3 = c_white, c4 = c_white) {
 		draw_set_font(self.font);
 		draw_set_color(c_white);
 		draw_set_halign(fa_left);

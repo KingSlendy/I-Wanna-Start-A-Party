@@ -18,6 +18,6 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 }
 	
 text = new Text(fntControls);
-text.set(draw_action_small(global.actions.jump) + " Select\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Move");
+text.set(draw_action_small(global.actions.jump) + " " + language_get_text("WORD_GENERIC_MENU_SELECT") + "\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " " + language_get_text("WORD_GENERIC_MENU_MOVE"));
 text.draw(draw_x - 20, draw_y + 80);
 draw_set_alpha(1);

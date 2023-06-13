@@ -43,7 +43,7 @@ alarm_override(0, function() {
 
 alarm_override(1, function() {
 	alarm_inherited(1);
-	show_popup("READY...",,,,,, 0.5);
+	show_popup(language_get_text("MINIGAMES_DUEL_READY"),,,,,, 0.5);
 	audio_play_sound(sndMinigameReady, 0, false);
 	player_can_shoot = array_create(global.player_max, true);
 	next_seed_inline();

@@ -71,6 +71,7 @@ languages_init();
 board_init();
 minigame_init();
 minigame_info_reset();
+results_init();
 trial_init();
 trial_info_reset();
 skin_init();

@@ -60,23 +60,25 @@ enum BonusShines {
 	MostSteals
 }
 
-global.bonus_shines = [
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COINS")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEMS")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_MINIGAMES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ROLLS")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_RED_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COIN_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEM_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_CHANCE_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_GUY_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SURPRISE_SPACES")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SHOP")),
-	new BonusShine(language_get_text("PARTY_RESULTS_BONUS_BLACKHOLE"))
-];
+function results_init() {
+	global.bonus_shines = [
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COINS")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEMS")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_MINIGAMES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ROLLS")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_RED_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_COIN_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_ITEM_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_CHANCE_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_GUY_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SURPRISE_SPACES")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_SHOP")),
+		new BonusShine(language_get_text("PARTY_RESULTS_BONUS_BLACKHOLE"))
+	];
 
-for (var i = 0; i < array_length(global.bonus_shines); i++) {
-	global.bonus_shines[i].index = i;
+	for (var i = 0; i < array_length(global.bonus_shines); i++) {
+		global.bonus_shines[i].index = i;
+	}
 }
 
 global.bonus_shines_ready = array_create(global.player_max, false);

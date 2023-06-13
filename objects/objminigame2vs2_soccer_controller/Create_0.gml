@@ -12,6 +12,10 @@ minigame_players = function() {
 			}
 		}
 	}
+	
+	if (trial_is_title(TINY_TEAMING)) {
+		minigame4vs_points(global.player_id, 4);
+	}
 }
 
 action_end = function() {

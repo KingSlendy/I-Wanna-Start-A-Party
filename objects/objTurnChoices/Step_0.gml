@@ -35,7 +35,7 @@ if (global.actions.jump.pressed(network_id)) {
 				var items = all_item_stats(player_info);
 				global.item_choice = true;
 				
-				show_multiple_choices("What item do you wanna use?", items.names, items.sprites, items.descs, items.availables).final_action = function() {
+				show_multiple_choices(language_get_text("PARTY_ITEM_WHAT_ITEM"), items.names, items.sprites, items.descs, items.availables).final_action = function() {
 					var item = player_info_by_turn().items[global.choice_selected];
 					change_items(item, ItemChangeType.Use);
 					bonus_shine_by_id(BonusShines.MostItems).increase_score();

@@ -24,12 +24,12 @@ if (IS_BOARD && can_controls() && player_info.network_id == global.player_id) {
 	}
 
 	if (can_react()) {
-		controls_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " Reactions" : draw_action_small(global.actions.jump) + " React  " + draw_action_small(global.actions.shoot) + " Cancel");
+		controls_text.set((!reactions) ? draw_action_small(global.actions.shoot) + " " + language_get_text("PARTY_REACTIONS") : draw_action_small(global.actions.jump) + " " + language_get_text("PARTY_REACT") + "  " + draw_action_small(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_CANCEL"));
 		controls_text.draw(reactions_x, reactions_y);
 	}
 	
 	if (can_map()) {
-		controls_text.set(draw_action_small(global.actions.misc) + " Map");
+		controls_text.set(draw_action_small(global.actions.misc) + " " + language_get_text("PARTY_MAP"));
 		controls_text.draw(reactions_x, reactions_y);
 	}
 }

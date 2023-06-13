@@ -51,10 +51,7 @@ function languages_init() {
 					if (char == "{") {
 						found_keys = true;
 					} else if (char == "}") {
-						if (!array_contains(all_keys, text_key)) {
-							array_push(all_keys, text_key);
-						}
-						
+						array_push(all_keys, text_key);
 						text_key = "";
 						found_keys = false;
 					}
@@ -82,7 +79,8 @@ function language_get_text(id) {
 	}
 	
 	for (var i = 1; i < argument_count; i++) {
-		text = string_replace(text, "@TEXT@", argument[i]);
+		text = string_replace(text, "@TEXT@", string(argument[i]));
 	}
+	
 	return text;
 }

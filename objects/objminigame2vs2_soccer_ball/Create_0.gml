@@ -18,7 +18,7 @@ function soccer_goal(network = true) {
 	movable = false;
 	hittable = false;
 
-	show_popup("GOAL!");
+	show_popup(language_get_text("MINIGAMES_SOCCER_GOAL"));
 	audio_play_sound(sndMinigameGoal, 0, false);
 	alarm_call(0, 2);
 	

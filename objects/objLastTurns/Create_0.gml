@@ -185,11 +185,11 @@ alarm_create(function() {
 				}
 			}
 		
-			var text = "{COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is in {SPRITE,sprPlayerInfoPlaces," + string(p_info.player_info.place - 1) + ",0,0,0.6,0.6} place.";
+			var text = language_get_text("PARTY_LAST_FIVE_PLACES", "{COLOR,0000FF}", p_info.player_info.name, "{COLOR,FFFFFF}", "{SPRITE,sprPlayerInfoPlaces," + string(p_info.player_info.place - 1) + ",0,0,0.6,0.6}")
 			array_push(texts, (i < global.player_max) ? new Message(text,, say_player_place) : text);
 		}
 	
-		array_push(texts, new Message("Looks like {COLOR,0000FF}" + p_info.player_info.name + "{COLOR,FFFFFF} is having some trouble... let's give them a little bit of help!",, help_last_place));
+		array_push(texts, new Message(language_get_text("PARTY_LAST_FIVE_TROUBLE", "{COLOR,0000FF}", p_info.player_info.name, "{COLOR,FFFFFF}"),, help_last_place));
 		start_dialogue(texts);
 	}
 });

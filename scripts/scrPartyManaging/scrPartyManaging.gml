@@ -1415,7 +1415,7 @@ function board_pallet_pokemons() {
 		];
 	} else {
 		bring_dialogues = [
-			new Message("But you don't have " + draw_coins_price(global.pokemon_price) + "!",, board_advance)
+			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_DONT_HAVE", draw_coins_price(global.pokemon_price)),, board_advance)
 		];
 	}
 	
@@ -1431,13 +1431,21 @@ function board_pallet_pokemons() {
 		];
 	}
 
+	var type = pokemon.power_type;
+	
+	switch (type) {
+		case "Water": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_WATER"); break;
+		case "Grass": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_GRASS"); break;
+		case "Fire": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_FIRE"); break;
+	}
+
 	start_dialogue([
-		"Hey, there's a Pokemon here with the " + pokemon.power_type + " type.",
+		language_get_text("PARTY_BOARD_PALLET_POKEMON_ENCOUNTER", type),
 		new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_WITH_IT"), [
-			["Bring " + draw_coins_price(global.pokemon_price), bring_dialogues],
-			["Battle", battle_dialogues],
+			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BRING", draw_coins_price(global.pokemon_price)), bring_dialogues],
+			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BATTLE"), battle_dialogues],
 			
-			["Pass", [
+			[language_get_text("WORD_GENERIC_PASS"), [
 				new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_SEE_YOU"),, board_advance)
 			]]
 		])
@@ -1567,13 +1575,13 @@ function board_world_ghost_texts() {
 		if (is_player_turn()) {
 			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_YOU");
 		} else {
-			var text = "Oh no! The Ghost reached you {COLOR,0000FF}" + focus_player_by_turn(global.player_ghost_previous).network_name + "{COLOR,FFFFFF} and now it's gonna take a Shine away from you!";
+			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_PLAYER", "{COLOR,0000FF}", focus_player_by_turn(global.player_ghost_previous).network_name, "{COLOR,FFFFFF}");
 		}
 	} else {
 		if (is_player_turn()) {
 			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_YOU");
 		} else {
-			var text = "Oh no! The Ghost reached you {COLOR,0000FF}" + focus_player_by_turn(global.player_ghost_previous).network_name + "{COLOR,FFFFFF}, but you don't have a Shine so you're safe!";
+			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_PLAYER", "{COLOR,0000FF}", focus_player_by_turn(global.player_ghost_previous).network_name, "{COLOR,FFFFFF}");
 		}
 	}
 	

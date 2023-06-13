@@ -103,13 +103,13 @@ alarm_create(4, function() {
 		audio_play_sound(sndMinigame1vs3_Host_LightsOn, 0, false);
 	}
 	
-	show_popup("ROUND " + string(current_round));
+	show_popup(language_get_text("MINIGAMES_HOST_ROUND", current_round));
 	alarm_call(5, 2);
 });
 
 alarm_create(5, function() {
 	music_play(music);
-	show_popup("HIDE!",,,,,, 0.25);
+	show_popup(language_get_text("MINIGAMES_HOST_HIDE"),,,,,, 0.25);
 	minigame1vs3_solo().frozen = false;
 	minigame_time = 15;
 	alarm_call(10, 1);

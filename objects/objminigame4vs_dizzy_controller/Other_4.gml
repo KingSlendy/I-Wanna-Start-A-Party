@@ -51,7 +51,8 @@ while (true) {
 		break;
 	}
 	
-	var index = (irandom(1) == 0) ? 0 : array_length(cells) - 1;
+	//var index = (irandom(1) == 0) ? 0 : array_length(cells) - 1;
+	var index = irandom(array_length(cells) - 1);
 	var cell = cells[index];
 	var row = cell[0];
 	var col = cell[1];

@@ -219,10 +219,10 @@ alarm_create(function() {
 		var text = "";
 	
 		switch (count) {
-			case 1: text = string("{0} is the winner!\nA round of applause!", winners); break;
-			case 2: text = string("{0} are the winners!\nA double win, you don't see that very often!", winners); break;
-			case 3: text = string("{0} are the winners!\nI can hardly believe my eyes!\nThree of you won!", winners); break;
-			case 4: text = string("{0} are the winners!\nEveryone won???\nThat's even rarer than seeing a flying star!!!", winners); break;
+			case 1: text = language_get_text("PARTY_RESULTS_PARTY_WON_ONE", winners); break;
+			case 2: text = language_get_text("PARTY_RESULTS_PARTY_WON_TWO", winners); break;
+			case 3: text = language_get_text("PARTY_RESULTS_PARTY_WON_THREE", winners); break;
+			case 4: text = language_get_text("PARTY_RESULTS_PARTY_WON_FOUR", winners); break;
 		}
 	
 		start_dialogue([

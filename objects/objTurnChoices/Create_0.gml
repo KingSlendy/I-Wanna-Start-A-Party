@@ -5,8 +5,8 @@ alpha_target = 1;
 player_info = player_info_by_turn();
 option_selected = -1;
 choice_texts = [
-	"Dice",
-	"Item"
+	language_get_text("PARTY_DICE"),
+	language_get_text("PARTY_ITEMS")
 ];
 
 available_item = false;

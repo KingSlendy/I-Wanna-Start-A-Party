@@ -2,7 +2,7 @@
 function ChanceTimeEvent(dialogue, action, amount = null, to_left = null) constructor {
 	dialogue = string_replace(dialogue, "{p1}", "{COLOR,0000FF}[p1]{COLOR,FFFFFF}");
 	dialogue = string_replace(dialogue, "{p2}", "{COLOR,0000FF}[p2]{COLOR,FFFFFF}");
-	self.dialogue = "Looks like " + dialogue;
+	self.dialogue = language_get_text("PARTY_CHANCE_TIME_LOOKS_LIKE") + " " + dialogue;
 	self.action = action;
 	self.amount = amount;
 	self.to_left = to_left;
@@ -122,15 +122,15 @@ function coins_give_chance_time(amount, to_left) {
 }
 
 events = [
-	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} Shines and " + draw_coins_price() + " Coins!", shines_coins_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their {SPRITE,sprShine,0,0,-2,0.5,0.5} Shines!", shines_exchange_chance_time),
-	new ChanceTimeEvent("{p1} and {p2} will exchange their " + draw_coins_price() + " Coins!", coins_exchange_chance_time),
-	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p1}!", shines_give_chance_time, 1, true),
-	new ChanceTimeEvent("{p1} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}1 to {p2}!", shines_give_chance_time, 1, false),
-	new ChanceTimeEvent("{p2} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}2 to {p1}!", shines_give_chance_time, 2, true),
-	new ChanceTimeEvent("{p1} will give {SPRITE,sprShine,0,0,-2,0.5,0.5}2 to {p2}!", shines_give_chance_time, 2, false),
-	new ChanceTimeEvent("{p2} will give " + draw_coins_price(30) + " to {p1}!", coins_give_chance_time, 30, true),
-	new ChanceTimeEvent("{p1} will give " + draw_coins_price(30) + " to {p2}!", coins_give_chance_time, 30, false)
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES_COINS", "{p1}", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", draw_coins_price()), shines_coins_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES", "{p1}","{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"), shines_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_COINS", "{p1}", "{p2}", draw_coins_price()), coins_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P2_P1", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p1}"), shines_give_chance_time, 1, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P1_P2", "{p1}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p2}"), shines_give_chance_time, 1, false),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P2_P1", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p1}"), shines_give_chance_time, 2, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P1_P2", "{p1}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p2}"), shines_give_chance_time, 2, false),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P2_P1", "{p2}", draw_coins_price(30), "{p1}"), coins_give_chance_time, 30, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P1_P2", "{p1}", draw_coins_price(30), "{p2}"), coins_give_chance_time, 30, false)
 ];
 #endregion
 
@@ -184,7 +184,7 @@ function advance_chance_time() {
 				}
 			
 				start_dialogue([
-					"It seems the chosen players would be {COLOR,0000FF}" + player_names[0] +"{COLOR,FFFFFF} and {COLOR,0000FF}" + player_names[1] + "{COLOR,FFFFFF}!",
+					language_get_text("PARTY_CHANCE_TIME_CHOSEN_PLAYERS", "{COLOR,0000FF}", player_names[0], "{COLOR,FFFFFF}", "{COLOR,0000FF}", player_names[1], "{COLOR,FFFFFF}"),
 					new Message(language_get_text("PARTY_CHANCE_TIME_WONDER_EXCHANGE"),, function() {
 						with (objChanceTime) {
 							current_flag++;
