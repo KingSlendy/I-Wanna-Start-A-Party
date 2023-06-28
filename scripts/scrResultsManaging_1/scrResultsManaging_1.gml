@@ -1,3 +1,0 @@
-function scrResultsManaging_1(){
-
-}

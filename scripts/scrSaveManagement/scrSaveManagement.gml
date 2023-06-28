@@ -306,6 +306,16 @@ function config_variables() {
 	global.smooth_display = false;
 	
 	global.language_game = "English";
+	var os_language = os_get_language();
+	var codes = variable_struct_get_names(global.language_codes);
+	
+	for (var i = 0; i < array_length(codes); i++) {
+		var code = codes[i];
+		
+		if (os_language == global.language_codes[$ code]) {
+			global.language_game = code;
+		}
+	}
 	
 	global.controls_hotswap = true;
 }
@@ -358,7 +368,16 @@ function load_config() {
 	try {
 		global.language_game = config.settings.saved_language_game;
 	} catch (_) {
-		global.language_game = "English";
+		var os_language = os_get_language();
+		var codes = variable_struct_get_names(global.language_codes);
+	
+		for (var i = 0; i < array_length(codes); i++) {
+			var code = codes[i];
+		
+			if (os_language == global.language_codes[$ code]) {
+				global.language_game = code;
+			}
+		}
 	}
 	
 	try {

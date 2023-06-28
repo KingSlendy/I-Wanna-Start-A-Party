@@ -1,3 +1,0 @@
-function scrItemManaging_1(){
-
-}

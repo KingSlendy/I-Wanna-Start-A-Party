@@ -18,7 +18,7 @@ for (var i = -2; i <= 2; i++) {
 
 	if (price != 0) {
 		draw_sprite(sprCoin, 0, sx - 30, sy + 20);
-		draw_set_font(fntPlayerInfo);
+		language_set_font(fntPlayerInfo);
 		draw_set_color((price <= global.collected_coins) ? c_white : c_red);
 		draw_set_valign(fa_middle);
 		draw_text_outline(sx - 10, sy + 20, string(price), c_black);

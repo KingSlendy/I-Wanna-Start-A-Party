@@ -1,3 +1,0 @@
-function scrBoardManaging_1(){
-
-}

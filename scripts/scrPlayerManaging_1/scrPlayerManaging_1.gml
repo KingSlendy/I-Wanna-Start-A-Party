@@ -1,3 +1,0 @@
-function scrPlayerManaging_1(){
-
-}

@@ -17,13 +17,13 @@ draw_set_color(c_black);
 draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 
 draw_set_alpha(pause_state);
-draw_set_font(fntFilesInfo);
+language_set_font(fntFilesInfo);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 pause_x = lerp(pause_x, pause_target_x, 0.2);
 draw_text_color_outline(pause_x, 150, language_get_text("PAUSE_PAUSE"), c_red, c_red, c_orange, c_orange, draw_get_alpha(), c_black);
 
-draw_set_font(fntFilesButtons);
+language_set_font(fntFilesButtons);
 
 for (var i = 0; i < array_length(pause_options); i++) {
 	var highlight = pause_highlight[i];

@@ -3,11 +3,11 @@ if (sprite != null) {
 	draw_set_alpha(fade_alpha);
 	draw_set_color(c_black);
 	draw_rectangle(0, 0, 800, 608, false);
-	draw_set_font(fntFilesButtons);
+	language_set_font(fntFilesButtons);
 	draw_set_alpha(1);
 }
 
-draw_set_font(fntTrophies);
+language_set_font(fntTrophies);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 

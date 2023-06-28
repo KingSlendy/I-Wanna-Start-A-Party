@@ -2,29 +2,31 @@ fade_start = true;
 fade_alpha = 1;
 back = false;
 
-function Section(name, options) constructor {
+function Section(name, text, options) constructor {
 	self.name = name;
+	self.text = text;
 	self.options = options;
 	self.selected = 0;
 	self.in_option = -1;
 }
 
-function Option(label, check_option, draw_option) constructor {
+function Option(label, text, check_option, draw_option) constructor {
 	self.label = label;
+	self.text = text;
 	self.check_option = method(self, check_option);
 	self.draw_option = method(self, draw_option);
 	self.highlight = 0.5;
 	self.changing = false;
 	
-	draw_set_font(fntFilesButtons);
-	self.label_width = string_width(self.label);
-	self.label_height = string_height(self.label);
+	language_set_font(fntFilesButtons);
+	//self.label_width = string_width(self.label);
+	//self.label_height = string_height(self.label);
 	self.draw_label = function(x, y, condition, in_option) {
-		draw_set_font(fntFilesButtons);
+		language_set_font(fntFilesButtons);
 		self.highlight = lerp(self.highlight, (!condition) ? 0.5 : 1, 0.3);
 		var color1 = (!in_option) ? c_gray : c_green;
 		var color2 = (!in_option) ? c_white : c_lime;
-		draw_text_transformed_color_outline(x, y, self.label, self.highlight, self.highlight, 0, color1, color1, color2, color2, self.highlight * draw_get_alpha(), c_black);
+		draw_text_transformed_color_outline(x, y, self.text, self.highlight, self.highlight, 0, color1, color1, color2, color2, self.highlight * draw_get_alpha(), c_black);
 	}
 }
 
@@ -107,7 +109,7 @@ var game_check = function() {
 
 var game_draw = function(x, y) {
 	switch (self.label) {
-		case "LANGUAGE": var display = global.language_game; break;
+		case "LANGUAGE": var display = language_get_text($"SETTINGS_GAME_{string_replace_all(string_upper(global.language_game), " ", "_")}"); break;
 	}
 	
 	draw_set_color(c_white);
@@ -186,23 +188,23 @@ var hotswap_draw = function(x, y) {
 }
 
 sections = [
-	new Section("VOLUME", [
-		new Option("MASTER", volume_check, volume_draw),
-		new Option("BGM", volume_check, volume_draw),
-		new Option("SFX", volume_check, volume_draw)
+	new Section("VOLUME", language_get_text("SETTINGS_VOLUME"), [
+		new Option("MASTER", language_get_text("SETTINGS_VOLUME_MASTER"), volume_check, volume_draw),
+		new Option("BGM", language_get_text("SETTINGS_VOLUME_BGM"), volume_check, volume_draw),
+		new Option("SFX", language_get_text("SETTINGS_VOLUME_SFX"), volume_check, volume_draw)
 	]),
 	
-	new Section("DISPLAY", [
-		new Option("FULLSCREEN", display_check, display_draw),
-		new Option("VSYNC", display_check, display_draw),
-		new Option("SMOOTH", display_check, display_draw)
+	new Section("DISPLAY", language_get_text("SETTINGS_DISPLAY"), [
+		new Option("FULLSCREEN", language_get_text("SETTINGS_DISPLAY_FULLSCREEN"), display_check, display_draw),
+		new Option("VSYNC", language_get_text("SETTINGS_DISPLAY_VSYNC"), display_check, display_draw),
+		new Option("SMOOTH", language_get_text("SETTINGS_DISPLAY_SMOOTH"), display_check, display_draw)
 	]),
 	
-	new Section("GAME", [
-		new Option("LANGUAGE", game_check, game_draw)
+	new Section("GAME", language_get_text("SETTINGS_GAME"), [
+		new Option("LANGUAGE", language_get_text("SETTINGS_GAME_LANGUAGE"), game_check, game_draw)
 	]),
 	
-	new Section("CONTROLS", [])
+	new Section("CONTROLS", language_get_text("SETTINGS_CONTROLS"), [])
 ];
 
 keys = [
@@ -219,13 +221,14 @@ keys = [
 for (var i = 0; i < array_length(keys); i++) {
 	var name = keys[i];
 	var action = global.actions[$ name];
+	var control = string_upper(name);
 	
-	array_push(sections[3].options, new Option(string_upper(name), controls_check, controls_draw));
+	array_push(sections[3].options, new Option(control, language_get_text($"SETTINGS_CONTROLS_{control}"), controls_check, controls_draw));
 }
 
 array_push(sections[3].options,
-	new Option("RESET DEFAULTS", defaults_check, defaults_draw),
-	new Option("HOTSWAP", hotswap_check, hotswap_draw)
+	new Option("RESET DEFAULTS", language_get_text("SETTINGS_CONTROLS_RESET_DEFAULTS"), defaults_check, defaults_draw),
+	new Option("HOTSWAP", language_get_text("SETTINGS_CONTROLS_HOTSWAP"), hotswap_check, hotswap_draw)
 );
 
 section_selected = 0;

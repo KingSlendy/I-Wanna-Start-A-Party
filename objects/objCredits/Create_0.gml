@@ -45,9 +45,9 @@ function Credit(font_title, font_desc, color, title = "", desc = "", hpos = fa_l
 					break;
 					
 				case fa_bottom:
-					draw_set_font(self.font_title);
+					language_set_font(self.font_title);
 					image_y += string_height_ext(self.title, -1, text_max);
-					draw_set_font(self.font_desc);
+					language_set_font(self.font_desc);
 					image_y += string_height_ext(self.desc, -1, text_max);
 					image_y += 10;
 					
@@ -73,10 +73,10 @@ function Credit(font_title, font_desc, color, title = "", desc = "", hpos = fa_l
 		}
 		
 		draw_set_color(self.color);
-		draw_set_font(self.font_title);
+		language_set_font(self.font_title);
 		draw_text_ext_outline(text_x, text_y, self.title, -1, text_max, c_black);
 		var title_h = string_height_ext(self.title, -1, text_max);
-		draw_set_font(self.font_desc);
+		language_set_font(self.font_desc);
 		draw_text_ext_outline(text_x, text_y + title_h + 10, self.desc, -1, text_max, c_black);
 		var desc_h = string_height_ext(self.desc, -1, text_max);
 		draw_set_halign(fa_left);

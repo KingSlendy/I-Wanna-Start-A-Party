@@ -113,7 +113,7 @@ draw_set_color(c_black);
 draw_circle(draw_x + 23, draw_y + 21, 16, false);
 draw_set_color(player_color_by_turn(player_info.turn));
 draw_circle(draw_x + 23, draw_y + 21, 15, false);
-draw_set_font(fntPlayerInfo);
+language_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_sprite(player_idle_image, 0, draw_x + 25, draw_y + 23);

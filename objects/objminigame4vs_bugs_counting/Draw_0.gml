@@ -4,7 +4,7 @@ if (trial_is_title(BUGS_EVERYWHERE) && selecting && player.network_id != global.
 	exit;
 }
 
-draw_set_font(fntPlayerInfo);
+language_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_text_outline(player.x, player.y - 40, string(count), c_black);

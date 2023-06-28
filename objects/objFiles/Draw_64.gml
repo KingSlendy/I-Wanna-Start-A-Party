@@ -47,7 +47,7 @@ for (var i = 0; i < array_length(menu_buttons); i++) {
 	}
 }
 
-draw_set_font(fntFilesInfo);
+language_set_font(fntFilesInfo);
 draw_set_alpha(1 - files_alpha);
 draw_set_halign(fa_center);
 var button = menu_buttons[upper_type][0];
@@ -65,7 +65,7 @@ if (array_contains([1, 3, 4, 5], menu_type)) {
 		case 5: texts = player_texts; break;
 	}
 
-	draw_set_font(fntFilesButtons);
+	language_set_font(fntFilesButtons);
 	draw_set_valign(fa_middle);
 	
 	for (var i = 0; i < array_length(texts); i++) {
@@ -125,5 +125,5 @@ for (var i = 0; i < length; i++) {
 
 draw_set_alpha(1);
 
-controls_text.set(draw_action_small(global.actions.jump) + " Accept   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " Move    " + draw_action_small(global.actions.shoot) + " Cancel");
+controls_text.set(draw_action_small(global.actions.jump) + " " + language_get_text("WORD_GENERIC_MENU_ACCEPT") + "   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " " + language_get_text("WORD_GENERIC_MENU_MOVE") + "    " + draw_action_small(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_CANCEL"));
 controls_text.draw(420, 580);

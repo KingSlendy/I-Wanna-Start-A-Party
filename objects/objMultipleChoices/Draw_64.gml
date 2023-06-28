@@ -14,7 +14,7 @@ var motive_width = 300;
 var motive_x = display_get_gui_width() / 2 - motive_width / 2;
 var motive_y = draw_y - 100;
 draw_box(motive_x, motive_y, motive_width, 40, c_dkgray, color);
-draw_set_font(fntDialogue);
+language_set_font(fntDialogue);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_info(motive_x + motive_width / 2, motive_y + 40 / 2, motive, motive_width - 25);
@@ -26,7 +26,7 @@ if (array_length(titles) > 0) {
 	var title_x = display_get_gui_width() / 2 - title_width / 2;
 	var title_y = draw_y - 50;
 	draw_box(title_x, title_y, title_width, 40, c_dkgray, color);
-	draw_set_font(fntDialogue);
+	language_set_font(fntDialogue);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	//var text = new Text(fntDialogue, titles[global.choice_selected]);

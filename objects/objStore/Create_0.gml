@@ -36,10 +36,10 @@ for (var i = 0; i < array_length(global.boards); i++) {
 		draw_sprite_stretched(sprPartyBoardPictures, picture, x + 72, 60, 200, 152);
 		gpu_set_colorwriteenable(true, true, true, true);
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-		draw_set_font(fntFilesButtons);
+		language_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		draw_set_font(fntFilesData);
+		language_set_font(fntFilesData);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 20, 230, language_get_text("STORE_MAKER") + board.makers, objStore.draw_w - 8);
 	}));
@@ -63,7 +63,7 @@ for (var i = 0; i < array_length(types); i++) {
 		}, function(x, y, _) {
 			var seen_minigame = self.has();
 			var portrait = (seen_minigame) ? self.minigame.portrait : self.minigame.hidden;
-			draw_set_font(fntPlayerInfo);
+			language_set_font(fntPlayerInfo);
 			draw_set_halign(fa_center);
 			draw_sprite_ext(portrait, 0, x, y - 30, 0.5, 0.5, 0, c_white, objStore.store_alpha);
 			draw_set_halign(fa_left);
@@ -77,10 +77,10 @@ for (var i = 0; i < array_length(types); i++) {
 			draw_sprite_stretched(sprMinigamesFangames, preview, x + 72, 60, 200, 152);
 			gpu_set_colorwriteenable(true, true, true, true);
 			draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-			draw_set_font(fntFilesButtons);
+			language_set_font(fntFilesButtons);
 			draw_set_halign(fa_center);
 			draw_text_info(x + objStore.draw_w / 2, 10, label, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-			draw_set_font(fntFilesData);
+			language_set_font(fntFilesData);
 			draw_text_info(x + objStore.draw_w / 2, 220, fangame_name, objStore.draw_w - 8);
 		});
 		
@@ -98,15 +98,15 @@ for (var i = 0; i < array_length(global.trials); i++) {
 		return global.trials[self.index];
 	}, function(x, y, _) {
 		draw_sprite_ext(sprModesTrials, 0, x, y, 0.2, 0.2, 0, c_white, objStore.store_alpha);
-		draw_set_font(fntFilesData);
+		language_set_font(fntFilesData);
 		draw_text_color_outline(x + 8, y + 8, "#" + string(self.index + 1), c_red, c_red, c_yellow, c_yellow, objStore.store_alpha, c_black);
 	}, function(x, y) {
 		var trial = self.element();
-		draw_set_font(fntFilesButtons);
+		language_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, trial.title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
-		draw_set_font(fntFilesData);
+		language_set_font(fntFilesData);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 10, 220, language_get_text("STORE_MINIGAMES") + ": " + string(array_length(trial.minigames)), objStore.draw_w - 8);
 		draw_sprite(sprCoin, 0, x + 120, 262);
@@ -133,10 +133,10 @@ for (var i = 0; i < array_length(global.skins); i++) {
 		draw_sprite_stretched(sprSkinsFangames, skin.fangame_index, x + 72, 60, 200, 152);
 		gpu_set_colorwriteenable(true, true, true, true);
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-		draw_set_font(fntFilesButtons);
+		language_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, skin.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		draw_set_font(fntFilesData);
+		language_set_font(fntFilesData);
 		draw_text_info(x + objStore.draw_w / 2, 220, skin.fangame_name, objStore.draw_w - 8);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + skin.maker, objStore.draw_w - 8);
@@ -156,10 +156,10 @@ for (var i = 0; i < array_length(global.reactions); i++) {
 	}, function(x, y) {
 		var react = self.element();
 		draw_sprite_ext(sprReactions, react.index, x + objStore.draw_w / 2, 160, 0.75, 0.75, 0, c_white, 1);
-		draw_set_font(fntFilesButtons);
+		language_set_font(fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, react.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		draw_set_font(fntFilesData);
+		language_set_font(fntFilesData);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + react.maker, objStore.draw_w - 8);
 	}));

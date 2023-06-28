@@ -53,7 +53,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 	}
 	
 	static draw = function(x, y, max_width = 5000, outline = c_black, c1 = c_white, c2 = c_white, c3 = c_white, c4 = c_white) {
-		draw_set_font(self.font);
+		language_set_font(self.font);
 		draw_set_color(c_white);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
@@ -243,7 +243,7 @@ function Format(text) constructor {
 		} else if (!ignore) {
 			switch (self.type) {
 				case "COLOR": draw_set_color(real("0x" + self.params[0])); break;
-				case "FONT": draw_set_font(asset_get_index(self.params[0])); break;
+				case "FONT": language_set_font(asset_get_index(self.params[0])); break;
 				case "WAVE": text.text_wave = !text.text_wave; break;
 				case "SWIRL": text.text_swirl = !text.text_swirl; break;
 				case "SHAKE": text.text_shake = !text.text_shake; break;

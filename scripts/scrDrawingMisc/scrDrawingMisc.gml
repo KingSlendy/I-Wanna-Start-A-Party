@@ -72,7 +72,7 @@ function draw_box(x, y, w, h, fill_color, outline_color = c_yellow, fill_alpha =
 function draw_player_name(x, y, player_id) {
 	var font = draw_get_font();
 	var valign = draw_get_valign();
-	draw_set_font(fntPlayerName);
+	language_set_font(fntPlayerName);
 	draw_set_valign(fa_middle);
 	var name = focus_player_by_id(player_id).network_name;
 	
@@ -84,7 +84,7 @@ function draw_player_name(x, y, player_id) {
 	
 	draw_text_transformed_outline(x, y, name, scale, scale, 0, c_black);
 	draw_set_valign(valign);
-	draw_set_font(font);
+	language_set_font(font);
 }
 
 function draw_text_info(x, y, text, max_width, c1 = c_white, c2 = c_white, c3 = c_white, c4 = c_white, border_color = c_black) {
@@ -101,7 +101,7 @@ function draw_collected_coins(x, y) {
 		objCollectedCoins.hide = true;
 	}
 	
-	draw_set_font(fntPlayerInfo);
+	language_set_font(fntPlayerInfo);
 	draw_sprite(sprCoin, 0, x - string_width(coins) / 2 - sprite_get_width(sprCoin) / 2 - 4, y);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);

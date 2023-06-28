@@ -1,4 +1,4 @@
-draw_set_font(fntPlayerInfo);
+language_set_font(fntPlayerInfo);
 draw_set_color(c_white);
 
 for (var i = 0; i < global.player_max; i++) {

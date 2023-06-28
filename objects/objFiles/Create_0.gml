@@ -33,7 +33,7 @@ function FileButton(x, y, w, h, dir, label, color = c_white, selectable = true, 
 	var surf = surface_create(w, h);
 	surface_set_target(surf);
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, w, h, color, 1);
-	draw_set_font(fntFilesButtons);
+	language_set_font(fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	
@@ -146,10 +146,10 @@ function file_sprite(file) {
 	var done_everything = ((done_minigames + done_trials + done_store + done_trophies) == (total_minigames + total_trials + total_store + total_trophies));
 	
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, (!done_everything) ? #7FC1FA : c_yellow, 1);
-	draw_set_font(fntFilesFile);
+	language_set_font(fntFilesFile);
 	draw_set_halign(fa_center);
 	draw_text_color_outline(file_width / 2, 10, language_get_text("FILES_FILE", string(file + 1)), c_lime, c_lime, c_green, c_green, 1, c_black);
-	draw_set_font(fntFilesData);
+	language_set_font(fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);

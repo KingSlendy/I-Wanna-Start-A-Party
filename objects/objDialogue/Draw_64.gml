@@ -21,7 +21,7 @@ var max_height = text_display.text.draw(4, 2, width - border_width * 2);
 var answers = array_length(text_display.branches);
 
 if (array_length(answer_displays) > 0 && answers > 0 && !text_display.text.tw_active) {
-	draw_set_font(fntDialogue);
+	language_set_font(fntDialogue);
 	draw_set_color(c_white);
 	
 	for (var i = 0; i < answers; i++) {
