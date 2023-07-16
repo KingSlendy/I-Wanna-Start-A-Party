@@ -15,6 +15,7 @@ if (is_local_turn()) {
 		
 		for (var i = 0; i < 5; i++) {
 			var item = stock[i];
+			print(item);
 			
 			if (array_contains(item.ignore_in, room)) {
 				cancel_loop = false;

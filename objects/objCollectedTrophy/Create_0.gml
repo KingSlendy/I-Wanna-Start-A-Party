@@ -16,7 +16,7 @@ alarm_create(function() {
 	//gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
 	draw_sprite(sprTrophyCups, rank, w / 2, h);
 	draw_sprite(sprTrophyImages, image, w / 2, h - 125);
-	language_set_font(fntFilesData);
+	language_set_font(global.fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_text_outline(w / 2, h - 40, string(trophy + 1), c_black);

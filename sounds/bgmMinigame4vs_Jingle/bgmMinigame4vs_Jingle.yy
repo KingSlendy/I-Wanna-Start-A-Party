@@ -9,7 +9,7 @@
   "bitDepth": 1,
   "bitRate": 128,
   "compression": 1,
-  "conversionMode": 0,
+  "conversionMode": 1,
   "duration": 29.675688,
   "parent": {
     "name": "4vs",

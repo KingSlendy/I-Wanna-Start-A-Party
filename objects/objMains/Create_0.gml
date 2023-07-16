@@ -1,7 +1,8 @@
 fade_start = true;
 fade_alpha = 1;
 surf = noone;
-controls_text = new Text(fntDialogue);
+controls_text = new Text(global.fntDialogue);
+rewards_text = new Text(global.fntPlayerInfo);
 
 menu_page = 0;
 menu_sep = 1000;

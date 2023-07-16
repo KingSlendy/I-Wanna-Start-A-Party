@@ -306,7 +306,7 @@ function config_variables() {
 	global.smooth_display = false;
 	
 	global.language_game = "English";
-	var os_language = os_get_language();
+	var os_language = string_upper(os_get_language());
 	var codes = variable_struct_get_names(global.language_codes);
 	
 	for (var i = 0; i < array_length(codes); i++) {

@@ -9,4 +9,4 @@ trophy_target_x = 400;
 
 surf = noone;
 held_time = 0;
-controls_text = new Text(fntDialogue);
+controls_text = new Text(global.fntDialogue);

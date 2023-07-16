@@ -10,7 +10,7 @@ if (active && text_display != null) {
 	
 	if (answers == 0) {
 		repeat (array_length(text_display.branches)) {
-			array_push(answer_displays, new Text(fntDialogue));
+			array_push(answer_displays, new Text(global.fntDialogue));
 		}
 	} else if (!text_display.text.tw_active) {
 		var prev_answer = answer_index;

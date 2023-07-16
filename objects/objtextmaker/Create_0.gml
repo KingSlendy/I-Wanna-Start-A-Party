@@ -1,4 +1,4 @@
-language_set_font(fntTitle);
+language_set_font(global.fntTitle);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 title_text = "I WANNA START\nA\nPARTY\nTRAILER";

@@ -13,7 +13,7 @@ with (objPlayerBase) {
 instructions = [];
 
 for (var i = 0; i < array_length(info.reference.instructions); i++) {
-	array_push(instructions, new Text(fntDialogue));
+	array_push(instructions, new Text(global.fntDialogue));
 }
 
 instructions_page = 0;
@@ -26,8 +26,8 @@ choice_texts = [
 state = 0;
 fade_alpha = 1;
 
-pages_text = new Text(fntControls);
-controls_text = new Text(fntControls);
+pages_text = new Text(global.fntControls);
+controls_text = new Text(global.fntControls);
 
 function start_minigame(set, network = true) {
 	state = set;

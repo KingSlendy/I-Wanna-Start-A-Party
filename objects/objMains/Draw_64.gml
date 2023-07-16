@@ -1,4 +1,4 @@
-language_set_font(fntPlayerInfo);
+language_set_font(global.fntPlayerInfo);
 draw_set_color(c_white);
 
 for (var i = 0; i < global.player_max; i++) {
@@ -36,10 +36,10 @@ if (save_present && room == rParty) {
 		}
 	
 		draw_sprite_stretched(save_sprite, 0, save_x + 270, save_y + 20, board_w * 0.5, board_h * 0.5);
-		language_set_font(fntPlayerInfo);
+		language_set_font(global.fntPlayerInfo);
 		draw_text_outline(save_x + 290, save_y + 140, string("Turn: {0}/{1}", save_board_turn, save_max_turns), c_black);
 		draw_text_outline(save_x + 290, save_y + 170, string("Bonus: {0}", (save_give_bonus_shines) ? "ON" : "OFF"), c_black);
-		var text = new Text(fntDialogue);
+		var text = new Text(global.fntDialogue);
 
 		for (var i = 0; i < 2; i++) {
 			var option_x = save_x + 290;
@@ -87,7 +87,7 @@ for (var r = -2; r <= 2; r++) {
 	}
 }
 
-language_set_font(fntDialogue);
+language_set_font(global.fntDialogue);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
@@ -134,10 +134,10 @@ switch (room) {
 		gpu_set_colorwriteenable(true, true, true, true);
 		draw_sprite_stretched(sprPartyBoardMark, 0, box_x + 60, box_y + 32, board_w, board_h);
 	
-		var text = new Text(fntFilesButtons);
+		var text = new Text(global.fntFilesButtons);
 		text.set(language_get_text("PARTY_TURNS") + ": " + ((board_options_selected == 1) ? "{WAVE}{RAINBOW}" : "") + string(global.max_board_turns));
 		text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10);
-		text.set(language_get_text("PARTY_BONUS") + ": " + ((board_options_selected == 2) ? "{WAVE}{RAINBOW}" : "") + ((global.give_bonus_shines) ? "ON" : "OFF"));
+		text.set(language_get_text("PARTY_BONUS") + ": " + ((board_options_selected == 2) ? "{WAVE}{RAINBOW}" : "") + ((global.give_bonus_shines) ? language_get_text("WORD_GENERIC_ON") : language_get_text("WORD_GENERIC_OFF")));
 		text.draw(box_x + 100, box_y + box_y + 32 + board_h + 10 + 40);
 		var target_y, target_h;
 	
@@ -172,7 +172,7 @@ switch (room) {
 	
 		for (var i = 0; i < array_length(names); i++) {
 			var row_y = minigames_y + 10 + 350 * i;
-			language_set_font(fntFilesFile);
+			language_set_font(global.fntFilesFile);
 			draw_set_halign(fa_left);
 			draw_text_color_outline(minigames_x + 10, row_y, types[i], c_red, c_red, c_yellow, c_yellow, 1, c_black);
 			var minigames = global.minigames[$ names[i]];
@@ -185,7 +185,7 @@ switch (room) {
 				var seen_minigame = minigame_seen(minigame.title);
 				var label = (seen_minigame) ? minigame.label : "?????????";
 				var portrait = (seen_minigame) ? minigame.portrait : minigame.hidden;
-				language_set_font(fntPlayerInfo);
+				language_set_font(global.fntPlayerInfo);
 				draw_set_halign(fa_center);
 				draw_sprite_ext(portrait, 0, minigames_x + draw_w / 2 + row_x, row_y + 150, dist, dist, 0, c_white, dist);
 				draw_text_transformed_color_outline(minigames_x + draw_w / 2 + row_x, row_y + 250, label, dist, dist, 0, c_red, c_red, c_fuchsia, c_fuchsia, dist, c_black);
@@ -207,7 +207,7 @@ switch (room) {
 		var info_x = menu_x + menu_sep * 2;
 	
 		if (minigame_selected != null) {
-			language_set_font(fntFilesButtons);
+			language_set_font(global.fntFilesButtons);
 			draw_set_halign(fa_center);
 			draw_text_color_outline(info_x + draw_w / 2, 10, minigame_selected.reference.label, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 			draw_sprite(minigame_selected.portrait, 0, info_x + 140, 150);
@@ -216,7 +216,7 @@ switch (room) {
 			draw_sprite_stretched(sprMinigamesFangames, minigame_selected.reference.preview, info_x + 300, 95, 150, 114);
 			gpu_set_colorwriteenable(true, true, true, true);
 			draw_sprite_stretched(sprFangameMark, 0, info_x + 300, 95, 150, 114);
-			language_set_font(fntFilesData);
+			language_set_font(global.fntFilesData);
 			draw_text_info(info_x + draw_w / 2, 250, minigame_selected.reference.fangame_name, draw_w - 8);
 			var colors = minigame_colors[minigames_row_selected];
 		
@@ -298,16 +298,16 @@ switch (room) {
 			var title = (collected) ? trial.title : "?????????";
 			var clear = (trial_beaten(location)) ? language_get_text("WORD_GENERIC_CLEAR") : "";
 			var reward = (collected) ? string(trial.reward) : "???";
-			language_set_font(fntPlayerInfo);
+			language_set_font(global.fntPlayerInfo);
 			draw_set_halign(fa_center);
 			draw_text_color_outline(trials_x + draw_w / 2, trials_y + 35, title, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
-			language_set_font(fntFilesButtons);
+			language_set_font(global.fntFilesButtons);
 			draw_set_halign(fa_left);
 			draw_text_color_outline(trials_x + 20, trials_y + 20, "#" + string(location + 1), c_red, c_red, c_yellow, c_yellow, 1, c_black);
 			draw_text_color_outline(trials_x + 20, trials_y + 55, clear, c_green, c_green, c_lime, c_lime, 1, c_black);
-			language_set_font(fntPlayerInfo);
-			draw_sprite(sprCoin, 0, trials_x + 260, trials_y + 300);
-			draw_text_outline(trials_x + 150, trials_y + 288, language_get_text("WORD_GENERIC_REWARD") + ":       " + reward, c_black);
+			language_set_font(global.fntPlayerInfo);
+			rewards_text.set($"{language_get_text("WORD_GENERIC_REWARD")}: {draw_coins_price(reward)}");
+			rewards_text.draw(trials_x + 150, trials_y + 288);
 			draw_set_halign(fa_center);
 			
 			for (var j = -2; j <= 2; j++) {

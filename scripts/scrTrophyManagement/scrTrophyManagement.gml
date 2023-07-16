@@ -264,7 +264,7 @@ function draw_trophy(x, y, trophy) {
 	}
 	
 	draw_sprite(sprTrophyImages, (achieved_trophy(trophy.image - 1)) ? trophy.image : 0, x, image_y);
-	language_set_font(fntFilesData);
+	language_set_font(global.fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_text_outline(x, y - 40, string(trophy.location + 1), c_black);

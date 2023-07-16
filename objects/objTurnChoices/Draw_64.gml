@@ -1,7 +1,7 @@
 var focus = focused_player();
 var draw_x = display_get_gui_width() / 2 - 100;
 var draw_y = display_get_gui_height() / 2 - 50;
-var text = new Text(fntDialogue);
+var text = new Text(global.fntDialogue);
 draw_set_alpha(image_alpha);
 	
 for (var i = 0; i < array_length(choice_texts); i++) {
@@ -17,7 +17,7 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 	}
 }
 	
-text = new Text(fntControls);
+text = new Text(global.fntControls);
 text.set(draw_action_small(global.actions.jump) + " " + language_get_text("WORD_GENERIC_MENU_SELECT") + "\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " " + language_get_text("WORD_GENERIC_MENU_MOVE"));
 text.draw(draw_x - 20, draw_y + 80);
 draw_set_alpha(1);

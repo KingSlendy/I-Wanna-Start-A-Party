@@ -1,11 +1,11 @@
-language_set_font(fntMinigameOverviewTitle);
+language_set_font(global.fntMinigameOverviewTitle);
 draw_set_color(c_orange);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_color_outline(400, 50, info.reference.label, c_red, c_red, c_fuchsia, c_fuchsia, 1, c_black);
 draw_set_valign(fa_top);
 draw_sprite(info.reference.portrait, 0, 400, 192);
-language_set_font(fntPlayerInfo);
+language_set_font(global.fntPlayerInfo);
 draw_set_color(c_white);
 
 var index = 0;
@@ -94,7 +94,7 @@ instructions[instructions_page].set(info.reference.instructions[instructions_pag
 instructions[instructions_page].draw(85, 410, 480);
 pages_text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}" + language_get_text("MINIGAMES_PAGE", "(" + string(instructions_page + 1) + "/" + string(array_length(instructions)) + ")"));
 pages_text.draw(410, 570);
-var text = new Text(fntDialogue);
+var text = new Text(global.fntDialogue);
 
 for (var i = 0; i < array_length(choice_texts); i++) {
 	var option_x = 615;
@@ -105,10 +105,10 @@ for (var i = 0; i < array_length(choice_texts); i++) {
 }
 
 draw_set_color(c_white);
-var label = draw_action_small(global.actions.jump) + " {COLOR,00FFFF}Select\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Mode";
+var label = draw_action_small(global.actions.jump) + " {COLOR,00FFFF}" + language_get_text("WORD_GENERIC_MENU_SELECT") + "\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " " + language_get_text("WORD_GENERIC_MENU_MODE");
 
 if (info.is_minigames) {
-	label += "\n" + draw_action_small(global.actions.shoot) + " Back";
+	label += "\n" + draw_action_small(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_BACK");
 }
 
 controls_text.set(label);

@@ -9,7 +9,7 @@ border_width = 10;
 
 active = true;
 endable = true;
-texts = [new Message(new Text(fntDialogue, "Don't expect to get a release date so easily.\nIf you want a release date then visit: iwannastartaparty.com", 1))];
+texts = [new Message(new Text(global.fntDialogue, "Don't expect to get a release date so easily.\nIf you want a release date then visit: iwannastartaparty.com", 1))];
 text_branch = null;
 text_index = 0;
 text_display = texts[0];

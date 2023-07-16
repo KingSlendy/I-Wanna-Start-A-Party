@@ -9,6 +9,7 @@ minigame_players = function() {
 	}
 }
 
+minigame_time = -1;
 minigame_time_end = function() {
 	if (alarm_is_stopped(6)) {
 		alarm_call(6, 1);

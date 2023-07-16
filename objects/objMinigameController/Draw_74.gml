@@ -13,7 +13,7 @@ if (instance_exists(objCameraSplit4) && objCameraSplit4.draw_names) {
 			break;
 	}
 } else {
-	language_set_font(fntPlayerInfo);
+	language_set_font(global.fntPlayerInfo);
 	draw_set_valign(fa_middle);
 	
 	for (var i = 0; i < global.player_max; i++) {

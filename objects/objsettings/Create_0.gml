@@ -18,11 +18,11 @@ function Option(label, text, check_option, draw_option) constructor {
 	self.highlight = 0.5;
 	self.changing = false;
 	
-	language_set_font(fntFilesButtons);
+	language_set_font(global.fntFilesButtons);
 	//self.label_width = string_width(self.label);
 	//self.label_height = string_height(self.label);
 	self.draw_label = function(x, y, condition, in_option) {
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		self.highlight = lerp(self.highlight, (!condition) ? 0.5 : 1, 0.3);
 		var color1 = (!in_option) ? c_gray : c_green;
 		var color2 = (!in_option) ? c_white : c_lime;
@@ -105,6 +105,23 @@ var display_draw = function(x, y) {
 }
 
 var game_check = function() {
+	var scroll = (global.actions.right.pressed() - global.actions.left.pressed());
+	
+	if (scroll != 0) {
+		switch (self.label) {
+			case "LANGUAGE":
+				var index = array_get_index(global.language_list, global.language_game);
+				
+				if (index != -1) {
+					index = (index + array_length(global.language_list) + scroll) % array_length(global.language_list);
+				}
+				
+				global.language_game = global.language_list[index];
+				break;
+		}
+		
+		audio_play_sound(global.sound_cursor_select, 0, false);
+	}
 }
 
 var game_draw = function(x, y) {
@@ -239,5 +256,5 @@ draw_target_x = draw_x;
 draw_y = 200;
 draw_target_y = draw_y;
 
-controls_text = new Text(fntControls);
+controls_text = new Text(global.fntControls);
 volume_delay = 0;

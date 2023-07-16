@@ -14,7 +14,7 @@ reacted = -1;
 reaction_alpha = 0;
 reaction_scale = 0;
 reaction_target = 0;
-controls_text = new Text(fntControls);
+controls_text = new Text(global.fntControls);
 
 function setup() {
 	player_idle_image = get_skin_pose_object(focus_player_by_id(player_info.network_id), "Idle");

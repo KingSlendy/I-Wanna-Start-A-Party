@@ -204,11 +204,11 @@
     "253": {"character":253,"h":63,"offset":0,"shift":27,"w":27,"x":782,"y":67,},
     "254": {"character":254,"h":63,"offset":-1,"shift":27,"w":26,"x":811,"y":67,},
     "255": {"character":255,"h":63,"offset":0,"shift":27,"w":27,"x":171,"y":327,},
-    "9647": {"character":9647,"h":63,"offset":12,"shift":51,"w":31,"x":200,"y":327,},
+    "9647": {"character":9647,"h":63,"offset":10,"shift":51,"w":31,"x":200,"y":327,},
   },
   "hinting": 0,
   "includeTTF": false,
-  "interpreter": 1,
+  "interpreter": 0,
   "italic": false,
   "kerningPairs": [
     {"amount":-3,"first":32,"second":65,},
@@ -356,6 +356,7 @@
     {"amount":-2,"first":160,"second":939,},
   ],
   "last": 0,
+  "lineHeight": 61,
   "maintainGms1Font": false,
   "parent": {
     "name": "1vs3",
@@ -368,6 +369,7 @@
   ],
   "regenerateBitmap": false,
   "sampleText": "abcdef ABCDEF\n0123456789 .,<>\"'&!?\nthe quick brown fox jumps over the lazy dog\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\nDefault character: ▯ (9647)",
+  "sdfSpread": 8,
   "size": 40.0,
   "styleName": "Regular",
   "textureGroupId": {
@@ -375,4 +377,5 @@
     "path": "texturegroups/Default",
   },
   "TTFName": "",
+  "usesSDF": false,
 }

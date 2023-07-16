@@ -112,6 +112,8 @@ function player_join(player_id, player_name = "") {
 			alarm_stop(11);
 		}
 	}
+	
+	window_flash(window_flash_timernofg, 1, 150);
 }
 
 function player_leave(player_id) {

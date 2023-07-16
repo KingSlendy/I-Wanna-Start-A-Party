@@ -42,7 +42,7 @@ if (async_load[? "id"] == tag) {
 		//	case os_linux: os_name = "-Linux"; break;
 		//}
 		
-		file = http_get_file(string("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/download/{0}/I.Wanna.Start.A.Party{1}.zip", version, os_name), game_save_id + "\\Version.zip");
+		file = http_get_file($"https://github.com/KingSlendy/{repo}/releases/download/{version}/I.Wanna.Start.A.Party{os_name}.zip", game_save_id + "\\Version.zip");
 	} else {
 		alarm_instant(0);
 		exit;

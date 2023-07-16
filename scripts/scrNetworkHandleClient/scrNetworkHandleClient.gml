@@ -528,7 +528,7 @@ f[$ ClientTCP.ChangeDialogueText] = function(buffer) {
 		text_change(text, buffer_read(buffer, buffer_u8));
 				
 		repeat (array_length(text_display.branches)) {
-			array_push(answer_displays, new Text(fntDialogue));
+			array_push(answer_displays, new Text(global.fntDialogue));
 		}
 	}
 }

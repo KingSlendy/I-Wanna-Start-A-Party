@@ -85,7 +85,7 @@ alarm_create(function() {
 			}
 		}
 	
-		show_popup("4 vs. minigame",, 100,,, false);
+		show_popup(language_get_text("PARTY_CHOOSE_MINIGAME_4VS"),, 100,,, false);
 		info.type = "4vs";
 	} else if (blue_count == 3 || red_count == 3) { //1vs3	
 		for (var i = 1; i <= global.player_max; i++) {
@@ -106,7 +106,7 @@ alarm_create(function() {
 			}
 		}
 	
-		show_popup("1 vs. 3 minigame",, 100,,, false);
+		show_popup(language_get_text("PARTY_CHOOSE_MINIGAME_1VS3"),, 100,,, false);
 		info.type = "1vs3";
 	} else { //2vs2
 		for (var i = 1; i <= global.player_max; i++) {
@@ -129,7 +129,7 @@ alarm_create(function() {
 			}
 		}
 	
-		show_popup("2 vs. 2 minigame",, 100,,, false);
+		show_popup(language_get_text("PARTY_CHOOSE_MINIGAME_2VS2"),, 100,,, false);
 		info.type = "2vs2";
 	}
 

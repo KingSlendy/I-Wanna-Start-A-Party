@@ -23,7 +23,7 @@ alpha_target = 1;
 
 function text_advance() {
 	if (array_length(text_branch) == 0) {
-		text_display = new Message(new Text(fntDialogue,, 1));
+		text_display = new Message(new Text(global.fntDialogue,, 1));
 		return;
 	}
 	

@@ -86,7 +86,7 @@ function retry_trial() {
 alarms_init(12);
 
 alarm_create(function() {
-	show_popup("START",,,,,, 0.5);
+	show_popup(language_get_text("MINIGAMES_START"),,,,,, 0.5);
 	announcer_started = true;
 	music_play(music, true);
 	audio_play_sound(sndMinigameStart, 0, false);

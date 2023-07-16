@@ -14,7 +14,7 @@ for (var i = -3; i <= 3; i++) {
 	
 	if (!stock.has()) {
 		draw_sprite(sprCoin, 0, sx - 30, sy + 40);
-		language_set_font(fntPlayerInfo);
+		language_set_font(global.fntPlayerInfo);
 		draw_set_color((stock.price <= global.collected_coins) ? c_white : c_red);
 		draw_set_valign(fa_middle);
 		draw_text_outline(sx - 10, sy + 40, string(stock.price), c_black);

@@ -90,8 +90,8 @@ function Credit(font_title, font_desc, color, title = "", desc = "", hpos = fa_l
 }
 
 //sections = [
-//	new Credit(fntFilesFile, fntFilesData, c_white, "Maker", "KingSlendy", fa_right, fa_middle, sprMinigamesFangames, 1)
-//	//new Credit(fntFilesData, c_white, "Maker"),
-//	//new Credit(fntDialogue, c_white, "KingSlendy"),
+//	new Credit(global.FilesFile, fntFilesData, c_white, "Maker", "KingSlendy", fa_right, fa_middle, sprMinigamesFangames, 1)
+//	//new Credit(global.FilesData, c_white, "Maker"),
+//	//new Credit(global.Dialogue, c_white, "KingSlendy"),
 //	//new Credit(,,,,, sprMinigamesFangames, 1)
 //];

@@ -1,5 +1,5 @@
 if (info.is_practice) {
-	language_set_font(fntPopup);
+	language_set_font(global.fntPopup);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text_color_outline(display_get_gui_width() / 2, display_get_gui_height() / 2, "Press       to exit practice", c_orange, c_orange, c_yellow, c_yellow, practice_alpha, c_black);
@@ -25,7 +25,7 @@ if (minigame_time != -1 && minigame_time <= 60) {
 	}
 	
 	draw_box(xx, yy - h, w, h, c_dkgray, c_white);
-	language_set_font(fntDialogue);
+	language_set_font(global.fntDialogue);
 	
 	if (minigame_time > 5) {
 		draw_set_color(c_yellow);
@@ -52,7 +52,7 @@ if (points_draw) {
 		
 		var yy = 0;
 		draw_box(xx, yy, (is_4vs) ? 100 : 130, 32, (is_4vs) ? player_color_by_turn(i + 1) : info.player_colors[i], c_white);
-		language_set_font(fntDialogue);
+		language_set_font(global.fntDialogue);
 	
 		var team = points_teams[i];
 		var points = 0;

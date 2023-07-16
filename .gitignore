@@ -1,4 +1,3 @@
 extensions/GMLive/
 scripts/GMLive*
 obj_gmlive/
-languages-check.py

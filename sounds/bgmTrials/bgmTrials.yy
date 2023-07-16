@@ -9,7 +9,7 @@
   "bitDepth": 1,
   "bitRate": 128,
   "compression": 1,
-  "conversionMode": 0,
+  "conversionMode": 1,
   "duration": 40.73475,
   "parent": {
     "name": "Menu",

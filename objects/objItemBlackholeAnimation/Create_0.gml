@@ -23,7 +23,7 @@ part_type_color1(part_type, c_ltgray);
 part_type_speed(part_type, 2, 2, 0, 0);
 part_type_life(part_type, 30, 30);
 
-controls_text = new Text(fntControls);
+controls_text = new Text(global.fntControls);
 
 function start_blackhole_steal() {
 	state = 0;

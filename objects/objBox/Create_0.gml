@@ -6,6 +6,6 @@ image_xscale = 0;
 image_yscale = 0;
 sequence = layer_sequence_create("Assets", x, y, seqBoxes);
 sequence_instance_override_object(layer_sequence_get_instance(sequence), objBox, id);
-controls_text = new Text(fntControls);
+controls_text = new Text(global.fntControls);
 
 function box_activate() {}

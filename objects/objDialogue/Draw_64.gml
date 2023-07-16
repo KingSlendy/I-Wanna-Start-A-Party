@@ -21,7 +21,7 @@ var max_height = text_display.text.draw(4, 2, width - border_width * 2);
 var answers = array_length(text_display.branches);
 
 if (array_length(answer_displays) > 0 && answers > 0 && !text_display.text.tw_active) {
-	language_set_font(fntDialogue);
+	language_set_font(global.fntDialogue);
 	draw_set_color(c_white);
 	
 	for (var i = 0; i < answers; i++) {
@@ -37,7 +37,7 @@ if (array_length(answer_displays) > 0 && answers > 0 && !text_display.text.tw_ac
 	}
 }
 
-var text = new Text(fntDialogue, draw_action_small(global.actions.jump));
+var text = new Text(global.fntDialogue, draw_action_small(global.actions.jump));
 text.draw(435, 102);
 surface_reset_target();
 

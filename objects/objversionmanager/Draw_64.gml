@@ -1,4 +1,4 @@
-language_set_font(fntTitle);
+language_set_font(global.fntTitle);
 draw_set_color(c_white);
 draw_text_outline(0, 540, text, c_black);
 
@@ -9,7 +9,7 @@ if (downloading) {
 	draw_rectangle(210, 210, 590, 290, false);
 	draw_set_color(c_white);
 	draw_rectangle(220, 220, 220 + (580 - 220) * (sent / size), 280, false);
-	language_set_font(fntFilesData);
+	language_set_font(global.fntFilesData);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_bottom);
 	var sent_mb = string_format(sent / 1000000, 2, 3);
@@ -27,5 +27,5 @@ if (downloading) {
 	draw_set_halign(fa_left);
 }
 
-language_set_font(fntTitleCreator);
+language_set_font(global.fntTitleCreator);
 draw_text(0, 0, language_get_text("VERSION_CANCEL"));

@@ -47,7 +47,7 @@ for (var i = 0; i < array_length(menu_buttons); i++) {
 	}
 }
 
-language_set_font(fntFilesInfo);
+language_set_font(global.fntFilesInfo);
 draw_set_alpha(1 - files_alpha);
 draw_set_halign(fa_center);
 var button = menu_buttons[upper_type][0];
@@ -65,7 +65,7 @@ if (array_contains([1, 3, 4, 5], menu_type)) {
 		case 5: texts = player_texts; break;
 	}
 
-	language_set_font(fntFilesButtons);
+	language_set_font(global.fntFilesButtons);
 	draw_set_valign(fa_middle);
 	
 	for (var i = 0; i < array_length(texts); i++) {

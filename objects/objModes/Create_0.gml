@@ -15,7 +15,7 @@ function ModeButton(label, sprite, scale, offset, room_to, selectable = true) co
 	var surf = surface_create(w, h);
 	surface_set_target(surf);
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, w, h, (self.selectable) ? c_white : c_gray, 1);
-	language_set_font(fntFilesButtons);
+	language_set_font(global.fntFilesButtons);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_bottom);
 	draw_text_color_outline(w / 2, h - 5, label, c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
@@ -82,7 +82,8 @@ if (check != -1) {
 	array_delete(global.all_ai_actions, check, 1);
 }
 
-controls_text = new Text(fntControls);
+mode_text = new Text(global.fntDialogue);
+controls_text = new Text(global.fntControls);
 action_delay = 0;
 network_actions = [];
 

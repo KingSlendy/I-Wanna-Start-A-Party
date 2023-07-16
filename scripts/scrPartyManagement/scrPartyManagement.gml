@@ -31,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = irandom(1);
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Poison], null, null];
+	//self.items = [global.board_items[ItemType.TripleDice], null, null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -402,6 +402,10 @@ function turn_start(network = true) {
 	with (focused_player()) {
 		in_space = place_meeting(x, y, objSpaces);
 		has_hit = false;
+		
+		if (network_id == global.player_id) {
+			window_flash(window_flash_timernofg, 1, 150);
+		}
 	}
 	
 	if (global.board_turn == 1 && !in_space) {
@@ -897,26 +901,26 @@ function change_space(space) {
 }
 
 function shine_ask(buy_shine) {
-	var buy_option = string("Buy {0}", draw_coins_price(global.shine_price));
+	var buy_option = language_get_text("WORD_GENERIC_BUY_COINS", draw_coins_price(global.shine_price))
 	
 	return [
 		[buy_option, [
 			new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_1"),, buy_shine)
 		]],
 						
-		["Pass", [
+		[language_get_text("WORD_GENERIC_PASS"), [
 			new Message(language_get_text("PARTY_BOARD_SHINE_PASS_1"), [
 				[buy_option, [
 					new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_2"),, buy_shine)
 				]],
 								
-				["Pass", [
+				[language_get_text("WORD_GENERIC_PASS"), [
 					new Message(language_get_text("PARTY_BOARD_SHINE_PASS_2"), [
 						[buy_option, [
 							new Message(language_get_text("PARTY_BOARD_SHINE_BOUGHT_3"),, buy_shine)
 						]],
 										
-						["Pass", [
+						[language_get_text("WORD_GENERIC_PASS"), [
 							new Message(language_get_text("PARTY_BOARD_SHINE_PASS_3"),, function() {
 								board_advance();
 												
@@ -1075,14 +1079,14 @@ function call_shop() {
 	if (player_info.coins >= global.min_shop_coins) {
 		start_dialogue([
 			new Message(language_get_text("PARTY_BOARD_SHOP_ENTER"), [
-				["Yes", [
+				[language_get_text("WORD_GENERIC_YES"), [
 					new Message("",, function() {
 						instance_create_layer(0, 0, "Managers", objShop);
 						objDialogue.endable = false;
 					})
 				]],
 						
-				["No", [
+				[language_get_text("WORD_GENERIC_NO"), [
 					new Message("",, function() {
 						board_advance();
 						
@@ -1114,14 +1118,14 @@ function call_blackhole() {
 	if (player_info.coins >= global.min_blackhole_coins) {
 		start_dialogue([
 			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_USE"), [
-				["Yes", [
+				[language_get_text("WORD_GENERIC_YES"), [
 					new Message("",, function() {
 						instance_create_layer(0, 0, "Managers", objBlackhole);
 						objDialogue.endable = false;
 					})
 				]],
 						
-				["No", [
+				[language_get_text("WORD_GENERIC_NO"), [
 					new Message("",, function() {
 						board_advance();
 						

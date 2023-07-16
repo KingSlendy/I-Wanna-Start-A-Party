@@ -1,8 +1,8 @@
-language_set_font(fntTest);
+language_set_font(global.fntTest);
 draw_set_color(c_white)
-draw_text_outline(0, 0, "This is a test message to see the difference in the fonts!\nThis newline shouldn't be that far apart", c_black);
+//draw_text_outline(0, 0, "This is a test message to see the difference in the fonts!\nThis newline shouldn't be that far apart", c_black);
 
-language_set_font(fntTitle);
+language_set_font(global.fntTitle);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
@@ -13,12 +13,12 @@ for (var i = 1; i <= 6; i++) {
 draw_sprite_ext(title_sprite, 0, title_x, title_y, title_scale, title_scale, 0, c_white, title_alpha);
 
 if (start_visible) {
-	language_set_font(fntTitleStart);
+	language_set_font(global.fntTitleStart);
 	draw_text_color_outline(400, 520, "PRESS           ", c_lime, c_lime, c_fuchsia, c_fuchsia, 1, c_black);
 	draw_sprite_ext(global.actions.jump.bind(), 0, 470, 520, 0.75, 0.75, 0, c_white, 1);
 }
 
-language_set_font(fntTitleCreator);
+language_set_font(global.fntTitleCreator);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);

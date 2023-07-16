@@ -12,7 +12,7 @@ var size = 30;
 var half_gui_height = display_get_gui_height() / 2 - 64;
 draw_set_color(c_white);
 draw_roundrect(-30, half_gui_height - size, 80, half_gui_height + size, false);
-language_set_font(fntPlayerInfo);
+language_set_font(global.fntPlayerInfo);
 draw_set_color(c_black);
 draw_set_halign(fa_center);
 var turn = global.board_turn;

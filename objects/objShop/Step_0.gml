@@ -58,7 +58,7 @@ if (shopping && is_local_turn()) {
 		if (player_info.coins >= price) {
 			change_dialogue([
 				new Message(language_get_text("PARTY_BOARD_SHOP_WANNA_BUY", "{COLOR,0000FF}", item_selected.name, "{COLOR,FFFFFF}"), [
-					["Buy " + draw_coins_price(price), [
+					[language_get_text("WORD_GENERIC_BUY_COINS", draw_coins_price(price)), [
 						new Message(language_get_text("PARTY_BOARD_SHOP_ITEM_THANK"),, function() {
 							with (objShop) {
 								shop_end();
@@ -99,7 +99,7 @@ if (shopping && is_local_turn()) {
 						})
 					]],
 				
-					["No", [
+					[language_get_text("WORD_GENERIC_NO"), [
 						new Message("",, function() {
 							objDialogue.active = false;
 							objDialogue.endable = false;

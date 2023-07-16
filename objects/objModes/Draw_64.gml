@@ -9,8 +9,9 @@ for (var i = -2; i <= 2; i++) {
 }
 
 draw_box(70, 400, 660, 150, c_gray, c_aqua, 0.5);
-language_set_font(fntDialogue);
+language_set_font(global.fntDialogue);
 draw_set_color(c_white);
-draw_text_ext_outline(80, 410, mode_texts[mode_initial], -1, 640, c_black);
+mode_text.set(mode_texts[mode_initial]);
+mode_text.draw(80, 410, 640);
 controls_text.set(draw_action_small(global.actions.jump) + " " + language_get_text("WORD_GENERIC_MENU_ACCEPT") + "   " + draw_action_small(global.actions.left) + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + draw_action_small(global.actions.right) + " " + language_get_text("WORD_GENERIC_MENU_MOVE") + "    " + draw_action_small(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_CANCEL"));
 controls_text.draw(420, 580);

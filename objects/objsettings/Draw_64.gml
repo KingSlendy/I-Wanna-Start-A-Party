@@ -8,7 +8,7 @@ var options_y = draw_y;
 
 for (var i = 0; i < array_length(sections); i++) {
 	var section = sections[i];
-	language_set_font(fntFilesInfo);
+	language_set_font(global.fntFilesInfo);
 	draw_set_halign(fa_center);
 	draw_text_color_outline(draw_x, options_y, section.text, c_gold, c_gold, c_yellow, c_yellow, draw_get_alpha(), c_black);
 	options_y += 100;
@@ -22,11 +22,11 @@ for (var i = 0; i < array_length(sections); i++) {
 			case 2: var option_x = 140; break;
 		}
 		
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		option.draw_label(draw_x - option_x, options_y, ((!fade_start || back) && i == section_selected && j == section.selected), (j == section.in_option));
-		language_set_font(fntTitleStart);
+		language_set_font(global.fntTitleStart);
 		draw_set_color(c_white);
 		draw_set_halign(fa_left);
 		option.draw_option(draw_x - option_x + 100, options_y);

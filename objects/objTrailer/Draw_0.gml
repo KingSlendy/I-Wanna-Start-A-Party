@@ -3,7 +3,7 @@ if (!trailer) {
 }
 
 draw_set_alpha(trailer_release_alpha);
-language_set_font(fntTitle);
+language_set_font(global.fntTitle);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_text(room_width / 2, 50, "RELEASE DATE");

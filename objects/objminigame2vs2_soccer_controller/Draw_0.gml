@@ -9,7 +9,7 @@ if (points_draw) {
     draw_sprite(sprMinigame2vs2_Soccer_UI_Team_Score, 0, 400 - 248, 96);
     
     for (var i = 0; i < array_length(points_teams); i++) {
-        language_set_font(fntDialogue);
+        language_set_font(global.fntDialogue);
         var team = points_teams[i];
         var points = 0;
     

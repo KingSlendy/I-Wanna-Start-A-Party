@@ -26,7 +26,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 			var char = string_char_at(self.text, i);
 			
 			if (char == "}") {
-				string_insert("%", self.text, i);
+				string_insert("@", self.text, i);
 				array_push(self.formats, store_format);
 				active_format = false;
 				store_format = "";
@@ -44,7 +44,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 		}
 		
 		for (var i = 0; i < array_length(self.formats); i++) {
-			self.text = string_replace_all(self.text, self.formats[i], "%");
+			self.text = string_replace_all(self.text, self.formats[i], "@");
 			self.formats[i] = new Format(self.formats[i]);
 		}
 		
@@ -79,6 +79,13 @@ function Text(font, text = "", tw_spd = 0) constructor {
 			var char = string_char_at(show, i);
 			
 			//Checks if there's enough space for the next word
+			if (array_contains(["ZH", "JA"], global.language_codes[$ global.language_game])) {
+				if (width >= max_width) {
+					width = 0;
+					height = max_height;
+				}
+			}
+			
 			if (char == " ") {
 				if (width == 0) {
 					continue;
@@ -96,7 +103,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 						break;
 					}
 					
-					if (space_char == "%") {
+					if (space_char == "@") {
 						var format = self.formats[space_format++];
 						var margins = format.apply(self, x, y, space_width, max_width, height, max_height, true);
 						space_width = margins.w;
@@ -133,7 +140,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 				offset_y = random_range(-0.6, 0.6);
 			}
 			
-			if (char == "%") {
+			if (char == "@") {
 				var format = self.formats[current_format++];
 				var margins = format.apply(self, x + offset_x, y + offset_y, width, max_width, height, max_height);
 				width = margins.w;
@@ -165,7 +172,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 					tw_char = string_char_at(self.text, ++self.tw_count);
 				}
 				
-				if (tw_char != "%") {
+				if (tw_char != "@") {
 					//audio_play_sound(sndTest, 0, false);
 				}
 			
@@ -314,7 +321,7 @@ function start_dialogue(texts, tw_spd = 1) {
 	
 	var ww = global.main_dialogue_width;
 	var hh = global.main_dialogue_height;
-	var font = fntDialogue;
+	var font = global.fntDialogue;
 	
 	set_texts_deep(texts, font, tw_spd);
 	
@@ -333,7 +340,7 @@ function start_dialogue(texts, tw_spd = 1) {
 function change_dialogue(texts, tw_spd = 1) {
 	var ww = global.main_dialogue_width;
 	var hh = global.main_dialogue_height;
-	var font = fntDialogue;
+	var font = global.fntDialogue;
 	
 	set_texts_deep(texts, font, tw_spd);
 	

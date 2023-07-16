@@ -1,7 +1,7 @@
 var draw_x = (display_get_gui_width() - width) / 2;
 var draw_y = (display_get_gui_height() - height) / 2;
 draw_box(draw_x, draw_y + offset_y, width, height, c_dkgray, c_white, 0.6,, 3);
-var text = new Text(fntDialogue);
+var text = new Text(global.fntDialogue);
 
 for (var i = 0; i < array_length(stock); i++) {
 	var item = stock[i];
@@ -23,6 +23,6 @@ for (var i = 0; i < array_length(stock); i++) {
 	text.draw(draw_x + 160, draw_y + 10 + 35 * i + offset_y);
 }
 
-text = new Text(fntControls);
-text.set(draw_action_small(global.actions.jump) + " Select\n" + draw_action_small(global.actions.shoot) + " Cancel\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " Move");
+text = new Text(global.fntControls);
+text.set(draw_action_small(global.actions.jump) + " " + language_get_text("WORD_GENERIC_MENU_SELECT") + "\n" + draw_action_small(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_CANCEL") + "\n" + draw_action_small(global.actions.up) + draw_action_small(global.actions.down) + " " + language_get_text("WORD_GENERIC_MENU_MOVE"));
 text.draw(draw_x + 10, draw_y + 200 + offset_y);

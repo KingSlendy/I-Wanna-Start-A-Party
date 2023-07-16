@@ -1,5 +1,5 @@
 draw_set_alpha(animation_alpha);
-language_set_font(fntDialogue);
+language_set_font(global.fntDialogue);
 var positive = (sign(amount) == 1);
 draw_set_color((positive) ? c_blue : c_red);
 draw_set_halign(fa_center);

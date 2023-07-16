@@ -15,12 +15,12 @@ for (var i = -2; i <= 2; i++) {
 	var trophy = global.trophies[location];
 	var box_x = remap(trophy_x, 400 - 200, 400 + 200, -draw_w, draw_w) + draw_w * i;
 	draw_sprite_stretched(sprFangameMark, 1, box_x + 10, 10, box_x + draw_w - 30, 40);
-	language_set_font(fntTrophies);
+	language_set_font(global.fntTrophies);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_outline(box_x + draw_w / 2 - 10, 30, (achieved_trophy(trophy.image - 1)) ? trophy.name : "??????", c_black);
-	language_set_font(fntTrophiesDesc);
+	draw_text_info(box_x + draw_w / 2 - 10, 30, (achieved_trophy(trophy.image - 1)) ? trophy.name : "??????", draw_w - 10);
+	language_set_font(global.fntTrophiesDesc);
 	draw_set_color((achieved_trophy(trophy.image - 1)) ? c_white : c_ltgray)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -54,5 +54,5 @@ switch (trophy.state()) {
 
 controls_text.set(buy);
 controls_text.draw(draw_x, draw_y + draw_h + 5);
-controls_text.set(draw_action(global.actions.shoot) + " Back");
+controls_text.set(draw_action(global.actions.shoot) + " " + language_get_text("WORD_GENERIC_MENU_BACK"));
 controls_text.draw(draw_x + draw_w - 115, draw_y + draw_h + 5);

@@ -5,7 +5,8 @@ if (instance_number(object_index) > 1) {
 
 text = language_get_text("VERSION_CHECK");
 version = "";
-tag = http_get("https://github.com/KingSlendy/I-Wanna-Start-A-Party/releases/latest");
+repo = $"I-Wanna-Start-A-Party{(!file_exists("test") ? "" : "-Testers")}";
+tag = http_get($"https://github.com/KingSlendy/{repo}/releases/latest");
 file = null;
 downloading = false;
 size = 0;

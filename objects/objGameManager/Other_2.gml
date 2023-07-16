@@ -15,7 +15,9 @@ var files = [
 	"controllerblacklist.csv",
 	"controllertypes.csv",
 	"sdl2.txt",
+	"font.ttf",
 	"execute_shell_simple_ext_x64.dll",
+	"window_taskbar_x64.dll",
 	"audiogroup1.dat",
 	"audiogroup2.dat",
 	"data.win",
@@ -72,9 +74,12 @@ apply_config();
 board_init();
 minigame_init();
 minigame_info_reset();
+items_init();
 results_init();
 trial_init();
 trial_info_reset();
 skin_init();
 reaction_init();
 trophies_init();
+
+controls_text = new Text(global.fntControls);

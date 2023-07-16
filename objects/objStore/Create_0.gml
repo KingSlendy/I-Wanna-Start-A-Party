@@ -36,12 +36,12 @@ for (var i = 0; i < array_length(global.boards); i++) {
 		draw_sprite_stretched(sprPartyBoardPictures, picture, x + 72, 60, 200, 152);
 		gpu_set_colorwriteenable(true, true, true, true);
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		language_set_font(fntFilesData);
+		language_set_font(global.fntFilesData);
 		draw_set_halign(fa_left);
-		draw_text_info(x + 20, 230, language_get_text("STORE_MAKER") + board.makers, objStore.draw_w - 8);
+		draw_text_info(x + 20, 230, language_get_text("STORE_MAKER") + ": " + board.makers, objStore.draw_w - 8);
 	}));
 }
 
@@ -63,7 +63,7 @@ for (var i = 0; i < array_length(types); i++) {
 		}, function(x, y, _) {
 			var seen_minigame = self.has();
 			var portrait = (seen_minigame) ? self.minigame.portrait : self.minigame.hidden;
-			language_set_font(fntPlayerInfo);
+			language_set_font(global.fntPlayerInfo);
 			draw_set_halign(fa_center);
 			draw_sprite_ext(portrait, 0, x, y - 30, 0.5, 0.5, 0, c_white, objStore.store_alpha);
 			draw_set_halign(fa_left);
@@ -77,10 +77,10 @@ for (var i = 0; i < array_length(types); i++) {
 			draw_sprite_stretched(sprMinigamesFangames, preview, x + 72, 60, 200, 152);
 			gpu_set_colorwriteenable(true, true, true, true);
 			draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-			language_set_font(fntFilesButtons);
+			language_set_font(global.fntFilesButtons);
 			draw_set_halign(fa_center);
 			draw_text_info(x + objStore.draw_w / 2, 10, label, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-			language_set_font(fntFilesData);
+			language_set_font(global.fntFilesData);
 			draw_text_info(x + objStore.draw_w / 2, 220, fangame_name, objStore.draw_w - 8);
 		});
 		
@@ -98,26 +98,26 @@ for (var i = 0; i < array_length(global.trials); i++) {
 		return global.trials[self.index];
 	}, function(x, y, _) {
 		draw_sprite_ext(sprModesTrials, 0, x, y, 0.2, 0.2, 0, c_white, objStore.store_alpha);
-		language_set_font(fntFilesData);
+		language_set_font(global.fntFilesData);
 		draw_text_color_outline(x + 8, y + 8, "#" + string(self.index + 1), c_red, c_red, c_yellow, c_yellow, objStore.store_alpha, c_black);
 	}, function(x, y) {
 		var trial = self.element();
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, trial.title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
-		language_set_font(fntFilesData);
+		language_set_font(global.fntFilesData);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 10, 220, language_get_text("STORE_MINIGAMES") + ": " + string(array_length(trial.minigames)), objStore.draw_w - 8);
-		draw_sprite(sprCoin, 0, x + 120, 262);
-		draw_text_info(x + 10, 250, language_get_text("WORD_GENERIC_REWARD") + ":       " + string(trial.reward), objStore.draw_w - 8);
+		objStore.rewards_text.set($"{language_get_text("WORD_GENERIC_REWARD")}: {draw_coins_price(trial.reward)}");
+		objStore.rewards_text.draw(x + 10, 250);
 	}));
 }
 
 for (var i = 0; i < array_length(global.skins); i++) {
 	var skin = global.skins[i];
 	array_push(store_stock[3], new Stock(i, skin.price, function() {
-		return have_skin(self.index);	
+		return have_skin(self.index);
 	}, function() {
 		gain_skin(self.index);
 	}, function() {
@@ -133,10 +133,10 @@ for (var i = 0; i < array_length(global.skins); i++) {
 		draw_sprite_stretched(sprSkinsFangames, skin.fangame_index, x + 72, 60, 200, 152);
 		gpu_set_colorwriteenable(true, true, true, true);
 		draw_sprite_stretched(sprFangameMark, 0, x + 72, 60, 200, 152);
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, skin.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		language_set_font(fntFilesData);
+		language_set_font(global.fntFilesData);
 		draw_text_info(x + objStore.draw_w / 2, 220, skin.fangame_name, objStore.draw_w - 8);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + skin.maker, objStore.draw_w - 8);
@@ -156,10 +156,10 @@ for (var i = 0; i < array_length(global.reactions); i++) {
 	}, function(x, y) {
 		var react = self.element();
 		draw_sprite_ext(sprReactions, react.index, x + objStore.draw_w / 2, 160, 0.75, 0.75, 0, c_white, 1);
-		language_set_font(fntFilesButtons);
+		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
 		draw_text_info(x + objStore.draw_w / 2, 10, react.name, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
-		language_set_font(fntFilesData);
+		language_set_font(global.fntFilesData);
 		draw_set_halign(fa_left);
 		draw_text_info(x + 20, 260, language_get_text("STORE_MAKER") + ": " + react.maker, objStore.draw_w - 8);
 	}));
@@ -177,7 +177,8 @@ store_x = 400;
 store_target_x = 400;
 
 held_time = 0;
-controls_text = new Text(fntDialogue);
+controls_text = new Text(global.fntDialogue);
+rewards_text = new Text(global.fntFilesData);
 
 draw_x = 224;
 draw_y = 32;

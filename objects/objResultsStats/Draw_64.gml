@@ -3,11 +3,11 @@ if (sprite != null) {
 	draw_set_alpha(fade_alpha);
 	draw_set_color(c_black);
 	draw_rectangle(0, 0, 800, 608, false);
-	language_set_font(fntFilesButtons);
+	language_set_font(global.fntFilesButtons);
 	draw_set_alpha(1);
 }
 
-language_set_font(fntTrophies);
+language_set_font(global.fntTrophies);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
@@ -56,7 +56,7 @@ if (show_inputs) {
 	var board = array_find_index(global.boards, function(x) { return (x.scene == info.previous_board); });
 	draw_sprite_ext(sprPartyBoardLogos, board + 1, 170, 60, 0.5, 0.5, 0, c_white, 1);
 	draw_set_color(c_white);
-	draw_text_outline(50, 110, "Turns: " + string(global.max_board_turns), c_black);
+	draw_text_outline(50, 110, language_get_text("PARTY_TURNS") + ": " + string(global.max_board_turns), c_black);
 	
 	if (stats_page > 0){
 		draw_sprite_ext(global.actions.left.bind(), 0, 340, 570, 0.5, 0.5, 0, c_white, 1);
@@ -66,6 +66,6 @@ if (show_inputs) {
 		draw_sprite_ext(global.actions.right.bind(), 0, 760, 570, 0.5, 0.5, 0, c_white, 1);
 	}
 	
-	var text = new Text(fntDialogue, draw_action(global.actions.jump) + ": {COLOR,00FFFFF}Proceed");
+	var text = new Text(global.fntDialogue, draw_action(global.actions.jump) + ": {COLOR,00FFFFF}" + language_get_text("WORD_GENERIC_MENU_PROCEED"));
 	text.draw(50, 565);
 }

@@ -4,7 +4,12 @@ if (!started && get_player_count(player_type) == global.player_max) {
 	if (fade_alpha <= 0) {
 		fade_alpha = 0;
 		started = true;
-		alarm_call(0, 1);
+		
+		if (global.trial_info.reference == null) {
+			alarm_call(0, 1);
+		} else {
+			alarm_instant(0);
+		}
 	}
 }
 
