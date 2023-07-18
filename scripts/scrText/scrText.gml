@@ -152,8 +152,13 @@ function Text(font, text = "", tw_spd = 0) constructor {
 			if (self.text_rainbow) {
 				draw_set_color(make_color_hsv((current_time / 10 + i) % 256, 255, 255));
 			}
-
-			draw_text_outline(x + width + offset_x, y + height + offset_y, char, outline);
+			
+			if (draw_get_color() == c_white) {
+				draw_text_color_outline(x + width + offset_x, y + height + offset_y, char, c1, c2, c3, c4, draw_get_alpha(), outline);
+			} else {
+				draw_text_outline(x + width + offset_x, y + height + offset_y, char, outline);
+			}
+			
 			width += string_width(char);
 			max_height = max(max_height, height + string_height(char));
 		}

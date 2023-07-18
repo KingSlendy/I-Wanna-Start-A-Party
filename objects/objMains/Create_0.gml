@@ -21,7 +21,7 @@ for (var i = 10; i <= 50; i += 5) {
 skin_row = 0;
 skin_col = 0;
 skins = ds_list_create();
-skin_show = 4;
+skin_show = 8;
 skin_w = 118;
 skin_h = 120;
 skin_y = skin_h;

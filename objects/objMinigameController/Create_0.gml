@@ -29,6 +29,7 @@ points_number = true;
 points_teams = [];
 player_type = objPlayerBase;
 practice_alpha = 1;
+practice_text = new Text(global.fntPopup);
 
 function back_to_overview(network = true) {
 	room_goto(rMinigameOverview);

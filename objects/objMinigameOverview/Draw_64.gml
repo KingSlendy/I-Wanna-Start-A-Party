@@ -92,7 +92,7 @@ draw_box(75, 400, 500, 200, c_blue, c_white, 1, 1);
 instructions[instructions_page].set(info.reference.instructions[instructions_page]());
 //instructions[instructions_page].set(draw_page("Controls", draw_action(global.actions.shoot) + " Shoot (Front)\n" + draw_action(global.actions.jump) + " Jump (Behind)"));
 instructions[instructions_page].draw(85, 410, 480);
-pages_text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}" + language_get_text("MINIGAMES_PAGE", "(" + string(instructions_page + 1) + "/" + string(array_length(instructions)) + ")"));
+pages_text.set(draw_action_small(global.actions.left) + draw_action_small(global.actions.right) + " {COLOR,FFFFFF}" + language_get_text("MINIGAMES_PAGE", ["{Number/Total}", $"({string(instructions_page + 1)}/{string(array_length(instructions))})"]));
 pages_text.draw(410, 570);
 var text = new Text(global.fntDialogue);
 

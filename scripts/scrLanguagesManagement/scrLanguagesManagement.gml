@@ -41,31 +41,31 @@ function languages_init() {
 				
 				var text = texts[i];
 				text = string_replace_all(text, "\\n", "\n");
-				var text_key = "";
-				var found_keys = false;
-				var all_keys = [];
+				//var text_key = "";
+				//var found_keys = false;
+				//var all_keys = [];
 				
-				for (var j = 1; j <= string_length(text); j++) {
-					var char = string_char_at(text, j);
+				//for (var j = 1; j <= string_length(text); j++) {
+				//	var char = string_char_at(text, j);
 					
-					if (!found_keys && char != "{") {
-						continue;
-					}
+				//	if (!found_keys && char != "{") {
+				//		continue;
+				//	}
 					
-					text_key += char;
+				//	text_key += char;
 					
-					if (char == "{") {
-						found_keys = true;
-					} else if (char == "}") {
-						array_push(all_keys, text_key);
-						text_key = "";
-						found_keys = false;
-					}
-				}
+				//	if (char == "{") {
+				//		found_keys = true;
+				//	} else if (char == "}") {
+				//		array_push(all_keys, text_key);
+				//		text_key = "";
+				//		found_keys = false;
+				//	}
+				//}
 				
-				for (var j = 0; j < array_length(all_keys); j++) {
-					text = string_replace(text, all_keys[j], "@TEXT@");
-				}
+				//for (var j = 0; j < array_length(all_keys); j++) {
+				//	text = string_replace(text, all_keys[j], "@TEXT@");
+				//}
 				
 				global.languages[$ languages[i]][$ text_id] = string_trim(text);
 			}
@@ -85,7 +85,11 @@ function language_get_text(id) {
 	}
 	
 	for (var i = 1; i < argument_count; i++) {
-		text = string_replace(text, "@TEXT@", string(argument[i]));
+		var replacer = argument[i];
+		var old_replace = replacer[0];
+		var new_replace = replacer[1];
+		text = string_replace(text, old_replace, string(new_replace));
+		//text = string_replace(text, "@TEXT@", string(argument[i]));
 	}
 	
 	return text;

@@ -148,7 +148,7 @@ function file_sprite(file) {
 	draw_sprite_stretched_ext(sprButtonSlice, 0, 0, 0, file_width, file_height, (!done_everything) ? #7FC1FA : c_yellow, 1);
 	language_set_font(global.fntFilesFile);
 	draw_set_halign(fa_center);
-	draw_text_color_outline(file_width / 2, 10, language_get_text("FILES_FILE", string(file + 1)), c_lime, c_lime, c_green, c_green, 1, c_black);
+	draw_text_color_outline(file_width / 2, 10, language_get_text("FILES_FILE", ["{Number}", string(file + 1)]), c_lime, c_lime, c_green, c_green, 1, c_black);
 	language_set_font(global.fntFilesData);
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);

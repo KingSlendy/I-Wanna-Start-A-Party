@@ -7,7 +7,7 @@
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "1.0.1.17t"
+#macro VERSION "1.0.1.18t"
 
 //Network
 #macro DEFAULT_IP "iwannastartaparty.com"
@@ -21,3 +21,6 @@
 #macro IS_MINIGAME (string_count("Minigame", room_get_name(room)) > 0)
 #macro DESC_START function() { return 
 #macro DESC_END ; }
+
+//GMLIVE
+#macro LIVE if (live_call()) return live_result;

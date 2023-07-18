@@ -1,3 +1,5 @@
+LIVE
+
 language_set_font(global.fntTest);
 draw_set_color(c_white)
 //draw_text_outline(0, 0, "This is a test message to see the difference in the fonts!\nThis newline shouldn't be that far apart", c_black);
@@ -13,9 +15,8 @@ for (var i = 1; i <= 6; i++) {
 draw_sprite_ext(title_sprite, 0, title_x, title_y, title_scale, title_scale, 0, c_white, title_alpha);
 
 if (start_visible) {
-	language_set_font(global.fntTitleStart);
-	draw_text_color_outline(400, 520, "PRESS           ", c_lime, c_lime, c_fuchsia, c_fuchsia, 1, c_black);
-	draw_sprite_ext(global.actions.jump.bind(), 0, 470, 520, 0.75, 0.75, 0, c_white, 1);
+	press_text.set(language_get_text("TITLE_PRESS", ["{Shift key}", draw_action_big(global.actions.jump)]));
+	press_text.draw(292, 500,,, c_lime, c_lime, c_fuchsia, c_fuchsia);
 }
 
 language_set_font(global.fntTitleCreator);

@@ -64,6 +64,8 @@ for (var i = 0; i < 360; i += 360 / 7) {
 	array_push(kids, new GiftKids(i, id));
 }
 
+press_text = new Text(global.fntTitleStart);
+
 alarms_init(1);
 
 alarm_create(function() {

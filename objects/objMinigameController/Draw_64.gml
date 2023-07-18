@@ -1,11 +1,8 @@
 if (info.is_practice) {
-	language_set_font(global.fntPopup);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text_color_outline(display_get_gui_width() / 2, display_get_gui_height() / 2, "Press       to exit practice", c_orange, c_orange, c_yellow, c_yellow, practice_alpha, c_black);
-	draw_sprite_ext(global.actions.misc.bind(), 0, display_get_gui_width() / 2 - 95, display_get_gui_height() / 2, 1, 1, 0, c_white, practice_alpha);
-	draw_set_valign(fa_top);
-	draw_set_halign(fa_left);
+	draw_set_alpha(practice_alpha);
+	practice_text.set(language_get_text("MINIGAMES_EXIT_PRACTICE", ["{Misc key}", draw_action_big(global.actions.misc)]));
+	practice_text.draw(150, 280,,, c_orange, c_orange, c_yellow, c_yellow);
+	draw_set_alpha(1);
 }
 
 if (minigame_time != -1 && minigame_time <= 60) {
