@@ -356,20 +356,20 @@ function tell_turns() {
 			dialogue_player_info(1);
 		}),
 		
-		new Message(string(language_get_text("PARTY_BOARD_FIRST", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[0]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_FIRST", ["{Color}", "{COLOR,0000FF}"], ["{Player}", "{0}"], ["{Color}", "{COLOR,FFFFFF}"]), turn_names[0]),, function() {
 			dialogue_player_info(2);
 		}),
 		
-		new Message(string(language_get_text("PARTY_BOARD_SECOND", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[1]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_SECOND", ["{Color}", "{COLOR,0000FF}"], ["{Player}", "{0}"], ["{Color}", "{COLOR,FFFFFF}"]), turn_names[1]),, function() {
 			dialogue_player_info(3);
 		}),
 		
-		new Message(string(language_get_text("PARTY_BOARD_THIRD", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[2]),, function() {
+		new Message(string(language_get_text("PARTY_BOARD_THIRD", ["{Color}", "{COLOR,0000FF}"], ["{Player}", "{0}"], ["{Color}", "{COLOR,FFFFFF}"]), turn_names[2]),, function() {
 			dialogue_player_info(4);
 		}),
 		
-		string(language_get_text("PARTY_BOARD_FORTH", "{COLOR,0000FF}", "{0}", "{COLOR,FFFFFF}"), turn_names[3]),
-		new Message(language_get_text("PARTY_BOARD_GIVE_COINS", draw_coins_price(10)),, function() {
+		string(language_get_text("PARTY_BOARD_FORTH", ["{Color}", "{COLOR,0000FF}"], ["{Player}", "{0}"], ["{Color}", "{COLOR,FFFFFF}"]), turn_names[3]),
+		new Message(language_get_text("PARTY_BOARD_GIVE_COINS", ["{10 coins}", draw_coins_price(10)]),, function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				var c = change_coins(10, CoinChangeType.Gain, i);
 				
@@ -901,7 +901,7 @@ function change_space(space) {
 }
 
 function shine_ask(buy_shine) {
-	var buy_option = language_get_text("WORD_GENERIC_BUY_COINS", draw_coins_price(global.shine_price))
+	var buy_option = language_get_text("WORD_GENERIC_BUY_COINS", ["{X coins}", draw_coins_price(global.shine_price)])
 	
 	return [
 		[buy_option, [
@@ -1155,6 +1155,7 @@ function show_multiple_choices(motive, titles, choices, descriptions, availables
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ShowMultipleChoices);
+		buffer_write_data(buffer_string, global.language_game);
 		buffer_write_data(buffer_string, motive);
 		buffer_write_array(buffer_string, titles);
 		buffer_write_array(buffer_string, choices);
@@ -1419,7 +1420,7 @@ function board_pallet_pokemons() {
 		];
 	} else {
 		bring_dialogues = [
-			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_DONT_HAVE", draw_coins_price(global.pokemon_price)),, board_advance)
+			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_DONT_HAVE", ["{15 coins}", draw_coins_price(global.pokemon_price)]),, board_advance)
 		];
 	}
 	
@@ -1444,9 +1445,9 @@ function board_pallet_pokemons() {
 	}
 
 	start_dialogue([
-		language_get_text("PARTY_BOARD_PALLET_POKEMON_ENCOUNTER", type),
+		language_get_text("PARTY_BOARD_PALLET_POKEMON_ENCOUNTER", ["{Type}", type]),
 		new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_WITH_IT"), [
-			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BRING", draw_coins_price(global.pokemon_price)), bring_dialogues],
+			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BRING", ["{15 coins}", draw_coins_price(global.pokemon_price)]), bring_dialogues],
 			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BATTLE"), battle_dialogues],
 			
 			[language_get_text("WORD_GENERIC_PASS"), [
@@ -1579,13 +1580,13 @@ function board_world_ghost_texts() {
 		if (is_player_turn()) {
 			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_YOU");
 		} else {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_PLAYER", "{COLOR,0000FF}", focus_player_by_turn(global.player_ghost_previous).network_name, "{COLOR,FFFFFF}");
+			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_PLAYER", ["{Color}", "{COLOR,0000FF}"], ["{Player}", focus_player_by_turn(global.player_ghost_previous).network_name], ["{Color}", "{COLOR,FFFFFF}"]);
 		}
 	} else {
 		if (is_player_turn()) {
 			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_YOU");
 		} else {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_PLAYER", "{COLOR,0000FF}", focus_player_by_turn(global.player_ghost_previous).network_name, "{COLOR,FFFFFF}");
+			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_PLAYER", ["{Color}", "{COLOR,0000FF}"], ["{Player}", focus_player_by_turn(global.player_ghost_previous).network_name], ["{Color}", "{COLOR,FFFFFF}"]);
 		}
 	}
 	

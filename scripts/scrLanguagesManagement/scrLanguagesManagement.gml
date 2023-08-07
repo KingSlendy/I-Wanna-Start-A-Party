@@ -133,69 +133,14 @@ function language_font_add(size) {
 	return font_add("font.ttf", size, false, false, 0, 40959);
 }
 
-//function language_set_font(font) {
-//	var font_assign = global.fonts[$ font_get_name(font) + global.language_codes[$ global.language_game]];
-//	draw_set_font((font_assign != null) ? font_assign : font);
-//}
-
-//function language_fonts_init() {
-//	global.fonts = {};
-//	var codes = variable_struct_get_names(global.language_codes);
+function language_replace_text(language, text) {
+	var text_ids = variable_struct_get_names(global.languages[$ language]);
 	
-//	for (var i = 0; font_exists(i); i++) {
-//		var font_name = font_get_name(i);
-		
-//		if (string_starts_with(font_name, "__")) {
-//			break;
-//		}
-		
-//		if (string_starts_with(font_name, "fntMinigame1vs3")) {
-//			continue;
-//		}
-		
-//		for (var j = 0; j < array_length(codes); j++) {
-//			var code = global.language_codes[$ codes[j]];
-//			var font = language_font_add(code, font_get_size(i));
-			
-//			if (font == null) {
-//				continue;
-//			}
-			
-//			global.fonts[$ font_name + code] = font;
-//		}
-//	}
-//}
-
-//function language_font_add(code, size) {
-//	switch (code) {
-//		case "KO":
-//			var font_name = "BinggraeSamanco.ttf";
-//			var font_size = size;
-//			break;
-			
-//		case "ZH":
-//			var font_name = "DroidSansFallback.ttf";
-//			var font_size = size * 0.8;
-//			break;
-			
-//		case "JA":
-//			var font_name = "Natsuzemi.ttf"; 
-//			var font_size = size * 0.8;
-//			break;
-			
-//		case "RU":
-//			var font_name = "18VAG Rounded M Normal.ttf";
-//			var font_size = size * 0.8;
-//			break;
-			
-//		default: return null;
-//	}
-	
-//	var path = $"Fonts/{font_name}";
-	
-//	if (!file_exists(path)) {
-//		return null;
-//	}
-	
-//	return font_add(path, floor(font_size), false, false, 0, 40959);
-//}
+	for (var i = 0; i < array_length(text_ids); i++) {
+		var text_id = text_ids[i];
+				
+		if (global.languages[$ language][$ text_id] == text) {
+			return language_get_text(text_id);
+		}
+	}
+}

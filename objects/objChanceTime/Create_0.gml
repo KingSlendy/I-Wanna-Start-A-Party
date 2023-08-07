@@ -122,15 +122,15 @@ function coins_give_chance_time(amount, to_left) {
 }
 
 events = [
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES_COINS", "{p1}", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", draw_coins_price()), shines_coins_exchange_chance_time),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES", "{p1}","{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"), shines_exchange_chance_time),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_COINS", "{p1}", "{p2}", draw_coins_price()), coins_exchange_chance_time),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P2_P1", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p1}"), shines_give_chance_time, 1, true),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P1_P2", "{p1}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p2}"), shines_give_chance_time, 1, false),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P2_P1", "{p2}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p1}"), shines_give_chance_time, 2, true),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P1_P2", "{p1}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}", "{p2}"), shines_give_chance_time, 2, false),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P2_P1", "{p2}", draw_coins_price(30), "{p1}"), coins_give_chance_time, 30, true),
-	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P1_P2", "{p1}", draw_coins_price(30), "{p2}"), coins_give_chance_time, 30, false)
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES_COINS", ["{Player 1}", "{p1}"], ["{Player 2}", "{p2}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"], ["{Coins}", draw_coins_price()]), shines_coins_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_SHINES", ["{Player 1}", "{p1}"], ["{Player 2}", "{p2}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"]), shines_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_EXCHANGE_COINS", ["{Player 1}", "{p1}"], ["{Player 2}", "{p2}"], ["{Coins}", draw_coins_price()]), coins_exchange_chance_time),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P2_P1", ["{Player 2}", "{p2}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"], ["{Player 1}", "{p1}"]), shines_give_chance_time, 1, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_1_SHINE_P1_P2", ["{Player 1}", "{p1}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"], ["{Player 2}", "{p2}"]), shines_give_chance_time, 1, false),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P2_P1", ["{Player 2}", "{p2}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"], ["{Player 1}", "{p1}"]), shines_give_chance_time, 2, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_2_SHINES_P1_P2", ["{Player 1}", "{p1}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"], ["{Player 2}", "{p2}"]), shines_give_chance_time, 2, false),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P2_P1", ["{Player 2}", "{p2}"], ["{30 coins}", draw_coins_price(30)], ["{Player 1}", "{p1}"]), coins_give_chance_time, 30, true),
+	new ChanceTimeEvent(language_get_text("PARTY_CHANCE_TIME_GIVE_30_COINS_P1_P2", ["{Player 1}", "{p1}"], ["{30 coins}", draw_coins_price(30)], ["{Player 2}", "{p2}"]), coins_give_chance_time, 30, false)
 ];
 #endregion
 
@@ -184,7 +184,7 @@ function advance_chance_time() {
 				}
 			
 				start_dialogue([
-					language_get_text("PARTY_CHANCE_TIME_CHOSEN_PLAYERS", "{COLOR,0000FF}", player_names[0], "{COLOR,FFFFFF}", "{COLOR,0000FF}", player_names[1], "{COLOR,FFFFFF}"),
+					language_get_text("PARTY_CHANCE_TIME_CHOSEN_PLAYERS", ["{Color}", "{COLOR,0000FF}"], ["{Player 1}", player_names[0]], ["{Color}", "{COLOR,FFFFFF}"], ["{Color}", "{COLOR,0000FF}"], ["{Player 2}", player_names[1]], ["{Color}", "{COLOR,FFFFFF}"]),
 					new Message(language_get_text("PARTY_CHANCE_TIME_WONDER_EXCHANGE"),, function() {
 						with (objChanceTime) {
 							current_flag++;

@@ -166,7 +166,7 @@ function space_passing_event() {
 					]);
 				} else {
 					start_dialogue([
-						new Message(language_get_text("PARTY_BOARD_SHINE_NOT_ENOUGH", draw_coins_price(global.shine_price)),, board_advance)
+						new Message(language_get_text("PARTY_BOARD_SHINE_NOT_ENOUGH", ["{X coins}", draw_coins_price(global.shine_price)]),, board_advance)
 					]);
 				
 					if (player_info.network_id == global.player_id && player_info.item_used == ItemType.Mirror) {

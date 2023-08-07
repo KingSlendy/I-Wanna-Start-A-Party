@@ -219,10 +219,10 @@ alarm_create(function() {
 		var text = "";
 	
 		switch (count) {
-			case 1: text = language_get_text("PARTY_RESULTS_PARTY_WON_ONE", winners); break;
-			case 2: text = language_get_text("PARTY_RESULTS_PARTY_WON_TWO", winners); break;
-			case 3: text = language_get_text("PARTY_RESULTS_PARTY_WON_THREE", winners); break;
-			case 4: text = language_get_text("PARTY_RESULTS_PARTY_WON_FOUR", winners); break;
+			case 1: text = language_get_text("PARTY_RESULTS_PARTY_WON_ONE", ["{Player}", winners]); break;
+			case 2: text = language_get_text("PARTY_RESULTS_PARTY_WON_TWO", ["{Players}", winners]); break;
+			case 3: text = language_get_text("PARTY_RESULTS_PARTY_WON_THREE", ["{Players}", winners]); break;
+			case 4: text = language_get_text("PARTY_RESULTS_PARTY_WON_FOUR", ["{Players}", winners]); break;
 		}
 	
 		start_dialogue([

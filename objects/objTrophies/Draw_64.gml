@@ -33,7 +33,8 @@ for (var i = -2; i <= 2; i++) {
 		case TrophyState.Hint: description = trophy.short; break;
 	}
 	
-	draw_text_ext_outline(box_x + 20, 70, description, -1, draw_w - 30 - 20, c_black);
+	descriptions_text.set(description);
+	descriptions_text.draw(box_x + 20, 70, draw_w - 50, c_black, draw_get_color(), draw_get_color(), draw_get_color(), draw_get_color());
 }
 
 surface_reset_target();

@@ -16,6 +16,7 @@ var files = [
 	"controllertypes.csv",
 	"sdl2.txt",
 	"font.ttf",
+	"languages.tsv",
 	"execute_shell_simple_ext_x64.dll",
 	"window_taskbar_x64.dll",
 	"audiogroup1.dat",
@@ -25,6 +26,8 @@ var files = [
 ];
 
 var file = file_text_open_write("update.bat");
+file_text_write_string(file, "CHCP 65001");
+file_text_writeln(file);
 file_text_write_string(file, "ping 127.0.0.1 -n 6 > nul");
 file_text_writeln(file);
 
@@ -42,12 +45,18 @@ file_text_close(file);
 
 var file_check = function(file) {
 	if (file_exists(game_save_id + file)) {
-		file_delete(game_save_id + file);
+		execute_shell_simple(game_save_id + "update.bat",,, 0);
+		game_end();
+		return;
 	}
 }
 
 for (var i = 0; i < array_length(files); i++) {
 	file_check(files[i]);
+}
+
+if (string_char_at(VERSION, string_length(VERSION)) != "t" && file_exists("test")) {
+	file_delete("test");
 }
 
 for (var i = 0; i < 3; i++) {

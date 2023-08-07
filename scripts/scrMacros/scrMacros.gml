@@ -1,13 +1,12 @@
 #macro null undefined
 #macro DELTA objGameManager.delta
-//#macro LIVE if (live_call()) return live_result
 
 //Colors
 #macro c_chancetime make_color_rgb(255, 255, 0)
 #macro c_gold #926F34
 
 //Global
-#macro VERSION "1.0.1.18t"
+#macro VERSION "1.0.1.25t"
 
 //Network
 #macro DEFAULT_IP "iwannastartaparty.com"

@@ -103,7 +103,7 @@ alarm_create(4, function() {
 		audio_play_sound(sndMinigame1vs3_Host_LightsOn, 0, false);
 	}
 	
-	show_popup(language_get_text("MINIGAMES_HOST_ROUND", current_round));
+	show_popup(language_get_text("MINIGAMES_HOST_ROUND", ["{Number}", current_round]));
 	alarm_call(5, 2);
 });
 

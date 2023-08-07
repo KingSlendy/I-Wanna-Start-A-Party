@@ -80,7 +80,7 @@ function Text(font, text = "", tw_spd = 0) constructor {
 			
 			//Checks if there's enough space for the next word
 			if (array_contains(["ZH", "JA"], global.language_codes[$ global.language_game])) {
-				if (width >= max_width) {
+				if (width + string_width(char) >= max_width) {
 					width = 0;
 					height = max_height;
 				}

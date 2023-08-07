@@ -44,8 +44,8 @@ if (selecting && is_local_turn()) {
 		
 		if (player_info.coins >= item_selected.price && item_selected.can_select) {
 			change_dialogue([
-				new Message(language_get_text("PARTY_BOARD_BLACKHOLE_WANNA_STEAL", "{COLOR,0000FF}", item_selected.name, "{COLOR,FFFFFF}"), [
-					[language_get_text("WORD_GENERIC_YES_COINS", draw_coins_price(item_selected.price)), [
+				new Message(language_get_text("PARTY_BOARD_BLACKHOLE_WANNA_STEAL", ["{Color}", "{COLOR,0000FF}"], ["{Option}", item_selected.name], ["{Color}", "{COLOR,FFFFFF}"]), [
+					[language_get_text("WORD_GENERIC_YES_COINS", ["{X coins}", draw_coins_price(item_selected.price)]), [
 						new Message(language_get_text("PARTY_BOARD_BLACKHOLE_GOOD_CHOICE"),, function() {
 							with (objBlackhole) {
 								blackhole_end();

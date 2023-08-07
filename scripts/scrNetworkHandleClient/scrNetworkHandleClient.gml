@@ -510,10 +510,12 @@ f[$ ClientTCP.ChangeDialogueText] = function(buffer) {
 		d.active = false;
 		d.endable = false;
 	}
+	
+	var language = buffer_read(buffer, buffer_string);
 		
 	with (d) {
 		text_display.branches = [];
-		var text = buffer_read(buffer, buffer_string);
+		var text = language_replace_text(language, buffer_read(buffer, buffer_string));
 			
 		while (true) {
 			var data = buffer_read(buffer, buffer_string);
@@ -521,7 +523,8 @@ f[$ ClientTCP.ChangeDialogueText] = function(buffer) {
 			if (data == "EOA") {
 				break;
 			}
-				
+			
+			data = language_replace_text(language, data);		
 			array_push(text_display.branches, [data, null]);
 		}
 		
@@ -569,10 +572,21 @@ f[$ ClientTCP.EndBlackhole] = function(buffer) {
 }
 
 f[$ ClientTCP.ShowMultipleChoices] = function(buffer) {
-	var motive = buffer_read(buffer, buffer_string);
+	var language = buffer_read(buffer, buffer_string);
+	var motive = language_get_text(language, buffer_read(buffer, buffer_string));
 	var titles = buffer_read_array(buffer, buffer_string);
+	
+	for (var i = 0; i < array_length(titles); i++) {
+		titles = language_get_text(language, titles[i]);
+	}
+	
 	var choices = buffer_read_array(buffer, buffer_string);
 	var descriptions = buffer_read_array(buffer, buffer_string);
+	
+	for (var i = 0; i < array_length(descriptions); i++) {
+		descriptions = language_get_text(language, descriptions[i]);
+	}
+	
 	var availables = buffer_read_array(buffer, buffer_bool);
 	show_multiple_choices(motive, titles, choices, descriptions, availables);
 }

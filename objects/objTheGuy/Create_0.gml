@@ -21,9 +21,9 @@ function TheGuyOption(only_me, amount, text = "", action = null) constructor {
 	
 	if (self.text == "") {
 		if (self.only_me) {
-			self.text += language_get_text("PARTY_THE_GUY_YOU_LOSE_X_COINS", "{COLOR,0000FF}", "{COLOR,FFFFFF}", draw_coins_price(self.amount));
+			self.text += language_get_text("PARTY_THE_GUY_YOU_LOSE_X_COINS", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{X coins}", draw_coins_price(self.amount)]);
 		} else {
-			self.text += language_get_text("PARTY_THE_GUY_ALL_OF_YOU_LOSE_X_COINS", "{COLOR,0000FF}", "{COLOR,FFFFFF}", draw_coins_price(self.amount));
+			self.text += language_get_text("PARTY_THE_GUY_ALL_OF_YOU_LOSE_X_COINS", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{X coins}", draw_coins_price(self.amount)]);
 		}
 	} else {
 		self.text = text;
@@ -81,9 +81,9 @@ options = [
 	new TheGuyOption(true, 30,,),
 	new TheGuyOption(false, 10,,),
 	new TheGuyOption(false, 25,,),
-	new TheGuyOption(true, ceil(player_info_by_turn().coins / 2), language_get_text("PARTY_THE_GUY_LOSE_HALF_COINS", "{COLOR,0000FF}", "{COLOR,FFFFFF}", "{SPRITE,sprCoin,0,0,2,0.6,0.6}")),
+	new TheGuyOption(true, ceil(player_info_by_turn().coins / 2), language_get_text("PARTY_THE_GUY_LOSE_HALF_COINS", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Coin}", "{SPRITE,sprCoin,0,0,2,0.6,0.6}"])),
 	
-	new TheGuyOption(true, 0, language_get_text("PARTY_THE_GUY_LOSE_1_SHINE", "{COLOR,0000FF}", "{COLOR,FFFFFF}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"), function() {
+	new TheGuyOption(true, 0, language_get_text("PARTY_THE_GUY_LOSE_1_SHINE", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"]), function() {
 		var player_info = player_info_by_turn();
 		
 		if (player_info.shines == 0) {
@@ -125,7 +125,7 @@ options = [
 		change_shines(-1, ShineChangeType.Lose);
 	}),
 	
-	new TheGuyOption(false, 0, language_get_text("PARTY_THE_GUY_GUY_REVOLUTION","{COLOR,0000FF}","{COLOR,FFFFFF}"), function() {
+	new TheGuyOption(false, 0, language_get_text("PARTY_THE_GUY_GUY_REVOLUTION", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"]), function() {
 		revolution = true;
 		total_coins = 0;
 		
@@ -148,7 +148,7 @@ options = [
 		}
 	}),
 	
-	new TheGuyOption(true, 0, language_get_text("PARTY_THE_GUY_GET_100_SHINES", "{COLOR,00FFFF}", "{COLOR,FFFFFF}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"), function() {
+	new TheGuyOption(true, 0, language_get_text("PARTY_THE_GUY_GET_100_SHINES", ["{Color}", "{COLOR,00FFFF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Shine}", "{SPRITE,sprShine,0,0,-2,0.5,0.5}"]), function() {
 		nono_the_guy();
 		
 		with (objTheGuy) {

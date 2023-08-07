@@ -9,4 +9,5 @@ trophy_target_x = 400;
 
 surf = noone;
 held_time = 0;
+descriptions_text = new Text(global.fntTrophiesDesc);
 controls_text = new Text(global.fntDialogue);

@@ -83,6 +83,7 @@ function text_advance() {
 	if (is_local_turn()) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.ChangeDialogueText);
+		buffer_write_data(buffer_string, global.language_game);
 		buffer_write_data(buffer_string, text_display.text.original_text);
 		
 		for (var i = 0; i < array_length(text_display.branches); i++) {
