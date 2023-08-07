@@ -32,10 +32,10 @@ file_text_write_string(file, "ping 127.0.0.1 -n 6 > nul");
 file_text_writeln(file);
 
 for (var i = 0; i < array_length(files); i++) {
-	file_text_write_string(file, string("robocopy \"{0}\" \"{1}\" \"{2}\"", string_copy(game_save_id, 1, string_length(game_save_id) - 1), string_copy(program_directory, 1, string_length(program_directory) - 1), files[i]));
+	file_text_write_string(file, string("robocopy \"{0}\" \"{1}\" \"{2}\" /mov", string_copy(game_save_id, 1, string_length(game_save_id) - 1), string_copy(program_directory, 1, string_length(program_directory) - 1), files[i]));
 	file_text_writeln(file);
-	file_text_write_string(file, string("del \"{0}{1}\"", game_save_id, files[i]));
-	file_text_writeln(file);
+	//file_text_write_string(file, string("del \"{0}{1}\"", game_save_id, files[i]));
+	//file_text_writeln(file);
 }
 
 file_text_write_string(file, string("\"{0}{1}\"", program_directory, files[array_length(files) - 1]));
@@ -47,12 +47,16 @@ var file_check = function(file) {
 	if (file_exists(game_save_id + file)) {
 		execute_shell_simple(game_save_id + "update.bat",,, 0);
 		game_end();
-		return;
+		return false;
 	}
+	
+	return true;
 }
 
 for (var i = 0; i < array_length(files); i++) {
-	file_check(files[i]);
+	if (!file_check(files[i])) {
+		exit;
+	}
 }
 
 if (string_char_at(VERSION, string_length(VERSION)) != "t" && file_exists("test")) {
