@@ -68,7 +68,7 @@ alarm_create(function() {
 		
 			if (rolled_same) {
 				start_dialogue([
-					new Message("What!!?? You rolled triples!!??\nThat's something you don't see everyday, you deserve this!",, function() {
+					new Message(language_get_text("PARTY_ITEM_ROLLED_TRIPLES"),, function() {
 						change_coins(30, CoinChangeType.Gain).final_action = board_advance;
 					})
 				]);
@@ -84,7 +84,7 @@ alarm_create(function() {
 		if (player_info_by_id(network_id).item_effect == ItemType.DoubleDice) {
 			if (rolled_same) {
 				start_dialogue([
-					new Message("What!? You rolled doubles!?\nNow that deserves a prize.",, function() {
+					new Message(language_get_text("PARTY_ITEM_ROLLED_DOUBLES"),, function() {
 						change_coins(10, CoinChangeType.Gain).final_action = board_advance;
 					})
 				]);

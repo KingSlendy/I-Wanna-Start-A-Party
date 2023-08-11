@@ -573,18 +573,18 @@ f[$ ClientTCP.EndBlackhole] = function(buffer) {
 
 f[$ ClientTCP.ShowMultipleChoices] = function(buffer) {
 	var language = buffer_read(buffer, buffer_string);
-	var motive = language_get_text(language, buffer_read(buffer, buffer_string));
+	var motive = language_replace_text(language, buffer_read(buffer, buffer_string));
 	var titles = buffer_read_array(buffer, buffer_string);
 	
 	for (var i = 0; i < array_length(titles); i++) {
-		titles = language_get_text(language, titles[i]);
+		titles[i] = language_replace_text(language, titles[i]);
 	}
 	
 	var choices = buffer_read_array(buffer, buffer_string);
 	var descriptions = buffer_read_array(buffer, buffer_string);
 	
 	for (var i = 0; i < array_length(descriptions); i++) {
-		descriptions = language_get_text(language, descriptions[i]);
+		descriptions[i] = language_replace_text(language, descriptions[i]);
 	}
 	
 	var availables = buffer_read_array(buffer, buffer_bool);

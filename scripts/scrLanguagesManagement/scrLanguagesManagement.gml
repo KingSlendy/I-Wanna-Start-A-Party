@@ -143,4 +143,6 @@ function language_replace_text(language, text) {
 			return language_get_text(text_id);
 		}
 	}
+	
+	return text;
 }

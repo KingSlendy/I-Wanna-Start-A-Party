@@ -587,7 +587,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"temp.shader","CopyToMask":0,"filePath":"datafiles/GMLive",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"languages.tsv","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"sdl2.txt","CopyToMask":-1,"filePath":"datafiles",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"test","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "isEcma": false,
   "LibraryEmitters": [],
