@@ -4,7 +4,7 @@ if (fade_start) {
 			fade_alpha -= 0.03 * DELTA;
 
 			var room_name = room_get_name(room);
-			music_play(asset_get_index("bgm" + string_copy(room_name, 2, string_length(room_name) - 1)));
+			music_play(audio_get_index($"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}"));
 	
 			if (fade_alpha <= 0) {
 				fade_alpha = 0;

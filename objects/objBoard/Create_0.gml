@@ -56,7 +56,7 @@ for (var i = 0; i < array_length(global.baba_blocks); i++) {
 	var blocks = [];
 	
 	for (var j = 0; j < array_length(global.baba_blocks); j++) {
-		array_push(blocks, asset_get_index(string("sprBoardBabaBlock{0}{1}", types[j], colors[i])));
+		array_push(blocks, asset_get_index($"sprBoardBabaBlock{types[j]}{colors[i]}"));
 	}
 	
 	array_push(block_sprites, blocks);

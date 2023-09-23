@@ -49,6 +49,8 @@ with (objPlayerBase) {
 			if (!objMinigameController.info.is_finished) {
 				frozen = false;
 			}
+			
+			alarm_stop(0);
 		}
 	}
 }

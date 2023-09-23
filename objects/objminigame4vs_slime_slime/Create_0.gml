@@ -1,3 +1,5 @@
+alarm_time = 0;
+kill_percent = 0;
 no_kills = 0;
 
 function slime_shot(network = true) {
@@ -17,26 +19,30 @@ function slime_shot(network = true) {
 	audio_play_sound(sndMinigame4vs_Slime_Shot, 0, false);
 	music_pause();
 	next_seed_inline();
-	alarm_call(0, irandom_range(2, 4));
 	
 	if (network) {
+		alarm_time = irandom_range(2, 4);
+		kill_percent = irandom(4 - lost_count);
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Slime_SlimeShot);
+		buffer_write_data(buffer_u8, alarm_time);
+		buffer_write_data(buffer_u8, kill_percent);
 		network_send_tcp_packet();
 	}
+	
+	alarm_call(0, alarm_time);
 }
 
 alarms_init(2);
 
 alarm_create(function() {
-	next_seed_inline();
 	var lost_count = 0;
 
 	with (objPlayerBase) {
 		lost_count += lost;	
 	}
 
-	image_index = (1 / (5 - lost_count) > random(1)) ? 1 : 3;
+	image_index = (kill_percent == 0) ? 1 : 3;
 
 	if (no_kills < 8 && image_index == 3) {
 		audio_play_sound(sndMinigame4vs_Slime_Mercy, 0, false);

@@ -207,3 +207,13 @@ function music_fade(time = 750) {
 		audio_sound_gain(global.music_current, 0, time);
 	}
 }
+
+function audio_get_index(name) {
+	var index = asset_get_index(name);
+	
+	if (index == -1) {
+		index = asset_get_index(string_lower(name));
+	}
+	
+	return index;
+}

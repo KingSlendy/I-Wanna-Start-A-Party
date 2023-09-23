@@ -1,3 +1,8 @@
+if (instance_number(object_index) > 1) {
+	instance_destroy();
+	exit;
+}
+
 event_inherited();
 box_activate = method(id, roll_dice);
 

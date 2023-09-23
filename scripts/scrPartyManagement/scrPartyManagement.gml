@@ -252,7 +252,7 @@ function switch_camera_target(x, y) {
 
 function board_music() {
 	var room_name = room_get_name(room);
-	var bgm_name = "bgm" + string_copy(room_name, 2, string_length(room_name) - 1);
+	var bgm_name = $"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}";
 	
 	if (room == rBoardIsland && !global.board_day) {
 		bgm_name += "Night";
@@ -262,7 +262,7 @@ function board_music() {
 		bgm_name += "Dark";
 	}
 	
-	music_play(asset_get_index(bgm_name));
+	music_play(audio_get_index(bgm_name));
 }
 
 function board_start() {
@@ -639,7 +639,12 @@ function hide_dice() {
 }
 
 function roll_dice() {
-	//This code gets executes as if you were inside the dice you hit
+	if (global.dice_roll != 0) {
+		return;
+	}
+ 
+	
+	//This code gets executed as if you were inside the dice you hit
 	instance_destroy(objTurnChoices);
 	var r = instance_create_layer(x, y - 16, "Actors", objDiceRoll);
 	r.network_id = network_id;

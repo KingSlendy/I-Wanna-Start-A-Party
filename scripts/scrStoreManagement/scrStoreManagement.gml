@@ -28,7 +28,7 @@ function skin_init() {
 		new Skin("Just", "Just", "I Wanna Kill The Happil", 11, "Just"),
 		new Skin("Knot", "Knot", "SlimePark", 12, "Nekoroneko"),
 		new Skin("Koishi", "Koishi Kid", "DEATH GRIPS IS ONLINE", 13, "princeoflight", 900),
-		new Skin("Xmas", "Xmas Kid", "Jingle Jam", 14, "Patrickgh3", 400),
+		new Skin("Xmas", "Xmas Kid", "Jingle Jam", 14, "EchoMask", 400),
 		new Skin("Darth", "Darth Vader", "I Wanna Travel The Worlds", 15, "KingSlendy", 500),
 		new Skin("Link", "Link", "I Wanna Travel The Worlds", 15, "KingSlendy", 500),
 		new Skin("Eclipse", "Eclipse Kid", "I Wanna Eclipse", 16, "Gwiz609", 600),

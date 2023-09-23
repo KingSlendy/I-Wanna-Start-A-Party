@@ -21,7 +21,10 @@ for (var i = 0; i < array_length(file_sprites); i++) {
 }
 
 file_pos = [];
-array_copy(file_pos, 0, file_original_pos, 0, array_length(file_original_pos));
+
+for (var i = 0; i < array_length(file_original_pos); i++) {
+	array_push(file_pos, [file_original_pos[i][0], file_original_pos[i][1]]);
+}
 
 file_highlights = array_create(3, 0.75);
 file_opened = -1;

@@ -132,7 +132,7 @@ alarm_override(11, function() {
 		
 		with (player) {
 			var other_x = near.x + 20 * near.image_xscale;
-			var other_y = near.y + sprite_yoffset;
+			var other_y = near.y + ((vspd == 0) ? sprite_yoffset : 0);
 		
 			if (point_distance(x, y, other_x, other_y) > 224 && point_distance(x, y, other_x, other_y) > point_distance(teammate.x - 1, teammate.y - 7, other_x, other_y)) {
 				break;
