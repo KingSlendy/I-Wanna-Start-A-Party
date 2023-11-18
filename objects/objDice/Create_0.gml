@@ -1,8 +1,3 @@
-if (instance_number(object_index) > 1) {
-	instance_destroy();
-	exit;
-}
-
 event_inherited();
 box_activate = method(id, roll_dice);
 
@@ -76,3 +71,7 @@ alarm_create(function() {
 });
 
 alarm_call(0, roll_spd);
+
+if (global.board_started && instance_number(object_index) > 1) {
+	instance_destroy();
+}

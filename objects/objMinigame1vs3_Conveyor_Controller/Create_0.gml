@@ -98,7 +98,7 @@ alarm_override(11, function() {
 				
 				if (sprite == sprMinigame1vs3_Conveyor_ConveyorStill) {
 					var action = null;
-				} else if (sprite -- )
+				}
 			
 				if (action != null) {
 					action.hold(irandom_range(get_frames(0.1), get_frames(0.45)));

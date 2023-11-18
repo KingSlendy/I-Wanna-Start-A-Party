@@ -639,11 +639,10 @@ function hide_dice() {
 }
 
 function roll_dice() {
-	if (global.dice_roll != 0) {
+	if (global.board_started && global.dice_roll != 0) {
 		return;
 	}
  
-	
 	//This code gets executed as if you were inside the dice you hit
 	instance_destroy(objTurnChoices);
 	var r = instance_create_layer(x, y - 16, "Actors", objDiceRoll);

@@ -173,12 +173,22 @@ alarm_override(11, function() {
 					break;
 				
 				case 18:
+					//print(state_presses[state]);
+					
+					//if (array_length(state_presses[state]) == 0) {
+					//	print(state_presses);
+					//	state_presses[state] = [true, 0];
+					//}
+					
 					if (!state_presses[state][0]) {
 						actions.right.hold(3);
 						state_presses[state][0] = true;
 					}
-			
-					if (--state_presses[state][1] <= 0) {
+					
+					var timer = state_presses[state][1] - 1;
+					state_presses[state][1] = timer;
+					
+					if (timer <= 0) {
 						actions.jump.hold(8);
 						state_presses[state][1] = irandom_range(37, 45);
 					}

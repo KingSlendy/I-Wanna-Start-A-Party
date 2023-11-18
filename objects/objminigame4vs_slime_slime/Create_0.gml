@@ -22,6 +22,12 @@ function slime_shot(network = true) {
 	
 	if (network) {
 		alarm_time = irandom_range(2, 4);
+		var lost_count = 0;
+
+		with (objPlayerBase) {
+			lost_count += lost;	
+		}
+		
 		kill_percent = irandom(4 - lost_count);
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Slime_SlimeShot);
@@ -36,12 +42,6 @@ function slime_shot(network = true) {
 alarms_init(2);
 
 alarm_create(function() {
-	var lost_count = 0;
-
-	with (objPlayerBase) {
-		lost_count += lost;	
-	}
-
 	image_index = (kill_percent == 0) ? 1 : 3;
 
 	if (no_kills < 8 && image_index == 3) {

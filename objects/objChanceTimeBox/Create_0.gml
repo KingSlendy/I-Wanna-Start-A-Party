@@ -14,7 +14,8 @@ box_activate = function() {
 	
 	with (objChanceTime) {
 		if (array_contains(player_ids, null)) {
-			player_ids[array_get_index(player_ids, null)] = array_get_index(all_player_sprites(), sprite);
+			var sprite_names = array_map(all_player_sprites(), function(x) { return sprite_get_name(x); });
+			player_ids[array_get_index(player_ids, null)] = array_get_index(sprite_names, sprite_get_name(sprite));
 		} else {
 			event = events[index];
 		}
