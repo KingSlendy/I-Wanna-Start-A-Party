@@ -223,9 +223,10 @@ switch (room) {
 			switch (minigames_row_selected) {
 				case 0:
 					for (var i = 1; i <= global.player_max; i++) {
-						var square_x = info_x + 91 + 80 * (i - 1);
-						draw_box(square_x, 280, 40, 40, (array_contains(colors, i)) ? c_blue : c_red, player_color_by_turn(i), 0.85,, 3);
-						draw_sprite(get_skin_pose_object(focus_player_by_id(i), "Idle"), 0, square_x + 21, 280 + 23);
+						var minigame_id = minigame_turns[i - 1];
+						var square_x = info_x + 95 + 80 * (i - 1);
+						draw_box(square_x, 280, 40, 40, c_blue, player_color_by_turn(i), 0.85,, 3);
+						draw_sprite(get_skin_pose_object(focus_player_by_id(minigame_id), "Idle"), 0, square_x + 21, 280 + 23);
 					
 						if (i != global.player_max) {
 							draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
@@ -233,15 +234,7 @@ switch (room) {
 					}
 					break;
 				
-				case 1:
-					var players = [colors[0]];
-				
-					for (var i = 1; i <= global.player_max; i++) {
-						if (!array_contains(players, i)) {
-							array_push(players, i);
-						}
-					}
-			
+				case 1:			
 					for (var i = 1; i <= global.player_max; i++) {
 						if (i == 1) {
 							var square_x = info_x + 140;
@@ -249,8 +242,8 @@ switch (room) {
 							var square_x = info_x + 140 + 80 + 40 * (i - 2);
 						}
 					
-						draw_box(square_x, 280, 40, 40, (array_contains(colors, players[i - 1])) ? c_blue : c_red, c_white, 0.85,, 3);
-						draw_sprite(get_skin_pose_object(focus_player_by_id(players[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
+						draw_box(square_x, 280, 40, 40, (!array_contains(colors, i)) ? c_blue : c_red, player_color_by_turn(i), 0.85,, 3);
+						draw_sprite(get_skin_pose_object(focus_player_by_id(minigame_turns[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
 					
 						if (i == 1) {
 							draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
@@ -259,14 +252,6 @@ switch (room) {
 					break;
 				
 				case 2:
-					var players = [colors[0], colors[1]];
-				
-					for (var i = 1; i <= global.player_max; i++) {
-						if (!array_contains(players, i)) {
-							array_push(players, i);
-						}
-					}
-			
 					for (var i = 1; i <= global.player_max; i++) {
 						if (i <= 2) {
 							var square_x = info_x + 140 + 40 * (i - 1);
@@ -274,8 +259,8 @@ switch (room) {
 							var square_x = info_x + 140 + 80 + 40 * (i - 2);
 						}
 					
-						draw_box(square_x, 280, 40, 40, (array_contains(colors, players[i - 1])) ? c_blue : c_red, c_white, 0.85,, 3);
-						draw_sprite(get_skin_pose_object(focus_player_by_id(players[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
+						draw_box(square_x, 280, 40, 40, (array_contains(colors, i)) ? c_blue : c_red, player_color_by_turn(i), 0.85,, 3);
+						draw_sprite(get_skin_pose_object(focus_player_by_id(minigame_turns[i - 1]), "Idle"), 0, square_x + 21, 280 + 23);
 					
 						if (i == 2) {
 							draw_text_color_outline(square_x + 60, 290, "VS", c_orange, c_orange, c_yellow, c_yellow, 1, c_black);
@@ -283,6 +268,9 @@ switch (room) {
 					}
 					break;
 			}
+			
+			draw_sprite_ext(global.actions.left.bind(), 0, info_x + 64, 300, 0.5, 0.5, 0, c_white, 1);
+			draw_sprite_ext(global.actions.right.bind(), 0, info_x + draw_w - 71, 300, 0.5, 0.5, 0, c_white, 1);
 		}
 		break;
 		

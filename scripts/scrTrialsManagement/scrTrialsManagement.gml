@@ -228,7 +228,7 @@ function trial_start() {
 		case "2vs2": team = [1, 2]; break;
 	}
 	
-	minigame_info_set(prove.reference, prove.type, team);
+	minigame_info_set(prove.reference, prove.type,, team);
 	global.minigame_info.is_trials = true;
 	room_goto(prove.reference.scene);
 }

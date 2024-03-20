@@ -1,7 +1,7 @@
 language_set_font(global.fntTitle);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-title_text = "I WANNA START\nA\nPARTY\nTRAILER";
+title_text = "THE FANGAME AWARDS";
 title_x = 400;
 title_y = 250;
 title_w = string_width(title_text);

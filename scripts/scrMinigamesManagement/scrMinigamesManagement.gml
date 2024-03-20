@@ -214,7 +214,7 @@ function minigame_info_score_reset() {
 	}
 }
 
-function minigame_info_set(reference, type, team) {
+function minigame_info_set(reference, type, turns = [1, 2, 3, 4], team = [1, 2, 3, 4]) {
 	minigame_info_reset();
 	var info = global.minigame_info;
 	info.reference = reference;
@@ -227,7 +227,7 @@ function minigame_info_set(reference, type, team) {
 	}
 				
 	for (var i = 1; i <= global.player_max; i++) {
-		spawn_player_info(i, i);
+		spawn_player_info(i, turns[i - 1]);
 	}	
 		
 	with (objPlayerInfo) {

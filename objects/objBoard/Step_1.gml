@@ -1,5 +1,3 @@
-//Baba Is Board
-
 switch (room) {
 	case rBoardBaba:
 		tile_image_index += tile_image_speed * (50 / game_get_speed(gamespeed_fps));

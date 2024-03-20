@@ -18,7 +18,7 @@
   "exportToGame": true,
   "extensionVersion": "1.0.0",
   "files": [
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"window_taskbar.dll","constants":[
         {"resourceType":"GMExtensionConstant","resourceVersion":"1.0","name":"window_progress_none","hidden":false,"value":"0",},
         {"resourceType":"GMExtensionConstant","resourceVersion":"1.0","name":"window_progress_unknown","hidden":false,"value":"1",},
         {"resourceType":"GMExtensionConstant","resourceVersion":"1.0","name":"window_progress_normal","hidden":false,"value":"2",},
@@ -45,14 +45,14 @@
       ],"origname":"extensions\\window_taskbar.dll","ProxyFiles":[
         {"resourceType":"GMProxyFile","resourceVersion":"1.0","name":"window_taskbar_x64.dll","TargetMask":6,},
       ],"uncompress":false,"usesRunnerInterface":false,},
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":9223372036854775807,"filename":"window_taskbar.gml","final":"","functions":[
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"window_taskbar.gml","constants":[],"copyToTargets":9223372036854775807,"filename":"window_taskbar.gml","final":"","functions":[
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"window_taskbar_prepare_buffer","argCount":1,"args":[
             2,
           ],"documentation":"","externalName":"window_taskbar_prepare_buffer","help":"","hidden":true,"kind":11,"returnType":2,},
       ],"init":"","kind":2,"order":[
         {"name":"window_taskbar_prepare_buffer","path":"extensions/window_taskbar/window_taskbar.yy",},
       ],"origname":"extensions\\gml.gml","ProxyFiles":[],"uncompress":false,"usesRunnerInterface":false,},
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":-1,"filename":"autogen.gml","final":"","functions":[
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"autogen.gml","constants":[],"copyToTargets":-1,"filename":"autogen.gml","final":"","functions":[
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"window_progress","argCount":-1,"args":[],"documentation":"","externalName":"window_progress","help":"window_progress(status:int, current:int = 0, total:int = 0)->bool","hidden":false,"kind":2,"returnType":2,},
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"window_flash","argCount":-1,"args":[],"documentation":"","externalName":"window_flash","help":"window_flash(flags:int, count:int = 0, freq:int = 0)->bool","hidden":false,"kind":2,"returnType":2,},
       ],"init":"","kind":2,"order":[

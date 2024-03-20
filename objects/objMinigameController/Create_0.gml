@@ -13,7 +13,7 @@ with (objPlayerBase) {
 minigame_start = minigame4vs_start;
 minigame_players = function() {}
 minigame_camera = CameraMode.Static;
-minigame_time = 300;
+minigame_time = (!info.is_trials) ? 300 : -1;
 minigame_time_halign = fa_center;
 minigame_time_valign = fa_bottom;
 minigame_time_end = minigame_finish;

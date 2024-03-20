@@ -29,7 +29,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.shines = 0;
 	self.coins = 0;
 	self.items = array_create(3, null);
-	//self.shines = irandom(1);
+	//self.shines = 1;
 	//self.coins = 100;
 	//self.items = [global.board_items[ItemType.Poison], null, null];
 	self.score = 0;

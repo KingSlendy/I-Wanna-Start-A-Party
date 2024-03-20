@@ -430,26 +430,19 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 			break;
 			
 		case 2:
-			if (minigames_row_selected != 0) {
-				var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
+			var scroll_h = (sync_actions("right", 1) - sync_actions("left", 1));
 		
-				if (scroll_h != 0) {
-					var colors = minigame_colors[minigames_row_selected];
-				
-					if (minigames_row_selected == 1) {
-						colors[@ 0] = (colors[0] - 1 + 4 + scroll_h) % 4 + 1;
-					} else if (minigames_row_selected == 2) {
-						colors[@ 1] = (colors[1] - 2 + 3 + scroll_h) % 3 + 2;
-					}
-				
-					audio_play_sound(global.sound_cursor_move, 0, false);
-					exit;
-				}
+			if (scroll_h != 0) {
+				var length = array_length(minigame_turns_permutations);
+				minigame_turns_selected = (minigame_turns_selected + scroll_h + length) % length;
+				minigame_turns = minigame_turns_permutations[minigame_turns_selected];
+				audio_play_sound(global.sound_cursor_move, 0, false);
+				exit;
 			}
 		
 			if (sync_actions("jump", 1)) {
 				var types = minigame_types();
-				minigame_info_set(minigame_selected.reference, types[minigames_row_selected], minigame_colors[minigames_row_selected]);
+				minigame_info_set(minigame_selected.reference, types[minigames_row_selected], minigame_turns, minigame_colors[minigames_row_selected]);
 				global.minigame_info.is_minigames = true;
 				
 				state = 2;
