@@ -18,4 +18,4 @@
 
 //achieve_trophy(76);
 
-variable_struct_remove(global.board_games, "Online");
+//variable_struct_remove(global.board_games, "Online");
