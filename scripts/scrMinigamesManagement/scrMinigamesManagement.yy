@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrMinigamesManagement",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Game",
-    "path": "folders/Scripts/Game.yy",
+  "$GMScript":"",
+  "%Name":"scrMinigamesManagement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrMinigamesManagement",
+  "parent":{
+    "name":"Game",
+    "path":"folders/Scripts/Game.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

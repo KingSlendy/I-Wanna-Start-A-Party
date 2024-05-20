@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "shdSpotlight",
-  "parent": {
-    "name": "UI",
-    "path": "folders/Shaders/UI.yy",
+  "$GMShader":"",
+  "%Name":"shdSpotlight",
+  "name":"shdSpotlight",
+  "parent":{
+    "name":"UI",
+    "path":"folders/Shaders/UI.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

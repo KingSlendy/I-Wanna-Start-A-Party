@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrBoardsManagement",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Game",
-    "path": "folders/Scripts/Game.yy",
+  "$GMScript":"",
+  "%Name":"scrBoardsManagement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrBoardsManagement",
+  "parent":{
+    "name":"Game",
+    "path":"folders/Scripts/Game.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

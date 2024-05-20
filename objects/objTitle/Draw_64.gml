@@ -1,4 +1,4 @@
-LIVE
+//LIVE
 
 language_set_font(global.fntTest);
 draw_set_color(c_white)
