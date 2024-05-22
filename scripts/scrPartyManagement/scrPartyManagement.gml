@@ -253,6 +253,7 @@ function switch_camera_target(x, y) {
 function board_music() {
 	var room_name = room_get_name(room);
 	var bgm_name = $"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}";
+	var execute_music_method = music_play;
 	
 	if (room == rBoardIsland && !global.board_day) {
 		bgm_name += "Night";
@@ -262,7 +263,14 @@ function board_music() {
 		bgm_name += "Dark";
 	}
 	
-	music_play(audio_get_index(bgm_name));
+	// Fasf
+	if (room == rBoardTestStuff && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
+		bgm_name += "Last5Turns";	
+		execute_music_method = fasf_play_music_from_position;
+	}
+	
+	script_execute(execute_music_method, audio_get_index(bgm_name));
+	//music_play(audio_get_index(bgm_name));
 }
 
 function board_start() {
@@ -1619,4 +1627,6 @@ function board_world_ghost_shines(network = true) {
 function disable_board() {
 	instance_destroy(objPlayerInfo);
 	instance_destroy(objBoard);
+	
+	set_fasf_event(false);
 }

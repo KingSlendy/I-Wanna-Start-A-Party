@@ -58,6 +58,7 @@ function send_to_minigame() {
 		other.info.ghost_position = {x: self.x, y: self.y};	
 	}
 	
+	fasf_save_track_position();
 	room_goto(rMinigameOverview);
 }
 

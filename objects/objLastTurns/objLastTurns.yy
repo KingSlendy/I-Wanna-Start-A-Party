@@ -35,5 +35,8 @@
   "solid":false,
   "spriteId":null,
   "spriteMaskId":null,
+  "tags":[
+    "Events",
+  ],
   "visible":true,
 }

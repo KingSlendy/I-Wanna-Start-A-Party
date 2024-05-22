@@ -67,7 +67,6 @@ if (fade_start) {
 					with (objPlayerBase) {
 						change_to_object(objPlayerBase);
 					}
-				
 					room_goto(rMinigameOverview);
 					exit;
 					

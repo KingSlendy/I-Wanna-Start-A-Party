@@ -205,7 +205,10 @@ function save_board() {
 			saved_board_light: global.board_light,
 			
 			//World Board
-			saved_ghost_position: {}
+			saved_ghost_position: {},
+			
+			//Fasf Board
+			saved_fasf_last5turns: global.board_fasf_last5turns_event
 		},
 		
 		saved_players: array_create(global.player_max, null)

@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"bgmBoardIsland",
+  "%Name":"bgmBoardTestStuff",
   "audioGroupId":{
     "name":"audiogroup_BGM",
     "path":"audiogroups/audiogroup_BGM",
@@ -8,9 +8,9 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":1,
-  "duration":69.5664,
-  "name":"bgmBoardIsland",
+  "conversionMode":0,
+  "duration":75.13805,
+  "name":"bgmBoardTestStuff",
   "parent":{
     "name":"Party",
     "path":"folders/Sounds/BGM/Party.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmboardisland.ogg",
+  "soundFile":"bgmBoardTestStuff.ogg",
   "type":0,
   "volume":1.0,
 }

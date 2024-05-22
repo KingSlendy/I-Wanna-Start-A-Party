@@ -20,6 +20,9 @@ if (!global.board_started) {
 		//Hyrule Board
 		global.board_light = board.saved_board.saved_board_light;
 		
+		//Fasf Board
+		global.board_fasf_last5turns_event = board.saved_board.saved_fasf_last5turns;
+		
 		//World Board
 		with (objBoardWorldGhost) {
 			var position = board.saved_board.saved_ghost_position;
