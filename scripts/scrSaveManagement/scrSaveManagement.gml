@@ -10,7 +10,7 @@ function save_variables() {
 	//Party
 	global.games_played = 0;
 	global.collected_shines = 0;
-	global.collected_coins = 9000000;
+	global.collected_coins = 9000000; // Change this value later
 	global.collected_boards = array_sequence(0, 3);
 	
 	//Minigames

@@ -21,9 +21,18 @@ function fasf_save_track_position() {
 }
 
 function fasf_play_music_from_position(music) {
-	music_play(music);
-	audio_sound_gain(global.music_current, 0, 0);
-	audio_sound_set_track_position(global.music_current, global.nusic_board_track_position);
-	print($"Music position loaded ({global.nusic_board_track_position})");
-	audio_sound_gain(global.music_current, 1, 500);
+	
+	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
+		music_play(music); // Play music
+		
+		audio_sound_gain(global.music_current, 0, 0); // Mute music
+		audio_sound_set_track_position(global.music_current, global.nusic_board_track_position); // Load position
+		print($"Music position loaded ({global.nusic_board_track_position})");
+		audio_sound_gain(global.music_current, 1, 400); // Fade in volume
+	}
+}
+
+function fasf_reset_track_position() {
+	global.nusic_board_track_position = 0;
+	print($"Music position reseted ({global.nusic_board_track_position})");
 }
