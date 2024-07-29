@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_players_connected",
   "isCompatibility":false,
   "isDnD":false,

@@ -63,7 +63,7 @@ if (state == 0) {
 				}
 				break;
 		}
-		if room != rBoardTestStuff
+		if room != rBoardFASF
 		{
 			music_resume();
 			audio_sound_gain(global.music_current, 1, 1000);

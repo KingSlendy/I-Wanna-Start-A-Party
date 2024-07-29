@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_default_joycon_axis",
   "isCompatibility":false,
   "isDnD":false,

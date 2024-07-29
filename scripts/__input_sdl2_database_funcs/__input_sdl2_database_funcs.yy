@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"__input_sdl2_database_funcs",
   "isCompatibility":false,
   "isDnD":false,

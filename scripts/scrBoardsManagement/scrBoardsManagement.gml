@@ -18,7 +18,7 @@ function board_init() {
 		new Board(language_get_text("PARTY_BOARD_NSANITY_NAME"), rBoardNsanity, "KingSlendy\nMauriPlays!", language_get_text("PARTY_BOARD_NSANITY_WELCOME"), [language_get_text("PARTY_BOARD_NSANITY_RULES_1"), language_get_text("PARTY_BOARD_NSANITY_RULES_2", ["{5 coins}", draw_coins_price(5)], ["{10 coins}", draw_coins_price(10)])]),
 		new Board(language_get_text("PARTY_BOARD_WORLD_NAME"), rBoardWorld, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_WORLD_WELCOME"), [language_get_text("PARTY_BOARD_WORLD_RULES_1"), language_get_text("PARTY_BOARD_WORLD_RULES_2")]),
 		// Added - TODO: Languages
-		new Board("Test board 1", rBoardTestStuff, "Neos", "N/A", ["Mauri dijo: Chupala", "Sample text", "Bro...", "Yikes", "Que mira bobo? Anda pa'lla bobo"])
+		new Board("Test board 1", rBoardFASF, "Neos", "N/A", ["Mauri dijo: Chupala", "Sample text", "Bro...", "Yikes", "Que mira bobo? Anda pa'lla bobo"])
 	];
 }
 

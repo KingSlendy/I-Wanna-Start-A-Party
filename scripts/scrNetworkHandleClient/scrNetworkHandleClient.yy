@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrNetworkHandleClient",
   "isCompatibility":false,
   "isDnD":false,

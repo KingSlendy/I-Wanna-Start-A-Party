@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_source_hotswap_tick",
   "isCompatibility":false,
   "isDnD":false,

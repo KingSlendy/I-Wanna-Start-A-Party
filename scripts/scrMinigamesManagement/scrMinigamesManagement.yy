@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrMinigamesManagement",
   "isCompatibility":false,
   "isDnD":false,

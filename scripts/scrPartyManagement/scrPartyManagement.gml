@@ -264,7 +264,7 @@ function board_music() {
 	}
 	
 	// Fasf
-	if (room == rBoardTestStuff && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
+	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
 		bgm_name += "Last5Turns";	
 		execute_music_method = fasf_play_music_from_position;
 	}

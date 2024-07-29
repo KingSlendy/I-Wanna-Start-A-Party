@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrRandomManagement",
   "isCompatibility":false,
   "isDnD":false,

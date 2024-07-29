@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrAlarmManagement",
   "isCompatibility":false,
   "isDnD":false,

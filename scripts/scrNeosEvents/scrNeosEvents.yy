@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrNeosEvents",
   "isCompatibility":false,
   "isDnD":false,

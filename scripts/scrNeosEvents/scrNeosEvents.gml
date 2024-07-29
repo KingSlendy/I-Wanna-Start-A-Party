@@ -8,13 +8,13 @@ function set_fasf_event(mode = false) {
 }
 
 function fasf_play_music() {
-	music_play(bgmBoardTestStuffLast5Turns);
+	music_play(bgmBoardFASFLast5Turns);
 	audio_sound_gain(global.music_current, 1, 500);
 }
 
 function fasf_save_track_position() {
 	print("VAMO AL MINIJUEGO");
-	if room == rBoardTestStuff {
+	if room == rBoardFASF {
 		global.nusic_board_track_position = audio_sound_get_track_position(global.music_current);
 		print($"Track position stored ({global.nusic_board_track_position})");
 	}

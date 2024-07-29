@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrLanguagesManagement",
   "isCompatibility":false,
   "isDnD":false,
