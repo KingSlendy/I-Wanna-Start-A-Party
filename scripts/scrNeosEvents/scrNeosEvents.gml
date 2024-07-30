@@ -13,7 +13,7 @@ function fasf_play_music() {
 }
 
 function fasf_save_track_position() {
-	print("VAMO AL MINIJUEGO");
+	//print("VAMO AL MINIJUEGO");
 	if room == rBoardFASF {
 		global.nusic_board_track_position = audio_sound_get_track_position(global.music_current);
 		print($"Track position stored ({global.nusic_board_track_position})");
@@ -28,7 +28,7 @@ function fasf_play_music_from_position(music) {
 		audio_sound_gain(global.music_current, 0, 0); // Mute music
 		audio_sound_set_track_position(global.music_current, global.nusic_board_track_position); // Load position
 		print($"Music position loaded ({global.nusic_board_track_position})");
-		audio_sound_gain(global.music_current, 1, 400); // Fade in volume
+		audio_sound_gain(global.music_current, 1, 500); // Fade in volume
 	}
 }
 
