@@ -36,3 +36,11 @@ function fasf_reset_track_position() {
 	global.nusic_board_track_position = 0;
 	print($"Music position reseted ({global.nusic_board_track_position})");
 }
+
+function fasf_last_turn_battle_cutscene() {
+	if room == rBoardFASF {
+		if global.board_turn > global.max_board_turns - 1 {	
+			print("Last turn cutscene");
+		}
+	}
+}

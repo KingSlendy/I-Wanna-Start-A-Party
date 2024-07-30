@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":193.93306,
+  "duration":140.67587,
   "name":"bgmBoardFASFLast5Turns",
   "parent":{
     "name":"Party",
