@@ -678,6 +678,7 @@
     {"id":{"name":"objItemMirrorAnimation_Effect","path":"objects/objItemMirrorAnimation_Effect/objItemMirrorAnimation_Effect.yy",},},
     {"id":{"name":"objItemMirrorAnimation_EffectCreateParticles","path":"objects/objItemMirrorAnimation_EffectCreateParticles/objItemMirrorAnimation_EffectCreateParticles.yy",},},
     {"id":{"name":"objItemMirrorAnimation_EffectScreenFadeOut","path":"objects/objItemMirrorAnimation_EffectScreenFadeOut/objItemMirrorAnimation_EffectScreenFadeOut.yy",},},
+    {"id":{"name":"objItemMirrorAnimation_NewEffect","path":"objects/objItemMirrorAnimation_NewEffect/objItemMirrorAnimation_NewEffect.yy",},},
     {"id":{"name":"objItemMirrorAnimation","path":"objects/objItemMirrorAnimation/objItemMirrorAnimation.yy",},},
     {"id":{"name":"objItemPoisonAnimation","path":"objects/objItemPoisonAnimation/objItemPoisonAnimation.yy",},},
     {"id":{"name":"objItemReverseAnimation","path":"objects/objItemReverseAnimation/objItemReverseAnimation.yy",},},
