@@ -2,6 +2,7 @@
 //ParticleSystem1
 var _ps = part_system_create();
 part_system_draw_order(_ps, true);
+part_system_depth(_ps, depth);
 
 pt1_scaleX = 1.3;
 pt1_scaleY = 1.1;
