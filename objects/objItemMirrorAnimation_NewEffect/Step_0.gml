@@ -1,4 +1,4 @@
-scale_factor = lerp(0, 5, time / duration);
+scale_factor = lerp(0, 6, time / duration);
 
 pt1_scaleX = 1.3 * scale_factor;
 pt1_scaleY = 1.1 * scale_factor;

@@ -566,6 +566,7 @@ function space_path_finding(space, path_spaces) {
 					break;
 					
 				case rBoardDreams:
+				case rBoardFASF:
 					var teleport = event();
 					
 					with (teleport) {
