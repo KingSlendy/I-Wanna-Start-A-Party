@@ -42,7 +42,7 @@ if (shopping && is_local_turn()) {
 	}
 
 	if (global.actions.jump.pressed(network_id)) {
-		io_clear();
+		global.actions.jump.consume();
 		price = item_selected.price;
 		
 		if (room == rBoardBaba && global.baba_toggled[2]) {
@@ -106,6 +106,7 @@ if (shopping && is_local_turn()) {
 							objShop.shopping = true;
 							option_previous = option_selected;
 							option_selected = -1;
+							global.actions.jump.consume();
 						})
 					]]
 				])

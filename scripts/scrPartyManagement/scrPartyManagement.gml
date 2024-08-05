@@ -267,6 +267,11 @@ function board_music() {
 	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
 		bgm_name += "Last5Turns";	
 		execute_music_method = fasf_play_music_from_position;
+		
+		// Change space background color
+		with objBoardFASFBGManipulation {
+			apply_red_color_fx();	
+		}
 	}
 	
 	script_execute(execute_music_method, audio_get_index(bgm_name));
