@@ -13,13 +13,16 @@ layer_background_visible(layer_space, false);
 // Background layer drawer
 layer_space_drawer = layer_get_id("SpaceBackground");
 
-fx = layer_get_fx(layer_space_drawer);
-fx_parameter = fx_get_parameter(fx, "Intensity");
+fx = layer_get_fx("RedFilterBackground");
+fx_parameter = fx_get_parameter(fx, "g_Intensity");
 
+fx_set_parameter(fx, "g_Intensity", 0.0);
+//red_tint = false;
 
-apply_red_color_fx = function() {
+function apply_red_color_fx() {
 	//layer_set_fx(layer_space_drawer, 1.0);
-	fx_set_parameter(fx, fx_parameter, 1.0);
+	fx_set_parameter(fx, "g_Intensity", 1.0);
+	print("FX: Did it work?");
 }
 
 /*

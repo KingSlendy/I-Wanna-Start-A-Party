@@ -5,6 +5,10 @@ global.nusic_board_track_position = 0; // Handle track position when we go back 
 
 function set_fasf_event(mode = false) {
 	global.board_fasf_last5turns_event = mode;
+	
+	// Change color background
+	with objBoardFASFBGManipulation
+		apply_red_color_fx();
 }
 
 function fasf_play_music() {

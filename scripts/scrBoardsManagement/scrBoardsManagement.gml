@@ -18,7 +18,7 @@ function board_init() {
 		new Board(language_get_text("PARTY_BOARD_NSANITY_NAME"), rBoardNsanity, "KingSlendy\nMauriPlays!", language_get_text("PARTY_BOARD_NSANITY_WELCOME"), [language_get_text("PARTY_BOARD_NSANITY_RULES_1"), language_get_text("PARTY_BOARD_NSANITY_RULES_2", ["{5 coins}", draw_coins_price(5)], ["{10 coins}", draw_coins_price(10)])]),
 		new Board(language_get_text("PARTY_BOARD_WORLD_NAME"), rBoardWorld, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_WORLD_WELCOME"), [language_get_text("PARTY_BOARD_WORLD_RULES_1"), language_get_text("PARTY_BOARD_WORLD_RULES_2")]),
 		// Added - TODO: Languages
-		new Board("FASF 2024 board", rBoardFASF, "Neos", "Special board made for FASF2024", ["Same rules as Lucid Dream board", "Music by ISAo"])
+		new Board(language_get_text("PARTY_BOARD_FASF_NAME"), rBoardFASF, "Neos", language_get_text("PARTY_BOARD_FASF_WELCOME"), [language_get_text("PARTY_BOARD_FASF_RULES_1"), language_get_text("PARTY_BOARD_FASF_RULES_2")])
 	];
 }
 

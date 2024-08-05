@@ -270,7 +270,7 @@ function board_music() {
 		
 		// Change space background color
 		with objBoardFASFBGManipulation {
-			apply_red_color_fx();	
+			apply_red_color_fx();
 		}
 	}
 	
