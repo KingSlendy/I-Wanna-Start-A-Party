@@ -49,6 +49,7 @@ function start_minigame(set, network = true) {
 }
 
 // Debug
+/*
 function show_debug_info() {
 print("---------------------------------");
 print($"minigame label: {info.reference.label}");

@@ -2655,6 +2655,7 @@
     {"roomId":{"name":"rBoardHyrule","path":"rooms/rBoardHyrule/rBoardHyrule.yy",},},
     {"roomId":{"name":"rBoardNsanity","path":"rooms/rBoardNsanity/rBoardNsanity.yy",},},
     {"roomId":{"name":"rBoardWorld","path":"rooms/rBoardWorld/rBoardWorld.yy",},},
+    {"roomId":{"name":"rBoardFASF","path":"rooms/rBoardFASF/rBoardFASF.yy",},},
     {"roomId":{"name":"rBoardBasement","path":"rooms/rBoardBasement/rBoardBasement.yy",},},
     {"roomId":{"name":"rMinigameOverview","path":"rooms/rMinigameOverview/rMinigameOverview.yy",},},
     {"roomId":{"name":"rMinigame4vs_Lead","path":"rooms/rMinigame4vs_Lead/rMinigame4vs_Lead.yy",},},
@@ -2703,7 +2704,6 @@
     {"roomId":{"name":"rMinigameTemplate","path":"rooms/rMinigameTemplate/rMinigameTemplate.yy",},},
     {"roomId":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},},
     {"roomId":{"name":"rTest","path":"rooms/rTest/rTest.yy",},},
-    {"roomId":{"name":"rBoardFASF","path":"rooms/rBoardFASF/rBoardFASF.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
