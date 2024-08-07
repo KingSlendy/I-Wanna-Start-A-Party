@@ -25,4 +25,15 @@ function apply_red_color_fx() {
 	print("FX: Did it work?");
 }
 
+
+tile_layer_FASF = layer_get_id("FASFTiles");
+//tilemap_layer_FASF = layer_tilemap_get_id(tile_layer_FASF);
+
+tile_layer_FASF_glass = layer_get_id("FASFTilesGlass");
+//tilemap_layer_FASF_glass = layer_tilemap_get_id(tile_layer_FASF_glass);
+
+layer_x(tile_layer_FASF, (8)*32);
+layer_x(tile_layer_FASF_glass, (8)*32);
+//layer_y(tile_layer_FASF, (13-5)*32);
+
 /*
