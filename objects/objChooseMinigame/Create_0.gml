@@ -65,8 +65,11 @@ function send_to_minigame() {
 	room_goto(rMinigameOverview);
 }
 
+
+
 alarms_init(2);
 
+// Alarm 0 - Show vs and get list of minigames to select
 alarm_create(function() {
 	//Counts the maximum colors between the cards
 	var blue_count = array_count(player_colors, c_blue);
@@ -198,6 +201,7 @@ alarm_create(function() {
 	alarm_call(1, 2);
 });
 
+// Alarm 1
 alarm_create(function() {
 	with (objPlayerInfo) {
 		if (draw_x < 400) {
@@ -210,6 +214,7 @@ alarm_create(function() {
 	state = 2;
 });
 
+// Alarm 2 - Minigame roulette
 alarm_create(function() {
 	global.choice_selected = (global.choice_selected + 1 + minigame_total) % minigame_total;
 	audio_play_sound(sndRouletteRoll, 0, false);
@@ -221,13 +226,15 @@ alarm_create(function() {
 		choosed_minigame();	
 		exit;
 	}
-
+	
+	// Repeat
 	alarm_frames(2, floor(minigames_timer));
 });
 
+// Alarm 3
 alarm_create(function() {
 	state = 3;
 });
 
-alarm_debug_info();
+//alarm_debug_info();
 fasf_last_turn_battle_cutscene();
