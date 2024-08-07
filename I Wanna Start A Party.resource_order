@@ -1285,6 +1285,7 @@
     {"name":"sprBoardBabaBlockSpace","order":1,"path":"sprites/sprBoardBabaBlockSpace/sprBoardBabaBlockSpace.yy",},
     {"name":"sprBoardDreamsBigRed","order":1,"path":"sprites/sprBoardDreamsBigRed/sprBoardDreamsBigRed.yy",},
     {"name":"sprBoardFASFFlyingObjects","order":1,"path":"sprites/sprBoardFASFFlyingObjects/sprBoardFASFFlyingObjects.yy",},
+    {"name":"sprBoardFASFShop","order":2,"path":"sprites/sprBoardFASFShop/sprBoardFASFShop.yy",},
     {"name":"sprBoardHotlandSans","order":1,"path":"sprites/sprBoardHotlandSans/sprBoardHotlandSans.yy",},
     {"name":"sprBoardPalletPokeball","order":10,"path":"sprites/sprBoardPalletPokeball/sprBoardPalletPokeball.yy",},
     {"name":"sprBoardPalletPokemon_Fire_1","order":3,"path":"sprites/sprBoardPalletPokemon_Fire_1/sprBoardPalletPokemon_Fire_1.yy",},
