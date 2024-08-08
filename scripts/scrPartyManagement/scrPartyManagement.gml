@@ -625,7 +625,9 @@ function show_dice(player_id) {
 	d.focus_player = focus_player;
 	d.network_id = player_id;
 	
+	// Added to prevent auto jumping when we decide the order
 	global.actions.jump.consume();
+		
 	focus_player.can_jump = true;
 	
 	if (is_local_turn() && is_player_turn()) {

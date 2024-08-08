@@ -161,6 +161,10 @@ function advance_chance_time() {
 	var b = instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objChanceTimeBox);
 	b.flag = current_flag;
 	
+	// FASF fix
+	global.actions.jump.consume();
+	print("Chance time, did it work?")
+	
 	if (is_local_turn()) {
 		switch (current_flag) {
 			case 0: //Spawns the first player box
