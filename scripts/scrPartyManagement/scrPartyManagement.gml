@@ -624,6 +624,8 @@ function show_dice(player_id) {
 	var d = instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objDice);
 	d.focus_player = focus_player;
 	d.network_id = player_id;
+	
+	global.actions.jump.consume();
 	focus_player.can_jump = true;
 	
 	if (is_local_turn() && is_player_turn()) {
