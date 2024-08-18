@@ -118,6 +118,7 @@ function give_last_place() {
 
 function spawn_last_turns_box() {
 	instance_create_layer(focus_player.x + 17, focus_player.y + 23 - 37, "Actors", objLastTurnsBox);
+	global.actions.jump.consume();
 	
 	if (is_local_turn()) {
 		buffer_seek_begin();

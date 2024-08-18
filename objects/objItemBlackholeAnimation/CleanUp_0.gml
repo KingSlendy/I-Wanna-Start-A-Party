@@ -1,3 +1,3 @@
 event_inherited();
-part_type_destroy(part_type);
-part_system_destroy(part_system);
+part_type_destroy_safe(part_type);
+part_system_destroy_safe(part_system);

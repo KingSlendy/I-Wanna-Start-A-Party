@@ -4,6 +4,8 @@ timer_burst = 0;
 timer_alpha_black_screen = 0;
 duration_alpha_black_screen = 20;
 
+area_rectangle = 2000;
+
 #region Particles
 part_system = part_system_create();
 part_system_depth(part_system, depth - 1);

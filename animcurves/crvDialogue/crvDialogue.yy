@@ -1,17 +1,19 @@
 {
-  "resourceType": "GMAnimCurve",
-  "resourceVersion": "1.2",
-  "name": "crvDialogue",
-  "channels": [
-    {"resourceType":"GMAnimCurveChannel","resourceVersion":"1.0","name":"Pos","colour":4290799884,"points":[
+  "$GMAnimCurve":"",
+  "%Name":"crvDialogue",
+  "channels":[
+    {"$GMAnimCurveChannel":"","%Name":"Pos","colour":4290799884,"name":"Pos","points":[
         {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":0.0,"y":1.0,},
         {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.75,"y":-0.25,},
         {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":1.0,"y":0.0,},
-      ],"visible":true,},
+      ],"resourceType":"GMAnimCurveChannel","resourceVersion":"2.0","visible":true,},
   ],
-  "function": 1,
-  "parent": {
-    "name": "Interfaces",
-    "path": "folders/Curves/Interfaces.yy",
+  "function":1,
+  "name":"crvDialogue",
+  "parent":{
+    "name":"Interfaces",
+    "path":"folders/Curves/Interfaces.yy",
   },
+  "resourceType":"GMAnimCurve",
+  "resourceVersion":"2.0",
 }

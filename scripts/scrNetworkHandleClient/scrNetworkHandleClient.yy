@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrNetworkHandleClient",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Network",
-    "path": "folders/Scripts/Network.yy",
+  "$GMScript":"v1",
+  "%Name":"scrNetworkHandleClient",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrNetworkHandleClient",
+  "parent":{
+    "name":"Network",
+    "path":"folders/Scripts/Network.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -22,4 +22,4 @@
 #macro DESC_END ; }
 
 //GMLIVE
-#macro LIVE if (live_call()) return live_result;
+//#macro LIVE if (live_call()) return live_result;

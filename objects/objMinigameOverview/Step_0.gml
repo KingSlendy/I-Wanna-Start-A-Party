@@ -80,3 +80,7 @@ if (global.actions.jump.pressed(global.player_id)) {
 if (info.is_minigames && global.actions.shoot.pressed(global.player_id)) {
 	start_minigame(3);
 }
+
+/*
+if keyboard_check_pressed(ord("U"))
+	show_debug_info();

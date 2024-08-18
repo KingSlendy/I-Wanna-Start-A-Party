@@ -253,6 +253,7 @@ function switch_camera_target(x, y) {
 function board_music() {
 	var room_name = room_get_name(room);
 	var bgm_name = $"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}";
+	var execute_music_method = music_play;
 	
 	if (room == rBoardIsland && !global.board_day) {
 		bgm_name += "Night";
@@ -262,7 +263,19 @@ function board_music() {
 		bgm_name += "Dark";
 	}
 	
-	music_play(audio_get_index(bgm_name));
+	// Fasf
+	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
+		bgm_name += "Last5Turns";	
+		execute_music_method = fasf_play_music_from_position;
+		
+		// Change space background color
+		with objBoardFASFBGManipulation {
+			apply_red_color_fx();
+		}
+	}
+	
+	script_execute(execute_music_method, audio_get_index(bgm_name));
+	//music_play(audio_get_index(bgm_name));
 }
 
 function board_start() {
@@ -558,6 +571,7 @@ function space_path_finding(space, path_spaces) {
 					break;
 					
 				case rBoardDreams:
+				case rBoardFASF:
 					var teleport = event();
 					
 					with (teleport) {
@@ -610,6 +624,10 @@ function show_dice(player_id) {
 	var d = instance_create_layer(focus_player.x, focus_player.y - 37, "Actors", objDice);
 	d.focus_player = focus_player;
 	d.network_id = player_id;
+	
+	// Added to prevent auto jumping when we decide the order
+	global.actions.jump.consume();
+		
 	focus_player.can_jump = true;
 	
 	if (is_local_turn() && is_player_turn()) {
@@ -1619,4 +1637,6 @@ function board_world_ghost_shines(network = true) {
 function disable_board() {
 	instance_destroy(objPlayerInfo);
 	instance_destroy(objBoard);
+	
+	set_fasf_event(false);
 }

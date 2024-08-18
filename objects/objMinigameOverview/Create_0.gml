@@ -12,7 +12,8 @@ with (objPlayerBase) {
 
 instructions = [];
 
-for (var i = 0; i < array_length(info.reference.instructions); i++) {
+var description_total_pages = array_length(info.reference.instructions);
+for (var i = 0; i < description_total_pages; i++) {
 	array_push(instructions, new Text(global.fntDialogue));
 }
 
@@ -46,3 +47,16 @@ function start_minigame(set, network = true) {
 		network_send_tcp_packet();
 	}
 }
+
+// Debug
+/*
+function show_debug_info() {
+print("---------------------------------");
+print($"minigame label: {info.reference.label}");
+print($"minigame type: {info.type}");
+print($"minigame instructions: {info.reference.instructions}");
+print($"instruction pages: {array_length(info.reference.instructions);}");
+print($"info: {info.reference.instructions[instructions_page]}");
+print("---------------------------------")
+}
+show_debug_info();

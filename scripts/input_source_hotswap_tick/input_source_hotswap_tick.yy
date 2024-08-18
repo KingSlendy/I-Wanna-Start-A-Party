@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "input_source_hotswap_tick",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Deprecated",
-    "path": "folders/Extensions/Input/(System)/Deprecated.yy",
+  "$GMScript":"v1",
+  "%Name":"input_source_hotswap_tick",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input_source_hotswap_tick",
+  "parent":{
+    "name":"Deprecated",
+    "path":"folders/Extensions/Input/(System)/Deprecated.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

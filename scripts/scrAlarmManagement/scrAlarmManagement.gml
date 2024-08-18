@@ -89,3 +89,16 @@ function alarm_inherited(num) {
 function alarm_is_stopped(num) {
 	return (time_source_get_state(alarms[num]) != time_source_state_active);
 }
+
+
+// Debug
+function alarm_debug_info() {
+	var obj_name = object_get_name(object_index);
+	var total_alarms = array_length(alarms);
+	print("-------------------------------");
+	print($"Object: {obj_name}");
+	print($"Alarms: {total_alarms}");
+	print($"Alarm last index: {alarm_curr}");
+	print("-------------------------------");
+	
+}

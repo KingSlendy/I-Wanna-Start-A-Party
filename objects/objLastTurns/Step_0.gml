@@ -63,9 +63,18 @@ if (state == 0) {
 				}
 				break;
 		}
+		if room != rBoardFASF
+		{
+			music_resume();
+			audio_sound_gain(global.music_current, 1, 1000);
+		}
+		else
+		{
+			// FASF event
+			fasf_play_music();
+			set_fasf_event(true);
+		}
 		
-		music_resume();
-		audio_sound_gain(global.music_current, 1, 1000);
 		instance_destroy(objLastTurnsChoice);
 		focus_player = null;
 		fade_alpha = 1;

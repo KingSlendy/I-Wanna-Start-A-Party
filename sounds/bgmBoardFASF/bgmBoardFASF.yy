@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgmBoardFASF",
+  "audioGroupId":{
+    "name":"audiogroup_BGM",
+    "path":"audiogroups/audiogroup_BGM",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":99.19565,
+  "name":"bgmBoardFASF",
+  "parent":{
+    "name":"Party",
+    "path":"folders/Sounds/BGM/Party.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgmBoardFASF.ogg",
+  "type":0,
+  "volume":0.8,
+}

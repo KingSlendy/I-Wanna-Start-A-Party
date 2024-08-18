@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrViewManagement",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Managers",
-    "path": "folders/Scripts/Managers.yy",
+  "$GMScript":"v1",
+  "%Name":"scrViewManagement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrViewManagement",
+  "parent":{
+    "name":"Managers",
+    "path":"folders/Scripts/Managers.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -16,7 +16,9 @@ function board_init() {
 		new Board(language_get_text("PARTY_BOARD_DREAMS_NAME"), rBoardDreams, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_DREAMS_WELCOME"), [language_get_text("PARTY_BOARD_DREAMS_RULES_1"), language_get_text("PARTY_BOARD_DREAMS_RULES_2")]),
 		new Board(language_get_text("PARTY_BOARD_HYRULE_NAME"), rBoardHyrule, "KingSlendy", language_get_text("PARTY_BOARD_HYRULE_WELCOME"), [language_get_text("PARTY_BOARD_HYRULE_RULES_1"), language_get_text("PARTY_BOARD_HYRULE_RULES_2"), language_get_text("PARTY_BOARD_HYRULE_RULES_3"), language_get_text("PARTY_BOARD_HYRULE_RULES_4", ["{20 coins}", draw_coins_price(20)]), language_get_text("PARTY_BOARD_HYRULE_RULES_5")]),
 		new Board(language_get_text("PARTY_BOARD_NSANITY_NAME"), rBoardNsanity, "KingSlendy\nMauriPlays!", language_get_text("PARTY_BOARD_NSANITY_WELCOME"), [language_get_text("PARTY_BOARD_NSANITY_RULES_1"), language_get_text("PARTY_BOARD_NSANITY_RULES_2", ["{5 coins}", draw_coins_price(5)], ["{10 coins}", draw_coins_price(10)])]),
-		new Board(language_get_text("PARTY_BOARD_WORLD_NAME"), rBoardWorld, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_WORLD_WELCOME"), [language_get_text("PARTY_BOARD_WORLD_RULES_1"), language_get_text("PARTY_BOARD_WORLD_RULES_2")])
+		new Board(language_get_text("PARTY_BOARD_WORLD_NAME"), rBoardWorld, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_WORLD_WELCOME"), [language_get_text("PARTY_BOARD_WORLD_RULES_1"), language_get_text("PARTY_BOARD_WORLD_RULES_2")]),
+		// Added - TODO: Languages
+		new Board(language_get_text("PARTY_BOARD_FASF_NAME"), rBoardFASF, "Neos", language_get_text("PARTY_BOARD_FASF_WELCOME"), [language_get_text("PARTY_BOARD_FASF_RULES_1"), language_get_text("PARTY_BOARD_FASF_RULES_2"), language_get_text("PARTY_BOARD_FASF_RULES_3")])
 	];
 }
 
