@@ -15,9 +15,6 @@
     {"$GMSpriteFrame":"","%Name":"96d32a54-01e3-4028-8619-2c1fb2145269","name":"96d32a54-01e3-4028-8619-2c1fb2145269","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"0545055f-5f67-4095-9734-39b5b138becb","name":"0545055f-5f67-4095-9734-39b5b138becb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"11a52b91-afd5-4eed-9fb7-aa8501230a77","name":"11a52b91-afd5-4eed-9fb7-aa8501230a77","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"5e53cb27-5c11-44a7-8856-f9a0f65356ad","name":"5e53cb27-5c11-44a7-8856-f9a0f65356ad","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"59cf3879-ed1a-4844-823d-557dfd35f6b6","name":"59cf3879-ed1a-4844-823d-557dfd35f6b6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"f48d2a29-1df3-4472-a1ab-7212efbdfb50","name":"f48d2a29-1df3-4472-a1ab-7212efbdfb50","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"5a6f6eb6-755e-4c34-ad23-3c0c53abca26","name":"5a6f6eb6-755e-4c34-ad23-3c0c53abca26","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
@@ -55,7 +52,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":7.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -84,17 +81,8 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"11a52b91-afd5-4eed-9fb7-aa8501230a77","path":"sprites/sprMinigame1vs3_Avoid_Block/sprMinigame1vs3_Avoid_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"de032500-4aa6-48cb-8812-976acf01df4b","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5e53cb27-5c11-44a7-8856-f9a0f65356ad","path":"sprites/sprMinigame1vs3_Avoid_Block/sprMinigame1vs3_Avoid_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"23294417-5d8c-4c02-aff4-fea82dc5dd84","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"59cf3879-ed1a-4844-823d-557dfd35f6b6","path":"sprites/sprMinigame1vs3_Avoid_Block/sprMinigame1vs3_Avoid_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"6a9cdc25-5abc-475e-bebe-7ba7aaf5f6b2","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f48d2a29-1df3-4472-a1ab-7212efbdfb50","path":"sprites/sprMinigame1vs3_Avoid_Block/sprMinigame1vs3_Avoid_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"fc5d55f5-8d31-493c-a6e3-877bb4123657","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5a6f6eb6-755e-4c34-ad23-3c0c53abca26","path":"sprites/sprMinigame1vs3_Avoid_Block/sprMinigame1vs3_Avoid_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"04c39810-d8d9-4ce4-a4df-343cc30735e2","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"04c39810-d8d9-4ce4-a4df-343cc30735e2","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

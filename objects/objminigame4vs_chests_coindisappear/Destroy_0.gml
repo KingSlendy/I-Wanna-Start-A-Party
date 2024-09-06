@@ -3,7 +3,7 @@ if (instance_number(object_index) <= 1) {
 	
 	with (objMinigame4vs_Chests_Chest) {
 		image_index = 0;
-		target_spd += 7;
+		target_spd += 5;
 		selectable = false;
 		
 		if (trial_is_title(STINGY_CHESTS)) {

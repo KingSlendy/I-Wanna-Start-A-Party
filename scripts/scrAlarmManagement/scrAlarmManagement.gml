@@ -40,6 +40,16 @@ function alarm_instant(num) {
 	alarms_funcs[num]();
 }
 
+function alarm_remain(num) {
+	var remaining = time_source_get_time_remaining(alarms[num]);
+	
+	if (time_source_get_units(alarms[num]) == time_source_units_seconds) {
+		remaining = get_frames(remaining);
+	}
+
+	return remaining;
+}
+
 function alarm_pause(num) {
 	time_source_pause(alarms[num]);
 }
@@ -88,17 +98,4 @@ function alarm_inherited(num) {
 
 function alarm_is_stopped(num) {
 	return (time_source_get_state(alarms[num]) != time_source_state_active);
-}
-
-
-// Debug
-function alarm_debug_info() {
-	var obj_name = object_get_name(object_index);
-	var total_alarms = array_length(alarms);
-	print("-------------------------------");
-	print($"Object: {obj_name}");
-	print($"Alarms: {total_alarms}");
-	print($"Alarm last index: {alarm_curr}");
-	print("-------------------------------");
-	
 }

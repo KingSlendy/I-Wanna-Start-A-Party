@@ -2,13 +2,16 @@ depth = layer_get_depth("Tiles") - 1;
 target_x = x;
 target_y = y;
 target_spd = 10;
+angle = 0;
+target_angle = angle;
+target_angle_spd = 0;
 target_switched = false;
 coins = 0;
 total = 0;
 selectable = false;
 selected = -1;
 
-function switch_target(new_x = null, new_y = null) {
+function switch_target(new_x = null, new_y = null, new_angle = null) {
 	if (new_x != null) {
 		target_x = new_x;
 	}
@@ -17,6 +20,12 @@ function switch_target(new_x = null, new_y = null) {
 		target_y = new_y;
 	}
 	
+	if (new_angle != null) {
+		target_angle = new_angle;
+	}
+	
+	angle = target_angle - 180;
+	target_angle_spd = abs(angle - target_angle) / (abs(x - target_x) / (target_spd * DELTA));
 	target_switched = true;
 }
 
@@ -24,7 +33,12 @@ alarms_init(4);
 
 alarm_create(function() {
 	next_seed_inline();
-	coins = irandom(10);
+	
+	switch (objMinigameController.chest_round - 1) {
+		case 0: coins = n; break;	
+		case 1: coins = (n >= 2) ? n : 0 break;
+		case 2: coins = (n == 3) ? 5 : 0 break;
+	}
 	
 	if (trial_is_title(STINGY_CHESTS)) {
 		coins = (n == 0);

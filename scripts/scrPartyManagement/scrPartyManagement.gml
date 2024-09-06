@@ -270,11 +270,11 @@ function board_music() {
 		
 		// Change space background color
 		with objBoardFASFBGManipulation {
-			apply_red_color_fx();
+			apply_color_fx();
 		}
 	}
 	
-	script_execute(execute_music_method, audio_get_index(bgm_name));
+	execute_music_method(audio_get_index(bgm_name));
 	//music_play(audio_get_index(bgm_name));
 }
 
@@ -1631,6 +1631,44 @@ function board_world_ghost_shines(network = true) {
 		buffer_write_action(ClientTCP.BoardWorldGhostShines);
 		network_send_tcp_packet();
 	}
+}
+
+function set_fasf_event(mode = false) {
+	global.board_fasf_last5turns_event = mode;
+	
+	// Change color background
+	with objBoardFASFBGManipulation
+		apply_color_fx();
+}
+
+function fasf_play_music() {
+	music_play(bgmBoardFASFLast5Turns);
+	audio_sound_gain(global.music_current, 1, 500);
+}
+
+function fasf_save_track_position() {
+	//print("VAMO AL MINIJUEGO");
+	if room == rBoardFASF {
+		global.music_board_track_position = audio_sound_get_track_position(global.music_current);
+		print($"Track position stored ({global.music_board_track_position})");
+	}
+}
+
+function fasf_play_music_from_position(music) {
+	
+	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
+		music_play(music); // Play music
+		
+		audio_sound_gain(global.music_current, 0, 0); // Mute music
+		audio_sound_set_track_position(global.music_current, global.music_board_track_position); // Load position
+		print($"Music position loaded ({global.music_board_track_position})");
+		audio_sound_gain(global.music_current, 1, 500); // Fade in volume
+	}
+}
+
+function fasf_reset_track_position() {
+	global.music_board_track_position = 0;
+	print($"Music position reseted ({global.music_board_track_position})");
 }
 #endregion
 

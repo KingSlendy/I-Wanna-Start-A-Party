@@ -161,6 +161,11 @@ function ai_release_all() {
 
 function check_player_actions_by_id(player_id) {
 	var player = focus_player_by_id(player_id);
+	
+	if (player == null) {
+		return null;
+	}
+	
 	var actions = ai_actions(player_id);
 
 	if (actions == null || !is_player_local(player.network_id) || !player.ai) {
@@ -172,8 +177,13 @@ function check_player_actions_by_id(player_id) {
 
 function bind_to_icon(bind) {
 	//Alphanumeric keys
-	if (bind >= 48 && bind <= 57 || bind >= 65 && bind <= 90 || bind >= 96 && bind <= 105) {
-		return asset_get_index("sprKey_" + chr(bind));
+	if (bind >= 48 && bind <= 57 || bind >= 65 && bind <= 90) {
+		return asset_get_index($"sprKey_{chr(bind)}");
+	}
+	
+	//Numpad keys
+	if (bind >= 96 && bind <= 105) {
+		return asset_get_index($"sprKey_{chr(bind - 31)}")
 	}
 	
 	var binds = {};

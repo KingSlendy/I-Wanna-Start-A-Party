@@ -110,11 +110,11 @@ alarm_create(4, function() {
 	}
 
 	with (chests[0]) {
-		switch_target(chests[1].x, chests[1].y);
+		switch_target(chests[1].x, chests[1].y, 180);
 	}
 
 	with (chests[1]) {
-		switch_target(chests[0].x, chests[0].y);
+		switch_target(chests[0].x, chests[0].y, 360);
 	}
 
 	current_switch++;
@@ -156,6 +156,10 @@ alarm_create(6, function() {
 });
 
 alarm_override(11, function() {
+	if (trial_is_title(STINGY_CHESTS)) {
+		return;
+	}
+	
 	for (var i = 2; i <= global.player_max; i++) {
 		var actions = check_player_actions_by_id(i);
 

@@ -2,15 +2,26 @@ event_inherited();
 
 if (solo_action != null) {
 	var player = minigame1vs3_solo();
-	var color = c_white;
+	var action_x = player.x - 128;
 	
-	if (solo_correct) {
-		color = c_lime;
-	} else if (solo_wrong) {
-		color = c_red;
+	for (var i = 0; i < 4; i++) {
+		var color = c_white;
+	
+		if ((solo_correct && solo_advance == i) || solo_advance > i) {
+			color = c_lime;
+		} else if (solo_wrong && solo_advance == i) {
+			color = c_red;
+		}
+		
+		var length = array_length(solo_actions);
+		var current_solo_advance = (solo_current - solo_advance + length) % length;
+		var current_solo_action = solo_actions[(current_solo_advance + i + length) % length];
+		var current_solo_action_bind = global.actions[$ current_solo_action].bind();
+		var current_solo_action_xoffset = abs(sprite_get_xoffset(current_solo_action_bind) - sprite_get_xoffset(sprKey_Blank));
+	
+		draw_sprite_ext(current_solo_action_bind, 0, action_x + current_solo_action_xoffset, player.y + 64, 1, 1, 0, color, 1);
+		action_x += sprite_get_width(current_solo_action_bind) + 16;
 	}
-	
-	draw_sprite_ext(global.actions[$ solo_action].bind(), 0, player.x, player.y + 64, 1, 1, 0, color, 1);
 }
 
 if (team_action != null) {

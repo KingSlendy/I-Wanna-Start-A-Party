@@ -66,8 +66,6 @@ mlp[$ bgmBoardHyruleDark] = new LoopPoint(1.627, 60.759);
 mlp[$ bgmBoardNsanity] = new LoopPoint(0.0, 124.282);
 mlp[$ bgmBoardWorld] = new LoopPoint(13.884, 90.386);
 mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
-//mlp[$ bgmBoardFASF] = new LoopPoint(6.063, 74.095);
-//mlp[$ bgmBoardFASFLast5Turns] = new LoopPoint(45.415, 191.255);
 mlp[$ bgmBoardFASF] = new LoopPoint(31.033, 98.164);
 mlp[$ bgmBoardFASFLast5Turns] = new LoopPoint(20.269, 79.536);
 

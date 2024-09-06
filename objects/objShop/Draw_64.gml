@@ -1,3 +1,7 @@
+if (instance_exists(objMapLook)) {
+	exit;
+}
+
 var draw_x = (display_get_gui_width() - width) / 2;
 var draw_y = (display_get_gui_height() - height) / 2;
 draw_box(draw_x, draw_y + offset_y, width, height, c_dkgray, c_white, 0.6,, 3);

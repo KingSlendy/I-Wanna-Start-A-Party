@@ -2,6 +2,9 @@ function Minigame(title, label, instructions, preview, scene, fangame_name) cons
 	self.title = title;
 	self.label = label;
 	self.instructions = instructions;
+	
+	
+	
 	self.preview = preview;
 	self.scene = scene;
 	self.fangame_name = fangame_name;
@@ -88,52 +91,489 @@ global.minigames = {};
 function minigame_init() {
 	var m = global.minigames;
 	m[$ "4vs"] = [
-		new Minigame(FOLLOW_THE_LEAD, language_get_text("MINIGAMES_LEAD_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_LEAD_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_LEAD_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
-		new Minigame(TOWER_ASCENSION, language_get_text("MINIGAMES_TOWER_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_TOWER_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_TOWER_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
-		new Minigame(HAUNTED_FOREST, language_get_text("MINIGAMES_HAUNTED_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_HAUNTED_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HAUNTED_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
-		new Minigame(MAGIC_MEMORY, language_get_text("MINIGAMES_MAGIC_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MAGIC_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MAGIC_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
-		new Minigame(MANSION_ESCAPE, language_get_text("MINIGAMES_MANSION_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MANSION_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MANSION_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Up key}", draw_action(global.actions.up)])) DESC_END], 10, rMinigame4vs_Mansion, "Kid World"),
-		new Minigame(PAINTING_PLATFORMS, language_get_text("MINIGAMES_PLATFORMS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_PLATFORMS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_PLATFORMS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 16, rMinigame4vs_Painting, "I Wanna Thank You Mauricio Juega IWBT"),
-		new Minigame(BUGS_AROUND, language_get_text("MINIGAMES_BUGS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUGS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUGS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
-		new Minigame(UNSTABLE_BLOCKS, language_get_text("MINIGAMES_BLOCKS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BLOCKS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BLOCKS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 18, rMinigame4vs_Blocks, "I Wanna Thank You TheNewGeezer"),
-		new Minigame(CRAZY_CHESTS, language_get_text("MINIGAMES_CHESTS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CHESTS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CHESTS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Up key}", draw_action(global.actions.up)])) DESC_END], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
-		new Minigame(SLIME_ANNOYER, language_get_text("MINIGAMES_SLIME_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"),	language_get_text("MINIGAMES_SLIME_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SLIME_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 23, rMinigame4vs_Slime, "SlimePark"),
-		new Minigame(ROCKET_IGNITION, language_get_text("MINIGAMES_ROCKET_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_ROCKET_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_ROCKET_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 24, rMinigame4vs_Rocket, "I Wanna Walk Out In The Morning Dew"),
-		new Minigame(DIZZY_CONUNDRUM, language_get_text("MINIGAMES_DIZZY_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DIZZY_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DIZZY_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 25, rMinigame4vs_Dizzy, "VoVoVo"),
-		new Minigame(TARGETING_TARGETS, language_get_text("MINIGAMES_TARGETS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"),	language_get_text("MINIGAMES_TARGETS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_TARGETS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
-		new Minigame(UNCERTAIN_BULLETS, language_get_text("MINIGAMES_BULLETS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BULLETS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BULLETS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
-		new Minigame(DRAWN_KEYS, language_get_text("MINIGAMES_DRAWN_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DRAWN_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DRAWN_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
-		new Minigame(BUBBLE_DERBY, language_get_text("MINIGAMES_BUBBLE_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUBBLE_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUBBLE_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
-		new Minigame(SKY_DIVING, language_get_text("MINIGAMES_SKY_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SKY_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SKY_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
-		new Minigame(GOLF_COURSE, language_get_text("MINIGAMES_GOLF_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_GOLF_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_GOLF_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon"),
-		new Minigame(WAKA_EVASION, language_get_text("MINIGAMES_WAKA_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_WAKA_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_WAKA_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 40, rMinigame4vs_Waka, "I Wanna Be The Onelife"),
-		new Minigame(JINGLE_SLEDGE, language_get_text("MINIGAMES_JINGLE_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_JINGLE_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_JINGLE_PAGE_2", ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 35, rMinigame4vs_Jingle, "Jingle Jam")
+		new Minigame(FOLLOW_THE_LEAD, language_get_text("MINIGAMES_LEAD_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_LEAD_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_LEAD_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 2, rMinigame4vs_Lead, "I Wanna Be The Boshy"),
+		
+		new Minigame(TOWER_ASCENSION, language_get_text("MINIGAMES_TOWER_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_TOWER_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_TOWER_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 4, rMinigame4vs_Tower, "I Wanna Be The Guy"),
+		
+		new Minigame(HAUNTED_FOREST, language_get_text("MINIGAMES_HAUNTED_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_HAUNTED_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HAUNTED_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 8, rMinigame4vs_Haunted, "I Wanna Kill The Guy"),
+		
+		new Minigame(MAGIC_MEMORY, language_get_text("MINIGAMES_MAGIC_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MAGIC_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MAGIC_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 9, rMinigame4vs_Magic, "Not Another Magic Tower Game"),
+		
+		new Minigame(MANSION_ESCAPE, language_get_text("MINIGAMES_MANSION_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MANSION_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MANSION_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Up key}", draw_action(global.actions.up)]))
+			}
+		], 10, rMinigame4vs_Mansion, "Kid World"),
+		
+		new Minigame(PAINTING_PLATFORMS, language_get_text("MINIGAMES_PLATFORMS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_PLATFORMS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_PLATFORMS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 16, rMinigame4vs_Painting, "I Wanna Thank You Mauricio Juega IWBT"),
+		
+		new Minigame(BUGS_AROUND, language_get_text("MINIGAMES_BUGS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUGS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUGS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 17, rMinigame4vs_Bugs, "I Wanna Delete The Huge Bug"),
+		
+		new Minigame(UNSTABLE_BLOCKS, language_get_text("MINIGAMES_BLOCKS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BLOCKS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BLOCKS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 18, rMinigame4vs_Blocks, "I Wanna Thank You TheNewGeezer"),
+		
+		new Minigame(CRAZY_CHESTS, language_get_text("MINIGAMES_CHESTS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CHESTS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CHESTS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Up key}", draw_action(global.actions.up)]))
+			}
+		], 19, rMinigame4vs_Chests, "I Wanna Be The Fangame"),
+		
+		new Minigame(SLIME_ANNOYER, language_get_text("MINIGAMES_SLIME_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"),	language_get_text("MINIGAMES_SLIME_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SLIME_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 23, rMinigame4vs_Slime, "SlimePark"),
+		
+		new Minigame(ROCKET_IGNITION, language_get_text("MINIGAMES_ROCKET_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_ROCKET_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_ROCKET_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 24, rMinigame4vs_Rocket, "I Wanna Walk Out In The Morning Dew"),
+		
+		new Minigame(DIZZY_CONUNDRUM, language_get_text("MINIGAMES_DIZZY_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DIZZY_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DIZZY_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 25, rMinigame4vs_Dizzy, "VoVoVo"),
+		
+		new Minigame(TARGETING_TARGETS, language_get_text("MINIGAMES_TARGETS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"),	language_get_text("MINIGAMES_TARGETS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_TARGETS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 27, rMinigame4vs_Targets, "I Wanna Be The Micromedley"),
+		
+		new Minigame(UNCERTAIN_BULLETS, language_get_text("MINIGAMES_BULLETS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BULLETS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BULLETS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 30, rMinigame4vs_Bullets, "I Wanna Be A Big Man"),
+		
+		new Minigame(DRAWN_KEYS, language_get_text("MINIGAMES_DRAWN_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DRAWN_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DRAWN_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 31, rMinigame4vs_Drawn, "I Wanna Be Drawn"),
+		
+		new Minigame(BUBBLE_DERBY, language_get_text("MINIGAMES_BUBBLE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUBBLE_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUBBLE_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 36, rMinigame4vs_Bubble, "I Wanna Enjoy The Excursion"),
+		
+		new Minigame(SKY_DIVING, language_get_text("MINIGAMES_SKY_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SKY_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SKY_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 38, rMinigame4vs_Sky, "I Wanna Kill The Kamilia"),
+		
+		new Minigame(GOLF_COURSE, language_get_text("MINIGAMES_GOLF_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_GOLF_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_GOLF_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 39, rMinigame4vs_Golf, "I Wanna Run The Marathon"),
+		
+		new Minigame(WAKA_EVASION, language_get_text("MINIGAMES_WAKA_NAME"),
+		[
+			function() { draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_WAKA_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_WAKA_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 40, rMinigame4vs_Waka, "I Wanna Be The Onelife"),
+		
+		new Minigame(JINGLE_SLEDGE, language_get_text("MINIGAMES_JINGLE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_JINGLE_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_JINGLE_PAGE_2",
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 35, rMinigame4vs_Jingle, "Jingle Jam")
 	];
 
 	m[$ "1vs3"] = [
-		new Minigame(AVOID_THE_ANGUISH, language_get_text("MINIGAMES_AVOID_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_AVOID_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_AVOID_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_AVOID_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
-		new Minigame(CONVEYOR_HAVOC, language_get_text("MINIGAMES_CONVEYOR_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_CONVEYOR_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_CONVEYOR_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CONVEYOR_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
-		new Minigame(NUMBER_SHOWDOWN, language_get_text("MINIGAMES_SHOWDOWN_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_3", ["{Jump key}", draw_action(global.actions.jump)], ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
-		new Minigame(GETTINGS_COINS, language_get_text("MINIGAMES_COINS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_COINS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COINS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
-		new Minigame(GIGANTIC_RACE, language_get_text("MINIGAMES_RACE_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_RACE_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_RACE_PAGE_2")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_RACE_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
-		new Minigame(WARPING_UP, language_get_text("MINIGAMES_WARPING_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_WARPING_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_WARPING_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_WARPING_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
-		new Minigame(HUNT_TROUBLE, language_get_text("MINIGAMES_HUNT_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_HUNT_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HUNT_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS_SOLO_PLAYER"), language_get_text("MINIGAMES_HUNT_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS_TEAM_PLAYERS"), language_get_text("MINIGAMES_HUNT_PAGE_4", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
-		new Minigame(AIMING_TILES, language_get_text("MINIGAMES_AIMING_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_AIMING_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_AIMING_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_AIMING_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
-		new Minigame(HIDDEN_HOST, language_get_text("MINIGAMES_HOST_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_HOST_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HOST_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HOST_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Up key}", draw_action(global.actions.up)])) DESC_END], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host"),
-		new Minigame(BAD_HOUSE, language_get_text("MINIGAMES_HOUSE_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_HOUSE_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HOUSE_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HOUSE_PAGE_3", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 34, rMinigame1vs3_House, "Crimson Needle 3")
+		new Minigame(AVOID_THE_ANGUISH, language_get_text("MINIGAMES_AVOID_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_AVOID_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_AVOID_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+					return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_AVOID_PAGE_3",
+					["{Left key}", draw_action(global.actions.left)],
+					["{Right key}", draw_action(global.actions.right)],
+					["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 5, rMinigame1vs3_Avoid, "I Wanna Be The Lucky"),
+		
+		new Minigame(CONVEYOR_HAVOC, language_get_text("MINIGAMES_CONVEYOR_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_CONVEYOR_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_CONVEYOR_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CONVEYOR_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 7, rMinigame1vs3_Conveyor, "Not Another Needle Game"),
+		
+		new Minigame(NUMBER_SHOWDOWN, language_get_text("MINIGAMES_SHOWDOWN_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SHOWDOWN_PAGE_3",
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
+		
+		new Minigame(GETTINGS_COINS, language_get_text("MINIGAMES_COINS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_COINS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COINS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 13, rMinigame1vs3_Coins, "I Wanna Get The Coins"),
+		
+		new Minigame(GIGANTIC_RACE, language_get_text("MINIGAMES_RACE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_RACE_PAGE_1")) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_RACE_PAGE_2")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_RACE_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 15, rMinigame1vs3_Race, "I Wanna Kill The Kamilia 2"),
+		
+		new Minigame(WARPING_UP, language_get_text("MINIGAMES_WARPING_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_WARPING_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_WARPING_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_WARPING_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Color}", "{COLOR,0000FF}"],
+				["{Color}", "{COLOR,FFFFFF}"],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 22, rMinigame1vs3_Warping, "I Wanna GameOver"),
+		
+		new Minigame(HUNT_TROUBLE, language_get_text("MINIGAMES_HUNT_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_HUNT_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HUNT_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS_SOLO_PLAYER"), language_get_text("MINIGAMES_HUNT_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			},
+			
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS_TEAM_PLAYERS"), language_get_text("MINIGAMES_HUNT_PAGE_4",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 26, rMinigame1vs3_Hunt, "I Wanna Be The Ultimatum"),
+		
+		new Minigame(AIMING_TILES, language_get_text("MINIGAMES_AIMING_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_AIMING_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_AIMING_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_AIMING_PAGE_3", 
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Color}", "{COLOR,0000FF}"],
+				["{Color}", "{COLOR,FFFFFF}"],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 32, rMinigame1vs3_Aiming, "I Wanna Be The Farewell"),
+		
+		new Minigame(HIDDEN_HOST, language_get_text("MINIGAMES_HOST_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_HOST_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HOST_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HOST_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Up key}", draw_action(global.actions.up)]))
+			}
+		], 33, rMinigame1vs3_Host, "I Wanna Escape Heavenly Host"),
+		
+		new Minigame(BAD_HOUSE, language_get_text("MINIGAMES_HOUSE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_HOUSE_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_HOUSE_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_HOUSE_PAGE_3",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 34, rMinigame1vs3_House, "Crimson Needle 3")
 	];
 
 	m[$ "2vs2"] = [
-		new Minigame(A_MAZE_ING, language_get_text("MINIGAMES_MAZE_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MAZE_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MAZE_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
-		new Minigame(CATCH_THE_FRUITS, language_get_text("MINIGAMES_FRUITS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_FRUITS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_FRUITS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
-		new Minigame(BUTTONS_EVERYWHERE, language_get_text("MINIGAMES_BUTTONS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUTTONS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUTTONS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
-		new Minigame(FITTING_SQUARES, language_get_text("MINIGAMES_SQUARES_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SQUARES_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SQUARES_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)])) DESC_END], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
-		new Minigame(COLORFUL_INSANITY, language_get_text("MINIGAMES_COLORFUL_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_COLORFUL_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COLORFUL_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
-		new Minigame(SPRINGING_PIRANHA, language_get_text("MINIGAMES_SPRINGING_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SPRINGING_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SPRINGING_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
-		new Minigame(DYNYAAMIC_DUOS, language_get_text("MINIGAMES_DUOS_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DUOS_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DUOS_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
-		new Minigame(WESTERN_DUEL, language_get_text("MINIGAMES_DUEL_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DUEL_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DUEL_PAGE_2", ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy"),
-		new Minigame(SOCCER_MATCH, language_get_text("MINIGAMES_SOCCER_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SOCCER_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SOCCER_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Right key}", draw_action(global.actions.right)], ["{Jump key}", draw_action(global.actions.jump)])) DESC_END], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN"),
-		new Minigame(WHAC_AN_IDOL, language_get_text("MINIGAMES_IDOL_NAME"), [DESC_START draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_IDOL_PAGE_1")) DESC_END, DESC_START draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_IDOL_PAGE_2", ["{Left key}", draw_action(global.actions.left)], ["{Up key}", draw_action(global.actions.up)], ["{Down key}", draw_action(global.actions.down)], ["{Right key}", draw_action(global.actions.right)], ["{Shoot key}", draw_action(global.actions.shoot)])) DESC_END], 37, rMinigame2vs2_Idol, "I Wanna Be The iDOLM@STER")
+		new Minigame(A_MAZE_ING, language_get_text("MINIGAMES_MAZE_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_MAZE_PAGE_1")) }, 
+			function() {  
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_MAZE_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)])) 
+			}
+		], 1, rMinigame2vs2_Maze, "I Wanna Kill The Kamilia 3"),
+		
+		new Minigame(CATCH_THE_FRUITS, language_get_text("MINIGAMES_FRUITS_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_FRUITS_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_FRUITS_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)])) 
+			}
+		], 6, rMinigame2vs2_Fruits, "I Wanna Be The Aura"),
+		
+		new Minigame(BUTTONS_EVERYWHERE, language_get_text("MINIGAMES_BUTTONS_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_BUTTONS_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_BUTTONS_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)], 
+				["{Shoot key}", draw_action(global.actions.shoot)])) 
+			}
+		], 3, rMinigame2vs2_Buttons, "I Wanna Destroy The 6 Players"),
+		
+		new Minigame(FITTING_SQUARES, language_get_text("MINIGAMES_SQUARES_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SQUARES_PAGE_1")) DESC_END,
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SQUARES_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)])) 
+			}
+		], 12, rMinigame2vs2_Squares, "I Wanna Reach The Moon"),
+		
+		new Minigame(COLORFUL_INSANITY, language_get_text("MINIGAMES_COLORFUL_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_COLORFUL_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COLORFUL_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Up key}", draw_action(global.actions.up)], 
+				["{Down key}", draw_action(global.actions.down)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)])) 
+			}
+		], 14, rMinigame2vs2_Colorful, "I Wanna Be A Charr"),
+		
+		new Minigame(SPRINGING_PIRANHA, language_get_text("MINIGAMES_SPRINGING_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SPRINGING_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SPRINGING_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)])) 
+			}
+		], 20, rMinigame2vs2_Springing, "I Wanna Be The Co-op"),
+		
+		new Minigame(DYNYAAMIC_DUOS, language_get_text("MINIGAMES_DUOS_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DUOS_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DUOS_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)], 
+				["{Shoot key}", draw_action(global.actions.shoot)])) 
+			}
+		], 21, rMinigame2vs2_Duos, "I Wannyaaaaaaa"),
+		
+		new Minigame(WESTERN_DUEL, language_get_text("MINIGAMES_DUEL_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_DUEL_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_DUEL_PAGE_2", 
+				["{Shoot key}", draw_action(global.actions.shoot)])) 
+			}
+		], 28, rMinigame2vs2_Duel, "I Wanna Be The Galaxy"),
+		
+		new Minigame(SOCCER_MATCH, language_get_text("MINIGAMES_SOCCER_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_SOCCER_PAGE_1")) DESC_END,
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_SOCCER_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Jump key}", draw_action(global.actions.jump)])) 
+			}
+		], 29, rMinigame2vs2_Soccer, "I Wanna Be The GReeeeN"),
+		
+		new Minigame(WHAC_AN_IDOL, language_get_text("MINIGAMES_IDOL_NAME"), 
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_IDOL_PAGE_1")) DESC_END, 
+			function() { 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_IDOL_PAGE_2", 
+				["{Left key}", draw_action(global.actions.left)], 
+				["{Up key}", draw_action(global.actions.up)], 
+				["{Down key}", draw_action(global.actions.down)], 
+				["{Right key}", draw_action(global.actions.right)], 
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 37, rMinigame2vs2_Idol, "I Wanna Be The iDOLM@STER")
 	];
 }
 
@@ -227,8 +667,8 @@ function minigame_info_set(reference, type, turns = [1, 2, 3, 4], team = [1, 2, 
 	}
 				
 	for (var i = 1; i <= global.player_max; i++) {
-		spawn_player_info(i, turns[i - 1]);
-	}	
+		spawn_player_info(turns[i - 1], i);
+	}
 		
 	with (objPlayerInfo) {
 		player_info.space = (array_contains(team, player_info.network_id)) ? c_blue : c_red;

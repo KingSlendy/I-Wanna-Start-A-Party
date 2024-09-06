@@ -1,4 +1,11 @@
 attack = image_index;
+
+switch (attack) {
+	case 0: image_blend = c_red; break;
+	case 1: image_blend = c_orange; break;
+	case 2: image_blend = c_yellow; break;
+}
+
 dir = 1;
 
 function activate(image, network = false) {

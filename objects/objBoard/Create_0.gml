@@ -77,6 +77,19 @@ prev_board_light = !global.board_light;
 layer_back_name = "Background";
 layer_back_id = layer_background_get_id(layer_back_name);
 
+//FASF Board
+enum FASF_SPACE_MODES {
+	NOTHING,
+	ICE,
+	MUD,
+	PORTAL,
+	NULLIFIER
+}
+
+global.board_fasf_space_mode = FASF_SPACE_MODES.NOTHING;
+global.board_fasf_last5turns_event = false;
+global.music_board_track_position = 0; // Handle track position when we go back to the board after a minigame
+
 alarms_init(12);
 
 alarm_create(function() {

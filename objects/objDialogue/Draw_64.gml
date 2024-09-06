@@ -1,3 +1,7 @@
+if (instance_exists(objMapLook)) {
+	exit;
+}
+
 if (dialogue_sprite == noone) {
 	var surf = surface_create(width, height);
 

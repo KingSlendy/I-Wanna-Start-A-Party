@@ -14,6 +14,8 @@ minigame_time_end = function() {
 			player_shoot();
 		}
 	}
+	
+	take_time = false;
 }
 
 action_end = function() {
@@ -30,6 +32,7 @@ player_shot_time = array_create(global.player_max, 0);
 cpu_shot_delay = array_create(global.player_max, 0);
 take_time = false;
 show_mark = false;
+fake_mark = false;
 revive = -1;
 point_condition = 5;
 
@@ -47,11 +50,15 @@ alarm_override(1, function() {
 	audio_play_sound(sndMinigameReady, 0, false);
 	player_can_shoot = array_create(global.player_max, true);
 	next_seed_inline();
+	fake_mark = choose(false, true);
 	var time = irandom_range(3, 6);
-	cpu_shot_delay = [0];
+	
+	if (!fake_mark) {
+		cpu_shot_delay = [0];
 
-	repeat (global.player_max - 1) {
-		array_push(cpu_shot_delay, ceil(get_frames(random_range(time - 0.05, time + 0.6))));
+		repeat (global.player_max - 1) {
+			array_push(cpu_shot_delay, ceil(get_frames(random_range(time - 0.05, time + 0.6))));
+		}
 	}
 
 	alarm_call(4, time);
@@ -59,14 +66,21 @@ alarm_override(1, function() {
 
 alarm_create(4, function() {
 	player_shot_time = array_create(global.player_max, 0);
-	take_time = true;
 	show_mark = true;
 	music_pause();
-	audio_play_sound(sndMinigame2vs2_Duel_Mark, 0, false);
-	alarm_call(5, 3);
-	alarm_call(7, 3);
-	minigame_time = 10;
-	alarm_call(10, 1);
+	
+	if (!fake_mark) {
+		alarm_call(5, 3);
+		alarm_call(7, 3);
+		minigame_time = 10;
+		alarm_call(10, 1);
+		take_time = true;
+		audio_play_sound(sndMinigame2vs2_Duel_Mark, 0, false);
+	} else {
+		alarm_call(8, 3);
+		alarm_call(7, 1);
+		audio_play_sound(sndMinigame2vs2_Duel_Fake, 0, false);
+	}
 });
 
 alarm_create(5, function() {
@@ -77,8 +91,6 @@ alarm_create(5, function() {
 			trophy_obtain = false;
 		}
 	}
-
-	take_time = false;
 
 	while (array_count(player_can_shoot, true) > 0 || array_count(player_shot_time, 0) > 0) {
 		alarm_frames(5, 1);
@@ -126,6 +138,20 @@ alarm_create(6, function() {
 
 alarm_create(7, function() {
 	show_mark = false;
+});
+
+alarm_create(8, function() {
+	show_mark = false;
+	fake_mark = false;
+	next_seed_inline();
+	var time = irandom_range(0.5, 1.5);
+	cpu_shot_delay = [0];
+
+	repeat (global.player_max - 1) {
+		array_push(cpu_shot_delay, ceil(get_frames(random_range(time - 0.05, time + 0.6))));
+	}
+
+	alarm_call(4, time);
 });
 
 alarm_override(11, function() {

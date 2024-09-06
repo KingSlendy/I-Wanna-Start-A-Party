@@ -28,7 +28,6 @@ for (var i = 0; i < array_length(press_actions); i++) {
 					}
 				}
 				
-				solo_advance++;
 				solo_correct = true;
 				audio_play_sound(sndMinigame1vs3_Race_Correct, 0, false);
 			} else {
@@ -36,7 +35,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 				audio_play_sound(sndMinigame1vs3_Race_Wrong, 0, false);
 			}
 			
-			alarm_frames(4, (!advance && !solo_wrong) ? 7 : 37);
+			alarm_frames(4, (!advance && !solo_wrong) ? 1 : 37);
 			
 			if (array_length(network_solo_actions) == 0) {
 				buffer_seek_begin();

@@ -63,10 +63,17 @@ alarm_create(4, function() {
 		sprite_index = skin[$ "Idle"];
 		hspeed = 0;
 	}
+	
+	if (solo_correct) {
+		solo_advance++;
+	}
 
-	solo_current++;
-	solo_current %= array_length(solo_actions);
-	solo_action = solo_actions[solo_current];
+	if (!solo_wrong) {
+		solo_current++;
+		solo_current %= array_length(solo_actions);
+		solo_action = solo_actions[solo_current];
+	}
+	
 	solo_advance %= 4;
 	solo_correct = false;
 	solo_wrong = false;
@@ -91,9 +98,12 @@ alarm_create(5, function() {
 		team_turn %= 3;
 	}
 
-	team_current++;
-	team_current %= array_length(team_actions);
-	team_action = team_actions[team_current];
+	if (!team_wrong) {
+		team_current++;
+		team_current %= array_length(team_actions);
+		team_action = team_actions[team_current];
+	}
+	
 	team_advance %= 3;
 	team_correct = false;
 	team_wrong = false;

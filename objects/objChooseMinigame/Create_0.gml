@@ -235,6 +235,3 @@ alarm_create(function() {
 alarm_create(function() {
 	state = 3;
 });
-
-//alarm_debug_info();
-fasf_last_turn_battle_cutscene();

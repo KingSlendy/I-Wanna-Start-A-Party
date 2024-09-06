@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sprMinigame2vs2_Duel_Mark",
   "bboxMode":0,
-  "bbox_bottom":144,
-  "bbox_left":5,
-  "bbox_right":132,
+  "bbox_bottom":140,
+  "bbox_left":2,
+  "bbox_right":136,
   "bbox_top":6,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,7 +12,8 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"228f2410-0d7a-4de4-a9d2-2df197147c5f","name":"228f2410-0d7a-4de4-a9d2-2df197147c5f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a311f82b-c0d7-4f95-9e96-ff95247c002c","name":"a311f82b-c0d7-4f95-9e96-ff95247c002c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"6bd8c0f4-c773-4120-aab6-5e0e300f293f","name":"6bd8c0f4-c773-4120-aab6-5e0e300f293f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -49,7 +50,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":2.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -69,8 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"228f2410-0d7a-4de4-a9d2-2df197147c5f","path":"sprites/sprMinigame2vs2_Duel_Mark/sprMinigame2vs2_Duel_Mark.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"b3ffb5fb-659f-4166-8131-8ed0ce58ea72","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a311f82b-c0d7-4f95-9e96-ff95247c002c","path":"sprites/sprMinigame2vs2_Duel_Mark/sprMinigame2vs2_Duel_Mark.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8ed7868e-eadf-4e67-942d-6d370f42c26b","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6bd8c0f4-c773-4120-aab6-5e0e300f293f","path":"sprites/sprMinigame2vs2_Duel_Mark/sprMinigame2vs2_Duel_Mark.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2915b72f-b047-4c20-af52-fdb7578a915f","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

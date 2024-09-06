@@ -10,7 +10,7 @@ function save_variables() {
 	//Party
 	global.games_played = 0;
 	global.collected_shines = 0;
-	global.collected_coins = 9000000; // Change this value later
+	global.collected_coins = 0;
 	global.collected_boards = array_sequence(0, 3);
 	
 	//Minigames
@@ -207,7 +207,7 @@ function save_board() {
 			//World Board
 			saved_ghost_position: {},
 			
-			//Fasf Board
+			//FASF Board
 			saved_fasf_last5turns: global.board_fasf_last5turns_event
 		},
 		

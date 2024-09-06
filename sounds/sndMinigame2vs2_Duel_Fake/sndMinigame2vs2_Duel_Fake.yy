@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndMinigame2vs2_Duel_Fake",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.368254,
+  "name":"sndMinigame2vs2_Duel_Fake",
+  "parent":{
+    "name":"Duel",
+    "path":"folders/Sounds/SFX/Minigames/2vs2/Duel.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndMinigame2vs2_Duel_Fake.wav",
+  "type":0,
+  "volume":0.8,
+}

@@ -119,3 +119,25 @@ function wave_transition(sprites, fraction) {
 		draw_primitive_end();
 	}
 }
+
+// Particles
+function part_system_destroy_safe(particle_system) {
+	if part_system_exists(particle_system)
+	{
+		part_system_destroy(particle_system);	
+	}
+}
+
+function part_type_destroy_safe(particle_type) {
+	if part_type_exists(particle_type)
+	{
+		part_type_destroy(particle_type);	
+	}
+}
+
+function part_emitter_destroy_safe(particle_system, particle_emitter) {
+	if part_emitter_exists(particle_system, particle_emitter)
+	{
+		part_emitter_destroy(particle_system, particle_emitter);	
+	}
+}

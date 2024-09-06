@@ -139,6 +139,14 @@ alarm_override(11, function() {
 			}
 		
 			if (point_distance(x, y, other_x, other_y) <= 6) {
+				if (other_x < x && xscale > 0) {
+					actions.left.press();
+				}
+				
+				if (other_x > x && xscale < 0) {
+					actions.right.press();
+				}
+				
 				actions.shoot.press();
 				break;
 			}

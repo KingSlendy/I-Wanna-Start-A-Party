@@ -1,6 +1,6 @@
 event_inherited();
 next_seed_inline();
-maze_width = 19;
+maze_width = 10;
 maze_height = 16;
 maze = null;
 
@@ -13,8 +13,8 @@ for (var r = -1; r < maze_height * 2; r++) {
 }
 
 for (var r = 0; r < maze_height; r++) {
-    for (var c = 0; c < maze_width; c++) {
-        maze[r, c] = [];
+    for (var c = 0; c < maze_width ; c++) {
+        maze[r][c] = [];
     }
 }
 
@@ -68,11 +68,12 @@ while (true) {
 	var next = directions[neighbor];
 	var next_row = row + next[0];
 	var next_col = col + next[1];
-	array_push(maze[row, col], neighbor);
-	array_push(maze[next_row, next_col], 3 - neighbor);
+	array_push(maze[row][col], neighbor);
+	array_push(maze[next_row][next_col], 3 - neighbor);
 	array_push(cells, [next_row, next_col]);
 }
 
+//Destroys the blocks and carves the maze
 for (var r = 0; r < maze_height; r++) {
     for (var c = 0; c < maze_width; c++) {
         instance_destroy(instance_place(x + 32 * (c * 2), y + 32 * (r * 2), objBlock));
@@ -88,6 +89,30 @@ for (var r = 0; r < maze_height; r++) {
             instance_destroy(instance_place(x + 32 * (c * 2) + (32 * d[1]), y + 32 * (r * 2) + (32 * d[0]), objBlock));
         }
     }
+}
+
+//Destroys all the blocks from the rightmost wall of the half maze
+for (var r = -1; r < (maze_height * 2); r++) {
+	instance_destroy(instance_place(x + 32 * ((maze_width * 2) - 1), y + 32 * r, objBlock));
+}
+
+//Copies the blocks and mirrors them symmetrically
+var current_block_x = room_width - 32;
+
+while (true) {
+	if (place_meeting(current_block_x, 0, objBlock)) {
+		break;
+	}
+	
+	for (var r = 0; r < room_height; r += 32) {
+		if (place_meeting(room_width - current_block_x - 32, r, objBlock)) {
+			var b = instance_create_layer(current_block_x, r, "Collisions", objBlock);
+		    b.visible = true;
+		    b.sprite_index = sprite_index;
+		}
+	}
+	
+	current_block_x -= 32;
 }
 
 grid = mp_grid_create(0, 0, room_width / 32, room_height / 32, 32, 32);

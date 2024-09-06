@@ -13,7 +13,7 @@ with (other) {
 	alarm_frames(0, 20);
 }
 
-var points = -1;
+var points = 0;
 
 if (image_index == 0 || image_index == 1) {
 	points = image_index + 1;
@@ -31,7 +31,7 @@ if (trial_is_title(GREEN_DIVING) && other.network_id == global.player_id && imag
 	minigame_finish();
 }
 
-if (points == -1 && minigame4vs_get_points(other.network_id) == 0) {
+if (points == 0) {
 	exit;
 }
 
