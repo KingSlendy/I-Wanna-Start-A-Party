@@ -30,6 +30,7 @@ if (!frozen) {
 } else {
     hspeed = 0;
     vspeed = 0;
+	spd -= 0.05;
 }
 
 if (place_meeting(x + hspeed, y, objBlock)) {

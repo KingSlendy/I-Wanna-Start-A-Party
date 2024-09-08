@@ -24,11 +24,6 @@ if (keyboard_check_pressed(vk_f4)) {
 //	}
 //}
 
-if (keyboard_check_pressed(vk_escape) && room == rVersion) {
-	room_goto(rTitle);
-	exit;
-}
-
 var bgm_volume = global.bgm_volume;
 
 if (paused) {
@@ -41,7 +36,7 @@ if (global.music_current != null) {
 
 global.bgm_volume = bgm_volume;
 
-if (room != rVersion && room != rTitle && (room != rFiles || objFiles.file_opened != -1) && global.actions.pause.pressed()) {
+if (room != rLaunch && room != rTitle && (room != rFiles || objFiles.file_opened != -1) && global.actions.pause.pressed()) {
 	paused ^= true;
 		
 	if (paused) {

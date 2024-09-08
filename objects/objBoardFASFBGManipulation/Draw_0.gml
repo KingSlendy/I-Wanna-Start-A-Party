@@ -6,9 +6,7 @@ var camY = camera_get_view_y(view_camera[0]);
 var cam_width = camera_get_view_width(view_camera[0]);
 var cam_height = camera_get_view_height(view_camera[0]);
 	
-if cam_width <= 800 {
-
-
+if (cam_width <= 800) {
 	var xx = remap(camX, -400, room_width - 400, 0, bg_width - 800);
 	var yy = remap(camY, -304, room_height - 304, 0, bg_height - 608);
 

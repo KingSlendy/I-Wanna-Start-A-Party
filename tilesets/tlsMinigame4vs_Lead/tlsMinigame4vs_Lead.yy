@@ -1,11 +1,18 @@
 {
-  "$GMTileSet":"",
+  "$GMTileSet":"v1",
   "%Name":"tlsMinigame4vs_Lead",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":6,
     "SerialiseWidth":7,
-    "TileCompressedData":[-39,0,3,5,6,7,],
+    "TileCompressedData":[
+      -39,
+      0,
+      3,
+      5,
+      6,
+      7,
+    ],
     "TileDataFormat":1,
   },
   "name":"tlsMinigame4vs_Lead",
@@ -26,10 +33,6 @@
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",
-  },
-  "tileAnimation":{
-    "FrameData":[0,1,2,3,4,5,6,7,8,9,10,11,],
-    "SerialiseFrameCount":1,
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,

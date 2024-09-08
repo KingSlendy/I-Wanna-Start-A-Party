@@ -33,5 +33,6 @@ if (active && text_display != null) {
 	
 	if (global.actions.jump.pressed(network_id)) {
 		text_advance();
+		global.actions.jump.consume();
 	}
 }

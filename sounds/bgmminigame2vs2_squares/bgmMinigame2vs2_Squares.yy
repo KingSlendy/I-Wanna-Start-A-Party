@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":1,
+  "conversionMode":0,
   "duration":49.093063,
   "name":"bgmMinigame2vs2_Squares",
   "parent":{

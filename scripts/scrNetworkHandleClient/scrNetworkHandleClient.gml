@@ -80,6 +80,7 @@ enum ClientTCP {
 	LastTurnsSayPlayerPlace,
 	LastTurnsHelpLastPlace,
 	LastTurnsEndLastTurns,
+	
 	BoardHotlandAnnoyingDog,
 	BoardBabaToggle,
 	BoardPalletObtain,
@@ -88,6 +89,7 @@ enum ClientTCP {
 	BoardNsanityReturn,
 	BoardWorldGhostSwitch,
 	BoardWorldGhostShines,
+	BoardFASFTeleports,
 	#endregion
 	
 	#region Animations
@@ -757,6 +759,11 @@ f[$ ClientTCP.BoardWorldGhostSwitch] = function(buffer) {
 
 f[$ ClientTCP.BoardWorldGhostShines] = function(buffer) {
 	board_world_ghost_shines(false);
+}
+
+f[$ ClientTCP.BoardFASFTeleports] = function(buffer) {
+	var reference = buffer_read(buffer, buffer_u8);
+	board_fasf_teleports(reference);
 }
 #endregion
 

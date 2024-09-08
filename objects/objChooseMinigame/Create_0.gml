@@ -59,7 +59,7 @@ function send_to_minigame() {
 	}
 	
 	// FASF - save the music position when we came back to board (only if we're in last5turns)
-	fasf_save_track_position();
+	board_fasf_save_track_position();
 	
 	// Overview room
 	room_goto(rMinigameOverview);

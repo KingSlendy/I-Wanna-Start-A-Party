@@ -26,6 +26,6 @@ draw_set_valign(fa_middle);
 draw_text_outline(400, 590, language_get_text("TITLE_MADE") + " KINGSLENDY", c_black);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
-draw_text_outline(800, 608, "v" + VERSION, c_black);
+draw_text_outline(800, 608, "v" + string(GM_version), c_black);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);

@@ -71,8 +71,8 @@ if (state == 0) {
 		else
 		{
 			// FASF event
-			fasf_play_music();
-			set_fasf_event(true);
+			board_fasf_play_music();
+			board_fasf_set_event(true);
 		}
 		
 		instance_destroy(objLastTurnsChoice);

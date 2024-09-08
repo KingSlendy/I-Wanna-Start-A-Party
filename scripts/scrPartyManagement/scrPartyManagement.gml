@@ -266,10 +266,10 @@ function board_music() {
 	// Fasf
 	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
 		bgm_name += "Last5Turns";	
-		execute_music_method = fasf_play_music_from_position;
+		execute_music_method = board_fasf_play_music_from_position;
 		
 		// Change space background color
-		with objBoardFASFBGManipulation {
+		with (objBoardFASFBGManipulation) {
 			apply_color_fx();
 		}
 	}
@@ -500,7 +500,7 @@ function board_advance() {
 
 	with (focused_player()) {
 		var space = instance_place(x, y, objSpaces);
-		var next_space;
+		var next_space = null;
 		
 		if (space != noone) {
 			if (room == rBoardNsanity && space.image_index = SpaceType.Shine) {
@@ -508,8 +508,6 @@ function board_advance() {
 				break;
 			}
 			
-			var next_space;
-		
 			if (BOARD_NORMAL) {
 				next_space = space.space_next;
 			} else {
@@ -561,7 +559,7 @@ function space_path_finding(space, path_spaces) {
 		visited = true;
 		
 		if (image_index == SpaceType.PathEvent) {
-			global.board_lock_event = true;
+			global.board_path_finding_look = true;
 			
 			switch (room) {
 				case rBoardPallet:
@@ -580,7 +578,7 @@ function space_path_finding(space, path_spaces) {
 					break;
 			}
 			
-			global.board_lock_event = false;
+			global.board_path_finding_look = false;
 		}
 		
 		if (image_index == SpaceType.Shine) {
@@ -1387,294 +1385,4 @@ function start_the_guy() {
 		network_send_tcp_packet();
 	}
 }
-
-global.board_lock_event = false;
-
-function board_hotland_annoying_dog() {
-	instance_create_layer(0, 0, "Managers", objBoardHotlandAnnoyingDog);
-	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardHotlandAnnoyingDog);
-		network_send_tcp_packet();
-	}
-}
-
-function board_baba_blocks(block_id) {
-	global.baba_block_id = block_id;
-	
-	start_dialogue([
-		new Message(language_get_text("PARTY_BOARD_BABA_BLOCKS"),, board_baba_toggle)
-	]);
-}
-
-function board_baba_toggle() {
-	global.baba_toggled[global.baba_block_id] ^= true;
-	
-	with (objBoardBabaBlock) {
-		if (block_id == global.baba_block_id) {
-			block_update();
-			break;
-		}
-	}
-	
-	board_advance();
-	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardBabaToggle);
-		buffer_write_data(buffer_u8, global.baba_block_id);
-		network_send_tcp_packet();
-	}
-}
-
-function board_pallet_pokemons() {
-	pokemon = collision_circle(x + 16, y + 16, 64, objBoardPalletPokemon, false, true);
-	var player_info = player_info_by_turn();
-
-	if (player_info.coins >= global.pokemon_price) {
-		bring_dialogues = [
-			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_HAPPY"),, function() {
-				change_coins(-global.pokemon_price, CoinChangeType.Spend).final_action = function() {
-					board_pallet_obtain(pokemon.sprite_index);
-				}
-			})
-		];
-	} else {
-		bring_dialogues = [
-			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_DONT_HAVE", ["{15 coins}", draw_coins_price(global.pokemon_price)]),, board_advance)
-		];
-	}
-	
-	if (player_info.pokemon != -1) {
-		battle_dialogues = [
-			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_BEST_SHOT"),, function() {
-				board_pallet_battle(pokemon.sprite_index);
-			})
-		]
-	} else {
-		battle_dialogues = [
-			new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_CANT_BATTLE"),, board_advance)
-		];
-	}
-
-	var type = pokemon.power_type;
-	
-	switch (type) {
-		case "Water": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_WATER"); break;
-		case "Grass": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_GRASS"); break;
-		case "Fire": language_get_text("PARTY_BOARD_PALLET_POKEMON_TYPE_FIRE"); break;
-	}
-
-	start_dialogue([
-		language_get_text("PARTY_BOARD_PALLET_POKEMON_ENCOUNTER", ["{Type}", type]),
-		new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_WITH_IT"), [
-			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BRING", ["{15 coins}", draw_coins_price(global.pokemon_price)]), bring_dialogues],
-			[language_get_text("PARTY_BOARD_PALLET_POKEMON_BATTLE"), battle_dialogues],
-			
-			[language_get_text("WORD_GENERIC_PASS"), [
-				new Message(language_get_text("PARTY_BOARD_PALLET_POKEMON_SEE_YOU"),, board_advance)
-			]]
-		])
-	]);
-}
-
-function board_pallet_obtain(pokemon) {
-	instance_create_layer(0, 0, "Managers", objBoardPalletObtain, {
-		sprite: pokemon
-	});
-	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardPalletObtain);
-		buffer_write_data(buffer_u16, pokemon);
-		network_send_tcp_packet();
-	}
-}
-
-function board_pallet_battle(pokemon) {
-	instance_create_layer(0, 0, "Managers", objBoardPalletBattle, {
-		sprite: pokemon
-	});
-	
-	//if (is_local_turn()) {
-	//	buffer_seek_begin();
-	//	buffer_write_action(ClientTCP.BoardPalletBattle);
-	//	buffer_write_data(buffer_u16, pokemon);
-	//	network_send_tcp_packet();
-	//}
-}
-
-function board_dreams_teleports(reference) {
-	var player = focused_player();
-	
-	with (objPlayerReference) {
-		if (self.reference == reference) {
-			if (global.board_lock_event) {
-				return id;
-			}
-			
-			player.x = x + 16;
-			player.y = y + 16;
-			
-			break;
-		}
-	}
-	
-	switch_camera_target(player.x, player.y).final_action = board_advance;
-	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardDreamsTeleports);
-		buffer_write_data(buffer_u8, reference);
-		network_send_tcp_packet();
-	}
-}
-
-function board_nsanity_return() {
-	instance_create_layer(0, 0, "Managers", objBoardNsanityReturn);
-	
-	if (is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardNsanityReturn);
-		network_send_tcp_packet();
-	}
-}
-
-function board_world_scott_interact() {
-	var player = focused_player();
-	var texts;
-	global.player_ghost_shines = [];
-	global.player_ghost_turn = global.player_turn;
-	
-	if (is_player_turn()) {
-		global.player_ghost_shines = [player.network_id];
-	} else {
-		with (player) {
-			var list = ds_list_create();
-			var count = collision_rectangle_list(bbox_left, bbox_top, bbox_right, bbox_bottom, objPlayerBase, false, true, list, false);
-			
-			for (var i = 0; i < count; i++) {
-				array_push(global.player_ghost_shines, list[| i].network_id);
-			}
-			
-			ds_list_destroy(list);
-			array_sort(global.player_ghost_shines, function(a, b) { return player_info_by_id(a).turn - player_info_by_id(b).turn; });
-		}
-	}
-	
-	board_world_ghost_switch(is_player_turn());
-}
-
-function board_world_ghost_switch(network = true) {
-	if (array_length(global.player_ghost_shines) == 0) {
-		with (objBoard) {
-			alarm_next(7);
-		}
-
-		return;
-	}
-	
-	switch_camera_target(objCamera.target_follow.x, objCamera.target_follow.y).final_action = board_world_ghost_texts;
-	var player = focus_player_by_id(global.player_ghost_shines[0]);
-	global.player_ghost_previous = player_info_by_id(player.network_id).turn;
-	
-	if (network && is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardWorldGhostSwitch);
-		buffer_write_array(buffer_u8, global.player_ghost_shines);
-		buffer_write_data(buffer_u8, global.player_ghost_turn);
-		buffer_write_data(buffer_u8, global.player_ghost_previous);
-		network_send_tcp_packet();
-	}
-	
-	global.player_turn = global.player_ghost_previous;
-}
-
-function board_world_ghost_texts() {
-	if (!is_local_turn()) {
-		return;
-	}
-	
-	global.player_turn = global.player_ghost_turn;
-	
-	if (player_info_by_id(global.player_ghost_shines[0]).shines > 0) {
-		if (is_player_turn()) {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_YOU");
-		} else {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_TAKE_PLAYER", ["{Color}", "{COLOR,0000FF}"], ["{Player}", focus_player_by_turn(global.player_ghost_previous).network_name], ["{Color}", "{COLOR,FFFFFF}"]);
-		}
-	} else {
-		if (is_player_turn()) {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_YOU");
-		} else {
-			var text = language_get_text("PARTY_BOARD_WORLD_GHOST_SAFE_PLAYER", ["{Color}", "{COLOR,0000FF}"], ["{Player}", focus_player_by_turn(global.player_ghost_previous).network_name], ["{Color}", "{COLOR,FFFFFF}"]);
-		}
-	}
-	
-	global.player_turn = global.player_ghost_previous;
-	start_dialogue([new Message(text,, board_world_ghost_shines)]);
-}
-
-function board_world_ghost_shines(network = true) {
-	with (focus_player_by_turn(global.player_max + 1)) {
-		if (player_info_by_id(global.player_ghost_shines[0]).shines > 0) {
-			sprite_index = event_sprite;
-			image_index = 0;
-		} else {
-			alarm_call(0, 0.5);
-		}
-	}
-	
-	if (network && is_local_turn()) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.BoardWorldGhostShines);
-		network_send_tcp_packet();
-	}
-}
-
-function set_fasf_event(mode = false) {
-	global.board_fasf_last5turns_event = mode;
-	
-	// Change color background
-	with objBoardFASFBGManipulation
-		apply_color_fx();
-}
-
-function fasf_play_music() {
-	music_play(bgmBoardFASFLast5Turns);
-	audio_sound_gain(global.music_current, 1, 500);
-}
-
-function fasf_save_track_position() {
-	//print("VAMO AL MINIJUEGO");
-	if room == rBoardFASF {
-		global.music_board_track_position = audio_sound_get_track_position(global.music_current);
-		print($"Track position stored ({global.music_board_track_position})");
-	}
-}
-
-function fasf_play_music_from_position(music) {
-	
-	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
-		music_play(music); // Play music
-		
-		audio_sound_gain(global.music_current, 0, 0); // Mute music
-		audio_sound_set_track_position(global.music_current, global.music_board_track_position); // Load position
-		print($"Music position loaded ({global.music_board_track_position})");
-		audio_sound_gain(global.music_current, 1, 500); // Fade in volume
-	}
-}
-
-function fasf_reset_track_position() {
-	global.music_board_track_position = 0;
-	print($"Music position reseted ({global.music_board_track_position})");
-}
 #endregion
-
-function disable_board() {
-	instance_destroy(objPlayerInfo);
-	instance_destroy(objBoard);
-	
-	set_fasf_event(false);
-}

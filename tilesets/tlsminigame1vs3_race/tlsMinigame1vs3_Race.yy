@@ -1,5 +1,5 @@
 {
-  "$GMTileSet":"",
+  "$GMTileSet":"v1",
   "%Name":"tlsMinigame1vs3_Race",
   "autoTileSets":[],
   "macroPageTiles":{
@@ -25,10 +25,6 @@
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",
-  },
-  "tileAnimation":{
-    "FrameData":[0,1,2,3,4,5,6,7,8,9,],
-    "SerialiseFrameCount":1,
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,

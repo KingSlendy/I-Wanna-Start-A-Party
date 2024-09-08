@@ -3,8 +3,6 @@ function Minigame(title, label, instructions, preview, scene, fangame_name) cons
 	self.label = label;
 	self.instructions = instructions;
 	
-	
-	
 	self.preview = preview;
 	self.scene = scene;
 	self.fangame_name = fangame_name;

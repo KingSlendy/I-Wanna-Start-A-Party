@@ -50,7 +50,7 @@ alarm_override(1, function() {
 	audio_play_sound(sndMinigameReady, 0, false);
 	player_can_shoot = array_create(global.player_max, true);
 	next_seed_inline();
-	fake_mark = choose(false, true);
+	fake_mark = (!chance(0.3)) ? false : true;
 	var time = irandom_range(3, 6);
 	
 	if (!fake_mark) {
@@ -65,11 +65,11 @@ alarm_override(1, function() {
 });
 
 alarm_create(4, function() {
-	player_shot_time = array_create(global.player_max, 0);
 	show_mark = true;
 	music_pause();
 	
 	if (!fake_mark) {
+		player_shot_time = array_create(global.player_max, 0);
 		alarm_call(5, 3);
 		alarm_call(7, 3);
 		minigame_time = 10;

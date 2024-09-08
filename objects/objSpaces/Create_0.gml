@@ -56,8 +56,6 @@ function space_directions() {
 	ds_list_destroy(paths);
 }
 
-space_directions();
-
 space_shine = false;
 
 if (image_index == SpaceType.Shine) {

@@ -5,9 +5,6 @@
 #macro c_chancetime make_color_rgb(255, 255, 0)
 #macro c_gold #926F34
 
-//Global
-#macro VERSION "1.0.2.11"
-
 //Network
 #macro DEFAULT_IP "iwannastartaparty.com"
 #macro DEFAULT_PORT "33321"

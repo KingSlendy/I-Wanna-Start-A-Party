@@ -51,6 +51,8 @@ function create_warp(x, y) {
 	instance_create_layer(x, y, "Actors", objMinigame1vs3_Warping_Warp, {
 		vspeed: -8
 	});
+	
+	audio_play_sound(sndShoot, 0, false);
 }
 
 alarm_override(1, function() {

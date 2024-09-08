@@ -15,17 +15,19 @@ with (objSpaces) {
 
 var space = instance_place(x, y, objSpaces);
 var passing = 0;
+var fasf_space_layer = noone;
 
 with (space) {
 	passing = space_passing_event();
+	fasf_space_layer = instance_place(x, y, objBoardFASFSpaceLayer);
 }
 
-if (passing == 1) {
+if (passing == 1 || (fasf_space_layer != noone && global.board_fasf_space_mode == FASF_SPACE_MODES.ICE)) {
 	exit;
 }
 
 if (passing == 0) {
-	global.dice_roll--;
+	global.dice_roll = max(global.dice_roll - ((fasf_space_layer == noone || global.board_fasf_space_mode != FASF_SPACE_MODES.MUD) ? 1 : 2), 0);
 	
 	with (space) {
 		space_glow(true);

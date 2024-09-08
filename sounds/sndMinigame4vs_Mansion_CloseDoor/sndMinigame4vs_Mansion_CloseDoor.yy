@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"sndMinigame4vs_Mansion_CloseDoor.wav",
   "type":0,
-  "volume":0.5,
+  "volume":1.0,
 }

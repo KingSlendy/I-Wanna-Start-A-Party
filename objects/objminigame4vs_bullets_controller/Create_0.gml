@@ -44,6 +44,7 @@ alarm_create(5, function() {
 		});
 	}
 	
+	audio_play_sound(sndShoot, 0, false);
 	alarm_call(5, 5);
 });
 
