@@ -22,11 +22,11 @@ with (space) {
 	fasf_space_layer = instance_place(x, y, objBoardFASFSpaceLayer);
 }
 
-if (passing == 1 || (fasf_space_layer != noone && global.board_fasf_space_mode == FASF_SPACE_MODES.ICE)) {
+if (passing == 1) {
 	exit;
 }
 
-if (passing == 0) {
+if (passing == 0 && (fasf_space_layer == noone || global.board_fasf_space_mode != FASF_SPACE_MODES.ICE)) {
 	global.dice_roll = max(global.dice_roll - ((fasf_space_layer == noone || global.board_fasf_space_mode != FASF_SPACE_MODES.MUD) ? 1 : 2), 0);
 	
 	with (space) {

@@ -37,7 +37,7 @@
   "origin":4,
   "parent":{
     "name":"FASF",
-    "path":"folders/Sprites/Objects/Party/Events/FASF.yy",
+    "path":"folders/Sprites/Objects/Party/Misc/FASF.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

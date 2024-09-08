@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objBoardFASFSpaceLayer",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objBoardFASFSpaceLayer",
   "overriddenProperties":[],
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprSpaces",
-    "path":"sprites/sprSpaces/sprSpaces.yy",
+    "name":"sprBoardFASFSpaceLayer",
+    "path":"sprites/sprBoardFASFSpaceLayer/sprBoardFASFSpaceLayer.yy",
   },
   "spriteMaskId":null,
   "visible":true,

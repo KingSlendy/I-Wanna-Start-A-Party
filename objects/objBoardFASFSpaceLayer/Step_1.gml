@@ -1,0 +1,1 @@
+visible = (image_index == global.board_fasf_space_mode - 1);
