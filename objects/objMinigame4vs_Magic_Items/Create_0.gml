@@ -10,6 +10,7 @@ held = false;
 grab = true;
 pedestal = false;
 state = -1;
+audio_played = false;
 
 function init_item() {
 	giver = instance_place(x, y, objMinigame4vs_Magic_GiverID);
@@ -45,6 +46,11 @@ function hold_item(network = true) {
 	vspd = 0;
 	held = true;
 	player.item = id;
+	if !audio_played
+	{
+		audio_play_sound(sndMinigame4vs_Magic_GrabItem, 0, false);
+		audio_played = true;	
+	}
 	
 	if (network) {
 		buffer_seek_begin();
@@ -80,6 +86,10 @@ function release_item(place = true, network = true) {
 	vspd = 0;
 	held = false;
 	player.item = null;
+	
+	//audio_play_sound(sndMinigame4vs_Magic_GrabItem, 0, false);
+	audio_played = false;	
+	
 	
 	if (network) {
 		buffer_seek_begin();

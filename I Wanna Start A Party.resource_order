@@ -1176,6 +1176,7 @@
     {"name":"sndMinigame4vs_Lead_DeDeDe_Jump","order":2,"path":"sounds/sndMinigame4vs_Lead_DeDeDe_Jump/sndMinigame4vs_Lead_DeDeDe_Jump.yy",},
     {"name":"sndMinigame4vs_Magic_Correct","order":2,"path":"sounds/sndMinigame4vs_Magic_Correct/sndMinigame4vs_Magic_Correct.yy",},
     {"name":"sndMinigame4vs_Magic_Fall","order":1,"path":"sounds/sndMinigame4vs_Magic_Fall/sndMinigame4vs_Magic_Fall.yy",},
+    {"name":"sndMinigame4vs_Magic_GrabItem","order":3,"path":"sounds/sndMinigame4vs_Magic_GrabItem/sndMinigame4vs_Magic_GrabItem.yy",},
     {"name":"sndMinigame4vs_Mansion_CloseDoor","order":1,"path":"sounds/sndMinigame4vs_Mansion_CloseDoor/sndMinigame4vs_Mansion_CloseDoor.yy",},
     {"name":"sndMinigame4vs_Slime_Laser","order":2,"path":"sounds/sndMinigame4vs_Slime_Laser/sndMinigame4vs_Slime_Laser.yy",},
     {"name":"sndMinigame4vs_Slime_Mercy","order":1,"path":"sounds/sndMinigame4vs_Slime_Mercy/sndMinigame4vs_Slime_Mercy.yy",},
