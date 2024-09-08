@@ -78,6 +78,24 @@ function instance_activate_important() {
 	instance_activate_object(objPopup);
 }
 
+function instance_place_any(x, y, obj, func) {
+	var list = ds_list_create();
+	var count = instance_place_list(x, y, obj, list, false);
+	var result = false;
+	
+	for (var i = 0; i < count; i++) {
+		var o = list[| i];
+		
+		if (func(o)) {
+			result = true;
+			break;
+		}
+	}
+	
+	ds_list_destroy(list);
+	return result;
+}
+
 function approach(val1, val2, amount) {
 	if (val1 == val2) {
 		return val1;

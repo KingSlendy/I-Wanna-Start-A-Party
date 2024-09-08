@@ -87,7 +87,7 @@ enum FASF_SPACE_MODES {
 	NULLIFIER
 }
 
-global.board_fasf_space_mode = FASF_SPACE_MODES.NOTHING;
+global.board_fasf_space_mode = FASF_SPACE_MODES.PORTAL;
 global.board_fasf_last5turns_event = false;
 global.music_board_track_position = 0; // Handle track position when we go back to the board after a minigame
 

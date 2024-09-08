@@ -15,19 +15,28 @@ with (objSpaces) {
 
 var space = instance_place(x, y, objSpaces);
 var passing = 0;
-var fasf_space_layer = noone;
 
 with (space) {
+	if (global.board_fasf_space_mode == FASF_SPACE_MODES.ICE && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.ICE); })) {
+		board_advance();
+		exit;
+	}
+	
 	passing = space_passing_event();
-	fasf_space_layer = instance_place(x, y, objBoardFASFSpaceLayer);
 }
 
 if (passing == 1) {
 	exit;
 }
 
-if (passing == 0 && (fasf_space_layer == noone || global.board_fasf_space_mode != FASF_SPACE_MODES.ICE)) {
-	global.dice_roll = max(global.dice_roll - ((fasf_space_layer == noone || global.board_fasf_space_mode != FASF_SPACE_MODES.MUD) ? 1 : 2), 0);
+if (passing == 0) {
+	if (global.board_fasf_space_mode != FASF_SPACE_MODES.MUD || !instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.MUD); })) {
+		global.dice_roll -= 1;
+	} else {
+		global.dice_roll -= 2;
+	}
+	
+	global.dice_roll = max(global.dice_roll, 0);
 	
 	with (space) {
 		space_glow(true);

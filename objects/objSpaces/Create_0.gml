@@ -228,6 +228,30 @@ function space_finish_event() {
 		return;
 	}
 	
+	if (global.board_fasf_space_mode == FASF_SPACE_MODES.PORTAL && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.PORTAL); })) {
+		var fasf_space_layer_portals = [];
+		
+		with (objBoardFASFSpaceLayer) {
+			if (image_index + 1 == FASF_SPACE_MODES.PORTAL && !instance_place(x, y, other)) {
+				array_push(fasf_space_layer_portals, id);
+			}
+		}
+		
+		array_shuffle_ext(fasf_space_layer_portals);
+		var fasf_portal = fasf_space_layer_portals[0];
+		var fasf_portal_x = fasf_portal.x + 16;
+		var fasf_portal_y = fasf_portal.y + 16;
+		
+		with (focused_player()) {
+			x = fasf_portal_x;
+			y = fasf_portal_y;
+		}
+		
+		switch_camera_target(fasf_portal_x, fasf_portal_y).final_action = turn_next;
+		change_space(SpaceType.Warp);
+		return;
+	}
+	
 	change_space(image_index);
 	var space_give = (global.board_turn <= global.max_board_turns - 5) ? 3 : 6;
 	
