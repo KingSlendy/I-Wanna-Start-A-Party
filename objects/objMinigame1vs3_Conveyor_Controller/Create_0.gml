@@ -18,6 +18,9 @@ minigame_time_end = function() {
 	}
 	
 	minigame_finish();
+	
+	if audio_is_playing(sndMinigame1vs3_Conveyor_MovingLoop)
+		audio_stop_sound(sndMinigame1vs3_Conveyor_MovingLoop);
 }
 
 action_end = function() {

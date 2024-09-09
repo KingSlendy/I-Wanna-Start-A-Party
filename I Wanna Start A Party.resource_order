@@ -138,6 +138,7 @@
     {"name":"1vs3","order":19,"path":"folders/Sounds/SFX/Minigames/1vs3.yy",},
     {"name":"Aiming","order":4,"path":"folders/Sounds/SFX/Minigames/1vs3/Aiming.yy",},
     {"name":"Coins","order":1,"path":"folders/Sounds/SFX/Minigames/1vs3/Coins.yy",},
+    {"name":"Conveyor","order":6,"path":"folders/Sounds/SFX/Minigames/1vs3/Conveyor.yy",},
     {"name":"Host","order":5,"path":"folders/Sounds/SFX/Minigames/1vs3/Host.yy",},
     {"name":"Race","order":2,"path":"folders/Sounds/SFX/Minigames/1vs3/Race.yy",},
     {"name":"Warping","order":3,"path":"folders/Sounds/SFX/Minigames/1vs3/Warping.yy",},
