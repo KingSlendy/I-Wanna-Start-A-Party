@@ -11,6 +11,7 @@ grab = true;
 pedestal = false;
 state = -1;
 audio_played = false;
+pitch_range = 0.1;
 
 function init_item() {
 	giver = instance_place(x, y, objMinigame4vs_Magic_GiverID);
@@ -46,9 +47,10 @@ function hold_item(network = true) {
 	vspd = 0;
 	held = true;
 	player.item = id;
+	// Audio
 	if !audio_played
 	{
-		audio_play_sound(sndMinigame4vs_Magic_GrabItem, 0, false);
+		audio_play_sound(sndMinigame4vs_Magic_GrabItem, 0, false, 1, , 1 + random_range(-pitch_range, pitch_range));
 		audio_played = true;	
 	}
 	
@@ -87,7 +89,8 @@ function release_item(place = true, network = true) {
 	held = false;
 	player.item = null;
 	
-	//audio_play_sound(sndMinigame4vs_Magic_GrabItem, 0, false);
+	// Audio
+	audio_play_sound(sndMinigame4vs_Magic_DropItem, 0, false, 1, , 1 + random_range(-pitch_range, pitch_range));
 	audio_played = false;	
 	
 	
