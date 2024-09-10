@@ -7,6 +7,7 @@ function activate(image, network = false) {
 		case 0:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorRight;
 			var c_spd = 15;
+			var c_switch_sound = sndMinigame1vs3_Conveyor_SwitchON;
 			
 			if !audio_is_playing(sndMinigame1vs3_Conveyor_MovingLoop)
 				audio_play_sound(sndMinigame1vs3_Conveyor_MovingLoop, 0, true,,,1.3);
@@ -15,6 +16,7 @@ function activate(image, network = false) {
 		case 1:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorLeft;
 			var c_spd = -15;
+			var c_switch_sound = sndMinigame1vs3_Conveyor_SwitchON;
 			
 			if !audio_is_playing(sndMinigame1vs3_Conveyor_MovingLoop)
 				audio_play_sound(sndMinigame1vs3_Conveyor_MovingLoop, 0, true,,,1.3);
@@ -23,6 +25,7 @@ function activate(image, network = false) {
 		case 2:
 			var c_spr = sprMinigame1vs3_Conveyor_ConveyorStill;
 			var c_spd = 0;
+			var c_switch_sound = sndMinigame1vs3_Conveyor_SwitchOFF;
 			
 			if audio_is_playing(sndMinigame1vs3_Conveyor_MovingLoop)
 				audio_stop_sound(sndMinigame1vs3_Conveyor_MovingLoop);
@@ -34,6 +37,7 @@ function activate(image, network = false) {
 			sprite_index = c_spr;
 			spd = c_spd;
 		}
+		audio_play_sound(c_switch_sound, 0, false, , , 1+random_range(-0.1,0.1));
 	}
 	
 	if (!network) {

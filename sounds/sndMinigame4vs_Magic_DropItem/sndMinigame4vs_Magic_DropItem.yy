@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.432875,
+  "duration":0.256576,
   "name":"sndMinigame4vs_Magic_DropItem",
   "parent":{
     "name":"Magic",

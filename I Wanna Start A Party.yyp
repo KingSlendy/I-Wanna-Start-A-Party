@@ -1348,6 +1348,8 @@
     {"id":{"name":"sndMinigame1vs3_Coins_Hit","path":"sounds/sndMinigame1vs3_Coins_Hit/sndMinigame1vs3_Coins_Hit.yy",},},
     {"id":{"name":"sndMinigame1vs3_Coins_Throw","path":"sounds/sndMinigame1vs3_Coins_Throw/sndMinigame1vs3_Coins_Throw.yy",},},
     {"id":{"name":"sndMinigame1vs3_Conveyor_MovingLoop","path":"sounds/sndMinigame1vs3_Conveyor_MovingLoop/sndMinigame1vs3_Conveyor_MovingLoop.yy",},},
+    {"id":{"name":"sndMinigame1vs3_Conveyor_SwitchOFF","path":"sounds/sndMinigame1vs3_Conveyor_SwitchOFF/sndMinigame1vs3_Conveyor_SwitchOFF.yy",},},
+    {"id":{"name":"sndMinigame1vs3_Conveyor_SwitchON","path":"sounds/sndMinigame1vs3_Conveyor_SwitchON/sndMinigame1vs3_Conveyor_SwitchON.yy",},},
     {"id":{"name":"sndMinigame1vs3_Host_LightsOff","path":"sounds/sndMinigame1vs3_Host_LightsOff/sndMinigame1vs3_Host_LightsOff.yy",},},
     {"id":{"name":"sndMinigame1vs3_Host_LightsOn","path":"sounds/sndMinigame1vs3_Host_LightsOn/sndMinigame1vs3_Host_LightsOn.yy",},},
     {"id":{"name":"sndMinigame1vs3_Race_Correct","path":"sounds/sndMinigame1vs3_Race_Correct/sndMinigame1vs3_Race_Correct.yy",},},

@@ -1155,6 +1155,8 @@
     {"name":"sndItemWarpAnimation","order":3,"path":"sounds/sndItemWarpAnimation/sndItemWarpAnimation.yy",},
     {"name":"sndMinigame1vs3_Coins_Hit","order":2,"path":"sounds/sndMinigame1vs3_Coins_Hit/sndMinigame1vs3_Coins_Hit.yy",},
     {"name":"sndMinigame1vs3_Coins_Throw","order":1,"path":"sounds/sndMinigame1vs3_Coins_Throw/sndMinigame1vs3_Coins_Throw.yy",},
+    {"name":"sndMinigame1vs3_Conveyor_SwitchOFF","order":2,"path":"sounds/sndMinigame1vs3_Conveyor_SwitchOFF/sndMinigame1vs3_Conveyor_SwitchOFF.yy",},
+    {"name":"sndMinigame1vs3_Conveyor_SwitchON","order":1,"path":"sounds/sndMinigame1vs3_Conveyor_SwitchON/sndMinigame1vs3_Conveyor_SwitchON.yy",},
     {"name":"sndMinigame1vs3_Host_LightsOn","order":1,"path":"sounds/sndMinigame1vs3_Host_LightsOn/sndMinigame1vs3_Host_LightsOn.yy",},
     {"name":"sndMinigame1vs3_Race_Wrong","order":1,"path":"sounds/sndMinigame1vs3_Race_Wrong/sndMinigame1vs3_Race_Wrong.yy",},
     {"name":"sndMinigame2vs2_Colorful_PatternCorrect","order":2,"path":"sounds/sndMinigame2vs2_Colorful_PatternCorrect/sndMinigame2vs2_Colorful_PatternCorrect.yy",},

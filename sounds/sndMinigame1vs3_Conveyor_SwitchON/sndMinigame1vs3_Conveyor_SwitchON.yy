@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"sndMinigame4vs_Magic_GrabItem",
+  "%Name":"sndMinigame1vs3_Conveyor_SwitchON",
   "audioGroupId":{
     "name":"audiogroup_SFX",
     "path":"audiogroups/audiogroup_SFX",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.165805,
-  "name":"sndMinigame4vs_Magic_GrabItem",
+  "duration":1.764717,
+  "name":"sndMinigame1vs3_Conveyor_SwitchON",
   "parent":{
-    "name":"Magic",
-    "path":"folders/Sounds/SFX/Minigames/4vs/Magic.yy",
+    "name":"Conveyor",
+    "path":"folders/Sounds/SFX/Minigames/1vs3/Conveyor.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndMinigame4vs_Magic_GrabItem.wav",
+  "soundFile":"sndMinigame1vs3_Conveyor_SwitchON.wav",
   "type":0,
   "volume":1.0,
 }
