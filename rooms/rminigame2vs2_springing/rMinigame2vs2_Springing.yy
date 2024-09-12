@@ -63,6 +63,7 @@
     {"name":"inst_F0D5F19","path":"rooms/rMinigame2vs2_Springing/rMinigame2vs2_Springing.yy",},
     {"name":"inst_46597E05","path":"rooms/rMinigame2vs2_Springing/rMinigame2vs2_Springing.yy",},
     {"name":"inst_11D1B9A3","path":"rooms/rMinigame2vs2_Springing/rMinigame2vs2_Springing.yy",},
+    {"name":"inst_5A82F794","path":"rooms/rMinigame2vs2_Springing/rMinigame2vs2_Springing.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -144,7 +145,11 @@
           9,10,9,10,9,10,9,10,9,10,9,10,9,11,12,13,14,13,14,13,14,13,14,13,14,13,14,13,14,13,14,13,14,13,14,13,
           14,13,15,
         ],"TileDataFormat":1,},"tilesetId":{"name":"tlsMinigame2vs2_Springing","path":"tilesets/tlsMinigame2vs2_Springing/tlsMinigame2vs2_Springing.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":0.0,"animationSpeedType":0,"colour":4294967295,"depth":400,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"sprBkgMinigame2vs2_Springing","path":"sprites/sprBkgMinigame2vs2_Springing/sprBkgMinigame2vs2_Springing.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"Mountain","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Mountain","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"sprBkgMinigame2vs2_Springing_Mountain","path":"sprites/sprBkgMinigame2vs2_Springing_Mountain/sprBkgMinigame2vs2_Springing_Mountain.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRInstanceLayer":"","%Name":"MathBackground","depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v1","%Name":"inst_5A82F794","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A82F794","objectId":{"name":"objMinigame2vs2_Springing_DrawBackground","path":"objects/objMinigame2vs2_Springing_DrawBackground/objMinigame2vs2_Springing_DrawBackground.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":64.0,},
+      ],"layers":[],"name":"MathBackground","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":600,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"sprBkgMinigame2vs2_Springing_NoClouds","path":"sprites/sprBkgMinigame2vs2_Springing_NoClouds/sprBkgMinigame2vs2_Springing_NoClouds.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "name":"rMinigame2vs2_Springing",
   "parent":{
