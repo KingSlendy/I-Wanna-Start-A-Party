@@ -16,6 +16,8 @@ function collect_item(player) {
 		h.image_blend = image_blend;
 		instance_destroy();
 		
+		audio_play_sound(sndMinigame2vs2_Maze_Collect, 0, false, 1, 0, 1);
+		
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Maze_Item);
 		buffer_write_data(buffer_u8, player.network_id);

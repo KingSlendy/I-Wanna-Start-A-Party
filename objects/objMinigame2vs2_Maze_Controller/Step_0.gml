@@ -8,6 +8,8 @@ with (objPlayerBase) {
 			if (focus_player == other.teammate) {
 				minigame2vs2_points(other.network_id, other.teammate.network_id);
 				minigame_finish(true);
+				audio_play_sound(sndMinigame2vs2_Maze_Assembly, 0, false, 1, 0, 1);
+				
 				break;
 			}
 		}
