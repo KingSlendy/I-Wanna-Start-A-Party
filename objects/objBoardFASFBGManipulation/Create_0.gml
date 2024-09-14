@@ -22,7 +22,14 @@ function apply_color_fx() {
 	var intensity = 1.0;
 	
 	switch (global.board_fasf_space_mode) {
-		case FASF_SPACE_MODES.NOTHING: intensity = 0.0; break; //No filter
+		case FASF_SPACE_MODES.NOTHING: //No filter
+			if (!global.board_fasf_last5turns_event) {
+				intensity = 0.0;
+			} else {
+				color = [1.0, 0.0, 0.0];
+			}
+			break;
+			
 		case FASF_SPACE_MODES.ICE: color = [0.0, 1.0, 1.0]; break; //Cyan filter
 		case FASF_SPACE_MODES.MUD: color = [0.3215686274509804, 0.192156862745098, 0.0]; break; //Brown filter
 		case FASF_SPACE_MODES.PORTAL: color = [1.0, 0.0, 1.0]; break; //Purple filter

@@ -1,3 +1,3 @@
 event = function() {
-	return board_fasf_teleports(7);
+	return board_fasf_teleports(5);
 }

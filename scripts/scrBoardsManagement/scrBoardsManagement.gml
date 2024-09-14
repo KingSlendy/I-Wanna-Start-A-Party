@@ -323,7 +323,7 @@ function board_fasf_teleports(reference) {
 	var pick_reference = reference;
 	
 	if (reference == 0) {
-		pick_reference = irandom_range(3, 6);
+		pick_reference = irandom_range(2, 4);
 	}
 	
 	var player = focused_player();
@@ -342,10 +342,9 @@ function board_fasf_teleports(reference) {
 	
 	switch (reference) {
 		case 0: global.board_fasf_space_mode = FASF_SPACE_MODES.NOTHING; break;	
-		case 7: global.board_fasf_space_mode = FASF_SPACE_MODES.ICE; break;
-		case 8: global.board_fasf_space_mode = FASF_SPACE_MODES.MUD; break;
-		case 9: global.board_fasf_space_mode = FASF_SPACE_MODES.PORTAL; break;
-		case 10: global.board_fasf_space_mode = FASF_SPACE_MODES.NULLIFIER; break;
+		case 5: global.board_fasf_space_mode = FASF_SPACE_MODES.ICE; break;
+		case 6: global.board_fasf_space_mode = FASF_SPACE_MODES.MUD; break;
+		case 7: global.board_fasf_space_mode = FASF_SPACE_MODES.PORTAL; break;
 	}
 	
 	switch_camera_target(player.x, player.y).final_action = board_advance;

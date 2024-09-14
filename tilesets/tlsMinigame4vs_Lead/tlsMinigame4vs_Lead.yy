@@ -5,14 +5,7 @@
   "macroPageTiles":{
     "SerialiseHeight":6,
     "SerialiseWidth":7,
-    "TileCompressedData":[
-      -39,
-      0,
-      3,
-      5,
-      6,
-      7,
-    ],
+    "TileCompressedData":[-39,0,3,5,6,7,],
     "TileDataFormat":1,
   },
   "name":"tlsMinigame4vs_Lead",
