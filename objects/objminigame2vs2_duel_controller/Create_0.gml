@@ -14,8 +14,6 @@ minigame_time_end = function() {
 			player_shoot();
 		}
 	}
-	
-	take_time = false;
 }
 
 action_end = function() {
@@ -50,7 +48,7 @@ alarm_override(1, function() {
 	audio_play_sound(sndMinigameReady, 0, false);
 	player_can_shoot = array_create(global.player_max, true);
 	next_seed_inline();
-	fake_mark = (!chance(0.3)) ? false : true;
+	fake_mark = (!chance(0.4)) ? false : true;
 	var time = irandom_range(3, 6);
 	
 	if (!fake_mark) {
@@ -125,6 +123,7 @@ alarm_create(5, function() {
 	music_resume();
 	alarm_call(6, 1);
 	alarm_stop(10);
+	take_time = false;
 });
 
 alarm_create(6, function() {
