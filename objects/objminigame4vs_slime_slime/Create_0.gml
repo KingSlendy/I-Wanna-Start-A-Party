@@ -1,6 +1,4 @@
 alarm_time = 0;
-kill_percent = 0;
-no_kills = 0;
 
 function slime_shot(network = true) {
 	sprite_index = sprMinigame4vs_Slime_SlimeShot;
@@ -16,23 +14,17 @@ function slime_shot(network = true) {
 		player.frozen = true;
 	}
 	
+	objMinigameController.slime_annoy++;
 	audio_play_sound(sndMinigame4vs_Slime_Shot, 0, false);
 	music_pause();
 	next_seed_inline();
 	
 	if (network) {
 		alarm_time = irandom_range(2, 4);
-		var lost_count = 0;
-
-		with (objPlayerBase) {
-			lost_count += lost;	
-		}
 		
-		kill_percent = irandom(4 - lost_count);
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Slime_SlimeShot);
 		buffer_write_data(buffer_u8, alarm_time);
-		buffer_write_data(buffer_u8, kill_percent);
 		network_send_tcp_packet();
 	}
 	
@@ -42,17 +34,15 @@ function slime_shot(network = true) {
 alarms_init(2);
 
 alarm_create(function() {
-	image_index = (kill_percent == 0) ? 1 : 3;
+	image_index = (objMinigameController.slime_annoy == objMinigameController.slime_annoyances) ? 1 : 3;
 
-	if (no_kills < 8 && image_index == 3) {
+	if (image_index == 3) {
 		audio_play_sound(sndMinigame4vs_Slime_Mercy, 0, false);
 		image_index = 3;
-		no_kills++;
 	} else {
 		instance_create_layer(x + sprite_width / 2, y - 20, "Actors", objMinigame4vs_Slime_Laser);
 		audio_play_sound(sndMinigame4vs_Slime_Laser, 0, false);
 		image_index = 1;
-		no_kills = 0;
 	}
 
 	alarm_call(1, 2);
@@ -70,15 +60,18 @@ alarm_create(function() {
 
 	if (player.lost) {
 		with (objMinigameController) {
-			unfreeze_player();
+			alarm_instant(1);
 		}
 	
 		return;
 	}
 
-	player.enable_shoot = false;
 	player.frozen = false;
 	instance_create_layer(384, 480, "Collisions", objMinigame4vs_Slime_Next, {
 		image_xscale: 5
 	});
+	
+	with (objMinigameController) {
+		alarm_instant(5);
+	}
 });

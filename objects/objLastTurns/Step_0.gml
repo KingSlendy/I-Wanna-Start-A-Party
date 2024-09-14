@@ -63,14 +63,11 @@ if (state == 0) {
 				}
 				break;
 		}
-		if room != rBoardFASF
-		{
+		if (room != rBoardFASF) {
 			music_resume();
 			audio_sound_gain(global.music_current, 1, 1000);
-		}
-		else
-		{
-			// FASF event
+		} else {
+			//FASF Board
 			board_fasf_play_music();
 			board_fasf_set_event(true);
 		}

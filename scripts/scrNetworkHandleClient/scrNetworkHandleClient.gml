@@ -978,7 +978,6 @@ f[$ ClientTCP.Minigame4vs_Slime_BlockEntrance] = function(buffer) {
 f[$ ClientTCP.Minigame4vs_Slime_SlimeShot] = function(buffer) {
 	with (objMinigame4vs_Slime_Slime) {
 		alarm_time = buffer_read(buffer, buffer_u8);
-		kill_percent = buffer_read(buffer, buffer_u8);
 		slime_shot(false);
 	}
 }

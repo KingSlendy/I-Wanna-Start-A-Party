@@ -19,12 +19,19 @@ function music_play(music, loop = true) {
 	music_change(music, loop);
 }
 
-//function music_change(music, loop = true) {
-//	if (music != null && !music_is_same(music)) {
-//        global.music_current = audio_play_sound(music, 0, loop, 1);
-//        audio_sound_loop(global.music_current, true);
-//	}
-//}
+function music_play_from_position(music, position, loop = true) {
+	global.music_previous = null;
+	
+	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
+		audio_sound_gain(global.music_current, 1, 0);
+		audio_stop_sound(global.music_current);
+	}
+	
+	music_change(music, loop);
+	audio_sound_gain(global.music_current, 0, 0); //Mute music
+	audio_sound_set_track_position(global.music_current, position); //Load position
+	audio_sound_gain(global.music_current, 1, 500); //Fade in volume
+}
 
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {

@@ -250,34 +250,6 @@ function switch_camera_target(x, y) {
 	return s;
 }
 
-function board_music() {
-	var room_name = room_get_name(room);
-	var bgm_name = $"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}";
-	var execute_music_method = music_play;
-	
-	if (room == rBoardIsland && !global.board_day) {
-		bgm_name += "Night";
-	}
-	
-	if (room == rBoardHyrule && !global.board_light) {
-		bgm_name += "Dark";
-	}
-	
-	// Fasf
-	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
-		bgm_name += "Last5Turns";	
-		execute_music_method = board_fasf_play_music_from_position;
-		
-		// Change space background color
-		with (objBoardFASFBGManipulation) {
-			apply_color_fx();
-		}
-	}
-	
-	execute_music_method(audio_get_index(bgm_name));
-	//music_play(audio_get_index(bgm_name));
-}
-
 function board_start() {
 	if (global.board_started) {
 		save_board();

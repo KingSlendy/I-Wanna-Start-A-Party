@@ -1,5 +1,11 @@
 event_inherited();
 
+minigame_players = function() {
+	with (objPlayerBase) {
+		enable_shoot_wait = 7;
+		shoot_times = 0;
+	}
+}
 minigame_time_end = function() {
 	with (focus_player_by_turn(player_turn)) {
 		player_kill();
@@ -11,6 +17,8 @@ minigame_time_end = function() {
 
 player_type = objPlayerPlatformer;
 player_turn = 0;
+slime_annoyances = 0;
+slime_annoy = 0;
 
 function unfreeze_player() {
 	alarm_stop(4);
@@ -33,10 +41,7 @@ function unfreeze_player() {
 		}
 	} until (!focus_player_by_turn(player_turn).lost);
 	
-	with (objPlayerBase) {
-		enable_shoot = true;
-		frozen = true;
-	}
+	objPlayerBase.frozen = true;
 	
 	var player = focus_player_by_turn(player_turn);
 	player.frozen = false;
@@ -44,8 +49,7 @@ function unfreeze_player() {
 		image_xscale: 5
 	});
 	
-	minigame_time = 8;
-	alarm_call(10, 1);
+	alarm_instant(5);
 }
 
 function block_entrance(network = true) {
@@ -61,13 +65,30 @@ function block_entrance(network = true) {
 }
 
 alarm_override(1, function() {
+	var lost_count = 0;
+
+	with (objPlayerBase) {
+		lost_count += lost;	
+	}
+	
+	next_seed_inline();
+	slime_annoyances = irandom_range(1, (global.player_max - lost_count) * 2 + global.player_max);
+	slime_annoy = 0;
 	unfreeze_player();
 });
 
 alarm_create(4, function() {
-	if (focus_player_by_turn(player_turn).lost) {
-		unfreeze_player();
+	if (!focus_player_by_turn(player_turn).lost) {
+		alarm_frames(4, 1);
+		return;
 	}
+	
+	unfreeze_player();
+});
+
+alarm_create(5, function() {
+	minigame_time = 8;
+	alarm_call(10, 1);
 });
 
 alarm_override(11, function() {
@@ -81,7 +102,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 	
 		with (player) {
-			if (!enable_shoot) {
+			if (instance_exists(objBullet) || frozen) {
 				break;
 			}
 			
@@ -97,11 +118,29 @@ alarm_override(11, function() {
 					var action = (dir == 0) ? actions.right : actions.left;
 					action.press();
 				}
-			} else {
-				if (!instance_exists(objBullet)) {
-					actions.right.press();
-					actions.shoot.press();
+				
+				shoot_times = 1;
+			} else if (shoot_times > 0) {
+				if (!enable_shoot) {
+					actions.left.hold(15);
+					
+					if (chance(0.6)) {
+						shoot_times = 1;
+					} else {
+						shoot_times = irandom_range(1, 3);
+					}
+					
+					enable_shoot_wait = 15;
+				} else if (--enable_shoot_wait <= 0) {
+					if (xscale == -1) {
+						actions.right.press();
+					} else {
+						actions.shoot.press();
+						shoot_times--;
+					}
 				}
+			} else {
+				actions.right.hold(10);
 			}
 		}
 	}

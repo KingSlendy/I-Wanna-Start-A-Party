@@ -17,8 +17,7 @@ function board_init() {
 		new Board(language_get_text("PARTY_BOARD_HYRULE_NAME"), rBoardHyrule, "KingSlendy", language_get_text("PARTY_BOARD_HYRULE_WELCOME"), [language_get_text("PARTY_BOARD_HYRULE_RULES_1"), language_get_text("PARTY_BOARD_HYRULE_RULES_2"), language_get_text("PARTY_BOARD_HYRULE_RULES_3"), language_get_text("PARTY_BOARD_HYRULE_RULES_4", ["{20 coins}", draw_coins_price(20)]), language_get_text("PARTY_BOARD_HYRULE_RULES_5")]),
 		new Board(language_get_text("PARTY_BOARD_NSANITY_NAME"), rBoardNsanity, "KingSlendy\nMauriPlays!", language_get_text("PARTY_BOARD_NSANITY_WELCOME"), [language_get_text("PARTY_BOARD_NSANITY_RULES_1"), language_get_text("PARTY_BOARD_NSANITY_RULES_2", ["{5 coins}", draw_coins_price(5)], ["{10 coins}", draw_coins_price(10)])]),
 		new Board(language_get_text("PARTY_BOARD_WORLD_NAME"), rBoardWorld, "Kogami Takara\nKingSlendy", language_get_text("PARTY_BOARD_WORLD_WELCOME"), [language_get_text("PARTY_BOARD_WORLD_RULES_1"), language_get_text("PARTY_BOARD_WORLD_RULES_2")]),
-		// Added - TODO: Languages
-		new Board(language_get_text("PARTY_BOARD_FASF_NAME"), rBoardFASF, "Neos", language_get_text("PARTY_BOARD_FASF_WELCOME"), [language_get_text("PARTY_BOARD_FASF_RULES_1"), language_get_text("PARTY_BOARD_FASF_RULES_2"), language_get_text("PARTY_BOARD_FASF_RULES_3")])
+		new Board(language_get_text("PARTY_BOARD_FASF_NAME"), rBoardFASF, "Neos", language_get_text("PARTY_BOARD_FASF_WELCOME"), [language_get_text("PARTY_BOARD_FASF_RULES_1"), language_get_text("PARTY_BOARD_FASF_RULES_2"), language_get_text("PARTY_BOARD_FASF_RULES_3"), language_get_text("PARTY_BOARD_FASF_RULES_4")])
 	];
 }
 
@@ -33,6 +32,36 @@ function board_collected(board) {
 }
 
 global.board_path_finding_look = false;
+
+function board_music() {
+	var room_name = room_get_name(room);
+	var bgm_name = $"bgm{string_copy(room_name, 2, string_length(room_name) - 1)}";
+	
+	//Island Board
+	if (room == rBoardIsland && !global.board_day) {
+		bgm_name += "Night";
+	}
+	
+	//Hyrule Board
+	if (room == rBoardHyrule && !global.board_light) {
+		bgm_name += "Dark";
+	}
+	
+	//FASF Board
+	if (room == rBoardFASF && global.board_fasf_last5turns_event && (global.board_turn > global.max_board_turns - 5)) {
+		bgm_name += "Last5Turns";	
+	}
+	
+	music_play_from_position(audio_get_index(bgm_name), global.board_music_track_position);
+}
+
+function board_save_track_position() {
+	global.board_music_track_position = audio_sound_get_track_position(global.music_current);
+}
+
+function board_reset_track_position() {
+	global.board_music_track_position = 0;
+}
 
 function board_hotland_annoying_dog() {
 	instance_create_layer(0, 0, "Managers", objBoardHotlandAnnoyingDog);
@@ -361,11 +390,6 @@ function board_fasf_teleports(reference) {
 
 function board_fasf_set_event(mode = false) {
 	global.board_fasf_last5turns_event = mode;
-	
-	// Change color background
-	with (objBoardFASFBGManipulation) {
-		apply_color_fx();
-	}
 }
 
 function board_fasf_play_music() {
@@ -373,32 +397,10 @@ function board_fasf_play_music() {
 	audio_sound_gain(global.music_current, 1, 500);
 }
 
-function board_fasf_save_track_position() {
-	if (room == rBoardFASF) {
-		global.music_board_track_position = audio_sound_get_track_position(global.music_current);
-		print($"Track position stored ({global.music_board_track_position})");
-	}
-}
-
-function board_fasf_play_music_from_position(music) {
-	if (global.music_current != null && music != global.music_current && !music_is_same(music)) {
-		music_play(music); // Play music
-		
-		audio_sound_gain(global.music_current, 0, 0); // Mute music
-		audio_sound_set_track_position(global.music_current, global.music_board_track_position); // Load position
-		print($"Music position loaded ({global.music_board_track_position})");
-		audio_sound_gain(global.music_current, 1, 500); // Fade in volume
-	}
-}
-
-function board_fasf_reset_track_position() {
-	global.music_board_track_position = 0;
-	print($"Music position reseted ({global.music_board_track_position})");
-}
-
 function disable_board() {
 	instance_destroy(objPlayerInfo);
 	instance_destroy(objBoard);
 	
+	//FASF Board
 	board_fasf_set_event(false);
 }

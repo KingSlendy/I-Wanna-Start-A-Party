@@ -58,8 +58,8 @@ function send_to_minigame() {
 		other.info.ghost_position = {x: self.x, y: self.y};	
 	}
 	
-	// FASF - save the music position when we came back to board (only if we're in last5turns)
-	board_fasf_save_track_position();
+	//Save the music position for when we come back to board
+	board_save_track_position();
 	
 	// Overview room
 	room_goto(rMinigameOverview);
