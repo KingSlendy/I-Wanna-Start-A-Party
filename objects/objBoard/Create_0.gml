@@ -145,6 +145,38 @@ alarm_create(function() {
 	instance_create_layer(0, 0, "Managers", objBoardWorldShuffle);
 });
 
+//FASF Board
+alarm_create(function() {
+	with (focused_player()) {
+		with (instance_place(x, y, objSpaces)) {
+			var fasf_space_layer_portals = [];
+		
+			with (objBoardFASFSpaceLayer) {
+				if (image_index + 1 == FASF_SPACE_MODES.PORTAL && !instance_place(x, y, other)) {
+					array_push(fasf_space_layer_portals, id);
+				}
+			}
+		
+			array_shuffle_ext(fasf_space_layer_portals);
+			var fasf_portal = fasf_space_layer_portals[0];
+			var fasf_portal_x = fasf_portal.x + 16;
+			var fasf_portal_y = fasf_portal.y + 16;
+			other.x = fasf_portal_x;
+			other.y = fasf_portal_y;
+		}
+		
+		switch_camera_target(fasf_portal_x, fasf_portal_y).final_action = function() {
+			with (objBoard) {
+				alarm_call(9, 1);
+			}
+		}
+	}
+});
+
+alarm_create(function() {
+	turn_next();
+});
+
 alarm_create(11, function() {
 	if (global.player_id != 1) {
 		return;

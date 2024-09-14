@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"sndMinigame1vs3_Conveyor_MovingLoop.wav",
   "type":0,
-  "volume":1.0,
+  "volume":0.75,
 }
