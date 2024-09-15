@@ -7,6 +7,8 @@ minigame_players = function() {
 		enable_shoot = false;
 		has_item = false;
 		jump_total = -1;
+		move_delay_timer = 0;
+		jump_delay_timer = 0;
 	}
 }
 

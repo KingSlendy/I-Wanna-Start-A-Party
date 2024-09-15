@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":0,
+  "conversionMode":1,
   "duration":32.15946,
   "name":"bgmMinigame2vs2_Colorful",
   "parent":{

@@ -57,6 +57,7 @@ global.minigames = {};
 #macro SKY_DIVING "Sky Diving"
 #macro GOLF_COURSE "Golf Course"
 #macro WAKA_EVASION "Waka Evasion"
+#macro TREASURE_TRIAL "Treasure Trial"
 #endregion
 
 #region 1vs3
@@ -319,7 +320,19 @@ function minigame_init() {
 				["{Jump key}", draw_action(global.actions.jump)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 35, rMinigame4vs_Jingle, "Jingle Jam")
+		], 35, rMinigame4vs_Jingle, "Jingle Jam"),
+		
+		new Minigame(TREASURE_TRIAL, language_get_text("MINIGAMES_TREASURE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_TREASURE_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_TREASURE_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 41, rMinigame4vs_Treasure, "I Wanna Challenge 100 Trials!!")
 	];
 
 	m[$ "1vs3"] = [

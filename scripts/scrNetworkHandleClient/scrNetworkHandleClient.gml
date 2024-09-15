@@ -129,6 +129,8 @@ enum ClientTCP {
 	Minigame4vs_Jingle_SledgeShoot,
 	Minigame4vs_Jingle_SledgeToggle,
 	Minigame4vs_Jingle_SledgeHit,
+	Minigame4vs_Treasure_BlockHit,
+	Minigame4vs_Treasure_Obtained,
 	#endregion
 	
 	#region 1vs3
@@ -1082,6 +1084,27 @@ f[$ ClientTCP.Minigame4vs_Jingle_SledgeHit] = function(buffer) {
 			sledge_hit(false);
 			break;
 		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Treasure_BlockHit] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var block_x = buffer_read(buffer, buffer_s32);
+	var block_y = buffer_read(buffer, buffer_s32);
+	
+	with (objMinigame4vs_Treasure_Block) {
+		if (x == block_x && y == block_y) {
+			treasure_block_hit(network_id, false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Treasure_Obtained] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Treasure_Treasure) {
+		treasure_obtained(network_id, false);
 	}
 }
 #endregion

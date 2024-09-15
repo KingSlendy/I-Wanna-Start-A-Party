@@ -1,0 +1,1 @@
+create_star(1);

@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":0,
+  "conversionMode":1,
   "duration":30.035686,
   "name":"bgmMinigame4vs_Golf",
   "parent":{

@@ -6,10 +6,12 @@ with (objPlayerBase) {
 	enable_shoot = false;
 }
 
-with (instance_place(x, y, objPlayerBase)) {
-	if (!is_player_local(network_id)) {
-		break;
-	}
+if (objMinigameController.player_turn != 0) {
+	with (focus_player_by_turn(objMinigameController.player_turn)) {
+		if (!is_player_local(network_id) || lost) {
+			break;
+		}
 	
-	enable_shoot = true;
+		enable_shoot = place_meeting(x, y, other);
+	}
 }

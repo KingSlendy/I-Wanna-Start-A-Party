@@ -1,3 +1,5 @@
+network_id = null;
+
 if (room == rMinigame4vs_Targets) {
 	with (objMinigameController) {
 		player_bullets[player_turn - 1] = max(--player_bullets[player_turn - 1], 0);
