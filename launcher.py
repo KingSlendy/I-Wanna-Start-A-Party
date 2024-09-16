@@ -1,4 +1,4 @@
-import os, re, requests, shutil, sys, subprocess, urllib.request, time
+import os, re, requests, shutil, subprocess, urllib.request, time
 from tqdm import tqdm
 from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
@@ -28,11 +28,11 @@ class DownloadProgressBar(tqdm):
         self.update(b * bsize - self.n)
 
 
-def get_version_number(file):
+def get_version_number(path):
     version = None
 
     try:
-        info = GetFileVersionInfo(file, "\\")
+        info = GetFileVersionInfo(path, "\\")
         ms = info["FileVersionMS"]
         ls = info["FileVersionLS"]
         version = (HIWORD(ms), LOWORD(ms), HIWORD(ls), LOWORD(ls))
@@ -46,6 +46,7 @@ def get_version_number(file):
 def main():
     if os.path.exists(APPDATA_PATH):
         shutil.copyfile(APPDATA_PATH, GAME_PATH)
+        os.remove(APPDATA_PATH)
 
     if not os.path.exists(DATA_PATH) or os.path.getsize(DATA_PATH) < 30000000 or not os.path.exists(GAME_PATH):
         print("I Wanna Start A Party has not been found, exiting!")
@@ -100,8 +101,8 @@ def main():
 
 def execute():
     print("Executing I Wanna Start A Party...")
-    subprocess.Popen(f"{GAME_PATH} -launch", shell = True)
-    time.sleep(1)
+    subprocess.Popen(f"start \"\" \"{GAME_PATH}\" -launch", shell = True)
+    time.sleep(0.5)
 
 
 def extract_execute():
