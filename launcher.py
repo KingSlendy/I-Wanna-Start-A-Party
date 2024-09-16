@@ -1,14 +1,24 @@
-import os, re, requests, shutil, subprocess, urllib.request, time, zipfile
+import os, re, requests, shutil, sys, subprocess, urllib.request, time
 from tqdm import tqdm
-from win32com.client import Dispatch
+from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
-DATA_NAME = "data.win"
-GAME_NAME = "Game.exe"
+# Link
 GITHUB_LINK = "https://github.com/KingSlendy"
 GITHUB_REPO = f"I-Wanna-Start-A-Party{"" if not os.path.exists("test") else "-Testers"}"
+
+# Names
+DATA_NAME = "data.win"
+GAME_NAME = "Game.exe"
 ZIP_NAME = "I Wanna Start A Party.zip"
+
+# OS Paths
 CURRENT_PATH = os.getcwd()
-APPDATA_PATH = f"{os.getenv("LOCALAPPDATA")}\\I_Wanna_Start_A_Party"
+APPDATA_PATH = f"{os.getenv("LOCALAPPDATA")}\\I_Wanna_Start_A_Party\\{GAME_NAME}"
+
+# File Paths
+DATA_PATH = f"{CURRENT_PATH}\\{DATA_NAME}"
+GAME_PATH = f"{CURRENT_PATH}\\{GAME_NAME}"
+ZIP_PATH = f"{CURRENT_PATH}\\{ZIP_NAME}"
 
 class DownloadProgressBar(tqdm):
     def update_to(self, b = 1, bsize = 1, tsize = None):
@@ -18,21 +28,35 @@ class DownloadProgressBar(tqdm):
         self.update(b * bsize - self.n)
 
 
-def main():
-    if os.path.exists(f"{APPDATA_PATH}\\{GAME_NAME}"):
-        shutil.copyfile(f"{APPDATA_PATH}\\{GAME_NAME}", f"{CURRENT_PATH}\\{GAME_NAME}")
+def get_version_number(file):
+    version = None
 
-    if not os.path.exists(DATA_NAME) or os.path.getsize(DATA_NAME) < 30000000 or not os.path.exists(GAME_NAME):
+    try:
+        info = GetFileVersionInfo(file, "\\")
+        ms = info["FileVersionMS"]
+        ls = info["FileVersionLS"]
+        version = (HIWORD(ms), LOWORD(ms), HIWORD(ls), LOWORD(ls))
+    except:
+        version = (0, 0, 0, 0)
+    
+    version = ".".join([str(n) for n in version])
+    return version
+
+
+def main():
+    if os.path.exists(APPDATA_PATH):
+        shutil.copyfile(APPDATA_PATH, GAME_PATH)
+
+    if not os.path.exists(DATA_PATH) or os.path.getsize(DATA_PATH) < 30000000 or not os.path.exists(GAME_PATH):
         print("I Wanna Start A Party has not been found, exiting!")
         return
 
-    if os.path.exists(ZIP_NAME):
-        os.remove(ZIP_NAME)
+    if os.path.exists(ZIP_PATH):
+        os.remove(ZIP_PATH)
 
-    ver_parser = Dispatch('Scripting.FileSystemObject')
-    version = ver_parser.GetFileVersion(GAME_NAME)
+    version = get_version_number(GAME_PATH)
 
-    if version == "No Version Information Available":
+    if version == "0.0.0.0":
         print("Error validating current version.")
         execute()
         return
@@ -40,6 +64,7 @@ def main():
     if os.path.exists("test"):
         version += "t"
 
+    print(f"Current version: {version}")
     print("Validating new version...")
     http_tag_content = requests.get(f"{GITHUB_LINK}/{GITHUB_REPO}/releases/latest").content.decode("utf-8")
     
@@ -61,25 +86,26 @@ def main():
 
     try:
         with DownloadProgressBar(unit = 'B', unit_scale = True, miniters = 1, desc = "I Wanna Start A Party") as bar:
-            urllib.request.urlretrieve(url_game_version, filename = ZIP_NAME, reporthook = bar.update_to)
+            urllib.request.urlretrieve(url_game_version, filename = ZIP_PATH, reporthook = bar.update_to)
     except:
         print("An error occurred during the downloading update process.")
         execute()
         return
 
     print("Update downloaded successfully!")
+    print("Extracting and executing I Wanna Start A Party...")
 
-    with zipfile.ZipFile(ZIP_NAME, "r") as zip:
-        zip.extractall(CURRENT_PATH)
-
-    os.remove(ZIP_NAME)
-    execute()
+    extract_execute()
 
 
 def execute():
     print("Executing I Wanna Start A Party...")
-    subprocess.Popen([f"{CURRENT_PATH}\\{GAME_NAME}", "-launch"])
+    subprocess.Popen(f"{GAME_PATH} -launch", shell = True)
     time.sleep(1)
+
+
+def extract_execute():
+    subprocess.Popen(f"start /B /wait tar -xvf \"{ZIP_PATH}\" && del \"{ZIP_PATH}\" && start \"\" \"{GAME_PATH}\" -launch", shell = True)
 
 
 if __name__ == "__main__":

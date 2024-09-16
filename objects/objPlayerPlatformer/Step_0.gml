@@ -69,6 +69,14 @@ if (room != rMinigame4vs_Drawn && room != rMinigame2vs2_Springing) {
 	}
 }
 
+if (room == rMinigame2vs2_Stacking && instance_place_any(x, y + 1, objMinigame2vs2_Stacking_Coin, function(o) { return (o.following_id == null && o.vspd == 0); })) {
+	if (vspd >= 0) {
+		vspd = 0;
+		grav = 0;
+		reset_jumps();
+	}
+}
+
 if (!frozen) {
 	if (enable_jump) {
 		if (global.actions[$ jump_action].pressed(network_id)) {

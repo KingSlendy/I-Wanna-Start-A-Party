@@ -96,6 +96,28 @@ function instance_place_any(x, y, obj, func) {
 	return result;
 }
 
+function instance_nearest_any(x, y, obj, func) {
+	var result = null;
+	
+	while (true) {
+		if (!instance_exists(obj)) {
+			break;
+		}
+		
+		var near = instance_nearest(x, y, obj);
+		
+		if (func(near)) {
+			result = near;
+			break;
+		}
+		
+		instance_deactivate_object(near);
+	}
+	
+	instance_activate_object(obj);
+	return result;
+}
+
 function approach(val1, val2, amount) {
 	if (val1 == val2) {
 		return val1;

@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndBoardFASFSpaceLayerMud",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.48631,
+  "name":"sndBoardFASFSpaceLayerMud",
+  "parent":{
+    "name":"FASF",
+    "path":"folders/Sounds/SFX/Party/FASF.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndBoardFASFSpaceLayerMud.wav",
+  "type":0,
+  "volume":1.0,
+}

@@ -169,6 +169,8 @@ alarm_create(function() {
 				alarm_call(9, 1);
 			}
 		}
+		
+		audio_play_sound(sndBoardFASFSpaceLayerWarp, 0, false);
 	}
 });
 

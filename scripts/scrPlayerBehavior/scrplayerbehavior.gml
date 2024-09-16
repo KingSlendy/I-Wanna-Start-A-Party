@@ -1,6 +1,6 @@
 function player_jump() {
 	if (room != rMinigame4vs_Dizzy) {
-		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform) || place_meeting(x, y, objMinigame4vs_Painting_Platform)) {
+		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform) || place_meeting(x, y, objMinigame4vs_Painting_Platform) || instance_place_any(x, y + 1, objMinigame2vs2_Stacking_Coin, function(o) { return (o.following_id == null && o.vspd == 0); })) {
 			vspd = -(jump_height[0] * orientation);
 			
 			if (room == rMinigame4vs_Drawn) {

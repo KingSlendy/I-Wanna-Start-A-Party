@@ -84,6 +84,7 @@ global.minigames = {};
 #macro WESTERN_DUEL "Western Duel"
 #macro SOCCER_MATCH "Soccer Match"
 #macro JINGLE_SLEDGE "Jingle Sledge"
+#macro STACKING_MAYHEM "Stacking Mayhem"
 #endregion
 #endregion
 
@@ -584,7 +585,19 @@ function minigame_init() {
 				["{Right key}", draw_action(global.actions.right)], 
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 37, rMinigame2vs2_Idol, "I Wanna Be The iDOLM@STER")
+		], 37, rMinigame2vs2_Idol, "I Wanna Be The iDOLM@STER"),
+		
+		new Minigame(STACKING_MAYHEM, language_get_text("MINIGAMES_STACKING_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_STACKING_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_STACKING_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 42, rMinigame2vs2_Stacking, "I Wanna CoinStack 1000")
 	];
 }
 

@@ -19,6 +19,7 @@ var passing = 0;
 with (space) {
 	if (global.board_fasf_space_mode == FASF_SPACE_MODES.ICE && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.ICE); })) {
 		board_advance();
+		audio_play_sound(sndBoardFASFSpaceLayerIce, 0, false);
 		exit;
 	}
 	
@@ -34,6 +35,7 @@ if (passing == 0) {
 		global.dice_roll -= 1;
 	} else {
 		global.dice_roll -= 2;
+		audio_play_sound(sndBoardFASFSpaceLayerMud, 0, false);
 	}
 	
 	global.dice_roll = max(global.dice_roll, 0);

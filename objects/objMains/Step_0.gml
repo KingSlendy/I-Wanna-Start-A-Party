@@ -441,7 +441,16 @@ if (!fade_start && point_distance(menu_x, 0, -menu_sep * menu_page, 0) < 1.5) {
 		
 			if (sync_actions("jump", 1)) {
 				var types = minigame_types();
-				minigame_info_set(minigame_selected.reference, types[minigames_row_selected], minigame_turns, minigame_colors[minigames_row_selected]);
+				
+				var team = [];
+				
+				switch (minigames_row_selected) {
+					case 0: array_copy(team, 0, minigame_turns, 0, 4); break; //4vs
+					case 1: array_copy(team, 0, minigame_turns, 0, 1); break; //1vs3
+					case 2: array_copy(team, 0, minigame_turns, 0, 2); break; //2vs2
+				}	
+				
+				minigame_info_set(minigame_selected.reference, types[minigames_row_selected], minigame_turns, team);
 				global.minigame_info.is_minigames = true;
 				
 				state = 2;

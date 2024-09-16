@@ -188,22 +188,26 @@ alarm_create(11, function() {
 		if (actions == null) {
 			continue;
 		}
-	
-		var keys = variable_struct_get_names(actions);
-		var action = actions[$ keys[irandom(array_length(keys) - 1)]];
 		
-		switch (irandom(2)) {
-			case 0:
-				action.hold(irandom(21));
-				break;
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			var keys = variable_struct_get_names(actions);
+			var action = actions[$ keys[irandom(array_length(keys) - 1)]];
+		
+			switch (irandom(2)) {
+				case 0:
+					action.hold(irandom(21));
+					break;
 				
-			case 1:
-				action.press();
-				break;
+				case 1:
+					action.press();
+					break;
 				
-			case 2:
-				action.release(true);
-				break;
+				case 2:
+					action.release(true);
+					break;
+			}
 		}
 	}
 

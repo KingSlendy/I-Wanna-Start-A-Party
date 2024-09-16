@@ -3,6 +3,8 @@ layer_background_index(layer_background_get_id("Background"), array_get_index(mi
 
 with (objPlayerBase) {
 	change_to_object(objPlayerBase);
+	x = -300;
+	y = -300;
 }
 
 with (objPlayerBase) {

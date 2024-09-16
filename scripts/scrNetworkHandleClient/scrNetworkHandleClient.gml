@@ -162,6 +162,8 @@ enum ClientTCP {
 	Minigame2vs2_Duel_Shot,
 	Minigame2vs2_Soccer_Goal,
 	Minigame2vs2_Idol_WhacIdol,
+	Minigame2vs2_Stacking_CoinFollow,
+	Minigame2vs2_Stacking_CoinUnfollow,
 	#endregion
 	#endregion
 	
@@ -1379,6 +1381,37 @@ f[$ ClientTCP.Minigame2vs2_Idol_WhacIdol] = function(buffer) {
 	with (objMinigame2vs2_Idol_Hole) {
 		if (x == hole_x && y == hole_y) {
 			whac_idol(player_id, false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Stacking_CoinFollow] = function(buffer) {
+	var coin_id = buffer_read(buffer, buffer_u16);
+	var network_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame2vs2_Stacking_Coin) {
+		if (self.coin_id == coin_id) {
+			coin_follow(network_id, false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Stacking_CoinUnfollow] = function(buffer) {
+	var coin_id = buffer_read(buffer, buffer_u16);
+	var coin_x = buffer_read(buffer, buffer_s32);
+	var coin_y = buffer_read(buffer, buffer_s32);
+	var coin_hspd = buffer_read(buffer, buffer_s8);
+	var coin_vspd = buffer_read(buffer, buffer_s8);
+	
+	with (objMinigame2vs2_Stacking_Coin) {
+		if (self.coin_id == coin_id) {
+			coin_unfollow(false);
+			x = coin_x;
+			y = coin_y;
+			hspd = coin_hspd;
+			vspd = coin_vspd;
 			break;
 		}
 	}
