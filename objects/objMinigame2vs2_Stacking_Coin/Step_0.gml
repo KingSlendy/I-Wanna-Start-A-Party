@@ -2,7 +2,9 @@ if (following_id != null) {
 	exit;
 }
 
-grav = (!place_meeting(x, y + grav_amount, objBlock) && !place_meeting(x, y + grav_amount, objMinigame2vs2_Stacking_Coin)) ? grav_amount : 0;
+var coin_meeting = function(x, y) { return instance_place_any(x, y, objMinigame2vs2_Stacking_Coin, function(o) { return (o.following_id == null); }) };
+
+grav = (!place_meeting(x, y + grav_amount, objBlock) && !coin_meeting(x, y + grav_amount)) ? grav_amount : 0;
 
 xprevious = x;
 yprevious = y;
@@ -11,13 +13,13 @@ vspd += grav;
 x += hspd;
 y += vspd;
 
-if (place_meeting(x, y, objBlock) || place_meeting(x, y, objMinigame2vs2_Stacking_Coin)) {
+if (place_meeting(x, y, objBlock) || coin_meeting(x, y) != noone) {
 	x = xprevious;
 	y = yprevious;
 
 	//Detect horizontal collision
-	if (place_meeting(x + hspd, y, objBlock) || place_meeting(x + hspd, y, objMinigame2vs2_Stacking_Coin)) {
-		while (!place_meeting(x + sign(hspd), y, objBlock) && !place_meeting(x + sign(hspd), y, objMinigame2vs2_Stacking_Coin)) {
+	if (place_meeting(x + hspd, y, objBlock) || coin_meeting(x + hspd, y) != noone) {
+		while (!place_meeting(x + sign(hspd), y, objBlock) && coin_meeting(x + sign(hspd), y) == noone) {
 			x += sign(hspd);
 		}
 	
@@ -25,8 +27,8 @@ if (place_meeting(x, y, objBlock) || place_meeting(x, y, objMinigame2vs2_Stackin
 	}
 
 	//Detect vertical collision
-	if (place_meeting(x, y + vspd, objBlock) || place_meeting(x, y + vspd, objMinigame2vs2_Stacking_Coin)) {
-		while (!place_meeting(x, y + sign(vspd), objBlock) && !place_meeting(x, y + sign(vspd), objMinigame2vs2_Stacking_Coin)) {
+	if (place_meeting(x, y + vspd, objBlock) || coin_meeting(x, y + vspd) != noone) {
+		while (!place_meeting(x, y + sign(vspd), objBlock) && coin_meeting(x, y + sign(vspd)) == noone) {
 			y += sign(vspd);
 		}
 	
@@ -36,7 +38,7 @@ if (place_meeting(x, y, objBlock) || place_meeting(x, y, objMinigame2vs2_Stackin
 	}
 
 	//Detect diagonal collision
-	if (place_meeting(x + hspd, y + vspd, objBlock) || place_meeting(x + hspd, y + vspd, objMinigame2vs2_Stacking_Coin)) {
+	if (place_meeting(x + hspd, y + vspd, objBlock) || coin_meeting(x + hspd, y + vspd) != noone) {
 		hspd = 0;
 	}
 

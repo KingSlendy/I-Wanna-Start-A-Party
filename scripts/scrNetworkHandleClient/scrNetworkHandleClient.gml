@@ -489,7 +489,9 @@ f[$ ClientTCP.EndMap] = function(buffer) {
 f[$ ClientTCP.LessRoll] = function(buffer) {
 	var space_x = buffer_read(buffer, buffer_s32);
 	var space_y = buffer_read(buffer, buffer_s32);
-	global.dice_roll--;
+	var less_roll = buffer_read(buffer, buffer_u8);
+	global.dice_roll -= less_roll;
+	global.dice_roll = max(global.dice_roll, 0);
 			
 	with (objSpaces) {
 		space_glow(false);
@@ -1392,6 +1394,10 @@ f[$ ClientTCP.Minigame2vs2_Stacking_CoinFollow] = function(buffer) {
 	
 	with (objMinigame2vs2_Stacking_Coin) {
 		if (self.coin_id == coin_id) {
+			if (following_id == global.player_id && network_id != global.player_id) {
+				focus_player_by_id(global.player_id).coin_following = false;
+			}
+			
 			coin_follow(network_id, false);
 			break;
 		}
@@ -1412,6 +1418,7 @@ f[$ ClientTCP.Minigame2vs2_Stacking_CoinUnfollow] = function(buffer) {
 			y = coin_y;
 			hspd = coin_hspd;
 			vspd = coin_vspd;
+			coin_unstuck();
 			break;
 		}
 	}

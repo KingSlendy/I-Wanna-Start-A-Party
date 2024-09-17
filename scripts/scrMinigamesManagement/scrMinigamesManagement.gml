@@ -58,6 +58,7 @@ global.minigames = {};
 #macro GOLF_COURSE "Golf Course"
 #macro WAKA_EVASION "Waka Evasion"
 #macro TREASURE_TRIAL "Treasure Trial"
+#macro CRUSHERS_CRUSHING "Crushers Crushing"
 #endregion
 
 #region 1vs3
@@ -333,7 +334,17 @@ function minigame_init() {
 				["{Jump key}", draw_action(global.actions.jump)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 41, rMinigame4vs_Treasure, "I Wanna Challenge 100 Trials!!")
+		], 41, rMinigame4vs_Treasure, "I Wanna Challenge 100 Trials!!"),
+		
+		new Minigame(CRUSHERS_CRUSHING, language_get_text("MINIGAMES_CRUSHERS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CRUSHERS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CRUSHERS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 43, rMinigame4vs_Crushers, "I Wanna Maker")
 	];
 
 	m[$ "1vs3"] = [
@@ -939,6 +950,10 @@ function minigame2vs2_get_points_team(team) {
 
 function minigame_finish(signal = false) {
 	with (objMinigameController) {
+		if (!announcer_started) {
+			return;
+		}
+		
 		action_end();
 		alarm_stop(10);
 		alarm_stop(11);

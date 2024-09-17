@@ -228,7 +228,7 @@ function space_finish_event() {
 		return;
 	}
 	
-	if (global.board_fasf_space_mode == FASF_SPACE_MODES.PORTAL && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.PORTAL); })) {
+	if (global.board_fasf_space_mode == FASF_SPACE_MODES.PORTAL && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.PORTAL); }) != noone) {
 		change_space(SpaceType.Warp);
 		
 		with (objBoard) {

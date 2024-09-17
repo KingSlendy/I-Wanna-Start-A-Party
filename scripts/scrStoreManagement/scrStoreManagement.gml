@@ -32,7 +32,7 @@ function skin_init() {
 		new Skin("Darth", "Darth Vader", "I Wanna Travel The Worlds", 15, "KingSlendy", 500),
 		new Skin("Link", "Link", "I Wanna Travel The Worlds", 15, "KingSlendy", 500),
 		new Skin("Eclipse", "Eclipse Kid", "I Wanna Eclipse", 16, "Gwiz609", 600),
-		new Skin("Lockpick", "Lockpick Girl", "I Wanna Lockpick", 17, "LAWatson", 800),
+		new Skin("Lockpick", "Lily", "I Wanna Lockpick", 17, "LAWatson", 800),
 		new Skin("Joker", "Joker", "I Wanna Escape And Be Free", 18, "Kogami Takara", 1000),
 		new Skin("Scare", "LIZ", "I Wanna Be The Scare", 19, "uncle egg", 300),
 		new Skin("Dark", "Dark Kid", "I Wanna Travel The Worlds", 15, "KingSlendy"),

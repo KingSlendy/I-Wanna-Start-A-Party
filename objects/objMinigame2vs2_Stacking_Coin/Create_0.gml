@@ -29,16 +29,10 @@ function coin_unfollow(network = true) {
 	
 		if (player.vspd <= 0) {
 			vspd = player.vspd * 5;
-			vspd = max(vspd, -8);
+			vspd = max(vspd, -7);
 		}
 		
-		while (collision_line(bbox_left - 1, y, bbox_left - 1, y + (sprite_height - 1), objBlock, false, true)) {
-			x++;
-		}
-	
-		while (collision_line(bbox_right + 1, y, bbox_right + 1, y + (sprite_height - 1), objBlock, false, true)) {
-			x--;
-		}
+		coin_unstuck();
 		
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame2vs2_Stacking_CoinUnfollow);
@@ -51,6 +45,20 @@ function coin_unfollow(network = true) {
 	}
 	
 	following_id = null;
+}
+
+function coin_unstuck() {
+	while (collision_line(bbox_left - 1, y, bbox_left - 1, y + (sprite_height - 1), objBlock, false, true)) {
+		x++;
+	}
+	
+	while (collision_line(bbox_right + 1, y, bbox_right + 1, y + (sprite_height - 1), objBlock, false, true)) {
+		x--;
+	}
+		
+	while (place_meeting(x, y, objMinigame2vs2_Stacking_Coin)) {
+		y--;
+	}
 }
 
 function coin_depth_first_search() {

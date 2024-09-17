@@ -3,6 +3,7 @@ event_inherited();
 minigame_start = minigame2vs2_start;
 minigame_players = function() {
 	with (objPlayerBase) {
+		enable_shoot = false;
 		coin_following = false;
 		space = player_info_by_id(network_id).space;
 		coin_x_left = 195;
@@ -11,6 +12,8 @@ minigame_players = function() {
 }
 
 player_type = objPlayerPlatformer;
+
+coin_check_collision = function(o) { return (o.following_id == null && o.hspd == 0 && o.vspd == 0); }
 
 alarm_override(11, function() {
 	for (var i = 2; i <= global.player_max; i++) {

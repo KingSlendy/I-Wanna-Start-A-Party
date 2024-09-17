@@ -1,4 +1,4 @@
-if (global.choice_selected == -1) {
+if (global.choice_selected == -1 || instance_exists(objMapLook)) {
 	exit;
 }
 

@@ -78,16 +78,20 @@ function instance_activate_important() {
 	instance_activate_object(objPopup);
 }
 
-function instance_place_any(x, y, obj, func) {
+function instance_place_any(x, y, obj, func, notme = true) {
 	var list = ds_list_create();
 	var count = instance_place_list(x, y, obj, list, false);
-	var result = false;
+	var result = noone;
 	
 	for (var i = 0; i < count; i++) {
 		var o = list[| i];
 		
+		if (notme && o.id == id) {
+			continue;
+		}
+		
 		if (func(o)) {
-			result = true;
+			result = o;
 			break;
 		}
 	}
@@ -164,7 +168,7 @@ function wave_transition(sprites, fraction) {
 	}
 }
 
-// Particles
+#region Particles
 function part_system_destroy_safe(particle_system) {
 	if part_system_exists(particle_system)
 	{
@@ -185,3 +189,4 @@ function part_emitter_destroy_safe(particle_system, particle_emitter) {
 		part_emitter_destroy(particle_system, particle_emitter);	
 	}
 }
+#endregion

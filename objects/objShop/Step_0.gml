@@ -40,6 +40,8 @@ if (shopping && is_local_turn()) {
 		buffer_write_data(buffer_u8, option_selected);
 		network_send_udp_packet();
 	}
+	
+	objDialogue.endable = false;
 
 	if (global.actions.jump.pressed(network_id)) {
 		global.actions.jump.consume();
@@ -102,7 +104,6 @@ if (shopping && is_local_turn()) {
 					[language_get_text("WORD_GENERIC_NO"), [
 						new Message("",, function() {
 							objDialogue.active = false;
-							objDialogue.endable = false;
 							objShop.shopping = true;
 							option_previous = option_selected;
 							option_selected = -1;
@@ -119,7 +120,6 @@ if (shopping && is_local_turn()) {
 			]);
 			
 			objDialogue.active = false;
-			objDialogue.endable = false;
 		}
 	}
 	

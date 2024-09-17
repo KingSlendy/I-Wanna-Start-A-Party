@@ -1,4 +1,3 @@
-part_system_clear(part_sys);
 part_type_destroy_safe(part_cloud_type);
 part_type_destroy_safe(part_cloud_type2);
 part_type_destroy_safe(part_leaf_type);
