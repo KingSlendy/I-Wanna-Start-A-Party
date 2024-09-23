@@ -66,7 +66,7 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (crusher_follow == null || (crusher_follow.image_index != 0 && crusher_follow.image_index != 3)) {
+			if (crusher_follow == null || (instance_exists(crusher_follow) && crusher_follow.image_index != 0 && crusher_follow.image_index != 3)) {
 				var priority = ds_priority_create();
 				
 				with (objMinigame4vs_Crushers_Crusher) {
@@ -90,14 +90,16 @@ alarm_override(11, function() {
 				}
 			}
 			
-			var crusher_x = crusher_follow.x + crusher_follow.sprite_width / 2;
+			if (crusher_follow != null && instance_exists(crusher_follow)) {
+				var crusher_x = crusher_follow.x + crusher_follow.sprite_width / 2;
 			
-			if (point_distance(x, y, crusher_x, y) < 12) {
-				break;
+				if (point_distance(x, y, crusher_x, y) < 12) {
+					break;
+				}
+			
+				var action = (x > crusher_x) ? actions.left : actions.right;
+				action.press();
 			}
-			
-			var action = (x > crusher_x) ? actions.left : actions.right;
-			action.press();
 		}
 	}
 

@@ -14,47 +14,39 @@ minigame_time_end = function() {
 		achieve_trophy(15);
 	}
 	
+	minigame1vs3_points();
 	minigame_finish();
 }
 
 action_end = function() {
 	alarm_stop(4);
-	alarm_stop(5);
 }
 
 points_draw = true;
 player_type = objPlayerPlatformer;
 
+coin_max_win = 30;
 coin_count = 0;
 trophy_coin = true;
 
 alarm_override(1, function() {
 	alarm_inherited(1);
 	alarm_frames(4, 1);
-	alarm_frames(5, 1);
 });
 
 alarm_create(4, function() {
 	next_seed_inline();
+	var c;
 
-	if (coin_count++ % 2 == 0) {
-		var c = instance_create_layer(496, 256, "Collectables", objMinigame1vs3_Coins_Coin);
-	} else {
-		var c = instance_create_layer(720, 256, "Collectables", objMinigame1vs3_Coins_Coin);
-	}
-
+	c = instance_create_layer(304, 48, "Collectables", objMinigame1vs3_Coins_Coin);
 	c.hspeed = random_range(-2, 2);
-	c.team = true;
+	c.coin_id = coin_count++;
+	
+	c = instance_create_layer(464, 48, "Collectables", objMinigame1vs3_Coins_Coin);
+	c.hspeed = random_range(-2, 2);
+	c.coin_id = coin_count++;
 
 	alarm_call(4, 0.27);
-});
-
-alarm_create(5, function() {
-	var c = instance_create_layer(80, 256, "Collectables", objMinigame1vs3_Coins_Coin);
-	c.hspeed = random_range(-2, 2);
-	c.team = false;
-	
-	alarm_call(5, 0.155);
 });
 
 alarm_override(11, function() {
@@ -68,15 +60,15 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (minigame1vs3_is_solo(i)) {
+			if (minigame1vs3_is_solo(network_id)) {
 				with (objMinigame1vs3_Coins_Coin) {
-					if (team) {
+					if (bbox_bottom <= 320) {
 						instance_deactivate_object(id);
 					}
 				}
 			} else {
 				with (objMinigame1vs3_Coins_Coin) {
-					if (!team) {
+					if (bbox_bottom >= 320) {
 						instance_deactivate_object(id);
 					}
 				}

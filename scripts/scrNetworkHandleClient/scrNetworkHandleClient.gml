@@ -137,7 +137,7 @@ enum ClientTCP {
 	Minigame1vs3_Avoid_Block,
 	Minigame1vs3_Conveyor_Switch,
 	Minigame1vs3_Showdown_Block,
-	Minigame1vs3_Coins_Coin,
+	Minigame1vs3_Coins_CoinObtain,
 	Minigame1vs3_Race_Solo,
 	Minigame1vs3_Race_Team,
 	Minigame1vs3_Warping_Push,
@@ -1159,13 +1159,16 @@ f[$ ClientTCP.Minigame1vs3_Showdown_Block] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame1vs3_Coins_Coin] = function(buffer) {
-	if (objMinigameController.info.is_finished) {
-		return;
+f[$ ClientTCP.Minigame1vs3_Coins_CoinObtain] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var coin_id = buffer_read(buffer, buffer_u16);
+	
+	with (objMinigame1vs3_Coins_Coin) {
+		if (self.coin_id == coin_id) {
+			coin_obtain(network_id, false);
+			break;
+		}
 	}
-			
-	var player_id = buffer_read(buffer, buffer_u8);
-	minigame4vs_points(player_id, 1);
 }
 
 f[$ ClientTCP.Minigame1vs3_Race_Solo] = function(buffer) {

@@ -386,9 +386,10 @@ function minigame_init() {
 		
 		new Minigame(GETTINGS_COINS, language_get_text("MINIGAMES_COINS_NAME"),
 		[
-			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_COINS_PAGE_1")) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_COINS_PAGE_1")) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_COINS_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
 			function() {
-				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COINS_PAGE_2",
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_COINS_PAGE_3",
 				["{Left key}", draw_action(global.actions.left)],
 				["{Right key}", draw_action(global.actions.right)],
 				["{Jump key}", draw_action(global.actions.jump)]))
