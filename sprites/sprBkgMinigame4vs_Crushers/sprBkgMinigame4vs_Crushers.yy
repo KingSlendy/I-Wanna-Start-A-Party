@@ -4,7 +4,7 @@
   "bboxMode":0,
   "bbox_bottom":607,
   "bbox_left":0,
-  "bbox_right":498,
+  "bbox_right":799,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"45877afa-dc46-42e3-9612-8f9fd387fc72","name":"45877afa-dc46-42e3-9612-8f9fd387fc72","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"c2c7f051-61d5-45db-ab9c-3fe611307c54","name":"c2c7f051-61d5-45db-ab9c-3fe611307c54","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":608,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"b948207d-df6a-4849-b618-a22e34dd0de9","blendMode":0,"displayName":"default","isLocked":false,"name":"b948207d-df6a-4849-b618-a22e34dd0de9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"2be42809-7a8d-49fe-8c17-429f923192d3","blendMode":0,"displayName":"default","isLocked":false,"name":"2be42809-7a8d-49fe-8c17-429f923192d3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sprBkgMinigame4vs_Crushers",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"45877afa-dc46-42e3-9612-8f9fd387fc72","path":"sprites/sprBkgMinigame4vs_Crushers/sprBkgMinigame4vs_Crushers.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"111d07ad-d620-4bbf-82d2-f8e0487fccf8","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2c7f051-61d5-45db-ab9c-3fe611307c54","path":"sprites/sprBkgMinigame4vs_Crushers/sprBkgMinigame4vs_Crushers.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2aeaa724-97bc-48aa-9778-b24649d1dbd2","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":499,
+  "width":800,
 }

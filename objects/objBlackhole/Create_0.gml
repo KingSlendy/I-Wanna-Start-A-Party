@@ -59,3 +59,8 @@ if (is_local_turn()) {
 	buffer_write_action(ClientTCP.ShowBlackhole);
 	network_send_tcp_packet();
 }
+
+with (objDialogue) {
+	active = false;
+	endable = false;
+}

@@ -1,6 +1,6 @@
 function player_jump() {
 	if (room != rMinigame4vs_Dizzy) {
-		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform) || place_meeting(x, y, objMinigame4vs_Painting_Platform) || (room == rMinigame2vs2_Stacking && instance_place_any(x, y + 1, objMinigame2vs2_Stacking_Coin, objMinigameController.coin_check_collision) != noone)) {
+		if ((jump_total > 0 || jump_total == -1) && on_block || place_meeting(x, y + 1, objPlatform) || place_meeting(x, y, objMinigame4vs_Painting_Platform)) {
 			vspd = -(jump_height[0] * orientation);
 			
 			if (room == rMinigame4vs_Drawn) {

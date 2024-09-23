@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 	
 	if (solo_action != null && !solo_correct && !solo_wrong) {
 		if (global.actions[$ action].pressed(minigame1vs3_solo().network_id) || (array_length(network_solo_actions) > 0 && network_solo_actions[0] == action)) {
-			var advance = (solo_advance == 3);
+			var advance = (solo_advance == solo_action_total - 1);
 			
 			if (action == solo_action) {
 				if (advance) {
@@ -50,7 +50,7 @@ for (var i = 0; i < array_length(press_actions); i++) {
 
 	if (team_action != null && !team_correct && !team_wrong) {
 		if (global.actions[$ action].pressed(minigame1vs3_team(other.team_turn).network_id) || (array_length(network_team_actions) > 0 && network_team_actions[0] == action)) {
-			var advance = (team_advance == 2);
+			var advance = (team_advance == team_action_total - 1);
 			
 			if (action == team_action) {
 				if (advance) {

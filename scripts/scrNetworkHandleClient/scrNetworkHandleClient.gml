@@ -162,8 +162,9 @@ enum ClientTCP {
 	Minigame2vs2_Duel_Shot,
 	Minigame2vs2_Soccer_Goal,
 	Minigame2vs2_Idol_WhacIdol,
-	Minigame2vs2_Stacking_CoinFollow,
-	Minigame2vs2_Stacking_CoinUnfollow,
+	Minigame2vs2_Stacking_CoinToss,
+	Minigame2vs2_Stacking_CoinLineStackAdd,
+	Minigame2vs2_Stacking_CoinLineStackFall,
 	#endregion
 	#endregion
 	
@@ -1388,39 +1389,33 @@ f[$ ClientTCP.Minigame2vs2_Idol_WhacIdol] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame2vs2_Stacking_CoinFollow] = function(buffer) {
-	var coin_id = buffer_read(buffer, buffer_u16);
+f[$ ClientTCP.Minigame2vs2_Stacking_CoinToss] = function(buffer) {
 	var network_id = buffer_read(buffer, buffer_u8);
+	var coin_id = buffer_read(buffer, buffer_u16);
 	
-	with (objMinigame2vs2_Stacking_Coin) {
-		if (self.coin_id == coin_id) {
-			if (following_id == global.player_id && network_id != global.player_id) {
-				focus_player_by_id(global.player_id).coin_following = false;
-			}
-			
-			coin_follow(network_id, false);
+	with (objMinigameController) {
+		coin_toss(network_id, coin_id, false);
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Stacking_CoinLineStackAdd] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var coin_id = buffer_read(buffer, buffer_u16);
+	var player_network_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame2vs2_Stacking_CoinStack) {
+		if (self.network_id == network_id && self.coin_id == coin_id) {
+			coin_line_stack_add(player_network_id, false);
 			break;
 		}
 	}
 }
 
-f[$ ClientTCP.Minigame2vs2_Stacking_CoinUnfollow] = function(buffer) {
-	var coin_id = buffer_read(buffer, buffer_u16);
-	var coin_x = buffer_read(buffer, buffer_s32);
-	var coin_y = buffer_read(buffer, buffer_s32);
-	var coin_hspd = buffer_read(buffer, buffer_s8);
-	var coin_vspd = buffer_read(buffer, buffer_s8);
+f[$ ClientTCP.Minigame2vs2_Stacking_CoinLineStackFall] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
 	
-	with (objMinigame2vs2_Stacking_Coin) {
-		if (self.coin_id == coin_id) {
-			coin_unfollow(false);
-			x = coin_x;
-			y = coin_y;
-			hspd = coin_hspd;
-			vspd = coin_vspd;
-			coin_unstuck();
-			break;
-		}
+	with (objMinigameController) {
+		coin_line_stack_fall(network_id, false);
 	}
 }
 #endregion
@@ -1508,7 +1503,8 @@ enum ClientUDP {
 	
 	#region 2vs2
 	Minigame2vs2_Squares_Halfs,
-	Minigame2vs2_Soccer_Ball
+	Minigame2vs2_Soccer_Ball,
+	Minigame2vs2_Stacking_CoinLineStack
 	#endregion
 	#endregion
 }
@@ -1652,6 +1648,17 @@ f[$ ClientUDP.Minigame2vs2_Soccer_Ball] = function(buffer) {
 		hspeed = ball_hspeed;
 		vspeed = ball_vspeed;
 		gravity = ball_gravity;
+	}
+}
+
+f[$ ClientUDP.Minigame2vs2_Stacking_CoinLineStack] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var player = focus_player_by_id(network_id);
+	
+	with (player) {
+		coin_line_stack_angle = buffer_read(buffer, buffer_f16);
+		coin_line_stack_velocity = buffer_read(buffer, buffer_f16);
+		coin_line_stack_separation = buffer_read(buffer, buffer_f16);
 	}
 }
 #endregion

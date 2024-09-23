@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tlsMinigame4vs_Crushers",
-  "out_columns":4,
+  "out_columns":9,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -34,5 +34,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":16,
+  "tile_count":84,
 }

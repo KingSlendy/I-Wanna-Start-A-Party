@@ -41,8 +41,6 @@ if (shopping && is_local_turn()) {
 		network_send_udp_packet();
 	}
 	
-	objDialogue.endable = false;
-
 	if (global.actions.jump.pressed(network_id)) {
 		global.actions.jump.consume();
 		price = item_selected.price;
@@ -67,6 +65,7 @@ if (shopping && is_local_turn()) {
 							}
 							
 							with (objDialogue) {
+								endable = true;
 								text_end();
 							}
 						
@@ -114,6 +113,7 @@ if (shopping && is_local_turn()) {
 			]);
 			
 			shopping = false;
+			objDialogue.active = true;
 		} else {
 			change_dialogue([
 				language_get_text("PARTY_BOARD_SHOP_ITEM_NOT_ENOUGH")

@@ -350,7 +350,11 @@ function change_dialogue(texts, tw_spd = 1) {
 	set_texts_deep(texts, font, tw_spd);
 	
 	with (objDialogue) {
+		var current_active = active;
+		var current_endable = endable;
 		event_perform(ev_create, 0);
+		active = current_active;
+		endable = current_endable;
 		image_alpha = 1;
 		width = ww;
 		height = hh;

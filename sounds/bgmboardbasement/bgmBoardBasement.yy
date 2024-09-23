@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":1,
-  "duration":0.0,
+  "duration":203.10988,
   "name":"bgmBoardBasement",
   "parent":{
     "name":"Party",

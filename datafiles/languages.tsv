@@ -462,6 +462,9 @@ MINIGAMES_JINGLE_PAGE_2	{Jump key} Jump\n{Shoot key} Shoot/Toggle	{Jump key} Sal
 MINIGAMES_TREASURE_NAME	Treasure Trial							
 MINIGAMES_TREASURE_PAGE_1	A treasure is hiding! Destroy the blocks to discover it to be the first one to take possession of it!							
 MINIGAMES_TREASURE_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump Infinitely\n{Shoot key} Shoot							
+MINIGAMES_CRUSHERS_NAME	Crushers Crushing							
+MINIGAMES_CRUSHERS_PAGE_1	The crushers are mad that you're invading their territory. They will try to crush you and they won't give up.\nLast one standing wins!							
+MINIGAMES_CRUSHERS_PAGE_2	{Left key}{Right key} Move							
 #								
 #1 VS. 3								
 #								
@@ -542,9 +545,9 @@ MINIGAMES_SOCCER_GOAL	GOAL!	¡GOL!	골!	球进了！	進球！			BUT !
 MINIGAMES_IDOL_NAME	Whac-an-idol	Aplasta-un-idol	아이돌 두더지 게임	打偶像	打偶像	アイドル叩き		TAP'IDOLE
 MINIGAMES_IDOL_PAGE_1	Whac-a-mole idol edition! Hit as many idols, gently of course, as you can. The team that hits more idols wins!	¡Este es el Whac-a-mole versión Anime! Golpea tantas idols como puedas para ganar puntaje, pero por supuesto, sé gentil. ¡El equipo con más puntaje gana!		这是打地鼠的偶像版本！尽你所能敲击更多的偶像，当然，要轻轻地。敲到更多偶像的队伍获胜！				Tap'taupe édition idole ! Frappez autant d'idoles que possible, pas trop fort bien sûr ! L'équipe qui en a le plus frappées gagne !
 MINIGAMES_IDOL_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} Hit	{Left key}{Up key}{Down key}{Right key} Mover\n{Shoot key} Golpear		{Left key}{Up key}{Down key}{Right key} 移动\n{Shoot key} 敲击	{Left key}{Up key}{Down key}{Right key} 移動\n{Shoot key} 敲擊	{Left key}{Up key}{Down key}{Right key} 移動\n{Shoot key} 撃つ		{Left key}{Up key}{Down key}{Right key} Se déplacer\n{Shoot key} Frapper
-MINIGAMES_STACKING_NAME	Stacking Mayhem	Apilada Caótica						
-MINIGAMES_STACKING_PAGE_1	You have so much money that you don't know how to use it... oh wait. You can use it to stack them and be the first team to reach the door up above! 							
-MINIGAMES_STACKING_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Grab/Toss/Release Coin							
+MINIGAMES_STACKING_NAME	Stacking Mayhem	Apilamiento Caótico						
+MINIGAMES_STACKING_PAGE_1	Time to be the richest Kid in the world. Help your teammate by grabbing the coins and tossing them down below.\nBut beware of balancing the stack by moving around!							
+MINIGAMES_STACKING_PAGE_2	{Left key}{Right key} Move/Balance\n{Jump key} Jump\n{Shoot key} Toss Coin							
 #								
 #TRIALS								
 #								

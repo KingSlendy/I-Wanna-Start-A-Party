@@ -123,3 +123,8 @@ if (is_local_turn()) {
 	
 	network_send_tcp_packet();
 }
+
+with (objDialogue) {
+	active = false;
+	endable = false;
+}

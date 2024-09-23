@@ -40,7 +40,7 @@ if (selecting && is_local_turn()) {
 	}
 
 	if (global.actions.jump.pressed(network_id)) {
-		io_clear();
+		global.actions.jump.consume();
 		
 		if (player_info.coins >= item_selected.price && item_selected.can_select) {
 			change_dialogue([
@@ -52,6 +52,7 @@ if (selecting && is_local_turn()) {
 							}
 							
 							with (objDialogue) {
+								endable = true;
 								text_end();
 							}
 						
@@ -73,7 +74,6 @@ if (selecting && is_local_turn()) {
 					[language_get_text("WORD_GENERIC_NO"), [
 						new Message("",, function() {
 							objDialogue.active = false;
-							objDialogue.endable = false;
 							objBlackhole.selecting = true;
 							option_previous = option_selected;
 							option_selected = -1;
@@ -83,13 +83,13 @@ if (selecting && is_local_turn()) {
 			]);
 			
 			selecting = false;
+			objDialogue.active = true;
 		} else {
 			change_dialogue([
 				language_get_text("PARTY_BOARD_BLACKHOLE_CANT")
 			]);
 			
 			objDialogue.active = false;
-			objDialogue.endable = false;
 		}
 	}
 	

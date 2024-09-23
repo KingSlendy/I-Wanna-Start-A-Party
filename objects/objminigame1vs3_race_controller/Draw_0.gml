@@ -4,7 +4,7 @@ if (solo_action != null) {
 	var player = minigame1vs3_solo();
 	var action_x = player.x - 128;
 	
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < solo_action_total; i++) {
 		var color = c_white;
 	
 		if ((solo_correct && solo_advance == i) || solo_advance > i) {

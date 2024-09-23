@@ -35,6 +35,8 @@ team_wrong = false;
 team_turn = 0;
 solo_actions = [];
 team_actions = [];
+solo_action_total = 5;
+team_action_total = 3;
 solo_current = -1;
 team_current = -1;
 solo_advance = 0;
@@ -74,7 +76,7 @@ alarm_create(4, function() {
 		solo_action = solo_actions[solo_current];
 	}
 	
-	solo_advance %= 4;
+	solo_advance %= solo_action_total;
 	solo_correct = false;
 	solo_wrong = false;
 });
@@ -95,7 +97,7 @@ alarm_create(5, function() {
 
 	if (team_correct) {
 		team_turn++;
-		team_turn %= 3;
+		team_turn %= team_action_total;
 	}
 
 	if (!team_wrong) {
@@ -104,7 +106,7 @@ alarm_create(5, function() {
 		team_action = team_actions[team_current];
 	}
 	
-	team_advance %= 3;
+	team_advance %= team_action_total;
 	team_correct = false;
 	team_wrong = false;
 });
