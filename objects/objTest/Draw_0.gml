@@ -1,3 +1,4 @@
+exit;
 language_set_font(global.fntTest);
 draw_set_color(c_white);
 draw_text(0, 0, "This is text with ASCII range 32~127 and TrueType v40.\nVertical spacing is correct.");

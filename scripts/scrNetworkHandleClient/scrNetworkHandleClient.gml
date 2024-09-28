@@ -115,8 +115,9 @@ enum ClientTCP {
 	Minigame4vs_Bugs_Counting,
 	Minigame4vs_Blocks_BlockDestabilize,
 	Minigame4vs_Chests_ChestSelected,
-	Minigame4vs_Slime_BlockEntrance,
+	Minigame4vs_Slime_SlimeBlocking,
 	Minigame4vs_Slime_SlimeShot,
+	Minigame4vs_Slime_SlimeNext,
 	Minigame4vs_Dizzy_GrabCoin,
 	Minigame4vs_Targets_DestroyTarget,
 	Minigame4vs_Bullets_Stop,
@@ -976,9 +977,9 @@ f[$ ClientTCP.Minigame4vs_Chests_ChestSelected] = function(buffer) {
 	}
 }
 
-f[$ ClientTCP.Minigame4vs_Slime_BlockEntrance] = function(buffer) {
-	with (objMinigameController) {
-		block_entrance(false);
+f[$ ClientTCP.Minigame4vs_Slime_SlimeBlocking] = function(buffer) {
+	with (objMinigame4vs_Slime_Blocking) {
+		slime_blocking(false);
 	}
 }
 
@@ -986,6 +987,12 @@ f[$ ClientTCP.Minigame4vs_Slime_SlimeShot] = function(buffer) {
 	with (objMinigame4vs_Slime_Slime) {
 		alarm_time = buffer_read(buffer, buffer_u8);
 		slime_shot(false);
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Slime_SlimeNext] = function(buffer) {
+	with (objMinigame4vs_Slime_Next) {
+		slime_next(false);
 	}
 }
 

@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":1,
+  "conversionMode":0,
   "duration":38.082706,
   "name":"bgmMinigame1vs3_House",
   "parent":{

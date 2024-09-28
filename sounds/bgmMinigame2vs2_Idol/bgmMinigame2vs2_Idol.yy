@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":1,
+  "conversionMode":0,
   "duration":41.34248,
   "name":"bgmMinigame2vs2_Idol",
   "parent":{

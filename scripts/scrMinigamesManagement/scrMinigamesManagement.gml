@@ -72,6 +72,7 @@ global.minigames = {};
 #macro AIMING_TILES "Aiming Tiles"
 #macro HIDDEN_HOST "Hidden Host"
 #macro BAD_HOUSE "Bad House"
+#macro KARDIA_ARREST "Kardia Arrest"
 #endregion
 
 #region 2vs2
@@ -483,7 +484,24 @@ function minigame_init() {
 				["{Right key}", draw_action(global.actions.right)],
 				["{Jump key}", draw_action(global.actions.jump)]))
 			}
-		], 34, rMinigame1vs3_House, "Crimson Needle 3")
+		], 34, rMinigame1vs3_House, "Crimson Needle 3"),
+		
+		new Minigame(KARDIA_ARREST, language_get_text("MINIGAMES_KARDIA_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_KARDIA_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_KARDIA_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_KARDIA_PAGE_3", 
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Color}", "{COLOR,0000FF}"],
+				["{Color}", "{COLOR,FFFFFF}"],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Color}", "{COLOR,0000FF}"],
+				["{Color}", "{COLOR,FFFFFF}"],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 44, rMinigame1vs3_Kardia, "I Wanna Kardia")
 	];
 
 	m[$ "2vs2"] = [

@@ -1,9 +1,5 @@
-if (player_info_by_id(other.network_id).turn != objMinigameController.player_turn || other.lost) {
+if (!is_player_local(other.network_id) || player_info_by_id(other.network_id).turn != objMinigameController.player_turn || other.lost) {
 	exit;
 }
 
-with (objMinigameController) {
-	block_entrance();
-}
-
-instance_destroy();
+slime_blocking();

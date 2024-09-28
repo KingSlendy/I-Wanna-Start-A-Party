@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgmMinigame1vs3_Kardia",
+  "audioGroupId":{
+    "name":"audiogroup_BGM",
+    "path":"audiogroups/audiogroup_BGM",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":65.98535,
+  "name":"bgmMinigame1vs3_Kardia",
+  "parent":{
+    "name":"1vs3",
+    "path":"folders/Sounds/BGM/Minigames/1vs3.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgmMinigame1vs3_Kardia.mp3",
+  "type":0,
+  "volume":1.0,
+}

@@ -21,6 +21,10 @@ if (minigame_time != -1 && minigame_time <= 60) {
 		case fa_bottom: var yy = display_get_gui_height(); break;
 	}
 	
+	if (room == rMinigame1vs3_Kardia && minigame_time_valign == fa_middle) {
+		yy += 64;
+	}
+	
 	draw_box(xx, yy - h, w, h, c_dkgray, c_white);
 	language_set_font(global.fntDialogue);
 	

@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":3.065034,
+  "duration":0.0,
   "name":"sndRoulettePick",
   "parent":{
     "name":"Party",

@@ -21,10 +21,6 @@ minigame_time_end = function() {
 	var player_stacks = [];
 	
 	for (var i = 1; i <= global.player_max; i++) {
-		if (!is_player_local(i)) {
-			continue;
-		}
-		
 		var player = focus_player_by_id(i);
 		
 		if (player.y < 304) {

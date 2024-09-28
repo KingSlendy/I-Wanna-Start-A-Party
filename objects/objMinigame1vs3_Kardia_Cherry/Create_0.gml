@@ -1,0 +1,9 @@
+circle = false;
+circle_x = 0;
+circle_y = 0;
+circle_distance = 0;
+circle_angle = 0;
+circle_reference = -1;
+explosion_angle = 0;
+explosion_distance = 0;
+explosion_fade = false;

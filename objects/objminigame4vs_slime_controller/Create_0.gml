@@ -52,15 +52,9 @@ function unfreeze_player() {
 	alarm_instant(5);
 }
 
-function block_entrance(network = true) {
+function block_entrance() {
 	for (var i = 0; i < 5; i++) {
 		instance_create_layer(400 + 32 * i, 464, "Collisions", objMinigame4vs_Slime_Block);
-	}
-	
-	if (network) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.Minigame4vs_Slime_BlockEntrance);
-		network_send_tcp_packet();
 	}
 }
 
