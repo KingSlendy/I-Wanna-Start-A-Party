@@ -10,9 +10,10 @@ with (objPlayerBase) {
 	}
 }
 
-with (objCameraSplit4) {
+with (objCamera) {
 	target_follow[0] = other.big_player;
 	target_follow[1] = objMinigame1vs3_Race_Gradius;
 	lock_y = true;
 	boundaries = true;
+	camera_correct_position(id);
 }

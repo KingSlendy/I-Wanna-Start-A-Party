@@ -30,8 +30,15 @@ function camera4vs_split4(camera) {
 			target_follow[i] = focus_player_by_turn(i + 1);
 			target_x[i] = target_follow[i].x;
 			target_y[i] = target_follow[i].y;
-			view_x[i] = target_x[i];
-			view_y[i] = target_y[i];
+		}
+	}
+	
+	with (camera) {
+		event_perform(ev_step, ev_step_end);
+		
+		for (var i = 0; i < global.player_max; i++) {
+			view_x[i] = target_x[i] - view_w_half;
+			view_y[i] = target_y[i] - view_h_half;
 		}
 	}
 	
@@ -56,8 +63,8 @@ function camera2vs2_split4(camera, info) {
 				target_follow[j] = player;
 				target_x[j] = target_follow[j].x;
 				target_y[j] = target_follow[j].y;
-				view_x[j] = target_x[j];
-				view_y[j] = target_y[j];
+				view_x[j] = target_x[j] - view_w_half;
+				view_y[j] = target_y[j] - view_h_half;
 			}
 			
 			index = !index;
@@ -81,8 +88,8 @@ function camera2vs2_split4(camera, info) {
 				target_follow[j] = player;
 				target_x[j] = target_follow[j].x;
 				target_y[j] = target_follow[j].y;
-				view_x[j] = target_x[j];
-				view_y[j] = target_y[j];
+				view_x[j] = target_x[j] - view_w_half;
+				view_y[j] = target_y[j] - view_h_half;
 			}
 			
 			index = !index;
@@ -91,4 +98,15 @@ function camera2vs2_split4(camera, info) {
 	
 	camera.type = "2vs2";
 	return camera;
+}
+
+function camera_correct_position(camera) {
+	with (camera) {
+		event_perform(ev_step, ev_step_end);
+		
+		for (var i = 0; i < global.player_max; i++) {
+			view_x[i] = target_x[i] - view_w_half;
+			view_y[i] = target_y[i] - view_h_half;
+		}
+	}
 }

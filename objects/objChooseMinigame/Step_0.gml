@@ -264,12 +264,26 @@ switch (state) {
 		break;
 		
 	case 2:
-		minigames_alpha += 0.04;
+		roulette_alpha += 0.04;
 	
-		if (minigames_alpha >= 1) {
-			minigames_alpha = 1;
-			state = -1;
-			alarm_frames(2, 1);
+		if (roulette_alpha >= 1 && !roulette_spin) {
+			roulette_alpha = 1;
+			roulette_spin = true;
+		}
+		
+		if (roulette_spin) {
+			if (point_distance(roulette_spread, 0, 1, 0) < 0.1) {
+				roulette_angle = (roulette_angle - roulette_spd + 360) % 360;
+			}
+			
+			roulette_spread = lerp(roulette_spread, (!roulette_chosen) ? 1 : 0, (!roulette_chosen) ? 0.1 : 0.2);
+
+			if (!roulette_chosen) {
+				roulette_spd -= 0.01;
+				roulette_spd = max(roulette_spd, 1);
+			} else if (angle_difference(roulette_angle, roulette_max_angle) <= 0) {
+				roulette_angle = roulette_max_angle;
+			}
 		}
 		break;
 		

@@ -1,8 +1,6 @@
 for (var i = 0; i < global.player_max; i++) {
 	var follow = target_follow[i];
-	var view_w_half = floor(view_w / 2);
-	var view_h_half = floor(view_h / 2);
-		
+
 	//Position the view to the target coordinates
 	if (!lock_x && !dead[i]) {
 		target_x[i] = follow.x;

@@ -3,7 +3,8 @@ sprite_prefetch_multi([
 	sprMinigamesFangames,
 	sprSkinsFangames,
 	sprTrophyImages,
-	sprMinigameOverview_Pictures
+	sprMinigameOverview_Pictures,
+	sprMinigame4vs_Clockwork_ClockAnalog
 ]);
 
 audio_group_load(audiogroup_BGM);

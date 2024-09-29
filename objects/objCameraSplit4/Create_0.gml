@@ -3,10 +3,12 @@ event_inherited();
 function init_view() {
 	view_w = camera_get_view_width(view_camera[camera]);
 	view_h = camera_get_view_height(view_camera[camera]);
+	view_w_half = floor(view_w / 2);
+	view_h_half = floor(view_h / 2);
 	
 	for (var i = 0; i < global.player_max; i++) {
-		view_x[i] -= floor(view_w / 2);
-		view_y[i] -= floor(view_h / 2);
+		view_x[i] -= view_w_half;
+		view_y[i] -= view_h_half;
 		target_x[i] = view_x[i];
 		target_y[i] = view_y[i];
 	}

@@ -50,7 +50,7 @@ function random_roll() {
 
 	//	//roll = max_roll;
 	//	//roll = min_roll;
-	//	roll = 3;
+	//	roll = 1;
 	//}
 }
 

@@ -96,6 +96,8 @@ if (selecting && is_local_turn()) {
 	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
 			new Message(language_get_text("PARTY_BOARD_BLACKHOLE_SHAME"),, function() {
+				objDialogue.endable = true;
+				
 				with (objBlackhole) {
 					blackhole_end();
 				}
@@ -104,6 +106,7 @@ if (selecting && is_local_turn()) {
 			})
 		]);
 		
+		objDialogue.active = true;
 		selecting = false;
 	}
 }

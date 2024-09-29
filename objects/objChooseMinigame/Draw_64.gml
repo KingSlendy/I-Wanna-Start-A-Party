@@ -1,21 +1,53 @@
-if (minigames_alpha > 0) {
-	draw_set_alpha(minigames_alpha);
-	draw_set_color(c_white);
-	var minigames_total_height = minigames_height * minigame_total;
-	var minigames_x = display_get_gui_width() / 2 - minigames_width / 2;
-	var minigames_y = display_get_gui_height() / 2 - minigames_total_height / 2 - minigames_height / 2;
+if (roulette_alpha > 0) {
+	var minigames_x = display_get_gui_width() / 2;
+	var minigames_y = display_get_gui_height() / 2 - 50;
+	var minigames_width = 300;
+	var minigames_height = 40;
+	
+	draw_set_alpha(roulette_alpha);
+	var priority = ds_priority_create();
 
-	for (var i = 0; i < minigame_total; i++) {
-		var draw_y = minigames_y + minigames_height * i;
-		draw_box(minigames_x, draw_y, minigames_width, minigames_height, (i == global.choice_selected && minigames_alpha == 1) ? c_gray : c_dkgray, c_orange);
-		var title = minigame_list[i].title;
-		var label = minigame_list[i].label;
-		var text = new Text(global.fntDialogue, (minigame_seen(title)) ? label : "?????????");
-		text.draw(minigames_x + 15, draw_y + 7);
+	for (var i = 0; i < array_length(minigames); i++) {
+		var minigame = minigames[i];
+		var angle = roulette_angle + roulette_separation * i;
+		ds_priority_add(priority, { minigame, angle }, lengthdir_y(1, angle));
 	}
-}
 
-draw_set_alpha(fade_alpha);
-draw_set_color(c_black);
-draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
-draw_set_alpha(1);
+	var size = ds_priority_size(priority);
+	var minigame = null;
+
+	for (var i = 0; i < size; i++) {
+		var current = ds_priority_delete_min(priority);
+		minigame = current.minigame;
+		var angle = current.angle;
+	
+		if (i == size - 1 && minigame.title != minigame_previous) {
+			if (roulette_spd == 1 && minigame.title == minigame_chosen.title) {
+				choosed_minigame();
+			} else if (!minigame_first) {
+				audio_play_sound(sndRouletteRoll, 0, false);
+			}
+			
+			minigame_previous = minigame.title;
+			minigame_first = false;
+		}
+	
+		var portrait = (minigame_seen(minigame.title)) ? minigame.portrait : minigame.hidden;
+		var scale = remap(lengthdir_y(1, angle), -1, 1, 0.5, 1);
+		var blend = (i != size - 1) ? c_gray : c_white;
+		draw_sprite_ext(portrait, 0, minigames_x + lengthdir_x(300, angle) * roulette_spread, minigames_y + lengthdir_y(50, angle) * roulette_spread, scale, scale, 0, blend, draw_get_alpha());
+	}
+
+	ds_priority_destroy(priority);
+	
+	var box_x = minigames_x - minigames_width / 2;
+	var box_y = minigames_y + 170;
+	draw_box(box_x, box_y, minigames_width, minigames_height, c_dkgray, c_orange);
+	var title = minigame.title;
+	var label = minigame.label;
+	draw_set_halign(fa_center);
+	draw_text_info(box_x + minigames_width / 2, box_y + 7, (minigame_seen(title)) ? label : "?????????", minigames_width - 20);
+	draw_set_halign(fa_left);
+	//var text = new Text(global.fntDialogue, (minigame_seen(title)) ? label : "?????????");
+	//text.draw(box_x + 15, box_y + 7);
+}

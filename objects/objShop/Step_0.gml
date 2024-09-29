@@ -126,6 +126,8 @@ if (shopping && is_local_turn()) {
 	if (!focus_player_by_id().ai && global.actions.shoot.pressed(network_id)) {
 		change_dialogue([
 			new Message(language_get_text("PARTY_BOARD_SHOP_SEE_YOU"),, function() {
+				objDialogue.endable = true;
+				
 				with (objShop) {
 					shop_end();
 				}
@@ -134,6 +136,7 @@ if (shopping && is_local_turn()) {
 			})
 		]);
 		
+		objDialogue.active = true;
 		shopping = false;
 	}
 }

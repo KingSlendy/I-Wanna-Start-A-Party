@@ -4,15 +4,19 @@ fade_alpha = 0;
 zoom = false;
 player_colors = [];
 info = global.minigame_info;
-minigame_total = 5;
-minigames_alpha = 0;
-minigames_width = 300;
-minigames_height = 40;
-minigames_timer = 3;
 shuffle_seed_bag();
-reset_seed_inline();
-minigames_chosen = irandom(minigame_total - 1);
-global.choice_selected = irandom(minigame_total - 1);
+roulette_alpha = 0;
+roulette_spin = false;
+roulette_spread = 0;
+roulette_angle = 270;
+roulette_separation = 0;
+roulette_spd = 5;
+roulette_max_angle = 0;
+roulette_chosen = false;
+minigames = null;
+minigames_chosen = null;
+minigame_previous = null;
+minigame_first = true;
 
 //Temp
 force_type = null;
@@ -25,7 +29,7 @@ with (objBoard) {
 }
 
 function choosed_minigame() {
-	var minigame = minigame_list[global.choice_selected];
+	var minigame = minigame_chosen;
 	info.reference = minigame;
 	minigame_unlock(minigame.title);
 	array_push(global.minigame_history, minigame.title);
@@ -33,9 +37,10 @@ function choosed_minigame() {
 	if (array_length(global.minigame_history) > 10) {
 		array_delete(global.minigame_history, 0, 1);
 	}
-	
+
+	roulette_chosen = true;
 	audio_play_sound(sndRoulettePick, 0, false);
-	alarm_call(3, 1);
+	alarm_call(2, 1);
 }
 
 function send_to_minigame() {
@@ -69,7 +74,7 @@ function send_to_minigame() {
 
 alarms_init(2);
 
-// Alarm 0 - Show vs and get list of minigames to select
+//Alarm 0 - Show vs. and get list of minigames to select
 alarm_create(function() {
 	//Counts the maximum colors between the cards
 	var blue_count = array_count(player_colors, c_blue);
@@ -139,14 +144,15 @@ alarm_create(function() {
 		show_popup(language_get_text("PARTY_CHOOSE_MINIGAME_2VS2"),, 100,,, false);
 		info.type = "2vs2";
 	}
-
+	
+	minigames = global.minigames[$ info.type];
+	roulette_separation = 360 / array_length(minigames);
 	array_push(global.minigame_type_history, info.type);
 	
 	if (array_length(global.minigame_type_history) > 10) {
 		array_delete(global.minigame_type_history, 0, 1);
 	}
 
-	minigame_list = [];
 	var minigames_now = global.minigames[$ info.type];
 	var minigame_count = {};
 	var minigame_names = [];
@@ -172,14 +178,8 @@ alarm_create(function() {
 			minigame_name = minigame_names[i];
 		
 			if (minigame_count[$ minigame_name] == min_minigame) {
-				array_push(minigame_list, array_first(array_filter(minigames_now, function(x) { return (x.title == minigame_name); })));
-			
-				if (array_length(minigame_list) == 5) {
-					minigame_add = false;
-					break;
-				}
-			
-				array_delete(minigame_names, i, 1);
+				minigame_chosen = array_first(array_filter(minigames_now, function(x) { return (x.title == minigame_name); }));
+				minigame_add = false;
 			}
 		}
 	}
@@ -196,12 +196,16 @@ alarm_create(function() {
 	}
 	//Temp
 
+	next_seed_inline();
+	roulette_angle = 270 - roulette_separation * irandom(array_length(minigames) - 1);
+	roulette_max_angle = (270 - roulette_separation * array_find_index(minigames, function(x) { return (x.title == minigame_chosen.title); }) + 360) % 360;
+
 	show_popup("VS");
 	audio_play_sound(sndChooseMinigame, 0, false);
 	alarm_call(1, 2);
 });
 
-// Alarm 1
+//Alarm 1
 alarm_create(function() {
 	with (objPlayerInfo) {
 		if (draw_x < 400) {
@@ -214,24 +218,7 @@ alarm_create(function() {
 	state = 2;
 });
 
-// Alarm 2 - Minigame roulette
-alarm_create(function() {
-	global.choice_selected = (global.choice_selected + 1 + minigame_total) % minigame_total;
-	audio_play_sound(sndRouletteRoll, 0, false);
-
-	minigames_timer += 0.10;
-	next_seed_inline();
-
-	if (minigames_timer > 6 && irandom(1) == 0 && global.choice_selected == minigames_chosen) {
-		choosed_minigame();	
-		exit;
-	}
-	
-	// Repeat
-	alarm_frames(2, floor(minigames_timer));
-});
-
-// Alarm 3
+//Alarm 2 - Minigame roulette end
 alarm_create(function() {
 	state = 3;
 });

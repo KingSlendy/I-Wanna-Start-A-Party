@@ -57,7 +57,38 @@ if (points_draw) {
 		}
 		
 		var yy = 0;
-		draw_box(xx, yy, (is_4vs || is_1vs3_coins) ? 100 : 130, 32, (is_4vs) ? player_color_by_turn(i + 1) : info.player_colors[i], c_white);
+		
+		if (room == rMinigame4vs_Clockwork) {
+			var camera = view_camera[0];
+			var width = camera_get_view_width(camera);
+			var height = camera_get_view_height(camera);
+			var surf_x = width * (i % 2);
+			var surf_y = height * (i div 2);
+			
+			switch (i) {
+				case 0:
+					xx = surf_x + 20;
+					yy = surf_y + 16 + 12;
+					break;
+					
+				case 1:
+					xx = surf_x + width - 120;
+					yy = surf_y + 16 + 12;
+					break;
+					
+				case 2:
+					xx = surf_x + 20;
+					yy = surf_y + height - 16 - 44;
+					break;
+				
+				case 3:
+					xx = surf_x + width - 120;
+					yy = surf_y + height - 16 - 44;
+					break;
+			}
+		}
+		
+		draw_box(xx, yy, (is_4vs || is_1vs3_coins) ? 100 : 130, 34, (is_4vs) ? player_color_by_turn(i + 1) : info.player_colors[i], c_white);
 		language_set_font(global.fntDialogue);
 	
 		var team = points_teams[i];

@@ -32,6 +32,33 @@ for (var i = 0; i < global.player_max; i++) {
 	if (draw_names) {
 		language_set_font(global.fntPlayerInfo);
 		draw_set_color(c_white);
-		draw_player_name(surf_x + 20, surf_y + height - 16, target_follow[i].network_id);
+		var name_x = surf_x + 20;
+		var name_y = surf_y + height - 16;
+		
+		if (room != rMinigame4vs_Tower && room != rMinigame4vs_Jingle && room != rMinigame2vs2_Duos) {
+			switch (i) {
+				case 0:
+					name_x = surf_x + 20;
+					name_y = surf_y + 16;
+					break;
+					
+				case 1:
+					name_x = surf_x + width - 95;
+					name_y = surf_y + 16;
+					break;
+					
+				case 2:
+					name_x = surf_x + 20;
+					name_y = surf_y + height - 16;
+					break;
+				
+				case 3:
+					name_x = surf_x + width - 95;
+					name_y = surf_y + height - 16;
+					break;
+			}
+		}
+		
+		draw_player_name(name_x, name_y, target_follow[i].network_id);
 	}
 }

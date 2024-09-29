@@ -13,21 +13,26 @@ function Minigame(title, label, instructions, preview, scene, fangame_name) cons
 	var h_half = floor(h / 2);
 	var p_surf = surface_create(w, h);
 	surface_set_target(p_surf);
+	draw_clear_alpha(c_black, 0);
+	gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
 	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
 	gpu_set_colorwriteenable(true, true, true, false);
 	draw_sprite_stretched(sprMinigameOverview_Pictures, self.preview, 44, 15, w - 88, h - 31);
 	gpu_set_colorwriteenable(true, true, true, true);
 	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
+	gpu_set_blendmode(bm_normal);
 	surface_reset_target();
 	self.portrait = sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w_half, h_half);
 
 	surface_set_target(p_surf);
 	draw_clear_alpha(c_black, 0);
+	gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
 	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
 	gpu_set_colorwriteenable(true, true, true, false);
 	draw_sprite_stretched(sprMinigameOverview_Pictures, 0, 44, 15, w - 88, h - 31);
 	gpu_set_colorwriteenable(true, true, true, true);
 	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
+	gpu_set_blendmode(bm_normal);
 	surface_reset_target();
 	self.hidden = sprite_create_from_surface(p_surf, 0, 0, w, h, false, false, w_half, h_half);
 	surface_free(p_surf);
@@ -59,6 +64,7 @@ global.minigames = {};
 #macro WAKA_EVASION "Waka Evasion"
 #macro TREASURE_TRIAL "Treasure Trial"
 #macro CRUSHERS_CRUSHING "Crushers Crushing"
+#macro CLOCKWORK_CALAMITY "Clockwork Calamity"
 #endregion
 
 #region 1vs3
@@ -307,7 +313,7 @@ function minigame_init() {
 		
 		new Minigame(WAKA_EVASION, language_get_text("MINIGAMES_WAKA_NAME"),
 		[
-			function() { draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_WAKA_PAGE_1")) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_WAKA_PAGE_1")) },
 			function() {
 				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_WAKA_PAGE_2",
 				["{Left key}", draw_action(global.actions.left)],
@@ -345,7 +351,17 @@ function minigame_init() {
 				["{Left key}", draw_action(global.actions.left)],
 				["{Right key}", draw_action(global.actions.right)]))
 			}
-		], 43, rMinigame4vs_Crushers, "I Wanna Maker")
+		], 43, rMinigame4vs_Crushers, "I Wanna Maker"),
+		
+		new Minigame(CLOCKWORK_CALAMITY, language_get_text("MINIGAMES_CLOCKWORK_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CLOCKWORK_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CLOCKWORK_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)]))
+			}
+		], 45, rMinigame4vs_Clockwork, "I Wanna Can't Stop"),
 	];
 
 	m[$ "1vs3"] = [
@@ -489,18 +505,20 @@ function minigame_init() {
 		new Minigame(KARDIA_ARREST, language_get_text("MINIGAMES_KARDIA_NAME"),
 		[
 			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"),	language_get_text("MINIGAMES_KARDIA_PAGE_1", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
-			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_KARDIA_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
+			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_KARDIA_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"], ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
 			function() {
-				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_KARDIA_PAGE_3", 
+				return draw_page(language_get_text("MINIGAMES_CONTROLS_SOLO_PLAYER"), language_get_text("MINIGAMES_KARDIA_PAGE_3", 
 				["{Left key}", draw_action(global.actions.left)],
 				["{Right key}", draw_action(global.actions.right)],
-				["{Color}", "{COLOR,0000FF}"],
-				["{Color}", "{COLOR,FFFFFF}"],
-				["{Jump key}", draw_action(global.actions.jump)],
-				["{Color}", "{COLOR,0000FF}"],
-				["{Color}", "{COLOR,FFFFFF}"],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			},
+			
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS_TEAM_PLAYERS"), language_get_text("MINIGAMES_KARDIA_PAGE_4", 
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
-			}
+			},
 		], 44, rMinigame1vs3_Kardia, "I Wanna Kardia")
 	];
 
