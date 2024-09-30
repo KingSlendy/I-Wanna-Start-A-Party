@@ -12,6 +12,7 @@ roulette_angle = 270;
 roulette_separation = 0;
 roulette_spd = 5;
 roulette_max_angle = 0;
+roulette_max_laps = 0;
 roulette_chosen = false;
 minigames = null;
 minigames_chosen = null;
@@ -199,6 +200,7 @@ alarm_create(function() {
 	next_seed_inline();
 	roulette_angle = 270 - roulette_separation * irandom(array_length(minigames) - 1);
 	roulette_max_angle = (270 - roulette_separation * array_find_index(minigames, function(x) { return (x.title == minigame_chosen.title); }) + 360) % 360;
+	roulette_max_laps = irandom_range(2, 3);
 
 	show_popup("VS");
 	audio_play_sound(sndChooseMinigame, 0, false);

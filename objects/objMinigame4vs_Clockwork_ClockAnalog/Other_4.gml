@@ -1,0 +1,1 @@
+clock_analog_sync_digital();

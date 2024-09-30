@@ -359,7 +359,10 @@ function minigame_init() {
 			function() {
 				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CLOCKWORK_PAGE_2",
 				["{Left key}", draw_action(global.actions.left)],
-				["{Right key}", draw_action(global.actions.right)]))
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
 			}
 		], 45, rMinigame4vs_Clockwork, "I Wanna Can't Stop"),
 	];

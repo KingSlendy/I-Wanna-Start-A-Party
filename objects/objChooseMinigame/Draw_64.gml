@@ -22,7 +22,7 @@ if (roulette_alpha > 0) {
 		var angle = current.angle;
 	
 		if (i == size - 1 && minigame.title != minigame_previous) {
-			if (roulette_spd == 1 && minigame.title == minigame_chosen.title) {
+			if (minigame.title == minigame_chosen.title && --roulette_max_laps <= 0) {
 				choosed_minigame();
 			} else if (!minigame_first) {
 				audio_play_sound(sndRouletteRoll, 0, false);

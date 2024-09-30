@@ -36,16 +36,16 @@ if (trial_is_title(FOGGY_DAY)) {
 }
 
 alarm_override(0, function() {
-	if (state++ == 1) {
+	if (state++ == 0) {
+		with (objMinigame4vs_Haunted_Boo) {
+			alarm_call(0, 0.5);
+		}
+	} else {
 		alarm_inherited(0);
 		next_seed_inline();
 	
 		with (objMinigame4vs_Haunted_Boo) {
 			alarm_call(0, random_range(2, 4));
-		}
-	} else {
-		with (objMinigame4vs_Haunted_Boo) {
-			alarm_call(0, 0.5);
 		}
 	}
 });

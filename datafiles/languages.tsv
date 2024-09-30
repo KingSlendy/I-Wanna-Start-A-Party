@@ -465,6 +465,9 @@ MINIGAMES_TREASURE_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump Infinitely
 MINIGAMES_CRUSHERS_NAME	Crushers Crushing							
 MINIGAMES_CRUSHERS_PAGE_1	The crushers are mad that you're invading their territory. They will try to crush you and they won't give up.\nLast one standing wins!							
 MINIGAMES_CRUSHERS_PAGE_2	{Left key}{Right key} Move							
+MINIGAMES_CLOCKWORK_NAME	Clockwork Calamity							
+MINIGAMES_CLOCKWORK_PAGE_1	Oh no! The digital clocks are all desynced! It's your job to sync your digital clock to match the analog clock in the middle.\nWhoever gets to 3 points first wins!							
+MINIGAMES_CLOCKWORK_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Toggle Digit Section							
 #								
 #1 VS. 3								
 #								
@@ -512,7 +515,7 @@ MINIGAMES_HOUSE_PAGE_1	That's a very bad house! Don't let the cherries touch you
 MINIGAMES_HOUSE_PAGE_2	You control the bad house, but each member of the team only has control of a single action. Cooperate and kill the {Color}Solo Player{Color} before the time runs out!	Tú controlarás la casa fea, pero cada miembro solo tendrá una única acción para controlar. Cooperen y maten al {Color}Jugador Solitario{Color} antes de que termine el tiempo.		你们能控制这个讨厌的小屋，但队伍里每个成员只能控制一种行动。在时限内合作并猎杀{Color}单人玩家{Color}！				Vous contrôlez la mauvaise maison, mais chaque membre de l'équipe n'a qu'une seule commande. Coopérez et tuez le {Color}joueur solo{Color} avant la fin du temps imparti !
 MINIGAMES_HOUSE_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump	{Left key}{Right key} Moverse\n{Jump key} Saltar		{Left key}{Right key} 移动\n{Jump key} 跳跃	{Left key}{Right key} 移動\n{Jump key} 跳躍	{Left key}{Right key} 移動\n{Jump key} ジャンプ		{Left key}{Right key} Déplacer\n{Jump key} Sauter
 MINIGAMES_KARDIA_NAME	Kardia Arrest							
-MINIGAMES_KARDIA_PAGE_1	I hope you're not faint of heart... because you'll have to dodge the cherries shot from the {Color}Team Players{Color}. If time turns out you win!							
+MINIGAMES_KARDIA_PAGE_1	I hope you're not faint of heart... because you'll have to dodge the cherries shot from the {Color}Team Players{Color}. If time runs out you win!							
 MINIGAMES_KARDIA_PAGE_2	Now it's the perfect moment to get a little scare on the {Color}Solo Player{Color} by shooting explosions from your ring of cherries. If you manage to kill the {Color}Solo Player{Color} you win!							
 MINIGAMES_KARDIA_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump							
 MINIGAMES_KARDIA_PAGE_4	{Left key}{Right key} Move Cherry Ring\n{Shoot key} Shoot Explosion							

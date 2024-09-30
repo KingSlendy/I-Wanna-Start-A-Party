@@ -49,6 +49,12 @@ function array_search(array, value, left = 0, right = array_length(array) - 1) {
 }
 #endregion
 
+#region Strings
+function string_contains(str, substr) {
+	return (string_count(substr, str) > 0);
+}
+#endregion
+
 function remap(value, from1, to1, from2, to2) {
 	return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 }

@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":57.103725,
+  "duration":187.68982,
   "name":"bgmMinigame4vs_Clockwork",
   "parent":{
     "name":"4vs",

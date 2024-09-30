@@ -132,6 +132,8 @@ enum ClientTCP {
 	Minigame4vs_Jingle_SledgeHit,
 	Minigame4vs_Treasure_BlockHit,
 	Minigame4vs_Treasure_Obtained,
+	Minigame4vs_Clockwork_ClockDigitalSectionToggle,
+	Minigame4vs_Clockwork_ClockDigitalCorrectTime,
 	#endregion
 	
 	#region 1vs3
@@ -1119,6 +1121,30 @@ f[$ ClientTCP.Minigame4vs_Treasure_Obtained] = function(buffer) {
 	
 	with (objMinigame4vs_Treasure_Treasure) {
 		treasure_obtained(network_id, false);
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalSectionToggle] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var digit = buffer_read(buffer, buffer_u8);
+	var section = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Clockwork_ClockDigital) {
+		if (self.network_id == network_id) {
+			clock_digital_section_toggle(digit, section, false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Clockwork_ClockDigital) {
+		if (self.network_id == network_id) {
+			clock_digital_correct_time(false);
+			break;
+		}
 	}
 }
 #endregion

@@ -1,0 +1,1 @@
+player = focus_player_by_id(network_id);
