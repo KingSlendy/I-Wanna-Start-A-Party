@@ -72,7 +72,7 @@ alarm_override(11, function() {
 			}
 			
 			with (objMinigame4vs_Clockwork_ClockDigital) {
-				if (network_id != other.network_id) {
+				if (self.player.network_id != other.network_id) {
 					continue;
 				}
 				

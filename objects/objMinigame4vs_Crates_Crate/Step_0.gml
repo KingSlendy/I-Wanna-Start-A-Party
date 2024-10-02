@@ -1,4 +1,4 @@
-if (is_player_local(network_id) && hspd == 0 && vspd == 0 && focus_player_by_id(network_id).spinning) {
+if (is_player_local(network_id) && !outside && hspd == 0 && vspd == 0 && focus_player_by_id(network_id).spinning) {
 	crate_smash();
 	exit;
 }
@@ -20,4 +20,10 @@ if (place_meeting(x, y, objBlock)) {
 		vspd = 0;
 		grav = 0;
 	}
+}
+
+if (!outside && x > room_width) {
+	event_perform(ev_destroy, 0);
+	hspd = 0;
+	outside = true;
 }

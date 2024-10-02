@@ -1,1 +1,1 @@
-player = focus_player_by_id(network_id);
+player = focus_player_by_turn(turn);

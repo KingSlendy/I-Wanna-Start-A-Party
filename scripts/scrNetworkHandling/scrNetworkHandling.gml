@@ -11,6 +11,7 @@ global.lobby_started = false;
 enum PlayerDataMode {
 	Heartbeat,
 	Basic,
+	Static,
 	Hand,
 	Rocket,
 	Hammer,
@@ -243,7 +244,7 @@ function player_write_data() {
 	}
 	
 	switch (network_mode) {
-		case PlayerDataMode.Basic:
+		case PlayerDataMode.Static:
 			buffer_write_data(buffer_bool, spinning);
 			buffer_write_data(buffer_f16, spin_index);
 			break;
@@ -302,7 +303,7 @@ function player_read_data(buffer) {
 		y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
-			case PlayerDataMode.Basic:
+			case PlayerDataMode.Static:
 				spinning = buffer_read(buffer, buffer_bool);
 				spin_index = buffer_read(buffer, buffer_f16);
 				break;

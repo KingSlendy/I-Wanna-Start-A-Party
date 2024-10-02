@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemStickyHand",
-    "path":"sprites/sprItemStickyHand/sprItemStickyHand.yy",
+    "name":"sprItemSuperStickyHand",
+    "path":"sprites/sprItemSuperStickyHand/sprItemSuperStickyHand.yy",
   },
   "spriteMaskId":null,
   "visible":true,

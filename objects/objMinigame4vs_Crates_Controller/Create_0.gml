@@ -78,8 +78,9 @@ crate_count = array_create(global.player_max, 0);
 alarm_override(1, function() {
 	alarm_inherited(1);
 	
-	for (var i = 0; i < global.player_max; i++) {
-		crate_create(90, (32 * 6) * i, i + 1);
+	for (var i = 1; i <= global.player_max; i++) {
+		var player = focus_player_by_turn(i);
+		crate_create(90, (32 * 6) * (i - 1), player.network_id);
 	}
 });
 

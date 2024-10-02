@@ -1,0 +1,2 @@
+event_inherited();
+audio_stop_sound(sndMinigame4vs_Clockwork_AnalogTock);

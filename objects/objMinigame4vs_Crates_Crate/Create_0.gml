@@ -3,8 +3,11 @@ vspd = 3;
 grav = 0.1;
 network_id = 0;
 count_id = 0;
+outside = false;
 
 function crate_smash(network = true) {
+	x = xstart;
+	
 	if (sprite_index == sprMinigame4vs_Crates_Crate) {
 		minigame4vs_points(network_id, 1);
 		crate_destroy();
@@ -61,7 +64,7 @@ function crate_explode() {
 	audio_play_sound(sndMinigame4vs_Crates_CrateExplode, 0, false);
 	
 	var part_type = (sprite_index != sprMinigame4vs_Crates_CrateNITRO) ? objMinigameController.part_type_explosion_tnt : objMinigameController.part_type_explosion_nitro;
-	part_particles_create(objMinigameController.part_system, x, y, part_type, 30);
+	part_particles_create(objMinigameController.part_system, x + 16, y + 16, part_type, 30);
 }
 
 alarm[0] = get_frames(1);

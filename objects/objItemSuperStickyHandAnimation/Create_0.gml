@@ -13,22 +13,47 @@ scale = 1;
 item_stole = null;
 
 function start_hand() {
-	var items = all_item_stats(player_info);
-				
-	show_multiple_choices(language_get_text("PARTY_ITEM_WHICH_ITEM_STEAL"), items.names, items.sprites, items.descs, items.availables).final_action = function() {
-		with (objItemAnimation) {
-			turn_previous = global.player_turn;
-			global.player_turn = player_turn_selected;
-			state = 0;
-		}
+	if (is_player_local(player1.network_id)) {
+		var items = all_item_stats(player_info);		
+		show_multiple_choices(language_get_text("PARTY_ITEM_WHICH_ITEM_STEAL"), items.names, items.sprites, items.descs, items.availables).final_action = turn_hand;
+	}
+}
+
+function turn_hand(network = true) {
+	turn_previous = global.player_turn;
+	global.player_turn = player_turn_selected;
+	state = 0;
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ItemSuperStickyHandAnimation_TurnHand);
+		network_send_tcp_packet();
+	}
+}
+
+function steal_hand(network = true) {
+	alarm_instant(2);
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ItemSuperStickyHandAnimation_StealHand);
+		network_send_tcp_packet();
 	}
 }
 
 function end_hand() {
-	change_items(item_stole, ItemChangeType.Gain).final_action = function() {
-		with (objItemAnimation) {
-			instance_destroy();
-		}
+	if (is_player_local(player1.network_id)) {
+		change_items(item_stole, ItemChangeType.Gain).final_action = destroy_hand;
+	}
+}
+
+function destroy_hand(network = true) {
+	instance_destroy();
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.ItemStickyHandAnimation_DestroyHand);
+		network_send_tcp_packet();
 	}
 }
 
@@ -43,10 +68,8 @@ alarm_create(function() {
 alarm_create(function() {
 	item_stole = player_info.items[global.choice_selected];
 	
-	change_items(item_stole, ItemChangeType.Lose).final_action = function() {
-		with (objItemAnimation) {
-			alarm_instant(2);
-		}
+	if (is_player_local(player2.network_id)) {
+		change_items(item_stole, ItemChangeType.Lose).final_action = steal_hand;
 	}
 });
 

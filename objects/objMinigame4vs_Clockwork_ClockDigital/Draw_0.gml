@@ -1,4 +1,4 @@
-if (view_current != network_id - 1) {
+if (view_current != turn - 1) {
 	exit;
 }
 

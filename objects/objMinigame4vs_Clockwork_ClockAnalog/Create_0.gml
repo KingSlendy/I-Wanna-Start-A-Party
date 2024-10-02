@@ -105,7 +105,7 @@ function clock_analog_random_time() {
 	with (objMinigame4vs_Clockwork_ClockDigital) {
 		for (var i = 0; i < number_digits; i++) {
 			for (var j = 0; j < number_sections; j++) {
-				focus_player_by_id(network_id).target_numbers[i][j] = (string_contains(other.sections_makes_digits[$ time[i]], string(j)));
+				player.target_numbers[i][j] = (string_contains(other.sections_makes_digits[$ time[i]], string(j)));
 			}
 		}
 	}

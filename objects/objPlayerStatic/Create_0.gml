@@ -1,5 +1,5 @@
 event_inherited();
-network_mode = PlayerDataMode.Basic;
+network_mode = PlayerDataMode.Static;
 xscale = 1;
 orientation = 1;
 spinning = false;

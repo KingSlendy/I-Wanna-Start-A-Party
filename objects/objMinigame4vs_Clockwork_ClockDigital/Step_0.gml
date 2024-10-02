@@ -1,4 +1,4 @@
-if (objMinigameController.info.is_finished || !objMinigame4vs_Clockwork_ClockAnalog.check_target_time || !is_player_local(network_id)) {
+if (objMinigameController.info.is_finished || !objMinigame4vs_Clockwork_ClockAnalog.check_target_time || !is_player_local(player.network_id)) {
 	exit;
 }
 

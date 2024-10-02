@@ -38,7 +38,7 @@ function clock_digital_digits_draw(number_x, number_y, number_index, draw) {
 			x = temp_x;
 			y = temp_y;
 			
-			if (is_colliding && global.actions.jump.pressed(player.network_id)) {
+			if (!player.frozen && is_colliding && global.actions.jump.pressed(player.network_id)) {
 				clock_digital_section_toggle(number_index, i);
 			}
 		}
@@ -58,7 +58,7 @@ function clock_digital_section_toggle(digit, section, network = true) {
 	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Clockwork_ClockDigitalSectionToggle);
-		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u8, turn);
 		buffer_write_data(buffer_u8, digit);
 		buffer_write_data(buffer_u8, section);
 		network_send_tcp_packet();
@@ -70,7 +70,7 @@ function clock_digital_correct_time(network = true) {
 		alarm_stop(10);
 	}
 	
-	minigame4vs_points(network_id, 1);
+	minigame4vs_points(player.network_id, 1);
 	objMinigame4vs_Clockwork_ClockAnalog.check_target_time = false;
 	objPlayerBase.frozen = true;
 	audio_play_sound(sndMinigame4vs_Clockwork_DigitalDing, 0, false);
@@ -78,11 +78,11 @@ function clock_digital_correct_time(network = true) {
 	if (network) {
 		buffer_seek_begin();
 		buffer_write_action(ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime);
-		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u8, turn);
 		network_send_tcp_packet();
 	}
 	
-	if (minigame4vs_get_points(network_id) >= 3) {
+	if (minigame4vs_get_points(player.network_id) >= 3) {
 		minigame_finish();
 		exit;
 	}

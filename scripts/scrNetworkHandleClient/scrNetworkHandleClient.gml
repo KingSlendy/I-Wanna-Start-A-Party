@@ -96,6 +96,11 @@ enum ClientTCP {
 	#region Animations
 	ItemApplied,
 	ItemAnimation,
+	ItemStickyHandAnimation_StealHand,
+	ItemStickyHandAnimation_DestroyHand,
+	ItemSuperStickyHandAnimation_TurnHand,
+	ItemSuperStickyHandAnimation_StealHand,
+	ItemSuperStickyHandAnimation_DestroyHand,
 	StartBlackholeSteal,
 	EndBlackholeSteal,
 	#endregion
@@ -797,6 +802,36 @@ f[$ ClientTCP.ItemAnimation] = function(buffer) {
 	item_animation(item_id, additional);
 }
 
+f[$ ClientTCP.ItemStickyHandAnimation_StealHand] = function(buffer) {
+	with (objItemAnimation) {
+		steal_hand(false);
+	}
+}
+
+f[$ ClientTCP.ItemStickyHandAnimation_DestroyHand] = function(buffer) {
+	with (objItemAnimation) {
+		destroy_hand(false);
+	}
+}
+
+f[$ ClientTCP.ItemSuperStickyHandAnimation_TurnHand] = function(buffer) {
+	with (objItemAnimation) {
+		turn_hand(false);
+	}
+}
+
+f[$ ClientTCP.ItemSuperStickyHandAnimation_StealHand] = function(buffer) {
+	with (objItemAnimation) {
+		steal_hand(false);
+	}
+}
+
+f[$ ClientTCP.ItemSuperStickyHandAnimation_DestroyHand] = function(buffer) {
+	with (objItemAnimation) {
+		destroy_hand(false);
+	}
+}
+
 f[$ ClientTCP.StartBlackholeSteal] = function(buffer) {
 	with (objItemBlackholeAnimation) {
 		start_blackhole_steal();
@@ -1131,12 +1166,12 @@ f[$ ClientTCP.Minigame4vs_Treasure_Obtained] = function(buffer) {
 }
 
 f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalSectionToggle] = function(buffer) {
-	var network_id = buffer_read(buffer, buffer_u8);
+	var turn = buffer_read(buffer, buffer_u8);
 	var digit = buffer_read(buffer, buffer_u8);
 	var section = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Clockwork_ClockDigital) {
-		if (self.network_id == network_id) {
+		if (self.turn == turn) {
 			clock_digital_section_toggle(digit, section, false);
 			break;
 		}
@@ -1144,10 +1179,10 @@ f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalSectionToggle] = function(buffer
 }
 
 f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime] = function(buffer) {
-	var network_id = buffer_read(buffer, buffer_u8);
+	var turn = buffer_read(buffer, buffer_u8);
 	
 	with (objMinigame4vs_Clockwork_ClockDigital) {
-		if (self.network_id == network_id) {
+		if (self.turn == turn) {
 			clock_digital_correct_time(false);
 			break;
 		}
