@@ -33,6 +33,7 @@ enum ClientTCP {
 	HideDice,
 	ShowChest,
 	OpenChest,
+	HideChest,
 	SpawnChanceTimeBox,
 	SpawnLastTurnsBox,
 	#endregion
@@ -445,6 +446,10 @@ f[$ ClientTCP.ShowChest] = function(buffer) {
 
 f[$ ClientTCP.OpenChest] = function(buffer) {
 	open_chest();
+}
+
+f[$ ClientTCP.HideChest] = function(buffer) {
+	hide_chest();
 }
 
 f[$ ClientTCP.SpawnChanceTimeBox] = function(buffer) {

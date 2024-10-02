@@ -160,7 +160,7 @@ alarm_override(11, function() {
 								clock_digital_section_toggle(check_target.digit, check_target.section);
 							}
 							
-							target_delay = get_frames(random_range(0.5, 1.25));
+							target_delay = get_frames(random_range(0.5, 1.5));
 						}
 					}
 				}

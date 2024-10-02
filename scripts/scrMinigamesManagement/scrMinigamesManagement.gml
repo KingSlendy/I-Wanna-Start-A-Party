@@ -17,7 +17,7 @@ function Minigame(title, label, instructions, preview, scene, fangame_name) cons
 	gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
 	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
 	gpu_set_colorwriteenable(true, true, true, false);
-	draw_sprite_stretched(sprMinigameOverview_Pictures, self.preview, 44, 15, w - 88, h - 31);
+	draw_sprite_stretched(sprMinigameOverview_Pictures, self.preview, 44, 15, w - 88, h - 30);
 	gpu_set_colorwriteenable(true, true, true, true);
 	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
 	gpu_set_blendmode(bm_normal);
@@ -29,7 +29,7 @@ function Minigame(title, label, instructions, preview, scene, fangame_name) cons
 	gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_one);
 	draw_sprite(sprMinigameOverview_Preview, 1, w_half, h_half);
 	gpu_set_colorwriteenable(true, true, true, false);
-	draw_sprite_stretched(sprMinigameOverview_Pictures, 0, 44, 15, w - 88, h - 31);
+	draw_sprite_stretched(sprMinigameOverview_Pictures, 0, 44, 15, w - 88, h - 30);
 	gpu_set_colorwriteenable(true, true, true, true);
 	draw_sprite(sprMinigameOverview_Preview, 0, w_half, h_half);
 	gpu_set_blendmode(bm_normal);
@@ -65,6 +65,7 @@ global.minigames = {};
 #macro TREASURE_TRIAL "Treasure Trial"
 #macro CRUSHERS_CRUSHING "Crushers Crushing"
 #macro CLOCKWORK_CALAMITY "Clockwork Calamity"
+#macro CRASHED_CRATES "Crashed Crates"
 #endregion
 
 #region 1vs3
@@ -365,6 +366,17 @@ function minigame_init() {
 				["{Jump key}", draw_action(global.actions.jump)]))
 			}
 		], 45, rMinigame4vs_Clockwork, "I Wanna Can't Stop"),
+		
+		new Minigame(CRASHED_CRATES, language_get_text("MINIGAMES_CRATES_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CRATES_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CRATES_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 46, rMinigame4vs_Crates, "I Wanna Crash The Crates")
 	];
 
 	m[$ "1vs3"] = [

@@ -75,6 +75,13 @@ function clock_digital_correct_time(network = true) {
 	objPlayerBase.frozen = true;
 	audio_play_sound(sndMinigame4vs_Clockwork_DigitalDing, 0, false);
 	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime);
+		buffer_write_data(buffer_u8, network_id);
+		network_send_tcp_packet();
+	}
+	
 	if (minigame4vs_get_points(network_id) >= 3) {
 		minigame_finish();
 		exit;
@@ -82,12 +89,5 @@ function clock_digital_correct_time(network = true) {
 	
 	with (objMinigame4vs_Clockwork_ClockAnalog) {
 		alarm_call(1, 1);
-	}
-	
-	if (network) {
-		buffer_seek_begin();
-		buffer_write_action(ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime);
-		buffer_write_data(buffer_u8, network_id);
-		network_send_tcp_packet();
 	}
 }

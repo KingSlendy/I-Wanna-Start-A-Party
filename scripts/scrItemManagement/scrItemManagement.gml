@@ -17,14 +17,16 @@ enum ItemType {
 	Poison,
 	Reverse,
 	Ice,
-	//ItemSteal,
 	Warp,
 	SuperWarp,
 	Cellphone,
 	Blackhole,
 	Mirror,
-	//Medal,
 	ItemBag,
+	StickyHand,
+	SuperStickyHand,
+	Cloud,
+	Medal,
 	Length
 }
 
@@ -67,7 +69,6 @@ function items_init() {
 			return false;
 		}),
 	
-		//new Item(ItemType.ItemSteal, "Item Steal", "Steals a random item from the player you choose.", sprItemItemSteal, 1000),
 		new Item(ItemType.Warp, language_get_text("PARTY_ITEM_WARP_NAME"), language_get_text("PARTY_ITEM_WARP_EFFECT"), sprItemWarp, 12, objItemWarpAnimation),
 		new Item(ItemType.SuperWarp, language_get_text("PARTY_ITEM_SUPER_WARP_NAME"), language_get_text("PARTY_ITEM_SUPER_WARP_EFFECT"), sprItemSuperWarp, 25, objItemSuperWarpAnimation),
 		new Item(ItemType.Cellphone, language_get_text("PARTY_ITEM_CELLPHONE_NAME"), language_get_text("PARTY_ITEM_CELLPHONE_EFFECT"), sprItemCellphone, 8,,, function() {
@@ -94,8 +95,47 @@ function items_init() {
 		}),
 	
 		new Item(ItemType.Mirror, language_get_text("PARTY_ITEM_MIRROR_NAME"), language_get_text("PARTY_ITEM_MIRROR_EFFECT"), sprItemMirror, 30, objItemMirrorAnimation),
-		//new Item(ItemType.Medal, "Medal", "???.", sprItemMedal, 1000),
-		new Item(ItemType.ItemBag, language_get_text("PARTY_ITEM_ITEM_BAG_NAME"), language_get_text("PARTY_ITEM_ITEM_BAG_EFFECT"), sprItemItemBag, 40)
+		new Item(ItemType.ItemBag, language_get_text("PARTY_ITEM_ITEM_BAG_NAME"), language_get_text("PARTY_ITEM_ITEM_BAG_EFFECT"), sprItemItemBag, 40),
+		new Item(ItemType.StickyHand, language_get_text("PARTY_ITEM_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_STICKY_HAND_EFFECT"), sprItemStickyHand, 20, objItemStickyHandAnimation,, function() {
+			var other_has_items = false;
+		
+			for (var i = 1; i <= global.player_max; i++) {
+				if (i == global.player_turn) {
+					continue;
+				}
+			
+				var player_info = player_info_by_turn(i);
+			
+				if (player_info.free_item_slot() > 0) {
+					other_has_items = true;
+					break;
+				}
+			}
+		
+			return (other_has_items);
+		}),
+		
+		new Item(ItemType.SuperStickyHand, language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_EFFECT"), sprItemSuperStickyHand, 30, objItemSuperStickyHandAnimation,, function() {
+			var other_has_items = false;
+		
+			for (var i = 1; i <= global.player_max; i++) {
+				if (i == global.player_turn) {
+					continue;
+				}
+			
+				var player_info = player_info_by_turn(i);
+			
+				if (player_info.free_item_slot() > 0) {
+					other_has_items = true;
+					break;
+				}
+			}
+		
+			return (other_has_items);
+		}),
+		
+		new Item(ItemType.Cloud, language_get_text("PARTY_ITEM_CLOUD_NAME"), language_get_text("PARTY_ITEM_CLOUD_EFFECT"), sprItemCloud, 15),
+		new Item(ItemType.Medal, language_get_text("PARTY_ITEM_MEDAL_NAME"), language_get_text("PARTY_ITEM_MEDAL_EFFECT"), sprItemMedal, 50)
 	];
 }
 

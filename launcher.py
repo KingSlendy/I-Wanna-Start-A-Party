@@ -67,9 +67,9 @@ def main():
 
     print(f"Current version: {version}")
     print("Validating new version...")
-    http_tag_content = requests.get(f"{GITHUB_LINK}/{GITHUB_REPO}/releases/latest").content.decode("utf-8")
-    
+
     try:
+        http_tag_content = requests.get(f"{GITHUB_LINK}/{GITHUB_REPO}/releases/latest").content.decode("utf-8")
         new_game_version = re.search(r"<title>.*(\d+.\d+.\d+.\d+t?).*</title>", http_tag_content)[1]
     except:
         print("An error occurred during the version validation process.")

@@ -87,7 +87,7 @@ switch (info.type) {
 		break;
 }
 
-// Draw instructions
+//Draw instructions
 draw_set_halign(fa_left);
 draw_box(75, 400, 500, 200, c_blue, c_white, 1, 1); // Draw text box
 instructions[instructions_page].set(info.reference.instructions[instructions_page]());

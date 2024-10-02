@@ -1,0 +1,7 @@
+event_inherited();
+part_system_destroy_safe(part_system);
+part_type_destroy_safe(part_type_wood_crate);
+part_type_destroy_safe(part_type_wood_tnt);
+part_type_destroy_safe(part_type_wood_nitro);
+part_type_destroy_safe(part_type_explosion_tnt);
+part_type_destroy_safe(part_type_explosion_nitro);

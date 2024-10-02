@@ -58,10 +58,16 @@ if (points_draw) {
 		
 		var yy = 0;
 		
-		if (room == rMinigame4vs_Clockwork) {
+		if (minigame_camera == CameraMode.Split4) {
 			var camera = view_camera[0];
 			var width = camera_get_view_width(camera);
 			var height = camera_get_view_height(camera);
+			
+			if (room == rMinigame4vs_Crates) {
+				width *= 2;
+				height *= 2;
+			}
+			
 			var surf_x = width * (i % 2);
 			var surf_y = height * (i div 2);
 			

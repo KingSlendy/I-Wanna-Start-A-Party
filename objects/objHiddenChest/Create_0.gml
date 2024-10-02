@@ -7,14 +7,24 @@ alarms_init(1);
 
 alarm_create(function() {
 	if (is_local_turn()) {
-		if (1 / 20 > random(1)) {
-			change_shines(1, ShineChangeType.Spawn).final_action = turn_next;
+		var has_used_medal = (player_info_by_turn().item_used == ItemType.Medal);
+		var action = (!has_used_medal) ? turn_next : hide_chest;
+		var chances = (!has_used_medal) ? 0.05 : 0.2;
+		
+		if (chance(chances)) {
+			change_shines(1, ShineChangeType.Spawn).final_action = action;
 		
 			if (focused_player().network_id == global.player_id) {
 				achieve_trophy(4);
 			}
 		} else {
-			change_coins(irandom_range(10, 20), CoinChangeType.Gain).final_action = turn_next;
+			var coin_amount = irandom_range(10, 20);
+			
+			if (has_used_medal) {
+				coin_amount *= 2;
+			}
+			
+			change_coins(coin_amount, CoinChangeType.Gain).final_action = action;
 		}
 	}
 });

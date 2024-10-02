@@ -36,7 +36,7 @@ alarm_create(function() {
 
 alarm_create(function() {
 	if (!used_item) {
-		player_info.items[global.choice_selected] = null;
+		player_info.delete_item_slot(global.choice_selected);
 		player_info.item_used = item.id;
 		focus_player = focus_player_by_id(network_id);
 		spawned_item = instance_create_layer(focus_player.x, focus_player.y - 40, "Actors", objItem);
@@ -65,6 +65,6 @@ alarm_create(11, function() {
 	if (animation_type == ItemChangeType.Gain) {
 		player_info.items[player_info.free_item_slot()] = item;
 	} else {
-		array_delete(player_info.items, global.choice_selected, 1);
+		player_info.delete_item_slot(global.choice_selected);
 	}
 });

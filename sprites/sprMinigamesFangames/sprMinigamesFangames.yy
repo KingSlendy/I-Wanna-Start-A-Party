@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sprMinigamesFangames",
   "bboxMode":0,
-  "bbox_bottom":303,
+  "bbox_bottom":151,
   "bbox_left":0,
-  "bbox_right":399,
+  "bbox_right":199,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -58,10 +58,11 @@
     {"$GMSpriteFrame":"","%Name":"8a59b348-02e8-41a1-b780-8c3475c1a0ef","name":"8a59b348-02e8-41a1-b780-8c3475c1a0ef","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"f9db408e-884e-4114-a905-a4f0136203f6","name":"f9db408e-884e-4114-a905-a4f0136203f6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"09556483-40f0-4147-961b-028b533389b2","name":"09556483-40f0-4147-961b-028b533389b2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"499e8512-db3c-4d14-92ce-24c5c3d6490c","name":"499e8512-db3c-4d14-92ce-24c5c3d6490c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":304,
+  "height":152,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"0557d061-8e7d-4476-8c46-1be54b2ad260","blendMode":0,"displayName":"default","isLocked":false,"name":"0557d061-8e7d-4476-8c46-1be54b2ad260","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -94,7 +95,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":46.0,
+    "length":47.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -251,6 +252,9 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"09556483-40f0-4147-961b-028b533389b2","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"67337bcf-362c-4b78-b14c-ad453b23f5b5","IsCreationKey":false,"Key":45.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"499e8512-db3c-4d14-92ce-24c5c3d6490c","path":"sprites/sprMinigamesFangames/sprMinigamesFangames.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d0041735-113c-4ac2-acc4-b4bc8f02c798","IsCreationKey":false,"Key":46.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -266,5 +270,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":400,
+  "width":200,
 }

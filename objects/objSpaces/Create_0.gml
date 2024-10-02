@@ -293,7 +293,7 @@ function space_finish_event() {
 			if (rnd <= 80) {
 				var item = choose(ItemType.Poison, ItemType.Cellphone);
 			} else if (rnd >= 81 && rnd <= 95) {
-				var item = choose(ItemType.DoubleDice, ItemType.TripleDice);
+				var item = choose(ItemType.DoubleDice, ItemType.TripleDice, ItemType.StickyHand);
 			} else {
 				if (room != rBoardWorld) {
 					var item = choose(ItemType.Blackhole, ItemType.Mirror);
@@ -327,12 +327,12 @@ function space_finish_event() {
 					
 				case 2:
 					if (irandom(1) == 0) {
-						var item = choose(ItemType.Ice, ItemType.Warp, ItemType.DoubleDice);
+						var item = choose(ItemType.DoubleDice. ItemType.Ice, ItemType.Warp, ItemType.StickyHand);
 					} else {
 						if (room != rBoardWorld) {
-							var item = choose(ItemType.SuperWarp, ItemType.TripleDice, ItemType.Blackhole, ItemType.Mirror);
+							var item = choose(ItemType.TripleDice, ItemType.SuperWarp, ItemType.Blackhole, ItemType.Mirror, ItemType.SuperStickyHand);
 						} else {
-							var item = choose(ItemType.SuperWarp, ItemType.TripleDice, ItemType.Blackhole);
+							var item = choose(ItemType.TripleDice, ItemType.SuperWarp, ItemType.Blackhole, ItemType.SuperStickyHand);
 						}
 					}
 		

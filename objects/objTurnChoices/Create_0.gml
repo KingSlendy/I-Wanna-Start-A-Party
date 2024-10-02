@@ -15,6 +15,7 @@ function can_choose() {
 	var choosing = !(
 		instance_exists(objChooseShine) ||
 		instance_exists(objDice) ||
+		instance_exists(objHiddenChest) ||
 		instance_number(objInterface) > 1
 	);
 	

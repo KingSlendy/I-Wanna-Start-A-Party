@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sprMinigameOverview_Pictures",
   "bboxMode":0,
-  "bbox_bottom":303,
+  "bbox_bottom":151,
   "bbox_left":0,
-  "bbox_right":399,
+  "bbox_right":199,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -61,7 +61,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":304,
+  "height":152,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"8039d5e9-f3e4-488c-9408-294923ebb225","blendMode":0,"displayName":"default","isLocked":false,"name":"8039d5e9-f3e4-488c-9408-294923ebb225","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -266,5 +266,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":400,
+  "width":200,
 }

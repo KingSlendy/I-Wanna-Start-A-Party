@@ -227,7 +227,7 @@ function player_write_data() {
 	buffer_write_data(buffer_s8, image_xscale);
 	buffer_write_data(buffer_s8, image_yscale);
 	
-	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic || object_index == objPlayerBubble) {
+	if (object_index == objPlayerPlatformer || object_index == objPlayerBasic || object_index == objPlayerStatic || object_index == objPlayerBubble) {
 		buffer_write_data(buffer_s8, xscale);
 		buffer_write_data(buffer_s8, orientation);
 	}
@@ -243,6 +243,11 @@ function player_write_data() {
 	}
 	
 	switch (network_mode) {
+		case PlayerDataMode.Basic:
+			buffer_write_data(buffer_bool, spinning);
+			buffer_write_data(buffer_f16, spin_index);
+			break;
+		
 		case PlayerDataMode.Hand:
 			buffer_write_data(buffer_u8, image_index);
 			break;
@@ -287,7 +292,7 @@ function player_read_data(buffer) {
 		image_xscale = buffer_read(buffer, buffer_s8);
 		image_yscale = buffer_read(buffer, buffer_s8);
 		
-		if (network_index == objPlayerPlatformer || network_index == objPlayerBasic || network_index == objPlayerBubble) {
+		if (network_index == objPlayerPlatformer || network_index == objPlayerBasic || network_index == objPlayerStatic || network_index == objPlayerBubble) {
 			xscale = buffer_read(buffer, buffer_s8);
 			orientation = buffer_read(buffer, buffer_s8);
 		}
@@ -297,6 +302,11 @@ function player_read_data(buffer) {
 		y = buffer_read(buffer, buffer_s32);
 		
 		switch (mode) {
+			case PlayerDataMode.Basic:
+				spinning = buffer_read(buffer, buffer_bool);
+				spin_index = buffer_read(buffer, buffer_f16);
+				break;
+			
 			case PlayerDataMode.Hand:
 				image_index = buffer_read(buffer, buffer_u8);
 				break;

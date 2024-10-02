@@ -31,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 1;
 	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.Poison], null, null];
+	self.items = [global.board_items[ItemType.StickyHand], global.board_items[ItemType.Medal], global.board_items[ItemType.SuperStickyHand]];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -51,6 +51,14 @@ function PlayerBoard(network_id, name, turn) constructor {
 	
 	static has_item_slot = function() {
 		return (array_count(self.items, null) < 3);
+	}
+	
+	static delete_item_slot = function(index) {
+		array_delete(self.items, index, 1);
+		
+		if (array_length(self.items) < 3) {
+			array_push(self.items, null);
+		}
 	}
 	
 	static toString = function() {
@@ -736,6 +744,23 @@ function open_chest() {
 		network_send_tcp_packet();
 	}
 }
+
+function hide_chest() {
+	var focus_player = focused_player();
+	
+	with (objHiddenChest) {
+		focus_player.can_jump = false;
+		layer_sequence_headpos(sequence, layer_sequence_get_length(sequence));
+		layer_sequence_headdir(sequence, seqdir_left);
+		layer_sequence_play(sequence);
+	
+		if (is_local_turn()) {
+			buffer_seek_begin();
+			buffer_write_action(ClientTCP.HideChest);
+			network_send_tcp_packet();
+		}
+	}
+}
 #endregion
 
 #region Stat Management
@@ -942,24 +967,24 @@ function item_applied(item) {
 	if (is_local_turn()) {
 		switch (item.id) {
 			case ItemType.Poison:
-				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_POISON"), function(i) {
-					return (player_info_by_turn(i).item_effect == null);
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_POISON"), function(t) {
+					return (player_info_by_turn(t).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Poison);
 				}
 				break;
 				
 			case ItemType.Reverse:
-				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_REVERSE"), function(i) {
-					return (player_info_by_turn(i).item_effect == null);
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_REVERSE"), function(t) {
+					return (player_info_by_turn(t).item_effect == null);
 				}, false).final_action = function() {
 					item_animation(ItemType.Reverse);
 				}
 				break;
 			
 			case ItemType.Ice:
-				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_FREEZE"), function(i) {
-					return (player_info_by_turn(i).item_effect == null);
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_FREEZE"), function(t) {
+					return (player_info_by_turn(t).item_effect == null);
 				}, true).final_action = function() {
 					item_animation(ItemType.Ice);
 				}
@@ -985,6 +1010,26 @@ function item_applied(item) {
 			
 			case ItemType.Mirror:
 				item_animation(ItemType.Mirror);
+				break;
+				
+			case ItemType.StickyHand:
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_STEAL"), function(t) {
+					return (player_info_by_turn(t).free_item_slot() > 0);
+				}, true).final_action = function() {
+					item_animation(ItemType.StickyHand);
+				}
+				break;
+				
+			case ItemType.SuperStickyHand:
+				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_STEAL"), function(t) {
+					return (player_info_by_turn(t).free_item_slot() > 0);
+				}, true).final_action = function() {
+					item_animation(ItemType.SuperStickyHand);
+				}
+				break;
+				
+			case ItemType.Medal:
+				show_chest();
 				break;
 		}
 		

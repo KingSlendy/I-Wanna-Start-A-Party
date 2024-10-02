@@ -60,7 +60,12 @@ for (var i = 0; i < global.player_max; i++) {
 	view_wport[i] = w;
 	view_hport[i] = h;
 	var camera = view_camera[i];
-	camera_set_view_size(camera, w, h);
+	
+	if (room != rMinigame4vs_Crates) {
+		camera_set_view_size(camera, w, h);
+	} else {
+		camera_set_view_size(camera, w / 2, h / 2);
+	}
 }
 
 view_surfs = array_create(global.player_max, noone);

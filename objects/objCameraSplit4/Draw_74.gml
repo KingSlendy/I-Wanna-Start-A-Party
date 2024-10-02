@@ -4,6 +4,11 @@ for (var i = 0; i < global.player_max; i++) {
 	var width = camera_get_view_width(camera);
 	var height = camera_get_view_height(camera);
 	
+	if (room == rMinigame4vs_Crates) {
+		width *= 2;
+		height *= 2;
+	}
+	
 	if (!surface_exists(surf)) {
 		view_surfs[i] = surface_create(width, height);
 		surf = view_surfs[i];

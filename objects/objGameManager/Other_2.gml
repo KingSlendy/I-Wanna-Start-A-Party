@@ -1,9 +1,10 @@
+//This prefetches some of the bigger sprites so the game doesn't cause a lagspike in certain rooms
 sprite_prefetch_multi([
 	sprBkgTitle,
 	sprMinigamesFangames,
 	sprSkinsFangames,
 	sprTrophyImages,
-	sprMinigameOverview_Pictures,
+	sprMinigameOverview_Circles,
 	sprMinigame4vs_Clockwork_ClockAnalog
 ]);
 

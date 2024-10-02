@@ -2,6 +2,7 @@ event_inherited();
 width = 400;
 height = 300;
 stock = [];
+stock_total = 5;
 timer = 0;
 
 if (is_local_turn()) {
@@ -13,7 +14,7 @@ if (is_local_turn()) {
 		array_shuffle_ext(stock);
 		var cancel_loop = true;
 		
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < stock_total; i++) {
 			var item = stock[i];
 			
 			if (array_contains(item.ignore_in, room)) {
@@ -29,7 +30,7 @@ if (is_local_turn()) {
 
 	var has_lowest = false;
 
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < stock_total; i++) {
 		if (stock[i].price == 5) {
 			has_lowest = true;
 			break;
@@ -46,7 +47,7 @@ if (is_local_turn()) {
 	}
 
 	//stock[0] = global.board_items[ItemType.ItemBag];
-	array_resize(stock, 5);
+	array_resize(stock, stock_total);
 
 	var swaps = 1;
 

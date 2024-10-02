@@ -136,6 +136,11 @@ function draw_option_afford(option, check1, check2) {
 function draw_4vs_squares() {
 	var draw_w = camera_get_view_width(view_camera[0]);
 	var draw_h = camera_get_view_height(view_camera[0]);
+	
+	if (room == rMinigame4vs_Crates) {
+		draw_w *= 2;
+		draw_h *= 2;
+	}
 
 	for (var i = 0; i < global.player_max; i++) {
 		switch (objCameraSplit4.mode) {
