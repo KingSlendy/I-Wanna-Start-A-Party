@@ -135,6 +135,7 @@ enum ClientTCP {
 	Minigame4vs_Treasure_Obtained,
 	Minigame4vs_Clockwork_ClockDigitalSectionToggle,
 	Minigame4vs_Clockwork_ClockDigitalCorrectTime,
+	Minigame4vs_Crates_CrateSmash,
 	#endregion
 	
 	#region 1vs3
@@ -1149,6 +1150,17 @@ f[$ ClientTCP.Minigame4vs_Clockwork_ClockDigitalCorrectTime] = function(buffer) 
 		if (self.network_id == network_id) {
 			clock_digital_correct_time(false);
 			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Crates_CrateSmash] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	var count_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame4vs_Crates_Crate) {
+		if (self.network_id == network_id && self.count_id == count_id) {
+			crate_smash(false);
 		}
 	}
 }

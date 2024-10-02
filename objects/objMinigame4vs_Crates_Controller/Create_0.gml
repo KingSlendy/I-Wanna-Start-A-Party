@@ -1,6 +1,7 @@
 event_inherited();
 
 minigame_camera = CameraMode.Split4;
+minigame_time = 30;
 points_draw = true;
 
 player_type = objPlayerStatic;
@@ -8,7 +9,7 @@ player_type = objPlayerStatic;
 part_system = part_system_create();
 
 part_type_wood_crate = part_type_create();
-part_type_sprite(part_type_wood_crate, sprCratePart, false, false, false);
+part_type_sprite(part_type_wood_crate, sprMinigame4vs_Crates_CratePart, false, false, false);
 part_type_scale(part_type_wood_crate, 0.5, 1);
 part_type_size(part_type_wood_crate, 0.5, 0.5, 0, 0);
 part_type_blend(part_type_wood_crate, true);
@@ -20,7 +21,7 @@ part_type_alpha2(part_type_wood_crate, 1, 0);
 part_type_life(part_type_wood_crate, 60, 60);
 
 part_type_wood_tnt = part_type_create();
-part_type_sprite(part_type_wood_tnt, sprCratePart, false, false, false);
+part_type_sprite(part_type_wood_tnt, sprMinigame4vs_Crates_CratePart, false, false, false);
 part_type_scale(part_type_wood_tnt, 0.5, 1);
 part_type_size(part_type_wood_tnt, 0.5, 0.5, 0, 0);
 part_type_blend(part_type_wood_tnt, true);
@@ -33,7 +34,7 @@ part_type_alpha2(part_type_wood_tnt, 1, 0);
 part_type_life(part_type_wood_tnt, 60, 60);
 
 part_type_wood_nitro = part_type_create();
-part_type_sprite(part_type_wood_nitro, sprCratePart, false, false, false);
+part_type_sprite(part_type_wood_nitro, sprMinigame4vs_Crates_CratePart, false, false, false);
 part_type_scale(part_type_wood_nitro, 0.5, 1);
 part_type_size(part_type_wood_nitro, 0.5, 0.5, 0, 0);
 part_type_blend(part_type_wood_nitro, true);
@@ -65,11 +66,11 @@ part_type_direction(part_type_explosion_nitro, 0, 359, 0, 0);
 part_type_speed(part_type_explosion_nitro, 0.5, 1.5, -0.01, 0);
 part_type_life(part_type_explosion_nitro, 30, 40);
 
-crate_types = [];
+crate_types = [sprMinigame4vs_Crates_Crate];
 next_seed_inline();
 
 repeat (200) {
-	array_push(crate_types, choose(sprMinigame4vs_Crates_Crate, sprMinigame4vs_Crates_CrateTNT, sprMinigame4vs_Crates_CrateNITRO));
+	array_push(crate_types, choose(sprMinigame4vs_Crates_Crate, sprMinigame4vs_Crates_Crate, sprMinigame4vs_Crates_Crate, sprMinigame4vs_Crates_CrateTNT, sprMinigame4vs_Crates_CrateNITRO));
 }
 
 crate_count = array_create(global.player_max, 0);
@@ -78,12 +79,13 @@ alarm_override(1, function() {
 	alarm_inherited(1);
 	
 	for (var i = 0; i < global.player_max; i++) {
-		crate_create(96, 64, i + 1);
+		crate_create(90, (32 * 6) * i, i + 1);
 	}
 });
 
 function crate_create(x, y, network_id) {
-	var c = instance_create_layer(x, y + 32 * network_id - 1, "Crates", objMinigame4vs_Crates_Crate);
+	var c = instance_create_layer(x, y, "Crates", objMinigame4vs_Crates_Crate);
 	c.network_id = network_id;
+	c.count_id = crate_count[network_id - 1];
 	c.sprite_index = crate_types[crate_count[network_id - 1]++];
 }

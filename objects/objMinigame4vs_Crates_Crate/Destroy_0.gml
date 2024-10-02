@@ -1,3 +1,7 @@
+if (objMinigameController.info.is_finished) {
+	exit;
+}
+
 with (objMinigameController) {
-	crate_create(xstart, ystart, other.network_id);
+	crate_create(other.xstart, other.ystart, other.network_id);
 }

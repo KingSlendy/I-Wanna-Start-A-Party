@@ -1,19 +1,23 @@
-if (distance_to_object(objPlayerBase) < 6 && objPlayerBase.spinning) {
-	smash();
+if (is_player_local(network_id) && hspd == 0 && vspd == 0 && focus_player_by_id(network_id).spinning) {
+	crate_smash();
 	exit;
 }
 
 yprevious = y;
 
+vspd += grav;
+x += hspd;
+y += vspd;
+
 if (place_meeting(x, y, objBlock)) {
 	y = yprevious;
 	
-	if (place_meeting(x, y + vspeed, objBlock)) {
-		while (!place_meeting(x, y + sign(vspeed), objBlock)) {
-			y += sign(vspeed);
+	if (place_meeting(x, y + vspd, objBlock)) {
+		while (!place_meeting(x, y + sign(vspd), objBlock)) {
+			y += sign(vspd);
 		}
 		
-		vspeed = 0;
-		gravity = 0;
+		vspd = 0;
+		grav = 0;
 	}
 }

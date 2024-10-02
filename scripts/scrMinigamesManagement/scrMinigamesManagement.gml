@@ -372,9 +372,7 @@ function minigame_init() {
 			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CRATES_PAGE_1")) },
 			function() {
 				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CRATES_PAGE_2",
-				["{Left key}", draw_action(global.actions.left)],
-				["{Right key}", draw_action(global.actions.right)],
-				["{Jump key}", draw_action(global.actions.jump)]))
+				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
 		], 46, rMinigame4vs_Crates, "I Wanna Crash The Crates")
 	];

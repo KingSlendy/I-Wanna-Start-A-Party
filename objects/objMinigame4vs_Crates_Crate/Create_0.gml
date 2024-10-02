@@ -1,5 +1,36 @@
-vspeed = 3;
-gravity = 0.1;
+hspd = 0;
+vspd = 3;
+grav = 0.1;
+network_id = 0;
+count_id = 0;
+
+function crate_smash(network = true) {
+	if (sprite_index == sprMinigame4vs_Crates_Crate) {
+		minigame4vs_points(network_id, 1);
+		crate_destroy();
+	} else {
+		if (sprite_index == sprMinigame4vs_Crates_CrateNITRO && minigame4vs_get_points(network_id) > 0) {
+			minigame4vs_points(network_id, -1);
+		}
+		
+		with (focus_player_by_id(network_id)) {
+			stunned = true;
+			alarm_instant(1);
+			alarm_call(2, 3);
+		}
+		
+		audio_play_sound(sndHurt, 0, false);
+		crate_explode();
+	}
+	
+	if (network) {
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame4vs_Crates_CrateSmash);
+		buffer_write_data(buffer_u8, network_id);
+		buffer_write_data(buffer_u8, count_id);
+		network_send_tcp_packet();
+	}
+}
 
 function crate_destroy() {
 	audio_stop_sound(sndMinigame4vs_Crates_CrateBreak);
@@ -23,18 +54,14 @@ function crate_destroy() {
 	instance_destroy();
 }
 
-smash = crate_destroy();
-
 function crate_explode() {
 	crate_destroy();
 	audio_stop_sound(sndMinigame4vs_Crates_CrateBreak);
 	audio_stop_sound(sndMinigame4vs_Crates_CrateExplode);
 	audio_play_sound(sndMinigame4vs_Crates_CrateExplode, 0, false);
 	
-	if (distance_to_object(objPlayerBase) < 26) {
-		kill_player();
-	}
-	
-	var part_type = (object_index != sprMinigame4vs_Crates_CrateNITRO) ? objMinigameController.part_type_crate_tnt : objMinigameController.part_type_crate_nitro;
+	var part_type = (sprite_index != sprMinigame4vs_Crates_CrateNITRO) ? objMinigameController.part_type_explosion_tnt : objMinigameController.part_type_explosion_nitro;
 	part_particles_create(objMinigameController.part_system, x, y, part_type, 30);
 }
+
+alarm[0] = get_frames(1);

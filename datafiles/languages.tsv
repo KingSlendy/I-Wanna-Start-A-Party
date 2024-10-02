@@ -311,6 +311,14 @@ PARTY_ITEM_MIRROR_NAME	Mirror	Espejo	거울	镜子	鏡子	ミラー	Зеркал
 PARTY_ITEM_MIRROR_EFFECT	It teleports you directly on top of the Shine space.	Te teletransporta directamente a la posición del Sol.	샤인이 있는 칸으로 텔레포트합니다.	它会把你直接传送到太阳的格子。	它會把你直接傳送到太陽的格子。	シャインのあるところに直接テレポートすることができます。	Телепортирует тебя прямо на клетку с Шайни.	Vous téléporte directement jusqu'au Soleil.
 PARTY_ITEM_ITEM_BAG_NAME	Item Bag	Bolsa con objetos	아이템 가방	道具袋	道具袋	アイテムバッグ	Мешок с Вещами	Sac d'Objets
 PARTY_ITEM_ITEM_BAG_EFFECT	Gives you 3 random items!	¡Te da 3 objetos aleatoriamente!	3개의 아이템을 무작위로 얻습니다!	随机给你三个道具！	隨機給你三個道具！	アイテムをランダムに3つプレゼント!	Даёт тебе 3 случайных предмета!	Vous donne 3 objets au hasard !
+PARTY_ITEM_STICKY_HAND_NAME	Sticky Hand							
+PARTY_ITEM_STICKY_HAND_EFFECT	Steals a random item from the player you choose.							
+PARTY_ITEM_SUPER_STICKY_HAND_NAME	Super Sticky Hand							
+PARTY_ITEM_SUPER_STICKY_HAND_EFFECT	Steals an item of your choosing from the player you choose.							
+PARTY_ITEM_CLOUD_NAME	Cloud							
+PARTY_ITEM_CLOUD_EFFECT	Moves the Shine to a new location.							
+PARTY_ITEM_MEDAL_NAME	Medal							
+PARTY_ITEM_MEDAL_EFFECT	Makes a Hidden Chest appear! Gives you double the amount of Coins or slightly better chances of a Shine!							
 PARTY_ITEM_GOT_ITEM	Got Item!	¡Objeto Conseguido!		获得道具！	獲得道具！	アイテムを手に入れた!	Получен Предмет!	
 PARTY_ITEM_LOST_ITEM	Lost Item...	¡Objeto Perdido!		失去道具！	失去道具！	アイテムを失くした…	Потерян Предмет...	
 PARTY_ITEM_WHAT_ITEM_USE	What item do you wanna use?	¿Qué objeto quieres usar?	어떤 아이템을 사용하시겠습니까?	你想使用什么道具？	你想用什麼道具？	どのアイテムを使いますか?	Какой предмет ты хочешь использовать?	Quel objet voulez-vous utiliser ?
@@ -318,6 +326,8 @@ PARTY_ITEM_WHICH_PLAYER_POISON	Which player to poison?	¿A cuál jugador envenen
 PARTY_ITEM_WHICH_PLAYER_REVERSE	Which player to reverse?	¿A cuál jugador invertir?	누구의 방향을 역전시키겠습니까?	你想对谁使用翻转？	你想對誰使用迴轉？	誰をリバース状態にしますか?	Какого игрока инвертировать?	Quel joueur va subir l'inversement ?
 PARTY_ITEM_WHICH_PLAYER_FREEZE	Which player to freeze?	¿A cuál jugador congelar?	누구를 얼리시겠습니까?	你想对谁使用冰冻？	你想對誰使用冰？	誰を凍らせますか?	Какого игрока заморозить?	Quel joueur voulez-vous geler ?
 PARTY_ITEM_WHICH_PLAYER_SWITCH	Which player to switch places with?	¿Con cuál jugador cambiar de lugar?	누구와 위치를 바꾸시겠습니까?	你想和谁交换位置？	你想和誰交換位置？	誰と入れ替わりますか?	С каким игроком поменяться местами?	Avec quel joueur voulez-vous échanger votre place ?
+PARTY_ITEM_WHICH_PLAYER_STEAL	Which player do you wanna steal from?							
+PARTY_ITEM_WHICH_ITEM_STEAL	Which item do you wanna steal?							
 PARTY_ITEM_WHAT_ITEM_DISCARD	What item do you wanna discard?	¿Qué objeto quieres descartar?		你想丢弃什么道具？	你想丟棄甚麼道具？	どのアイテムを捨てますか？	Какой предмет хочешь выбросить?	
 PARTY_ITEM_ROLLED_DOUBLES	What!? You rolled doubles!?\nNow that deserves a prize.	¿¡Qué!? ¿¡Tiraste dobles!?\nEso sí que merece un premio.		什么！？你掷出了对子！？\n它值得一些奖励。	什麼！？你擲出了一對！？\n這值得獎勵了。			
 PARTY_ITEM_ROLLED_TRIPLES	What!!?? You rolled triples!!??\nThat's something you don't see everyday, you deserve this!	¿¿¡¡Qué!!?? ¿¿¡¡Tiraste triples!!??\nEso no es algo que se vea todos los días, ¡te mereces esto!		什么！！？？你掷出了豹子！！？？\n这可不是天天都能见到的事情，这是你应得的！	什麼！！？？你擲出了豹子！！？？\n這是你每天都看不到的東西，這是你應得的！			
@@ -468,6 +478,9 @@ MINIGAMES_CRUSHERS_PAGE_2	{Left key}{Right key} Move
 MINIGAMES_CLOCKWORK_NAME	Clockwork Calamity							
 MINIGAMES_CLOCKWORK_PAGE_1	Oh no! The digital clocks are all desynced! It's your job to sync your digital clock to match the analog clock in the middle.\nWhoever gets to 3 points first wins!							
 MINIGAMES_CLOCKWORK_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Toggle Digit Section							
+MINIGAMES_CRATES_NAME	Crashed Crates							
+MINIGAMES_CRATES_PAGE_1	Woah! Crash the crates to obtain points and win!\nTNTs and NITROs stun you but NITROs also take away 1 point, beware!							
+MINIGAMES_CRATES_PAGE_2	{Shoot key} Spin							
 #								
 #1 VS. 3								
 #								
