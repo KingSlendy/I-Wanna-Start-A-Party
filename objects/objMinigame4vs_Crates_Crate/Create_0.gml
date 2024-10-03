@@ -5,6 +5,10 @@ network_id = 0;
 count_id = 0;
 outside = false;
 
+function crate_can_smash() {
+	return (!outside && hspd == 0 && vspd == 0);
+}
+
 function crate_smash(network = true) {
 	x = xstart;
 	

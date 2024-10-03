@@ -1,4 +1,4 @@
-if (is_player_local(network_id) && !outside && hspd == 0 && vspd == 0 && focus_player_by_id(network_id).spinning) {
+if (is_player_local(network_id) && crate_can_smash() && focus_player_by_id(network_id).spinning) {
 	crate_smash();
 	exit;
 }

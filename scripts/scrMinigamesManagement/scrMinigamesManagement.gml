@@ -94,6 +94,7 @@ global.minigames = {};
 #macro SOCCER_MATCH "Soccer Match"
 #macro JINGLE_SLEDGE "Jingle Sledge"
 #macro STACKING_MAYHEM "Stacking Mayhem"
+#macro CASTLE_CLASH "Castle Clash"
 #endregion
 #endregion
 
@@ -658,7 +659,19 @@ function minigame_init() {
 				["{Jump key}", draw_action(global.actions.jump)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 42, rMinigame2vs2_Stacking, "I Wanna CoinStack 1000")
+		], 42, rMinigame2vs2_Stacking, "I Wanna CoinStack 1000"),
+		
+		new Minigame(CASTLE_CLASH, language_get_text("MINIGAMES_CASTLE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_CASTLE_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CASTLE_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 47, rMinigame2vs2_Castle, "I Wanna Know What's In My Desktop")
 	];
 }
 

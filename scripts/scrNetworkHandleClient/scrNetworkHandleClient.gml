@@ -177,6 +177,7 @@ enum ClientTCP {
 	Minigame2vs2_Stacking_CoinToss,
 	Minigame2vs2_Stacking_CoinLineStackAdd,
 	Minigame2vs2_Stacking_CoinLineStackFall,
+	Minigame2vs2_Castle_SpikeShoot,
 	#endregion
 	#endregion
 	
@@ -1529,6 +1530,17 @@ f[$ ClientTCP.Minigame2vs2_Stacking_CoinLineStackFall] = function(buffer) {
 	
 	with (objMinigameController) {
 		coin_line_stack_fall(network_id, false);
+	}
+}
+
+f[$ ClientTCP.Minigame2vs2_Castle_SpikeShoot] = function(buffer) {
+	var spike_id = buffer_read(buffer, buffer_u16);
+	
+	with (objMinigame2vs2_Castle_Spike) {
+		if (self.spike_id == spike_id) {
+			spike_shoot(false);
+			break;
+		}
 	}
 }
 #endregion

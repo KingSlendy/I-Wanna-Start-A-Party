@@ -75,6 +75,13 @@ repeat (200) {
 
 crate_count = array_create(global.player_max, 0);
 
+function crate_create(x, y, network_id) {
+	var c = instance_create_layer(x, y, "Crates", objMinigame4vs_Crates_Crate);
+	c.network_id = network_id;
+	c.count_id = crate_count[network_id - 1];
+	c.sprite_index = crate_types[crate_count[network_id - 1]++];
+}
+
 alarm_override(1, function() {
 	alarm_inherited(1);
 	
@@ -84,9 +91,43 @@ alarm_override(1, function() {
 	}
 });
 
-function crate_create(x, y, network_id) {
-	var c = instance_create_layer(x, y, "Crates", objMinigame4vs_Crates_Crate);
-	c.network_id = network_id;
-	c.count_id = crate_count[network_id - 1];
-	c.sprite_index = crate_types[crate_count[network_id - 1]++];
-}
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+		
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			var crate = null;
+			
+			with (objMinigame4vs_Crates_Crate) {
+				if (network_id == other.network_id && crate_can_smash()) {
+					crate = id;
+					break;
+				}
+			}
+			
+			if (crate == null) {
+				break;
+			}
+			
+			var chances = 0;
+			
+			if (crate.sprite_index == sprMinigame4vs_Crates_Crate) {
+				chances = 0.2;
+			} else {
+				chances = 0.02;
+			}
+			
+			if (chance(chances)) {
+				actions.shoot.press();
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
+});

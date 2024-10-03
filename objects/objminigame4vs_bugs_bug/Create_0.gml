@@ -1,5 +1,5 @@
 state = -1;
-spd = 5;
+spd = 3;
 counter = 0;
 
 alarms_init(1);
