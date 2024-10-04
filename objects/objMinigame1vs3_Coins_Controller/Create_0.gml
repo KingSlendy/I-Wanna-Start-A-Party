@@ -60,49 +60,51 @@ alarm_override(11, function() {
 		var player = focus_player_by_id(i);
 		
 		with (player) {
-			if (minigame1vs3_is_solo(network_id)) {
-				with (objMinigame1vs3_Coins_Coin) {
-					if (bbox_bottom <= 320) {
-						instance_deactivate_object(id);
-					}
-				}
-			} else {
-				with (objMinigame1vs3_Coins_Coin) {
-					if (bbox_bottom >= 320) {
-						instance_deactivate_object(id);
-					}
-				}
-			}
-			
-			while (true) {
-				if (!instance_exists(objMinigame1vs3_Coins_Coin)) {
-					follow_coin = null;
-					break;
-				}
-					
-				var coin = instance_nearest(x, y, objMinigame1vs3_Coins_Coin);
-				var me_dist = distance_to_object(coin);
-				var others_dist = infinity;
-					
-				for (var j = 0; j < minigame1vs3_team_length(); j++) {
-					with (minigame1vs3_team(j)) {
-						if (id == other.id) {
-							continue;
+			if (follow_coin == null || !instance_exists(follow_coin)) {
+				if (minigame1vs3_is_solo(network_id)) {
+					with (objMinigame1vs3_Coins_Coin) {
+						if (bbox_bottom <= 320) {
+							instance_deactivate_object(id);
 						}
-							
-						others_dist = min(others_dist, distance_to_object(coin));
+					}
+				} else {
+					with (objMinigame1vs3_Coins_Coin) {
+						if (bbox_bottom >= 320) {
+							instance_deactivate_object(id);
+						}
 					}
 				}
-					
-				if (me_dist < others_dist) {
-					follow_coin = coin;
-					break;
-				}
-					
-				instance_deactivate_object(coin);
-			}
 			
-			instance_activate_object(objMinigame1vs3_Coins_Coin);
+				while (true) {
+					if (!instance_exists(objMinigame1vs3_Coins_Coin)) {
+						follow_coin = null;
+						break;
+					}
+					
+					var coin = instance_nearest(x, y, objMinigame1vs3_Coins_Coin);
+					var me_dist = distance_to_object(coin);
+					var others_dist = infinity;
+					
+					for (var j = 0; j < minigame1vs3_team_length(); j++) {
+						with (minigame1vs3_team(j)) {
+							if (id == other.id) {
+								continue;
+							}
+							
+							others_dist = min(others_dist, distance_to_object(coin));
+						}
+					}
+					
+					if (me_dist < others_dist) {
+						follow_coin = coin;
+						break;
+					}
+					
+					instance_deactivate_object(coin);
+				}
+			
+				instance_activate_object(objMinigame1vs3_Coins_Coin);
+			}
 			
 			if (follow_coin == null) {
 				break;

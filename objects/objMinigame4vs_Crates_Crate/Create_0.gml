@@ -21,6 +21,10 @@ function crate_smash(network = true) {
 		}
 		
 		with (focus_player_by_id(network_id)) {
+			if (!is_player_local(network_id)) {
+				break;
+			}
+			
 			stunned = true;
 			alarm_instant(1);
 			alarm_call(2, 3);

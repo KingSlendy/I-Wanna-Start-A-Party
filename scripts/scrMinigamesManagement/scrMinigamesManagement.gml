@@ -66,6 +66,7 @@ global.minigames = {};
 #macro CRUSHERS_CRUSHING "Crushers Crushing"
 #macro CLOCKWORK_CALAMITY "Clockwork Calamity"
 #macro CRASHED_CRATES "Crashed Crates"
+#macro LEAP_OF_JUSTICE "Leap Of Justice"
 #endregion
 
 #region 1vs3
@@ -375,7 +376,16 @@ function minigame_init() {
 				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_CRATES_PAGE_2",
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 46, rMinigame4vs_Crates, "I Wanna Crash The Crates")
+		], 46, rMinigame4vs_Crates, "I Wanna Crash The Crates"),
+		
+		new Minigame(LEAP_OF_JUSTICE, language_get_text("MINIGAMES_LEAP_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_LEAP_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_LEAP_PAGE_2",
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 48, rMinigame4vs_Leap, "I Wanna Be The Justice Guy")
 	];
 
 	m[$ "1vs3"] = [

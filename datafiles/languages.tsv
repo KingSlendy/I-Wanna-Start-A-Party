@@ -570,6 +570,9 @@ MINIGAMES_IDOL_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Shoot key} 
 MINIGAMES_STACKING_NAME	Stacking Mayhem	Apilamiento Caótico						
 MINIGAMES_STACKING_PAGE_1	Be the richest Kid! Help your teammate by grabbing the coins and tossing them down below. Make the stack bigger than your opponent's or reach the thorns.\nBeware of balancing the stack by moving on the opposite direction!							
 MINIGAMES_STACKING_PAGE_2	{Left key}{Right key} Move/Balance\n{Jump key} Jump\n{Shoot key} Toss Coin							
+MINIGAMES_CASTLE_NAME	Castle Clash							
+MINIGAMES_CASTLE_PAGE_1	That's too many spikes... you and your teammate should destroy all the spikes of your team's color.\nIf you shoot a spike of the other team's color that team gets 1 point and your team loses 1 point.							
+MINIGAMES_CASTLE_PAGE_2	{Left key}{Right key} Move\n{Jump key} Jump\n{Shoot key} Shoot							
 #								
 #TRIALS								
 #								

@@ -4,11 +4,11 @@ minigame_players = function() {
 	with (objPlayerBase) {
 		guess_bugs_start = get_frames(random_range(5, 15)) * 0.1;
 		
-		if (0.25 > random(1)) {
+		if (chance(0.25)) {
 			guess_total_bugs = other.total_bugs;
 		} else {
 			do {
-				guess_total_bugs = irandom_range(other.total_bugs - 3, other.total_bugs + 3);
+				guess_total_bugs = irandom_range(other.total_bugs - 5, other.total_bugs + 5);
 			} until (guess_total_bugs != other.total_bugs);
 		}
 	}
@@ -75,7 +75,7 @@ alarm_create(4, function() {
 	bug.state = 0;
 	array_delete(bugs, 0, 1);
 	audio_play_sound(sndMinigame4vs_Bugs_BugCount, 0, false);
-	alarm_call(4, 0.5);
+	alarm_call(4, 0.25);
 });
 
 alarm_create(5, function() {

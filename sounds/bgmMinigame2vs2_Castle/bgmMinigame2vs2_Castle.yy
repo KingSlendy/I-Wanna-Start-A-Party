@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":1,
-  "duration":187.87206,
+  "duration":65.85473,
   "name":"bgmMinigame2vs2_Castle",
   "parent":{
     "name":"2vs2",

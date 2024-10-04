@@ -1,6 +1,6 @@
 next_seed_inline();
 count_bug = asset_get_index("sprMinigame4vs_Bugs_Bug" + choose("R", "G", "B", "Y"));
-var min_count = irandom_range(15, 30);
+var min_count = irandom_range(15, 20);
 var min_count_current = 0;
 
 repeat (80) {

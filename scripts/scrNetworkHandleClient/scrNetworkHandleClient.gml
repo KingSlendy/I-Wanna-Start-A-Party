@@ -1535,7 +1535,7 @@ f[$ ClientTCP.Minigame2vs2_Stacking_CoinLineStackFall] = function(buffer) {
 
 f[$ ClientTCP.Minigame2vs2_Castle_SpikeShoot] = function(buffer) {
 	var spike_id = buffer_read(buffer, buffer_u16);
-	
+
 	with (objMinigame2vs2_Castle_Spike) {
 		if (self.spike_id == spike_id) {
 			spike_shoot(false);

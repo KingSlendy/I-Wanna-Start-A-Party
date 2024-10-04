@@ -25,6 +25,7 @@ switch (room) {
 		break;
 		
 	case rMinigame4vs_Jingle:
+	case rMinigame4vs_Leap:
 		var w = 800;
 		var h = 152;
 		mode = 2;
