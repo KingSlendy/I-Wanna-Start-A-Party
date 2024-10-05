@@ -19,4 +19,17 @@ alarm_create(0, function() {
 	sprite_index = skin[$ "Idle"];
 });
 
+alarm_create(1, function() {
+	with (objMinigameController) {
+		var turn = player_info_by_turn(other.network_id).turn - 1;
+		current_input[turn]++;
+		stall_input[turn] = false;
+		reset_input[turn] = false;
+	}
+	
+	with (instance_place(x, y + 1, objBlock)) {
+		image_blend = c_orange;
+	}
+});
+
 alarm_frames(0, 1);

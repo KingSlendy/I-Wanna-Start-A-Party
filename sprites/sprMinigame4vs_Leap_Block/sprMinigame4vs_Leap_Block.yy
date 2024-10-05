@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"sprMinigame4vs_Leap_Block",
   "bboxMode":0,
-  "bbox_bottom":31,
+  "bbox_bottom":63,
   "bbox_left":0,
   "bbox_right":31,
   "bbox_top":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"d5d2d7d8-4d38-40a3-aaf2-81fe0a19267f","name":"d5d2d7d8-4d38-40a3-aaf2-81fe0a19267f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"a8f7713e-8e24-4fd4-a0cf-e22453e7b40b","name":"a8f7713e-8e24-4fd4-a0cf-e22453e7b40b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":32,
+  "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"3ce1201d-1d4d-4601-9e70-b339646affbe","blendMode":0,"displayName":"default","isLocked":false,"name":"3ce1201d-1d4d-4601-9e70-b339646affbe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"ed99b629-fab4-4acd-96d9-bb515dab4b11","blendMode":0,"displayName":"default","isLocked":false,"name":"ed99b629-fab4-4acd-96d9-bb515dab4b11","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sprMinigame4vs_Leap_Block",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d5d2d7d8-4d38-40a3-aaf2-81fe0a19267f","path":"sprites/sprMinigame4vs_Leap_Block/sprMinigame4vs_Leap_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"3ddfe1cd-df95-4a61-8c47-9727659614c8","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a8f7713e-8e24-4fd4-a0cf-e22453e7b40b","path":"sprites/sprMinigame4vs_Leap_Block/sprMinigame4vs_Leap_Block.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"0c94aff3-d9c3-4473-af87-dc67886e13a2","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -81,11 +81,14 @@ if (block != noone) {
 	
 		if (vspd > 0) {
 			reset_jumps();
-		}
-		
-		if (vspd < 0 && block.object_index == objMinigame4vs_Bullets_Block) {
-			with (block) {
-				stop();
+			
+			if (room == rMinigame4vs_Leap) {
+				hspd = 0;
+				var turn = player_info_by_turn(other.network_id).turn - 1;
+					
+				if (objMinigameController.reset_input[turn] && alarm_is_stopped(1)) {
+					alarm_frames(1, 2);
+				}
 			}
 		}
 	

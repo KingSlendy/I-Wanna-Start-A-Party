@@ -51,6 +51,7 @@ alarm_create(function() {
 });
 
 alarm_create(function() {
+	next_seed_inline();
 	var player_info = player_info_by_turn();
 	global.choice_selected = irandom(player_info.free_item_slot() - 1);
 	item_stole = player_info.items[global.choice_selected];

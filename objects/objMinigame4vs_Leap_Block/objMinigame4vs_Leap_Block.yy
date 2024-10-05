@@ -9,7 +9,10 @@
     "name":"Leap",
     "path":"folders/Objects/Minigames/4vs/Leap.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objBlock",
+    "path":"objects/objBlock/objBlock.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

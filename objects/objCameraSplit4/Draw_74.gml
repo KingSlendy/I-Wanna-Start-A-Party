@@ -40,7 +40,7 @@ for (var i = 0; i < global.player_max; i++) {
 		var name_x = surf_x + 20;
 		var name_y = surf_y + height - 16;
 		
-		if (room != rMinigame4vs_Tower && room != rMinigame4vs_Jingle && room != rMinigame2vs2_Duos) {
+		if (room != rMinigame4vs_Tower && room != rMinigame4vs_Jingle && room != rMinigame4vs_Leap && room != rMinigame2vs2_Duos) {
 			switch (i) {
 				case 0:
 					name_x = surf_x + 20;

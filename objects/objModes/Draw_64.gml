@@ -8,7 +8,7 @@ for (var i = -2; i <= 2; i++) {
 	button.draw(0);
 }
 
-draw_box(70, 400, 660, 150, c_gray, c_aqua, 0.5);
+draw_box(70, 400, 660, 150, c_gray, c_white, 0.5);
 language_set_font(global.fntDialogue);
 draw_set_color(c_white);
 mode_text.set(mode_texts[mode_initial]);
