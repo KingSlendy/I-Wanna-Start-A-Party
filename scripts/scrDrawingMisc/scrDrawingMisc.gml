@@ -112,7 +112,7 @@ function draw_collected_coins(x, y) {
 }
 
 function draw_coins_price(price = "") {
-	return "{SPRITE,sprCoin,0,0,2,0.6,0.6}" + string(price);
+	return "{SPRITE,sprCoin,0,0,0,0.7,0.7}" + string(price);
 }
 
 function draw_option_afford(option, check1, check2) {

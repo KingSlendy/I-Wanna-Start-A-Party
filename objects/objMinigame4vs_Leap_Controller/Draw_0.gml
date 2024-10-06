@@ -6,7 +6,7 @@ if (!show_input) {
 
 for (var i = 0; i < global.player_max; i++) {
 	for (var j = current_input[i]; j < array_length(input_list); j++) {
-		if (j == current_input[i] && stall_input[i]) {
+		if (j == current_input[i] && stall_input[i] || j == array_length(input_list) - 1) {
 			continue;
 		}
 		

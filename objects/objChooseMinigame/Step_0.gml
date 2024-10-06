@@ -279,7 +279,7 @@ switch (state) {
 			roulette_spread = lerp(roulette_spread, (!roulette_chosen) ? 1 : 0, (!roulette_chosen) ? 0.1 : 0.2);
 
 			if (!roulette_chosen) {
-				roulette_spd -= 0.012;
+				roulette_spd -= 0.013;
 				roulette_spd = max(roulette_spd, 1);
 			} else if (angle_difference(roulette_angle, roulette_max_angle) <= 0) {
 				roulette_angle = roulette_max_angle;

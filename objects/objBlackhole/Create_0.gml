@@ -3,7 +3,7 @@ width = 400;
 height = 180;
 stock = [
 	{
-		text: "{SPRITE,sprCoin,0,0,2,0.6,0.6} ", name: language_get_text("WORD_GENERIC_COINS"), desc: language_get_text("PARTY_BOARD_BLACKHOLE_COINS_DESCRIPTION"), price: global.min_blackhole_coins, can_select: function() {
+		text: "{SPRITE,sprCoin,0,0,0,0.7,0.7} ", name: language_get_text("WORD_GENERIC_COINS"), desc: language_get_text("PARTY_BOARD_BLACKHOLE_COINS_DESCRIPTION"), price: global.min_blackhole_coins, can_select: function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				if (i == global.player_turn) {
 					continue;

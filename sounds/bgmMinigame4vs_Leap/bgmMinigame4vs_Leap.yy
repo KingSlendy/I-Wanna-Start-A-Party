@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":67.13473,
+  "duration":96.0784,
   "name":"bgmMinigame4vs_Leap",
   "parent":{
     "name":"4vs",

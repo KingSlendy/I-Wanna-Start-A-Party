@@ -160,7 +160,7 @@ function file_sprite(file) {
 	draw_text_outline(70, 85, string(global.games_played), c_black);
 	draw_sprite_ext(sprShine, 0, 40, 120, 0.6, 0.6, 0, c_white, 1);
 	draw_text_outline(70, 120, string(global.collected_shines), c_black);
-	draw_sprite_ext(sprCoin, 0, 40, 155, 0.75, 0.75, 0, c_white, 1);
+	draw_sprite_ext(sprCoin, 0, 40, 155, 0.85, 0.85, 0, c_white, 1);
 	draw_text_outline(70, 155, string(global.collected_coins), c_black);
 	
 	draw_sprite_stretched(sprModesMinigames, 0, 40 - 20, 190 - 20, 40, 40);

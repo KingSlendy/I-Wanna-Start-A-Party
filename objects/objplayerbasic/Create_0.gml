@@ -20,16 +20,34 @@ alarm_create(0, function() {
 });
 
 alarm_create(1, function() {
+	var turn = player_info_by_turn(network_id).turn - 1;
+	
 	with (objMinigameController) {
-		var turn = player_info_by_turn(other.network_id).turn - 1;
-		current_input[turn]++;
+		current_input[turn] += reset_input[turn];
 		stall_input[turn] = false;
-		reset_input[turn] = false;
+		reset_input[turn] = 0;
+		
+		if (current_input[turn] == array_length(input_list) - 1) {
+			minigame4vs_points(other.network_id);
+			minigame_finish(true);
+		}
 	}
 	
-	with (instance_place(x, y + 1, objBlock)) {
-		image_blend = c_orange;
+	var block = instance_place(x, y + 1, objBlock);
+	
+	with (block) {
+		if (image_blend == c_white) {
+			image_blend = c_orange;
+		}
 	}
+	
+	buffer_seek_begin();
+	buffer_write_action(ClientTCP.Minigame4vs_Leap_Input);
+	buffer_write_data(buffer_u8, turn);
+	buffer_write_data(buffer_u8, objMinigameController.current_input[turn]);
+	buffer_write_data(buffer_s16, block.x);
+	buffer_write_data(buffer_s16, block.y);
+	network_send_tcp_packet();
 });
 
 alarm_frames(0, 1);

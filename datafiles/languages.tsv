@@ -481,6 +481,9 @@ MINIGAMES_CLOCKWORK_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump k
 MINIGAMES_CRATES_NAME	Crashed Crates							
 MINIGAMES_CRATES_PAGE_1	Woah! Crash the crates to obtain points and win!\nTNTs and NITROs stun you but NITROs also take away 1 point, beware!							
 MINIGAMES_CRATES_PAGE_2	{Shoot key} Spin							
+MINIGAMES_LEAP_NAME	Leap Of Justice							
+MINIGAMES_LEAP_PAGE_1	Leap of faith? No! Leap of justice!\nGotta get to the last block before all the others by pressing the buttons in the correct order. If you mess up you go back one space.							
+MINIGAMES_LEAP_PAGE_2	{Left key}{Up key}{Down key}{Right key}{Jump key}{Shoot key} Buttons							
 #								
 #1 VS. 3								
 #								
@@ -633,6 +636,10 @@ REACTIONS_MY_SAVINGS	My Savings...	Mis Ahorros...		我的钱……	我的錢…�
 REACTIONS_NO_LUCK	No Luck	Sin Suerte		倒霉	倒霉	不運	Невезение	
 REACTIONS_SAD_INSIDE	Sad Inside	Sufriendo Por Dentro		淡淡的忧伤	淡淡的憂傷	悲しき内面	Скрытая Боль	
 REACTIONS_LOOKING_COOL_JOKER	Looking Cool, Joker!	¡Te Ves Genial, Joker!		不愧是Joker！真华丽！	看起來很酷，Joker！	イケメンだな、ジョーカー!	Круто Выглядишь, Джокер!	
+REACTIONS_GUY_TROLL	Guy Troll							
+REACTIONS_GUSTAV_LAUGH	Gustav Laugh							
+REACTIONS_CONTRARIAN_CHERRY	Contrarian Cherry							
+REACTIONS_IM_YOU_BUT_STRONGER	I'm You But Stronger							
 #								
 #TROPHIES								
 #								

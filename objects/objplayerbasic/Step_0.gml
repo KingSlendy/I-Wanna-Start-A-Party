@@ -86,7 +86,7 @@ if (block != noone) {
 				hspd = 0;
 				var turn = player_info_by_turn(other.network_id).turn - 1;
 					
-				if (objMinigameController.reset_input[turn] && alarm_is_stopped(1)) {
+				if (objMinigameController.reset_input[turn] != 0 && alarm_is_stopped(1)) {
 					alarm_frames(1, 2);
 				}
 			}

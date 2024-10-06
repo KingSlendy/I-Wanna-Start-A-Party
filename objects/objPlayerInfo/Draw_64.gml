@@ -119,7 +119,7 @@ draw_set_halign(fa_left);
 draw_sprite(player_idle_image, 0, draw_x + 25, draw_y + 23);
 draw_sprite_ext(sprShine, 0, draw_x + 56, draw_y + 45, 0.5, 0.5, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 33, string(player_info.shines), c_black);
-draw_sprite_ext(sprCoin, 0, draw_x + 56, draw_y + 71, 0.6, 0.6, 0, c_white, 1);
+draw_sprite_ext(sprCoin, 0, draw_x + 56, draw_y + 71, 0.75, 0.75, 0, c_white, 1);
 draw_text_outline(draw_x + 70, draw_y + 59, string(player_info.coins), c_black);
 draw_set_halign(fa_right);
 

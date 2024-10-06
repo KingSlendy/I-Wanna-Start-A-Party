@@ -141,6 +141,7 @@ enum ClientTCP {
 	Minigame4vs_Clockwork_ClockDigitalSectionToggle,
 	Minigame4vs_Clockwork_ClockDigitalCorrectTime,
 	Minigame4vs_Crates_CrateSmash,
+	Minigame4vs_Leap_Input,
 	#endregion
 	
 	#region 1vs3
@@ -1200,6 +1201,25 @@ f[$ ClientTCP.Minigame4vs_Crates_CrateSmash] = function(buffer) {
 		}
 	}
 }
+
+f[$ ClientTCP.Minigame4vs_Leap_Input] = function(buffer) {
+	var turn = buffer_read(buffer, buffer_u8);
+	var current = buffer_read(buffer, buffer_u8);
+	var block_x = buffer_read(buffer, buffer_s16);
+	var block_y = buffer_read(buffer, buffer_s16);
+	
+	objMinigameController.current_input[turn] = current;
+	
+	with (objMinigame4vs_Leap_Block) {
+		if (x == block_x && y == block_y) {
+			if (image_blend == c_white) {
+				image_blend = c_orange;
+			}
+		
+			break;
+		}
+	}
+}
 #endregion
 
 #region 1vs3
@@ -1535,10 +1555,11 @@ f[$ ClientTCP.Minigame2vs2_Stacking_CoinLineStackFall] = function(buffer) {
 
 f[$ ClientTCP.Minigame2vs2_Castle_SpikeShoot] = function(buffer) {
 	var spike_id = buffer_read(buffer, buffer_u16);
+	var network_id = buffer_read(buffer, buffer_u8);
 
 	with (objMinigame2vs2_Castle_Spike) {
 		if (self.spike_id == spike_id) {
-			spike_shoot(false);
+			spike_shoot(network_id, false);
 			break;
 		}
 	}

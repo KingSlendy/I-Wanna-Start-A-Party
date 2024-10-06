@@ -81,7 +81,15 @@ alarm_override(11, function() {
 		with (player) {
 			if (y < 304) {
 				if (!coin_can_toss) {
+					with (objMinigame2vs2_Stacking_CoinBounce) {
+						if ((other.x < 400 && x > 400) || (other.x > 400 && x < 400)) {
+							instance_deactivate_object(id);
+						}
+					}
+					
 					var coin = instance_nearest(x, y, objMinigame2vs2_Stacking_CoinBounce);
+					
+					instance_activate_object(objMinigame2vs2_Stacking_CoinBounce);
 					
 					if (coin != noone) {
 						if (point_distance(x, y, coin.x, y) > 12) {
