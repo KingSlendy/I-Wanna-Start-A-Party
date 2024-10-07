@@ -535,6 +535,9 @@ MINIGAMES_KARDIA_PAGE_1	I hope you're not faint of heart... because you'll have 
 MINIGAMES_KARDIA_PAGE_2	Now it's the perfect moment to get a little scare on the {Color}Solo Player{Color} by shooting explosions from your ring of cherries. If you manage to kill the {Color}Solo Player{Color} you win!							
 MINIGAMES_KARDIA_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump							
 MINIGAMES_KARDIA_PAGE_4	{Left key}{Right key} Move Cherry Ring\n{Shoot key} Shoot Explosion							
+MINIGAMES_PICTURE_NAME	Picture Clutter							
+MINIGAMES_PICTURE_PAGE_1	Look at this mess... you gotta make the picture right again! Whoever gets to 5 points first wins.							
+MINIGAMES_PICTURE_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Toggle Picture Section							
 #								
 #2 VS. 2								
 #								

@@ -4,15 +4,22 @@ for (var i = 0; i < global.player_max; i++) {
 	var width = camera_get_view_width(camera);
 	var height = camera_get_view_height(camera);
 	
-	if (room == rMinigame4vs_Crates) {
-		width *= 2;
-		height *= 2;
-	}
-	
 	if (!surface_exists(surf)) {
 		view_surfs[i] = surface_create(width, height);
 		surf = view_surfs[i];
 		view_surface_id[i] = surf;
+	}
+	
+	switch (room) {
+		case rMinigame4vs_Crates:
+			width *= 2;
+			height *= 2;
+			break;
+			
+		case rMinigame4vs_Karts:
+			width /= 2;
+			height /= 2;
+			break;
 	}
 	
 	switch (mode) {
@@ -32,7 +39,7 @@ for (var i = 0; i < global.player_max; i++) {
 			break;
 	}
 	
-	draw_surface(surf, surf_x, surf_y);
+	draw_surface_stretched(surf, surf_x, surf_y, width, height);
 	
 	if (draw_names) {
 		language_set_font(global.fntPlayerInfo);

@@ -67,13 +67,14 @@ global.minigames = {};
 #macro CLOCKWORK_CALAMITY "Clockwork Calamity"
 #macro CRASHED_CRATES "Crashed Crates"
 #macro LEAP_OF_JUSTICE "Leap Of Justice"
+#macro KARTS_COMPETITION "Karts Competition"
 #endregion
 
 #region 1vs3
 #macro AVOID_THE_ANGUISH "Avoid The Anguish"
 #macro CONVEYOR_HAVOC "Conveyor Havoc"
 #macro NUMBER_SHOWDOWN "Number Showdown"
-#macro GETTINGS_COINS "Getting Coins"
+#macro GETTING_COINS "Getting Coins"
 #macro GIGANTIC_RACE "Gigantic Race"
 #macro WARPING_UP "Warping Up"
 #macro HUNT_TROUBLE "Hunt Trouble"
@@ -81,6 +82,7 @@ global.minigames = {};
 #macro HIDDEN_HOST "Hidden Host"
 #macro BAD_HOUSE "Bad House"
 #macro KARDIA_ARREST "Kardia Arrest"
+#macro PICTURE_CLUTTER "Picture Clutter"
 #endregion
 
 #region 2vs2
@@ -383,9 +385,28 @@ function minigame_init() {
 			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_LEAP_PAGE_1")) },
 			function() {
 				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_LEAP_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			}
-		], 48, rMinigame4vs_Leap, "I Wanna Be The Justice Guy")
+		], 48, rMinigame4vs_Leap, "I Wanna Be The Justice Guy"),
+		
+		new Minigame(KARTS_COMPETITION, language_get_text("MINIGAMES_KARTS_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"), language_get_text("MINIGAMES_KARTS_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_KARTS_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Jump key}", draw_action(global.actions.jump)],
+				["{Shoot key}", draw_action(global.actions.shoot)]))
+			}
+		], 50, rMinigame4vs_Karts, "New I Wanna Be The Weegee"),
 	];
 
 	m[$ "1vs3"] = [
@@ -425,7 +446,7 @@ function minigame_init() {
 			}
 		], 11, rMinigame1vs3_Showdown, "I Wanna Be The Showdown"),
 		
-		new Minigame(GETTINGS_COINS, language_get_text("MINIGAMES_COINS_NAME"),
+		new Minigame(GETTING_COINS, language_get_text("MINIGAMES_COINS_NAME"),
 		[
 			function() { return draw_page(language_get_text("MINIGAMES_RULES_SOLO_PLAYER"), language_get_text("MINIGAMES_COINS_PAGE_1")) },
 			function() { return draw_page(language_get_text("MINIGAMES_RULES_TEAM_PLAYERS"), language_get_text("MINIGAMES_COINS_PAGE_2", ["{Color}", "{COLOR,0000FF}"], ["{Color}", "{COLOR,FFFFFF}"])) },
@@ -543,7 +564,20 @@ function minigame_init() {
 				["{Right key}", draw_action(global.actions.right)],
 				["{Shoot key}", draw_action(global.actions.shoot)]))
 			},
-		], 44, rMinigame1vs3_Kardia, "I Wanna Kardia")
+		], 44, rMinigame1vs3_Kardia, "I Wanna Kardia"),
+		
+		new Minigame(PICTURE_CLUTTER, language_get_text("MINIGAMES_PICTURE_NAME"),
+		[
+			function() { return draw_page(language_get_text("MINIGAMES_RULES"),	language_get_text("MINIGAMES_PICTURE_PAGE_1")) },
+			function() {
+				return draw_page(language_get_text("MINIGAMES_CONTROLS"), language_get_text("MINIGAMES_PICTURE_PAGE_2",
+				["{Left key}", draw_action(global.actions.left)],
+				["{Up key}", draw_action(global.actions.up)],
+				["{Down key}", draw_action(global.actions.down)],
+				["{Right key}", draw_action(global.actions.right)],
+				["{Jump key}", draw_action(global.actions.jump)]))
+			}
+		], 49, rMinigame1vs3_Picture, "Draw My Guy - FM 2023"),
 	];
 
 	m[$ "2vs2"] = [

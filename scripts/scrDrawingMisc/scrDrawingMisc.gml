@@ -141,6 +141,18 @@ function draw_4vs_squares() {
 		draw_w *= 2;
 		draw_h *= 2;
 	}
+	
+	switch (room) {
+		case rMinigame4vs_Crates:
+			draw_w *= 2;
+			draw_h *= 2;
+			break;
+			
+		case rMinigame4vs_Karts:
+			draw_w /= 2;
+			draw_h /= 2;
+			break;
+	}
 
 	for (var i = 0; i < global.player_max; i++) {
 		switch (objCameraSplit4.mode) {

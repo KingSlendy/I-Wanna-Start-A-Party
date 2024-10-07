@@ -87,7 +87,7 @@ function trial_init() {
 		new Trial(INVISI_GAME, [
 			new Prove(CONVEYOR_HAVOC, TEAM),
 			new Prove(WARPING_UP, SOLO),
-			new Prove(GETTINGS_COINS, SOLO)
+			new Prove(GETTING_COINS, SOLO)
 		], 400),
 		
 		new Trial(FLIPPED_WORLD, [

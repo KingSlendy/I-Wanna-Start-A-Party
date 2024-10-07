@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"d3d_transform_add_rotation_x",
+  "isCompatibility":true,
+  "isDnD":false,
+  "name":"d3d_transform_add_rotation_x",
+  "parent":{
+    "name":"d3d",
+    "path":"folders/Scripts/Misc/Compatibility/d3d.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -162,6 +162,7 @@ enum ClientTCP {
 	Minigame1vs3_House_CherryJump,
 	Minigame1vs3_Kardia_CircleMove,
 	Minigame1vs3_Kardia_CircleShoot,
+	Minigame1vs3_Picture_PictureSectionToggle,
 	#endregion
 	
 	#region 2vs2
@@ -1394,6 +1395,21 @@ f[$ ClientTCP.Minigame1vs3_Kardia_CircleShoot] = function(buffer) {
 	with (objMinigame1vs3_Kardia_Circle) {
 		if (self.reference == reference) {
 			circle_shoot(false);
+			break;
+		}
+	}
+}
+
+f[$ ClientTCP.Minigame1vs3_Picture_PictureSectionToggle] = function(buffer) {
+	var frame_x = buffer_read(buffer, buffer_s16);
+	var r = buffer_read(buffer, buffer_u8);
+	var c = buffer_read(buffer, buffer_u8);
+	var section_locked = buffer_read(buffer, buffer_bool);
+	var section_current = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigame1vs3_Picture_Frame) {
+		if (x == frame_x) {
+			picture_section_toggle(r, c, section_locked, section_current, false);
 			break;
 		}
 	}

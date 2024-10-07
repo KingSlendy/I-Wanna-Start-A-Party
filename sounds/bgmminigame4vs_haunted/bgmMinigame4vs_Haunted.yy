@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":0,
+  "conversionMode":1,
   "duration":27.583918,
   "name":"bgmMinigame4vs_Haunted",
   "parent":{

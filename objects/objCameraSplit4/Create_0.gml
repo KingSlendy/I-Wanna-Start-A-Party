@@ -58,14 +58,26 @@ for (var i = 0; i < global.player_max; i++) {
 	target_x[i] = 0;
 	target_y[i] = 0;
 	view_visible[i] = true;
-	view_wport[i] = w;
-	view_hport[i] = h;
 	var camera = view_camera[i];
-	
-	if (room != rMinigame4vs_Crates) {
-		camera_set_view_size(camera, w, h);
-	} else {
-		camera_set_view_size(camera, w / 2, h / 2);
+
+	switch (room) {
+		case rMinigame4vs_Crates:
+			view_wport[i] = w;
+			view_hport[i] = h;
+			camera_set_view_size(camera, w / 2, h / 2);
+			break;
+			
+		case rMinigame4vs_Karts:
+			view_wport[i] = w * 2;
+			view_hport[i] = h * 2;
+			camera_set_view_size(camera, w * 2, h * 2);
+			break;
+			
+		default:
+			view_wport[i] = w;
+			view_hport[i] = h;
+			camera_set_view_size(camera, w, h);
+			break;
 	}
 }
 

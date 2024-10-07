@@ -68,6 +68,18 @@ if (points_draw) {
 				height *= 2;
 			}
 			
+			switch (room) {
+				case rMinigame4vs_Crates:
+					width *= 2;
+					height *= 2;
+					break;
+					
+				case rMinigame4vs_Karts:
+					width /= 2;
+					height /= 2;
+					break;
+			}
+			
 			var surf_x = width * (i % 2);
 			var surf_y = height * (i div 2);
 			

@@ -15,7 +15,8 @@ enum PlayerDataMode {
 	Hand,
 	Rocket,
 	Hammer,
-	Golf
+	Golf,
+	Kart
 }
 
 function buffer_seek_begin(buffer = global.buffer) {
@@ -268,6 +269,13 @@ function player_write_data() {
 			buffer_write_data(buffer_u16, aim_angle);
 			buffer_write_data(buffer_f16, aim_power);
 			break;
+			
+		case PlayerDataMode.Kart:
+			buffer_write_data(buffer_s32, z);
+			buffer_write_data(buffer_u16, direction);
+			buffer_write_data(buffer_bool, lookBehind);
+			buffer_write_data(buffer_u8, drawTex);
+			break;
 	}
 	
 	network_send_udp_packet();
@@ -326,6 +334,13 @@ function player_read_data(buffer) {
 				powering = buffer_read(buffer, buffer_bool);
 				aim_angle = buffer_read(buffer, buffer_u16);
 				aim_power = buffer_read(buffer, buffer_f16);
+				break;
+				
+			case PlayerDataMode.Kart:
+				z = buffer_read(buffer, buffer_s32);
+				direction = buffer_read(buffer, buffer_u16);
+				lookBehind = buffer_read(buffer, buffer_bool);
+				drawTex = buffer_read(buffer, buffer_u8);
 				break;
 		}
 	}
