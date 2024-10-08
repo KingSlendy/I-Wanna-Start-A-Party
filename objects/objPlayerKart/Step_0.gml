@@ -1,20 +1,10 @@
-if (!frozen) {
+if (frozen) {
+	exit;
 }
 
 if (onGround) {
     if (place_meeting(x, y, objMinigame4vs_Karts_TrackCol)) {
-        if (true/*!(place_meeting(x, y, objKartsRumbleRoad))*/)
-            maxSpeed = baseMaxSpeed
-        else
-        {
-            maxSpeed = roughTerrainSpeed
-            drift = 0
-            audio_stop_sound(driftSound)
-            driftSkid = 0
-            minTex = 2
-            maxTex = 4
-            drawTex = clamp(drawTex, minTex, maxTex)
-        }
+		maxSpeed = baseMaxSpeed
     }
     else
     {
@@ -34,26 +24,33 @@ if (onGround) {
     
 if global.actions.up.held(network_id)
 {
-    speed += 0.025
-    if (speed > maxSpeed)
-        speed = maxSpeed
-    if drift
-    {
-        if (speed > driftSpeed)
-            speed = driftSpeed
+    speed += 0.025;
+	
+    if (speed > maxSpeed) {
+        speed = maxSpeed;
+	}
+	
+    if (drift) {
+        if (speed > driftSpeed) {
+            speed = driftSpeed;
+		}
     }
 }
 else if global.actions.down.held(network_id)
 {
-    speed -= 0.05
-    if (speed < -1)
-        speed = -1
+    speed -= 0.05;
+	
+    if (speed < -1) {
+        speed = -1;
+	}
 }
 else
 {
-    speed += ((-speed) * 0.02)
-    if abs(speed < 0.3)
+    speed += ((-speed) * 0.02);
+	
+    if (abs(speed < 0.3)) {
         speed = 0
+	}
 }
     
 var setEngineSound = noone;
@@ -98,139 +95,134 @@ if onGround
 else
     turnRate = 0.25
         
-if (abs(speed) > 0)
-{
-    if global.actions.left.held(network_id)
-    {
-        if (abs(speed) >= 0.25)
-        {
-            if (!drift)
-            {
+if (abs(speed) > 0) {
+    if (global.actions.left.held(network_id)) {
+        if (abs(speed) >= 0.25) {
+            if (!drift) {
                 direction = (direction + turnRate + 360) % 360;
-                if (steerAnimTime <= 0)
-                {
-                    steerAnimTime = steerAnimDelay
-                    drawTex--
-                    if (drawTex < minTex)
-                        drawTex = minTex
+				
+                if (--steerAnimTime <= 0) {
+                    steerAnimTime = steerAnimDelay;
+                    drawTex--;
+					
+                    if (drawTex < minTex) {
+                        drawTex = minTex;
+					}
                 }
-                else
-                    steerAnimTime--
-            }
-            else
-            {
-                if (driftSkid >= 0)
-                {
+            } else {
+                if (driftSkid >= 0) {
                     direction = (direction + turnRate + 360) % 360;
-                    if (steerAnimTime <= 0)
-                    {
-                        steerAnimTime = steerAnimDelay
-                        drawTex--
-                        if (drawTex < minTex)
-                            drawTex = minTex
+					
+                    if (--steerAnimTime <= 0) {
+                        steerAnimTime = steerAnimDelay;
+                        drawTex--;
+						
+                        if (drawTex < minTex) {
+                            drawTex = minTex;
+						}
                     }
-                    else
-                        steerAnimTime--
                 }
-                if (driftSkid == 0)
-                    driftSkid = 1
+				
+                if (driftSkid == 0) {
+                    driftSkid = 1;
+				}
             }
         }
-    }
-    else if global.actions.right.held(network_id)
-    {
-        if (abs(speed) >= 0.25)
-        {
-            if (!drift)
-            {
+    } else if (global.actions.right.held(network_id)) {
+        if (abs(speed) >= 0.25) {
+            if (!drift) {
                 direction = (direction - turnRate + 360) % 360;
-                if (steerAnimTime <= 0)
-                {
-                    steerAnimTime = steerAnimDelay
-                    drawTex++
-                    if (drawTex > maxTex)
-                        drawTex = maxTex
+				
+                if (--steerAnimTime <= 0) {
+                    steerAnimTime = steerAnimDelay;
+                    drawTex++;
+					
+                    if (drawTex > maxTex) {
+                        drawTex = maxTex;
+					}
                 }
-                else
-                    steerAnimTime--
-            }
-            else
-            {
-                if (driftSkid <= 0)
-                {
+            } else {
+                if (driftSkid <= 0) {
                     direction = (direction - turnRate + 360) % 360;
-                    if (steerAnimTime <= 0)
-                    {
-                        steerAnimTime = steerAnimDelay
-                        drawTex++
-                        if (drawTex > maxTex)
-                            drawTex = maxTex
+					
+                    if (--steerAnimTime <= 0) {
+                        steerAnimTime = steerAnimDelay;
+                        drawTex++;
+						
+                        if (drawTex > maxTex) {
+                            drawTex = maxTex;
+						}
                     }
-                    else
-                        steerAnimTime--
                 }
-                if (driftSkid == 0)
-                    driftSkid = -1
+				
+                if (driftSkid == 0) {
+                    driftSkid = -1;
+				}
             }
         }
-    }
-    else
-    {
-        drift = 0
-        driftSkid = 0
-        minTex = 2
-        maxTex = 4
+    } else {
+        drift = false;
+        driftSkid = 0;
+        minTex = 2;
+        maxTex = 4;
     }
 }
-if (((!global.actions.left.held(network_id)) && (!global.actions.right.held(network_id))) || speed < 0.5)
-{
-    if (steerAnimTime <= 0)
-    {
-        steerAnimTime = steerAnimDelay
-        if (drawTex < 3)
-            drawTex++
-        else if (drawTex > 3)
-            drawTex--
-    }
-    else
-        steerAnimTime--
+
+if (network_id == global.player_id) {
+	print($"speed: {speed}");
+	print($"drawTex: {drawTex}");
+	print($"minTex: {minTex}");
+	print($"maxTex: {maxTex}");
 }
-zSpeed -= 0.1
-if (zSpeed < -1)
-    zSpeed = -1
-z += zSpeed
-if (z <= 0)
-{
-    z = 0
-    zSpeed = 0
-    if (!onGround)
-    {
-        onGround = 1
-        audio_play_sound(sndMinigame4vs_Karts_PlayerLanding, 0, false)
+
+if ((!global.actions.left.held(network_id) && !global.actions.right.held(network_id)) || speed < 0.5) {
+    if (--steerAnimTime <= 0) {
+        steerAnimTime = steerAnimDelay;
+		
+        if (drawTex < 3) {
+            drawTex++;
+		} else if (drawTex > 3) {
+            drawTex--;
+		}
+    }
+}
+
+zSpeed -= 0.1;
+
+if (zSpeed < -1) {
+    zSpeed = -1;
+}
+
+z += zSpeed;
+
+if (z <= 0) {
+    z = 0;
+    zSpeed = 0;
+	
+    if (!onGround) {
+        onGround = true;
+        audio_play_sound(sndMinigame4vs_Karts_PlayerLanding, 0, false);
+		
         if ((global.actions.left.held(network_id) || global.actions.right.held(network_id)) && global.actions.jump.held(network_id))
         {
-            drift = 1
-            driftSound = audio_play_sound(sndMinigame4vs_Karts_PlayerDrift, 0, true)
-            audio_sound_pitch(driftSound, random_range(0.9, 1.1))
-            minTex = 0
-            maxTex = 6
+            drift = true;
+            driftSound = audio_play_sound(sndMinigame4vs_Karts_PlayerDrift, 0, true);
+            audio_sound_pitch(driftSound, random_range(0.9, 1.1));
+            minTex = 0;
+            maxTex = 6;
         }
     }
 }
 
     
-if global.actions.jump.pressed(network_id)
-{
-    if onGround
-    {
-        audio_play_sound(sndMinigame4vs_Karts_PlayerJump, 0, false)
-        zSpeed = jumpSpeed
-        onGround = 0
-    }
+if (global.actions.jump.pressed(network_id) && onGround) {
+    audio_play_sound(sndMinigame4vs_Karts_PlayerJump, 0, false);
+    zSpeed = jumpSpeed;
+    onGround = false;
 }
     
 lookBehind = (global.actions.shoot.held(network_id));    
         
 if (!drift) {
-    audio_stop_sound(driftSound)
+    audio_stop_sound(driftSound);
 }

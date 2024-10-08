@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":1,
+  "conversionMode":0,
   "duration":37.690605,
   "name":"bgmMinigame4vs_Bullets",
   "parent":{
