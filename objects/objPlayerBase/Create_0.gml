@@ -18,6 +18,11 @@ function change_to_object(obj) {
 	a.network_id = network_id;
 	a.network_name = network_name;
 	a.skin = skin;
+	
+	if (skin != null) {
+		a.sprite_index = skin[$ "Idle"];
+	}
+	
 	instance_destroy();
 	
 	return a;

@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprMinigame4vs_Karts_Block",
-    "path":"sprites/sprMinigame4vs_Karts_Block/sprMinigame4vs_Karts_Block.yy",
+    "name":"sprTrigger",
+    "path":"sprites/sprTrigger/sprTrigger.yy",
   },
   "spriteMaskId":null,
   "visible":false,

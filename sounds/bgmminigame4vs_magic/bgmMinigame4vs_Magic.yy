@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":0,
+  "conversionMode":1,
   "duration":36.137314,
   "name":"bgmMinigame4vs_Magic",
   "parent":{

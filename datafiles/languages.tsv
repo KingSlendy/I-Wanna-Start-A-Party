@@ -484,6 +484,9 @@ MINIGAMES_CRATES_PAGE_2	{Shoot key} Spin
 MINIGAMES_LEAP_NAME	Leap Of Justice							
 MINIGAMES_LEAP_PAGE_1	Leap of faith? No! Leap of justice!\nGotta get to the last block before all the others by pressing the buttons in the correct order. If you mess up you go back one space.							
 MINIGAMES_LEAP_PAGE_2	{Left key}{Up key}{Down key}{Right key}{Jump key}{Shoot key} Buttons							
+MINIGAMES_KARTS_NAME	Karts Competition							
+MINIGAMES_KARTS_PAGE_1	Go karts! Prove you're the fastest of them all by reaching 3 laps before anyone else!							
+MINIGAMES_KARTS_PAGE_2	{Left key}{Right key} Stir\n{Up key}{Down key} Accelerate Forwards/Backwards\n{Jump key} Jump/Drift\n{Shoot key} Look Behind							
 #								
 #1 VS. 3								
 #								
@@ -536,7 +539,7 @@ MINIGAMES_KARDIA_PAGE_2	Now it's the perfect moment to get a little scare on the
 MINIGAMES_KARDIA_PAGE_3	{Left key}{Right key} Move\n{Jump key} Jump							
 MINIGAMES_KARDIA_PAGE_4	{Left key}{Right key} Move Cherry Ring\n{Shoot key} Shoot Explosion							
 MINIGAMES_PICTURE_NAME	Picture Clutter							
-MINIGAMES_PICTURE_PAGE_1	Look at this mess... you gotta make the picture right again! Whoever gets to 5 points first wins.							
+MINIGAMES_PICTURE_PAGE_1	Look at this mess... you gotta match your frame to the picture at the bottom to fix it! Whoever gets to 5 points first wins.							
 MINIGAMES_PICTURE_PAGE_2	{Left key}{Up key}{Down key}{Right key} Move\n{Jump key} Toggle Picture Section							
 #								
 #2 VS. 2								

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"4vs",
-    "path":"folders/Sprites/Objects/Minigames/4vs.yy",
+    "name":"Karts",
+    "path":"folders/Sprites/Objects/Minigames/4vs/Karts.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

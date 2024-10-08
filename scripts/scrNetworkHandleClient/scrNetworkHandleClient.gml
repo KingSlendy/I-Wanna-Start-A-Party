@@ -142,6 +142,7 @@ enum ClientTCP {
 	Minigame4vs_Clockwork_ClockDigitalCorrectTime,
 	Minigame4vs_Crates_CrateSmash,
 	Minigame4vs_Leap_Input,
+	Minigame4vs_Karts_KartCountLap,
 	#endregion
 	
 	#region 1vs3
@@ -1219,6 +1220,14 @@ f[$ ClientTCP.Minigame4vs_Leap_Input] = function(buffer) {
 		
 			break;
 		}
+	}
+}
+
+f[$ ClientTCP.Minigame4vs_Karts_KartCountLap] = function(buffer) {
+	var network_id = buffer_read(buffer, buffer_u8);
+	
+	with (objMinigameController) {
+		kart_count_lap(network_id, false);
 	}
 }
 #endregion

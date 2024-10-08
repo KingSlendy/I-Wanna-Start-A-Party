@@ -4,26 +4,22 @@ if (frozen) {
 
 if (onGround) {
     if (place_meeting(x, y, objMinigame4vs_Karts_TrackCol)) {
-		maxSpeed = baseMaxSpeed
-    }
-    else
-    {
-        maxSpeed = offTrackSpeed
+		maxSpeed = baseMaxSpeed;
+    } else {
+        maxSpeed = offTrackSpeed;
 		
-        if drift
-        {
-            drift = 0
-            audio_stop_sound(driftSound)
-            driftSkid = 0
-            minTex = 2
-            maxTex = 4
-            drawTex = clamp(drawTex, minTex, maxTex)
+        if (drift) {
+            drift = false;
+			audio_stop_sound(driftSound);
+            driftSkid = 0;
+            minTex = 2;
+            maxTex = 4;
+            drawTex = clamp(drawTex, minTex, maxTex);
         }
     }
 }
     
-if global.actions.up.held(network_id)
-{
+if (global.actions.up.held(network_id)) {
     speed += 0.025;
 	
     if (speed > maxSpeed) {
@@ -35,17 +31,13 @@ if global.actions.up.held(network_id)
             speed = driftSpeed;
 		}
     }
-}
-else if global.actions.down.held(network_id)
-{
+} else if global.actions.down.held(network_id) {
     speed -= 0.05;
 	
     if (speed < -1) {
         speed = -1;
 	}
-}
-else
-{
+} else {
     speed += ((-speed) * 0.02);
 	
     if (abs(speed < 0.3)) {
@@ -73,27 +65,24 @@ if (setEngineSound != prevEngineSound) {
     
 prevEngineSound = setEngineSound;
     
-if onGround
-{
-    if drift
-    {
-        if (!global.actions.jump.held(network_id))
-        {
-            drift = 0
-            driftSkid = 0
-            minTex = 2
-            maxTex = 4
-            drawTex = clamp(drawTex, minTex, maxTex)
-            turnRate = normalTurnRate
-        }
-        else
-            turnRate = driftTurnRate
-    }
-    else
-        turnRate = normalTurnRate
+if (onGround) {
+    if (drift) {
+        if (!global.actions.jump.held(network_id)) {
+            drift = 0;
+            driftSkid = 0;
+            minTex = 2;
+            maxTex = 4;
+            drawTex = clamp(drawTex, minTex, maxTex);
+            turnRate = normalTurnRate;
+        } else {
+            turnRate = driftTurnRate;
+		}
+    } else {
+        turnRate = normalTurnRate;
+	}
+} else {
+    turnRate = 0.25;
 }
-else
-    turnRate = 0.25
         
 if (abs(speed) > 0) {
     if (global.actions.left.held(network_id)) {
@@ -206,6 +195,8 @@ if (z <= 0) {
         if ((global.actions.left.held(network_id) || global.actions.right.held(network_id)) && global.actions.jump.held(network_id))
         {
             drift = true;
+
+			audio_stop_sound(driftSound);
             driftSound = audio_play_sound(sndMinigame4vs_Karts_PlayerDrift, 0, true);
             audio_sound_pitch(driftSound, random_range(0.9, 1.1));
             minTex = 0;
