@@ -1,6 +1,6 @@
 //var cdir = (point_direction(objMinigameController.x, objMinigameController.y, x, y)) - 90
 //var cdirtan = (tan(objMinigameController.z / (point_distance(x, y, objMinigameController.x, objMinigameController.y)))) + 30
-var cdir = objMinigame4vs_Karts_Controller.dir - 90;
+var cdir = objMinigameController.dir - 90;
 var cdirtan = 45;
 var turn = player_info_by_id(network_id).turn;
 

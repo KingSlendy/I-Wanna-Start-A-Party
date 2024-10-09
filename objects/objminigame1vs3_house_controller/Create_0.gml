@@ -94,7 +94,7 @@ alarm_override(11, function() {
 					var action = actions.jump;
 				}
 				
-				if (0.1 > random(1)) {
+				if (chance(0.1)) {
 					action.hold(irandom_range(5, 10));
 				}
 			}

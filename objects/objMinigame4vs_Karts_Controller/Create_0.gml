@@ -97,9 +97,12 @@ player_texf = [];
 var width = sprite_get_width(sprPlayerKartBack);
 var height = sprite_get_height(sprPlayerKartBack);
 var surf = surface_create(width, height);
+var shd_uniform_hue = shader_get_uniform(shdMinigame4vs_Karts_PlayerKart, "u_uHue");
 
 for (var i = 0; i < global.player_max; i++) {
 	var player = focus_player_by_turn(i + 1);
+	var hue = color_get_hue(player_color_by_turn(i + 1)) / 255;
+	
 	var sprite = null;
 	array_push(player_spr, []);
 	array_push(player_tex, []);
@@ -109,8 +112,11 @@ for (var i = 0; i < global.player_max; i++) {
 	for (var j = 0; j < 7; j++) {
 		surface_set_target(surf);
 		draw_clear_alpha(c_black, 0);
-		draw_sprite_ext(player.sprite_index, j % 4, 16 + remap(j, 0, 6, -4, 4), 20, (j < 3) ? -1 : 1, 1, 0, c_white, 1);
+		draw_sprite_ext(player.sprite_index, j % 4, 16 + round(remap(j, 0, 6, -4, 4)), 20, (j < 3) ? -1 : 1, 1, 0, c_white, 1);
+		shader_set(shdMinigame4vs_Karts_PlayerKart);
+		shader_set_uniform_f(shd_uniform_hue, hue);
 		draw_sprite(sprPlayerKartBack, j, 0, 0);
+		shader_reset();
 		surface_reset_target();
 		sprite = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
 		array_push(player_spr[i], sprite);
@@ -118,8 +124,11 @@ for (var i = 0; i < global.player_max; i++) {
 		
 		surface_set_target(surf);
 		draw_clear_alpha(c_black, 0);
-		draw_sprite_ext(player.sprite_index, j % 4, 16 + remap(j, 0, 6, -4, 4), 20, (j < 3) ? -1 : 1, 1, 0, c_white, 1);
+		draw_sprite_ext(player.sprite_index, j % 4, 16 + round(remap(j, 0, 6, -4, 4)), 20, (j < 3) ? -1 : 1, 1, 0, c_white, 1);
+		shader_set(shdMinigame4vs_Karts_PlayerKart);
+		shader_set_uniform_f(shd_uniform_hue, hue);
 		draw_sprite(sprPlayerKartFront, j, 0, 0);
+		shader_reset();
 		surface_reset_target();
 		sprite = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
 		array_push(player_sprf[i], sprite);

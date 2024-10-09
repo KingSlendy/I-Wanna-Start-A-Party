@@ -1,4 +1,4 @@
-var cdir = objMinigame4vs_Karts_Controller.dir - 90;
+var cdir = objMinigameController.dir - 90;
 var cdirtan = 90;
 d3d_transform_set_translation(0, -0.5, 0);
 d3d_transform_add_scaling(8, 8, 8);

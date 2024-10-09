@@ -39,6 +39,10 @@ minigame_time_end = function() {
 	minigame_finish();
 }
 
+action_end = function() {
+	alarm_stop(4);
+}
+
 player_type = objPlayerPlatformer;
 
 timer = 0;

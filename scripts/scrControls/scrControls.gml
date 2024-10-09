@@ -168,7 +168,7 @@ function check_player_actions_by_id(player_id) {
 	
 	var actions = ai_actions(player_id);
 
-	if (actions == null || !is_player_local(player.network_id) || !player.ai || player.frozen) {
+	if (actions == null || !is_player_local(player.network_id) || !player.ai) {
 		return null;
 	}
 	

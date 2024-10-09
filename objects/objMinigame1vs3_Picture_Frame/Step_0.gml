@@ -21,7 +21,7 @@ if (!picture_divisions_fade) {
 
 	for (var r = 0; r < picture_divisions; r++) {
 		for (var c = 0; c < picture_divisions; c++) {
-			if (!picture_locked[r][c] || picture_sequence[r][c][picture_current[r][c]] != objMinigameController.picture_chosen) {
+			if (!picture_locked[r][c] || picture_sequence[r][c][picture_current[r][c]] != picture_chosen) {
 				picture_matches = false;
 			}
 		}
@@ -47,7 +47,7 @@ if (!picture_divisions_fade) {
 				alarm_stop(1);
 			}
 			
-			minigame_finish();
+			minigame_finish(true);
 		}
 	}
 } else {
