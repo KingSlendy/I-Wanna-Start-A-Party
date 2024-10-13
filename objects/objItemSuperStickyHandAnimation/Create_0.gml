@@ -70,6 +70,10 @@ alarm_create(function() {
 	
 	if (is_player_local(player2.network_id)) {
 		change_items(item_stole, ItemChangeType.Lose).final_action = steal_hand;
+		
+		if (item_stole.id == ItemType.StickyHand) {
+			achieve_trophy(83);
+		}
 	}
 });
 

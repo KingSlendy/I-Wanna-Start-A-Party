@@ -39,6 +39,7 @@ if (!picture_divisions_fade) {
 		}
 	
 		objPlayerBase.frozen = true;
+		audio_play_sound(sndMinigame1vs3_Picture_PictureConfirm, 0, false, 2);
 		var network_id = (x < 400) ? minigame1vs3_solo().network_id : minigame1vs3_team(0).network_id;
 		minigame4vs_points(network_id, 1);
 		

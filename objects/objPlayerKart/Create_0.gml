@@ -26,7 +26,6 @@ engineSound = audio_play_sound(sndMinigame4vs_Karts_PlayerEngineIdle, 0, true);
 prevEngineSound = noone;
 driftSound = noone;
 rev = 0;
-lookBehind = 0;
 lapCheckPoint = 0;
 lap = 0;
 startX = x;

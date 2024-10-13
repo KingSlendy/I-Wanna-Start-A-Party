@@ -1,5 +1,6 @@
 vspd = 0;
 grav = 0;
+first = false;
 alarms_init(3);
 
 alarm_create(function() {

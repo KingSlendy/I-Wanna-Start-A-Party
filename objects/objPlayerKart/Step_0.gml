@@ -31,7 +31,7 @@ if (global.actions.up.held(network_id)) {
             speed = driftSpeed;
 		}
     }
-} else if global.actions.down.held(network_id) {
+} else if (global.actions.down.held(network_id)) {
     speed -= 0.05;
 	
     if (speed < -1) {
@@ -192,8 +192,7 @@ if (z <= 0) {
         onGround = true;
         audio_play_sound(sndMinigame4vs_Karts_PlayerLanding, 0, false);
 		
-        if ((global.actions.left.held(network_id) || global.actions.right.held(network_id)) && global.actions.jump.held(network_id))
-        {
+        if ((global.actions.left.held(network_id) || global.actions.right.held(network_id)) && global.actions.jump.held(network_id)) {
             drift = true;
 
 			audio_stop_sound(driftSound);
@@ -210,9 +209,7 @@ if (global.actions.jump.pressed(network_id) && onGround) {
     audio_play_sound(sndMinigame4vs_Karts_PlayerJump, 0, false);
     zSpeed = jumpSpeed;
     onGround = false;
-}
-    
-lookBehind = (global.actions.shoot.held(network_id));    
+}  
         
 if (!drift) {
     audio_stop_sound(driftSound);

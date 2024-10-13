@@ -33,14 +33,15 @@ alarm_create(function() {
 		arrows[i] = a;
 	}
 
-	board_path_finding();
+	roll_path_finding();
+	shine_path_finding();
 
 	for (var i = 0; i < array_length(paths); i++) {
 		if (paths[i] == null) {
 			continue;
 		}
 	
-		if ((array_length(global.path_spaces) == 0 || paths[i] == global.path_spaces[1])) {
+		if (array_length(global.path_spaces) == 0 || paths[i] == global.path_spaces[1]) {
 			var arrow = arrows[i];
 			arrow.image_index = 0;
 			arrow_selected = i;

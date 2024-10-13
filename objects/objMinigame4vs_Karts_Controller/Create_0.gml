@@ -1,11 +1,5 @@
 event_inherited();
 
-minigame_players = function() {
-	with (objPlayerBase) {
-		lookBehind = false;
-	}
-}
-
 minigame_camera = CameraMode.Split4;
 action_end = function() {
 	with (objPlayerBase) {

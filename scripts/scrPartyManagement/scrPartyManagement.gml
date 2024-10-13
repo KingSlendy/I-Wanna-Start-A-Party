@@ -30,8 +30,8 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.coins = 0;
 	self.items = array_create(3, null);
 	//self.shines = 1;
-	//self.coins = 100;
-	//self.items = [global.board_items[ItemType.StickyHand], global.board_items[ItemType.Medal], global.board_items[ItemType.SuperStickyHand]];
+	//self.coins = 999;
+	self.items = [global.board_items[ItemType.StickyHand], global.board_items[ItemType.SuperStickyHand], null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -438,6 +438,10 @@ function turn_start(network = true) {
 }
 
 function turn_next(network = true) {
+	with (objSpaces) {
+		indicator = false;
+	}
+	
 	if (is_player_turn()) {
 		var player_info = player_info_by_turn();
 		player_info.item_used = null;
@@ -508,21 +512,82 @@ function board_advance() {
 		image_xscale = (next_space.x + 16 >= x) ? 1 : -1;
 		path_set_closed(follow_path, false);
 		path_start(follow_path, max_speed, path_action_stop, true);
-		has_hit = false;
 	}
 }
 
-function board_path_finding(space = null) {
+function roll_path_finding(space = null) {
+	global.path_spaces = [];
+	
+	with (objSpaces) {
+		visited = false;
+		indicator = false;
+	}
+	
+	with (focused_player()) {
+		roll_space_path_finding(space ?? instance_place(x, y, objSpaces), []);
+	}
+}
+
+function roll_space_path_finding(space, path_spaces) {
+	array_push(path_spaces, space);
+	
+	with (space) {
+		if (visited) {
+			continue;
+		}
+		
+		if (array_length(array_filter(path_spaces, function(x) { return (!x.space_is_passing()); })) - 1 == global.dice_roll) {
+			indicator = true;
+			continue;
+		}
+		
+		var space_all = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
+		visited = true;
+		
+		if (image_index == SpaceType.PathEvent) {
+			global.board_path_finding_look = true;
+			
+			switch (room) {
+				case rBoardDreams:
+				case rBoardFASF:
+					var reference = event();
+					
+					with (reference) {
+						var teleport = instance_place(x, y, objSpaces);
+						//space_all = (BOARD_NORMAL) ? teleport.space_directions_normal : teleport.space_directions_reverse;
+					}
+					break;
+			}
+			
+			global.board_path_finding_look = false;
+		}
+
+		for (var i = 0; i < array_length(space_all); i++) {
+			var space_check = space_all[i];
+				
+			if (space_check == null) {
+				continue;
+			}
+				
+			roll_space_path_finding(space_check, path_spaces);
+		}
+	}
+	
+	space.visited = false;
+	array_pop(path_spaces);
+}
+
+function shine_path_finding(space = null) {
 	global.path_spaces = [];
 	global.path_spaces_record = infinity;
 	objSpaces.visited = false;
 	
 	with (focused_player()) {
-		space_path_finding(space ?? instance_place(x, y, objSpaces), []);
+		shine_space_path_finding(space ?? instance_place(x, y, objSpaces), []);
 	}
 }
 
-function space_path_finding(space, path_spaces) {
+function shine_space_path_finding(space, path_spaces) {
 	var end_finding = function(path_spaces) {
 		global.path_spaces_record = array_length(path_spaces);
 		array_copy(global.path_spaces, 0, path_spaces, 0, array_length(path_spaces));
@@ -532,7 +597,7 @@ function space_path_finding(space, path_spaces) {
 	
 	with (space) {
 		if (visited || array_length(path_spaces) >= global.path_spaces_record) {
-			break;
+			continue;
 		}
 		
 		var space_all = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
@@ -546,14 +611,15 @@ function space_path_finding(space, path_spaces) {
 					if (instance_nearest(x, y, objBoardPalletPokemon).has_shine()) {
 						end_finding(path_spaces);
 					}
-					break;
+					continue;
 					
 				case rBoardDreams:
 				case rBoardFASF:
-					var teleport = event();
+					var reference = event();
 					
-					with (teleport) {
-						space_all = [instance_place(x, y, objSpaces)];
+					with (reference) {
+						var teleport = instance_place(x, y, objSpaces);
+						space_all = (BOARD_NORMAL) ? teleport.space_directions_normal : teleport.space_directions_reverse;
 					}
 					break;
 			}
@@ -563,7 +629,7 @@ function space_path_finding(space, path_spaces) {
 		
 		if (image_index == SpaceType.Shine) {
 			end_finding(path_spaces);
-			break;
+			continue;
 		}
 
 		for (var i = 0; i < array_length(space_all); i++) {
@@ -573,7 +639,7 @@ function space_path_finding(space, path_spaces) {
 				continue;
 			}
 				
-			space_path_finding(space_check, path_spaces);
+			shine_space_path_finding(space_check, path_spaces);
 		}
 	}
 	
@@ -966,6 +1032,12 @@ function item_applied(item) {
 
 	if (is_local_turn()) {
 		switch (item.id) {
+			case ItemType.Warp:
+			case ItemType.Mirror:
+			case ItemType.Cloud:
+				item_animation(item.id);
+				break;
+			
 			case ItemType.Poison:
 				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_POISON"), function(t) {
 					return (player_info_by_turn(t).item_effect == null);
@@ -990,10 +1062,6 @@ function item_applied(item) {
 				}
 				break;
 			
-			case ItemType.Warp:
-				item_animation(ItemType.Warp);
-				break;
-			
 			case ItemType.SuperWarp:
 				show_multiple_player_choices(language_get_text("PARTY_ITEM_WHICH_PLAYER_SWITCH"), function(_) { return true; }, true).final_action = function() {
 					item_animation(ItemType.SuperWarp);
@@ -1006,10 +1074,6 @@ function item_applied(item) {
 			
 			case ItemType.Blackhole:
 				call_blackhole();
-				break;
-			
-			case ItemType.Mirror:
-				item_animation(ItemType.Mirror);
 				break;
 				
 			case ItemType.StickyHand:
@@ -1320,13 +1384,13 @@ function choose_shine() {
 	
 	if (room != rBoardPallet) {
 		with (objSpaces) {
-			if (space_shine && (image_index != SpaceType.Shine || room == rBoardNsanity) && !place_meeting(x, y, objBoardWorldGhost)) {
+			if (space_shine && ((image_index != SpaceType.Shine && !space_was_shine) || room == rBoardNsanity) && !place_meeting(x, y, objBoardWorldGhost)) {
 				array_push(choices, id);
 			}
 		}
 	} else {
 		with (objBoardPalletPokemon) {
-			if (!has_shine()) {
+			if (!has_shine() && !pokemon_was_shine) {
 				array_push(choices, id);
 			}
 		}
@@ -1351,23 +1415,33 @@ function choose_shine() {
 }
 
 function place_shine(space_x, space_y) {
-	with (focused_player()) {
-		if (room != rBoardPallet) {
-			if (!instance_exists(objShine)) {
-				with (objSpaces) {
-					if (space_shine) {
-						image_index = SpaceType.Blue;
-					}
-				}
-			} else {
-				with (instance_place(x, y, objSpaces)) {
-					if (space_shine) {
-						image_index = SpaceType.Blue;
-					}
-				}
-			}
-		}
-	}
+	//with (focused_player()) {
+	//	if (room != rBoardPallet) {
+	//		var space = null;
+			
+	//		if (!instance_exists(objShine)) {
+	//			with (objSpaces) {
+	//				if (space_shine) {
+	//					image_index = SpaceType.Blue;
+	//				}
+	//			}
+	//		} else {
+	//			if (!instance_exists(objItemCloudAnimation)) {
+	//				space = instance_place(x, y, objSpaces);
+	//			} else {
+	//				space = objItemCloudAnimation.cloud_space;
+	//			}
+	//		}
+			
+	//		if (space != null) {
+	//			with (space) {
+	//				if (space_shine) {
+	//					image_index = SpaceType.Blue;
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 	
 	if (room != rBoardPallet) {
 		with (objSpaces) {

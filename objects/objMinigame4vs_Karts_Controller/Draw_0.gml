@@ -1,13 +1,6 @@
 var player = focus_player_by_turn(view_current + 1);
-
-if (player.lookBehind) {
-	x = player.x + (lengthdir_x(followDist, player.direction));
-	y = player.y + (lengthdir_y(followDist, player.direction));
-} else {
-	x = player.x - (lengthdir_x(followDist, player.direction));
-	y = player.y - (lengthdir_y(followDist, player.direction));
-}
-			
+x = player.x - (lengthdir_x(followDist, player.direction));
+y = player.y - (lengthdir_y(followDist, player.direction));
 dir = point_direction(x, y, player.x, player.y);
 
 var width = camera_get_view_width(view_camera[view_current]);

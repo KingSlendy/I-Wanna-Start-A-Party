@@ -14,6 +14,7 @@ alarms_init(2);
 
 alarm_create(function() {
 	picture_rotate = true;
+	audio_play_sound(sndMinigame1vs3_Picture_PictureChange, 0, false);
 	alarm_call(0, 1);
 });
 
@@ -24,6 +25,12 @@ alarm_create(function() {
 function picture_section_toggle(r, c, section_locked, section_current, network = true) {
 	picture_locked[r][c] = section_locked;
 	picture_current[r][c] = section_current;
+	
+	if (section_locked) {
+		audio_play_sound(sndMinigame1vs3_Picture_PictureSelect, 0, false, 3);
+	} else {
+		audio_play_sound(sndMinigame1vs3_Picture_PictureCancel, 0, false, 1.5);
+	}
 	
 	if (network) {
 		buffer_seek_begin();

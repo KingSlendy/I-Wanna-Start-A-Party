@@ -80,8 +80,8 @@ if (shopping && is_local_turn()) {
 									var item = null;
 									
 									do {
-										item = global.board_items[irandom(ItemType.Length - 2)];
-									} until (!array_contains(item.ignore_in, room));
+										item = global.board_items[irandom(ItemType.Length - 1)];
+									} until (item.id != ItemType.ItemBag && !array_contains(item.ignore_in, room));
 									
 									array_push(global.bag_items, item);
 								}

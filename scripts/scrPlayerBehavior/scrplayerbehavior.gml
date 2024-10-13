@@ -82,6 +82,12 @@ function player_shoot(speed = null, direction = null) {
 			}
 			break;
 			
+		case rMinigame4vs_Treasure:
+			if (network_id == global.player_id) {
+				objMinigameController.trophy_obtain = false;
+			}
+			break;
+			
 		case rMinigame2vs2_Duel:
 			with (objMinigameController) {
 				can_shoot = player_can_shoot[other.network_id - 1];

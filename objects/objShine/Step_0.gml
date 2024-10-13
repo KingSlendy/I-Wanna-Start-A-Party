@@ -34,6 +34,10 @@ if (spawning) {
 				}
 			}
 			
+			with (objItemCloudAnimation) {
+				alarm_call(3, 1);
+			}
+			
 			instance_destroy();
 		}
 	}

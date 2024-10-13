@@ -57,6 +57,7 @@ function space_directions() {
 }
 
 space_shine = false;
+space_was_shine = false;
 
 if (image_index == SpaceType.Shine) {
 	space_shine = true;
@@ -65,6 +66,7 @@ if (image_index == SpaceType.Shine) {
 
 event = null;
 glowing = false;
+indicator = false;
 
 function space_glow(state) {
 	glowing = state;
@@ -72,6 +74,16 @@ function space_glow(state) {
 	if (glowing) {
 		audio_play_sound(sndSpacePass, 0, false);
 	}
+}
+
+function space_is_passing() {
+	return (array_contains([
+		SpaceType.Shop,
+		SpaceType.Blackhole,
+		SpaceType.Shine,
+		SpaceType.PathEvent,
+		SpaceType.PathChange
+	], image_index));
 }
 
 function space_passing_event() {

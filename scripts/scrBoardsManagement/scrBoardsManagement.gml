@@ -73,22 +73,6 @@ function board_hotland_annoying_dog() {
 	}
 }
 
-function board_baba_handler() {
-	tile_image_index += tile_image_speed * (50 / game_get_speed(gamespeed_fps));
-	tile_image_index %= 3;
-
-	for (var i = 1; i <= 3; i++) {
-		layer_set_visible("Decoration_" + string(i), false);
-		layer_set_visible("Tiling_" + string(i), false);
-		layer_set_visible("Structure_" + string(i), false);
-	}
-
-	var index = floor(tile_image_index) + 1;
-	layer_set_visible("Decoration_" + string(index), true);
-	layer_set_visible("Tiling_" + string(index), true);
-	layer_set_visible("Structure_" + string(index), true);
-}
-
 function board_baba_blocks(block_id) {
 	global.baba_block_id = block_id;
 	
@@ -205,7 +189,6 @@ function board_dreams_teleports(reference) {
 			
 			player.x = x + 16;
 			player.y = y + 16;
-			
 			break;
 		}
 	}
@@ -218,26 +201,8 @@ function board_dreams_teleports(reference) {
 		buffer_write_data(buffer_u8, reference);
 		network_send_tcp_packet();
 	}
-}
-
-function board_hyrule_handler() {
-	if (global.board_light != prev_board_light) {
-		var layers = [
-			"Background",
-			"Structure",
-			"House",
-			"Road",
-			"Direction",
-			"Misc"
-		];
 	
-		for (var i = 0; i < array_length(layers); i++) {
-			layer_set_visible(layers[i] + "_Light", global.board_light);
-			layer_set_visible(layers[i] + "_Dark", !global.board_light);
-		}
-	
-		prev_board_light = global.board_light;
-	}
+	return null;
 }
 
 function board_nsanity_return() {
@@ -342,12 +307,6 @@ function board_world_ghost_shines(network = true) {
 	}
 }
 
-function board_fasf_handler() {
-	with (objBoardFASFBGManipulation) {
-		apply_color_fx();
-	}
-}
-
 function board_fasf_teleports(reference) {
 	var pick_reference = reference;
 	
@@ -385,7 +344,7 @@ function board_fasf_teleports(reference) {
 		network_send_tcp_packet();
 	}
 	
-	return 
+	return null;
 }
 
 function board_fasf_set_event(mode = false) {

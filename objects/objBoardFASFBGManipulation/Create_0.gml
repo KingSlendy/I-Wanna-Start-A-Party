@@ -15,7 +15,7 @@ last_space_mode = null;
 
 function apply_color_fx() {
 	if (global.board_fasf_space_mode == last_space_mode) {
-		//return;
+		return;
 	}
 	
 	var color = [0.0, 0.0, 0.0];
@@ -27,6 +27,7 @@ function apply_color_fx() {
 				intensity = 0.0;
 			} else {
 				color = [1.0, 0.0, 0.0];
+				achieve_trophy(82);
 			}
 			break;
 			

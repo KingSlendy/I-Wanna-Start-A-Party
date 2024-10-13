@@ -273,7 +273,6 @@ function player_write_data() {
 		case PlayerDataMode.Kart:
 			buffer_write_data(buffer_s32, z);
 			buffer_write_data(buffer_u16, direction);
-			buffer_write_data(buffer_bool, lookBehind);
 			buffer_write_data(buffer_u8, drawTex);
 			break;
 	}
@@ -339,7 +338,6 @@ function player_read_data(buffer) {
 			case PlayerDataMode.Kart:
 				z = buffer_read(buffer, buffer_s32);
 				direction = buffer_read(buffer, buffer_u16);
-				lookBehind = buffer_read(buffer, buffer_bool);
 				drawTex = buffer_read(buffer, buffer_u8);
 				break;
 		}

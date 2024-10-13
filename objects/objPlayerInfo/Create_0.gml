@@ -74,7 +74,6 @@ function can_map() {
 		player.object_index == objPlayerBoard &&
 		!player.has_hit &&
 		player.follow_path == null &&
-		!instance_exists(objDice) &&
 		!instance_exists(objHiddenChest) &&
 		!instance_exists(objStatChange) &&
 		!instance_exists(objItemAnimation) &&

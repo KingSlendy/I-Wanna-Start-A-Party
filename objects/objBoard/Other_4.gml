@@ -56,13 +56,14 @@ switch (room) {
 	
 		if (!global.board_day) {
 			layer_set_visible("Night", true);
+			layer_set_visible("Misc_Day", false);
+			layer_set_visible("Misc_Night", true);
 		}
 		break;
 	
 	case rBoardHotland: case rBoardPallet: global.shine_spawn_count = 2; break;
 	
 	case rBoardBaba:
-		global.board_handler = board_baba_handler;
 		reset_seed_inline();
 	
 		for (var i = 0; i < array_length(global.baba_blocks); i++) {
@@ -92,17 +93,10 @@ switch (room) {
 		global.min_shop_coins = price;
 		break;
 	
-	case rBoardHyrule:
-		global.board_handler = board_hyrule_handler;
-		global.shine_spawn_count = 3;
-		break;
+	case rBoardHyrule:global.shine_spawn_count = 3; break;
 	
 	case rBoardNsanity:
 		layer_background_xscale(layer_back_id, camera_get_view_width(view_camera[0]) / sprite_get_width(sprBkgBoardNsanity));
 		layer_background_yscale(layer_back_id, camera_get_view_height(view_camera[0]) / sprite_get_height(sprBkgBoardNsanity));
-		break;
-		
-	case rBoardFASF:
-		global.board_handler = board_fasf_handler;
 		break;
 }

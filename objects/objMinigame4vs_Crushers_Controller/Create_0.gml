@@ -46,6 +46,10 @@ alarm_create(4, function() {
 			array_shuffle_ext(crusher_list);
 		
 			with (crusher_list[0]) {
+				if (other.crusher_count == 0) {
+					first = true;
+				}
+					
 				alarm_instant(0);
 			}
 		}

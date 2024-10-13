@@ -41,4 +41,5 @@ event_inherited();
 with (objCamera) {
 	//target_follow = focus_player_by_id();
 	boundaries = true;
+	camera_correct_position(id);
 }

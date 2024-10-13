@@ -67,9 +67,12 @@ alarm_create(function() {
 	}
 
 	player.frozen = false;
-	instance_create_layer(384, 480, "Collisions", objMinigame4vs_Slime_Next, {
-		image_xscale: 5
-	});
+	
+	if (!instance_exists(objMinigame4vs_Slime_Next)) {
+		instance_create_layer(384, 480, "Collisions", objMinigame4vs_Slime_Next, {
+			image_xscale: 5
+		});
+	}
 	
 	with (objMinigameController) {
 		alarm_instant(5);

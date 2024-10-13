@@ -57,7 +57,9 @@ alarm_create(function() {
 	}
 	
 	if (is_player_turn()) {
-		if (player_info_by_id(network_id).item_effect == ItemType.TripleDice) {
+		var player_info = player_info_by_id(network_id);
+		
+		if (player_info.item_effect == ItemType.TripleDice) {
 			if (network_id == global.player_id) {
 				if (global.dice_roll >= 25) {
 					achieve_trophy(20);
@@ -69,7 +71,7 @@ alarm_create(function() {
 			if (rolled_same) {
 				start_dialogue([
 					new Message(language_get_text("PARTY_ITEM_ROLLED_TRIPLES"),, function() {
-						change_coins(30, CoinChangeType.Gain).final_action = board_advance;
+						change_coins(50, CoinChangeType.Gain).final_action = board_advance;
 					})
 				]);
 				
@@ -81,7 +83,7 @@ alarm_create(function() {
 			}
 		}
 	
-		if (player_info_by_id(network_id).item_effect == ItemType.DoubleDice) {
+		if (player_info.item_effect == ItemType.DoubleDice) {
 			if (rolled_same) {
 				start_dialogue([
 					new Message(language_get_text("PARTY_ITEM_ROLLED_DOUBLES"),, function() {
@@ -98,5 +100,6 @@ alarm_create(function() {
 		}
 	}
 	
+	roll_path_finding();
 	board_advance();
 });

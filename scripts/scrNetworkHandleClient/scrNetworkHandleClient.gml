@@ -807,31 +807,31 @@ f[$ ClientTCP.ItemAnimation] = function(buffer) {
 }
 
 f[$ ClientTCP.ItemStickyHandAnimation_StealHand] = function(buffer) {
-	with (objItemAnimation) {
+	with (objItemStickyHandAnimation) {
 		steal_hand(false);
 	}
 }
 
 f[$ ClientTCP.ItemStickyHandAnimation_DestroyHand] = function(buffer) {
-	with (objItemAnimation) {
+	with (objItemStickyHandAnimation) {
 		destroy_hand(false);
 	}
 }
 
 f[$ ClientTCP.ItemSuperStickyHandAnimation_TurnHand] = function(buffer) {
-	with (objItemAnimation) {
+	with (objItemSuperStickyHandAnimation) {
 		turn_hand(false);
 	}
 }
 
 f[$ ClientTCP.ItemSuperStickyHandAnimation_StealHand] = function(buffer) {
-	with (objItemAnimation) {
+	with (objItemSuperStickyHandAnimation) {
 		steal_hand(false);
 	}
 }
 
 f[$ ClientTCP.ItemSuperStickyHandAnimation_DestroyHand] = function(buffer) {
-	with (objItemAnimation) {
+	with (objItemSuperStickyHandAnimation) {
 		destroy_hand(false);
 	}
 }

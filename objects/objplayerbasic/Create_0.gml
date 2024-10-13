@@ -20,7 +20,7 @@ alarm_create(0, function() {
 });
 
 alarm_create(1, function() {
-	var turn = player_info_by_turn(network_id).turn - 1;
+	var turn = player_info_by_id(network_id).turn - 1;
 	
 	with (objMinigameController) {
 		current_input[turn] += reset_input[turn];
@@ -35,19 +35,21 @@ alarm_create(1, function() {
 	
 	var block = instance_place(x, y + 1, objBlock);
 	
-	with (block) {
-		if (image_blend == c_white) {
-			image_blend = c_orange;
+	if (block != noone) {
+		with (block) {
+			if (image_blend == c_white) {
+				image_blend = c_orange;
+			}
 		}
-	}
 	
-	buffer_seek_begin();
-	buffer_write_action(ClientTCP.Minigame4vs_Leap_Input);
-	buffer_write_data(buffer_u8, turn);
-	buffer_write_data(buffer_u8, objMinigameController.current_input[turn]);
-	buffer_write_data(buffer_s16, block.x);
-	buffer_write_data(buffer_s16, block.y);
-	network_send_tcp_packet();
+		buffer_seek_begin();
+		buffer_write_action(ClientTCP.Minigame4vs_Leap_Input);
+		buffer_write_data(buffer_u8, turn);
+		buffer_write_data(buffer_u8, objMinigameController.current_input[turn]);
+		buffer_write_data(buffer_s16, block.x);
+		buffer_write_data(buffer_s16, block.y);
+		network_send_tcp_packet();
+	}
 });
 
 alarm_frames(0, 1);

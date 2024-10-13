@@ -55,7 +55,7 @@ function items_init() {
 			return false;
 		}, [rBoardNsanity]),
 	
-		new Item(ItemType.Ice, language_get_text("PARTY_ITEM_ICE_NAME"), language_get_text("PARTY_ITEM_ICE_EFFECT"), sprItemIce, 12, objItemIceAnimation,, function() {
+		new Item(ItemType.Ice, language_get_text("PARTY_ITEM_ICE_NAME"), language_get_text("PARTY_ITEM_ICE_EFFECT"), sprItemIce, 15, objItemIceAnimation,, function() {
 			for (var i = 1; i <= global.player_max; i++) {
 				if (i == global.player_turn) {
 					continue;
@@ -134,7 +134,7 @@ function items_init() {
 			return (other_has_items);
 		}),
 		
-		new Item(ItemType.Cloud, language_get_text("PARTY_ITEM_CLOUD_NAME"), language_get_text("PARTY_ITEM_CLOUD_EFFECT"), sprItemCloud, 15),
+		new Item(ItemType.Cloud, language_get_text("PARTY_ITEM_CLOUD_NAME"), language_get_text("PARTY_ITEM_CLOUD_EFFECT"), sprItemCloud, 15, objItemCloudAnimation,,, [rBoardNsanity]),
 		new Item(ItemType.Medal, language_get_text("PARTY_ITEM_MEDAL_NAME"), language_get_text("PARTY_ITEM_MEDAL_EFFECT"), sprItemMedal, 50)
 	];
 }

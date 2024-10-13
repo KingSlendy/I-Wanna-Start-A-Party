@@ -63,11 +63,6 @@ if (points_draw) {
 			var width = camera_get_view_width(camera);
 			var height = camera_get_view_height(camera);
 			
-			if (room == rMinigame4vs_Crates) {
-				width *= 2;
-				height *= 2;
-			}
-			
 			switch (room) {
 				case rMinigame4vs_Crates:
 					width *= 2;

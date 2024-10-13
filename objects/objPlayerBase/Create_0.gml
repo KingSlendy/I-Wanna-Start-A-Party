@@ -19,7 +19,7 @@ function change_to_object(obj) {
 	a.network_name = network_name;
 	a.skin = skin;
 	
-	if (skin != null) {
+	if (!IS_BOARD && skin != null) {
 		a.sprite_index = skin[$ "Idle"];
 	}
 	

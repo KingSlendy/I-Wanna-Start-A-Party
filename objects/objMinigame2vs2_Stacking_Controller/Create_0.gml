@@ -69,7 +69,7 @@ alarm_create(4, function() {
 	c = instance_create_layer(800, irandom_range(48, 176), "Coins", objMinigame2vs2_Stacking_CoinBounce);
 	c.hspd = -irandom_range(3, 7);
 	
-	alarm_call(4, random_range(2, 3));
+	alarm_call(4, random_range(1.5, 2.5));
 });
 
 alarm_override(11, function() {

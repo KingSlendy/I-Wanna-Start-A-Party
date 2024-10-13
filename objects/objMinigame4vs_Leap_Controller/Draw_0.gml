@@ -7,6 +7,10 @@ if (!show_input) {
 var view = view_current;
 
 for (var i = current_input[view]; i < array_length(input_list); i++) {
+	if (i - currrent_input[view] > 4) {
+		continue;
+	}
+	
 	if (i == current_input[view] && stall_input[view] || i == array_length(input_list) - 1) {
 		continue;
 	}

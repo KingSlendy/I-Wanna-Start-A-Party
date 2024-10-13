@@ -13,7 +13,7 @@ if (instance_exists(objLastTurns)) {
 if (room == rBoardHyrule) {
 	reset_seed_inline();
 	
-	if (global.board_dark_chance > random(1)) {
+	if (chance(global.board_dark_chance)) {
 		instance_create_layer(0, 0, "Managers", objBoardHyruleWorldTransition);
 		
 		if (global.board_light) {

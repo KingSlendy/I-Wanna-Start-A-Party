@@ -1,0 +1,24 @@
+{
+  "$GMPath":"",
+  "%Name":"pthMinigame4vs_Karts_CPU_1",
+  "closed":false,
+  "kind":1,
+  "name":"pthMinigame4vs_Karts_CPU_1",
+  "parent":{
+    "name":"Karts",
+    "path":"folders/Paths/Minigames/4vs/Karts.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":920.0,"y":424.0,},
+    {"speed":100.0,"x":920.0,"y":384.0,},
+    {"speed":100.0,"x":928.0,"y":344.0,},
+    {"speed":100.0,"x":936.0,"y":296.0,},
+    {"speed":100.0,"x":944.0,"y":248.0,},
+    {"speed":100.0,"x":936.0,"y":216.0,},
+    {"speed":100.0,"x":928.0,"y":168.0,},
+    {"speed":100.0,"x":904.0,"y":128.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

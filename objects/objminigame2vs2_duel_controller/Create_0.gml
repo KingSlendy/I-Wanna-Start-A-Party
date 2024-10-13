@@ -140,7 +140,6 @@ alarm_create(7, function() {
 });
 
 alarm_create(8, function() {
-	show_mark = false;
 	fake_mark = false;
 	next_seed_inline();
 	var time = irandom_range(0.5, 1.5);
@@ -150,6 +149,7 @@ alarm_create(8, function() {
 		array_push(cpu_shot_delay, ceil(get_frames(random_range(time - 0.05, time + 0.6))));
 	}
 
+	music_resume();
 	alarm_call(4, time);
 });
 

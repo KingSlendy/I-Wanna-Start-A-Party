@@ -6,6 +6,7 @@ minigame_players = function() {
 		shoot_times = 0;
 	}
 }
+
 minigame_time_end = function() {
 	with (focus_player_by_turn(player_turn)) {
 		player_kill();
@@ -22,8 +23,6 @@ slime_annoy = 0;
 
 function unfreeze_player() {
 	alarm_stop(4);
-	instance_destroy(objMinigame4vs_Slime_Blocking);
-	instance_destroy(objMinigame4vs_Slime_Next);
 	
 	if (instance_exists(objMinigame4vs_Slime_Block)) {
 		objMinigame4vs_Slime_Block.scale_target = 0;
