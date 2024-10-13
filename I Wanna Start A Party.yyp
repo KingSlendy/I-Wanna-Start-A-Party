@@ -666,7 +666,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.8.0.169",
   },
   "name":"I Wanna Start A Party",
   "resources":[
@@ -859,6 +859,7 @@
     {"id":{"name":"objMinigame4vs_Blocks_Controller","path":"objects/objMinigame4vs_Blocks_Controller/objMinigame4vs_Blocks_Controller.yy",},},
     {"id":{"name":"objMinigame4vs_Blocks_Spike","path":"objects/objMinigame4vs_Blocks_Spike/objMinigame4vs_Blocks_Spike.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Controller","path":"objects/objMinigame4vs_Bubble_Controller/objMinigame4vs_Bubble_Controller.yy",},},
+    {"id":{"name":"objMinigame4vs_Bubble_Cooldown","path":"objects/objMinigame4vs_Bubble_Cooldown/objMinigame4vs_Bubble_Cooldown.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Goal","path":"objects/objMinigame4vs_Bubble_Goal/objMinigame4vs_Bubble_Goal.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Spike","path":"objects/objMinigame4vs_Bubble_Spike/objMinigame4vs_Bubble_Spike.yy",},},
     {"id":{"name":"objMinigame4vs_Bugs_Bug","path":"objects/objMinigame4vs_Bugs_Bug/objMinigame4vs_Bugs_Bug.yy",},},

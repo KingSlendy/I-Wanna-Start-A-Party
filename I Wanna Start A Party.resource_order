@@ -746,6 +746,7 @@
     {"name":"objMinigame2vs2_Stacking_Thorns","order":3,"path":"objects/objMinigame2vs2_Stacking_Thorns/objMinigame2vs2_Stacking_Thorns.yy",},
     {"name":"objMinigame4vs_Blocks_Block","order":1,"path":"objects/objMinigame4vs_Blocks_Block/objMinigame4vs_Blocks_Block.yy",},
     {"name":"objMinigame4vs_Blocks_Spike","order":2,"path":"objects/objMinigame4vs_Blocks_Spike/objMinigame4vs_Blocks_Spike.yy",},
+    {"name":"objMinigame4vs_Bubble_Cooldown","order":3,"path":"objects/objMinigame4vs_Bubble_Cooldown/objMinigame4vs_Bubble_Cooldown.yy",},
     {"name":"objMinigame4vs_Bubble_Goal","order":1,"path":"objects/objMinigame4vs_Bubble_Goal/objMinigame4vs_Bubble_Goal.yy",},
     {"name":"objMinigame4vs_Bubble_Spike","order":2,"path":"objects/objMinigame4vs_Bubble_Spike/objMinigame4vs_Bubble_Spike.yy",},
     {"name":"objMinigame4vs_Bugs_Bug","order":1,"path":"objects/objMinigame4vs_Bugs_Bug/objMinigame4vs_Bugs_Bug.yy",},

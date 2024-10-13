@@ -21,3 +21,9 @@ switch (objMinigameController.places[? network_id]) {
 alarm_call(0, recover);
 alarm_call(1, recover + 1);
 audio_play_sound(sndDeath, 0, false);
+
+
+var separation_bar = 8;
+// Create cooldown bar
+var cooldown_instance_bar = instance_create_layer(x, bbox_top - separation_bar, layer, objMinigame4vs_Bubble_Cooldown);
+	cooldown_instance_bar . cooldown = get_frames(recover);
