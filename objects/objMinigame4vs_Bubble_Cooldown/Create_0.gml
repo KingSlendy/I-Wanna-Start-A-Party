@@ -1,6 +1,6 @@
 /// @desc
 pixel_sprite = sprMinigame2vs2_Soccer_UI_Point1x1;
-outline_sprite = sprMinigame2vs2_Soccer_UI_Outline;
+outline_sprite = sprMinigame4vs_Bubble_CooldownOutlineBar;
 bar_width = 48;
 bar_height = 10;
 

@@ -1947,6 +1947,7 @@
     {"name":"sprMinigame2vs2_Stacking_Thorns","order":2,"path":"sprites/sprMinigame2vs2_Stacking_Thorns/sprMinigame2vs2_Stacking_Thorns.yy",},
     {"name":"sprMinigame4vs_Blocks_Spike","order":1,"path":"sprites/sprMinigame4vs_Blocks_Spike/sprMinigame4vs_Blocks_Spike.yy",},
     {"name":"sprMinigame4vs_Bubble_Arrow","order":2,"path":"sprites/sprMinigame4vs_Bubble_Arrow/sprMinigame4vs_Bubble_Arrow.yy",},
+    {"name":"sprMinigame4vs_Bubble_CooldownOutlineBar","order":3,"path":"sprites/sprMinigame4vs_Bubble_CooldownOutlineBar/sprMinigame4vs_Bubble_CooldownOutlineBar.yy",},
     {"name":"sprMinigame4vs_Bubble_Spike","order":1,"path":"sprites/sprMinigame4vs_Bubble_Spike/sprMinigame4vs_Bubble_Spike.yy",},
     {"name":"sprMinigame4vs_Bugs_BugB","order":2,"path":"sprites/sprMinigame4vs_Bugs_BugB/sprMinigame4vs_Bugs_BugB.yy",},
     {"name":"sprMinigame4vs_Bugs_BugG","order":1,"path":"sprites/sprMinigame4vs_Bugs_BugG/sprMinigame4vs_Bugs_BugG.yy",},
