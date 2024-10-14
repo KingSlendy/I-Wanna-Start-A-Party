@@ -42,14 +42,14 @@ function random_roll() {
 	} until (roll != previous);
 	
 	if (global.board_started) {
-		//if (is_player_turn()) {
-		//	roll = 1;
-		//} else {
-		//	roll = 1;
-		//}
+		if (is_player_turn()) {
+			roll = 1;
+		} else {
+			roll = 1;
+		}
 
-		//roll = max_roll;
-		//roll = min_roll;
+		roll = max_roll;
+		roll = min_roll;
 		roll = 300;
 	}
 }

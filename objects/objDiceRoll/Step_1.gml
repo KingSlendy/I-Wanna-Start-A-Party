@@ -24,6 +24,11 @@ if (follow_target_x && vspeed == 0 && target_x != null) {
 		if (!by_item) {
 			global.dice_roll = full_roll;
 			alarm_frames(0, 1);
+			
+		}
+		else
+		{
+			audio_play_sound(sndItemDoubleDice_Result, 0, false);
 		}
 		
 		target_x = null;

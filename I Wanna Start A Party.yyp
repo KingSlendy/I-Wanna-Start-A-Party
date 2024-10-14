@@ -666,7 +666,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.8.0.169",
   },
   "name":"I Wanna Start A Party",
   "resources":[
@@ -859,6 +859,7 @@
     {"id":{"name":"objMinigame4vs_Blocks_Controller","path":"objects/objMinigame4vs_Blocks_Controller/objMinigame4vs_Blocks_Controller.yy",},},
     {"id":{"name":"objMinigame4vs_Blocks_Spike","path":"objects/objMinigame4vs_Blocks_Spike/objMinigame4vs_Blocks_Spike.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Controller","path":"objects/objMinigame4vs_Bubble_Controller/objMinigame4vs_Bubble_Controller.yy",},},
+    {"id":{"name":"objMinigame4vs_Bubble_Cooldown","path":"objects/objMinigame4vs_Bubble_Cooldown/objMinigame4vs_Bubble_Cooldown.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Goal","path":"objects/objMinigame4vs_Bubble_Goal/objMinigame4vs_Bubble_Goal.yy",},},
     {"id":{"name":"objMinigame4vs_Bubble_Spike","path":"objects/objMinigame4vs_Bubble_Spike/objMinigame4vs_Bubble_Spike.yy",},},
     {"id":{"name":"objMinigame4vs_Bugs_Bug","path":"objects/objMinigame4vs_Bugs_Bug/objMinigame4vs_Bugs_Bug.yy",},},
@@ -1502,6 +1503,8 @@
     {"id":{"name":"sndHiddenChestSpawn","path":"sounds/sndHiddenChestSpawn/sndHiddenChestSpawn.yy",},},
     {"id":{"name":"sndHit","path":"sounds/sndHit/sndHit.yy",},},
     {"id":{"name":"sndHurt","path":"sounds/sndHurt/sndHurt.yy",},},
+    {"id":{"name":"sndItemDoubleDice_Jackpot","path":"sounds/sndItemDoubleDice_Jackpot/sndItemDoubleDice_Jackpot.yy",},},
+    {"id":{"name":"sndItemDoubleDice_Result","path":"sounds/sndItemDoubleDice_Result/sndItemDoubleDice_Result.yy",},},
     {"id":{"name":"sndItemGain","path":"sounds/sndItemGain/sndItemGain.yy",},},
     {"id":{"name":"sndItemIceAnimation","path":"sounds/sndItemIceAnimation/sndItemIceAnimation.yy",},},
     {"id":{"name":"sndItemLose","path":"sounds/sndItemLose/sndItemLose.yy",},},
@@ -2391,6 +2394,7 @@
     {"id":{"name":"sprMinigame4vs_Blocks_Block","path":"sprites/sprMinigame4vs_Blocks_Block/sprMinigame4vs_Blocks_Block.yy",},},
     {"id":{"name":"sprMinigame4vs_Blocks_Spike","path":"sprites/sprMinigame4vs_Blocks_Spike/sprMinigame4vs_Blocks_Spike.yy",},},
     {"id":{"name":"sprMinigame4vs_Bubble_Arrow","path":"sprites/sprMinigame4vs_Bubble_Arrow/sprMinigame4vs_Bubble_Arrow.yy",},},
+    {"id":{"name":"sprMinigame4vs_Bubble_CooldownOutlineBar","path":"sprites/sprMinigame4vs_Bubble_CooldownOutlineBar/sprMinigame4vs_Bubble_CooldownOutlineBar.yy",},},
     {"id":{"name":"sprMinigame4vs_Bubble_Goal","path":"sprites/sprMinigame4vs_Bubble_Goal/sprMinigame4vs_Bubble_Goal.yy",},},
     {"id":{"name":"sprMinigame4vs_Bubble_Spike","path":"sprites/sprMinigame4vs_Bubble_Spike/sprMinigame4vs_Bubble_Spike.yy",},},
     {"id":{"name":"sprMinigame4vs_Bugs_BugB","path":"sprites/sprMinigame4vs_Bugs_BugB/sprMinigame4vs_Bugs_BugB.yy",},},
