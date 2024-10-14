@@ -104,6 +104,12 @@ mlp[$ bgmMinigame4vs_Bubble] = new LoopPoint(4.814, 51.957);
 mlp[$ bgmMinigame4vs_Golf] = new LoopPoint(1.380, 28.843);
 mlp[$ bgmMinigame4vs_Waka] = new LoopPoint(2.366, 41.383);
 mlp[$ bgmMinigame4vs_Jingle] = new LoopPoint(3.757, 28.691);
+mlp[$ bgmMinigame4vs_Treasure] = new LoopPoint(1.164, 29.710);
+mlp[$ bgmMinigame4vs_Crushers] = new LoopPoint(0.996, 30.989);
+mlp[$ bgmMinigame4vs_Clockwork] = new LoopPoint(4.270, 32.669);
+mlp[$ bgmMinigame4vs_Crates] = new LoopPoint(1.875, 31.848);
+mlp[$ bgmMinigame4vs_Leap] = new LoopPoint(2.407, 42.370);
+mlp[$ bgmMinigame4vs_Karts] = new LoopPoint(5.676, 27.008);
 #endregion
 	
 #region 1vs3
@@ -117,6 +123,7 @@ mlp[$ bgmMinigame1vs3_Hunt] = new LoopPoint(1.923, 23.618);
 mlp[$ bgmMinigame1vs3_Aiming] = new LoopPoint(4.396, 40.852);
 mlp[$ bgmMinigame1vs3_Host] = new LoopPoint(2.600, 32.601);
 mlp[$ bgmMinigame1vs3_House] = new LoopPoint(2.086, 37.002);
+mlp[$ bgmMinigame1vs3_Kardia] = new LoopPoint(2.066, 45.703);
 #endregion
 	
 #region 2vs2
@@ -130,7 +137,8 @@ mlp[$ bgmMinigame2vs2_Duos] = new LoopPoint(1.600, 35.859);
 mlp[$ bgmMinigame2vs2_Duel] = new LoopPoint(1.699, 19.974);
 mlp[$ bgmMinigame2vs2_Soccer] = new LoopPoint(2.020, 36.930);
 mlp[$ bgmMinigame2vs2_Idol] = new LoopPoint(4.831, 40.170);
-#endregion
+mlp[$ bgmMinigame2vs2_Castle] = new LoopPoint(14.842, 41.138);
+mlp[$ bgmMinigame2vs2_Stacking] = new LoopPoint(2.051, 32.484);
 #endregion
 	
 #region Results

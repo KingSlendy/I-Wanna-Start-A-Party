@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":96.0784,
+  "duration":43.625557,
   "name":"bgmMinigame4vs_Leap",
   "parent":{
     "name":"4vs",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame4vs_Leap.mp3",
+  "soundFile":"bgmMinigame4vs_Leap.ogg",
   "type":0,
   "volume":1.0,
 }

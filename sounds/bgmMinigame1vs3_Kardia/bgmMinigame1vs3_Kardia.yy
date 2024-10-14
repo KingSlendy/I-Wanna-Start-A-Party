@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":65.98535,
+  "duration":65.56805,
   "name":"bgmMinigame1vs3_Kardia",
   "parent":{
     "name":"1vs3",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame1vs3_Kardia.mp3",
+  "soundFile":"bgmMinigame1vs3_Kardia.ogg",
   "type":0,
   "volume":1.0,
 }

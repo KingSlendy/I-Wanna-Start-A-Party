@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":187.89587,
+  "duration":31.258163,
   "name":"bgmMinigame4vs_Treasure",
   "parent":{
     "name":"4vs",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame4vs_Treasure.mp3",
+  "soundFile":"bgmMinigame4vs_Treasure.ogg",
   "type":0,
   "volume":1.0,
 }

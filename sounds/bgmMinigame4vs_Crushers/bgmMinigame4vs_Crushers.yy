@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":70.06045,
+  "duration":32.556553,
   "name":"bgmMinigame4vs_Crushers",
   "parent":{
     "name":"4vs",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame4vs_Crushers.mp3",
+  "soundFile":"bgmMinigame4vs_Crushers.ogg",
   "type":0,
   "volume":1.0,
 }
