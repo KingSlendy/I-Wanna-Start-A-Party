@@ -7,6 +7,9 @@ follow_x = false;
 follow_y = false;
 by_item = (instance_number(object_index) > 1);
 
+state = 0;
+got_jackpot = false
+
 alarms_init(1);
 
 alarm_create(function() {
@@ -79,6 +82,9 @@ alarm_create(function() {
 					achieve_trophy(36);
 				}
 				
+				got_jackpot = true;
+				state = 1;
+				
 				return;
 			}
 		}
@@ -94,6 +100,9 @@ alarm_create(function() {
 				if (network_id == global.player_id) {
 					achieve_trophy(19);
 				}
+				
+				got_jackpot = true;
+				state = 1;
 				
 				return;
 			}

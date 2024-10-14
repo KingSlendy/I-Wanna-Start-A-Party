@@ -1296,6 +1296,8 @@
     {"name":"sndHiddenChestSpawn","order":11,"path":"sounds/sndHiddenChestSpawn/sndHiddenChestSpawn.yy",},
     {"name":"sndHit","order":2,"path":"sounds/sndHit/sndHit.yy",},
     {"name":"sndHurt","order":9,"path":"sounds/sndHurt/sndHurt.yy",},
+    {"name":"sndItemDoubleDice_Jackpot","order":27,"path":"sounds/sndItemDoubleDice_Jackpot/sndItemDoubleDice_Jackpot.yy",},
+    {"name":"sndItemDoubleDice_Result","order":26,"path":"sounds/sndItemDoubleDice_Result/sndItemDoubleDice_Result.yy",},
     {"name":"sndItemGain","order":8,"path":"sounds/sndItemGain/sndItemGain.yy",},
     {"name":"sndItemIceAnimation","order":2,"path":"sounds/sndItemIceAnimation/sndItemIceAnimation.yy",},
     {"name":"sndItemLose","order":9,"path":"sounds/sndItemLose/sndItemLose.yy",},

@@ -1503,6 +1503,8 @@
     {"id":{"name":"sndHiddenChestSpawn","path":"sounds/sndHiddenChestSpawn/sndHiddenChestSpawn.yy",},},
     {"id":{"name":"sndHit","path":"sounds/sndHit/sndHit.yy",},},
     {"id":{"name":"sndHurt","path":"sounds/sndHurt/sndHurt.yy",},},
+    {"id":{"name":"sndItemDoubleDice_Jackpot","path":"sounds/sndItemDoubleDice_Jackpot/sndItemDoubleDice_Jackpot.yy",},},
+    {"id":{"name":"sndItemDoubleDice_Result","path":"sounds/sndItemDoubleDice_Result/sndItemDoubleDice_Result.yy",},},
     {"id":{"name":"sndItemGain","path":"sounds/sndItemGain/sndItemGain.yy",},},
     {"id":{"name":"sndItemIceAnimation","path":"sounds/sndItemIceAnimation/sndItemIceAnimation.yy",},},
     {"id":{"name":"sndItemLose","path":"sounds/sndItemLose/sndItemLose.yy",},},
