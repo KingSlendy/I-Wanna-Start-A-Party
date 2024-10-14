@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":65.85473,
+  "duration":65.70136,
   "name":"bgmMinigame2vs2_Castle",
   "parent":{
     "name":"2vs2",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame2vs2_Castle.mp3",
+  "soundFile":"bgmMinigame2vs2_Castle.ogg",
   "type":0,
   "volume":1.0,
 }

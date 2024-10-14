@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":187.97717,
+  "duration":31.400885,
   "name":"bgmMinigame4vs_Karts",
   "parent":{
     "name":"4vs",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"bgmMinigame4vs_Karts.mp3",
+  "soundFile":"bgmMinigame4vs_Karts.ogg",
   "type":0,
   "volume":1.0,
 }
