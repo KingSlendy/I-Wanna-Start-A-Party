@@ -2,9 +2,17 @@ event_inherited();
 
 minigame_camera = CameraMode.Split4;
 minigame_time = 30;
+action_end = function() {
+	if (trophy_crates) {
+		achieve_trophy(88);
+	}
+}
+
 points_draw = true;
 
 player_type = objPlayerStatic;
+
+trophy_crates = true;
 
 part_system = part_system_create();
 

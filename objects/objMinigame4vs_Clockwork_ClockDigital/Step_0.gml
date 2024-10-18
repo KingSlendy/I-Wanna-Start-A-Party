@@ -4,7 +4,7 @@ if (objMinigameController.info.is_finished || !objMinigame4vs_Clockwork_ClockAna
 
 var time;
 
-//This stores the time the digital clock needs to be set to, both in 24 hour or AM/PM formats.
+//This stores the time the digital clock needs to be set to, both in 24 hour and AM/PM formats.
 with (objMinigame4vs_Clockwork_ClockAnalog) {
 	time = [
 		[target_hour div 10, (target_hour + 12) div 10],
@@ -40,4 +40,20 @@ if (!correct_time) {
 
 if (correct_time) {
 	clock_digital_correct_time();
+}
+
+if (player.network_id == global.player_id) {
+	var all_sections_off = true;
+
+	for (var i = 0; i < number_digits; i++) {
+		for (var j = 0; j < number_sections; j++) {
+			if (numbers[i][j]) {
+				all_sections_off = false;
+			}
+		}
+	}
+
+	if (all_sections_off) {
+		achieve_trophy(86);
+	}
 }

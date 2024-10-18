@@ -51,6 +51,34 @@ if (!picture_divisions_fade) {
 			minigame_finish(true);
 		}
 	}
+	
+	if ((minigame1vs3_is_solo(global.player_id) && x < 400) || (!minigame1vs3_is_solo(global.player_id) && x > 400)) {
+		var picture_mismatches = true;
+	
+		for (var i = 0; i < array_length(pictures); i++) {
+			if (i == picture_chosen) {
+				continue;
+			}
+			
+			picture_mismatches = true;
+			
+			for (var r = 0; r < picture_divisions; r++) {
+				for (var c = 0; c < picture_divisions; c++) {
+					if (!picture_locked[r][c] || picture_sequence[r][c][picture_current[r][c]] != i) {
+						picture_mismatches = false;
+					}
+				}
+			}
+			
+			if (picture_mismatches) {
+				break;
+			}
+		}
+
+		if (picture_mismatches) {
+			achieve_trophy(93);
+		}
+	}
 } else {
 	picture_divisions_alpha -= 0.03;
 }

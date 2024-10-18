@@ -1,1 +1,1 @@
-checkDir = 90;
+check_dir = 90;

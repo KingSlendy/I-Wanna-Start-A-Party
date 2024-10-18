@@ -1,12 +1,22 @@
 event_inherited();
 
 minigame_camera = CameraMode.Split4;
+minigame_players = function() {
+	with (objPlayerBase) {
+		agent = null;
+		drift_input = false;
+		agent_offset_x = 0;
+		agent_offset_y = 0;
+		agent_offset_delay = 0;
+	}
+}
+
 action_end = function() {
 	with (objPlayerBase) {
 		if (is_player_local(network_id)) {
 			speed = 0;
-			audio_stop_sound(engineSound);
-			audio_stop_sound(driftSound);
+			audio_stop_sound(engine_sound);
+			audio_stop_sound(drift_sound);
 		}
 	}
 }
@@ -159,6 +169,8 @@ d3d_model_vertex_normal_texture(model_pipe, -0.5, 0.5, 0, 0, 0, 1, 0, 1);
 d3d_model_vertex_normal_texture(model_pipe, 0.5, 0.5, 0, 0, 0, 1, 1, 1);
 d3d_model_primitive_end(model_pipe);
 
+trophy_spring = true;
+
 function kart_count_lap(network_id, network = true) {
 	minigame4vs_points(network_id, 1);
 	
@@ -181,3 +193,104 @@ function kart_count_lap(network_id, network = true) {
 		network_send_tcp_packet();
 	}
 }
+
+alarm_override(2, function() {
+	alarm_inherited(2);
+	
+	if (minigame_has_won() && trophy_spring) {
+		achieve_trophy(91);
+	}
+});
+
+alarm_override(11, function() {
+	for (var i = 2; i <= global.player_max; i++) {
+		var actions = check_player_actions_by_id(i);
+
+		if (actions == null) {
+			continue;
+		}
+		
+		var player = focus_player_by_id(i);
+		
+		with (player) {
+			if (agent == null) {
+				agent = instance_create_layer(x, y, "Actors", objMinigame4vs_Karts_CPU);
+			}
+			
+			if (point_distance(x, y, agent.x, agent.y) <= 100) {
+				agent.position = agent.path_position;
+			} else {
+				agent.path_position = agent.position;
+			}
+			
+			//agent.path_speed = random_range(3, 5);
+			
+			var free_path = function(angle, distance) {
+				mask_index = sprMinigame4vs_Karts_Line;
+				image_angle = angle;
+				image_xscale = distance / sprite_get_width(sprMinigame4vs_Karts_Line);
+				var result = (!place_meeting(x, y, [objBlock, objMinigame4vs_Karts_Spike]));
+				mask_index = sprMinigame4vs_Karts_Mask;
+				image_angle = 0;
+				image_xscale = 1;
+				return result;
+			}
+			
+			if (--agent_offset_delay <= 0) {
+				agent_offset_x = random_range(-10, 10);
+				agent_offset_y = random_range(-10, 10);
+				agent_offset_delay = get_frames(0.5);
+			}
+			
+			var dir = point_direction(x, y, agent.x + agent_offset_x, agent.y + agent_offset_y);
+			var diff = angle_difference(dir, direction);
+			var free_left = free_path(direction + 15, 50);
+			var free_right = free_path(direction - 15, 50);
+			
+			if (free_path(direction, 30) && !place_meeting(x, y, objBlock)) {
+				actions.up.press();
+			
+				if (abs(diff) > 3) {
+					if (abs(diff) >= 10) {
+						drift_input = true;
+					}
+					
+					if (diff > 0 && free_left) {
+						actions.left.press();
+					} else if (diff < 0 && free_right) {
+						actions.right.press();
+					}
+				} else {
+					if (!free_right) {
+						actions.left.press();
+					} else if (!free_left) {
+						actions.right.press();
+					}
+				}
+			} else {
+				if (place_meeting(x, y, objMinigame4vs_Karts_TrackCol)) {
+					actions.down.hold(50);
+				} else {
+					actions.down.hold(200);
+				}
+				
+				if (diff < 0 && free_path(direction - 15, 20)) {
+					actions.right.hold(20);
+				} else if (diff > 0 && free_path(direction + 15, 20)) {
+					actions.left.hold(20);
+				}
+			}
+			
+			if (drift_input) {
+				if (!place_meeting(x, y, objMinigame4vs_Karts_TrackCol)  || abs(diff) <= 1) {
+					actions.jump.release(true);
+					drift_input = false;
+				} else if (!actions.jump.held()) {
+					actions.jump.hold();
+				}
+			}
+		}
+	}
+
+	alarm_frames(11, 1);
+});

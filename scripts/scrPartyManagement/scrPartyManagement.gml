@@ -31,8 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 1;
 	//self.coins = 999;
-	self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.DoubleDice], null];
-	//self.items = [null, null, null];
+	//self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.DoubleDice], null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;
@@ -520,7 +519,6 @@ function roll_path_finding(space = null) {
 	global.path_spaces = [];
 	
 	with (objSpaces) {
-		visited = false;
 		indicator = false;
 	}
 	
@@ -533,17 +531,12 @@ function roll_space_path_finding(space, path_spaces) {
 	array_push(path_spaces, space);
 	
 	with (space) {
-		if (visited) {
-			continue;
-		}
-		
-		if (array_length(array_filter(path_spaces, function(x) { return (!x.space_is_passing()); })) - 1 == global.dice_roll) {
+		if (array_length(array_filter(path_spaces, function(x) { return (!x.space_is_passing()); })) == global.dice_roll) {
 			indicator = true;
 			continue;
 		}
 		
 		var space_all = (BOARD_NORMAL) ? space_directions_normal : space_directions_reverse;
-		visited = true;
 		
 		if (image_index == SpaceType.PathEvent) {
 			global.board_path_finding_look = true;
@@ -555,7 +548,7 @@ function roll_space_path_finding(space, path_spaces) {
 					
 					with (reference) {
 						var teleport = instance_place(x, y, objSpaces);
-						//space_all = (BOARD_NORMAL) ? teleport.space_directions_normal : teleport.space_directions_reverse;
+						space_all = (BOARD_NORMAL) ? teleport.space_directions_normal : teleport.space_directions_reverse;
 					}
 					break;
 			}
@@ -574,7 +567,6 @@ function roll_space_path_finding(space, path_spaces) {
 		}
 	}
 	
-	space.visited = false;
 	array_pop(path_spaces);
 }
 

@@ -56,7 +56,7 @@ alarm_override(11, function() {
 						teammate_dist = distance_to_object(spike);
 					}
 					
-					if (me_dist < teammate_dist) {
+					if (me_dist <= teammate_dist) {
 						follow_spike = spike;
 						break;
 					}

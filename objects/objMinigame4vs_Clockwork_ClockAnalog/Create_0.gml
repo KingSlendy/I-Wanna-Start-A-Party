@@ -127,6 +127,10 @@ alarm_create(function() {
 			minutes = target_minutes;
 			check_target_time = true;
 			
+			if (objMinigameController.trophy_obtain && target_hour == 0 && target_minutes == 0) {
+				achieve_trophy(87);
+			}
+			
 			with (objMinigameController) {
 				minigame_time = 20;
 				alarm_call(10, 1);

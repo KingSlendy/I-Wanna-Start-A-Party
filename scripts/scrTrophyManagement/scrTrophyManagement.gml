@@ -130,6 +130,7 @@ function trophies_init() {
 		new Trophy(8, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_36"), language_get_text("TROPHIES_DESCRIPTION_36"), language_get_text("TROPHIES_HINT_36")),
 		new Trophy(9, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_37"), language_get_text("TROPHIES_DESCRIPTION_37"), language_get_text("TROPHIES_HINT_37")),
 		new Trophy(15, TrophyRank.Gold, language_get_text("TROPHIES_NAME_38"), language_get_text("TROPHIES_DESCRIPTION_38"), language_get_text("TROPHIES_HINT_38")),
+		new Trophy(93, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_93"), language_get_text("TROPHIES_DESCRIPTION_93"), language_get_text("TROPHIES_HINT_93")),
 		new Trophy(29, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_39"), language_get_text("TROPHIES_DESCRIPTION_39"), language_get_text("TROPHIES_HINT_39")),
 		new Trophy(64, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_40"), language_get_text("TROPHIES_DESCRIPTION_40"), language_get_text("TROPHIES_HINT_40")),
 		new Trophy(39, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_41"), language_get_text("TROPHIES_DESCRIPTION_41"), language_get_text("TROPHIES_HINT_41")),
@@ -147,6 +148,11 @@ function trophies_init() {
 		new Trophy(81, TrophyRank.Gold, language_get_text("TROPHIES_NAME_81"), language_get_text("TROPHIES_DESCRIPTION_81"), language_get_text("TROPHIES_HINT_81")),
 		new Trophy(82, TrophyRank.Silver, language_get_text("TROPHIES_NAME_82"), language_get_text("TROPHIES_DESCRIPTION_82"), language_get_text("TROPHIES_HINT_82")),
 		new Trophy(86, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_86"), language_get_text("TROPHIES_DESCRIPTION_86"), language_get_text("TROPHIES_HINT_86")),
+		new Trophy(87, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_87"), language_get_text("TROPHIES_DESCRIPTION_87"), language_get_text("TROPHIES_HINT_87")),
+		new Trophy(88, TrophyRank.Platinum, language_get_text("TROPHIES_NAME_88"), language_get_text("TROPHIES_DESCRIPTION_88"), language_get_text("TROPHIES_HINT_88")),
+		new Trophy(89, TrophyRank.Silver, language_get_text("TROPHIES_NAME_89"), language_get_text("TROPHIES_DESCRIPTION_89"), language_get_text("TROPHIES_HINT_89")),
+		new Trophy(90, TrophyRank.Silver, language_get_text("TROPHIES_NAME_90"), language_get_text("TROPHIES_DESCRIPTION_90"), language_get_text("TROPHIES_HINT_90")),
+		new Trophy(92, TrophyRank.Silver, language_get_text("TROPHIES_NAME_92"), language_get_text("TROPHIES_DESCRIPTION_92"), language_get_text("TROPHIES_HINT_92")),
 	
 		//1vs3
 		new Trophy(19, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_53"), language_get_text("TROPHIES_DESCRIPTION_53"), language_get_text("TROPHIES_HINT_53")),
@@ -158,6 +164,7 @@ function trophies_init() {
 		new Trophy(77, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_59"), language_get_text("TROPHIES_DESCRIPTION_59"), language_get_text("TROPHIES_HINT_59")),
 		new Trophy(54, TrophyRank.Silver, language_get_text("TROPHIES_NAME_60"), language_get_text("TROPHIES_DESCRIPTION_60"), language_get_text("TROPHIES_HINT_60")),
 		new Trophy(53, TrophyRank.Silver, language_get_text("TROPHIES_NAME_61"), language_get_text("TROPHIES_DESCRIPTION_61"), language_get_text("TROPHIES_HINT_61")),
+		new Trophy(94, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_94"), language_get_text("TROPHIES_DESCRIPTION_94"), language_get_text("TROPHIES_HINT_94")),
 	
 		//2vs2
 		new Trophy(28, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_62"), language_get_text("TROPHIES_DESCRIPTION_62"), language_get_text("TROPHIES_HINT_62")),
@@ -170,6 +177,7 @@ function trophies_init() {
 		new Trophy(66, TrophyRank.Silver, language_get_text("TROPHIES_NAME_69"), language_get_text("TROPHIES_DESCRIPTION_69"), language_get_text("TROPHIES_HINT_69")),
 		new Trophy(50, TrophyRank.Bronze, language_get_text("TROPHIES_NAME_70"), language_get_text("TROPHIES_DESCRIPTION_70"), language_get_text("TROPHIES_HINT_70")),
 		new Trophy(85, TrophyRank.Gold, language_get_text("TROPHIES_NAME_85"), language_get_text("TROPHIES_DESCRIPTION_85"), language_get_text("TROPHIES_HINT_85")),
+		new Trophy(91, TrophyRank.Gold, language_get_text("TROPHIES_NAME_91"), language_get_text("TROPHIES_DESCRIPTION_91"), language_get_text("TROPHIES_HINT_91")),
 	
 		//Results
 		new Trophy(32, TrophyRank.Silver, language_get_text("TROPHIES_NAME_71"), language_get_text("TROPHIES_DESCRIPTION_71"), language_get_text("TROPHIES_HINT_71")),

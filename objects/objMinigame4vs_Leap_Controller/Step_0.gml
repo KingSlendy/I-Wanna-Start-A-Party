@@ -10,6 +10,7 @@ for (var i = 0; i < global.player_max; i++) {
 	}
 	
 	var input = input_list[current_input[i]];
+	var inverted = invert_list[current_input[i]];
 	//var index = array_get_index(input_actions, input);
 	//input_buffers[i][index]--;
 	//input_buffers[i][index] = max(input_buffers[i][index], 0);
@@ -24,7 +25,7 @@ for (var i = 0; i < global.player_max; i++) {
 		if (global.actions[$ action].pressed(player.network_id)) {
 			var was_correct = false;
 			
-			if (input == action) {
+			if ((!inverted && input == action) || (inverted && input != action)) {
 				was_correct = true;
 			}
 			

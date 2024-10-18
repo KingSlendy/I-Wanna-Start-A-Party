@@ -32,6 +32,10 @@ function crate_smash(network = true) {
 		
 		audio_play_sound(sndHurt, 0, false);
 		crate_explode();
+		
+		if (network_id == global.player_id) {
+			objMinigameController.trophy_obtain = false;
+		}
 	}
 	
 	if (network) {

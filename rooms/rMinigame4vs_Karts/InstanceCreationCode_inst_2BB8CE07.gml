@@ -1,2 +1,2 @@
 ID = 5;
-checkDir = 0;
+check_dir = 0;

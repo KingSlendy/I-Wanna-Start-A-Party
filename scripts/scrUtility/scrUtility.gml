@@ -196,3 +196,17 @@ function part_emitter_destroy_safe(particle_system, particle_emitter) {
 	}
 }
 #endregion
+
+function path_point_nearest(path, x, y, precision = 0.1) {
+	var priority = ds_priority_create();
+
+	for(var i = 0; i <= 1; i += precision / path_get_length(path)){
+	     var xx = path_get_x(path, i);
+	     var yy = path_get_y(path, i);
+	     ds_priority_add(priority, {path_x: xx, path_y: yy}, point_distance(xx, yy, x, y));
+	}
+
+	var solution = ds_priority_find_min(priority);
+	ds_priority_destroy(priority);
+	return solution;
+}

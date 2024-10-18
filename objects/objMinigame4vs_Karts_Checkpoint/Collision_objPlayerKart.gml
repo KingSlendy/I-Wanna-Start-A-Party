@@ -5,24 +5,28 @@ if (!is_player_local(player.network_id)) {
 }
 
 if (ID != 0) {
-    if (other.lapCheckPoint == ID - 1) {
-        other.lapCheckPoint = ID;
-        other.checkX = checkX;
-        other.checkY = checkY;
-        other.checkDir = checkDir;
-        //with (objKartsGame)
-            //event_user(5)
+    if (other.lap_checkpoint == ID - 1) {
+        other.lap_checkpoint = ID;
+        other.check_x = check_x;
+        other.check_y = check_y;
+        other.check_dir = check_dir;
+		
+		if (other.agent != null) {
+			other.agent.check_position = other.agent.path_position;
+		}
     }
-} else if (other.lapCheckPoint == numCPs - 1) {
-    other.checkX = checkX;
-    other.checkY = checkY;
-    other.checkDir = checkDir;
-	other.lapCheckPoint = 0;
+} else if (other.lap_checkpoint == num_cps - 1) {
+    other.check_x = check_x;
+    other.check_y = check_y;
+    other.check_dir = check_dir;
+	
+	if (other.agent != null) {
+		other.agent.check_position = other.agent.path_position;
+	}
+	
+	other.lap_checkpoint = 0;
 	
 	with (objMinigameController) {
 		kart_count_lap(player.network_id);
 	}
-	
-    //with (objKartsGame)
-        //event_user(5)
 }

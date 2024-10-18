@@ -135,7 +135,7 @@ function items_init() {
 		}),
 		
 		new Item(ItemType.Cloud, language_get_text("PARTY_ITEM_CLOUD_NAME"), language_get_text("PARTY_ITEM_CLOUD_EFFECT"), sprItemCloud, 15, objItemCloudAnimation,,, [rBoardNsanity]),
-		new Item(ItemType.Medal, language_get_text("PARTY_ITEM_MEDAL_NAME"), language_get_text("PARTY_ITEM_MEDAL_EFFECT"), sprItemMedal, 50)
+		new Item(ItemType.Medal, language_get_text("PARTY_ITEM_MEDAL_NAME"), language_get_text("PARTY_ITEM_MEDAL_EFFECT"), sprItemMedal, 60)
 	];
 }
 

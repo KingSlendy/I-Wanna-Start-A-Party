@@ -1,6 +1,13 @@
 event_inherited();
-surface_free(surf);
-sprite_delete(spotlight);
+
+if (surface_exists(surf)) {
+	surface_free(surf);
+}
+
+if (sprite_exists(spotlight)) {
+	sprite_delete(spotlight);
+}
+
 mp_grid_destroy(grid);
 
 with (objPlayerBase) {

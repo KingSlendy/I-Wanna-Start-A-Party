@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"72b46d4f-5563-4594-af42-64353f2f7012","name":"72b46d4f-5563-4594-af42-64353f2f7012","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"257cde9f-b06c-42b8-921e-466505a83a0f","name":"257cde9f-b06c-42b8-921e-466505a83a0f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":120,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"51c75b9d-b445-4fe3-a664-335fddc8a549","blendMode":0,"displayName":"default","isLocked":false,"name":"51c75b9d-b445-4fe3-a664-335fddc8a549","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"6b578481-deba-45d8-8e31-16ff6e27167c","blendMode":0,"displayName":"default","isLocked":false,"name":"6b578481-deba-45d8-8e31-16ff6e27167c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sprMinigame4vs_Clockwork_ClockAnalog",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"72b46d4f-5563-4594-af42-64353f2f7012","path":"sprites/sprMinigame4vs_Clockwork_ClockAnalog/sprMinigame4vs_Clockwork_ClockAnalog.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"48ca18b2-bfc0-402f-9d92-649b624b3d78","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"257cde9f-b06c-42b8-921e-466505a83a0f","path":"sprites/sprMinigame4vs_Clockwork_ClockAnalog/sprMinigame4vs_Clockwork_ClockAnalog.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c55ef78a-28ce-4b52-b10c-7a5ef1fd46b8","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

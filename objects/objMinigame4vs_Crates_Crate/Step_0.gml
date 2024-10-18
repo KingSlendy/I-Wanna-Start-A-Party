@@ -26,4 +26,8 @@ if (!outside && x > room_width) {
 	event_perform(ev_destroy, 0);
 	hspd = 0;
 	outside = true;
+	
+	if (sprite_index == sprMinigame4vs_Crates_Crate && network_id == global.player_id) {
+		objMinigameController.trophy_crates = false;
+	}
 }

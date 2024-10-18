@@ -42,10 +42,25 @@ team_current = -1;
 solo_advance = 0;
 team_advance = 0;
 next_seed_inline();
+var current_solo_action = null;
+var prev_solo_action = null;
+var current_team_action = null;
+var prev_team_action = null;
 
 repeat (100) {
-	array_push(solo_actions, press_actions[irandom(array_length(press_actions) - 1)]);
-	array_push(team_actions, press_actions[irandom(array_length(press_actions) - 1)]);
+	do {
+		current_solo_action = press_actions[irandom(array_length(press_actions) - 1)];
+	} until (current_solo_action != prev_solo_action);
+	
+	array_push(solo_actions, current_solo_action);
+	prev_solo_action = current_solo_action;
+	
+	do {
+		current_team_action = press_actions[irandom(array_length(press_actions) - 1)];
+	} until (current_team_action != prev_team_action);
+	
+	array_push(team_actions, current_team_action);
+	prev_team_action = current_team_action;
 }
 
 network_solo_actions = [];

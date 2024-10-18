@@ -10,6 +10,20 @@ minigame_players = function() {
 }
 
 minigame_time = 30;
+action_end = function() {
+	var white_count = 0;
+	
+	with (objMinigame4vs_Painting_Platform) {
+		if (image_blend == c_white) {
+			white_count++;
+		}
+	}
+	
+	if (white_count == 1) {
+		achieve_trophy(92);
+	}
+}
+
 points_draw = true;
 player_type = objPlayerPlatformer;
 

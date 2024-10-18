@@ -1,2 +1,2 @@
 ID = 4;
-checkDir = 180;
+check_dir = 180;

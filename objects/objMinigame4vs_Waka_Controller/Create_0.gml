@@ -26,7 +26,6 @@ action_end = function() {
 
 player_type = objPlayerStatic;
 
-
 next_path = -1;
 state_path = -1;
 camera_state = -1;

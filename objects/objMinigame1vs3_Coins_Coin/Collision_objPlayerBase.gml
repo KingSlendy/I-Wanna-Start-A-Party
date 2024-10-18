@@ -1,5 +1,8 @@
-if (!objMinigameController.info.is_finished && is_player_local(other.network_id) && !other.frozen) {
-	coin_obtain(other.network_id);
+if (is_player_local(other.network_id) && !other.frozen) {
+	if (!objMinigameController.info.is_finished) {
+		coin_obtain(other.network_id);
+	}
+	
 	audio_play_sound(sndMinigame1vs3_Coins_Coin, 0, false);
 	instance_destroy();
 }

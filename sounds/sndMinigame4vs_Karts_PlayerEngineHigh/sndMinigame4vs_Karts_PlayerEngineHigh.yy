@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"sndMinigame4vs_Karts_PlayerEngineHigh",
   "type":0,
-  "volume":1.0,
+  "volume":0.5,
 }

@@ -75,6 +75,10 @@ if (!fade_start) {
 			
 			save_config();
 		} else {
+			if (section.options[section.in_option].label == "LANGUAGE") {
+				show_message_async(language_get_text("SETTINGS_GAME_REMEMBER"));
+			}
+			
 			section.in_option = -1;
 		}
 		

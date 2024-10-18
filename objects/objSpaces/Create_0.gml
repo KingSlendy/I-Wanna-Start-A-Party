@@ -83,7 +83,7 @@ function space_is_passing() {
 		SpaceType.Shine,
 		SpaceType.PathEvent,
 		SpaceType.PathChange
-	], image_index));
+	], image_index) || (global.board_fasf_space_mode == FASF_SPACE_MODES.ICE && instance_place_any(x, y, objBoardFASFSpaceLayer, function(o) { return (o.image_index + 1 == FASF_SPACE_MODES.ICE); }) != noone));
 }
 
 function space_passing_event() {

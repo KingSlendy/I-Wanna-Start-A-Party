@@ -40,14 +40,18 @@ function clock_digital_digits_draw(number_x, number_y, number_index, draw) {
 			
 			if (!player.frozen && is_colliding && global.actions.jump.pressed(player.network_id)) {
 				clock_digital_section_toggle(number_index, i);
+				
+				if (player.network_id == global.player_id) {
+					objMinigameController.trophy_obtain = false;
+				}
 			}
 		}
 
-		if (!numbers[number_index][i] && !is_colliding) {
+		if (!numbers[number_index][i] && (!is_colliding || player.frozen)) {
 			continue;
 		}
 	
-		draw_sprite(sprMinigame4vs_Clockwork_DigitalNumber, i + ((!is_colliding) ? 0 : number_sections), number_x, number_y);
+		draw_sprite(sprMinigame4vs_Clockwork_DigitalNumber, i + ((!is_colliding || player.frozen) ? 0 : number_sections), number_x, number_y);
 	}
 }
 

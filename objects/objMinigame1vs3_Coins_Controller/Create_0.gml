@@ -95,7 +95,7 @@ alarm_override(11, function() {
 						}
 					}
 					
-					if (me_dist < others_dist) {
+					if (me_dist <= others_dist) {
 						follow_coin = coin;
 						break;
 					}

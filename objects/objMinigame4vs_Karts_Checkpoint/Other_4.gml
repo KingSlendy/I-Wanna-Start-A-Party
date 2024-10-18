@@ -1,2 +1,2 @@
-numCPs = instance_number(object_index);
+num_cps = instance_number(object_index);
 

@@ -21,6 +21,8 @@ player_type = objPlayerHand;
 
 state = 0;
 
+trophy_obtain = true;
+
 alarm_override(0, function() {
 	if (state < 4) {
 		if (state == 0) {

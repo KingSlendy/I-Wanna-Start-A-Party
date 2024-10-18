@@ -85,7 +85,7 @@ function AIAction() constructor {
 	self.just_triggered = false;
 	self.frames = 0;
 	
-	static hold = function(frames) {
+	static hold = function(frames = 99999) {
 		self.frames = frames;
 		self.triggered = true;
 		self.untriggered = false;

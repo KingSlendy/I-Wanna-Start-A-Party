@@ -49,14 +49,16 @@ function say_player_place() {
 		network_send_tcp_packet();	
 	}
 	
+	var player_info = null;
+	
 	with (objPlayerInfo) {
 		if (order == other.current_player) {
-			var p_info = id;
+			player_info = id;
 			break;
 		}
 	}
 			
-	with (p_info) {
+	with (player_info) {
 		target_draw_x = 800 - draw_w;
 		target_draw_y = 32 + (draw_h + 8) * (order - 1);
 	}
@@ -103,7 +105,7 @@ function give_last_place() {
 		
 		if (rnd <= 50 || array_count(player_info_by_turn().items, null) == 0) {
 			change_coins(30, CoinChangeType.Gain).final_action = final_action;
-		} else if (rnd >= 51 && rnd <= 98) {
+		} else if (rnd >= 51 && rnd <= 90) {
 			var item = choose(ItemType.Blackhole, ItemType.Mirror);
 			change_items(global.board_items[item], ItemChangeType.Gain).final_action = final_action;
 		} else {

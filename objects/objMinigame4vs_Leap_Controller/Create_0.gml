@@ -28,6 +28,7 @@ for (var i = 0; i < global.player_max; i++) {
 show_input = false;
 current_input = array_create(global.player_max, 0);
 input_list = [];
+invert_list = [];
 stall_input = array_create(global.player_max, false);
 reset_input = array_create(global.player_max, 0);
 prev_input = null;
@@ -44,6 +45,7 @@ for (var i = 0; i < block_total; i++) {
 	
 	prev_input = input;
 	array_push(input_list, input);
+	array_push(invert_list, (chance(0.35)) ? true : false);
 	
 	for (var j = 0; j < global.player_max; j++) {
 		if (i != 0) {
@@ -80,7 +82,7 @@ alarm_override(11, function() {
 			
 			var action = null;
 		
-			if (irandom(19) != 0) {
+			if (irandom(19) != 0 && !other.invert_list[other.current_input[turn - 1]]) {
 				action = actions[$ other.input_list[other.current_input[turn - 1]]];
 			} else {
 				action = actions[$ other.input_actions[irandom(array_length(other.input_actions) - 1)]];
