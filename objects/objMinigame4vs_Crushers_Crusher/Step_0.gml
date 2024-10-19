@@ -24,6 +24,7 @@ if (place_meeting(x, y, objBlock)) {
 			audio_play_sound(sndMinigame4vs_Crushers_Crusher, 0, false,,, 0.75);
 		}
 		
+		first = false;
 		objMinigameController.shake += 5;
 		alarm_call(2, 0.75);
 	}

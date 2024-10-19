@@ -12,7 +12,13 @@ minigame_time_halign = fa_center;
 minigame_time_valign = fa_middle;
 minigame_time_end = function() {
 	if (!minigame1vs3_solo().lost) {
-		minigame4vs_points(minigame1vs3_solo().network_id);
+		var network_id = minigame1vs3_solo().network_id;
+		
+		minigame4vs_points(network_id);
+		
+		if (trophy_jump && network_id == global.player_id) {
+			achieve_trophy(94);
+		}
 	} else {
 		minigame1vs3_points();
 	}
@@ -23,6 +29,8 @@ minigame_time_end = function() {
 player_type = objPlayerPlatformer;
 
 kardia_start = false;
+
+trophy_jump = true;
 
 alarm_override(1, function() {
 	minigame1vs3_solo().frozen = false;

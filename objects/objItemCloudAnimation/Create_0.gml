@@ -25,6 +25,7 @@ alarms_init(4);
 
 alarm_create(function() {
 	with (cloud_shine) {
+		changing = true;
 		var vessel = shine_nearest_vessel();
 		other.target_follow = {x: vessel.x + 16, y: vessel.y + 16};
 	}

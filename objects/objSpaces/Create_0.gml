@@ -87,6 +87,7 @@ function space_is_passing() {
 }
 
 function space_passing_event() {
+	roll_path_finding();
 	var focus_player = focused_player();
 	
 	if (room == rBoardWorld) {
@@ -166,7 +167,7 @@ function space_passing_event() {
 									}
 									break;
 							}
-						
+							
 							change_shines(1, ShineChangeType.Get).final_action = choose_shine;
 						}
 					}

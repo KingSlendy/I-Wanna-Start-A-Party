@@ -31,7 +31,7 @@ function PlayerBoard(network_id, name, turn) constructor {
 	self.items = array_create(3, null);
 	//self.shines = 1;
 	//self.coins = 999;
-	//self.items = [global.board_items[ItemType.TripleDice], global.board_items[ItemType.DoubleDice], null];
+	//self.items = [global.board_items[ItemType.Blackhole], global.board_items[ItemType.Cloud], null];
 	self.score = 0;
 	self.place = 1;
 	self.space = c_ltgray;

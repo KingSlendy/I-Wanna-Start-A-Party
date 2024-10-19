@@ -73,6 +73,10 @@ if (shopping && is_local_turn()) {
 								var action = function() {
 									change_items(item_selected, ItemChangeType.Gain).final_action = board_advance;
 								}
+								
+								if (network_id == global.player_id && item_selected.id == ItemType.Poison && global.baba_toggled[2] && global.baba_blocks[2] == 2) {
+									achieve_trophy(96);
+								}
 							} else {
 								global.bag_items = [];
 								

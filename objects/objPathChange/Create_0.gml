@@ -32,8 +32,7 @@ alarm_create(function() {
 		
 		arrows[i] = a;
 	}
-
-	roll_path_finding();
+	
 	shine_path_finding();
 
 	for (var i = 0; i < array_length(paths); i++) {

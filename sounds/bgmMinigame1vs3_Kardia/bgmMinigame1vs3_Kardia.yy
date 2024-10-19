@@ -8,7 +8,7 @@
   "bitDepth":1,
   "bitRate":128,
   "compression":1,
-  "conversionMode":0,
+  "conversionMode":1,
   "duration":65.56805,
   "name":"bgmMinigame1vs3_Kardia",
   "parent":{

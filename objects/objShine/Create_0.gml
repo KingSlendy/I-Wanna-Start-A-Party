@@ -9,9 +9,14 @@ dir_y_float = 0;
 dir_angle_float = 90;
 getting = false;
 losing = false;
+changing = false;
 faker = false;
 
 function shine_nearest_vessel() {
+	if (!changing) {
+		return noone;
+	}
+	
 	if (room != rBoardPallet) {
 		return instance_nearest_any(x, y, objSpaces, function(x) { return (x.space_shine && x.image_index == SpaceType.Shine); });
 	} else {

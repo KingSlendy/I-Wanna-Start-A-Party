@@ -21,7 +21,7 @@ function player_jump() {
 			buffer_write_data(buffer_u32, sndJump);
 			network_send_udp_packet();
 			
-			if (room == rMinigame1vs3_Hunt && network_id == global.player_id) {
+			if ((room == rMinigame1vs3_Hunt || room == rMinigame1vs3_Kardia) && network_id == global.player_id) {
 				objMinigameController.trophy_jump = false;
 			}
 		} else if (jump_left > 0 || jump_total == -1 || place_meeting(x, y, objMinigame4vs_Bullets_Bullet)) {

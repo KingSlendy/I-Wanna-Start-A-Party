@@ -13,6 +13,7 @@ animation_type = ShineChangeType.None;
 final_action = null;
 
 alarm_create(function() {
+	//Only if the animation type is Get then the "remove Shine Space" event gets triggered
 	if (spawned_shine == noone) {
 		with (focus_player_by_id(network_id)) {
 			other.spawned_shine = instance_nearest(x, y, objShine);
@@ -22,6 +23,11 @@ alarm_create(function() {
 			with (objShine) {
 				if (id != other.spawned_shine) {
 					losing = true;
+					
+					if (animation_type == ShineChangeType.Get) {
+						changing = true;
+					}
+					
 					faker = true;
 					break;
 				}
@@ -33,6 +39,10 @@ alarm_create(function() {
 		floating = false;
 		spawning = false;
 		getting = true;
+		
+		if (animation_type == ShineChangeType.Get) {
+			changing = true;
+		}
 	}
 
 	spawned_shine = noone;
