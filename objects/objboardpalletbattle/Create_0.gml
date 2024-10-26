@@ -44,7 +44,7 @@ if (win_types[$ self_pokemon.power_type] == other_pokemon.power_type) {
 	win_favorable = -1;
 }
 
-if (win_chance > random(1)) {
+if (chance(win_chance)) {
 	with (other_pokemon) {
 		if (has_shine()) {
 			change_shines(1, ShineChangeType.Get).final_action = choose_shine;

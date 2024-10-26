@@ -223,6 +223,14 @@ function board_world_scott_interact() {
 	
 	if (is_player_turn()) {
 		global.player_ghost_shines = [player.network_id];
+		
+		if (player.network_id == global.player_id) {
+			if (!objBoardWorldGhost.encountered) {
+				objBoardWorldGhost.encountered = true;
+			} else {
+				achieve_trophy(97);
+			}
+		}
 	} else {
 		with (player) {
 			var list = ds_list_create();

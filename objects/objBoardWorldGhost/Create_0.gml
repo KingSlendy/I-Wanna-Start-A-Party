@@ -4,6 +4,7 @@ skin = null;
 network_id = global.player_max + 1;
 normal_sprite = sprite_index;
 event_sprite = sprBoardWorldGhostTake;
+encountered = false;
 
 function change_to_object(obj) {}
 

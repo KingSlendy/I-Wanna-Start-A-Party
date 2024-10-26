@@ -8,8 +8,7 @@ fade_alpha = 1;
 
 //Board controllers
 global.board_started = false;
-global.board_handler = null; //Specific handlers for when a board needs something to happen in Step
-global.board_music_track_position = 0; //Handle track position when we go back to the board after a minigame
+global.board_music_track_position = 0; //Handle track position when we go back to the Board after a minigame
 global.board_turn = 1;
 global.player_turn = 1;
 global.dice_roll = 0;

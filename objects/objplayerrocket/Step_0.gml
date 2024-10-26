@@ -31,6 +31,7 @@ if (!frozen) {
     hspeed = 0;
     vspeed = 0;
 	spd -= 0.05;
+	spd = max(spd, 0);
 }
 
 if (place_meeting(x + hspeed, y, objBlock)) {

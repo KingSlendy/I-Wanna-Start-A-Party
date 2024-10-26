@@ -64,7 +64,7 @@ function send_to_minigame() {
 		other.info.ghost_position = {x: self.x, y: self.y};	
 	}
 	
-	//Save the music position for when we come back to board
+	//Save the music position for when we come back to the Board
 	board_save_track_position();
 	
 	// Overview room

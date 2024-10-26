@@ -7,6 +7,7 @@ can_jump = false;
 has_hit = false;
 jump_y = y;
 alpha_target = 1;
+got_shine = false;
 
 function snap_to_object(obj) {
 	y = yprevious;

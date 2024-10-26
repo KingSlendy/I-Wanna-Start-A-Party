@@ -7,13 +7,13 @@ if (!global.board_started) {
 		change_to_object(objPlayerBoard);
 	}
 	
-	if (HAS_SAVED) { //Load board
+	if (HAS_SAVED) { //Load Board
 		global.board_started = true;
 		load_board();
 		calculate_player_place();
 		global.player_game_ids = [];
 		prev_board_light = !global.board_light;
-	} else { //Initialize board
+	} else { //Initialize Board
 		global.game_key = date_datetime_string(date_current_datetime()) + " " + string(get_timer()) + " " + string(irandom(9999999));
 		shuffle_seed_bag();
 		next_seed_inline();
