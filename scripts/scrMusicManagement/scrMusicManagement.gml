@@ -124,6 +124,7 @@ mlp[$ bgmMinigame1vs3_Aiming] = new LoopPoint(4.396, 40.852);
 mlp[$ bgmMinigame1vs3_Host] = new LoopPoint(2.600, 32.601);
 mlp[$ bgmMinigame1vs3_House] = new LoopPoint(2.086, 37.002);
 mlp[$ bgmMinigame1vs3_Kardia] = new LoopPoint(2.066, 45.703);
+mlp[$ bgmMinigame1vs3_Picture] = new LoopPoint(2.803, 37.089);
 #endregion
 	
 #region 2vs2
