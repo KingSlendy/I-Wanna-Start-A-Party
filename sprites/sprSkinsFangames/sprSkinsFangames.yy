@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sprSkinsFangames",
   "bboxMode":0,
-  "bbox_bottom":303,
+  "bbox_bottom":151,
   "bbox_left":0,
-  "bbox_right":399,
+  "bbox_right":199,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -101,7 +101,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":304,
+  "height":152,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"b65a4cf6-e63b-45fb-b80c-13068677b841","blendMode":0,"displayName":"default","isLocked":false,"name":"b65a4cf6-e63b-45fb-b80c-13068677b841","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -426,5 +426,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":400,
+  "width":200,
 }
