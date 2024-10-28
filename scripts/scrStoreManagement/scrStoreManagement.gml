@@ -182,7 +182,11 @@ function skin_init() {
 		new Skin("Holic", "Anti The Holic", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
 		new Skin("Corn", "Corn", "I Wanna Get Cultured 2 Meme", 80, "IanBoy141", 400),
 		new Skin("Fubuki", "Shirakami Fubuki", "Holocure", 81, "MauriPlays!", 1000),
-		new Skin("Ringo", "Happy Ringo", "Original", 29, "Kogami Takara", 1000)
+		new Skin("Ringo", "Happy Ringo", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Madotsuki", "Madotsuki", "???", 55, "verycool", 600),
+		new Skin("Spike", "Spike Kid", "I Wanna Be The Diagonal Jump", 83, "Reimu2020", 300),
+		new Skin("Gambling", "Gambling Guy", "I Wanna KamiKamiKami", 84, "Reimu2020", 100),
+		new Skin("Rem", "Rem", "I Wanna Go The Medley", 85, "PlayerDash2017", 1000)
 	];
 }
 
