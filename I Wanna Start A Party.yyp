@@ -670,7 +670,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.8.0.169",
   },
   "name":"I Wanna Start A Party",
   "resources":[
@@ -1005,6 +1005,7 @@
     {"id":{"name":"objResults","path":"objects/objResults/objResults.yy",},},
     {"id":{"name":"objResultsBonusShine","path":"objects/objResultsBonusShine/objResultsBonusShine.yy",},},
     {"id":{"name":"objResultsCherry","path":"objects/objResultsCherry/objResultsCherry.yy",},},
+    {"id":{"name":"objResultsConfetti","path":"objects/objResultsConfetti/objResultsConfetti.yy",},},
     {"id":{"name":"objResultsMinigame","path":"objects/objResultsMinigame/objResultsMinigame.yy",},},
     {"id":{"name":"objResultsStats","path":"objects/objResultsStats/objResultsStats.yy",},},
     {"id":{"name":"objRouletteTest","path":"objects/objRouletteTest/objRouletteTest.yy",},},
@@ -2583,6 +2584,7 @@
     {"id":{"name":"sprParticleTexture_star_05","path":"sprites/sprParticleTexture_star_05/sprParticleTexture_star_05.yy",},},
     {"id":{"name":"sprParticleTexture_star_06","path":"sprites/sprParticleTexture_star_06/sprParticleTexture_star_06.yy",},},
     {"id":{"name":"sprParticleTexture_trace_05","path":"sprites/sprParticleTexture_trace_05/sprParticleTexture_trace_05.yy",},},
+    {"id":{"name":"sprParticleTexture_trace_07","path":"sprites/sprParticleTexture_trace_07/sprParticleTexture_trace_07.yy",},},
     {"id":{"name":"sprPartyBoardLogos","path":"sprites/sprPartyBoardLogos/sprPartyBoardLogos.yy",},},
     {"id":{"name":"sprPartyBoardMark","path":"sprites/sprPartyBoardMark/sprPartyBoardMark.yy",},},
     {"id":{"name":"sprPartyBoardPictures","path":"sprites/sprPartyBoardPictures/sprPartyBoardPictures.yy",},},
