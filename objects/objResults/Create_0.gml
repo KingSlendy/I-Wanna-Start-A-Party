@@ -214,7 +214,7 @@ alarm_create(function() {
 		count++;
 		winners += string("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
 		
-		var turn = player_info_by_id().turn;
+		var turn = player_info_by_id(network_id).turn;
 
 		if (turn < get_turn_winner) {
 		    get_turn_winner = turn;
