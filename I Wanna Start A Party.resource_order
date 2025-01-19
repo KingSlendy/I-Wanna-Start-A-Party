@@ -606,7 +606,8 @@
     {"name":"Pallet Town","order":4,"path":"folders/Tilesets/Party/Pallet Town.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"crvPopup","order":1,"path":"animcurves/crvPopup/crvPopup.yy",},
+    {"name":"crvPopup","order":2,"path":"animcurves/crvPopup/crvPopup.yy",},
+    {"name":"crvReaction","order":1,"path":"animcurves/crvReaction/crvReaction.yy",},
     {"name":"execute_shell_simple_ext","order":2,"path":"extensions/execute_shell_simple_ext/execute_shell_simple_ext.yy",},
     {"name":"window_taskbar","order":3,"path":"extensions/window_taskbar/window_taskbar.yy",},
     {"name":"fntControls","order":4,"path":"fonts/fntControls/fntControls.yy",},

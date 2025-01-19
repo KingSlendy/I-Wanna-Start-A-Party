@@ -14,6 +14,9 @@ reacted = -1;
 reaction_alpha = 0;
 reaction_scale = 0;
 reaction_target = 0;
+reaction_curve = animcurve_get_channel(crvReaction, "Scale");
+reaction_position = 0;
+reaction_anim_scale = 0;
 controls_text = new Text(global.fntControls);
 
 function setup() {
@@ -90,6 +93,7 @@ function reaction(index) {
 	reaction_alpha = 0;
 	reaction_target = 1;
 	reaction_scale = 1;
+	reaction_position = 0;
 	reactions = false;
 	var react = global.reactions[index];
 	

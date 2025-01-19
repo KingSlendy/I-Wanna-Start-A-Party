@@ -670,12 +670,13 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"I Wanna Start A Party",
   "resources":[
     {"id":{"name":"crvDialogue","path":"animcurves/crvDialogue/crvDialogue.yy",},},
     {"id":{"name":"crvPopup","path":"animcurves/crvPopup/crvPopup.yy",},},
+    {"id":{"name":"crvReaction","path":"animcurves/crvReaction/crvReaction.yy",},},
     {"id":{"name":"execute_shell_simple_ext","path":"extensions/execute_shell_simple_ext/execute_shell_simple_ext.yy",},},
     {"id":{"name":"window_taskbar","path":"extensions/window_taskbar/window_taskbar.yy",},},
     {"id":{"name":"fntControls","path":"fonts/fntControls/fntControls.yy",},},
