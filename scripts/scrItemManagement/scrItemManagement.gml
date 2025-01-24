@@ -96,7 +96,7 @@ function items_init() {
 	
 		new Item(ItemType.Mirror, language_get_text("PARTY_ITEM_MIRROR_NAME"), language_get_text("PARTY_ITEM_MIRROR_EFFECT"), sprItemMirror, 30, objItemMirrorAnimation),
 		new Item(ItemType.ItemBag, language_get_text("PARTY_ITEM_ITEM_BAG_NAME"), language_get_text("PARTY_ITEM_ITEM_BAG_EFFECT"), sprItemItemBag, 40),
-		new Item(ItemType.StickyHand, language_get_text("PARTY_ITEM_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_STICKY_HAND_EFFECT"), sprItemStickyHand, 25, objItemStickyHandAnimation,, function() {
+		new Item(ItemType.StickyHand, language_get_text("PARTY_ITEM_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_STICKY_HAND_EFFECT"), sprItemStickyHand, 15, objItemStickyHandAnimation,, function() {
 			var other_has_items = false;
 		
 			for (var i = 1; i <= global.player_max; i++) {
@@ -115,7 +115,7 @@ function items_init() {
 			return (other_has_items);
 		}),
 		
-		new Item(ItemType.SuperStickyHand, language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_EFFECT"), sprItemSuperStickyHand, 35, objItemSuperStickyHandAnimation,, function() {
+		new Item(ItemType.SuperStickyHand, language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_EFFECT"), sprItemSuperStickyHand, 25, objItemSuperStickyHandAnimation,, function() {
 			var other_has_items = false;
 		
 			for (var i = 1; i <= global.player_max; i++) {
