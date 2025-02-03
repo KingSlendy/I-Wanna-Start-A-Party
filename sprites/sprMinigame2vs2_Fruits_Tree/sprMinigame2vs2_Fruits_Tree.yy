@@ -4,8 +4,8 @@
   "bboxMode":0,
   "bbox_bottom":511,
   "bbox_left":0,
-  "bbox_right":511,
-  "bbox_top":28,
+  "bbox_right":1023,
+  "bbox_top":194,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":512,
+  "width":1024,
 }
