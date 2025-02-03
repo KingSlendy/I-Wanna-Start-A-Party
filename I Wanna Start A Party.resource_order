@@ -1451,6 +1451,7 @@
     {"name":"sprBkgMinigame2vs2_Springing_NoClouds","order":1,"path":"sprites/sprBkgMinigame2vs2_Springing_NoClouds/sprBkgMinigame2vs2_Springing_NoClouds.yy",},
     {"name":"sprBkgMinigame4vs_Crates_Jungle","order":1,"path":"sprites/sprBkgMinigame4vs_Crates_Jungle/sprBkgMinigame4vs_Crates_Jungle.yy",},
     {"name":"sprBkgMinigame4vs_Crates_Palmtree","order":2,"path":"sprites/sprBkgMinigame4vs_Crates_Palmtree/sprBkgMinigame4vs_Crates_Palmtree.yy",},
+    {"name":"sprBkgMinigame4vs_CrushersTorch","order":1,"path":"sprites/sprBkgMinigame4vs_CrushersTorch/sprBkgMinigame4vs_CrushersTorch.yy",},
     {"name":"sprBkgMinigame4vs_Dizzy_Fog","order":1,"path":"sprites/sprBkgMinigame4vs_Dizzy_Fog/sprBkgMinigame4vs_Dizzy_Fog.yy",},
     {"name":"sprBkgMinigame4vs_Haunted_Fog","order":2,"path":"sprites/sprBkgMinigame4vs_Haunted_Fog/sprBkgMinigame4vs_Haunted_Fog.yy",},
     {"name":"sprBkgMinigame4vs_Haunted_Forest","order":1,"path":"sprites/sprBkgMinigame4vs_Haunted_Forest/sprBkgMinigame4vs_Haunted_Forest.yy",},
