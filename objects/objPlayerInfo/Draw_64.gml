@@ -77,36 +77,34 @@ if (reactions) {
 }
 
 if (reacted != -1) {
-    var reactions_size = sprite_get_width(sprReactions) * 0.5;
-    reactions_y = draw_y + floor(reactions_size / 2);
-    reaction_position = approach(reaction_position, 1, 0.03);
-    reaction_anim_scale = animcurve_channel_evaluate(reaction_curve, reaction_position);
-    
-    switch (player_info.turn) {
-        case 1:
-            reactions_x = draw_x + draw_w + floor(reactions_size / 2);
-            reactions_y = draw_y + floor(reactions_size / 2);
-            break;
-            
-        case 2:
-            reactions_x = draw_x - floor(reactions_size / 2);
-            reactions_y = draw_y + floor(reactions_size / 2);
-            break;
-            
-        case 3:
-            reactions_x = draw_x + draw_w + floor(reactions_size / 2);
-            reactions_y = draw_y + floor(reactions_size / 2) - abs(draw_h - reactions_size);
-            break;
-            
-        case 4:
-            reactions_x = draw_x - floor(reactions_size / 2);
-            reactions_y = draw_y + floor(reactions_size / 2) - abs(draw_h - reactions_size);
-            break;
-    }
-    
-    draw_sprite_ext(sprReactions, reacted, reactions_x, reactions_y, reaction_scale, reaction_scale, 0, c_white, reaction_alpha);
-    reaction_scale = 1 - (0.5 * reaction_anim_scale);
-    reaction_alpha = approach(reaction_alpha, reaction_target, 0.1);
+	var reactions_size = sprite_get_width(sprReactions) * 0.5;
+	reactions_y = draw_y + floor(reactions_size / 2);
+	
+	switch (player_info.turn) {
+		case 1:
+			reactions_x = draw_x + draw_w + floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2);
+			break;
+			
+		case 2:
+			reactions_x = draw_x - floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2);
+			break;
+			
+		case 3:
+			reactions_x = draw_x + draw_w + floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2) - abs(draw_h - reactions_size);
+			break;
+			
+		case 4:
+			reactions_x = draw_x - floor(reactions_size / 2);
+			reactions_y = draw_y + floor(reactions_size / 2) - abs(draw_h - reactions_size);
+			break;
+	}
+	
+	draw_sprite_ext(sprReactions, reacted, reactions_x, reactions_y, reaction_scale, reaction_scale, 0, c_white, reaction_alpha);
+	reaction_scale = approach(reaction_scale, 0.5, 0.05);
+	reaction_alpha = approach(reaction_alpha, reaction_target, 0.05);
 }
 
 draw_set_alpha(1);
