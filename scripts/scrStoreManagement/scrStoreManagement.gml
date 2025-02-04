@@ -198,6 +198,14 @@ function skin_init() {
 		new Skin("Worm", "Worm", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Impmon", "Impmon", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Calumon", "Calumon", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Banana", "Dancing Banana", "Original", 29, "Kogami Takara", 700),
+		new Skin("NyanCat", "Nyan Cat", "Original", 29, "Kogami Takara", 700),
+		new Skin("WinRAR", "WinRAR", "Original", 29, "Kogami Takara", 500),
+		new Skin("Clippy", "Clippy", "Original", 29, "Kogami Takara", 500),
+		new Skin("SillyCat", "Silly Cat", "Original", 29, "Kogami Takara", 300),
+		new Skin("Duolingo", "Duolingo", "Original", 29, "Kogami Takara", 800),
+		new Skin("Luce", "Luce", "Original", 29, "Kogami Takara", 1000),
+		new Skin("BillCipher", "Bill Cipher", "Original", 29, "Kogami Takara", 1000),
 		new Skin("Crash", "Crash Bandicoot", "I Wanna Crash The Crates 2", 55, "SergioGameMaker", 1000)
 	];
 }
