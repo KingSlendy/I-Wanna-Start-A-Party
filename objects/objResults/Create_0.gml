@@ -202,6 +202,7 @@ alarm_create(function() {
 	music_play(bgmPartyStar);
 	revealed = true;
 
+	var get_turn_winner = infinity;
 	var count = 0;
 	var winners = "";
 	
@@ -209,9 +210,15 @@ alarm_create(function() {
 		if (lost) {
 			continue;
 		}
-	
+		
 		count++;
 		winners += string("{COLOR,0000FF}{0}{COLOR,FFFFFF}, ", network_name);
+		
+		var turn = player_info_by_id(network_id).turn;
+
+		if (turn < get_turn_winner) {
+		    get_turn_winner = turn;
+		}
 	}
 
 	if (global.player_id == 1) {
@@ -229,6 +236,10 @@ alarm_create(function() {
 			new Message(text,, results_end)
 		]);
 	}
+	
+	var confetti_effect = instance_create_layer(384, 160, "Particle", objResultsConfetti,{
+		player_won_color : get_turn_winner
+	});
 });
 
 alarm_create(function() {
