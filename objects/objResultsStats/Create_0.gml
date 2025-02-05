@@ -8,9 +8,6 @@ show_popup("",,,,,, 4.5);
 audio_play_sound(sndResultsSuperstar, 0, false);
 displaying = 1;
 
-objResultsConfetti.start_create_particles()
-
-
 function minigame_info_placement() {
 	places_minigame_repeated = array_create(global.player_max, 0);
 	places_minigame_info = [];
@@ -59,8 +56,6 @@ alarm_create(function() {
 	fade_start = true;
 	sprite = sprite_create_from_surface(application_surface, 0, 0, 800, 608, false, false, 0, 0);
 	alarm_call(1, 1);
-	// Destroy confetti
-	instance_destroy(objResultsConfetti);
 });
 
 alarm_create(function() {

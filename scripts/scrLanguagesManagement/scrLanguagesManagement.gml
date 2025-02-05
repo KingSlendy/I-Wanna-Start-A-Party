@@ -3,7 +3,7 @@ global.language_codes = {};
 global.language_list = [];
 
 function languages_init() {
-	//try {
+	try {
 		var file = file_text_open_read("languages.tsv");
 		var languages = string_split(file_text_read_string(file), "\t");
 		var excluded = [];
@@ -72,9 +72,14 @@ function languages_init() {
 		}
 		
 		file_text_close(file);
-	//} catch (ex) {
-	//	log_error(ex);
-	//}
+	} catch (ex) {
+		log_error(ex);
+	}
+	
+	if (!array_contains(global.language_list, global.language_game)) {
+		popup("The language previously saved has been disabled temporarily until the translation has been fully completed.\nSetting the language to English!");
+		global.language_game = "English";
+	}
 }
 
 function language_get_text(id) {

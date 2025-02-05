@@ -35,7 +35,7 @@ function music_play_from_position(music, position, loop = true) {
 
 function music_change(music, loop = true) {
 	if (music != null && !music_is_same(music)) {
-		music_set_loop_points(music);
+		//music_set_loop_points(music);
 		global.music_current = audio_play_sound(music, 0, loop, 1);
 	}
 }
@@ -50,145 +50,133 @@ global.music_loop_points = {};
 var mlp = global.music_loop_points;
 
 #region Menu
-mlp[$ bgmFiles] = new LoopPoint(1.967, 63.921);
-mlp[$ bgmSettings] = new LoopPoint(0.048, 16.048);
-mlp[$ bgmModes] = new LoopPoint(113.773, 149.373);
-mlp[$ bgmParty] = new LoopPoint(1.866, 22.189);
-mlp[$ bgmMinigames] = new LoopPoint(5.445, 41.943);
-mlp[$ bgmTrials] = new LoopPoint(26.989, 39.789);
-mlp[$ bgmStore] = new LoopPoint(2.356, 20.473);
-mlp[$ bgmTrophies] = new LoopPoint(1.657, 60.433);
+music_loop_add(bgmFiles, new LoopPoint(1.967, 63.921));
+music_loop_add(bgmSettings, new LoopPoint(0.048, 16.048));
+music_loop_add(bgmModes, new LoopPoint(113.773, 149.373));
+music_loop_add(bgmParty, new LoopPoint(1.866, 22.189));
+music_loop_add(bgmMinigames, new LoopPoint(5.445, 41.943));
+music_loop_add(bgmTrials, new LoopPoint(26.989, 39.789));
+music_loop_add(bgmStore, new LoopPoint(2.356, 20.473));
+music_loop_add(bgmTrophies, new LoopPoint(1.657, 60.433));
 #endregion
 	
 #region Boards
-mlp[$ bgmBoardIsland] = new LoopPoint(5.377, 68.542);
-mlp[$ bgmBoardIslandNight] = new LoopPoint(5.338, 68.513);
-mlp[$ bgmBoardHotland] = new LoopPoint(37.083, 110.929);
-mlp[$ bgmBoardHotlandAnnoyingDog] = new LoopPoint(0.005, 36.102);
-mlp[$ bgmBoardBaba] = new LoopPoint(3.164, 118.367);
-mlp[$ bgmBoardPallet] = new LoopPoint(0.666, 34.938);
-mlp[$ bgmBoardDreams] = new LoopPoint(2.599, 98.539);
-mlp[$ bgmBoardHyrule] = new LoopPoint(14.129, 72.326);
-mlp[$ bgmBoardHyruleDark] = new LoopPoint(1.627, 60.759);
-mlp[$ bgmBoardNsanity] = new LoopPoint(0.0, 124.282);
-mlp[$ bgmBoardWorld] = new LoopPoint(13.884, 90.386);
-mlp[$ bgmBoardBasement] = new LoopPoint(41.267, 201.266);
-mlp[$ bgmBoardFASF] = new LoopPoint(31.033, 98.164);
-mlp[$ bgmBoardFASFLast5Turns] = new LoopPoint(20.269, 79.536);
+music_loop_add(bgmBoardIsland, new LoopPoint(5.377, 68.542));
+music_loop_add(bgmBoardIslandNight, new LoopPoint(5.338, 68.513));
+music_loop_add(bgmBoardHotland, new LoopPoint(37.083, 110.929));
+music_loop_add(bgmBoardHotlandAnnoyingDog, new LoopPoint(0.005, 36.102));
+music_loop_add(bgmBoardBaba, new LoopPoint(3.164, 118.367));
+music_loop_add(bgmBoardPallet, new LoopPoint(0.666, 34.938));
+music_loop_add(bgmBoardDreams, new LoopPoint(2.599, 98.539));
+music_loop_add(bgmBoardHyrule, new LoopPoint(14.129, 72.326));
+music_loop_add(bgmBoardHyruleDark, new LoopPoint(1.627, 60.759));
+music_loop_add(bgmBoardNsanity, new LoopPoint(0.0, 124.282));
+music_loop_add(bgmBoardWorld, new LoopPoint(13.884, 90.386));
+music_loop_add(bgmBoardBasement, new LoopPoint(41.267, 201.266));
+music_loop_add(bgmBoardFASF, new LoopPoint(31.033, 98.164));
+music_loop_add(bgmBoardFASFLast5Turns, new LoopPoint(20.269, 79.536));
 
-mlp[$ bgmChanceTime] = new LoopPoint(5.779, 38.693);
-mlp[$ bgmTheGuy] = new LoopPoint(0.0, 36.735);
-mlp[$ bgmLastTurns] = new LoopPoint(8.321, 33.191);
+music_loop_add(bgmChanceTime, new LoopPoint(5.779, 38.693));
+music_loop_add(bgmTheGuy, new LoopPoint(0.0, 36.735));
+music_loop_add(bgmLastTurns, new LoopPoint(8.321, 33.191));
 #endregion
 
 #region Minigames
-mlp[$ bgmMinigameOverview] = new LoopPoint(2.463, 35.856);
+music_loop_add(bgmMinigameOverview, new LoopPoint(2.463, 35.856));
 	
 #region 4vs
-mlp[$ bgmMinigame4vs_Lead] = new LoopPoint(0.226, 32.226);
-mlp[$ bgmMinigame4vs_Tower] = new LoopPoint(2.105, 39.576);
-mlp[$ bgmMinigame4vs_Haunted] = new LoopPoint(2.469, 26.860);
-mlp[$ bgmMinigame4vs_Magic] = new LoopPoint(2.093, 35.193);
-mlp[$ bgmMinigame4vs_Mansion] = new LoopPoint(4.858, 33.825);
-mlp[$ bgmMinigame4vs_Painting] = new LoopPoint(0.921, 28.614);
-mlp[$ bgmMinigame4vs_Bugs] = new LoopPoint(1.511, 38.392);
-mlp[$ bgmMinigame4vs_Blocks] = new LoopPoint(2.296, 34.764);
-mlp[$ bgmMinigame4vs_Chests] = new LoopPoint(0.980, 31.700);
-mlp[$ bgmMinigame4vs_Slime] = new LoopPoint(2.543, 25.949);
-mlp[$ bgmMinigame4vs_Rocket] = new LoopPoint(2.265, 26.268);
-mlp[$ bgmMinigame4vs_Dizzy] = new LoopPoint(1.809, 32.023);
-mlp[$ bgmMinigame4vs_Targets] = new LoopPoint(2.459, 34.037);
-mlp[$ bgmMinigame4vs_Bullets] = new LoopPoint(2.275, 36.760);
-mlp[$ bgmMinigame4vs_Drawn] = new LoopPoint(7.367, 57.022);
-mlp[$ bgmMinigame4vs_Bubble] = new LoopPoint(4.814, 51.957);
-mlp[$ bgmMinigame4vs_Golf] = new LoopPoint(1.380, 28.843);
-mlp[$ bgmMinigame4vs_Waka] = new LoopPoint(2.366, 41.383);
-mlp[$ bgmMinigame4vs_Jingle] = new LoopPoint(3.757, 28.691);
-mlp[$ bgmMinigame4vs_Treasure] = new LoopPoint(1.164, 29.710);
-mlp[$ bgmMinigame4vs_Crushers] = new LoopPoint(0.996, 30.989);
-mlp[$ bgmMinigame4vs_Clockwork] = new LoopPoint(4.270, 32.669);
-mlp[$ bgmMinigame4vs_Crates] = new LoopPoint(1.875, 31.848);
-mlp[$ bgmMinigame4vs_Leap] = new LoopPoint(2.407, 42.370);
-mlp[$ bgmMinigame4vs_Karts] = new LoopPoint(5.676, 27.008);
+music_loop_add(bgmMinigame4vs_Lead, new LoopPoint(0.226, 32.226));
+music_loop_add(bgmMinigame4vs_Tower, new LoopPoint(2.105, 39.576));
+music_loop_add(bgmMinigame4vs_Haunted, new LoopPoint(2.469, 26.860));
+music_loop_add(bgmMinigame4vs_Magic, new LoopPoint(2.093, 35.193));
+music_loop_add(bgmMinigame4vs_Mansion, new LoopPoint(4.858, 33.825));
+music_loop_add(bgmMinigame4vs_Painting, new LoopPoint(0.921, 28.614));
+music_loop_add(bgmMinigame4vs_Bugs, new LoopPoint(1.511, 38.392));
+music_loop_add(bgmMinigame4vs_Blocks, new LoopPoint(2.296, 34.764));
+music_loop_add(bgmMinigame4vs_Chests, new LoopPoint(0.980, 31.700));
+music_loop_add(bgmMinigame4vs_Slime, new LoopPoint(2.543, 25.949));
+music_loop_add(bgmMinigame4vs_Rocket, new LoopPoint(2.265, 26.268));
+music_loop_add(bgmMinigame4vs_Dizzy, new LoopPoint(1.809, 32.023));
+music_loop_add(bgmMinigame4vs_Targets, new LoopPoint(2.459, 34.037));
+music_loop_add(bgmMinigame4vs_Bullets, new LoopPoint(2.275, 36.760));
+music_loop_add(bgmMinigame4vs_Drawn, new LoopPoint(7.367, 57.022));
+music_loop_add(bgmMinigame4vs_Bubble, new LoopPoint(4.814, 51.957));
+music_loop_add(bgmMinigame4vs_Golf, new LoopPoint(1.380, 28.843));
+music_loop_add(bgmMinigame4vs_Waka, new LoopPoint(2.366, 41.383));
+music_loop_add(bgmMinigame4vs_Jingle, new LoopPoint(3.757, 28.691));
+music_loop_add(bgmMinigame4vs_Treasure, new LoopPoint(1.164, 29.710));
+music_loop_add(bgmMinigame4vs_Crushers, new LoopPoint(0.996, 30.989));
+music_loop_add(bgmMinigame4vs_Clockwork, new LoopPoint(4.270, 32.669));
+music_loop_add(bgmMinigame4vs_Crates, new LoopPoint(1.875, 31.848));
+music_loop_add(bgmMinigame4vs_Leap, new LoopPoint(2.407, 42.370));
+music_loop_add(bgmMinigame4vs_Karts, new LoopPoint(5.676, 27.008));
 #endregion
 	
 #region 1vs3
-mlp[$ bgmMinigame1vs3_Avoid] = new LoopPoint(0.851, 27.852);
-mlp[$ bgmMinigame1vs3_Conveyor] = new LoopPoint(2.628, 32.828);
-mlp[$ bgmMinigame1vs3_Showdown] = new LoopPoint(2.307, 41.207);
-mlp[$ bgmMinigame1vs3_Coins] = new LoopPoint(3.609, 34.342);
-mlp[$ bgmMinigame1vs3_Race] = new LoopPoint(4.401, 36.943);
-mlp[$ bgmMinigame1vs3_Warping] = new LoopPoint(2.658, 36.962);
-mlp[$ bgmMinigame1vs3_Hunt] = new LoopPoint(1.923, 23.618);
-mlp[$ bgmMinigame1vs3_Aiming] = new LoopPoint(4.396, 40.852);
-mlp[$ bgmMinigame1vs3_Host] = new LoopPoint(2.600, 32.601);
-mlp[$ bgmMinigame1vs3_House] = new LoopPoint(2.086, 37.002);
-mlp[$ bgmMinigame1vs3_Kardia] = new LoopPoint(2.066, 45.703);
-mlp[$ bgmMinigame1vs3_Picture] = new LoopPoint(2.803, 37.089);
+music_loop_add(bgmMinigame1vs3_Avoid, new LoopPoint(0.851, 27.852));
+music_loop_add(bgmMinigame1vs3_Conveyor, new LoopPoint(2.628, 32.828));
+music_loop_add(bgmMinigame1vs3_Showdown, new LoopPoint(2.307, 41.207));
+music_loop_add(bgmMinigame1vs3_Coins, new LoopPoint(3.609, 34.342));
+music_loop_add(bgmMinigame1vs3_Race, new LoopPoint(4.401, 36.943));
+music_loop_add(bgmMinigame1vs3_Warping, new LoopPoint(2.658, 36.962));
+music_loop_add(bgmMinigame1vs3_Hunt, new LoopPoint(1.923, 23.618));
+music_loop_add(bgmMinigame1vs3_Aiming, new LoopPoint(4.396, 40.852));
+music_loop_add(bgmMinigame1vs3_Host, new LoopPoint(2.600, 32.601));
+music_loop_add(bgmMinigame1vs3_House, new LoopPoint(2.086, 37.002));
+music_loop_add(bgmMinigame1vs3_Kardia, new LoopPoint(2.066, 45.703));
+music_loop_add(bgmMinigame1vs3_Picture, new LoopPoint(2.803, 37.089));
 #endregion
 	
 #region 2vs2
-mlp[$ bgmMinigame2vs2_Maze] = new LoopPoint(3.330, 43.047);
-mlp[$ bgmMinigame2vs2_Fruits] = new LoopPoint(0.783, 24.056);
-mlp[$ bgmMinigame2vs2_Buttons] = new LoopPoint(0.056, 35.078);
-mlp[$ bgmMinigame2vs2_Squares] = new LoopPoint(2.042, 48.478);
-mlp[$ bgmMinigame2vs2_Colorful] = new LoopPoint(1.703, 31.706);
-mlp[$ bgmMinigame2vs2_Springing] = new LoopPoint(1.640, 27.586);
-mlp[$ bgmMinigame2vs2_Duos] = new LoopPoint(1.600, 35.859);
-mlp[$ bgmMinigame2vs2_Duel] = new LoopPoint(1.699, 19.974);
-mlp[$ bgmMinigame2vs2_Soccer] = new LoopPoint(2.020, 36.930);
-mlp[$ bgmMinigame2vs2_Idol] = new LoopPoint(4.831, 40.170);
-mlp[$ bgmMinigame2vs2_Castle] = new LoopPoint(14.842, 41.138);
-mlp[$ bgmMinigame2vs2_Stacking] = new LoopPoint(2.051, 32.484);
+music_loop_add(bgmMinigame2vs2_Maze, new LoopPoint(3.330, 43.047));
+music_loop_add(bgmMinigame2vs2_Fruits, new LoopPoint(0.783, 24.056));
+music_loop_add(bgmMinigame2vs2_Buttons, new LoopPoint(0.056, 35.078));
+music_loop_add(bgmMinigame2vs2_Squares, new LoopPoint(2.042, 48.478));
+music_loop_add(bgmMinigame2vs2_Colorful, new LoopPoint(1.703, 31.706));
+music_loop_add(bgmMinigame2vs2_Springing, new LoopPoint(1.640, 27.586));
+music_loop_add(bgmMinigame2vs2_Duos, new LoopPoint(1.600, 35.859));
+music_loop_add(bgmMinigame2vs2_Duel, new LoopPoint(1.699, 19.974));
+music_loop_add(bgmMinigame2vs2_Soccer, new LoopPoint(2.020, 36.930));
+music_loop_add(bgmMinigame2vs2_Idol, new LoopPoint(4.831, 40.170));
+music_loop_add(bgmMinigame2vs2_Castle, new LoopPoint(14.842, 41.138));
+music_loop_add(bgmMinigame2vs2_Stacking, new LoopPoint(2.051, 32.484));
 #endregion
 	
 #region Results
-mlp[$ bgmResults] = new LoopPoint(5.920, 13.783);
-mlp[$ bgmPartyStar] = new LoopPoint(0.560, 35.942);
+music_loop_add(bgmResults, new LoopPoint(5.920, 13.783));
+music_loop_add(bgmPartyStar, new LoopPoint(0.560, 35.942));
 #endregion
 
-mlp[$ null] = new LoopPoint();
+//mlp[$ null] = new LoopPoint();
 #endregion
 
-//function music_loop_init() {
-//	var musics = variable_struct_get_names(global.music_loop_points);
-	
-//	for (var i = 0; i < array_length(musics); i++) {
-//		var music = musics[i];
-		
-//		if (music == "undefined") {
-//			continue;
-//		}
-	
-//		music = real(music);	
-//		var music_loop = music_get_loop_points(music);
-//		audio_sound_loop_start(music, music_loop.start_point);
-//        audio_sound_loop_end(music, music_loop.end_point);
-//	}
-//}
-
-//function music_get_loop_points(music) {	
-//	if (variable_struct_exists(global.music_loop_points, music)) {
-//        return global.music_loop_points[$ music];
-//    }
-    
-//    return global.music_loop_points[$ null];
-//}
-
-function music_set_loop_points(music) {	
-	var loop_start = -1;
-	var loop_end = -1;
-	var music_id = asset_get_index(audio_get_name(music));
-
-	if (variable_struct_exists(global.music_loop_points, music_id)) {
-		var loop_point = global.music_loop_points[$ music_id];
-		loop_start = loop_point.start_point;
-		loop_end = loop_point.end_point;
-	}
-
-	global.music_loop_start = loop_start;
-	global.music_loop_end = loop_end - loop_start;
+function music_loop_init() {
+	struct_foreach(global.music_loop_points, function(music, loop) {
+		music = asset_get_index(music);
+		audio_sound_loop(music, true);
+		audio_sound_loop_start(music, loop.start_point);
+		audio_sound_loop_end(music, loop.end_point);
+	});
 }
+
+function music_loop_add(music, loop) {
+	global.music_loop_points[$ audio_get_name(music)] = loop;
+}
+
+//function music_set_loop_points(music) {	
+//	var loop_start = -1;
+//	var loop_end = -1;
+//	var music_id = asset_get_index(audio_get_name(music));
+
+//	if (variable_struct_exists(global.music_loop_points, music_id)) {
+//		var loop_point = global.music_loop_points[$ music_id];
+//		loop_start = loop_point.start_point;
+//		loop_end = loop_point.end_point;
+//	}
+
+//	global.music_loop_start = loop_start;
+//	global.music_loop_end = loop_end - loop_start;
+//}
 
 function music_is_same(music) {
 	if (music == null || global.music_current == null) {

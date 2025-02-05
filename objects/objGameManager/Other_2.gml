@@ -10,7 +10,7 @@ sprite_prefetch_multi([
 
 audio_group_load(audiogroup_BGM);
 audio_group_load(audiogroup_SFX);
-//music_loop_init();
+music_loop_init();
 
 if (file_exists("update.bat")) {
 	file_delete("update.bat");
@@ -27,8 +27,6 @@ for (var i = 0; i < 3; i++) {
 
 global.file_selected = -1;
 
-languages_init();
-language_fonts_init();
 config_variables();
 
 if (!load_config()) {
@@ -37,6 +35,8 @@ if (!load_config()) {
 
 apply_config();
 
+languages_init();
+language_fonts_init();
 board_init();
 minigame_init();
 minigame_info_reset();

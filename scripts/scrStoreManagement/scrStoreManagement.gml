@@ -186,7 +186,27 @@ function skin_init() {
 		new Skin("Madotsuki", "Madotsuki", "???", 55, "verycool", 600),
 		new Skin("Spike", "Spike Kid", "I Wanna Be The Diagonal Jump", 83, "Reimu2020", 300),
 		new Skin("Gambling", "Gambling Guy", "I Wanna KamiKamiKami", 84, "Reimu2020", 100),
-		new Skin("Rem", "Rem", "I Wanna Go The Medley", 85, "PlayerDash2017", 1000)
+		new Skin("Rem", "Rem", "I Wanna Go The Medley", 85, "PlayerDash2017", 1000),
+		new Skin("Pou", "Pou", "Original", 29, "Kogami Takara", 200),
+		new Skin("CoolSpot", "CoolSpot", "Original", 29, "Kogami Takara", 400),
+		new Skin("Fairy", "The Fairy", "I Wanna Play The Barrage", 86, "xiao_huai", 100),
+		new Skin("Tengu", "Tengu Kid", "I Wanna Catch The Clown", 87, "renex", 300),
+		new Skin("Mio", "Mio", "Mio Pokes The Carmine Needle", 88, "ameliandyou", 800),
+		new Skin("Pepsiman", "Pepsiman", "Original", 29, "Kogami Takara", 1000),
+		new Skin("MissingNo", "MissingNo", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Metabee", "Metabee", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Worm", "Worm", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Impmon", "Impmon", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Calumon", "Calumon", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Banana", "Dancing Banana", "Original", 29, "Kogami Takara", 700),
+		new Skin("NyanCat", "Nyan Cat", "Original", 29, "Kogami Takara", 700),
+		new Skin("WinRAR", "WinRAR", "Original", 29, "Kogami Takara", 500),
+		new Skin("Clippy", "Clippy", "Original", 29, "Kogami Takara", 500),
+		new Skin("SillyCat", "Silly Cat", "Original", 29, "Kogami Takara", 300),
+		new Skin("Duolingo", "Duolingo", "Original", 29, "Kogami Takara", 800),
+		new Skin("Luce", "Luce", "Original", 29, "Kogami Takara", 1000),
+		new Skin("BillCipher", "Bill Cipher", "Original", 29, "Kogami Takara", 1000),
+		new Skin("Crash", "Crash Bandicoot", "I Wanna Crash The Crates 2", 55, "SergioGameMaker", 1000)
 	];
 }
 
