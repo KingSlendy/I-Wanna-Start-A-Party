@@ -17,8 +17,11 @@ switch (state) {
 			exit;
 		}
 	
+		if (fade_alpha == 1) {
+			board_music();
+		}
+	
 		fade_alpha -= 0.03;
-		board_music();
 	
 		if (fade_alpha <= 0) {
 			fade_alpha = 0;
