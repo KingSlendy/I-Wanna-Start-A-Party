@@ -7,6 +7,7 @@ fade_start = false;
 show_popup("",,,,,, 4.5);
 audio_play_sound(sndResultsSuperstar, 0, false);
 displaying = 1;
+objResultsConfetti.start_create_particles();
 
 function minigame_info_placement() {
 	places_minigame_repeated = array_create(global.player_max, 0);

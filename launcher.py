@@ -4,7 +4,7 @@ from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
 # Link
 GITHUB_LINK = "https://github.com/KingSlendy"
-GITHUB_REPO = f"I-Wanna-Start-A-Party{"" if not os.path.exists("test") else "-Testers"}"
+GITHUB_REPO = f"I-Wanna-Start-A-Party{'' if not os.path.exists('test') else '-Testers'}"
 
 # Names
 DATA_NAME = "data.win"
@@ -13,7 +13,7 @@ ZIP_NAME = "I Wanna Start A Party.zip"
 
 # OS Paths
 CURRENT_PATH = os.getcwd()
-APPDATA_PATH = f"{os.getenv("LOCALAPPDATA")}\\I_Wanna_Start_A_Party\\{GAME_NAME}"
+APPDATA_PATH = f"{os.getenv('LOCALAPPDATA')}\\I_Wanna_Start_A_Party\\{GAME_NAME}"
 
 # File Paths
 DATA_PATH = f"{CURRENT_PATH}\\{DATA_NAME}"
@@ -69,9 +69,10 @@ def main():
     print("Validating new version...")
 
     try:
-        http_tag_content = requests.get(f"{GITHUB_LINK}/{GITHUB_REPO}/releases/latest").content.decode("utf-8")
+        session = requests.Session()
+        http_tag_content = session.get(f"{GITHUB_LINK}/{GITHUB_REPO}/releases/latest").content.decode("utf-8")
         new_game_version = re.search(r"<title>.*(\d+.\d+.\d+.\d+t?).*</title>", http_tag_content)[1]
-    except:
+    except Exception as ex:
         print("An error occurred during the version validation process.")
         execute()
         return
