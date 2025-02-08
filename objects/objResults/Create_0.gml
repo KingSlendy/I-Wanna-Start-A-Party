@@ -237,9 +237,7 @@ alarm_create(function() {
 		]);
 	}
 	
-	var confetti_effect = instance_create_layer(384, 160, "Particle", objResultsConfetti,{
-		player_won_color : get_turn_winner
-	});
+	instance_create_layer(384, 80, "Particle", objResultsConfetti);
 });
 
 alarm_create(function() {

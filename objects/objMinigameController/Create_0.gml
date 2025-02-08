@@ -63,7 +63,7 @@ function back_to_board() {
 		return;
 	}
 	
-	if (++global.board_turn > global.max_board_turns) {
+	if (++global.board_turn > global.max_board_turns || true) {
 		board_finish();
 		return;
 	}
