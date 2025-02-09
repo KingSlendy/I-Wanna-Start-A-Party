@@ -283,7 +283,7 @@ switch (room) {
 			var location = (trials_selected + array_length(global.trials) + i) % array_length(global.trials);
 			var trial = global.trials[location];
 			var collected = trial_collected(location);
-			var title = (collected) ? trial.title : "?????????";
+			var title = (collected) ? trial.label : "?????????";
 			var clear = (trial_beaten(location)) ? language_get_text("WORD_GENERIC_CLEAR") : "";
 			var reward = (collected) ? string(trial.reward) : "???";
 			language_set_font(global.fntPlayerInfo);

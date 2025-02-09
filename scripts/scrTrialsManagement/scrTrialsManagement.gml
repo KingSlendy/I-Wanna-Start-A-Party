@@ -3,30 +3,52 @@
 #macro TEAM 2
 
 #region Names
-#macro RAPID_ASCENSION language_get_text("TRIALS_RAPID_ASCENSION_NAME")
-#macro HAUNTED_REFLEXES language_get_text("TRIALS_HAUNTED_REFLEXES_NAME")
-#macro BUGS_EVERYWHERE language_get_text("TRIALS_BUGS_EVERYWHERE_NAME")
-#macro STINGY_CHESTS language_get_text("TRIALS_STINGY_CHESTS_NAME")
-#macro AVOID_THE_ANXIETY language_get_text("TRIALS_AVOID_THE_ANXIETY_NAME")
-#macro RANDRANDRAND_TIME language_get_text("TRIALS_RANDRANDRAND_TIME_NAME")
-#macro INVERTED_COMPETITION language_get_text("TRIALS_INVERTED_COMPETITION_NAME")
-#macro FOGGY_DAY language_get_text("TRIALS_FOGGY_DAY_NAME")
-#macro INVISI_GAME language_get_text("TRIALS_INVISI-GAME_NAME")
-#macro FLIPPED_WORLD language_get_text("TRIALS_FLIPPED_WORLD_NAME")
-#macro COLORFUL_MADNESS language_get_text("TRIALS_COLORFUL_MADNESS_NAME")
-#macro SPEEDY_KIDZALES language_get_text("TRIALS_SPEEDY_KIDZALES_NAME")
-#macro WIDE_KID language_get_text("TRIALS_WIDE_KID_NAME")
-#macro SLOW_POKE language_get_text("TRIALS_SLOW_POKE_NAME")
-#macro PERFECT_AIM language_get_text("TRIALS_PERFECT_AIM_NAME")
-#macro TOUGH_IGNITION language_get_text("TRIALS_TOUGH_IGNITION_NAME")
-#macro GREEN_DIVING language_get_text("TRIALS_GREEN_DIVING_NAME")
-#macro WAKA_DODGES language_get_text("TRIALS_WAKA_DODGES_NAME")
-#macro TINY_TEAMING language_get_text("TRIALS_TINY_TEAMING_NAME")
-#macro CHALLENGE_MEDLEY language_get_text("TRIALS_CHALLENGE_MEDLEY_NAME")
+//#macro RAPID_ASCENSION language_get_text("TRIALS_RAPID_ASCENSION_NAME")
+//#macro HAUNTED_REFLEXES language_get_text("TRIALS_HAUNTED_REFLEXES_NAME")
+//#macro BUGS_EVERYWHERE language_get_text("TRIALS_BUGS_EVERYWHERE_NAME")
+//#macro STINGY_CHESTS language_get_text("TRIALS_STINGY_CHESTS_NAME")
+//#macro AVOID_THE_ANXIETY language_get_text("TRIALS_AVOID_THE_ANXIETY_NAME")
+//#macro RANDRANDRAND_TIME language_get_text("TRIALS_RANDRANDRAND_TIME_NAME")
+//#macro INVERTED_COMPETITION language_get_text("TRIALS_INVERTED_COMPETITION_NAME")
+//#macro FOGGY_DAY language_get_text("TRIALS_FOGGY_DAY_NAME")
+//#macro INVISI_GAME language_get_text("TRIALS_INVISI-GAME_NAME")
+//#macro FLIPPED_WORLD language_get_text("TRIALS_FLIPPED_WORLD_NAME")
+//#macro COLORFUL_MADNESS language_get_text("TRIALS_COLORFUL_MADNESS_NAME")
+//#macro SPEEDY_KIDZALES language_get_text("TRIALS_SPEEDY_KIDZALES_NAME")
+//#macro WIDE_KID language_get_text("TRIALS_WIDE_KID_NAME")
+//#macro SLOW_POKE language_get_text("TRIALS_SLOW_POKE_NAME")
+//#macro PERFECT_AIM language_get_text("TRIALS_PERFECT_AIM_NAME")
+//#macro TOUGH_IGNITION language_get_text("TRIALS_TOUGH_IGNITION_NAME")
+//#macro GREEN_DIVING language_get_text("TRIALS_GREEN_DIVING_NAME")
+//#macro WAKA_DODGES language_get_text("TRIALS_WAKA_DODGES_NAME")
+//#macro TINY_TEAMING language_get_text("TRIALS_TINY_TEAMING_NAME")
+//#macro CHALLENGE_MEDLEY language_get_text("TRIALS_CHALLENGE_MEDLEY_NAME")
+
+#macro RAPID_ASCENSION "Rapid Ascension"
+#macro HAUNTED_REFLEXES "Haunted Reflexes"
+#macro BUGS_EVERYWHERE "Bugs Everywhere"
+#macro STINGY_CHESTS "Stingy Chests"
+#macro AVOID_THE_ANXIETY "Avoid The Anxiety"
+#macro RANDRANDRAND_TIME "RandRandRand Time"
+#macro INVERTED_COMPETITION "Inverted Competition"
+#macro FOGGY_DAY "Foggy Day"
+#macro INVISI_GAME "Invisi Game"
+#macro FLIPPED_WORLD "Flipped World"
+#macro COLORFUL_MADNESS "Colorful Madness"
+#macro SPEEDY_KIDZALES "Speedy Kidzales"
+#macro WIDE_KID "Wide Kid"
+#macro SLOW_POKE "Slow Poke"
+#macro PERFECT_AIM "Perfect Aim"
+#macro TOUGH_IGNITION "Tough Ignition"
+#macro GREEN_DIVING "Green Diving"
+#macro WAKA_DODGES "Waka Dodges"
+#macro TINY_TEAMING "Tiny Teaming"
+#macro CHALLENGE_MEDLEY "Challenged Medley"
 #endregion
 
-function Trial(title, minigames, reward = 100) constructor {
+function Trial(title, label, minigames, reward = 100) constructor {
 	self.title = title;
+	self.label = label;
 	self.minigames = minigames;
 	self.reward = reward;
 	self.index = -1;
@@ -47,99 +69,99 @@ function Prove(title, team = SOLO) constructor {
 
 function trial_init() {
 	global.trials = [
-		new Trial(RAPID_ASCENSION, [
+		new Trial(RAPID_ASCENSION, language_get_text("TRIALS_RAPID_ASCENSION_NAME"), [
 			new Prove(TOWER_ASCENSION)
 		]),
 		
-		new Trial(HAUNTED_REFLEXES, [
+		new Trial(HAUNTED_REFLEXES, language_get_text("TRIALS_HAUNTED_REFLEXES_NAME"), [
 			new Prove(HAUNTED_FOREST)
 		]),
 		
-		new Trial(BUGS_EVERYWHERE, [
+		new Trial(BUGS_EVERYWHERE, language_get_text("TRIALS_BUGS_EVERYWHERE_NAME"), [
 			new Prove(BUGS_AROUND)
 		], 200),
 		
-		new Trial(STINGY_CHESTS, [
+		new Trial(STINGY_CHESTS, language_get_text("TRIALS_STINGY_CHESTS_NAME"), [
 			new Prove(CRAZY_CHESTS)
 		]),
 		
-		new Trial(AVOID_THE_ANXIETY, [
+		new Trial(AVOID_THE_ANXIETY, language_get_text("TRIALS_AVOID_THE_ANXIETY_NAME"), [
 			new Prove(AVOID_THE_ANGUISH, TEAM)
 		], 400),
 		
-		new Trial(RANDRANDRAND_TIME, [
+		new Trial(RANDRANDRAND_TIME, language_get_text("TRIALS_RANDRANDRAND_TIME_NAME"), [
 			new Prove(HUNT_TROUBLE, SOLO),
 			new Prove(DRAWN_KEYS),
 			new Prove(PAINTING_PLATFORMS),
 			new Prove(UNSTABLE_BLOCKS),
 		], 300),
 		
-		new Trial(INVERTED_COMPETITION, [
+		new Trial(INVERTED_COMPETITION, language_get_text("TRIALS_INVERTED_COMPETITION_NAME"), [
 			new Prove(BUBBLE_DERBY),
 			new Prove(ROCKET_IGNITION)
 		], 500),
 		
-		new Trial(FOGGY_DAY, [
+		new Trial(FOGGY_DAY, language_get_text("TRIALS_FOGGY_DAY_NAME"), [
 			new Prove(HAUNTED_FOREST),
 			new Prove(DIZZY_CONUNDRUM)
 		], 300),
 		
-		new Trial(INVISI_GAME, [
+		new Trial(INVISI_GAME, language_get_text("TRIALS_INVISI-GAME_NAME"), [
 			new Prove(CONVEYOR_HAVOC, TEAM),
 			new Prove(WARPING_UP, SOLO),
 			new Prove(GETTING_COINS, SOLO)
 		], 400),
 		
-		new Trial(FLIPPED_WORLD, [
+		new Trial(FLIPPED_WORLD, language_get_text("TRIALS_FLIPPED_WORLD_NAME"), [
 			new Prove(GIGANTIC_RACE, SOLO),
 			new Prove(MAGIC_MEMORY)
 		], 400),
 		
-		new Trial(COLORFUL_MADNESS, [
+		new Trial(COLORFUL_MADNESS, language_get_text("TRIALS_COLORFUL_MADNESS_NAME"), [
 			new Prove(COLORFUL_INSANITY)
 		], 600),
 		
-		new Trial(SPEEDY_KIDZALES, [
+		new Trial(SPEEDY_KIDZALES, language_get_text("TRIALS_SPEEDY_KIDZALES_NAME"), [
 			new Prove(TOWER_ASCENSION),
 			new Prove(CONVEYOR_HAVOC, TEAM),
 			new Prove(AVOID_THE_ANGUISH, TEAM)
 		], 500),
 		
-		new Trial(WIDE_KID, [
+		new Trial(WIDE_KID, language_get_text("TRIALS_WIDE_KID_NAME"), [
 			new Prove(SPRINGING_PIRANHA),
 			new Prove(AVOID_THE_ANGUISH, TEAM)
 		]),
 		
-		new Trial(SLOW_POKE, [
+		new Trial(SLOW_POKE, language_get_text("TRIALS_SLOW_POKE_NAME"), [
 			new Prove(BAD_HOUSE, SOLO),
 			new Prove(HIDDEN_HOST, SOLO),
 			new Prove(CATCH_THE_FRUITS)
 		], 200),
 		
-		new Trial(PERFECT_AIM, [
+		new Trial(PERFECT_AIM, language_get_text("TRIALS_PERFECT_AIM_NAME"), [
 			new Prove(TARGETING_TARGETS),
 			new Prove(GOLF_COURSE)
 		], 600),
 		
-		new Trial(TOUGH_IGNITION, [
+		new Trial(TOUGH_IGNITION, language_get_text("TRIALS_TOUGH_IGNITION_NAME"), [
 			new Prove(ROCKET_IGNITION)
 		], 500),
 		
-		new Trial(GREEN_DIVING, [
+		new Trial(GREEN_DIVING, language_get_text("TRIALS_GREEN_DIVING_NAME"), [
 			new Prove(SKY_DIVING)
 		], 300),
 		
-		new Trial(WAKA_DODGES, [
+		new Trial(WAKA_DODGES, language_get_text("TRIALS_WAKA_DODGES_NAME"), [
 			new Prove(WAKA_EVASION)
 		], 400),
 		
-		new Trial(TINY_TEAMING, [
+		new Trial(TINY_TEAMING, language_get_text("TRIALS_TINY_TEAMING_NAME"), [
 			new Prove(SOCCER_MATCH),
 			new Prove(SPRINGING_PIRANHA),
 			new Prove(CATCH_THE_FRUITS)
 		], 300),
 		
-		new Trial(CHALLENGE_MEDLEY, [
+		new Trial(CHALLENGE_MEDLEY, language_get_text("TRIALS_CHALLENGE_MEDLEY_NAME"), [
 			new Prove(DYNYAAMIC_DUOS),
 			new Prove(WARPING_UP),
 			new Prove(A_MAZE_ING),
