@@ -104,7 +104,7 @@ for (var i = 0; i < array_length(global.trials); i++) {
 		var trial = self.element();
 		language_set_font(global.fntFilesButtons);
 		draw_set_halign(fa_center);
-		draw_text_info(x + objStore.draw_w / 2, 10, trial.title, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
+		draw_text_info(x + objStore.draw_w / 2, 10, trial.label, objStore.draw_w - 8, c_red, c_red, c_fuchsia, c_fuchsia);
 		draw_sprite_ext(sprModesTrials, 0, x + objStore.draw_w / 2, y + objStore.draw_h / 2 - 20, 0.5, 0.5, 0, c_white, 1);
 		language_set_font(global.fntFilesData);
 		draw_set_halign(fa_left);

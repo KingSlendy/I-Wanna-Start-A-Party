@@ -35,9 +35,9 @@ function choosed_minigame() {
 	minigame_unlock(minigame.title);
 	array_push(global.minigame_history, minigame.title);
 	
-	if (array_length(global.minigame_history) > 10) {
-		array_delete(global.minigame_history, 0, 1);
-	}
+	//if (array_length(global.minigame_history) > 10) {
+	//	array_delete(global.minigame_history, 0, 1);
+	//}
 
 	roulette_chosen = true;
 	audio_play_sound(sndRoulettePick, 0, false);
@@ -150,9 +150,9 @@ alarm_create(function() {
 	roulette_separation = 360 / array_length(minigames);
 	array_push(global.minigame_type_history, info.type);
 	
-	if (array_length(global.minigame_type_history) > 10) {
-		array_delete(global.minigame_type_history, 0, 1);
-	}
+	//if (array_length(global.minigame_type_history) > 10) {
+	//	array_delete(global.minigame_type_history, 0, 1);
+	//}
 
 	var minigames_now = global.minigames[$ info.type];
 	var minigame_count = {};
@@ -160,7 +160,7 @@ alarm_create(function() {
 
 	for (var i = 0; i < array_length(minigames_now); i++) {
 		var minigame = minigames_now[i];
-		minigame_count[$ minigame.title] = (array_length(global.minigame_history) > 0) ? array_count(global.minigame_history, minigame.title) / array_length(global.minigame_history) : 0;
+		minigame_count[$ minigame.title] = array_count(global.minigame_history, minigame.title);
 		array_push(minigame_names, minigame.title);
 	}
 

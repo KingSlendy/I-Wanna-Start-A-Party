@@ -265,9 +265,9 @@ f[$ ClientTCP.JoinLobby] = function(buffer) {
 	objFiles.online_reading = false;
 			
 	switch (state) {
-		case 0: popup("A lobby with that name doesn't exist or the password is incorrect."); return;
-		case 2: popup("That lobby is already full."); return;
-		case 3: popup("This lobby has already been started."); return;
+		case 0: popup(language_get_text("FILES_ENTER_LOBBY_NOT_EXISTS")); return;
+		case 2: popup(language_get_text("FILES_ENTER_LOBBY_FULL")); return;
+		case 3: popup(language_get_text("FILES_ENTER_LOBBY_STARTED")); return;
 	}
 			
 	objFiles.online_reading = true;

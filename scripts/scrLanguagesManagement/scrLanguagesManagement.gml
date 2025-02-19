@@ -3,7 +3,7 @@ global.language_codes = {};
 global.language_list = [];
 
 function languages_init() {
-	try {
+	//try {
 		var file = file_text_open_read("languages.tsv");
 		var languages = string_split(file_text_read_string(file), "\t");
 		var excluded = [];
@@ -67,14 +67,15 @@ function languages_init() {
 				//	text = string_replace(text, all_keys[j], "@TEXT@");
 				//}
 				
+				print(text_id);
 				global.languages[$ languages[i]][$ text_id] = string_trim(text);
 			}
 		}
 		
 		file_text_close(file);
-	} catch (ex) {
-		log_error(ex);
-	}
+	//} catch (ex) {
+	//	log_error(ex);
+	//}
 	
 	if (!array_contains(global.language_list, global.language_game)) {
 		popup("The language previously saved has been disabled temporarily until the translation has been fully completed.\nSetting the language to English!");
@@ -135,6 +136,10 @@ function language_fonts_init() {
 }
 
 function language_font_add(size) {
+	if (global.language_game == "Japanese") {
+		size *= 0.85;
+	}
+	
 	return font_add("font.ttf", size, false, false, 0, 40959);
 }
 

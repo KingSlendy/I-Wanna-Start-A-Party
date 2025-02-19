@@ -705,6 +705,7 @@ function roll_dice() {
 	
 	if (!global.board_started && roll <= 10) {
 		roll = global.initial_rolls[network_id - 1];
+		//roll = 10 - network_id;
 	}
 	
 	if (roll > 10) {
@@ -1340,7 +1341,7 @@ function all_player_availables(func, not_me = false) {
 	return availables;
 }
 
-function all_item_stats(player_info) {
+function all_item_stats(player_info, use_criteria = true) {
 	var item_names = [];
 	var item_sprites = [];
 	var item_descs = [];
@@ -1358,7 +1359,7 @@ function all_item_stats(player_info) {
 			array_push(item_names, item.name);
 			array_push(item_sprites, "{SPRITE," + sprite_get_name(item.sprite) + ",0,-32,-32,1,1}");
 			array_push(item_descs, item.desc);
-			array_push(item_availables, (array_length(player_info.items) <= 3) ? item.use_criteria() : true);
+			array_push(item_availables, (use_criteria) ? item.use_criteria() : false);
 		}
 	}
 	

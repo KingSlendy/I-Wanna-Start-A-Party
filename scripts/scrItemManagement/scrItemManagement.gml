@@ -112,7 +112,7 @@ function items_init() {
 				}
 			}
 		
-			return (other_has_items);
+			return other_has_items;
 		}),
 		
 		new Item(ItemType.SuperStickyHand, language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_NAME"), language_get_text("PARTY_ITEM_SUPER_STICKY_HAND_EFFECT"), sprItemSuperStickyHand, 25, objItemSuperStickyHandAnimation,, function() {
@@ -131,7 +131,7 @@ function items_init() {
 				}
 			}
 		
-			return (other_has_items);
+			return other_has_items;
 		}),
 		
 		new Item(ItemType.Cloud, language_get_text("PARTY_ITEM_CLOUD_NAME"), language_get_text("PARTY_ITEM_CLOUD_EFFECT"), sprItemCloud, 15, objItemCloudAnimation,,, [rBoardNsanity]),

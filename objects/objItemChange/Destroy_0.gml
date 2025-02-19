@@ -3,7 +3,7 @@ if (!is_local_turn()) {
 }
 
 if (array_length(player_info.items) > 3) {
-	var items = all_item_stats(player_info);
+	var items = all_item_stats(player_info, false);
 	
 	show_multiple_choices(language_get_text("PARTY_ITEM_WHAT_ITEM_DISCARD"), items.names, items.sprites, items.descs, items.availables).final_action = function() {
 		var change = change_items(player_info.items[global.choice_selected], ItemChangeType.Lose);

@@ -14,7 +14,7 @@ item_stole = null;
 
 function start_hand() {
 	if (is_player_local(player1.network_id)) {
-		var items = all_item_stats(player_info);		
+		var items = all_item_stats(player_info, false);		
 		show_multiple_choices(language_get_text("PARTY_ITEM_WHICH_ITEM_STEAL"), items.names, items.sprites, items.descs, items.availables).final_action = turn_hand;
 	}
 }

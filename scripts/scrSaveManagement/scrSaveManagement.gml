@@ -281,8 +281,10 @@ function load_board() {
 	global.board_light = board.saved_board.saved_board_light;
 		
 	//FASF Board
-	global.board_fasf_space_mode = board.saved_board.saved_fasf_space_mode;
-	global.board_fasf_last5turns_event = board.saved_board.saved_fasf_last5turns;
+	try {
+		global.board_fasf_space_mode = board.saved_board.saved_fasf_space_mode;
+		global.board_fasf_last5turns_event = board.saved_board.saved_fasf_last5turns;
+	} catch (_) {}
 		
 	//World Board
 	with (objBoardWorldGhost) {

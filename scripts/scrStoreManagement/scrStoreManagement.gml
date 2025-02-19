@@ -339,7 +339,11 @@ function reaction_init() {
 		new Reaction(language_get_text("REACTIONS_GUY_TROLL"), null, "Chris", 200),
 		new Reaction(language_get_text("REACTIONS_GUSTAV_LAUGH"), null, "dzareg", 100),
 		new Reaction(language_get_text("REACTIONS_CONTRARIAN_CHERRY"), null, "Jane_Chef", 200),
-		new Reaction(language_get_text("REACTIONS_IM_YOU_BUT_STRONGER"), null, "Jane_Chef", 300)
+		new Reaction(language_get_text("REACTIONS_IM_YOU_BUT_STRONGER"), null, "Jane_Chef", 300),
+		new Reaction(language_get_text("REACTIONS_ALEJO_MOMENT"), null, "Herzewitt", 200),
+		new Reaction(language_get_text("REACTIONS_CLOWN_KID"), null, "Herzewitt", 100),
+		new Reaction(language_get_text("REACTIONS_WOULD_YOU_LIKE_HELP"), null, "Herzewitt", 300),
+		new Reaction(language_get_text("REACTIONS_DOES_NOTHING_HD"), null, "Herzewitt", 300)
 	];
 	
 	for (var i = 0; i < array_length(global.reactions); i++) {
