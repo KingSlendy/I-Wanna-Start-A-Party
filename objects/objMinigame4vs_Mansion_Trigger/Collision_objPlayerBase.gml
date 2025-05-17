@@ -1,3 +1,7 @@
+if (!objMinigameController.announcer_started) {
+	return;
+}
+
 var network_id = other.network_id;
 
 with (objMinigameController) {

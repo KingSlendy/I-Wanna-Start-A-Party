@@ -68,12 +68,14 @@ alarm_create(function() {
 alarm_create(function() {
 	item_stole = player_info.items[global.choice_selected];
 	
-	if (is_player_local(player2.network_id)) {
-		change_items(item_stole, ItemChangeType.Lose).final_action = steal_hand;
-		
+	if (is_player_local(player1.network_id)) {
 		if (item_stole.id == ItemType.StickyHand) {
 			achieve_trophy(83);
 		}
+	}
+	
+	if (is_player_local(player2.network_id)) {
+		change_items(item_stole, ItemChangeType.Lose).final_action = steal_hand;
 	}
 });
 

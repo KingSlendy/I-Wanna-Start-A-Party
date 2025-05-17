@@ -67,7 +67,6 @@ function languages_init() {
 				//	text = string_replace(text, all_keys[j], "@TEXT@");
 				//}
 				
-				print(text_id);
 				global.languages[$ languages[i]][$ text_id] = string_trim(text);
 			}
 		}
