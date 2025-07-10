@@ -107,7 +107,11 @@ def execute():
 
 
 def extract_execute():
-    subprocess.Popen(f"start /B /wait tar -xvf \"{ZIP_PATH}\" && del \"{ZIP_PATH}\" && start \"\" \"{GAME_PATH}\" -launch", shell = True)
+    try:
+        subprocess.Popen(f"cscript //nologo \"unzip.vbs\" \"{ZIP_PATH}\" \"{CURRENT_PATH}\" && del \"{ZIP_PATH}\" && start \"\" \"{GAME_PATH}\" -launch", shell = True)
+    except:
+        print("Couldn't extract ZIP file, please extract I Wanna Start A Party.zip manually.")
+        time.sleep(0.5)
 
 
 if __name__ == "__main__":

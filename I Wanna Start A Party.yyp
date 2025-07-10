@@ -686,6 +686,7 @@
     {"$GMIncludedFile":"","%Name":"I Wanna Start A Party.exe","CopyToMask":-1,"filePath":"datafiles","name":"I Wanna Start A Party.exe","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"languages.tsv","CopyToMask":-1,"filePath":"datafiles","name":"languages.tsv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"sdl2.txt","CopyToMask":-1,"filePath":"datafiles","name":"sdl2.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"unzip.vbs","CopyToMask":-1,"filePath":"datafiles","name":"unzip.vbs","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
