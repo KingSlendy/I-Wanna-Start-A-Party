@@ -206,7 +206,11 @@ function skin_init() {
 		new Skin("Duolingo", "Duolingo", "Original", 29, "Kogami Takara", 800),
 		new Skin("Luce", "Luce", "Original", 29, "Kogami Takara", 1000),
 		new Skin("BillCipher", "Bill Cipher", "Original", 29, "Kogami Takara", 1000),
-		new Skin("Crash", "Crash Bandicoot", "I Wanna Crash The Crates 2", 55, "SergioGameMaker", 1000)
+		new Skin("Crash", "Crash Bandicoot", "I Wanna Crash The Crates 2", 55, "SergioGameMaker", 1000),
+		new Skin("Hinalyte", "Hinalyte", "???", 55, "TwistedB", 500),
+		new Skin("ChibiRin", "Chibi Rin", "I Wanna Go The Medley", 85, "Kogami Takara", 1000),
+		new Skin("Goku", "Goku", "Crimson Needle 2.5", 89, "???", 400),
+		new Skin("Mermaid", "Mermaid Kid", "???", 55, "Knobby", 700)
 	];
 }
 
